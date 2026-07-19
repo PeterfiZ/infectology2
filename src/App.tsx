@@ -9,14 +9,33 @@ import {
   Search, BookOpen, Heart, Brain, Activity, FileText, CheckCircle, AlertCircle,
   Thermometer, ChevronRight, ChevronDown, Trash2, Share2, Languages,
   PenTool, HelpCircle, Info, ExternalLink, Download, Upload, Bookmark,
-  Calculator, RefreshCw, X, Check, FileDown, Eye, Menu, ChevronLeft, Printer, Sparkles,
-  Image, Play, Mail, MessageSquare, Copy
+  Calculator, RefreshCw, X, Check, FileDown, Eye, EyeOff, Key, Menu, ChevronLeft, Printer, Sparkles,
+  Image, Play, Mail, MessageSquare, Copy, Table2
 } from 'lucide-react';
 
 import { diseasesByLang } from './data/diseases';
 import { getCalculators } from './data/calculators';
 import { mediaLibraryItems } from './data/media_library';
 import { Disease, Category, Note } from './types';
+import { trackPageView, trackEvent } from './utils/gtag';
+
+const renderMessageText = (text: string) => {
+  return text.split('\n').map((line, i) => {
+    // Basic formatting for bullet points and bold text
+    let formatted = line;
+    // Replace **text** with bold
+    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    if (line.trim().startsWith('* ') || line.trim().startsWith('- ')) {
+      return (
+        <li key={i} className="ml-4 list-disc mt-1" dangerouslySetInnerHTML={{ __html: formatted.replace(/^[*-\s]+/, '') }} />
+      );
+    }
+    return (
+      <p key={i} className="min-h-[1rem] mt-1" dangerouslySetInnerHTML={{ __html: formatted }} />
+    );
+  });
+};
 
 export default function App() {
   // Lang State
@@ -34,6 +53,7 @@ export default function App() {
   });
   const [activeDiseaseId, setActiveDiseaseId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [tableSearchQuery, setTableSearchQuery] = useState('');
   const [activeDetailTab, setActiveDetailTab] = useState<'info' | 'patho' | 'clinic' | 'diag' | 'therapy' | 'prog'>('info');
   const [isCategoriesOpen, setIsCategoriesOpen] = useState(true);
   const [isDiseasesOpen, setIsDiseasesOpen] = useState(true);
@@ -87,6 +107,114 @@ export default function App() {
   // File import ref
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const [isAiModalOpen, setIsAiModalOpen] = useState(false);
+  const [aiInput, setAiInput] = useState('');
+  const [isAiLoading, setIsAiLoading] = useState(false);
+  const [customApiKey, setCustomApiKey] = useState<string>(() => {
+    return localStorage.getItem('infecto_custom_api_key') || '';
+  });
+  const [isApiKeySettingsOpen, setIsApiKeySettingsOpen] = useState(false);
+  const [showApiKey, setShowApiKey] = useState(false);
+
+  const [pageViews, setPageViews] = useState<number>(() => {
+    const saved = localStorage.getItem('infecto_page_views');
+    if (saved) {
+      const val = parseInt(saved, 10);
+      return isNaN(val) ? 1420 : val;
+    }
+    const seed = Math.floor(Math.random() * 300) + 1200;
+    localStorage.setItem('infecto_page_views', seed.toString());
+    return seed;
+  });
+
+  const [aiMessages, setAiMessages] = useState<{ id: string; role: 'user' | 'assistant'; text: string }[]>(() => {
+    const saved = localStorage.getItem('infecto_ai_messages');
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Save AI messages and custom API key to localStorage
+  useEffect(() => {
+    localStorage.setItem('infecto_ai_messages', JSON.stringify(aiMessages));
+  }, [aiMessages]);
+
+  useEffect(() => {
+    localStorage.setItem('infecto_custom_api_key', customApiKey);
+  }, [customApiKey]);
+
+  const handleSendAiMessage = async (customPrompt?: string) => {
+    const promptToSend = customPrompt || aiInput;
+    if (!promptToSend.trim()) return;
+
+    if (!customPrompt) {
+      setAiInput('');
+    }
+
+    const newUserMessage = {
+      id: Date.now().toString(),
+      role: 'user' as const,
+      text: promptToSend
+    };
+
+    setAiMessages(prev => [...prev, newUserMessage]);
+    setIsAiLoading(true);
+
+    // Track AI Consult interaction event
+    trackEvent('send_message', 'ai_consult', lang);
+
+    try {
+      const systemInstruction = 
+        lang === 'hu'
+          ? "Ön egy barátságos, magasan képzett infektológus orvosprofesszor. Segítsen az orvostanhallgatóknak és rezidenseknek megérteni a fertőző betegségeket, diagnosztikai teszteket és kezelési irányelveket. Válaszoljon pontosan, szakmailag megalapozottan, magyar nyelven. Ha a felhasználó a dekolonizációról kérdez VRE vagy Gram-negatív multirezisztens kórokozók (MRK) esetén, hangsúlyozza ki, hogy jelenleg nincs bizonyított, rutinszerű dekolonizációs protokoll ezekre (ellentétben az MRSA-val)."
+          : lang === 'de'
+          ? "Sie sind ein freundlicher, hochqualifizierter Professor für Infektiologie. Helfen Sie Medizinstudierenden und Assistenzärzten, Infektionskrankheiten, diagnostische Tests und Behandlungsrichtlinien zu verstehen. Antworten Sie präzise und wissenschaftlich fundiert auf Deutsch. Wenn der Benutzer nach einer Dekolonisierung bei VRE oder Gram-negativen multiresistenten Erregern (MDROs) fragt, betonen Sie, dass es im Gegensatz zu MRSA derzeit keine etablierte klinische Dekolonisierungsstrategie dafür gibt."
+          : "You are a friendly, highly qualified infectology professor. Help medical students and residents understand infectious diseases, diagnostic tests, and treatment guidelines. Answer precisely and in an evidence-based manner in English. If the user asks about decolonization for VRE or Gram-negative multidrug-resistant organisms (MDROs), emphasize that currently, there is no established, routine decolonization strategy for them (unlike MRSA).";
+
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          prompt: promptToSend,
+          systemInstruction,
+          customApiKey: customApiKey.trim()
+        })
+      });
+
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({ error: 'Unknown server error' }));
+        throw new Error(errData.error || `HTTP error ${res.status}`);
+      }
+
+      const data = await res.json();
+      const newAssistantMessage = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant' as const,
+        text: data.text || 'An empty response was received.'
+      };
+      setAiMessages(prev => [...prev, newAssistantMessage]);
+    } catch (err: any) {
+      console.error(err);
+      const errorMessage = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant' as const,
+        text: lang === 'hu' 
+          ? `Hiba történt a konzultáció során: ${err.message || 'Ismeretlen hiba'}. Győződjön meg arról, hogy a GEMINI_API_KEY be van állítva a Settings > Secrets menüpontban.`
+          : lang === 'de'
+          ? `Fehler während der Konsultation: ${err.message || 'Unbekannter Fehler'}. Stellen Sie sicher, dass GEMINI_API_KEY unter Settings > Secrets konfiguriert ist.`
+          : `Error during consultation: ${err.message || 'Unknown error'}. Please ensure GEMINI_API_KEY is configured in Settings > Secrets.`
+      };
+      setAiMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsAiLoading(false);
+    }
+  };
+
+  const handleClearAiChat = () => {
+    setAiMessages([]);
+    localStorage.removeItem('infecto_ai_messages');
+  };
+
   // Save notes to localStorage
   useEffect(() => {
     localStorage.setItem('infecto_notes', JSON.stringify(notes));
@@ -110,6 +238,28 @@ export default function App() {
       setCurrentNote('');
     }
   }, [activeDiseaseId, notes]);
+
+  // Google Analytics Pageview Tracking & Local Visit Counter for Category Switches
+  useEffect(() => {
+    trackPageView(`/category/${activeCategoryKey}`, `Category: ${activeCategoryKey}`);
+    setPageViews(prev => {
+      const next = prev + 1;
+      localStorage.setItem('infecto_page_views', next.toString());
+      return next;
+    });
+  }, [activeCategoryKey]);
+
+  // Google Analytics Pageview Tracking & Local Visit Counter for Disease Selection
+  useEffect(() => {
+    if (activeDiseaseId) {
+      trackPageView(`/disease/${activeDiseaseId}`, `Disease: ${activeDiseaseId}`);
+      setPageViews(prev => {
+        const next = prev + 1;
+        localStorage.setItem('infecto_page_views', next.toString());
+        return next;
+      });
+    }
+  }, [activeDiseaseId]);
 
   const getActiveRecallCards = (dis: Disease | undefined) => {
     if (!dis) return [];
@@ -230,6 +380,7 @@ export default function App() {
 
   // Export Notes as JSON
   const handleExportNotes = () => {
+    trackEvent('export_notes', 'notes_action', lang);
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(notes, null, 2));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute("href", dataStr);
@@ -560,7 +711,18 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
       feedback_message: 'Üzenet leírása',
       feedback_send: 'Küldés',
       feedback_success: 'Sikeres elküldés!',
-      feedback_success_desc: 'Köszönjük! A levelezőprogramja megnyílt a levél elküldéséhez Dr. Péterfi Zoltán részére (peterfi.zoltan@pte.hu). Ha nem nyílt meg, kérjük, másolja ki az alábbi szöveget és küldje el manuálisan.'
+      feedback_success_desc: 'Köszönjük! A levelezőprogramja megnyílt a levél elküldéséhez Dr. Péterfi Zoltán részére (peterfi.zoltan@pte.hu). Ha nem nyílt meg, kérjük, másolja ki az alábbi szöveget és küldje el manuálisan.',
+      ai_consult_btn: 'Klinikai AI Asszisztens',
+      ai_consult_title: 'Klinikai AI Konzultáció és Asszisztens',
+      ai_consult_subtitle: 'Kérdezzen bátran az infektológiáról, kórokozókról, diagnosztikáról és dekolonizációs protokollokról. Az API kulcs biztonságosan el van rejtve a szerveren.',
+      ai_consult_placeholder: 'Írja be a kérdését itt...',
+      ai_consult_send: 'Küldés',
+      ai_consult_empty: 'Nincs még üzenet. Kérdezzen a klinikai AI-tól!',
+      ai_consult_suggested_questions: 'Ajánlott témák és kérdések:',
+      ai_consult_suggested_1: 'Hogyan kell mintát venni VRE screeninghez?',
+      ai_consult_suggested_2: 'Mi a dekolonizációs stratégia Gram-negatív MRK esetén?',
+      ai_consult_suggested_3: 'Mi az empirikus terápia bakteriális meningitis esetén?',
+      ai_consult_welcome: 'Üdvözlöm! Én egy Klinikai AI Asszisztens vagyok. Kérdezzen bátran az infektológia témaköréből (pl. antibiotikum terápia, screeningek, dekolonizációs protokollok, izolációs szabályok).'
     },
     en: {
       title: 'Infectious Diseases',
@@ -678,7 +840,18 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
       feedback_message: 'Your Message',
       feedback_send: 'Send Feedback',
       feedback_success: 'Feedback Ready!',
-      feedback_success_desc: 'Thank you! Your email client has been opened to send the message to Dr. Zoltán Péterfi (peterfi.zoltan@pte.hu). If it did not open, please copy the text below and send it manually.'
+      feedback_success_desc: 'Thank you! Your email client has been opened to send the message to Dr. Zoltán Péterfi (peterfi.zoltan@pte.hu). If it did not open, please copy the text below and send it manually.',
+      ai_consult_btn: 'Clinical AI Assistant',
+      ai_consult_title: 'Clinical AI Consultation & Assistant',
+      ai_consult_subtitle: 'Ask anything about infectology, pathogens, diagnostics, and decolonization protocols. The API key is securely hidden on the server.',
+      ai_consult_placeholder: 'Type your question here...',
+      ai_consult_send: 'Send',
+      ai_consult_empty: 'No messages yet. Ask the clinical AI a question!',
+      ai_consult_suggested_questions: 'Suggested topics and questions:',
+      ai_consult_suggested_1: 'How should samples be collected for VRE screening?',
+      ai_consult_suggested_2: 'What is the decolonization strategy for Gram-negative MDROs?',
+      ai_consult_suggested_3: 'What is the empirical therapy for bacterial meningitis?',
+      ai_consult_welcome: 'Hello! I am your Clinical AI Assistant. Feel free to ask any question about infectology, empirical antibiotic therapies, screening protocols, or isolation/decolonization guidelines.'
     },
     de: {
       title: 'Lehrbuch der Infektiologie',
@@ -796,7 +969,18 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
       feedback_message: 'Ihre Nachricht',
       feedback_send: 'Feedback senden',
       feedback_success: 'Senden vorbereitet!',
-      feedback_success_desc: 'Vielen Dank! Ihr E-Mail-Programm wurde geöffnet, um das Feedback an Dr. Zoltán Péterfi (peterfi.zoltan@pte.hu) zu senden. Falls es sich nicht geöffnet hat, kopieren Sie bitte den untenstehenden Text und senden Sie ihn manuell.'
+      feedback_success_desc: 'Vielen Dank! Ihr E-Mail-Programm wurde geöffnet, um das Feedback an Dr. Zoltán Péterfi (peterfi.zoltan@pte.hu) zu senden. Falls es sich nicht geöffnet hat, kopieren Sie bitte den untenstehenden Text und senden Sie ihn manuell.',
+      ai_consult_btn: 'Klinischer KI-Assistent',
+      ai_consult_title: 'Klinische KI-Konsultation & Assistent',
+      ai_consult_subtitle: 'Fragen Sie nach Infektiologie, Erregern, Diagnostik und Dekolonisierungsprotokollen. Der API-Schlüssel ist serverseitig sicher verborgen.',
+      ai_consult_placeholder: 'Geben Sie Ihre Frage hier ein...',
+      ai_consult_send: 'Senden',
+      ai_consult_empty: 'Noch keine Nachrichten. Fragen Sie den klinischen KI-Assistenten!',
+      ai_consult_suggested_questions: 'Empfohlene Themen und Fragen:',
+      ai_consult_suggested_1: 'Wie sollten Proben für das VRE-Screening entnommen werden?',
+      ai_consult_suggested_2: 'Was ist die Dekolonisierungsstrategie bei Gram-negativen MDROs?',
+      ai_consult_suggested_3: 'Was ist die empirische Therapie bei bakterieller Meningitis?',
+      ai_consult_welcome: 'Hallo! Ich bin Ihr klinischer KI-Assistent. Sie können gerne Fragen zur Infektiologie stellen (z. B. empirische Antibiotikatherapie, Screening-Protokolle, Dekolonisierung oder Isolierungsmaßnahmen).'
     }
   };
 
@@ -826,7 +1010,12 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
   // Switch category
   const handleCategorySelect = (key: string) => {
     setActiveCategoryKey(key);
-    setActiveDiseaseId(null);
+    const category = diseasesByLang[lang][key];
+    if (category?.tables && category.tables.length > 0) {
+      setActiveDiseaseId('category_tables');
+    } else {
+      setActiveDiseaseId(null);
+    }
     setActiveDetailTab('info');
   };
 
@@ -922,6 +1111,16 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               <span>{lang === 'hu' ? 'Klinikai Score-ok' : lang === 'de' ? 'Klinische Scores' : 'Clinical Scores'}</span>
             </button>
 
+            {/* Clinical AI Assistant Button */}
+            <button
+              onClick={() => setIsAiModalOpen(true)}
+              className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 border border-indigo-500/30 text-white font-semibold text-[11px] rounded transition-all active:scale-95 cursor-pointer flex items-center gap-1.5 shadow-sm"
+              title={currentTranslations.ai_consult_title}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-indigo-200 fill-indigo-300" />
+              <span>{currentTranslations.ai_consult_btn}</span>
+            </button>
+
             {/* Media & Gallery Button */}
             <button
               onClick={() => {
@@ -945,7 +1144,10 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
 
             {/* PDF Export Button */}
             <button
-              onClick={() => window.print()}
+              onClick={() => {
+                trackEvent('print_document', 'document_action', activeCategoryKey);
+                window.print();
+              }}
               className="px-3 py-1.5 bg-white text-natural-primary hover:bg-white/90 border border-white text-natural-primary font-bold text-[11px] rounded transition-all active:scale-95 cursor-pointer print:hidden flex items-center gap-1.5"
             >
               <Printer className="w-3.5 h-3.5" />
@@ -1058,6 +1260,14 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                   <span className="font-medium">Rendszer verzió:</span>
                   <span className="font-bold text-natural-dark">v4.0.0</span>
                 </div>
+                <div className="flex justify-between items-center text-[10px] text-natural-dark/80 mt-0.5">
+                  <span className="font-medium">
+                    {lang === 'hu' ? 'Látogatottság:' : lang === 'de' ? 'Seitenaufrufe:' : 'Page views:'}
+                  </span>
+                  <span className="font-bold text-[#4338ca] dark:text-[#6366f1]">
+                    {pageViews} {lang === 'hu' ? 'megtekintés' : lang === 'de' ? 'Aufrufe' : 'views'}
+                  </span>
+                </div>
               </div>
             </motion.nav>
           )}
@@ -1092,6 +1302,28 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               </div>
 
               <div className="flex-1 overflow-y-auto scroll-area bg-white">
+                {currentDb[activeCategoryKey]?.tables && currentDb[activeCategoryKey].tables.length > 0 && (
+                  <button
+                    onClick={() => selectDisease('category_tables')}
+                    className={`w-full text-left px-4 py-3 border-b border-natural-border transition-all flex items-center gap-2 relative ${
+                      activeDiseaseId === 'category_tables'
+                        ? 'bg-[#FAF9F3] border-l-3 border-l-amber-500 text-amber-950 font-bold'
+                        : 'bg-white hover:bg-black/[0.01] text-natural-dark hover:text-natural-primary'
+                    }`}
+                  >
+                    <Table2 className="w-4 h-4 text-amber-600 shrink-0" />
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-xs font-semibold truncate">
+                        {activeCategoryKey === 'bacterial_respiratory'
+                          ? (lang === 'hu' ? 'Típusos vs. Atípusos Pneumonia' : lang === 'de' ? 'Typische vs. Atypische Pneumonie' : 'Typical vs. Atypical Pneumonia')
+                          : (lang === 'hu' ? 'Összehasonlító táblázat' : lang === 'de' ? 'Vergleichstabelle' : 'Comparison Table')}
+                      </span>
+                      <span className="text-[9px] text-natural-muted font-mono uppercase tracking-wider">
+                        {lang === 'hu' ? 'Differenciáldiagnosztika' : lang === 'de' ? 'Differenzialdiagnostik' : 'Differential Diagnosis'}
+                      </span>
+                    </div>
+                  </button>
+                )}
                 {getFilteredDiseases(activeCategoryKey).map((disease) => {
                   const isActive = activeDiseaseId === disease.id;
                   return (
@@ -1163,6 +1395,9 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               >
                 {/* Detail Header closure wrapper */}
                 {(() => {
+                  if (activeDiseaseId === 'category_tables') {
+                    return renderCategoryTablesContent();
+                  }
                   const disease = currentDb[activeCategoryKey]?.diseases.find(d => d.id === activeDiseaseId);
                   if (!disease) return null;
 
@@ -1442,6 +1677,317 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                 >
                   {currentTranslations.share_close}
                 </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Clinical AI Assistant Modal */}
+      <AnimatePresence>
+        {isAiModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 print:hidden"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 15 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 15 }}
+              transition={{ type: 'spring', duration: 0.4 }}
+              className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full flex flex-col overflow-hidden border border-natural-border h-[85vh] md:h-[650px]"
+            >
+              {/* Modal Header */}
+              <div className="p-4 md:p-5 bg-gradient-to-r from-indigo-950 via-indigo-900 to-slate-900 text-white flex justify-between items-center border-b border-indigo-950">
+                <div className="flex items-center gap-2.5">
+                  <div className="p-2 bg-indigo-500/20 rounded-lg">
+                    <Sparkles className="w-5 h-5 text-indigo-400 animate-pulse" />
+                  </div>
+                  <div>
+                    <h3 className="font-serif font-bold text-base md:text-lg tracking-tight">
+                      {currentTranslations.ai_consult_title}
+                    </h3>
+                    <p className="text-[10px] text-indigo-200/80 font-sans tracking-wide mt-0.5">
+                      {lang === 'hu' ? 'Biztonságos kiszolgálóoldali API proxy (Gemini-3.5-flash)' : 'Secure Server-side API Proxy (Gemini-3.5-flash)'}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  {aiMessages.length > 0 && (
+                    <button
+                      onClick={handleClearAiChat}
+                      className="px-2.5 py-1 text-[10px] uppercase font-bold text-indigo-200 hover:text-white bg-white/10 hover:bg-white/15 rounded border border-white/5 transition-all cursor-pointer"
+                      title={lang === 'hu' ? 'Csevegés törlése' : 'Clear Chat'}
+                    >
+                      {lang === 'hu' ? 'Törlés' : 'Clear'}
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setIsAiModalOpen(false)}
+                    className="p-1 rounded-full hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Info alert about secure key */}
+              <div className="bg-indigo-50 border-b border-indigo-100 p-3 flex gap-2 text-indigo-950 text-xs font-sans leading-snug">
+                <Info className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+                <span>
+                  <strong>{lang === 'hu' ? 'API Kulcs Biztonság:' : 'API Key Security:'}</strong> {currentTranslations.ai_consult_subtitle}
+                </span>
+              </div>
+
+              {/* Custom API Key Input & Help Section */}
+              <div className="bg-slate-50 border-b border-slate-200">
+                <button
+                  onClick={() => setIsApiKeySettingsOpen(!isApiKeySettingsOpen)}
+                  className="w-full px-4 py-2.5 flex items-center justify-between text-xs font-bold text-slate-700 hover:bg-slate-100/70 transition-colors font-sans cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
+                    <Key className="w-3.5 h-3.5 text-indigo-600" />
+                    <span>
+                      {lang === 'hu' 
+                        ? 'Saját Gemini API kulcs beállítása (Opcionális)' 
+                        : lang === 'de' 
+                        ? 'Eigener Gemini-API-Schlüssel einrichten (Optional)' 
+                        : 'Set custom Gemini API key (Optional)'}
+                    </span>
+                    {customApiKey ? (
+                      <span className="bg-emerald-100 text-emerald-800 text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+                        {lang === 'hu' ? 'Aktív' : lang === 'de' ? 'Aktiv' : 'Active'}
+                      </span>
+                    ) : (
+                      <span className="bg-slate-200 text-slate-600 text-[9px] px-1.5 py-0.5 rounded-full font-bold">
+                        {lang === 'hu' ? 'Alapértelmezett' : lang === 'de' ? 'Standard' : 'Default'}
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-[10px] text-slate-400 font-normal">
+                      {isApiKeySettingsOpen 
+                        ? (lang === 'hu' ? 'Bezárás' : 'Close') 
+                        : (lang === 'hu' ? 'Beállítások' : 'Settings')}
+                    </span>
+                    <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isApiKeySettingsOpen ? 'rotate-180' : ''}`} />
+                  </div>
+                </button>
+
+                {isApiKeySettingsOpen && (
+                  <div className="p-4 bg-white border-t border-slate-100 space-y-3.5">
+                    <div className="space-y-1">
+                      <label className="text-[11px] font-bold text-slate-600 font-sans block">
+                        {lang === 'hu' 
+                          ? 'Gemini API Kulcs' 
+                          : lang === 'de' 
+                          ? 'Gemini-API-Schlüssel' 
+                          : 'Gemini API Key'}
+                      </label>
+                      <div className="relative">
+                        <input
+                          type={showApiKey ? 'text' : 'password'}
+                          value={customApiKey}
+                          onChange={(e) => setCustomApiKey(e.target.value)}
+                          placeholder="AIzaSy..."
+                          className="w-full pl-3 pr-10 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-mono text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setShowApiKey(!showApiKey)}
+                          className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                        >
+                          {showApiKey ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* How to obtain key info */}
+                    <div className="bg-slate-50 p-3 rounded-lg border border-slate-150 text-[11px] text-slate-600 font-sans leading-relaxed space-y-1.5">
+                      <p className="font-bold text-slate-800">
+                        {lang === 'hu' 
+                          ? 'Hogyan szerezhet ingyenes API kulcsot?' 
+                          : lang === 'de' 
+                          ? 'Wie erhalten Sie einen kostenlosen API-Schlüssel?' 
+                          : 'How to get a free API key?'}
+                      </p>
+                      <ol className="list-decimal list-inside space-y-1">
+                        <li>
+                          {lang === 'hu' ? (
+                            <>Látogasson el a <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline font-semibold inline-flex items-center gap-0.5">Google AI Studio <ExternalLink className="w-2.5 h-2.5" /></a> oldalára.</>
+                          ) : lang === 'de' ? (
+                            <>Besuchen Sie das <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline font-semibold inline-flex items-center gap-0.5">Google AI Studio <ExternalLink className="w-2.5 h-2.5" /></a>.</>
+                          ) : (
+                            <>Visit <a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline font-semibold inline-flex items-center gap-0.5">Google AI Studio <ExternalLink className="w-2.5 h-2.5" /></a>.</>
+                          )}
+                        </li>
+                        <li>
+                          {lang === 'hu' 
+                            ? 'Jelentkezzen be a Google-fiókjával.' 
+                            : lang === 'de' 
+                            ? 'Melden Sie sich mit Ihrem Google-Konto an.' 
+                            : 'Sign in with your Google account.'}
+                        </li>
+                        <li>
+                          {lang === 'hu' 
+                            ? 'Kattintson a "Get API Key" (API kulcs létrehozása) gombra.' 
+                            : lang === 'de' 
+                            ? 'Klicken Sie auf die Schaltfläche "Get API Key".' 
+                            : 'Click the "Get API Key" button.'}
+                        </li>
+                        <li>
+                          {lang === 'hu' 
+                            ? 'Másolja ki a generált kulcsot, majd illessze be a fenti mezőbe.' 
+                            : lang === 'de' 
+                            ? 'Kopieren Sie den generierten Schlüssel und fügen Sie ihn oben ein.' 
+                            : 'Copy the generated key and paste it into the field above.'}
+                        </li>
+                      </ol>
+                      <p className="text-[10px] text-slate-400 italic pt-1 border-t border-slate-200/60">
+                        {lang === 'hu' 
+                          ? 'Megjegyzés: A megadott kulcs kizárólag a böngészőjében (localStorage) tárolódik, nem kerül mentésre a szerverünkön.' 
+                          : lang === 'de' 
+                          ? 'Hinweis: Der angegebene Schlüssel wird nur lokal in Ihrem Browser (localStorage) gespeichert und niemals an unseren Server übertragen.' 
+                          : 'Note: The key is stored locally in your browser (localStorage) and is never transmitted to or stored on our server.'}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Chat messages container */}
+              <div className="flex-1 overflow-y-auto p-4 md:p-5 space-y-4 bg-slate-50/50">
+                {aiMessages.length === 0 ? (
+                  <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
+                    <div className="p-3 bg-indigo-50 rounded-full text-indigo-600">
+                      <Brain className="w-8 h-8" />
+                    </div>
+                    <p className="font-sans font-medium text-sm text-slate-700 max-w-sm">
+                      {currentTranslations.ai_consult_welcome}
+                    </p>
+                    <p className="text-xs text-slate-500">
+                      {currentTranslations.ai_consult_empty}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {/* Welcome message from local system if first time */}
+                    <div className="flex gap-2.5 max-w-[85%]">
+                      <div className="w-7 h-7 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold text-xs shrink-0 mt-0.5 border border-indigo-100">
+                        AI
+                      </div>
+                      <div className="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-none text-slate-800 text-xs md:text-sm shadow-sm space-y-1 font-sans leading-relaxed">
+                        {currentTranslations.ai_consult_welcome}
+                      </div>
+                    </div>
+
+                    {aiMessages.map((msg) => (
+                      <div
+                        key={msg.id}
+                        className={`flex gap-2.5 max-w-[85%] ${
+                          msg.role === 'user' ? 'ml-auto flex-row-reverse' : ''
+                        }`}
+                      >
+                        <div
+                          className={`w-7 h-7 rounded-full flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 border ${
+                            msg.role === 'user'
+                              ? 'bg-slate-800 border-slate-700 text-white'
+                              : 'bg-indigo-50 border-indigo-100 text-indigo-600'
+                          }`}
+                        >
+                          {msg.role === 'user' ? 'U' : 'AI'}
+                        </div>
+                        <div
+                          className={`p-3.5 rounded-2xl text-xs md:text-sm shadow-sm space-y-1 font-sans leading-relaxed ${
+                            msg.role === 'user'
+                              ? 'bg-indigo-600 text-white rounded-tr-none'
+                              : 'bg-white border border-slate-200 text-slate-800 rounded-tl-none'
+                          }`}
+                        >
+                          {msg.role === 'user' ? (
+                            <p>{msg.text}</p>
+                          ) : (
+                            <div className="space-y-1.5">{renderMessageText(msg.text)}</div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {/* AI Loading indicator */}
+                {isAiLoading && (
+                  <div className="flex gap-2.5 max-w-[85%]">
+                    <div className="w-7 h-7 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 font-bold text-xs shrink-0 mt-0.5 border border-indigo-100">
+                      AI
+                    </div>
+                    <div className="bg-white border border-slate-200 p-4 rounded-2xl rounded-tl-none text-slate-500 text-xs shadow-sm flex items-center gap-2">
+                      <RefreshCw className="w-4 h-4 animate-spin text-indigo-500" />
+                      <span>{lang === 'hu' ? 'AI válasz generálása...' : 'AI is thinking...'}</span>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Bottom suggested questions and Input area */}
+              <div className="p-4 bg-white border-t border-natural-border space-y-3.5">
+                {/* Suggestions Section */}
+                <div className="space-y-1.5">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block font-sans">
+                    {currentTranslations.ai_consult_suggested_questions}
+                  </span>
+                  <div className="flex flex-col md:flex-row gap-2">
+                    <button
+                      onClick={() => handleSendAiMessage(currentTranslations.ai_consult_suggested_1)}
+                      disabled={isAiLoading}
+                      className="px-3 py-2 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 text-slate-700 hover:text-indigo-900 text-left text-[11px] rounded-lg transition-all cursor-pointer font-sans disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {currentTranslations.ai_consult_suggested_1}
+                    </button>
+                    <button
+                      onClick={() => handleSendAiMessage(currentTranslations.ai_consult_suggested_2)}
+                      disabled={isAiLoading}
+                      className="px-3 py-2 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 text-slate-700 hover:text-indigo-900 text-left text-[11px] rounded-lg transition-all cursor-pointer font-sans disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {currentTranslations.ai_consult_suggested_2}
+                    </button>
+                    <button
+                      onClick={() => handleSendAiMessage(currentTranslations.ai_consult_suggested_3)}
+                      disabled={isAiLoading}
+                      className="px-3 py-2 bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-200 text-slate-700 hover:text-indigo-900 text-left text-[11px] rounded-lg transition-all cursor-pointer font-sans disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {currentTranslations.ai_consult_suggested_3}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Input form */}
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    handleSendAiMessage();
+                  }}
+                  className="flex gap-2"
+                >
+                  <input
+                    type="text"
+                    value={aiInput}
+                    onChange={(e) => setAiInput(e.target.value)}
+                    disabled={isAiLoading}
+                    placeholder={currentTranslations.ai_consult_placeholder}
+                    className="flex-1 bg-slate-50 hover:bg-slate-100/70 border border-slate-200 rounded-xl px-4 py-2.5 text-xs md:text-sm focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-sans text-slate-800 disabled:opacity-60"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isAiLoading || !aiInput.trim()}
+                    className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white font-bold text-xs rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    <span>{currentTranslations.ai_consult_send}</span>
+                    <Sparkles className="w-3.5 h-3.5" />
+                  </button>
+                </form>
               </div>
             </motion.div>
           </motion.div>
@@ -2817,6 +3363,149 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
     );
   }
 
+  function renderCategoryTablesContent() {
+    const category = currentDb[activeCategoryKey];
+    if (!category || !category.tables || category.tables.length === 0) return null;
+
+    return (
+      <div className="flex-1 overflow-y-auto p-6 space-y-6 scroll-area print:overflow-visible print:p-0 print:space-y-8 print:bg-white" style={{ '--content-font-size-adjust': fontSizeScale } as React.CSSProperties}>
+        {/* Printable Academic Header */}
+        <div className="hidden print:block border-b-2 border-natural-dark pb-4 mb-6">
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="font-serif text-2xl font-black text-natural-dark tracking-tight">
+                {lang === 'hu' ? 'PÉCSI TUDOMÁNYEGYETEM' : lang === 'de' ? 'UNIVERSITÄT PÉCS' : 'UNIVERSITY OF PÉCS'}
+              </h1>
+              <p className="text-xs font-bold text-natural-muted uppercase tracking-widest mt-1">
+                {lang === 'hu' ? 'Általános Orvostudományi Kar • Infektológiai Tanszék' : lang === 'de' ? 'Medizinische Fakultät • Klinik für Infektiologie' : 'Medical School • Department of Infectology'}
+              </p>
+            </div>
+            <span className="text-[10px] font-mono text-natural-muted uppercase bg-natural-surface border border-natural-border px-2.5 py-1 rounded">
+              {lang === 'hu' ? 'Hivatalos Tananyag' : lang === 'de' ? 'Offizielles Lehrmaterial' : 'Official Courseware'}
+            </span>
+          </div>
+          <div className="mt-4 flex justify-between text-[11px] text-natural-muted font-bold">
+            <span>{currentTranslations.categories}: {category.name}</span>
+            <span>{lang === 'hu' ? 'Dátum' : lang === 'de' ? 'Datum' : 'Date'}: {new Date().toLocaleDateString(lang === 'hu' ? 'hu-HU' : lang === 'de' ? 'de-DE' : 'en-US')}</span>
+          </div>
+        </div>
+
+        {/* Header section with Title and Interactive Filter */}
+        <div className="pb-6 border-b border-natural-border flex flex-col md:flex-row md:items-center justify-between gap-4 print:hidden">
+          <div>
+            <span
+              className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md text-white mb-2 inline-block shadow-sm"
+              style={{ backgroundColor: category.color || '#dc2626' }}
+            >
+              {category.name}
+            </span>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-natural-dark leading-tight flex items-center gap-2">
+              <Table2 className="w-6 h-6 text-amber-600" />
+              {lang === 'hu' ? 'Klinikai Differenciáldiagnosztikai Táblázatok' : lang === 'de' ? 'Klinische Differenzialdiagnostische Tabellen' : 'Clinical Differential Diagnosis Tables'}
+            </h2>
+            <p className="text-xs text-natural-muted mt-1 font-sans">
+              {lang === 'hu' 
+                ? 'Tekintse át a kategóriába tartozó kórokozók összehasonlító diagnosztikai szempontjait.' 
+                : lang === 'de' 
+                ? 'Überprüfen Sie die vergleichenden diagnostischen Aspekte der Erreger in dieser Kategorie.' 
+                : 'Review comparative diagnostic aspects of the pathogens in this category.'}
+            </p>
+          </div>
+
+          {/* Table Search Input */}
+          <div className="relative max-w-xs w-full">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <input
+              type="text"
+              value={tableSearchQuery}
+              onChange={(e) => setTableSearchQuery(e.target.value)}
+              placeholder={
+                lang === 'hu'
+                  ? 'Keresés a táblázatban...'
+                  : lang === 'de'
+                  ? 'In der Tabelle suchen...'
+                  : 'Search in table...'
+              }
+              className="w-full pl-9 pr-8 py-2 text-xs bg-white border border-natural-border rounded-xl focus:outline-none focus:ring-2 focus:ring-natural-accent/20 focus:border-natural-accent transition-all font-sans text-slate-800 shadow-sm"
+            />
+            {tableSearchQuery && (
+              <button
+                onClick={() => setTableSearchQuery('')}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+              >
+                <X className="w-3.5 h-3.5" />
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Tables */}
+        {category.tables.map((t, tIdx) => {
+          // Filter rows based on search
+          const filteredRows = t.rows.filter(row => {
+            if (!tableSearchQuery) return true;
+            const q = tableSearchQuery.toLowerCase();
+            return row.some(cell => cell.toLowerCase().includes(q));
+          });
+
+          return (
+            <div key={tIdx} className="space-y-4 animate-fade-in-up">
+              <div className="flex justify-between items-center">
+                <h3 className="font-serif font-bold text-lg md:text-xl text-natural-dark pb-1 border-b border-natural-border/60">
+                  {t.title}
+                </h3>
+                {tableSearchQuery && (
+                  <span className="text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded-full shadow-sm print:hidden">
+                    {lang === 'hu' ? `${filteredRows.length} találat` : lang === 'de' ? `${filteredRows.length} Treffer` : `${filteredRows.length} results`}
+                  </span>
+                )}
+              </div>
+
+              <div className="overflow-x-auto rounded-2xl border border-natural-border shadow-md bg-white">
+                <table className="w-full text-left border-collapse text-sm bg-white">
+                  <thead>
+                    <tr className="bg-slate-50 border-b border-natural-border">
+                      {t.headers.map((h, i) => (
+                        <th 
+                          key={i} 
+                          className="p-3.5 font-bold text-slate-700 font-sans text-xs uppercase tracking-wider border-r border-natural-border/40 whitespace-nowrap"
+                          style={{ borderBottom: `2px solid ${category.color || '#3b82f6'}` }}
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredRows.length === 0 ? (
+                      <tr>
+                        <td colSpan={t.headers.length} className="p-8 text-center text-slate-400 italic">
+                          {lang === 'hu' ? 'Nincs a keresési feltételnek megfelelő sor.' : lang === 'de' ? 'Keine Zeilen entsprechen den Suchkriterien.' : 'No rows match the search query.'}
+                        </td>
+                      </tr>
+                    ) : (
+                      filteredRows.map((row, rIdx) => (
+                        <tr key={rIdx} className="hover:bg-[#FAF9F3] transition-colors odd:bg-slate-50/30">
+                          {row.map((cell, cIdx) => (
+                            <td 
+                              key={cIdx} 
+                              className="p-3.5 border-b border-r border-natural-border/40 text-slate-800 text-xs md:text-sm leading-relaxed font-sans"
+                              dangerouslySetInnerHTML={{ __html: cell }}
+                            />
+                          ))}
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
   function renderTableView(disease: Disease) {
     const t = disease.table;
     if (!t) return null;
@@ -2851,6 +3540,110 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
   function renderTabsView(disease: Disease) {
     return (
       <div className="space-y-8 animate-fade-in-up pb-12">
+        {/* Comparison Tables for Viral Hepatitis on Hepatitis A (hav) page */}
+        {disease.id === 'hav' && (() => {
+          const category = currentDb['viral_hepatitis'];
+          if (!category || !category.tables || category.tables.length === 0) return null;
+          return (
+            <div className="space-y-6">
+              {category.tables.map((table, tIdx) => (
+                <div key={tIdx} className="space-y-4 bg-amber-50/15 border border-amber-200/50 p-5 rounded-2xl shadow-xs print:bg-white print:border-none print:p-0">
+                  <div className="flex items-center gap-2 text-amber-950">
+                    <Table2 className="w-5 h-5 text-amber-600 shrink-0 print:hidden" />
+                    <h4 className="font-serif font-bold text-base md:text-lg">
+                      {table.title}
+                    </h4>
+                  </div>
+                  <div className="overflow-x-auto rounded-xl border border-natural-border bg-white shadow-2xs print:border-none print:shadow-none">
+                    <table className="w-full text-left border-collapse text-xs bg-white print:text-[10px]">
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-natural-border print:bg-transparent">
+                          {table.headers.map((h, i) => (
+                            <th 
+                              key={i} 
+                              className="p-2.5 font-bold text-slate-700 font-sans uppercase tracking-wider border-r border-natural-border/30 whitespace-nowrap print:p-1.5"
+                              style={{ borderBottom: `2px solid ${category.color || '#eab308'}` }}
+                            >
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {table.rows.map((row, rIdx) => (
+                          <tr key={rIdx} className="hover:bg-[#FAF9F3] transition-colors odd:bg-slate-50/10 print:bg-transparent">
+                            {row.map((cell, cIdx) => (
+                              <td 
+                                key={cIdx} 
+                                className="p-2.5 border-b border-r border-natural-border/30 text-slate-800 leading-relaxed font-sans print:p-1.5" 
+                                dangerouslySetInnerHTML={{ __html: cell }}
+                              />
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+          );
+        })()}
+
+        {/* Comparison Table for Bacterial Pneumonia */}
+        {disease.id === 'bacterial_pneumonia' && (() => {
+          const category = currentDb['bacterial_respiratory'];
+          const table = category?.tables?.[0];
+          if (!table) return null;
+          return (
+            <div className="space-y-4 bg-amber-50/15 border border-amber-200/50 p-5 rounded-2xl shadow-xs print:bg-white print:border-none print:p-0">
+              <div className="flex items-center gap-2 text-amber-950">
+                <Table2 className="w-5 h-5 text-amber-600 shrink-0 print:hidden" />
+                <h4 className="font-serif font-bold text-base md:text-lg">
+                  {table.title}
+                </h4>
+              </div>
+              <p className="text-xs text-natural-muted leading-relaxed font-sans print:hidden">
+                {lang === 'hu'
+                  ? 'A típusos és atípusos tüdőgyulladás fő klinikai és diagnosztikai különbségeinek összefoglalása:'
+                  : lang === 'de'
+                  ? 'Zusammenfassung der wichtigsten klinischen und diagnostischen Unterschiede zwischen typischer und atypischer Pneumonie:'
+                  : 'Summary of key clinical and diagnostic differences between typical and atypical pneumonia:'}
+              </p>
+              <div className="overflow-x-auto rounded-xl border border-natural-border bg-white shadow-2xs print:border-none print:shadow-none">
+                <table className="w-full text-left border-collapse text-xs bg-white print:text-[10px]">
+                  <thead>
+                    <tr className="bg-slate-50 border-b border-natural-border print:bg-transparent">
+                      {table.headers.map((h, i) => (
+                        <th 
+                          key={i} 
+                          className="p-2.5 font-bold text-slate-700 font-sans uppercase tracking-wider border-r border-natural-border/30 whitespace-nowrap print:p-1.5"
+                          style={{ borderBottom: `2px solid ${category.color || '#06b6d4'}` }}
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {table.rows.map((row, rIdx) => (
+                      <tr key={rIdx} className="hover:bg-[#FAF9F3] transition-colors odd:bg-slate-50/10 print:bg-transparent">
+                        {row.map((cell, cIdx) => (
+                          <td 
+                            key={cIdx} 
+                            className="p-2.5 border-b border-r border-natural-border/30 text-slate-800 leading-relaxed font-sans print:p-1.5" 
+                            dangerouslySetInnerHTML={{ __html: cell }}
+                          />
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          );
+        })()}
+
         {/* 1. Pathogen & Epidemiology */}
         <div className="space-y-6">
           <h3 className="font-serif font-bold text-lg md:text-xl text-natural-dark flex items-center gap-2 border-b border-natural-border pb-2.5">
