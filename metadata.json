@@ -1,0 +1,6 @@
+{
+  "name": "Infektológia Tankönyv",
+  "description": "Interaktív infektológia tankönyv orvostanhallgatók számára, magyar, angol és német nyelven, jegyzetelési és offline lehetőséggel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

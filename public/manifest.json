@@ -1,0 +1,21 @@
+{
+  "name": "Infektológia Tankönyv",
+  "short_name": "Infecto",
+  "description": "Interaktív infektológia tankönyv orvostanhallgatók számára, magyar, angol és német nyelven, jegyzetelési és offline lehetőséggel.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#065f46",
+  "theme_color": "#065f46",
+  "icons": [
+    {
+      "src": "/app_icon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/app_icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
