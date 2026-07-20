@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const CACHE_NAME = 'infectologia-textbook-v2';
+const CACHE_NAME = 'infectologia-textbook-v3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -12,6 +12,8 @@ const ASSETS_TO_CACHE = [
   '/app_icon_512.png',
   '/app_icon.png',
   '/favicon.png',
+  '/apple-touch-icon.png',
+  '/apple-touch-icon-precomposed.png',
   '/app_icon.jpg'
 ];
 
