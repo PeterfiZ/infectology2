@@ -37,6 +37,51 @@ const renderMessageText = (text: string) => {
   });
 };
 
+const printTranslations = {
+  hu: {
+    title: 'PDF letöltési beállítások',
+    subtitle: 'Válassza ki, hogyan szeretné letölteni a tananyagot PDF formátumban.',
+    option_current: 'Aktuális képernyő mentése',
+    option_current_desc: 'Csak a jelenleg megnyitott betegség vagy differenciáldiagnosztikai táblázat mentése.',
+    option_selected: 'Kiválasztott kategóriák letöltése',
+    option_selected_desc: 'Egyéni tanulmányi tankönyv összeállítása a kijelölt fejezetekből.',
+    option_all: 'A teljes interaktív tankönyv letöltése',
+    option_all_desc: 'A teljes infektológiai tananyag (összes kategória, táblázat és saját jegyzet) egybefűzve.',
+    select_categories: 'Kijelölhető fejezetek:',
+    download_btn: 'PDF generálása',
+    cancel_btn: 'Mégse',
+    help_text: 'A generált PDF dokumentum automatikusan tartalmazza a saját tanulmányi jegyzeteit is, és tökéletesen alkalmas nyomtatásra.',
+  },
+  en: {
+    title: 'PDF Download Options',
+    subtitle: 'Select how you would like to download the textbook content in PDF format.',
+    option_current: 'Save Current View',
+    option_current_desc: 'Only save the currently opened disease or comparative table.',
+    option_selected: 'Download Selected Categories',
+    option_selected_desc: 'Compile a custom study textbook from the checked chapters.',
+    option_all: 'Download Entire Interactive Textbook',
+    option_all_desc: 'The complete infectology syllabus (all categories, tables, and your notes) merged.',
+    select_categories: 'Select chapters to include:',
+    download_btn: 'Generate PDF',
+    cancel_btn: 'Cancel',
+    help_text: 'The generated PDF document automatically includes your personal study notes and is optimized for printing.',
+  },
+  de: {
+    title: 'PDF-Downloadoptionen',
+    subtitle: 'Wählen Sie aus, wie Sie das Lehrbuch im PDF-Format herunterladen möchten.',
+    option_current: 'Aktuelle Ansicht speichern',
+    option_current_desc: 'Nur die aktuell geöffnete Krankheit oder Vergleichstabelle speichern.',
+    option_selected: 'Ausgewählte Kategorien herunterladen',
+    option_selected_desc: 'Ein personalisiertes Lehrbuch aus den ausgewählten Kapiteln erstellen.',
+    option_all: 'Vollständiges Lehrbuch herunterladen',
+    option_all_desc: 'Das gesamte Infektiologie-Lehrmaterial (alle Kategorien, Tabellen und eigenen Notizen) zusammengefügt.',
+    select_categories: 'Kapitel auswählen:',
+    download_btn: 'PDF generieren',
+    cancel_btn: 'Abbrechen',
+    help_text: 'Das generierte PDF-Dokument enthält automatisch Ihre persönlichen Notizen und ist für den Druck optimiert.',
+  }
+};
+
 export default function App() {
   // Lang State
   const [lang, setLang] = useState<'hu' | 'en' | 'de'>(() => {
@@ -68,6 +113,9 @@ export default function App() {
 
   // PWA & Modals State
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+  const [printOption, setPrintOption] = useState<'current' | 'selected' | 'all'>('current');
+  const [selectedPrintCategories, setSelectedPrintCategories] = useState<string[]>([]);
   const [isCalcModalOpen, setIsScoreModalOpen] = useState(false);
   const [selectedCalcKey, setSelectedCalcKey] = useState<string>('curb65');
   const [calcInputs, setCalcInputs] = useState<{ [key: string]: any }>({});
@@ -1022,7 +1070,8 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
   const disease = currentDb[activeCategoryKey]?.diseases.find(d => d.id === activeDiseaseId);
 
   return (
-    <div className="h-screen w-full flex flex-col bg-natural-bg font-sans overflow-hidden text-natural-text">
+    <>
+      <div className={`h-screen w-full flex flex-col bg-natural-bg font-sans overflow-hidden text-natural-text ${printOption !== 'current' ? 'print:hidden' : ''}`}>
       
       {/* Top Banner / Header */}
       <header className="bg-natural-primary text-white px-6 py-3 flex-shrink-0 z-10 shadow-md">
@@ -1047,7 +1096,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             </button>
             <div className="brand flex-shrink-0 flex items-center gap-3">
               <img
-                src="/app_icon.jpg"
+                src="/app_icon.png"
                 alt="Logo"
                 className="w-9 h-9 rounded-lg border border-white/20 shadow-md object-cover"
                 referrerPolicy="no-referrer"
@@ -1146,7 +1195,9 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             <button
               onClick={() => {
                 trackEvent('print_document', 'document_action', activeCategoryKey);
-                window.print();
+                setSelectedPrintCategories([activeCategoryKey]);
+                setPrintOption('current');
+                setIsPrintModalOpen(true);
               }}
               className="px-3 py-1.5 bg-white text-natural-primary hover:bg-white/90 border border-white text-natural-primary font-bold text-[11px] rounded transition-all active:scale-95 cursor-pointer print:hidden flex items-center gap-1.5"
             >
@@ -1371,7 +1422,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               >
                 <div className="w-24 h-24 mb-6 rounded-2xl overflow-hidden border border-natural-border shadow-xl">
                   <img
-                    src="/app_icon.jpg"
+                    src="/app_icon.png"
                     alt="Infektológia Logo"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -1601,6 +1652,336 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
           </AnimatePresence>
         </main>
       </div>
+
+      {/* Dynamic Print-Only Collection Book */}
+      {printOption !== 'current' && (
+        <div className="hidden print:block bg-white text-black font-sans w-full max-w-4xl mx-auto print:p-0">
+          {/* Book Cover Page */}
+          <div 
+            className="flex flex-col justify-between p-12 border-4 border-double border-emerald-800 text-center select-none"
+            style={{ height: '297mm', pageBreakAfter: 'always', breakAfter: 'page' }}
+          >
+            <div>
+              <h1 className="font-serif text-3xl font-black text-emerald-900 tracking-tight uppercase">
+                {lang === 'hu' ? 'PÉCSI TUDOMÁNYEGYETEM' : lang === 'de' ? 'UNIVERSITÄT PÉCS' : 'UNIVERSITY OF PÉCS'}
+              </h1>
+              <p className="text-sm font-bold text-natural-muted uppercase tracking-widest mt-2">
+                {lang === 'hu' ? 'Általános Orvostudományi Kar • Infektológiai Tanszék' : lang === 'de' ? 'Medizinische Fakultät • Klinik für Infektiologie' : 'Medical School • Department of Infectology'}
+              </p>
+            </div>
+            
+            <div className="my-auto space-y-4">
+              <img src="/app_icon.png" alt="Logo" className="w-24 h-24 mx-auto rounded-3xl border border-emerald-800/20 shadow-md object-cover" />
+              <h2 className="font-serif text-4xl font-extrabold text-emerald-950 mt-6 leading-tight">
+                {lang === 'hu' ? 'INFEKTOLÓGIA INTERAKTÍV TANKÖNYV' : lang === 'de' ? 'INFEKTIOLOGIE LEHRBUCH' : 'INFECTIOUS DISEASES TEXTBOOK'}
+              </h2>
+              <div className="h-1 w-20 bg-emerald-700 mx-auto my-6 rounded"></div>
+              <p className="text-lg font-serif italic text-emerald-900">
+                {printOption === 'all' 
+                  ? (lang === 'hu' ? 'Teljes Egyetemi Tananyag' : lang === 'de' ? 'Vollständiges Lehrmaterial' : 'Complete Courseware')
+                  : (lang === 'hu' ? 'Személyre Szabott Kivonat' : lang === 'de' ? 'Spezifischer Auszug' : 'Customized Study Digest')}
+              </p>
+            </div>
+
+            <div className="space-y-2 text-xs font-mono text-emerald-900/80">
+              <div>{lang === 'hu' ? 'Szerző:' : lang === 'de' ? 'Autor:' : 'Author:'} Dr. Péterfi Zoltán</div>
+              <div>{lang === 'hu' ? 'Generálta:' : lang === 'de' ? 'Erstellt von:' : 'Generated for:'} peterfi.zoltan@gmail.com</div>
+              <div>{lang === 'hu' ? 'Dátum:' : lang === 'de' ? 'Datum:' : 'Date:'} {new Date().toLocaleDateString(lang === 'hu' ? 'hu-HU' : lang === 'de' ? 'de-DE' : 'en-US')}</div>
+              <div className="text-[10px] mt-2 opacity-60">Rendszer verzió: v4.0.0</div>
+            </div>
+          </div>
+
+          {/* Table of Contents */}
+          <div 
+            className="p-12 space-y-8"
+            style={{ pageBreakAfter: 'always', breakAfter: 'page' }}
+          >
+            <h2 className="font-serif text-2xl font-extrabold border-b border-natural-border pb-3 text-emerald-900">
+              {lang === 'hu' ? 'Tartalomjegyzék' : lang === 'de' ? 'Inhaltsverzeichnis' : 'Table of Contents'}
+            </h2>
+            <div className="space-y-4">
+              {Object.entries(currentDb)
+                .filter(([key]) => printOption === 'all' || selectedPrintCategories.includes(key))
+                .map(([key, cat], idx) => (
+                  <div key={key} className="flex justify-between items-baseline text-sm">
+                    <span className="font-serif font-bold text-emerald-950">{idx + 1}. {cat.name}</span>
+                    <span className="flex-1 border-b border-dashed border-natural-border mx-4"></span>
+                    <span className="font-mono text-xs text-natural-muted">{cat.diseases.length} {lang === 'hu' ? 'betegség' : lang === 'de' ? 'Erkrankungen' : 'diseases'}</span>
+                  </div>
+                ))}
+            </div>
+          </div>
+
+          {/* Loop over selected categories */}
+          {Object.entries(currentDb)
+            .filter(([key]) => printOption === 'all' || selectedPrintCategories.includes(key))
+            .map(([key, cat]) => (
+              <React.Fragment key={key}>
+                {/* Category Cover Section */}
+                <div 
+                  className="p-12 flex flex-col justify-center text-center space-y-6"
+                  style={{ height: '297mm', pageBreakAfter: 'always', breakAfter: 'page', pageBreakBefore: 'always', breakBefore: 'page' }}
+                >
+                  <span className="text-4xl">📚</span>
+                  <h2 className="font-serif text-3xl font-black text-emerald-950 uppercase tracking-tight">
+                    {cat.name}
+                  </h2>
+                  <div className="h-0.5 w-16 mx-auto" style={{ backgroundColor: cat.color || '#065f46' }}></div>
+                  
+                  {cat.didactics?.overview && (
+                    <p className="text-sm text-natural-text leading-relaxed max-w-xl mx-auto italic font-serif">
+                      {Array.isArray(cat.didactics.overview) ? cat.didactics.overview.join(' ') : cat.didactics.overview}
+                    </p>
+                  )}
+
+                  {cat.tables && cat.tables.length > 0 && (
+                    <p className="text-xs text-natural-muted">
+                      {lang === 'hu' 
+                        ? 'Kapcsolódó klinikai összehasonlító táblázatok a következő oldalakon találhatóak.'
+                        : lang === 'de'
+                        ? 'Zugehörige klinische Vergleichstabellen finden Sie auf den folgenden Seiten.'
+                        : 'Associated clinical comparison tables are available on the following pages.'}
+                    </p>
+                  )}
+                </div>
+
+                {/* Category Tables if any */}
+                {cat.tables && cat.tables.map((t, tIdx) => (
+                  <div 
+                    key={tIdx} 
+                    className="p-8 space-y-6"
+                    style={{ pageBreakAfter: 'always', breakAfter: 'page', pageBreakBefore: 'always', breakBefore: 'page' }}
+                  >
+                    <div className="border-b border-natural-border pb-4 mb-6">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 font-bold">{cat.name} • Összehasonlító táblázat</span>
+                      <h3 className="font-serif text-xl font-bold text-natural-dark mt-1">{t.title}</h3>
+                    </div>
+
+                    <table className="w-full text-left border-collapse text-[10px] bg-white border border-natural-border">
+                      <thead>
+                        <tr className="bg-slate-50 border-b border-natural-border">
+                          {t.headers.map((h, i) => (
+                            <th key={i} className="p-2 font-bold text-slate-700 font-sans uppercase tracking-wider border border-natural-border">
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {t.rows.map((row, rIdx) => (
+                          <tr key={rIdx} className="odd:bg-slate-50/10">
+                            {row.map((cell, cIdx) => (
+                              <td key={cIdx} className="p-2 border border-natural-border text-slate-800 leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: cell }} />
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                ))}
+
+                {/* Category Diseases */}
+                {cat.diseases.map((dis) => (
+                  <div 
+                    key={dis.id} 
+                    className="p-8 space-y-8"
+                    style={{ pageBreakAfter: 'always', breakAfter: 'page', pageBreakBefore: 'always', breakBefore: 'page' }}
+                  >
+                    {/* Academic Header for print */}
+                    <div className="border-b-2 border-emerald-900 pb-4 flex justify-between items-end">
+                      <div>
+                        <span className="text-[10px] font-mono text-emerald-800 uppercase font-black tracking-widest">{cat.name}</span>
+                        <h2 className="font-serif text-2xl font-black text-emerald-950 leading-tight mt-1">
+                          {dis.name}
+                        </h2>
+                      </div>
+                      <span className="text-[9px] font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-bold">
+                        PTE ÁOK • Infektológia
+                      </span>
+                    </div>
+
+                    {/* Rendering the disease content */}
+                    <div className="space-y-6 text-xs text-natural-text leading-relaxed">
+                      {dis.didactics && renderDidacticsView(dis)}
+                      {dis.table && renderTableView(dis)}
+                      {!dis.didactics && !dis.table && renderTabsView(dis)}
+
+                      {/* Notes for this disease if any */}
+                      {notes[dis.id] && (
+                        <div className="mt-8 p-5 bg-amber-50/10 border border-dashed border-amber-300 rounded-xl">
+                          <h4 className="font-serif font-bold text-amber-900 text-xs uppercase tracking-wider mb-2 pb-1 border-b border-amber-200">
+                            {currentTranslations.notes_title} ({lang === 'hu' ? 'Saját jegyzet' : lang === 'de' ? 'Eigene Notizen' : 'My notes'})
+                          </h4>
+                          <p className="text-xs text-amber-950 italic whitespace-pre-wrap font-sans">
+                            {notes[dis.id]}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </React.Fragment>
+            ))}
+        </div>
+      )}
+
+      {/* PDF Export Options Modal */}
+      <AnimatePresence>
+        {isPrintModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, y: 15 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 15 }}
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[90vh]"
+            >
+              <div className="p-5 bg-slate-900 text-white flex justify-between items-center">
+                <div className="flex items-center gap-2.5">
+                  <Printer className="w-5 h-5 text-emerald-400" />
+                  <h3 className="font-bold text-lg">{printTranslations[lang].title}</h3>
+                </div>
+                <button
+                  onClick={() => setIsPrintModalOpen(false)}
+                  className="p-1 rounded-full hover:bg-white/10 text-[#EAE7DC] hover:text-white transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto p-6 space-y-6 scroll-area">
+                <p className="text-sm text-natural-muted font-sans leading-relaxed">
+                  {printTranslations[lang].subtitle}
+                </p>
+
+                {/* Print Options */}
+                <div className="space-y-3">
+                  {/* Current View Option */}
+                  <label className={`flex items-start gap-4 p-4 rounded-xl border-2 transition-all cursor-pointer ${printOption === 'current' ? 'border-emerald-600 bg-emerald-50/10' : 'border-natural-border hover:bg-natural-surface'}`}>
+                    <input
+                      type="radio"
+                      name="printOption"
+                      checked={printOption === 'current'}
+                      onChange={() => setPrintOption('current')}
+                      className="mt-1 accent-emerald-700"
+                    />
+                    <div className="space-y-0.5">
+                      <span className="font-serif font-bold text-sm text-natural-dark block">
+                        {printTranslations[lang].option_current}
+                      </span>
+                      <span className="text-xs text-natural-muted font-sans block">
+                        {printTranslations[lang].option_current_desc}
+                      </span>
+                    </div>
+                  </label>
+
+                  {/* Selected Categories Option */}
+                  <label className={`flex items-start gap-4 p-4 rounded-xl border-2 transition-all cursor-pointer ${printOption === 'selected' ? 'border-emerald-600 bg-emerald-50/10' : 'border-natural-border hover:bg-natural-surface'}`}>
+                    <input
+                      type="radio"
+                      name="printOption"
+                      checked={printOption === 'selected'}
+                      onChange={() => setPrintOption('selected')}
+                      className="mt-1 accent-emerald-700"
+                    />
+                    <div className="space-y-0.5 w-full">
+                      <span className="font-serif font-bold text-sm text-natural-dark block">
+                        {printTranslations[lang].option_selected}
+                      </span>
+                      <span className="text-xs text-natural-muted font-sans block">
+                        {printTranslations[lang].option_selected_desc}
+                      </span>
+
+                      {/* Render category checkboxes if 'selected' option is chosen */}
+                      {printOption === 'selected' && (
+                        <div className="mt-4 pt-4 border-t border-natural-border space-y-2 max-h-48 overflow-y-auto pr-1 scroll-area">
+                          <span className="text-xs font-serif font-bold text-emerald-950 block mb-2">
+                            {printTranslations[lang].select_categories}
+                          </span>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {Object.entries(currentDb).map(([key, cat]) => (
+                              <label key={key} className="flex items-center gap-2.5 p-2 bg-white rounded-lg border border-natural-border hover:bg-natural-surface transition-colors cursor-pointer text-xs">
+                                <input
+                                  type="checkbox"
+                                  checked={selectedPrintCategories.includes(key)}
+                                  onChange={(e) => {
+                                    if (e.target.checked) {
+                                      setSelectedPrintCategories(prev => [...prev, key]);
+                                    } else {
+                                      setSelectedPrintCategories(prev => prev.filter(k => k !== key));
+                                    }
+                                  }}
+                                  className="accent-emerald-700 h-3.5 w-3.5"
+                                />
+                                <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: cat.color || '#065f46' }} />
+                                <span className="font-sans font-semibold text-natural-dark truncate">{cat.name}</span>
+                              </label>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </label>
+
+                  {/* All Textbook Option */}
+                  <label className={`flex items-start gap-4 p-4 rounded-xl border-2 transition-all cursor-pointer ${printOption === 'all' ? 'border-emerald-600 bg-emerald-50/10' : 'border-natural-border hover:bg-natural-surface'}`}>
+                    <input
+                      type="radio"
+                      name="printOption"
+                      checked={printOption === 'all'}
+                      onChange={() => setPrintOption('all')}
+                      className="mt-1 accent-emerald-700"
+                    />
+                    <div className="space-y-0.5">
+                      <span className="font-serif font-bold text-sm text-natural-dark block">
+                        {printTranslations[lang].option_all}
+                      </span>
+                      <span className="text-xs text-natural-muted font-sans block">
+                        {printTranslations[lang].option_all_desc}
+                      </span>
+                    </div>
+                  </label>
+                </div>
+
+                <div className="p-4 bg-amber-50/50 rounded-xl border border-amber-200/50 flex gap-2.5 items-start text-xs text-amber-900 leading-relaxed italic">
+                  <span className="text-base select-none">💡</span>
+                  <p className="font-sans">{printTranslations[lang].help_text}</p>
+                </div>
+              </div>
+
+              <div className="p-4 bg-slate-50 border-t border-slate-100 flex justify-end gap-3 shrink-0">
+                <button
+                  onClick={() => setIsPrintModalOpen(false)}
+                  className="px-4 py-2 bg-white border border-slate-200 text-slate-700 font-bold text-xs rounded-xl hover:bg-slate-100 transition-colors cursor-pointer"
+                >
+                  {printTranslations[lang].cancel_btn}
+                </button>
+                <button
+                  onClick={() => {
+                    setIsPrintModalOpen(false);
+                    setTimeout(() => {
+                      window.print();
+                    }, 250);
+                  }}
+                  disabled={printOption === 'selected' && selectedPrintCategories.length === 0}
+                  className={`px-5 py-2 text-white font-serif font-bold text-xs rounded-xl transition-all flex items-center gap-1.5 cursor-pointer shadow-md ${
+                    printOption === 'selected' && selectedPrintCategories.length === 0
+                      ? 'bg-emerald-800/50 cursor-not-allowed opacity-60'
+                      : 'bg-emerald-700 hover:bg-emerald-800'
+                  }`}
+                >
+                  <Printer className="w-3.5 h-3.5" />
+                  <span>{printTranslations[lang].download_btn}</span>
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Share / Offline Guidance Modal */}
       <AnimatePresence>
@@ -2926,7 +3307,8 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
       </AnimatePresence>
 
     </div>
-  );
+  </>
+);
 
   // Procedure interactive vector graphics engine
   function renderProcedureGraphic(graphic: string, stepIndex: number) {
