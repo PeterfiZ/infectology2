@@ -114,6 +114,7 @@ export default function App() {
   // PWA & Modals State
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [isPrintModalOpen, setIsPrintModalOpen] = useState(false);
+  const [showIosInstallBanner, setShowIosInstallBanner] = useState(false);
   const [printOption, setPrintOption] = useState<'current' | 'selected' | 'all'>('current');
   const [selectedPrintCategories, setSelectedPrintCategories] = useState<string[]>([]);
   const [isCalcModalOpen, setIsScoreModalOpen] = useState(false);
@@ -188,6 +189,23 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('infecto_custom_api_key', customApiKey);
   }, [customApiKey]);
+
+  useEffect(() => {
+    const ua = window.navigator.userAgent.toLowerCase();
+    const isIosDevice = /iphone|ipad|ipod/.test(ua);
+    const isSafari = ua.includes('safari') && !ua.includes('crios') && !ua.includes('fxios') && !ua.includes('opios');
+    const isStandaloneDevice = ('standalone' in window.navigator) && (window.navigator as any).standalone;
+    const hasDismissed = localStorage.getItem('infecto_ios_banner_dismissed') === 'true';
+
+    if (isIosDevice && isSafari && !isStandaloneDevice && !hasDismissed) {
+      setShowIosInstallBanner(true);
+    }
+  }, []);
+
+  const handleDismissIosBanner = () => {
+    setShowIosInstallBanner(false);
+    localStorage.setItem('infecto_ios_banner_dismissed', 'true');
+  };
 
   const handleSendAiMessage = async (customPrompt?: string) => {
     const promptToSend = customPrompt || aiInput;
@@ -1071,7 +1089,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
 
   return (
     <>
-      <div className={`h-screen w-full flex flex-col bg-natural-bg font-sans overflow-hidden text-natural-text ${printOption !== 'current' ? 'print:hidden' : ''}`}>
+      <div className="h-screen w-full flex flex-col bg-natural-bg font-sans overflow-hidden text-natural-text print:hidden">
       
       {/* Top Banner / Header */}
       <header className="bg-natural-primary text-white px-6 py-3 flex-shrink-0 z-10 shadow-md">
@@ -1651,109 +1669,184 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             )}
           </AnimatePresence>
         </main>
+
+        <AnimatePresence>
+          {showIosInstallBanner && (
+            <motion.div
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 30, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 z-50 print:hidden"
+            >
+              <div className="bg-white rounded-2xl border border-natural-border shadow-2xl p-5 relative overflow-hidden">
+                {/* Elegant header */}
+                <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-center gap-2">
+                    <div className="p-1.5 bg-emerald-50 text-emerald-800 rounded-lg">
+                      <Bookmark className="w-5 h-5 text-emerald-700" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif font-bold text-sm text-natural-dark leading-tight">
+                        {lang === 'hu' ? 'Telepítés iPhone/iPad-re' : lang === 'de' ? 'Auf iPhone/iPad installieren' : 'Install on iPhone/iPad'}
+                      </h4>
+                      <p className="text-[10px] text-natural-muted font-bold font-mono uppercase tracking-wider">
+                        Safari Web App
+                      </p>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={handleDismissIosBanner}
+                    className="text-slate-400 hover:text-slate-600 p-1 rounded-full hover:bg-slate-50 transition-colors"
+                    aria-label="Close"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+                
+                {/* Description */}
+                <p className="text-xs text-slate-600 mb-4 leading-relaxed">
+                  {lang === 'hu' 
+                    ? 'Szeretné elérni a teljes interaktív tankönyvet közvetlenül a kezdőképernyőről, akár offline is a klinikán?' 
+                  : lang === 'de' 
+                    ? 'Möchten Sie auch offline in der Klinik direkt von Ihrem Startbildschirm aus auf das vollständige Lehrbuch zugreifen?' 
+                    : 'Would you like to access the complete interactive textbook directly from your home screen, even offline at the clinic?'}
+                </p>
+                
+                {/* Custom visual instructions */}
+                <div className="bg-emerald-50/50 rounded-xl p-3 border border-emerald-100 text-xs text-emerald-950 space-y-2 leading-relaxed">
+                  <div className="flex items-start gap-2">
+                    <span className="flex items-center justify-center bg-emerald-700 text-white rounded-full w-4 h-4 text-[9px] font-bold mt-0.5 shrink-0">1</span>
+                    <div className="flex-1">
+                      {lang === 'hu' ? (
+                        <span>
+                          Koppintson a Safari sávjában lévő <strong>Megosztás</strong> gombra:
+                        </span>
+                      ) : lang === 'de' ? (
+                        <span>
+                          Tippen Sie in Safari auf das <strong>Teilen</strong>-Symbol:
+                        </span>
+                      ) : (
+                        <span>
+                          Tap the Safari browser's <strong>Share</strong> button:
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-1 bg-white px-1.5 py-0.5 rounded border border-emerald-200 text-emerald-800 mx-1 shadow-xs shrink-0 select-none">
+                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                          <polyline points="16 6 12 2 8 6" />
+                          <line x1="12" y1="2" x2="12" y2="15" />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="flex items-center justify-center bg-emerald-700 text-white rounded-full w-4 h-4 text-[9px] font-bold mt-0.5 shrink-0">2</span>
+                    <div className="flex-1">
+                      {lang === 'hu' ? (
+                        <span>
+                          Görgessen le és válassza a <strong>Hozzáadás a kezdőképernyőhöz</strong> lehetőséget:
+                        </span>
+                      ) : lang === 'de' ? (
+                        <span>
+                          Scrollen Sie nach unten und wählen Sie <strong>Zum Home-Bildschirm</strong>:
+                        </span>
+                      ) : (
+                        <span>
+                          Scroll down and choose <strong>Add to Home Screen</strong>:
+                        </span>
+                      )}
+                      <span className="inline-flex items-center gap-1 bg-white px-1.5 py-0.5 rounded border border-emerald-200 text-emerald-800 mx-1 shadow-xs font-semibold select-none">
+                        <span className="text-xs leading-none">+</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Custom Dismiss option */}
+                <div className="mt-4 flex justify-end gap-2">
+                  <button
+                    onClick={handleDismissIosBanner}
+                    className="px-3 py-1.5 text-xs text-emerald-800 hover:bg-emerald-50 font-bold rounded-lg transition-colors"
+                  >
+                    {lang === 'hu' ? 'Később' : lang === 'de' ? 'Später' : 'Later'}
+                  </button>
+                  <button
+                    onClick={handleDismissIosBanner}
+                    className="px-3.5 py-1.5 text-xs bg-emerald-800 hover:bg-emerald-700 text-white font-bold rounded-lg transition-colors shadow-sm"
+                  >
+                    {lang === 'hu' ? 'Értem' : lang === 'de' ? 'Verstanden' : 'Got it'}
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Dynamic Print-Only Collection Book */}
-      <div className={`print-only-book ${printOption !== 'current' ? 'print-only-book-active' : 'print-only-book-inactive'} bg-white text-black font-sans w-full max-w-4xl mx-auto print:p-0`}>
-          {/* Book Cover Page */}
-          <div 
-            className="flex flex-col justify-between p-12 border-4 border-double border-emerald-800 text-center select-none"
-            style={{ height: '297mm', pageBreakAfter: 'always', breakAfter: 'page' }}
-          >
-            <div>
-              <h1 className="font-serif text-3xl font-black text-emerald-900 tracking-tight uppercase">
-                {lang === 'hu' ? 'PÉCSI TUDOMÁNYEGYETEM' : lang === 'de' ? 'UNIVERSITÄT PÉCS' : 'UNIVERSITY OF PÉCS'}
-              </h1>
-              <p className="text-sm font-bold text-natural-muted uppercase tracking-widest mt-2">
-                {lang === 'hu' ? 'Általános Orvostudományi Kar • Infektológiai Tanszék' : lang === 'de' ? 'Medizinische Fakultät • Klinik für Infektiologie' : 'Medical School • Department of Infectology'}
-              </p>
-            </div>
-            
-            <div className="my-auto space-y-4">
-              <img src="/app_icon.png" alt="Logo" className="w-24 h-24 mx-auto rounded-3xl border border-emerald-800/20 shadow-md object-cover" />
-              <h2 className="font-serif text-4xl font-extrabold text-emerald-950 mt-6 leading-tight">
-                {lang === 'hu' ? 'INFEKTOLÓGIA INTERAKTÍV TANKÖNYV' : lang === 'de' ? 'INFEKTIOLOGIE LEHRBUCH' : 'INFECTIOUS DISEASES TEXTBOOK'}
-              </h2>
-              <div className="h-1 w-20 bg-emerald-700 mx-auto my-6 rounded"></div>
-              <p className="text-lg font-serif italic text-emerald-900">
-                {printOption === 'all' 
-                  ? (lang === 'hu' ? 'Teljes Egyetemi Tananyag' : lang === 'de' ? 'Vollständiges Lehrmaterial' : 'Complete Courseware')
-                  : (lang === 'hu' ? 'Személyre Szabott Kivonat' : lang === 'de' ? 'Spezifischer Auszug' : 'Customized Study Digest')}
-              </p>
-            </div>
-
-            <div className="space-y-2 text-xs font-mono text-emerald-900/80">
-              <div>{lang === 'hu' ? 'Szerző:' : lang === 'de' ? 'Autor:' : 'Author:'} Dr. Péterfi Zoltán</div>
-              <div>{lang === 'hu' ? 'Generálta:' : lang === 'de' ? 'Erstellt von:' : 'Generated for:'} peterfi.zoltan@gmail.com</div>
-              <div>{lang === 'hu' ? 'Dátum:' : lang === 'de' ? 'Datum:' : 'Date:'} {new Date().toLocaleDateString(lang === 'hu' ? 'hu-HU' : lang === 'de' ? 'de-DE' : 'en-US')}</div>
-              <div className="text-[10px] mt-2 opacity-60">Rendszer verzió: v4.0.0</div>
-            </div>
-          </div>
-
-          {/* Table of Contents */}
-          <div 
-            className="p-12 space-y-8 print-page-break"
-          >
-            <h2 className="font-serif text-2xl font-extrabold border-b border-natural-border pb-3 text-emerald-900">
-              {lang === 'hu' ? 'Tartalomjegyzék' : lang === 'de' ? 'Inhaltsverzeichnis' : 'Table of Contents'}
-            </h2>
-            <div className="space-y-4">
-              {Object.entries(currentDb)
-                .filter(([key]) => printOption === 'all' || selectedPrintCategories.includes(key))
-                .map(([key, cat], idx) => (
-                  <div key={key} className="flex justify-between items-baseline text-sm">
-                    <span className="font-serif font-bold text-emerald-950">{idx + 1}. {cat.name}</span>
-                    <span className="flex-1 border-b border-dashed border-natural-border mx-4"></span>
-                    <span className="font-mono text-xs text-natural-muted">{cat.diseases.length} {lang === 'hu' ? 'betegség' : lang === 'de' ? 'Erkrankungen' : 'diseases'}</span>
+      <div className="print-only-book bg-white text-black font-sans w-full max-w-4xl mx-auto print:p-0">
+        
+        {/* CASE 1: printOption === 'current' */}
+        {printOption === 'current' && (() => {
+          // If we are viewing a specific disease
+          if (activeDiseaseId && activeDiseaseId !== 'category_tables') {
+            const dis = currentDb[activeCategoryKey]?.diseases.find(d => d.id === activeDiseaseId);
+            if (!dis) return null;
+            return (
+              <div className="p-8 space-y-8 print-page-break">
+                {/* Academic Header for print */}
+                <div className="border-b-2 border-emerald-900 pb-4 flex justify-between items-end">
+                  <div>
+                    <span className="text-[10px] font-mono text-emerald-800 uppercase font-black tracking-widest">
+                      {currentDb[activeCategoryKey]?.name}
+                    </span>
+                    <h2 className="font-serif text-2xl font-black text-emerald-950 leading-tight mt-1">
+                      {dis.name}
+                    </h2>
                   </div>
-                ))}
-            </div>
-          </div>
-
-          {/* Loop over selected categories */}
-          {Object.entries(currentDb)
-            .filter(([key]) => printOption === 'all' || selectedPrintCategories.includes(key))
-            .map(([key, cat]) => (
-              <React.Fragment key={key}>
-                {/* Category Cover Section */}
-                <div 
-                  className="p-12 flex flex-col justify-center text-center space-y-6 print-page-cover"
-                  style={{ height: '297mm' }}
-                >
-                  <span className="text-4xl">📚</span>
-                  <h2 className="font-serif text-3xl font-black text-emerald-950 uppercase tracking-tight">
-                    {cat.name}
-                  </h2>
-                  <div className="h-0.5 w-16 mx-auto" style={{ backgroundColor: cat.color || '#065f46' }}></div>
-                  
-                  {cat.didactics?.overview && (
-                    <p className="text-sm text-natural-text leading-relaxed max-w-xl mx-auto italic font-serif">
-                      {Array.isArray(cat.didactics.overview) ? cat.didactics.overview.join(' ') : cat.didactics.overview}
-                    </p>
-                  )}
-
-                  {cat.tables && cat.tables.length > 0 && (
-                    <p className="text-xs text-natural-muted">
-                      {lang === 'hu' 
-                        ? 'Kapcsolódó klinikai összehasonlító táblázatok a következő oldalakon találhatóak.'
-                        : lang === 'de'
-                        ? 'Zugehörige klinische Vergleichstabellen finden Sie auf den folgenden Seiten.'
-                        : 'Associated clinical comparison tables are available on the following pages.'}
-                    </p>
-                  )}
+                  <span className="text-[9px] font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-bold">
+                    PTE ÁOK • Infektológia
+                  </span>
                 </div>
 
-                {/* Category Tables if any */}
-                {cat.tables && cat.tables.map((t, tIdx) => (
-                  <div 
-                    key={tIdx} 
-                    className="p-8 space-y-6 print-page-break"
-                  >
-                    <div className="border-b border-natural-border pb-4 mb-6">
-                      <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 font-bold">{cat.name} • Összehasonlító táblázat</span>
-                      <h3 className="font-serif text-xl font-bold text-natural-dark mt-1">{t.title}</h3>
-                    </div>
+                {/* Rendering the disease content */}
+                <div className="space-y-6 text-xs text-natural-text leading-relaxed">
+                  {dis.didactics && renderDidacticsView(dis)}
+                  {dis.table && renderTableView(dis)}
+                  {!dis.didactics && !dis.table && renderTabsView(dis)}
 
+                  {/* Notes for this disease if any */}
+                  {notes[dis.id] && (
+                    <div className="mt-8 p-5 bg-amber-50/10 border border-dashed border-amber-300 rounded-xl">
+                      <h4 className="font-serif font-bold text-amber-900 text-xs uppercase tracking-wider mb-2 pb-1 border-b border-amber-200">
+                        {currentTranslations.notes_title} ({lang === 'hu' ? 'Saját jegyzet' : lang === 'de' ? 'Eigene Notizen' : 'My notes'})
+                      </h4>
+                      <p className="text-xs text-amber-950 italic whitespace-pre-wrap font-sans">
+                        {notes[dis.id]}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          }
+          
+          // If we are viewing the category comparative tables
+          if (activeDiseaseId === 'category_tables') {
+            const cat = currentDb[activeCategoryKey];
+            if (!cat || !cat.tables) return null;
+            return (
+              <div className="p-8 space-y-8">
+                <div className="border-b-2 border-emerald-900 pb-4">
+                  <span className="text-[10px] font-mono text-emerald-800 uppercase font-black tracking-widest">{cat.name}</span>
+                  <h2 className="font-serif text-2xl font-black text-emerald-950 leading-tight mt-1">
+                    {lang === 'hu' ? 'Klinikai Összehasonlító Táblázatok' : lang === 'de' ? 'Klinische Vergleichstabellen' : 'Clinical Comparison Tables'}
+                  </h2>
+                </div>
+                {cat.tables.map((t, tIdx) => (
+                  <div key={tIdx} className="space-y-4 print-page-break">
+                    <h3 className="font-serif text-lg font-bold text-natural-dark">{t.title}</h3>
                     <table className="w-full text-left border-collapse text-[10px] bg-white border border-natural-border">
                       <thead>
                         <tr className="bg-slate-50 border-b border-natural-border">
@@ -1776,49 +1869,202 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                     </table>
                   </div>
                 ))}
+              </div>
+            );
+          }
 
-                {/* Category Diseases */}
-                {cat.diseases.map((dis) => (
-                  <div 
-                    key={dis.id} 
-                    className="p-8 space-y-8 print-page-break"
-                  >
-                    {/* Academic Header for print */}
-                    <div className="border-b-2 border-emerald-900 pb-4 flex justify-between items-end">
-                      <div>
-                        <span className="text-[10px] font-mono text-emerald-800 uppercase font-black tracking-widest">{cat.name}</span>
-                        <h2 className="font-serif text-2xl font-black text-emerald-950 leading-tight mt-1">
-                          {dis.name}
-                        </h2>
-                      </div>
-                      <span className="text-[9px] font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-bold">
-                        PTE ÁOK • Infektológia
-                      </span>
-                    </div>
-
-                    {/* Rendering the disease content */}
-                    <div className="space-y-6 text-xs text-natural-text leading-relaxed">
-                      {dis.didactics && renderDidacticsView(dis)}
-                      {dis.table && renderTableView(dis)}
-                      {!dis.didactics && !dis.table && renderTabsView(dis)}
-
-                      {/* Notes for this disease if any */}
-                      {notes[dis.id] && (
-                        <div className="mt-8 p-5 bg-amber-50/10 border border-dashed border-amber-300 rounded-xl">
-                          <h4 className="font-serif font-bold text-amber-900 text-xs uppercase tracking-wider mb-2 pb-1 border-b border-amber-200">
-                            {currentTranslations.notes_title} ({lang === 'hu' ? 'Saját jegyzet' : lang === 'de' ? 'Eigene Notizen' : 'My notes'})
-                          </h4>
-                          <p className="text-xs text-amber-950 italic whitespace-pre-wrap font-sans">
-                            {notes[dis.id]}
-                          </p>
-                        </div>
-                      )}
-                    </div>
+          // Otherwise (viewing category overview / didactics landing)
+          const cat = currentDb[activeCategoryKey];
+          if (!cat) return null;
+          return (
+            <div className="p-8 space-y-8 print-page-break">
+              <div className="border-b-2 border-emerald-900 pb-4">
+                <span className="text-[10px] font-mono text-emerald-800 uppercase font-black tracking-widest">PTE ÁOK • Infektológia</span>
+                <h2 className="font-serif text-2xl font-black text-emerald-950 leading-tight mt-1">{cat.name}</h2>
+              </div>
+              {cat.didactics?.overview && (
+                <div className="space-y-4">
+                  <h3 className="font-serif text-lg font-bold text-emerald-900">
+                    {lang === 'hu' ? 'Áttekintés' : lang === 'de' ? 'Übersicht' : 'Overview'}
+                  </h3>
+                  <div className="text-sm text-natural-text leading-relaxed whitespace-pre-wrap font-serif italic">
+                    {Array.isArray(cat.didactics.overview) ? cat.didactics.overview.join('\n\n') : cat.didactics.overview}
                   </div>
-                ))}
-              </React.Fragment>
-            ))}
-        </div>
+                </div>
+              )}
+            </div>
+          );
+        })()}
+
+        {/* CASE 2: printOption === 'selected' || printOption === 'all' */}
+        {printOption !== 'current' && (
+          <>
+            {/* Book Cover Page */}
+            <div 
+              className="flex flex-col justify-between p-12 border-4 border-double border-emerald-800 text-center select-none"
+              style={{ height: '297mm', pageBreakAfter: 'always', breakAfter: 'page' }}
+            >
+              <div>
+                <h1 className="font-serif text-3xl font-black text-emerald-900 tracking-tight uppercase">
+                  {lang === 'hu' ? 'PÉCSI TUDOMÁNYEGYETEM' : lang === 'de' ? 'UNIVERSITÄT PÉCS' : 'UNIVERSITY OF PÉCS'}
+                </h1>
+                <p className="text-sm font-bold text-natural-muted uppercase tracking-widest mt-2">
+                  {lang === 'hu' ? 'Általános Orvostudományi Kar • Infektológiai Tanszék' : lang === 'de' ? 'Medizinische Fakultät • Klinik für Infektiologie' : 'Medical School • Department of Infectology'}
+                </p>
+              </div>
+              
+              <div className="my-auto space-y-4">
+                <img src="/app_icon.png" alt="Logo" className="w-24 h-24 mx-auto rounded-3xl border border-emerald-800/20 shadow-md object-cover" />
+                <h2 className="font-serif text-4xl font-extrabold text-emerald-950 mt-6 leading-tight">
+                  {lang === 'hu' ? 'INFEKTOLÓGIA INTERAKTÍV TANKÖNYV' : lang === 'de' ? 'INFEKTIOLOGIE LEHRBUCH' : 'INFECTIOUS DISEASES TEXTBOOK'}
+                </h2>
+                <div className="h-1 w-20 bg-emerald-700 mx-auto my-6 rounded"></div>
+                <p className="text-lg font-serif italic text-emerald-900">
+                  {printOption === 'all' 
+                    ? (lang === 'hu' ? 'Teljes Egyetemi Tananyag' : lang === 'de' ? 'Vollständiges Lehrmaterial' : 'Complete Courseware')
+                    : (lang === 'hu' ? 'Személyre Szabott Kivonat' : lang === 'de' ? 'Spezifischer Auszug' : 'Customized Study Digest')}
+                </p>
+              </div>
+
+              <div className="space-y-2 text-xs font-mono text-emerald-900/80">
+                <div>{lang === 'hu' ? 'Szerző:' : lang === 'de' ? 'Autor:' : 'Author:'} Dr. Péterfi Zoltán</div>
+                <div>{lang === 'hu' ? 'Generálta:' : lang === 'de' ? 'Erstellt von:' : 'Generated for:'} peterfi.zoltan@gmail.com</div>
+                <div>{lang === 'hu' ? 'Dátum:' : lang === 'de' ? 'Datum:' : 'Date:'} {new Date().toLocaleDateString(lang === 'hu' ? 'hu-HU' : lang === 'de' ? 'de-DE' : 'en-US')}</div>
+                <div className="text-[10px] mt-2 opacity-60">Rendszer verzió: v4.0.0</div>
+              </div>
+            </div>
+
+            {/* Table of Contents */}
+            <div 
+              className="p-12 space-y-8 print-page-break"
+            >
+              <h2 className="font-serif text-2xl font-extrabold border-b border-natural-border pb-3 text-emerald-900">
+                {lang === 'hu' ? 'Tartalomjegyzék' : lang === 'de' ? 'Inhaltsverzeichnis' : 'Table of Contents'}
+              </h2>
+              <div className="space-y-4">
+                {Object.entries(currentDb)
+                  .filter(([key]) => printOption === 'all' || selectedPrintCategories.includes(key))
+                  .map(([key, cat], idx) => (
+                    <div key={key} className="flex justify-between items-baseline text-sm">
+                      <span className="font-serif font-bold text-emerald-950">{idx + 1}. {cat.name}</span>
+                      <span className="flex-1 border-b border-dashed border-natural-border mx-4"></span>
+                      <span className="font-mono text-xs text-natural-muted">{cat.diseases.length} {lang === 'hu' ? 'betegség' : lang === 'de' ? 'Erkrankungen' : 'diseases'}</span>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* Loop over selected categories */}
+            {Object.entries(currentDb)
+              .filter(([key]) => printOption === 'all' || selectedPrintCategories.includes(key))
+              .map(([key, cat]) => (
+                <React.Fragment key={key}>
+                  {/* Category Cover Section */}
+                  <div 
+                    className="p-12 flex flex-col justify-center text-center space-y-6 print-page-cover"
+                    style={{ height: '297mm' }}
+                  >
+                    <span className="text-4xl">📚</span>
+                    <h2 className="font-serif text-3xl font-black text-emerald-950 uppercase tracking-tight">
+                      {cat.name}
+                    </h2>
+                    <div className="h-0.5 w-16 mx-auto" style={{ backgroundColor: cat.color || '#065f46' }}></div>
+                    
+                    {cat.didactics?.overview && (
+                      <p className="text-sm text-natural-text leading-relaxed max-w-xl mx-auto italic font-serif">
+                        {Array.isArray(cat.didactics.overview) ? cat.didactics.overview.join(' ') : cat.didactics.overview}
+                      </p>
+                    )}
+
+                    {cat.tables && cat.tables.length > 0 && (
+                      <p className="text-xs text-natural-muted">
+                        {lang === 'hu' 
+                          ? 'Kapcsolódó klinikai összehasonlító táblázatok a következő oldalakon találhatóak.'
+                          : lang === 'de'
+                          ? 'Zugehörige klinische Vergleichstabellen finden Sie auf den folgenden Seiten.'
+                          : 'Associated clinical comparison tables are available on the following pages.'}
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Category Tables if any */}
+                  {cat.tables && cat.tables.map((t, tIdx) => (
+                    <div 
+                      key={tIdx} 
+                      className="p-8 space-y-6 print-page-break"
+                    >
+                      <div className="border-b border-natural-border pb-4 mb-6">
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 font-bold">{cat.name} • Összehasonlító táblázat</span>
+                        <h3 className="font-serif text-xl font-bold text-natural-dark mt-1">{t.title}</h3>
+                      </div>
+
+                      <table className="w-full text-left border-collapse text-[10px] bg-white border border-natural-border">
+                        <thead>
+                          <tr className="bg-slate-50 border-b border-natural-border">
+                            {t.headers.map((h, i) => (
+                              <th key={i} className="p-2 font-bold text-slate-700 font-sans uppercase tracking-wider border border-natural-border">
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {t.rows.map((row, rIdx) => (
+                            <tr key={rIdx} className="odd:bg-slate-50/10">
+                              {row.map((cell, cIdx) => (
+                                <td key={cIdx} className="p-2 border border-natural-border text-slate-800 leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: cell }} />
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  ))}
+
+                  {/* Category Diseases */}
+                  {cat.diseases.map((dis) => (
+                    <div 
+                      key={dis.id} 
+                      className="p-8 space-y-8 print-page-break"
+                    >
+                      {/* Academic Header for print */}
+                      <div className="border-b-2 border-emerald-900 pb-4 flex justify-between items-end">
+                        <div>
+                          <span className="text-[10px] font-mono text-emerald-800 uppercase font-black tracking-widest">{cat.name}</span>
+                          <h2 className="font-serif text-2xl font-black text-emerald-950 leading-tight mt-1">
+                            {dis.name}
+                          </h2>
+                        </div>
+                        <span className="text-[9px] font-mono bg-emerald-50 text-emerald-800 border border-emerald-200 px-2 py-0.5 rounded font-bold">
+                          PTE ÁOK • Infektológia
+                        </span>
+                      </div>
+
+                      {/* Rendering the disease content */}
+                      <div className="space-y-6 text-xs text-natural-text leading-relaxed">
+                        {dis.didactics && renderDidacticsView(dis)}
+                        {dis.table && renderTableView(dis)}
+                        {!dis.didactics && !dis.table && renderTabsView(dis)}
+
+                        {/* Notes for this disease if any */}
+                        {notes[dis.id] && (
+                          <div className="mt-8 p-5 bg-amber-50/10 border border-dashed border-amber-300 rounded-xl">
+                            <h4 className="font-serif font-bold text-amber-900 text-xs uppercase tracking-wider mb-2 pb-1 border-b border-amber-200">
+                              {currentTranslations.notes_title} ({lang === 'hu' ? 'Saját jegyzet' : lang === 'de' ? 'Eigene Notizen' : 'My notes'})
+                            </h4>
+                            <p className="text-xs text-amber-950 italic whitespace-pre-wrap font-sans">
+                              {notes[dis.id]}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+          </>
+        )}
+      </div>
 
       {/* PDF Export Options Modal */}
       <AnimatePresence>

@@ -84,6 +84,14 @@
 }
 
 @media print {
+  /* Force clean height and overflow for correct printing */
+  html, body, #root {
+    height: auto !important;
+    overflow: visible !important;
+    min-height: 0 !important;
+    max-height: none !important;
+  }
+
   /* Hide standard screen elements completely */
   .print\:hidden,
   #root > div:not(.print-only-book) {
@@ -95,7 +103,7 @@
     color: black !important;
   }
 
-  .print-only-book-active {
+  .print-only-book {
     display: block !important;
     background: white !important;
     color: black !important;
@@ -104,10 +112,6 @@
     padding: 0 !important;
     margin: 0 !important;
     overflow: visible !important;
-  }
-
-  .print-only-book-inactive {
-    display: none !important;
   }
 
   /* Ensure page breaks work beautifully across multiple pages */
