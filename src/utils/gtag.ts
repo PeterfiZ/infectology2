@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-const GA_TRACKING_ID = (import.meta as any).env.VITE_GA_TRACKING_ID || '';
+const GA_TRACKING_ID = (import.meta as any).env.VITE_GA_TRACKING_ID || 'G-0YH7D60ZK6';
 
 /**
  * Dynamically initializes Google Analytics if a valid tracking ID is provided.
