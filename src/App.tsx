@@ -1654,8 +1654,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
       </div>
 
       {/* Dynamic Print-Only Collection Book */}
-      {printOption !== 'current' && (
-        <div className="hidden print:block bg-white text-black font-sans w-full max-w-4xl mx-auto print:p-0">
+      <div className={`print-only-book ${printOption !== 'current' ? 'print-only-book-active' : 'print-only-book-inactive'} bg-white text-black font-sans w-full max-w-4xl mx-auto print:p-0`}>
           {/* Book Cover Page */}
           <div 
             className="flex flex-col justify-between p-12 border-4 border-double border-emerald-800 text-center select-none"
@@ -1693,8 +1692,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
 
           {/* Table of Contents */}
           <div 
-            className="p-12 space-y-8"
-            style={{ pageBreakAfter: 'always', breakAfter: 'page' }}
+            className="p-12 space-y-8 print-page-break"
           >
             <h2 className="font-serif text-2xl font-extrabold border-b border-natural-border pb-3 text-emerald-900">
               {lang === 'hu' ? 'Tartalomjegyzék' : lang === 'de' ? 'Inhaltsverzeichnis' : 'Table of Contents'}
@@ -1719,8 +1717,8 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               <React.Fragment key={key}>
                 {/* Category Cover Section */}
                 <div 
-                  className="p-12 flex flex-col justify-center text-center space-y-6"
-                  style={{ height: '297mm', pageBreakAfter: 'always', breakAfter: 'page', pageBreakBefore: 'always', breakBefore: 'page' }}
+                  className="p-12 flex flex-col justify-center text-center space-y-6 print-page-cover"
+                  style={{ height: '297mm' }}
                 >
                   <span className="text-4xl">📚</span>
                   <h2 className="font-serif text-3xl font-black text-emerald-950 uppercase tracking-tight">
@@ -1749,8 +1747,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                 {cat.tables && cat.tables.map((t, tIdx) => (
                   <div 
                     key={tIdx} 
-                    className="p-8 space-y-6"
-                    style={{ pageBreakAfter: 'always', breakAfter: 'page', pageBreakBefore: 'always', breakBefore: 'page' }}
+                    className="p-8 space-y-6 print-page-break"
                   >
                     <div className="border-b border-natural-border pb-4 mb-6">
                       <span className="text-[10px] font-mono uppercase tracking-widest text-emerald-800 font-bold">{cat.name} • Összehasonlító táblázat</span>
@@ -1784,8 +1781,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                 {cat.diseases.map((dis) => (
                   <div 
                     key={dis.id} 
-                    className="p-8 space-y-8"
-                    style={{ pageBreakAfter: 'always', breakAfter: 'page', pageBreakBefore: 'always', breakBefore: 'page' }}
+                    className="p-8 space-y-8 print-page-break"
                   >
                     {/* Academic Header for print */}
                     <div className="border-b-2 border-emerald-900 pb-4 flex justify-between items-end">
@@ -1823,7 +1819,6 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               </React.Fragment>
             ))}
         </div>
-      )}
 
       {/* PDF Export Options Modal */}
       <AnimatePresence>

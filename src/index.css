@@ -75,3 +75,56 @@
 .clinical-content-wrap .text-3xl {
   font-size: calc(1.6875rem * var(--content-font-size-adjust, 1)) !important;
 }
+
+/* Custom CSS Print Rules for robust PDF book compilation */
+@media screen {
+  .print-only-book {
+    display: none !important;
+  }
+}
+
+@media print {
+  /* Hide standard screen elements completely */
+  .print\:hidden,
+  #root > div:not(.print-only-book) {
+    display: none !important;
+  }
+
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  .print-only-book-active {
+    display: block !important;
+    background: white !important;
+    color: black !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  .print-only-book-inactive {
+    display: none !important;
+  }
+
+  /* Ensure page breaks work beautifully across multiple pages */
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-page-cover {
+    height: 297mm !important;
+    page-break-after: always !important;
+    break-after: page !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+}
+
