@@ -90,25 +90,31 @@
     overflow: visible !important;
     min-height: 0 !important;
     max-height: none !important;
-  }
-
-  /* Hide standard screen elements completely */
-  .print\:hidden,
-  #root > div:not(.print-only-book) {
-    display: none !important;
-  }
-
-  body {
-    background-color: white !important;
+    background: white !important;
     color: black !important;
   }
 
+  /* Hide standard screen elements completely using visibility */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Explicitly make ONLY the print book and its descendants visible */
+  .print-only-book,
+  .print-only-book * {
+    visibility: visible !important;
+  }
+
+  /* Position print book layout correctly at top left */
   .print-only-book {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     display: block !important;
     background: white !important;
     color: black !important;
-    width: 100% !important;
-    max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
     overflow: visible !important;
@@ -120,6 +126,7 @@
     break-after: page !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+    display: block !important;
   }
 
   .print-page-cover {

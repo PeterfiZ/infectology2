@@ -5,6 +5,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+// @ts-expect-error - Vite handles JPG assets natively
+import appIcon from './assets/images/app_icon_1784570653641.jpg';
 import {
   Search, BookOpen, Heart, Brain, Activity, FileText, CheckCircle, AlertCircle,
   Thermometer, ChevronRight, ChevronDown, Trash2, Share2, Languages,
@@ -1114,7 +1116,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             </button>
             <div className="brand flex-shrink-0 flex items-center gap-3">
               <img
-                src="/app_icon.png"
+                src={appIcon}
                 alt="Logo"
                 className="w-9 h-9 rounded-lg border border-white/20 shadow-md object-cover"
                 referrerPolicy="no-referrer"
@@ -1440,7 +1442,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               >
                 <div className="w-24 h-24 mb-6 rounded-2xl overflow-hidden border border-natural-border shadow-xl">
                   <img
-                    src="/app_icon.png"
+                    src={appIcon}
                     alt="Infektológia Logo"
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
@@ -1914,7 +1916,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
               </div>
               
               <div className="my-auto space-y-4">
-                <img src="/app_icon.png" alt="Logo" className="w-24 h-24 mx-auto rounded-3xl border border-emerald-800/20 shadow-md object-cover" />
+                <img src={appIcon} alt="Logo" className="w-24 h-24 mx-auto rounded-3xl border border-emerald-800/20 shadow-md object-cover" />
                 <h2 className="font-serif text-4xl font-extrabold text-emerald-950 mt-6 leading-tight">
                   {lang === 'hu' ? 'INFEKTOLÓGIA INTERAKTÍV TANKÖNYV' : lang === 'de' ? 'INFEKTIOLOGIE LEHRBUCH' : 'INFECTIOUS DISEASES TEXTBOOK'}
                 </h2>
@@ -2073,7 +2075,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 print:hidden"
           >
             <motion.div
               initial={{ scale: 0.95, y: 15 }}
@@ -2231,7 +2233,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 print:hidden"
           >
             <motion.div
               initial={{ scale: 0.95, y: 15 }}
@@ -2623,7 +2625,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 print:hidden"
           >
             <motion.div
               initial={{ scale: 0.95, y: 15 }}
@@ -2790,7 +2792,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 print:hidden"
           >
             <motion.div
               initial={{ scale: 0.95, y: 15 }}
