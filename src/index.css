@@ -96,8 +96,7 @@
 
   /* Hide standard screen elements completely using display: none */
   .print\:hidden,
-  .print-hidden,
-  #root > div:not(.print-only-book) {
+  .print-hidden {
     display: none !important;
   }
 

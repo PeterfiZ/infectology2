@@ -1787,7 +1787,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
       </div>
 
       {/* Dynamic Print-Only Collection Book */}
-      <div className="print-only-book bg-white text-black font-sans w-full max-w-4xl mx-auto print:p-0">
+      <div className="print-only-book hidden print:block bg-white text-black font-sans w-full max-w-4xl mx-auto print:p-0">
         
         {/* CASE 1: printOption === 'current' */}
         {printOption === 'current' && (() => {
@@ -1903,8 +1903,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
           <>
             {/* Book Cover Page */}
             <div 
-              className="flex flex-col justify-between p-12 border-4 border-double border-emerald-800 text-center select-none"
-              style={{ height: '297mm', pageBreakAfter: 'always', breakAfter: 'page' }}
+              className="print-page-cover flex flex-col justify-between p-12 border-4 border-double border-emerald-800 text-center select-none"
             >
               <div>
                 <h1 className="font-serif text-3xl font-black text-emerald-900 tracking-tight uppercase">
@@ -1964,7 +1963,6 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                   {/* Category Cover Section */}
                   <div 
                     className="p-12 flex flex-col justify-center text-center space-y-6 print-page-cover"
-                    style={{ height: '297mm' }}
                   >
                     <span className="text-4xl">📚</span>
                     <h2 className="font-serif text-3xl font-black text-emerald-950 uppercase tracking-tight">
@@ -2228,10 +2226,10 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                 </button>
                 <button
                   onClick={() => {
+                    // Trigger print immediately while print-only contents are fully rendered and modal is open
+                    // This prevents re-render/animation races with Framer Motion closing transitions
+                    window.print();
                     setIsPrintModalOpen(false);
-                    setTimeout(() => {
-                      window.print();
-                    }, 250);
                   }}
                   disabled={printOption === 'selected' && selectedPrintCategories.length === 0}
                   className={`px-5 py-2 text-white font-serif font-bold text-xs rounded-xl transition-all flex items-center gap-1.5 cursor-pointer shadow-md ${
