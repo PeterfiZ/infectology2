@@ -2142,9 +2142,32 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                       {/* Render category checkboxes if 'selected' option is chosen */}
                       {printOption === 'selected' && (
                         <div className="mt-4 pt-4 border-t border-natural-border space-y-2 max-h-48 overflow-y-auto pr-1 scroll-area">
-                          <span className="text-xs font-serif font-bold text-emerald-950 block mb-2">
+                          <span className="text-xs font-serif font-bold text-emerald-950 block mb-1">
                             {printTranslations[lang].select_categories}
                           </span>
+                          <div className="flex gap-2 mb-3" onClick={(e) => e.stopPropagation()}>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setSelectedPrintCategories(Object.keys(currentDb));
+                              }}
+                              className="text-[10px] text-emerald-700 hover:text-emerald-800 hover:underline font-bold cursor-pointer"
+                            >
+                              {lang === 'hu' ? 'Összes kijelölése' : lang === 'de' ? 'Alle auswählen' : 'Select All'}
+                            </button>
+                            <span className="text-[10px] text-natural-muted">|</span>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setSelectedPrintCategories([]);
+                              }}
+                              className="text-[10px] text-rose-700 hover:text-rose-800 hover:underline font-bold cursor-pointer"
+                            >
+                              {lang === 'hu' ? 'Kijelölés törlése' : lang === 'de' ? 'Auswahl aufheben' : 'Clear All'}
+                            </button>
+                          </div>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {Object.entries(currentDb).map(([key, cat]) => (
                               <label key={key} className="flex items-center gap-2.5 p-2 bg-white rounded-lg border border-natural-border hover:bg-natural-surface transition-colors cursor-pointer text-xs">
