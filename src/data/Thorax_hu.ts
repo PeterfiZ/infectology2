@@ -819,387 +819,544 @@ Object.assign(window.diseases, {
           {
             id: 'endocarditis',
             name: 'Infectiv endocarditis',
-            pathogen: { type: 'Baktérium', name: '<i>Staphylococcus aureus, Streptococcus viridans</i>', gram: 'Gram-pozitív', shape: 'coccus' },
+            pathogen: { type: 'Baktérium', name: '<i>Staphylococcus aureus, Streptococcus viridans, Enterococcus faecalis, Streptococcus gallolyticus, HACEK csoport, Coxiella burnetti</i>', gram: 'Gram-pozitív / Gram-negatív', shape: 'coccus / pálca' },
             epidemiology: {
-              incidence: '3-10/100,000 fő/év',
-              risk_groups: ['Billentyűhibák', 'Műbillentyű', 'IV droghasználók', 'Congenitalis szívbetegség', 'Korábbi endocarditis'],
+              incidence: '3-10/100 000 fő/év (fejlett országokban növekvő tendenciát mutat az idősödő populáció és az invazív kardiológiai beavatkozások miatt)',
+              risk_groups: ['Műbillentyűvel rendelkező betegek (TAVI is)', 'Billentyűplasztikán/javításon átesettek', 'Korábbi infectiv endocarditis az anamnézisben', 'Cyanoticus congenitalis szívbetegség vagy javított vitium maradvány sönttel', 'Balkamrai segédeszközzel (LVAD) élők', 'Intravénás droghasználók (IVDU)', 'Krónikus hemodializált és tartós vénás katétert viselő betegek'],
               seasonality: 'Nincs',
-              transmission: 'Bakterémia (fogászati beavatkozás, bőrfertőzés, katéter)'
+              transmission: 'Bakterémia (fogászati beavatkozások, invazív intravasculáris katéterek, bőr- és lágyrészfertőzések, urogenitális/gastrointestinalis beavatkozások)'
             },
             pathomechanism: {
               steps: [
-                'A folyamat a szívbillentyű endotheljének sérülésével kezdődik, amihez steril trombus (nem-bakteriális trombotikus endocarditis, NBTE) tapad.',
-                'Egy átmeneti bakterémia során (pl. fogászati beavatkozás) a keringő kórokozók megtapadnak ezen a sérült felszínen.',
-                'A baktériumok szaporodnak, biofilmet képeznek, és egy baktériumokból, fibrinből és vérlemezkékből álló vegetációt hoznak létre.',
-                'Ez a vegetáció károsítja a billentyűt (elégtelenséget okozva), és darabjai leszakadva szeptikus embóliát okozhatnak a test különböző részein (pl. agy, lép).'
+                'Endothelsérülés & Steril trombus: A billentyű endotheljének mechanikai vagy gyulladásos sérülése következtében fibrin és vérlemezke rakódik le, ami nem-bakteriális trombotikus endocarditist (NBTE) hoz létre.',
+                'Bakterémia & Adhézió: Egy átmeneti vagy tartós bakterémia során a keringő kórokozók a felszíni adhezinek (MSCRAMM) segítségével hozzátapadnak a steril trombushoz.',
+                'Biofilm & Vegetációképződés: A kórokozók elszaporodnak, biofilmet és fibrinből, vérlemezkékből, baktériumokból álló avasculáris vegetációt hoznak létre, amely védve van a host immunválaszától.',
+                'Billentyűdestrukció & Szeptikus embólizáció: A vegetáció károsítja a billentyűszövetet (perforáció, chorda-szakadás, tályog-, fistula- vagy pseudoaneurysma-képződés), darabjai pedig szeptikus embóliát okoznak az agyban, lépben, vesében, tüdőben vagy a koronáriákban.'
               ],
-              virulence_factors: ['Adhezinek (MSCRAMM)', 'Biofilm képzés', 'Toxinok']
+              virulence_factors: ['Adhezinek (MSCRAMM - Microbial Surface Components Recognizing Adhesive Matrix Molecules)', 'Biofilm képzés', 'Toxinok és proteolitikus enzimek']
             },
             clinical: {
-              incubation: 'Napok (akut) vagy hetek (szubakut)',
-              onset: 'Változó',
+              incubation: 'Napok (akut S. aureus endocarditis) vagy hetek-hónapok (szubakut streptococcalis/enterococcalis endocarditis)',
+              onset: 'Változó (akut fulmináns sepsis és kardiogén shock vagy szubakut ismeretlen eredetű láz [FUO])',
               symptoms: [
-                { name: 'Általános tünetek', description: 'A leggyakoribb a láz, hidegrázás, éjszakai izzadás és a fogyás. A kép gyakran egy ismeretlen eredetű láz (FUO).', severity: 'moderate' },
-                { name: 'Kardiális tünetek', description: 'Új vagy megváltozott szívzörej megjelenése, vagy a szívelégtelenség tünetei (nehézlégzés, ödéma) a billentyűkárosodás miatt.', severity: 'severe' },
-                { name: 'Immunológiai jelenségek', description: 'Osler csomók, Roth spot, RF', severity: 'severe' },
-                { name: 'Embóliás tünetek', description: 'A vegetációból leszakadó darabok szeptikus embóliát okozhatnak: stroke, lép- vagy veseinfarktus, bőrtünetek (Janeway-léziók, splinter haemorrhagiák).', severity: 'severe' }
+                { name: 'Általános szisztémás tünetek', description: 'Hullámzó vagy tartós láz (>90%), hidegrázás, éjszakai izzadás, étvágytalanság, fogyás, krónikus fáradtság.', severity: 'moderate' },
+                { name: 'Kardiális tünetek', description: 'Új regurgitációs szívzörej (vagy a meglévő zörej karakterének megváltozása), progrediáló szívelégtelenség tünetei (terhelési/nyugalmi dyspnoe, orthopnoe, tüdőpangás, perifériás ödéma).', severity: 'severe' },
+                { name: 'Embóliás szövődmények', description: 'Szeptikus embóliák: ischaemiás stroke vagy intracranialis vérzés (mycoticus aneurysma ruptura), lép- vagy veseinfarktus (bal oldali IE), tüdőembólia és szeptikus tüdőtályogok (jobb oldali IE IV droghasználóknál).', severity: 'severe' },
+                { name: 'Immunológiai & Perifériás jelek', description: 'Osler-csomók (fájdalmas, vörös csomók az ujjbegyeken), Janeway-léziók (fájdalmatlan maculák a tenyéren/talpon), Roth-foltok (retina hemorrhagia), köröm alatti szálkavérzések (splinter haemorrhagia), glomerulonephritis (haematuria).', severity: 'moderate' }
               ],
               physical_exam: [
-                'Láz',
-                'Új szívzörej (főleg regurgitációs)',
-                'Szívelégtelenség jelei (S3, pangás)',
-                'Splenomegalia (15-30%)',
-                'Perifériás jelek (Splinter, Osler, Janeway, Roth - ritkák)'
+                'Láz, tachycardia, tachypnoe',
+                'Új vagy megváltozott holosystolés (mitralis/tricuspidalis) vagy diastolés (aortalis) szívzörej',
+                'Szívelégtelenség jelei (S3 galoppritmus, tüdő feletti szörcenterjedés, tágult nyaki vénák)',
+                'Splenomegalia',
+                'Perifériás stigmák: Janeway-léziók, Osler-csomók, splinter haemorrhagiák, conjunctivalis petechiák'
               ],
-              complications: ['Szívelégtelenség (billentyű elégtelenség)', 'Szeptikus embólia (agy, lép, vese)', 'Tályog (gyűrű)', 'Glomerulonephritis']
+              complications: [
+                'Súlyos akut szívelégtelenség (akut billentyűelégtelenség vagy obstructio miatt)',
+                'Paravalvularis szövődmények (gyűrűtályog, pseudoaneurysma, intracardiális fistula, AV-blokk a ingerületvezetési rendszer érintettsége miatt)',
+                'Szeptikus szisztémás embólizáció (akut stroke, léptályog, sponylodiscitis, mycoticus aneurysma)',
+                'Akut glomerulonephritis és veseelégtelenség'
+              ]
             },
             diagnostics: {
               criteria: [
-                { name: 'Major kritériumok (ESC 2023)', items: ['Pozitív hemokultúra (típusos kórokozó: S. aureus, Enterococcus, Viridans strep, S. gallolyticus, HACEK) 2 külön mintából', 'Képalkotó pozitív lelet (Echo/CT/PET-CT): Vegetáció, tályog, pseudoaneurysma, fistula, perforáció, új dehiszcencia', 'Paravalvularis lézió CT-vel', 'Abnormális aktivitás műbillentyű körül (PET/CT vagy SPECT/CT)', 'Pozitív Coxiella burnetii szerológia (Fázis I IgG titer >1:800)'] },
-                { name: 'Minor kritériumok', items: ['Prediszpozíció (szívhiba, műbillentyű, korábbi IE)', 'Láz >38°C', 'Vaszkuláris jelenségek (embólia, szeptikus infarktus, mycotikus aneurysma, Janeway, képalkotóval igazolt léziók)', 'Immunológiai jelenségek (Osler-csomó, Roth-folt, RF+, Glomerulonephritis)', 'Mikrobiológiai igazolás (pozitív tenyésztés, ami nem felel meg a major kritériumnak)'] },
-                { name: 'Diagnózis (Definitív)', items: ['2 Major', '1 Major + 3 Minor', '5 Minor'] }
+                { name: 'Major kritériumok (ESC 2023 Módosított Duke Kritériumok)', items: ['1. Pozitív hemokultúra: Típusos kórokozó (S. aureus, E. faecalis, Viridans strep, S. gallolyticus, HACEK) 2 külön vérvételből VAGY Coxiella burnetii I-es fázisú IgG titer >1:800', '2. Pozitív Képalkotó vizsgálat (ESC 2023): Echocardiographia (TTE/TEE) által igazolt vegetáció, tályog, pseudoaneurysma, intracardiális fistula, billentyűperforáció vagy új paravalvularis dehiszcencia VAGY Szív CT-vel igazolt paravalvularis lézió VAGY 18F-FDG PET/CT vagy SPECT/CT által igazolt abnormális patológiás aktivitás műbillentyű körül (>3 hónappal az implantáció után)', '3. Intracardiális lézió közvetlen szövettani/mikrobiológiai igazolása műtéti/autopsziás mintából'] },
+                { name: 'Minor kritériumok (ESC 2023)', items: ['Haemodynamikai prediszpozíció (műbillentyű, TAVI, billentyűplasztika, korábbi IE, cyanoticus CHD, LVAD) vagy IV droghasználat', 'Láz >38,0 °C', 'Vaszkuláris jelenségek: arterialis embólia, szeptikus tüdőinfarktus, mycoticus aneurysma, intracranialis vérzés, Janeway-léziók vagy képalkotóval igazolt vaszkuláris léziók', 'Immunológiai jelenségek: Glomerulonephritis, Osler-csomó, Roth-folt, Pozitív Rheumatoid Faktor (RF)', 'Mikrobiológiai bizonyíték: Pozitív hemokultúra, ami nem teljesíti a major kritériumot, vagy aktív fertőzés szerológiai igazolása'] },
+                { name: 'Diagnosztikus Besorolás (ESC 2023)', items: ['Definitív IE: 2 Major VAGY 1 Major + 3 Minor VAGY 5 Minor', 'Lefetséges (Possible) IE: 1 Major + 1 Minor VAGY 3 Minor', 'Kizárt IE: Alternatív diagnózis igazolt, vagy tünetek megszűnnek <4 nap AB kezelésre'] }
               ],
               laboratory: [
-                { test: 'Hemokultúra', finding: 'Pozitív (folyamatos bakterémia)', interpretation: 'DUKE major kritérium (3 szett!)' },
-                { test: 'Vérkép', finding: 'Anémia, leukocytosis', interpretation: 'Krónikus gyulladás' },
-                { test: 'CRP/We', finding: 'Emelkedett', interpretation: 'Gyulladás' }
+                { test: 'Hemokultúra (HK)', finding: 'Folyamatos bakterémia igazolása', interpretation: 'KÖTELEZŐ: Minimum 3 szett HK (aerob + anaerob) vétel 30 perces különbséggel az antibiotikum megkezdése előtt!' },
+                { test: 'Gyulladásos markerek (CRP, We, PCT)', finding: 'Kifejezetten emelkedett', interpretation: 'Aktivitás és terápiás válasz követése' },
+                { test: 'Vérkép & Vese/Májfunkció', finding: 'Normocytás anémia, leukocytosis, emelkedett kreatinin/urea', interpretation: 'Krónikus gyulladás, renalis embolisatio vagy immune-complex glomerulonephritis' }
               ],
               imaging: [
-                { modality: 'Echocardiographia (TTE/TEE)', finding: 'Vegetáció, tályog, dehiszcencia', significance: 'Elsődleges képalkotó' },
-                { modality: 'Szív CT / PET-CT'  , finding: 'Paravalvularis terjedés, embólia', significance: 'Kiegészítő (ESC 2023)' }
+                { modality: 'Echocardiographia (TTE + TEE)', finding: 'Vegetáció, tályog, pseudoaneurysma, billentyűperforáció, műbillentyű dehiszcencia', significance: 'ESC 2023: TTE minden feltételezett esetben kötelező. TEE kötelező műbillentyű, CIED, negatív TTE melletti magas klinikai gyanú vagy szövődmény esetén!' },
+                { modality: 'EKG-kapuzott Szív CT / CT Angiographia', finding: 'Paravalvularis terjedés, tályog, pseudoaneurysma, koronária érintettség, embolicus góckutatás', significance: 'ESC 2023 Major Kritérium! Különösen aortabillentyű-endocarditis és paravalvularis szövődmények gyanújában superior a TEE-nél.' },
+                { modality: '18F-FDG PET/CT vagy WBC SPECT/CT', finding: 'Fokozott FDG-felvétel a műbillentyű vagy a graft körül, szisztémás embolicus gócok azonosítása', significance: 'ESC 2023 Major Kritérium műbillentyű-endocarditisben (>3 hónappal műtét után). Transzplantált/műanyag graftok gyanújánál elengedhetetlen.' }
               ],
               microbiology: [
-                { test: 'Hemokultúra', finding: 'Kórokozó azonosítás', significance: 'Terápia alapja' },
-                { test: 'Szerológia', finding: 'Coxiella, Bartonella', significance: 'Ha hemokultúra negatív' }
+                { test: 'Klasszikus Hemokultúra', finding: 'Kórokozó azonosítás és rezisztenciavizsgálat', significance: 'Irányítja a célzott célzott antimikrobiális terápiát' },
+                { test: 'HK-negatív IE szerológia & PCR', finding: 'Coxiella burnetii, Bartonella henselae/quintana, Brucella, Tropheryma whipplei, Mycoplasma, Legionella', significance: 'Kultúra-negatív endocarditis esetén kötelező specifikus panel' }
               ]
             },
             differential: [
-              { disease: 'Reumás láz', distinguishing: 'Jones kritériumok, Strep. anamnézis' },
-              { disease: 'SLE (Libman-Sacks)', distinguishing: 'Autoantitestek, steril vegetáció' },
-              { disease: 'Antifoszfolipid szindróma', distinguishing: 'Trombózisok, labor' }
+              { disease: 'Sisztémás Lupus Erythematosus (Libman-Sacks endocarditis)', distinguishing: 'Autoantitestek (ANA, anti-dsDNA, APL), steril nem-bakteriális vegetációk' },
+              { disease: 'Maranticus endocarditis (Non-Bacterial Thrombotic Endocarditis - NBTE)', distinguishing: 'Malignus daganathoz vagy hypercoagulabilitáshoz társuló steril trombusok, hemokultúra negatív' },
+              { disease: 'Antifoszfolipid szindróma (APS)', distinguishing: 'Artériás/vénás trombózisok, lupus anticoagulans, anti-kardiolipin pozitivitás' },
+              { disease: 'Akut Reumás Láz', distinguishing: 'Jones-kritériumok, A-csoportú Streptococcus anamnézis, polyarthritis' }
             ],
             therapy: {
-              guidelines: ['ESC 2023 Guidelines for the management of endocarditis'],
+              guidelines: ['ESC 2023 Guidelines for the management of endocarditis (Eur Heart J 2023)'],
               empirical: {
                 native_community: {
-                  title: 'Empirikus: Natív billentyű vagy Késői műbillentyű (>12 hó)',
+                  title: 'Empirikus terápia: Natív billentyű vagy Késői műbillentyű (>12 hónap postop)',
                   drugs: [
-                    { drug: 'Ampicillin + (Flu)cloxacillin + Gentamicin', dose: '12g + 12g + 3mg/kg IV', duration: '4-6 hét', note: 'IB ajánlás. Gentamicin csak az első napokban/amíg a kórokozó nem ismert.' },
-                    { drug: 'Vancomycin + Gentamicin', dose: '30-60mg/kg + 3mg/kg IV', duration: '4-6 hét', note: 'IB ajánlás. Penicillin allergia esetén.' },
-                    { drug: 'Daptomycin + Gentamicin', dose: '10mg/kg + 3mg/kg IV', duration: '4-6 hét', note: 'IB ajánlás. Alternatíva.' }
+                    { drug: 'Ampicillin + (Flu)cloxacillin + Gentamicin', dose: '12 g/nap IV (4-6 részre) + 12 g/nap IV (4-6 részre) + 3 mg/kg/nap IV 1x', duration: '4-6 hét (Gentamicin csak 3-5 napig!)', note: 'ESC 2023 IB ajánlás. Gentamicin kizárólag a kezdeti napokban adható a nephrotoxicitás csökkentése érdekében.' },
+                    { drug: 'Vancomycin + Ceftriaxon', dose: '30-60 mg/kg/nap IV (2 részre) + 2 g/nap IV 1x', duration: '4-6 hét', note: 'ESC 2023 IB ajánlás. Súlyos penicillin allergia vagy MRSA gyanú esetén.' }
                   ]
                 },
                 prosthetic_early: {
-                  title: 'Empirikus: Korai műbillentyű (<12 hó) vagy Nozokomiális',
+                  title: 'Empirikus terápia: Korai műbillentyű (<12 hónap postop) vagy Nozokomiális IE',
                   drugs: [
-                    { drug: 'Vancomycin + Gentamicin + Rifampicin', dose: '30-60mg/kg + 3mg/kg + 900-1200mg IV/PO', duration: '6 hét', note: 'IB ajánlás. Rifampicin csak ha a bakterémia megszűnt (rezisztencia megelőzés).' }
+                    { drug: 'Vancomycin + Gentamicin + Rifampicin', dose: '30-60 mg/kg/nap IV + 3 mg/kg/nap IV + 900-1200 mg/nap IV/PO (2-3 részre)', duration: '6 hét (Gentamicin 2 hét, Rifampicin 6 hét)', note: 'ESC 2023 IB ajánlás. A Rifampicint csak 3-5 nappal a Vancomycin/Gentamicin megkezdése után szabad hozzáadni, miután a bakterémia megszűnt (rezisztencia elkerülése!).' }
                   ]
                 },
                 targeted_staph: {
-                  title: 'Célzott: Staphylococcus spp.',
+                  title: 'Célzott terápia: Staphylococcus spp.',
                   drugs: [
-                    { drug: 'MSSA: (Flu)cloxacillin', dose: '12g/nap IV', duration: '4-6 hét', note: 'IB ajánlás. Penicillin allergia (nem anafilaxiás): Cefazolin 6g/nap (IB).' },
-                    { drug: 'MRSA: Vancomycin', dose: '30-60mg/kg/nap IV', duration: '4-6 hét', note: 'IB ajánlás. Alternatíva: Daptomycin 10mg/kg (IB).' },
-                    { drug: 'Műbillentyű (PVE): + Rifampicin + Gentamicin', dose: 'Kiegészítés', duration: 'Rif: 6 hét, Gent: 2 hét', note: 'IB ajánlás. Rifampicin 900-1200mg, Gentamicin 3mg/kg.' }
+                    { drug: 'MSSA (Natív): (Flu)cloxacillin vagy Cefazolin', dose: '12 g/nap IV (4-6 részre) / Cefazolin 6 g/nap IV (3 részre)', duration: '4-6 hét', note: 'ESC 2023 IB ajánlás. Non-anaphylaxiás penicillin allergia esetén Cefazolin választandó.' },
+                    { drug: 'MRSA (Natív): Vancomycin vagy Daptomycin', dose: 'Vancomycin 30-60 mg/kg/nap IV / Daptomycin 10 mg/kg/nap IV 1x', duration: '4-6 hét', note: 'ESC 2023 IB ajánlás. Daptomycin magas dózisban (10 mg/kg) kiváló alternatíva.' },
+                    { drug: 'Műbillentyű (PVE Staph): (Flu)cloxacillin/Vancomycin + Rifampicin + Gentamicin', dose: 'Kombinált terápia', duration: 'Rifampicin 6 hét, Gentamicin 2 hét', note: 'ESC 2023 IB ajánlás.' }
                   ]
                 },
                 targeted_strep: {
-                  title: 'Célzott: Streptococcus spp. (Oral/Bowel)',
+                  title: 'Célzott terápia: Oralis / Enteralis Streptococcusok',
                   drugs: [
-                    { drug: 'Penicillin G vagy Amoxicillin vagy Ceftriaxon', dose: 'Standard nagy dózis', duration: '4 hét', note: 'IB ajánlás. Penicillin érzékeny törzsek.' },
-                    { drug: 'Kombináció Gentamicinnel', dose: 'Béta-laktám + 3mg/kg Gentamicin', duration: '2 hét', note: 'IB ajánlás. Csak natív billentyű, nem komplikált esetben rövidíthető.' },
-                    { drug: 'Penicillin allergia: Vancomycin', dose: '30mg/kg/nap IV', duration: '4 hét', note: 'IB ajánlás.' }
+                    { drug: 'Penicillin G / Amoxicillin / Ceftriaxon', dose: 'Penicillin 12-24 MNE/nap IV / Amoxicillin 100-200 mg/kg/nap IV / Ceftriaxon 2 g/nap IV 1x', duration: '4 hét (Natív) / 6 hét (PVE)', note: 'ESC 2023 IB ajánlás. Penicillin-érzékeny törzsekre (MIC ≤0.125 mg/L).' },
+                    { drug: 'Rövidített 2 hetes kombináció (Natív, nem komplikált)', dose: 'Ceftriaxon 2g/nap IV + Gentamicin 3mg/kg/nap IV 1x', duration: '2 hét', note: 'ESC 2023 IB ajánlás. Csak normál vesefunkciójú, nem-komplikált natív aortalis/mitralis IE-ben.' }
                   ]
                 },
                 targeted_entero: {
-                  title: 'Célzott: Enterococcus spp.',
+                  title: 'Célzott terápia: Enterococcus faecalis',
                   drugs: [
-                    { drug: 'Amoxicillin + Ceftriaxon', dose: '200mg/kg + 4g/nap IV', duration: '6 hét', note: 'IB ajánlás. E. faecalis ellen preferált (kisebb nephrotoxicitás mint gentamicinnel).' },
-                    { drug: 'Ampicillin + Gentamicin', dose: '12g + 3mg/kg IV', duration: '4-6 hét', note: 'IB ajánlás. Hagyományos terápia.' },
-                    { drug: 'Vancomycin + Gentamicin', dose: '30mg/kg + 3mg/kg IV', duration: '6 hét', note: 'IB ajánlás. Béta-laktám rezisztencia/allergia esetén.' }
+                    { drug: 'Amoxicillin + Ceftriaxon (Kettős Béta-laktám)', dose: '200 mg/kg/nap IV (4-6 részre) + 4 g/nap IV (2 részre bölünve: 2x2g!)', duration: '6 hét', note: 'ESC 2023 IB PREFERÁLT terápia! Szinergista hatás aminoglikozid nélkül, szignifikánsan kisebb nephrotoxicitással.' },
+                    { drug: 'Ampicillin + Gentamicin', dose: '12 g/nap IV + 3 mg/kg/nap IV', duration: '4-6 hét', note: 'Klasszikus alternatíva (vesefunkció szoros monitorozása mellett).' }
                   ]
                 },
                 culture_neg: {
-                  title: 'Haemocultura negatív IE',
+                  title: 'Kultúra-negatív endocarditis targeted terápia',
                   drugs: [
-                    { drug: 'Coxiella burnetii', dose: 'Doxycyclin + Hydroxychloroquin', duration: '>18 hónap', note: 'IB ajánlás. Q-láz endocarditis.' },
-                    { drug: 'Bartonella spp.', dose: 'Doxycyclin + Gentamicin (2 hét)', duration: '6 hét', note: 'IB ajánlás.' },
-                    { drug: 'Brucella spp.', dose: 'Doxycyclin + Streptomycin + Rifampicin', duration: '3-6 hónap', note: 'IB ajánlás.' }
+                    { drug: 'Coxiella burnetii (Q-láz)', dose: 'Doxycyclin 200mg/nap PO + Hydroxychloroquin 600mg/nap PO', duration: '≥18 hónap', note: 'ESC 2023 IB ajánlás. I-es fázisú IgG titer rendszeres követése.' },
+                    { drug: 'Bartonella spp.', dose: 'Doxycyclin 200mg/nap PO (6 hét) + Gentamicin 3mg/kg/nap IV (2 hét)', duration: '6 hét', note: 'ESC 2023 IB ajánlás.' }
                   ]
                 }
               },
-              targeted: 'Lásd a fenti részletes protokollokat. Stabil állapotú betegeknél (bal szívfél IE) 10-14 nap IV kezelés után orális váltás lehetséges (POET trial, IB ajánlás), ha a TEE kizárta a tályogot és a beteg kooperábilis.',
-              supportive: ['Szívelégtelenség kezelése (IB)', 'Embólia profilaxis (antikoagulálás kontraindikált lehet vérzésveszély miatt!)', 'Góckutatás (teljes test CT/PET-CT)'],
-              prevention: ['Antibiotikum profilaxis (Amoxicillin 2g vagy Clindamycin 600mg) CSAK magas rizikójú betegeknél (műbillentyű, korábbi IE, cyanoticus congenitalis vitium) fogászati beavatkozás előtt (IIa)', 'Szájhigiéné (IB)']
+              targeted: 'ESC 2023 MÉRRFÖLDKŐ (POET trial): Stabil állapotú, bal oldali IE-ben szenvedő betegeknél legalább 10-14 napos sikeres IV antibiotikum terápia után biztonságos az ORÁLIS KETTŐS ANTIBIOTIKUM VÁLTÁS (POET protokoll - IB ajánlás), amennyiben a TEE kizárta a paravalvularis szövődményeket és a beteg kooperatív!',
+              supportive: [
+                'Multidiszciplináris "Endocarditis Team" (Kardiológus, Szívsebész, Infektológus, Mikrobiológus, Képalkotó specialisták) általi kötelező gondozás (ESC 2023 Class I)',
+                'Acut Szívelégtelenség terápia (diuretikumok, vasodilatátorok, inotrop szerek)',
+                'Sebészi Indikációk (ESC 2023): 1. Sürgős/Emergency (<24h): Refrakter kardiogén shock vagy tüdőödéma akut severe regurgitáció miatt. 2. Urgens (néhány napon belül): Nem kontrollált infekció (tályog, fistula, perzisztáló bakterémia >5-7 nap AB mellett), nagy vegetáció (>10mm) embolicus eseménnyel OR izolált nagy vegetáció (>15mm).',
+                'Antikoagulálás: Újonnan indított antikoaguláció KONTRAINDIKÁLT ischaemiás stroke vagy mycoticus aneurysma esetén a haemorrhagias transzformáció magas kockázata miatt!'
+              ],
+              prevention: [
+                'Antibiotikum profilaxis (Amoxicillin 2g PO/IV vagy Cefalexin 2g / Azithromycin 500mg / Doxycyclin 100mg PO 30-60 perccel beavatkozás előtt - Clindamycin MÁR NEM JAVALLOTT!) KIZÁRÓLAG MAGAS RIZIKÓJÚ BETEGEKNÉL (Műbillentyű/TAVI, Billentyűplasztika, Korábbi IE, Cyanoticus CHD, LVAD) MAGAS RIZIKÓJÚ FOGÁSZATI BEAVATKOZÁSOK (gingiva/periapicalis szövetek manipulációja) ELŐTT (ESC 2023 Class IIa)!',
+                'Szigorú szájhigiéné és rendszeres fogászati ellenőrzés (ESC 2023 Class IB)'
+              ]
             },
             prognosis: {
-              mortality: 'Kórházi: 15-20%, 1 éves: 30-40%',
-              prognostic_scores: ['Nincs specifikus'],
-              factors: 'S. aureus, szívelégtelenség, idős kor, műbillentyű'
+              mortality: 'Kórházi mortalitás 15-20%, 1 éves mortalitás 30-40% (különösen magas S. aureus és műbillentyű-endocarditis esetén)',
+              prognostic_scores: ['ESC IE Risk Score', 'MELD / APACHE II szepszisben'],
+              factors: 'S. aureus kórokozó, idős kor, műbillentyű (PVE), szívelégtelenség jelenléte, stroke, paravalvularis tályog'
             },
+            references: [
+              '2023 ESC Guidelines for the management of endocarditis. Eur Heart J. 2023;44(39):3948-4042.',
+              'Partial Oral versus Intravenous Antibiotic Treatment of Endocarditis (POET trial). N Engl J Med. 2019;380(5):415-424.'
+            ],
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Endocarditis_ultrasound.JPG',
-                caption: 'Endocarditis vegetáció echokardiográfiás képe.',
+                caption: 'Endocarditis vegetáció echokardiográfiás képe a mitralis billentyűn.',
                 type: 'Echokardiográfia'
               }
             ]
           },
           {
             id: 'cied',
-            name: 'CIED fertőzés (pacemaker/ICD/CRT)',
-            pathogen: { type: 'Baktérium', name: '<i>Staphylococcus aureus, coagulase-negatív staphylococcusok (pl. S. epidermidis), Cutibacterium acnes</i>', gram: 'Gram-pozitív', shape: 'coccus/rodbacillus' },
+            name: 'CIED fertőzés (Pacemaker / ICD / CRT fertőzés)',
+            pathogen: { type: 'Baktérium', name: '<i>Staphylococcus aureus, Coagulase-negatív Staphylococcusok (S. epidermidis, S. hominis), Cutibacterium acnes, Gram-negatív pálcák</i>', gram: 'Gram-pozitív / Gram-negatív', shape: 'coccus / pálca' },
             epidemiology: {
-              incidence: '~1-10/1000 implantáció/év (intézményfüggő)',
-              risk_groups: ['Implantált pacemaker/ICD/CRT', 'Korábbi fertőzés', 'Diabetes', 'Immunszuppresszió', 'Bőrfertőzés, katéter', 'Rossz szöveti reakció a pocketben'],
+              incidence: '1-2% az első implantációt követően, 2-4% ggenerátorcsere vagy revízió után (a CIED beültetések számának növekedésével emelkedik)',
+              risk_groups: ['Implantált pacemakerrel, ICD-vel vagy CRT-vel élő betegek', 'Generátorcserén vagy vezeték-revízión átesettek', 'Diabetes mellitus, krónikus veseelégtelenség, immunszuppresszió', 'Szeptikus állapot vagy szisztémás bakterémia jelenléte', 'Antikoaguláns/antiaggregáns terápia melletti pocket haematoma'],
               seasonality: 'Nincs',
-              transmission: 'Hematogén/contiguous spread, implantációs vagy utólagos kontamináció'
+              transmission: 'Inokuláció az beültetési/revíziós műtét során, vagy másodlagos hematogén szóródás távoli fertőzési gócból'
             },
             pathomechanism: {
               steps: [
-                'A vezetékszerkezetek és a szubkután pocket felületén biofilm alakul ki.',
-                'A baktériumok a szövetekbe terjedhetnek, és a vezetékek körül gyulladásos reakciót váltanak ki.',
-                'A fertőzés a pocketből a vezetékekhez, a vezetékek közeli szövetekhez, esetleg endocardiumhoz is terjedhet.',
-                'A biofilm miatt a kórokozók rezisztenssé válnak a baktericid szerekre és a sebészeti tisztításra.'
+                'Kórokozó megtapadás & Biofilm: A baktériumok a műanyag szubkután pocketben és a transvenosus vezetékek (leads) felszínén adherednak, majd egy védő extracelluláris polimer mátrixot (biofilmet) hoznak létre.',
+                'Pocket fertőzés: A szubkután generátortok gyulladása, elhalása, tályogképződése vagy erosiója/eróziós áttörése a bőrön keresztül.',
+                'Intravasculáris & Endocardiális terjedés: A fertőzés a vezeték mentén a vena subclavia/cava superior irányába, a jobb pitvarba/kamrába és a tricuspidalis billentyűre terjedhet (intracardiális vezeték-vegetációk és szisztémás bakterémia).',
+                'Szeptikus Embólizáció: A jobb szívfélben lévő vezeték-vegetációkból származó szeptikus embólusok tüdőinfarktust, pulmonalis tályogokat és empyemát okoznak.'
               ],
-              virulence_factors: ['Biofilmképzés', 'Adhéziós fehérjék', 'Toxinok, szuperantigének']
+              virulence_factors: ['Biofilm képző képesség (bakteriális adhezinek)', 'Antibiotikum rezisztencia a biofilmen belül']
             },
             clinical: {
-              incubation: 'Napok-hetek',
-              onset: 'Akut vagy subakut',
+              incubation: 'Korai (<1 év postop, főleg S. aureus) vagy Késői (>1 év postop, indolens S. epidermidis / C. acnes)',
+              onset: 'Lokális gyulladásos tünetektől a súlyos szisztémás sepsisig',
               symptoms: [
-                { name: 'Pocket-fertőzés', description: 'Erythema, duzzanat, fájdalom vagy drainage a pacemaker/ICD pocketben.', severity: 'moderate' },
-                { name: 'Rendszeres tünetek', description: 'Láz, hidegrázás, fáradtság, fogyás, akár szeptikus állapot.', severity: 'severe' },
-                { name: 'Lead-/endokardiális tünetek', description: 'A vezetékekkel kapcsolatos fertőzéshez gyakran társul vezetőelégtelenség, új zörej vagy a vezetékek migrációja.', severity: 'severe' }
+                { name: 'Izolált Pocket fertőzés', description: 'Bőrpír (erythema), melegség, duzzanat, lokalizált fájdalom, ingadozó tályog, serosus vagy gennyes váladékozás, bőr-erosio és a generátor szabaddá válása.', severity: 'moderate' },
+                { name: 'Szisztémás CIED fertőzés (Lead / Endocarditis)', description: 'Ismeretlen eredetű láz, hidegrázás, éjszakai izzadás, szepszis, szeptikus tüdőembólia tünetei (mellkasi fájdalom, köhögés, haemoptoe).', severity: 'severe' }
               ],
               physical_exam: [
-                'Pocket erythema, ödéma, purulencia',
-                'Láz',
-                'Szeptikus állapot',
-                'Új szívzörej vagy keringési instabilitás'
+                'Lokális gyulladás jelei a beültetési pocket felett (erythema, fluctuatio, fistula, exulceratio)',
+                'Láz, szisztémás sepsis jelei',
+                'Új tricuspidalis regurgitációs szívzörej (ha a billentyű is érintett)',
+                'Tüdő feletti szörcenterjedés, pulmonalis embolicus jelek'
               ],
-              complications: ['Szeptikus embólia', 'Endocarditis', 'Gyógyulási zavar, vezetékfunkciós kiesés', 'Szepszis']
+              complications: [
+                'Szeptikus pulmonalis embolisatio és pulmonalis tályogok',
+                'Infectiv endocarditis (tricuspidalis vagy bal szívféli érintettség)',
+                'Sepsis és szeptikus shock',
+                'Vena cava superior szindróma / vénás trombózis'
+              ]
             },
             diagnostics: {
               criteria: [
-                { name: 'Klinikai gyanú', items: ['Pocket-fertőzés, vezeték- vagy generator-fertőzés', 'Láz, tenyésztés pozitivitás', 'Kóros CRP/We', 'Szeptikus állapot'] },
-                { name: 'Laboratórium', items: ['Hemokultúra (legalább 2 mintából)', 'CRP/We', 'Vérkép'] },
-                { name: 'Képalkotás', items: ['Pocket ultrahang/CT/MRI', 'TTE/TEE, ha endocarditis gyanú', 'PET/CT, ha a fertőzés mélysége bizonytalan'] }
+                { name: 'EHRA 2024 / ESC 2023 Konszenzus Diagnosztika', items: ['Lokális pocket infekció klinikai jelei (erythema, purulencia, erosio)', 'Pozitív hemokultúrák szisztémás tünetekkel rendelkező betegnél', 'Echocardiographiával (TEE) igazolt intracardiális vezeték-vegetáció', '18F-FDG PET/CT vagy WBC SPECT/CT által igazolt fokozott aktivitás a pocketben vagy a transvenosus vezetékek mentén'] }
               ],
               laboratory: [
-                { test: 'Hemokultúra', finding: 'Pozitív', interpretation: 'A kórokozó azonosítása alapvető' },
-                { test: 'CRP/We', finding: 'Emelkedett', interpretation: 'Gyulladás/infekció' },
-                { test: 'Vérkép', finding: 'Leukocytosis', interpretation: 'Szeptikus képlet' }
+                { test: 'Hemokultúra (HK)', finding: 'Pozitív (S. aureus, CoNS, Gram-negatívok)', interpretation: 'Minden feltételezett CIED fertőzöttnél MÁR A POCKET PUNKCIÓ ELŐTT minimum 2-3 szett HK kötelező!' },
+                { test: 'Gyulladásos markerek (CRP, PCT)', finding: 'Emelkedett', interpretation: 'Szisztémás érintettség és terápiás válasz követése' }
               ],
               imaging: [
-                { modality: 'Pocket ultrahang / CT', finding: 'Tályog, folyadék, szöveti gyulladás', significance: 'Lokális fertőzés igazolása' },
-                { modality: 'TTE/TEE', finding: 'Vegetáció, vezeték-kapcsolódás, tályog', significance: 'Endokardiális terjedés szűrése' }
+                { modality: 'Transthoracalis & Transesophagealis Echo (TTE + TEE)', finding: 'Vezeték-vegetációk, tricuspidalis billentyű érintettség, jobb pitvari/kamrai tályog', significance: 'EHRA 2024 Class I: TEE kötelező minden szisztémás tünetekkel bíró vagy HK-pozitív CIED betegnél!' },
+                { modality: '18F-FDG PET/CT vagy WBC SPECT/CT', finding: 'Patológiás FDG-felvétel a generátor pocketben vagy a vezetékek mentén', significance: 'EHRA 2024 Class I: Kulcsfontosságú bizonytalan esetekben, zsebfájdalom vagy rejtett sepsis hátterének tisztázására.' },
+                { modality: 'Mellkas CT / CTA', finding: 'Szeptikus tüdőembóliák, pulmonalis tályogok, vena cava superior trombózis', significance: 'Szeptikus szóródás igazolása' }
               ],
               microbiology: [
-                { test: 'Punkció / eltávolított eszköz tenyésztése', finding: 'Kórokozó izolálható', significance: 'Terápia és reimplantáció alapja' }
+                { test: 'Eltávolított CIED generátor & Vezetékvég kultúra', finding: 'Kórokozó és rezisztenciaprofil', significance: 'Szonikálás (sonication) után végzett tenyésztés jelentősen növeli a diagnosztikus szenzitivitást' }
               ]
             },
             differential: [
-              { disease: 'Bőrfertőzés / postoperatív gyulladás', distinguishing: 'Nincs gennyedés, nincs baktérium, gyorsabb gyógyulás' },
-              { disease: 'Endocarditis', distinguishing: 'Kardiális tünetek/vegetáció, pozitív echokardiográfia' }
+              { disease: 'Asepticus postoperatív szövődmény / Haematoma', distinguishing: 'Nincs láz, hemokultúrák negatívak, PET-CT negatív, steril punctatum' },
+              { disease: 'Superficialis sebfertőzés (Bőr/Lágyrész)', distinguishing: 'A fertőzés nem terjed a szubkután fascia és a generátortok alá (PET-CT-vel jól elkülöníthető)' }
             ],
             therapy: {
-              guidelines: ['EHRA 2024 CIED infection guidelines', 'ESC 2023 infective endocarditis guideline'],
+              guidelines: ['EHRA 2024 International Consensus Document on CIED Infection', 'ESC 2023 Guidelines for the management of endocarditis'],
               empirical: {
-                title: 'Empirikus terápia',
+                title: 'Empirikus terápia szisztémás / gyanított CIED fertőzésben',
                 drugs: [
-                  { drug: 'Vancomycin + Gentamicin + Rifampicin', dose: '30-60mg/kg + 3mg/kg + 900-1200mg IV/PO', duration: 'Indukciós kezelés; a végleges terápia a tenyésztés alapján', note: 'Ha az eszköz-fertőzést valószínűsítjük, a biofilm miatt kombináció szükséges.' }
+                  { drug: 'Vancomycin OR Daptomycin (+ Ceftazidim/Cefepim ha Gram-negatív gyanú áll fenn)', dose: 'Vancomycin 30-60 mg/kg/nap IV OR Daptomycin 9-10 mg/kg/nap IV 1x', duration: 'Eszköz eltávolításig, majd tenyésztés alapján targeted', note: 'EHRA 2024 Class I ajánlás: Daptomycin magas dózisban (9-10 mg/kg/nap) kiemelten hatékony a staphylococcalis biofilm ellen.' }
                 ]
               },
-              targeted: 'A kórokozó alapján a terápia staphilococcus ellenes, Gram-negatív ellenes vagy Cutibacterium ellenes lehet. A teljes eszköz eltávolítása és a pocket újraépítése gyakran szükséges.',
-              supportive: ['Szeptikus állapot kezelése', 'A vezetékek eltávolítása/újraimplantáció tervezése', 'Antibiotikum-profilaxis a beavatkozás előtt, ha szükséges'],
-              prevention: ['Szájhigiéné, bőrfertőzések kezelése', 'Asepsis az implantációs beavatkozások során', 'Kockázati tényezők korrekciója']
+              targeted: 'EHRA 2024 & ESC 2023 ABSZOLÚT ALAPELV (Class I): Igazolt CIED fertőzés esetén A TELJES CIED RENDSZER (generátor ÉS MINDEN transvenosus/epicardialis vezeték) TELJES KÖRŰ ELTÁVOLÍTÁSA KÖTELEZŐ! Kizárólag gyógyszeres konzervatív kezelés ELFOGADHATATLAN és magas mortalitással jár.',
+              supportive: [
+                'Percutan transvenosus lead extraction (TLE) szakértői szívsebészeti/electrophysiologiai centrumban (EHRA 2024 Class I)',
+                'Reimplantáció időzítése (EHRA 2024): Késleltetett új beültetés a kontralaterális oldalra! Izolált pocket fertőzés esetén min. 72 óra negatív HK után; szisztémás/endocardiális érintettség esetén min. 2 hét IV AB kezelés és negatív HK után!',
+                'Indokoltság felülvizsgálata: A betegek 15-20%-ában az eltávolítás után az eszköz re-implantációja egyáltalán nem szükséges!'
+              ],
+              prevention: ['Asepticus műtéti technika', 'Preoperatív szisztémás antibiotikum profilaxis (Cefazolin 2g IV 30-60 perccel a metszés előtt)', 'Antibiotikum-elúciós háló (TYRX envelope) alkalmazása magas rizikójú generátorcseréknél (EHRA 2024 Class IIa)']
             },
             prognosis: {
-              mortality: 'Súlyos esetekben magasabb, különösen szeptikémia/endocarditis esetén',
-              prognostic_scores: ['Nincs specifikus'],
-              factors: 'S. aureus, késői infekció, diabetes, immunszuppresszió, vezeték megszakadása'
+              mortality: 'Megfelelő eszköz-eltávolítással 1 éves mortalitás ~10%; eszköz-eltávolítás nélkül a mortalitás >50%!',
+              prognostic_scores: ['EHRA CIED Infection Risk Score'],
+              factors: 'S. aureus kórokozó, halasztott eszköz-eltávolítás, szisztémás endocarditis, idős kor, veseelégtelenség'
             },
+            references: [
+              'EHRA international consensus document on prevention, diagnosis, and management of cardiac implantable electronic device infections. Europace. 2024;26(2):euae025.',
+              '2023 ESC Guidelines for the management of endocarditis. Eur Heart J. 2023;44(39):3948-4042.'
+            ],
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pacemaker_implantation.jpg',
-                caption: 'Pacemaker implantáció és vezetékek.',
+                caption: 'Pacemaker generátor és transvenosus vezetékek elhelyezkedése.',
                 type: 'Képalkotás'
               }
             ]
           },
           {
             id: 'myocarditis',
-            name: 'Myocarditis',
-            pathogen: { type: 'Vírus', name: '<i>Coxsackie B, Adenovírus, Parvovírus B19</i>', gram: 'RNS/DNS vírusok', shape: 'változó' },
+            name: 'Myocarditis (Akut szívizomfehérje-gyulladás)',
+            pathogen: { type: 'Vírus / Autoimmun / Toxikus', name: '<i>Parvovirus B19, Human Herpesvirus 6 (HHV-6), Coxsackie B vírus, Adenovirus, SARS-CoV-2, Influenza, Corynebacterium diphtheriae, Borrelia burgdorferi</i>', gram: 'RNS / DNS vírusok; baktériumok', shape: 'változó' },
             epidemiology: {
-              incidence: 'Nehéz becsülni (sok enyhe eset), hirtelen szívhalál 10-20%-a fiatalokban',
-              risk_groups: ['Fiatal felnőttek', 'Férfiak', 'Immunszupprimáltak'],
-              seasonality: 'Vírusfüggő (pl. enterovírus nyár-ősz)',
-              transmission: 'Feko-orális, cseppfertőzés (kórokozó függő)'
+              incidence: '10-22/100 000 fő/év (fiatal felnőttek hirtelen szívhalálának 10-20%-áért felelős)',
+              risk_groups: ['Fiatal férfiak (<40 év)', 'Légúti vagy gastrointestinalis vírusfertőzésen frissen átesettek', 'Autoimmun betegségben szenvedők (SLE, Sarcoidosis)', 'Immunszuppresszív / Immune Checkpoint Inhibitor (ICI) daganatellenes terápiában részesülők'],
+              seasonality: 'Szezonális víruscsúcsok (Enterovírusok nyár-ősz, Influenza tél)',
+              transmission: 'Cseppfertőzés, feko-orális, vektor közvetítette (Borrelia)'
             },
             pathomechanism: {
               steps: [
-                'A fertőzés egy vírusfertőzéssel kezdődik, amely során a vírus direkt módon károsíthatja a szívizomsejteket.',
-                'A betegség későbbi, súlyosabb fázisát a szervezet túlzott immunválasza okozza. A T-sejtek és autoantitestek megtámadják a szívizomsejteket (molekuláris mimikri), ami kiterjedt gyulladást, nekrózist és szívizom-diszfunkciót eredményez.',
-                'A gyógyulás során hegesedés (fibrózis) alakulhat ki, ami dilatatív cardiomyopathiához (DCM) és krónikus szívelégtelenséghez vezethet.'
+                '1. Fázis - Akut Virális Bejutás & Direkt Nekrózis: A vírus a specifikus receptorokhoz (pl. CAR - Coxsackie-Adenovirus Receptor) kötődve bejut a szívizomsejtekbe, ahol replikációja során közvetlen cytolysist és myocyta nekrózist okoz.',
+                '2. Fázis - Immunmediált Gyulladás & Molekuláris Mimikri: A felszabaduló szívizom-antigének aktiválják a T-lymphocytákat és B-sejteket. Autoantitestek termelődnek a szívizom fehérjéi ellen (molekuláris mimikri), ami kiterjedt immunmediált gyulladást, interstitialis ödémát és mikrovaszkuláris dysfunkciót eredményez.',
+                '3. Fázis - Remodeling & Dilatatív Cardiomyopathia (DCM): Ha a gyulladásos folyamat perzisztál, kiterjedt szövetszaporulat és kollagén-hegesedés (fibrózis) alakul ki, ami a kamrák tágulatához, LVEF-csökkenéshez és krónikus Dilatatív Cardiomyopathiához (DCM) vezet.'
               ],
-              virulence_factors: ['Proteáz 2A (dystrophin hasítás)', 'Receptor kötés (CAR)']
+              virulence_factors: ['Proteáz 2A (dystrophin hasítás a szívizomsejtekben)', 'Receptor-mediált endocytosis', 'Szuperantigének és immun-evázió']
             },
             clinical: {
-              incubation: 'Vírusfertőzés után 1-2 hét',
-              onset: 'Változó (tünetmentestől a fulminánsig)',
+              incubation: '1-2 héttel a megelőző virális prodroma után',
+              onset: 'Változó: Aszimptomatikus lefolyástól az akut STEMI-szerű képen át a fulmináns kardiogén shockig',
               symptoms: [
-                { name: 'Vírusos prodroma', description: 'A szívtüneteket gyakran megelőzi egy néhány nappal korábbi lázas, légúti vagy gyomor-bélrendszeri fertőzés.', severity: 'mild' },
-                { name: 'Szívelégtelenség tünetei', description: 'Fáradékonyság, terhelésre jelentkező nehézlégzés, majd nyugalmi nehézlégzés, ödéma.', severity: 'severe' },
-                { name: 'Mellkasi fájdalom és ritmuszavar', description: 'Gyakori az atípusos, szúró mellkasi fájdalom (myopericarditis) és a szívdobogásérzés (palpitáció) a ritmuszavarok miatt.', severity: 'moderate' }
+                { name: 'Virális prodroma', description: 'Néhány nappal-héttel korábban zajlott lázas, felsőlégúti (köhögés, torokfájás) vagy gastrointestinalis (hasmenés, hányinger) epizód.', severity: 'mild' },
+                { name: 'Mellkasi fájdalom (Myopericarditis)', description: 'Atípusos vagy acut STEMI-t utánzó szúró, nyomó jellegű mellkasi fájdalom, amely gyakran perikardiális komponenssel bír.', severity: 'moderate' },
+                { name: 'Akut Szívelégtelenség tünetei', description: 'Fokozódó terhelési vagy nyugalmi dyspnoe, orthopnoe, fáradékonyság, lábszárödéma, súlyos esetben kardiogén shock.', severity: 'severe' },
+                { name: 'Palpitáció & Ritmuszavarok', description: 'Szívdobogásérzés, szédülés, syncope (kamrai extrasystolék, kamrai tachycardia, AV-blokk, hirtelen szívhalál veszélye).', severity: 'severe' }
               ],
               physical_exam: [
-                'Tachycardia (lázhoz képest aránytalan)',
-                'Szívelégtelenség jelei (S3, tágult nyaki vénák, ödéma)',
-                'Pericardialis dörzszörej (myopericarditis esetén)',
-                'Arrhythmia (extrasystolék)'
+                'Lázhoz képest aránytalan tachycardia (sinus tachycardia)',
+                'S3 / S4 galoppritmus, halk szívhangok',
+                'Szívelégtelenség jelei (tüdő feletti pangásos szörcenterjedés, tágult nyaki vénák, hepatomegaly, ödéma)',
+                'Pericardialis dörzszörej (myopericarditis társulásakor)',
+                'Perifériás hypoperfúzió jelei (hideg végtagok, oligo-anuria fulmináns formában)'
               ],
-              complications: ['Dilatatív cardiomyopathia (DCM)', 'Szívelégtelenség', 'Halálos ritmuszavar', 'Hirtelen szívhalál']
+              complications: [
+                'Fulmináns myocarditis és akut kardiogén shock',
+                'Dilatatív Cardiomyopathia (DCM) kialakulása (az esetek 20-30%-ában)',
+                'Malignus kamrai ritmuszavarok (VT / VF) és hirtelen szívhalál',
+                'Súlyos ingervezetési zavarok (komplett AV-blokk - főleg óriássejtes myocarditisben és Borreliosisban)',
+                'Intracardiális fali trombus képződés és szisztémás embolicus stroke'
+              ]
             },
             diagnostics: {
+              criteria: [
+                { name: 'ESC 2023 Cardiomyopathy Guidelines Kritériumrendszer', items: ['Gyanított Myocarditis: ≥1 Klinikai prezentáció (mellkasi fájdalom, akut dyspnoe, aritmia/syncope) + ≥1 Diagnosztikus eltérés (EKG, emelkedett Troponin, Képalkotó fali mozgászavar / CMR pozitív)', 'Definitív Myocarditis: Endomyocardialis Biopsziával (EMB) igazolt szövettani gyulladás (Dallas kritériumok) vagy CMR Lake Louise kritériumok'] }
+              ],
               laboratory: [
-                { test: 'Troponin (hs-cTn)', finding: 'Emelkedett', interpretation: 'Szívizom nekrózis (nagy szenzitivitás)' },
-                { test: 'NT-proBNP', finding: 'Emelkedett', interpretation: 'Szívelégtelenség / prognosztikus marker' },
-                { test: 'CRP/We', finding: 'Emelkedett', interpretation: 'Gyulladás' },
+                { test: 'High-sensitivity Szív Troponin (hs-cTnI / hs-cTnT)', finding: 'Kifejezetten emelkedett (szívizom nekrózis)', interpretation: 'ESC 2023: Rendkívül érzékeny marker; hiánya szinte kizárja az akut szívizom-károsodást!' },
+                { test: 'NT-proBNP / BNP', finding: 'Jelentősen emelkedett', interpretation: 'Kamrai fali feszülés és szívelégtelenség mértékének, prognózisának jelzője' },
+                { test: 'Gyulladásos paraméterek (CRP, We, PCT)', finding: 'Emelkedett', interpretation: 'Szisztémás gyulladás jelenléte' }
               ],
               imaging: [
-                { modality: 'EKG', finding: 'ST-T eltérések, AV-blokk, QRS szélesedés', significance: 'Prognosztikus érték' },
-                { modality: 'Echocardiographia', finding: 'Globális/regionális falmozgászavar, EF csökkenés, pericardialis folyadék', significance: 'Alapvizsgálat' },
-                { modality: 'Szív MRI (CMR)', finding: 'Lake Louise kritériumok (T1/T2 jelek, LGE)', significance: 'Gold standard non-invazív diagnózis (ESC 2023)' }
+                { modality: 'EKG (12-elvezetéses)', finding: 'Sinus tachycardia, ST-T eltérések (ST-eleváció vagy depresszió), T-hullám inverziók, AV-blokk, QRS szélesedés, kamrai extrasystolék', significance: 'Prognosztikus: QRS szélesedés és AV-blokk súlyos lefolyást jelez' },
+                { modality: 'Echocardiographia (TTE)', finding: 'Globális vagy regionális kamrai fali mozgászavar, LVEF csökkenés, fokozott fali vastagság (ödéma miatt), pericardialis folyadék', significance: 'ESC 2023 Class I: Elsővonalbeli vizsgálat az ACS és egyéb szívbetegségek kizárására' },
+                { modality: 'Szív MRI (Cardiovascular Magnetic Resonance - CMR)', finding: 'Frissített Lake Louise Kritériumok (2018/2023): T2-mapping/T2-Weighted kép (myocardialis ödéma) + T1-mapping/ECV/LGE (Late Gadolinium Enhancement - myocyta nekrózis/fibrózis)', significance: 'ESC 2023 GOLD STANDARD NON-INVAZÍV DIAGNOSZTIKA! Szükséges az akut gyulladás és hegesedés elkülönítésére.' },
+                { modality: 'Koronárográfia (Invasive Coronary Angiography)', finding: 'Ép, ép lumenű koronáriák (szűkület hiánya)', significance: 'KÖTELEZŐ Akut Koronária Szindróma (ACS / STEMI) kizárására magas rizikójú vagy idős betegeknél!' }
               ],
               microbiology: [
-                { test: 'Endomyocardialis biopszia (EMB)', finding: 'Gyulladás + Vírus PCR', significance: 'Gold standard. Indikált: fulmináns lefolyás, kezelésre nem reagáló HF, speciális gyanú (óriássejtes) (ESC 2023)' },
-                { test: 'Vírus szerológia', finding: 'Nem javasolt rutinszerűen', significance: 'Alacsony diagnosztikus érték (kivéve hepatitis, HIV, Borrelia)' }
+                { test: 'Endomyocardialis Biopszia (EMB) & Vírus PCR', finding: 'Hisztológia (lymphocytás, óriássejtes, eosinophil infiltrátum) + RNS/DNS vírus PCR', significance: 'ESC 2023 GOLD STANDARD DIAGNOSZTIKA! Kötelező indikációk: Fulmináns kardiogén shock, kezelésre nem reagáló progrediáló szívelégtelenség, AV-blokk/kamrai tachycardia, vagy felmerülő specifikus (óriássejtes, eosinophil, autoimmun, ICI) myocarditis gyanúja!' },
+                { test: 'Rutin Vírus Szerológia', finding: 'Szerológia (IgG/IgM)', significance: 'ESC 2023 Class III: Rutinszerűen NEM JAVALLOTT az alacsony diagnosztikus érték miatt (kivéve Hepatitis C, HIV, Borrelia, Lyme szerológia)!' }
               ]
             },
             differential: [
-              { disease: 'Akut koronária szindróma (ACS)', distinguishing: 'Koronarográfia negatív, fiatal beteg' },
-              { disease: 'Pericarditis', distinguishing: 'Troponin kevésbé emelkedett, nincs falmozgászavar' },
-              { disease: 'Szorongás/pánik', distinguishing: 'EKG/Troponin negatív' }
+              { disease: 'Akut Koronária Szindróma (ACS / STEMI / NSTEMI)', distinguishing: 'Koronárográfián coronaria occlusio/stenosis igazolható; CMR-en az LGE ischaemiás (subendocardialis/transmuralis) mintázatú' },
+              { disease: 'Takotsubo Cardiomyopathia (Stressz-indukált)', distinguishing: 'Jellegzetes csúcsi (apicalis) akinesis / ballooning coronaria stenosis nélkül, CMR-en hiányzik a klasszikus LGE nekrózis' },
+              { disease: 'Akut Pericarditis', distinguishing: 'Troponin normális vagy csak minimálisan emelkedett, nincs regionalis fali mozgászavar, CMR-en nincs szívizom-ödéma/LGE' }
             ],
             therapy: {
+              guidelines: ['2023 ESC Guidelines for the management of cardiomyopathies', 'ESC Working Group on Myocardial and Pericardial Diseases Consensus Statement'],
               empirical: {
                 outpatient: [
-                  { drug: 'Fizikai kímélet', dose: 'Sporttilalom', duration: '3-6 hónap', note: 'Kulcsfontosságú! (ESC 2023)' },
-                  { drug: 'NSAID (pl. Ibuprofen)', dose: 'Tüneti', duration: 'Rövid ideig', note: 'Csak mellkasi fájdalomra, ha EF megtartott!' }
+                  { drug: 'Szigorú Fizikai Kímélet & Sporttilalom', dose: 'Aktivitási korlátozás', duration: '3-6 hónap', note: 'ESC 2023 Class I AJÁNLÁS: A sportolás és a nehéz fizikai terhelés szigorúan TILTOTT az akut fázisban és a CMR/troponin normalizálódásáig, mert a fizikai terhelés fokozza a virális replikációt és a halálos ritmuszavarok kockázatát!' },
+                  { drug: 'NSAID (pl. Ibuprofen)', dose: '200-400 mg PO szükség esetén', duration: 'Tüneti', note: 'Kizárólag myopericarditises mellkasi fájdalomra adható, amennyben az LVEF teljesen megtartott! Csökkent LVEF esetén NSAID KONTRAINDIKÁLT.' }
                 ],
                 inpatient: [
-                  { drug: 'Szívelégtelenség terápia (GDMT)', dose: 'ACEi/ARB/ARNI + BB + MRA + SGLT2i', duration: 'Krónikus', note: 'Ha LVEF csökkent (ESC 2023)' },
-                  { drug: 'Antiarrhythmiás szerek', dose: 'Amiodaron', duration: '', note: 'Súlyos ritmuszavar esetén' }
+                  { drug: 'Szívelégtelenség Terápia (GDMT - Guideline Directed Medical Therapy)', dose: 'ACEi / ARB / ARNI + Béta-blokkoló + MRA (Spironolacton) + SGLT2-inhibitor (Dapagliflozin/Empagliflozin)', duration: 'Acut fázistól krónikusan', note: 'ESC 2023 Class I ajánlás csökkent LVEF esetén.' },
+                  { drug: 'Antiarrhythmiás terápia', dose: 'Amiodaron', duration: 'Szükség szerint', note: 'Súlyos kamrai ritmuszavarok esetén választandó szer.' }
                 ],
                 icu: [
-                  { drug: 'Mechanikus keringéstámogatás (MCS)', dose: 'VA-ECMO, Impella', duration: '', note: 'Fulmináns myocarditis / kardiogén shock esetén' },
-                  { drug: 'Nagy dózisú szteroid', dose: 'Methylprednisolon', duration: '', note: 'Csak bizonyított autoimmun/óriássejtes formában (vírus negatív!)' }
+                  { drug: 'Mechanikus Keringéstámogatás (MCS)', dose: 'VA-ECMO (Veno-Arterial Extracorporeal Membrane Oxygenation) / Impella', duration: 'Kritikus fázisban', note: 'ESC 2023 Class I: Fulmináns myocarditis és kardiogén shock esetén korai híd a felépüléshez (bridge to recovery) vagy transzplantációhoz!' }
                 ]
               },
-              targeted: 'Immunszuppresszió (Prednisolon + Azathioprin) CSAK biopsziával igazolt vírus-negatív (PCR-) limfocitás, óriássejtes vagy szarkoidózis eredetű myocarditisben (ESC 2023). Aktív vírusfertőzésnél kontraindikált!',
-              supportive: ['Szigorú fizikai kímélet (3-6 hónap) a gyulladás megszűnéséig', 'Szívelégtelenség kezelése', 'ICD implantáció (ha a gyulladás lezajlott és EF tartósan alacsony)'],
-              prevention: ['Védőoltások (Influenza, COVID, Kanyaró)', 'Higiénia']
+              targeted: 'ESC 2023 ABSZOLÚT ALAPELV: Immunszuppresszív terápia (Nagy dózisú szteroid + Azathioprin / Cyclosporin) KIZÁRÓLAG EMB-vel igazolt, VIRUS-PCR NEGATÍV (aktív virális replikációtól mentes) autoimmun myocarditisben, Óriássejtes myocarditisben (Giant Cell Myocarditis), Eosinophil myocarditisben, Cardiac Sarcoidosisban és Immune Checkpoint Inhibitor (ICI) myocarditisben engedélyezett! Aktív virális replikáció esetén az immunszuppresszió szigorúan KONTRAINDIKÁLT!',
+              supportive: [
+                'Folyamatos EKG monitorozás a korai szakaszban a malignus kamrai ritmuszavarok és AV-blokk felismerésére',
+                'ICD implantáció mérlegelése: Akut fázisban KONTRAINDIKÁLT (ideiglenes hordható mellény/Wearable Cardioverter Defibrillator adható); ICD beültetés csak a gyulladás teljes lezajlása után (>3-6 hónap) indokolt, ha az LVEF GDMT ellenére ≤35% marad (ESC 2023).'
+              ],
+              prevention: [
+                'Védőoltások (Influenza, COVID-19, Pneumococcus, Kanyaró)',
+                'Acut virális fertőzések alatt a fizikai terhelés kerülése'
+              ]
             },
             prognosis: {
-              mortality: 'Változó: sokszor spontán gyógyul, fulmináns esetben magas. 50% DCM-be megy át.',
-              prognostic_scores: ['Nincs'],
-              factors: 'Kezdeti EF, QRS szélesség, troponin szint'
+              mortality: 'Enyhe esetekben spontán gyógyulás (>50%). Fulmináns formában vagy Óriássejtes myocarditisben a korai mortalitás >40% MCS nélkül. A túlélők 20-30%-ánál krónikus DCM alakul ki.',
+              prognostic_scores: ['CMR LGE extent score', 'New York Heart Association (NYHA) stádium'],
+              factors: 'Kezdeti LVEF, QRS szélesség EKG-n, szövettani típus (Óriássejtes = legrosszabb), CMR LGE jelenléte és kiterjedése'
             },
+            references: [
+              '2023 ESC Guidelines for the management of cardiomyopathies. Eur Heart J. 2023;44(37):3503-3626.',
+              'Current state of knowledge on aetiology, diagnosis, management, and therapy of myocarditis: a position statement of the ESC Working Group. Eur Heart J. 2013;34(33):2636-2648.'
+            ],
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Histopathology_of_myocarditis_with_myocyte_necrosis.jpg',
-                caption: 'Myocarditis szövettani kép myocyta-nekrózissal.',
+                caption: 'Myocarditis szövettani képe limfocytás infiltrációval és myocyta nekrózissal.',
                 type: 'Hisztológia'
               }
             ]
           },
           {
             id: 'pericarditis',
-            name: 'Akut pericarditis',
-            pathogen: { type: 'Vírus/Idiopathiás', name: '<i>Coxsackie, Echovírus, Adenovírus, CMV, EBV</i>', gram: 'Változó', shape: '-' },
+            name: 'Akut pericarditis (Szívburokgyulladás)',
+            pathogen: { type: 'Vírus / Idiopathiás / Autoimmun', name: '<i>Coxsackie B, Echovirus, Adenovirus, EBV, CMV, Parvovirus B19, SARS-CoV-2, Mycobacterium tuberculosis</i>', gram: 'Vírusok; M. tuberculosis', shape: '-' },
             epidemiology: {
-              incidence: 'Gyakori (0.1% hospitalizáltak)',
-              risk_groups: ['Férfiak (20-50 év)', 'Post-cardiotomia', 'Autoimmun betegek'],
-              seasonality: 'Vírusfüggő',
-              transmission: 'Cseppfertőzés (vírusos)'
+              incidence: 'A mellkasi fájdalommal sürgősségi osztályra érkező betegek 0.1-0.2%-a, kardiológiai osztályos felvételek 5%-a',
+              risk_groups: ['Fiatal és középkorú férfiak (20-50 év)', 'Post-cardiotomia / Post-myocardialis infarktus szindróma (Dressler-szindróma)', 'Autoimmun és szisztémás gyulladásos betegségben szenvedők (SLE, RA, Vasculitis)', 'Urémiás és daganatos betegek'],
+              seasonality: 'Szezonális virális halmozódás (tavasz/ősz)',
+              transmission: 'Cseppfertőzés (virális etiologia esetén)'
             },
             pathomechanism: {
               steps: [
-                'A szívburok (pericardium) lemezeinek gyulladása, leggyakrabban vírusfertőzés következtében.',
-                'A gyulladás miatt a lemezek között fibrin rakódik le, ami a jellegzetes dörzszörejt okozza (száraz pericarditis).',
-                'Folyadék is termelődhet (pericardialis effúzió), ami ha gyorsan vagy nagy mennyiségben halmozódik fel, összenyomhatja a szívet és szívtamponádot okozhat.'
+                'Pericardialis Gyulladás & Fibrinlerakódás: A szívburok parietalis és visceralis lemezének gyulladása következtében a lemezek hyperaemiássá válnak, és fibrinrich exsudatum válik ki (pericarditis sicca - száraz szívburokgyulladás).',
+                'Dörzssörej & Fájdalom: A fali és fali szívburoklemezek egymáson való elmozdulása a jellegzetes systolo-diastolés pericardialis dörzszörejt és a nervus phrenicus irritációja miatt fellépő pozicionális mellkasi fájdalmat váltja ki.',
+                'Pericardialis Effúzió (Folyadékgyülem): A gyulladásos exsudatio miatt folyadék halmozódhat fel a pericardialis térben. Ha a folyadék felhalmozódása gyors vagy meghaladja a pericardium compliance-kapacitását (>150-500 ml), az megnöveli az intrapericardialis nyomást.',
+                'Pericardialis Tamponád: A magas intrapericardialis nyomás meggátolja a kamrák diastolés telődését (diastolés collapse), ami a perctérfogat drámai zuhanásához, Beck-triászhoz és kardiogén shockhoz vezet.'
               ],
-              virulence_factors: ['-']
+              virulence_factors: ['Virális immun-mediált gyulladás', 'Bakteriális/Tuberculoticus suppuratio']
             },
             clinical: {
-              incubation: 'Változó',
-              onset: 'Hirtelen',
+              incubation: 'Gyakran 1-2 héttel a virális prodroma után',
+              onset: 'Hirtelen fellépő, éles mellkasi fájdalom',
               symptoms: [
-                { name: 'Jellegzetes mellkasi fájdalom', description: 'Éles, szúró, belégzésre és fekvő helyzetben fokozódó fájdalom, amely előre dőlve enyhül.', severity: 'severe' },
-                { name: 'Egyéb tünetek', description: 'Gyakran kíséri alacsony láz, rossz közérzet és nehézlégzés.', severity: 'mild' }
+                { name: 'Tipikus Mellkasi Fájdalom', description: 'Éles, szúró, retrosternalis/praecordialis fájdalom, amely belégzésre (pleuritikus), köhögésre és hanyatt fekvő helyzetben fokozódik, míg előre dőlve és ülve kifejezetten enyhül (pathognomicus!). A fájdalom a trapezius izom szélére sugározhat (n. phrenicus irritáció).', severity: 'severe' },
+                { name: 'Kisérő általános tünetek', description: 'Alacsony láz, hidegrázás, rossz közérzet, myalgia, dyspnoe (a mély belégzési fájdalom miatti felületes légzés következtében).', severity: 'mild' }
               ],
               physical_exam: [
-                'Pericardialis dörzszörej (systolés és diastolés komponens)',
-                'Halk szívhangok (effusion)',
-                'Beck-triász (tamponádnál): hypotonia, halk szívhangok, tágult nyaki vénák'
+                'Pericardialis dörzszörej (Pathognomicus! Magas frekvenciájú, kaparó/recsegő hang a bal szegycsontszél mellett, ülő/előredőlt helyzetben, kilégzéskor hallható legjobban; 1-, 2- vagy 3-fázisú)',
+                'Halk, tompa szívhangok (jelentős pericardialis effúzió esetén)',
+                'Beck-triász (AKUT PERICARDIALIS TAMPONÁD ESETÉN): 1. Hypotonia (alacsony vérnyomás), 2. Halk szívhangok, 3. Tágult nyaki vénák (felemelt jugularis vénás nyomás)',
+                'Pulsus paradoxus (a szisztolés vérnyomás >10 Hgmm-es esése belégzés alatt tamponádnál)'
               ],
-              complications: ['Pericardialis tamponád', 'Konstriktív pericarditis', 'Recidív pericarditis (15-30%)']
+              complications: [
+                'Akut Pericardialis Tamponád (életveszélyes sürgősségi kórkép)',
+                'Recidív (Visszatérő) Pericarditis (az esetek 15-30%-ában alakul ki Colchicin hiányában)',
+                'Konstriktív Pericarditis (a szívburok heges, meszes páncéllá alakulása – purulens és TBC-s formákban a leggyakoribb)',
+                'Myopericarditis (a szívizomzat egyidejű érintettsége troponin-emelkedéssel)'
+              ]
             },
             diagnostics: {
               criteria: [
-                { name: 'Diagnózis (2 a 4-ből)', items: ['Mellkasi fájdalom (típusos)', 'Pericardialis dörzszörej', 'EKG eltérések (ST-eleváció, PR-depresszió)', 'Pericardialis folyadék (Echo)'] }
+                { name: 'ESC Diagnosztikus Kritériumok (Legalább 2 jelenléte szükséges a 4-ből)', items: ['1. Pericarditicus mellkasi fájdalom (éles, pozicionális, előredőlve enyhülő)', '2. Pericardialis dörzszörej', '3. Új diffúz konkáv ST-eleváció vagy PR-depresszió az EKG-n', '4. Új vagy fokozódó pericardialis folyadékgyülem (effúzió) Echocardiographiával/CT-vel/CMR-rel igazolva', 'Kiegészítő támogató lelet: Emelkedett gyulladásos paraméterek (CRP, We, Leukocytosis)'] }
               ],
               laboratory: [
-                { test: 'CRP/We', finding: 'Emelkedett', interpretation: 'Gyulladás aktivitása (követésre is!)' },
-                { test: 'Troponin', finding: 'Normál vagy enyhén emelkedett', interpretation: 'Myocarditis kizárása (ha magas: myopericarditis)' },
-                { test: 'Vérkép', finding: 'Leukocytosis', interpretation: 'Gyulladás' }
+                { test: 'C-Reaktív Protein (CRP)', finding: 'Kifejezetten emelkedett (>90%-ban)', interpretation: 'ESC Class I: Kötelező a diagnózisban, a terápia hatékonyságának követésében és a leépítés időzítésében!' },
+                { test: 'Szív Troponin (hs-cTn)', finding: 'Normális vagy enyhén emelkedett', interpretation: 'Ha kifejezetten emelkedett, Myopericarditis diagnózisa áll fenn (nem rontja a prognózist)' },
+                { test: 'Vérkép & Vese/Májfunkció', finding: 'Leukocytosis, urémia kizárása', interpretation: 'Etiológia tisztázása' }
               ],
               imaging: [
-                { modality: 'EKG', finding: 'Diffúz konkáv ST-eleváció, PR-depresszió (aVR-ben eleváció)', significance: 'Diagnosztikus' },
-                { modality: 'Echocardiographia', finding: 'Pericardialis folyadék', significance: 'Tamponád kizárása, diagnózis' },
-                { modality: 'Mellkas rtg', finding: 'Normál vagy "kulacs szív" (nagy folyadék)', significance: 'Egyéb okok kizárása' }
+                { modality: 'EKG (12-elvezetéses)', finding: 'Stádium I: Diffúz, konkáv (nyeregszerű) ST-eleváció szinte minden elvezetésben (kivéve aVR és V1) + PR-depresszió (aVR-ben PR-eleváció!); Stádium II: ST normalizálódik; Stádium III: Diffúz T-hullám inverziók; Stádium IV: EKG normalizálódása', significance: 'Diagnosztikus értékű' },
+                { modality: 'Transthoracalis Echocardiographia (TTE)', finding: 'Pericardialis folyadékgyülem mérése, diastolés jobb kamrai/pitvari collapse (tamponád jele!), vena cava inferior tágulat', significance: 'ESC Class I: Elsővonalbeli kötelező vizsgálat a tamponád kizárására!' },
+                { modality: 'Szív MRI (CMR)', finding: 'Pericardialis megvastagodás (>3mm), pericardialis hiperémia/ödéma T2-képeken és fali Late Gadolinium Enhancement (LGE)', significance: 'Arany standard atípusos vagy bizonytalan esetekben, valamint a gyulladás aktivitásának igazolására' }
               ],
               microbiology: [
-                { test: 'Vírus szerológia', finding: 'Nem rutinszerű', significance: 'Csak speciális esetben' },
-                { test: 'Pericardiocentesis', finding: 'Tenyésztés/PCR', significance: 'Csak tamponád vagy purulens/neoplasiás gyanú esetén' }
+                { test: 'Pericardiocentesis & Folyadék-analízis', finding: 'Tenyésztés, PCR, citológia', significance: 'Kizárólag pericardialis tamponád, gyanított purulens/bakteriális, tuberculoticus vagy malignus pericarditis esetén indikált!' }
               ]
             },
             differential: [
-              { disease: 'Akut myocarditis', distinguishing: 'Troponin emelkedés dominál, falmozgászavar' },
-              { disease: 'STEMI', distinguishing: 'Konvex ST-eleváció, reciprok depresszió, regionális' },
-              { disease: 'Tüdőembólia', distinguishing: 'Dyspnoe dominál, D-dimer, CT' }
+              { disease: 'Akut Myocardialis Infarktus (STEMI)', distinguishing: 'A STEMI-nél az ST-eleváció konvex (dóm-szerű), anatómiai érterülethez kötött (lokalizált), és reciprok ST-depresszió látható az ellenkező elvezetésekben' },
+              { disease: 'Tüdőembólia (PTE)', distinguishing: 'Dyspnoe dominál, hiányzik az EKG nyeregszerű ST-elevációja, CT angiographia igazolja a thromburst' },
+              { disease: 'Aorta Dissectio', distinguishing: 'Hirtelen fellépő, hátba sugárzó tépő fájdalom, aszimmetrikus pulzus/vérnyomás, nincsenek gyulladásos jelek' }
             ],
             therapy: {
+              guidelines: ['ESC Guidelines for the diagnosis and management of pericardial diseases'],
               empirical: {
                 outpatient: [
-                  { drug: 'Aspirin', dose: '750-1000mg 8 óránként', duration: '1-2 hét, majd leépítés', note: 'Első választás (ESC 2015)' },
-                  { drug: 'Ibuprofen', dose: '600mg 8 óránként', duration: '1-2 hét, majd leépítés', note: 'Alternatíva' },
-                  { drug: '+ Colchicin', dose: '0.5mg naponta 1x (<70kg) vagy 2x (>70kg)', duration: '3 hónap', note: 'Recidíva megelőzésére (ESC 2015)!' },
-                  { drug: 'PPI', dose: 'Standard', duration: 'NSAID mellé', note: 'Gyomorvédelem' }
+                  { drug: 'Aspirin OR Ibuprofen (Első vonalbeli Gyulladáscsökkentő)', dose: 'Aspirin 750-1000 mg PO 8 óránként (3x1g/nap) OR Ibuprofen 600 mg PO 8 óránként (3x600mg/nap)', duration: '1-2 hétig a tünetek és a CRP normalizálódásáig, majd heti leépítés (tapering)', note: 'ESC Class I ajánlás. Poszt-infarktusos pericarditisben kizárólag Aspirin választandó!' },
+                  { drug: '+ Colchicin (Kötelező Kombinációs Terápia)', dose: '0.5 mg PO naponta 1x (<70 kg testsúly) OR 0.5 mg PO naponta 2x (≥70 kg testsúly)', duration: '3 HÓNAPIG Folyamatosan', note: 'ESC Class I AJÁNLÁS: A Colchicin hozzáadása az NSAID/Aspirin terápiához felére csökkenti a recidíva kockázatát és gyorsítja a remissziót!' },
+                  { drug: 'Protonpumpa-gátló (PPI)', dose: 'Omeprazol 20 mg vagy Pantoprazol 40 mg PO naponta 1x', duration: 'Az NSAID terápia teljes ideje alatt', note: 'Gyomorvédelem' }
                 ],
                 inpatient: [
-                  { drug: 'Nincs', dose: '-', duration: '-', note: 'Csak magas rizikó esetén (láz >38, szubakut, nagy folyadék, tamponád, antikoagulált beteg)' }
+                  { drug: 'Kórházi Felvétel Indikációi (Magas Rizikójú Pericarditis)', dose: 'Monitorozás', duration: '-', note: 'Láz >38 °C, szubakut lefolyás, nagy folyadékgyülem (>20 mm), tamponád gyanúja, NSAID-ra nem reagáló állapot, oralis antikoagulálás, traumás háttér (ESC Class I).' }
                 ],
                 icu: [
-                  { drug: 'Pericardiocentesis', dose: 'Drenázs', duration: '', note: 'Tamponád esetén életmentő' }
+                  { drug: 'Sürgősségi Pericardiocentesis', dose: 'UHR-vezérelt tű-drainage', duration: 'Azonnal', note: 'ESC Class I: Életmentő beavatkozás Akut Pericardialis Tamponád esetén!' }
                 ]
               },
-              targeted: 'Szteroid (Prednisolon 0.2-0.5 mg/kg) CSAK ha NSAID/Colchicin kontraindikált, sikertelen, vagy specifikus indikáció (autoimmun).',
-              supportive: ['Fizikai kímélet (sporttilalom) a CRP normalizálódásáig (min. 3 hónap sportolóknál)'],
-              prevention: ['Colchicin adása az első epizódnál']
+              targeted: 'ESC ABSZOLÚT ALAPELV: Szteroidok (Prednisolon 0.2-0.5 mg/kg/nap) KIZÁRÓLAG MÁSODVONALBELI TERÁPIÁKÉNT adhatók, ha az NSAID/Colchicin ellenjavallt, hatástalan, vagy speciális indikáció (autoimmun, urémiás) áll fenn! A korai szteroid-kezelés kifejezetten NÖVELI a recidíva és a krónikussá válás kockázatát. Szteroid alkalmazása esetén rendkívül lassú leépítés kötelező!',
+              supportive: [
+                'Fizikai kímélet: A sportolás és az intenzív fizikai terhelés TILTOTT a tünetek megszűnéséig és a CRP normalizálódásáig (amateur betegeknek min. 3 hónap sporttilalom) (ESC Class I).',
+                'Recidív (Visszatérő) Pericarditis Terápiája: Anti-IL-1 terápia (Anakinra vagy Rilonacept) kiemelten ajánlott szteroid-dependens vagy multidrog-rezisztens visszatérő pericarditisben (ESC ajánlás).'
+              ],
+              prevention: [
+                'Colchicin adása már a legelső akut pericarditis epizódnál a recidíva megelőzésére (ESC Class I)'
+              ]
             },
             prognosis: {
-              mortality: 'Alacsony, tamponád esetén életveszélyes',
-              prognostic_scores: ['Nincs'],
-              factors: 'Recidíva gyakori, konstriktív pericarditis ritka (<1% idiopathiásnál)'
+              mortality: 'Idiopathiás/virális formában a mortalitás rendkívül alacsony (<1%); tamponád vagy purulens/malignus forma esetén magas.',
+              prognostic_scores: ['ESC Pericarditis High-Risk Features Score'],
+              factors: 'Láz >38 °C, szubakut kezdet, nagy folyadékgyülem, tamponád jelenléte, korai szteroid használat (növeli a recidívát)'
             },
+            references: [
+              '2015 ESC Guidelines for the diagnosis and management of pericardial diseases. Eur Heart J. 2015;36(42):2921-2964.',
+              'RHAPSODY trial: Rilonacept in Recurrent Pericarditis. N Engl J Med. 2021;384(1):31-41.'
+            ],
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Acute_Pericarditis_ECG.jpg',
-                caption: 'Akut pericarditis jellegzetes EKG-képe.',
+                caption: 'Akut pericarditis jellegzetes diffúz konkáv ST-elevációs EKG képe.',
                 type: 'EKG'
+              }
+            ]
+          },
+          {
+            id: 'vascular_graft_infection',
+            name: 'Vaszkuláris graft és endovaszkuláris fertőzés (VGI / EVGI)',
+            pathogen: { type: 'Baktérium / Gomba', name: '<i>Staphylococcus aureus, Coagulase-negatív Staphylococcusok (S. epidermidis), Pseudomonas aeruginosa, Enterobacterales (E. coli, Klebsiella), Candida spp.</i>', gram: 'Gram-pozitív / Gram-negatív', shape: 'coccus / pálca / gomba' },
+            epidemiology: {
+              incidence: '1-3% nyitott érműtéti graftoknál (aorto-bifemoralis, peripherias bypass), 0.5-1.5% endovaszkuláris stent-graftoknál (EVAR / TEVAR)',
+              risk_groups: ['Nyitott aortás vagy perifériás érműtéten átesett betegek', 'EVAR / TEVAR stentgraft beültetésben részesültek', 'Lágyéki (groin) bemetszéssel rendelkező betegek (femorális rekonstrukciók)', 'Diabetes mellitus, elhízás, krónikus fókusz a bőrön, ismételt érműtétek'],
+              seasonality: 'Nincs',
+              transmission: 'Műtéti inokuláció (intraoperatív kontamináció), lágyéki sebszövődmény terjedése vagy hematogén felülfertőződés'
+            },
+            pathomechanism: {
+              steps: [
+                'Inokuláció & Biofilm: A szintetikus érgraft (PTFE, Dacron) vagy stentgraft felszínére bejutó baktériumok dús biofilmet képeznek, mely védi őket az immunválasztól és az antibiotikumoktól.',
+                'Perigraft Gyulladás & Tályog: A műanyag graft körül gyulladásos exsudatio, perigraft tályog, gázgyülem és a szöveti integráció hiánya (non-incorporation) alakul ki.',
+                'Anastomosis elégtelenség & Pseudoaneurysma: A fertőzés elpusztítja a damilöltéseket és a natív érfalat az anastomosisonál, ami vérzéshez, pseudoaneurysma-képződéshez vagy aorto-entericus / aorto-bronchialis fistulához vezet.',
+                'Szeptikus Embolisatio: A graft lumenében képződő fertőzött thrombusok perifériás artériás szeptikus embóliát okoznak.'
+              ],
+              virulence_factors: ['Dacron/PTFE adhezines biofilmfelszín', 'Bakteriális proteázok és elastasok']
+            },
+            clinical: {
+              incubation: 'Korai (<2 hónap postop - leggyakrabban S. aureus, Gram-negatívok) vagy Késői (>2 hónap postop - indolens S. epidermidis, Cutibacterium)',
+              onset: 'Lappangó láztól az akut masszív életveszélyes vérzésig',
+              symptoms: [
+                { name: 'Lokális sebtünetek', description: 'Nem gyógyuló seb a lágyékban, szinusz-járat, purulens váladékozás, tapintható lüktető terülés (pseudoaneurysma) a graft lefutása felett.', severity: 'moderate' },
+                { name: 'Szisztémás tünetek', description: 'Ismeretlen eredetű láz (FUO), hidegrázás, fogyás, szepszis, emelkedett gyulladásos markerek.', severity: 'severe' },
+                { name: 'Életveszélyes Vérzés / Fistula', description: 'Aorto-entericus fistula esetén drámai gyanújel a kisfokú, önmagától szűnő gyomorbélrendszeri "herald bleeding" (előhírnök vérzés), amit kiterjedt masszív haematemesis / melaena és kardiogén shock követ!', severity: 'severe' }
+              ],
+              physical_exam: [
+                'Lágyéki sebferőtés, fistula, bőr erythema a graft felett',
+                'Lüktető terülés (pseudoaneurysma) az anastomosis helyén',
+                'Láz, szepszis jelei',
+                'Perifériás artériás szeptikus embólusok jelei (fájdalmas kék-ujj szindróma / blue toe)'
+              ],
+              complications: [
+                'Masszív catastrofalis vérzés (aorto-enteric vagy aorto-bronchial fistula ruptura)',
+                'Sepsis és szeptikus shock',
+                'Graft-thrombosis és akut végtag-ischaemia',
+                'Végtagamputáció'
+              ]
+            },
+            diagnostics: {
+              criteria: [
+                { name: 'MAGIC (Management of Aortic Graft Infection Collaboration) Kritériumok', items: ['Definitív VGI: Major Műtéti/Hisztológiai/Mikrobiológiai Kritérium OR 1 Major Képalkotó + 1 Minor Kritérium', 'Major Képalkotó Kritérium: Gázgyülem a graft körül >7 nappal műtét után, perigraft folyadékgyülem/tályog CT-vel, aorto-enteric fistula, 18F-FDG PET/CT-n fokozott intenzív perigraft FDG-felvétel', 'Minor Kritériumok: Láz, CRP emelkedés, szinusz-járat, perigraft lágyrész megvastagodás'] }
+              ],
+              laboratory: [
+                { test: 'Hemokultúra (HK)', finding: 'Pozitív (S. aureus, CoNS, Pseudomonas)', interpretation: 'Min. 2-3 szett HK vétel kötelező' },
+                { test: 'CRP / PCT / We', finding: 'Kifejezetten emelkedett', interpretation: 'Aktivitás monitorozása' }
+              ],
+              imaging: [
+                { modality: 'CT Angiographia (CTA)', finding: 'Perigraft gáz buborékok (>7-14 nappal műtét után), perigraft folyadék/tályog, fali pseudoaneurysma, perigraft lágyrész-köpeny, bélfal-kontinuitás megszakadás', significance: 'ESC / ESVS Class I: Elsővonalbeli kötelező képalkotó vizsgálat!' },
+                { modality: '18F-FDG PET/CT', finding: 'Intenzív, fókuszált vagy diffúz patológiás FDG-felvétel a vaszkuláris graft mentén ("szendvics-jel")', significance: 'ESC / ESVS Class I GOLD STANDARD: A legmagasabb szenzitivitású és specificitású vizsgálat a graft fertőzés korai vagy bizonytalan igazolására!' }
+              ],
+              microbiology: [
+                { test: 'Sebváladék / Intraoperatív graft-szonifikációs kultúra', finding: 'Kórokozó és rezisztenciaprofil', significance: 'Eltávolított graft szonikálása növeli a tenyésztési találatot' }
+              ]
+            },
+            differential: [
+              { disease: 'Asepticus perigraft fluidum / Seroma', distinguishing: 'PET-CT-n nincs fokozott FDG-felvétel, hemokultúra és punkció steril, nincsenek gyulladásos tünetek' },
+              { disease: 'Post-implantációs szindróma (EVAR után)', distinguishing: 'Acut láz és leukocytosis EVAR után fertőzés nélkül; 3-5 nap alatt magától szűnik, PET-CT negatív' }
+            ],
+            therapy: {
+              guidelines: ['ESVS 2020 Clinical Practice Guidelines on the Management of Vascular Graft and Endovascular Prosthetic Infections', 'ESC 2023 Endocarditis guidelines (endovascular component)'],
+              empirical: {
+                title: 'Empirikus antibiotikum terápia vaszkuláris graft fertőzésben',
+                drugs: [
+                  { drug: 'Vancomycin + Piperacillin-Tazobactam OR Cefepim / Meropenem', dose: 'Vancomycin 30-60 mg/kg/nap IV + Pip-Tazo 4x4.5 g/nap IV', duration: 'In situ műtéti debridementig, majd targeted', note: 'Széles spektrumú lefedettség MRSA, Pseudomonas és anaerobok ellen.' }
+                ]
+              },
+              targeted: 'Kombinált Sebészi ÉS Antimikrobiális Terápia (ESVS Class I): A fertőzött graft teljes eltávolítása, kiterjedt lokalizált debridement, és revaszkularizáció autológ vénás oltvánnyal (v. saphena magna), cryopreserved homografttal vagy rifampicinrel/ezüsttel átitatott grafttal! Teljes graft-eltávolítás után 6-12 hetes IV/PO targeted antibiotikum terápia kötelező; ha a graft nem távolítható el (high-risk beteg), ÉLETHOSSZIG TARTÓ szuppresszív antibiotikum kezelés szükséges.',
+              supportive: [
+                'Sürgős szív- és érsebészeti konzílium aorto-entericus fistula gyanújánál (herald bleeding!)',
+                'Asepticus sebkezelés, NPWT (Negatív Nyomású Sebkezelés) kiegészítő alkalmazása mérlegelhető'
+              ],
+              prevention: [
+                'Szigorú műtéti asepsis vascularis rekonstrukciók során',
+                'Perioperatív antibiotikum profilaxis (Cefazolin 2g IV) minden érműtétnél'
+              ]
+            },
+            prognosis: {
+              mortality: 'Aortás graft fertőzésben a mortalitás 25-50%, aorto-entericus fistula esetén kezeletlenül 100%! Végtagamputáció kockázata 10-25%.',
+              prognostic_scores: ['MAGIC Prognosis Score'],
+              factors: 'Aortás elhelyezkedés, Emergency műtét, P. aeruginosa / S. aureus kórokozó, aorto-enteric fistula'
+            },
+            references: [
+              'Editor\'s Choice - European Society for Vascular Surgery (ESVS) 2020 Clinical Practice Guidelines on the Management of Vascular Graft and Endovascular Prosthetic Infections. Eur J Vasc Endovasc Surg. 2020;59(3):339-399.',
+              'Management of Aortic Graft Infection Collaboration (MAGIC) criteria. J Vasc Surg. 2016;64(1):247-254.'
+            ],
+            gallery: [
+              {
+                url: 'https://commons.wikimedia.org/wiki/Special:FilePath/CT_scan_of_aortic_graft_infection.jpg',
+                caption: 'Aortás graft fertőzés CT képe perigraft gázbuborékokkal és folyadékkal.',
+                type: 'CT Képalkotás'
               }
             ]
           }
