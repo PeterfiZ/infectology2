@@ -5,385 +5,456 @@ export const urinaryTractHu: Category = {
   icon: '🚽',
   color: '#3b82f6',
   didactics: {
-    overview: 'Egyszerű felosztás: alsó húgyúti infekciók (cystitis) jellemzően rendszerszintű tünetek nélkül; felső húgyúti infekciók (pyelonephritis) lázzal, hidegrázással és deréktáji fájdalommal járnak. Alsó UTI legtöbbször ambuláns ellátást igényel; felső UTI esetén szélesebb kivizsgálás és esetenként kórházi ellátás szükséges.',
-    lower: 'Tünetek: dysuria (égő vizelés), gyakori vizelés (pollakisuria), sürgető vizelési inger (urgencia), suprapubicus fájdalom, alkalmi haematuria. Általában nincs láz vagy általános rossz közérzet.',
-    upper: 'Szisztémás jelek: magas láz (>38°C), hidegrázás, általános rossz közérzet; lokálisan: deréktáji/CVA fájdalom, hányinger/hányás. Labor: leukocytosis, CRP emelkedés; mindig vizelet- és szükség szerint vérkultúra vegyenek.',
-    diagnostics: ['1) Célzott anamnézis és vitális paraméterek', '2) Vizelet tesztcsík és mikroszkópia (pyuria, nitrit)', '3) Vizelet tenyésztés komplikált, recidiváló vagy szisztémás esetben', '4) Vérképek, CRP, kreatinin; hemokultúra lázas betegeknél', '5) Képalkotás (UH/CT) obstrukció, tályog vagy perzisztencia esetén'],
-    red_flags: ['Szepszis jelei (hypotonia, zavartság)', 'Gyorsan emelkedő kreatinin vagy obstrukció jele', 'Terhességben fellépő láz', 'Per os terápia nem kivitelezhető (súlyos hányás miatt)', 'Immunszupprimált állapot'],
-    special_populations: 'Idősek: gyakrot atipikus tünetek (zavartság, gyengeség) — alacsony küszöb a kivizsgálásra. Gyermekek: láz lehet az egyetlen jel. Terhesek: alacsony küszöb a kezelésre és követésre.',
-    teaching_tip: 'Urinális tünetek láz nélkül → cystitis valószínű. Ha láz és deréktáji fájdalom is van → pyelonephritis és emelt kivizsgálási, kezelési szint.'
+    overview: 'Az EAU 2025/2026 irányelvek alapján a húgyúti fertőzések alapvető osztályozása: lokalizált nem komplikált alsó UTI (cystitis), lokalizált nem komplikált felső UTI (pyelonephritis), szisztémás / komplikált UTI (rizikófaktorokkal, fellelhető anatómiai/funkcionális eltéréssel vagy eszközzel rendelkező betegekben), bakteriális prostatitis (akut és krónikus), valamint az aszimptomatikus bakteriuria (ASB).',
+    lower: 'Alsó UTI (Cystitis): Akut dysuria, pollakisuria, urgencia, suprapubicus fájdalom szisztémás tünetek (láz, deréktáji fájdalom) NÉLKÜL. Rutin vizelet tenyésztést az EAU 2025/2026 szerint NEM igényel.',
+    upper: 'Felső UTI (Pyelonephritis): Láz (>38°C), hidegrázás, deréktáji/CVA fájdalom, Giordano-jel, hányinger/hányás. Vizelet tenyésztés kötelező; 48-72 órás terápiás perzisztencia esetén képalkotás (CT/UH) végzendő.',
+    diagnostics: [
+      '1) Klinikai tünetek és anamnézis értékelése (láz, deréktáji fájdalom megléte/hiánya)',
+      '2) Vizelet tesztcsík és üledékvizsgálat (leukocyta esterase, nitrit, pyuria)',
+      '3) Vizelet tenyésztés (pyelonephritis, komplikált cases, recidív fertőzés, terhesség esetén kötelező)',
+      '4) Gyulladásos laborok (vérkép, CRP, procalcitonin) és vesefunkció szisztémás tüneteknél',
+      '5) Has/kismedencei UH vagy CT képalkotás obstrukció, tályog vagy terápiarezisztencia gyanújakor'
+    ],
+    red_flags: [
+      'Sepsis / Szeptikus sokk jelei (hypotonia, tachycardia, tachypnea, zavartság)',
+      'Akut húgyúti obstrukció (vesekő, prostata hypertrophia) elzáródással',
+      'Terhességben fellépő lázas pyelonephritis',
+      'Gátolt orális tolerancia (súlyos hányás)',
+      'Immunszupprimált állapot vagy nem reagáló láz >72 óra antibiotikum után'
+    ],
+    special_populations: 'Idősek: gyakran atipikus tünetek (delírium, zavartság, elesettség) - alacsony küszöb a vizsgálatra, de felesleges AB adandó aszimptomatikus bakteriuriában! Terhesek: ASB kötelezően szűrendő és kezelendő. Férfiak: a fertőzés mindig komplikáltnak vagy prostatitisnek tekintendő.',
+    teaching_tip: 'Fluorokinolonok (Ciprofloxacin, Levofloxacin) empirikus adása nem komplikált cystitisben az EAU 2025/2026 ajánlás szerint SZIGORÚAN KERÜLENDŐ a súlyos kollaterális károsodások és rezisztencia miatt!'
   },
   diseases: [
     {
       id: 'cystitis',
-      name: 'Szisztémás tünetekkel nem járó cystitis (Hólyaghurut)',
+      name: 'Akut nem komplikált cystitis (Hólyaghurut)',
       pathogen: { type: 'Baktérium', name: '<i>Escherichia coli</i> (75-95%)', gram: 'Gram-negatív', shape: 'pálca' },
       epidemiology: {
-        incidence: 'Nők 50%-a élete során legalább egyszer',
-        risk_groups: ['Szexuálisan aktív nők', 'Postmenopauza', 'Terhesség', 'Diabetes', 'Katéter viselés'],
+        incidence: 'Nők 50%-a élete során legalább egyszer, 20-30%-uknál recidív fertőzés',
+        risk_groups: ['Szexuálisan aktív premenopauzális nők', 'Postmenopauzális nők (ösztrogénhiány)', 'Terhesség', 'Új szexuális partner vagy spermicidek használata'],
         seasonality: 'Nincs',
-        transmission: 'Felszálló fertőzés (perinealis flóra)'
+        transmission: 'Felszálló (ascendáló) fertőzés a perineális és periurethrális flórából'
       },
       pathomechanism: {
         steps: [
-          'Kolonizáció: A bélbaktériumok (főleg E. coli) kolonizálják a periurethralis területet és a hüvelybemenetet.',
-          'Feljutás: A baktériumok az urethrán keresztül feljutnak a húgyhólyagba (nőknél rövidebb urethra hajlamosít).',
-          'Adhézió és Invázió: A baktériumok a P-fimbriák segítségével kitapadnak a hólyag urotheliumához, elkerülve a vizelettel való kimosódást, majd behatolnak a sejtekbe.',
-          'Gyulladás: A baktériumok szaporodása és toxinjai (pl. hemolizin) gyulladásos választ váltanak ki, ami a nyálkahártya vérbőségét, ödémáját és a tüneteket okozza.'
+          'Kolonizáció: A bélflórából származó uropathogén baktériumok (UPEC) kolonizálják a periurethrális területet és a hüvelybemenetet.',
+          'Feljutás: A baktériumok a női rövid urethrán keresztül feljutnak a húgyhólyagba.',
+          'Adhézió és Invázió: A baktériumok I-es típusú és P-fimbriák segítségével kitapadnak a hólyag urothelium uroplakin molekuláihoz, megelőzve a kimosódást, majd intracelluláris bakteriális közösségeket (IBC) képeznek.',
+          'Gyulladásos válasz: A baktériumok és endotoxinjaik heves nyálkahártya-gyulladást, hyperaemiát, ödémát és a hólyag receptorainak irritációját váltják ki.'
         ],
-        virulence_factors: ['P-fimbriae (adherencia)', 'Hemolizin', 'Aerobactin (vasfelvétel)']
+        virulence_factors: ['I-es típusú fimbria és P-fimbria (adherencia)', 'Hemolizin (hólyagfal károsítás)', 'Aerobactin (vasfelvétel)']
       },
       clinical: {
-        incubation: 'Változó',
-        onset: 'Hirtelen',
+        incubation: '1-3 nap',
+        onset: 'Akut, hirtelen kezdet',
         symptoms: [
-          { name: 'Dysuria', description: 'Vizeléskor jelentkező égető, csípő érzés, amely a gyulladt urethra és hólyagnyak irritációja miatt alakul ki.', severity: 'moderate' },
-          { name: 'Pollakisuria', description: 'Gyakori, kis mennyiségű vizeletürítés a hólyagfal irritációja és csökkent kapacitása miatt.', severity: 'moderate' },
-          { name: 'Urgencia', description: 'Hirtelen jelentkező, parancsoló vizelési inger, amelyet nehéz visszatartani (késztetéses inkontinencia veszélye).', severity: 'moderate' },
-          { name: 'Suprapubicus fájdalom', description: 'Az alhasban, a szeméremcsont felett érzett nyomás vagy fájdalom.', severity: 'mild' },
-          { name: 'Haematuria', description: 'Makroszkóposan véres vizelet (kb. 30%-ban), gyakran a vizelés végén (terminális haematuria), a vérbő nyálkahártya vérzése miatt.', severity: 'mild' }
+          { name: 'Dysuria', description: 'Égő, csípő érzés vizelés közben és végén, az irritált urethra és hólyagnyak miatt.', severity: 'moderate' },
+          { name: 'Pollakisuria', description: 'Gyakori, kis volumenű vizeletürítés a hólyagnyálkahártya fokozott ingerlékenysége és csökkent funkcencionális kapacitása miatt.', severity: 'moderate' },
+          { name: 'Urgencia', description: 'Hirtelen fellépő, parancsoló vizelési inger, melyet nehéz visszatartani (késztetéses inkontinencia léphet fel).', severity: 'moderate' },
+          { name: 'Suprapubicus fájdalom', description: 'Szeméremcsont feletti nyomás, tompa fájdalom vagy görcsös diszkomfort érzés.', severity: 'mild' },
+          { name: 'Terminális haematuria', description: 'Makroszkóposan véres vizelet a vizelés legvégén (az esetek ~30%-ában), a vérbő hólyagnyálkahártya nyomási károsodása miatt.', severity: 'mild' },
+          { name: 'Láz hiánya', description: 'Szisztémás tünetek (láz, hidegrázás, deréktáji fájdalom) HIÁNYOZNAK. Ha láz van jelen, az felső húgyúti érintettségre (pyelonephritis) utal!', severity: 'mild' }
         ],
         physical_exam: [
-          'Suprapubicus nyomásérzékenység',
-          'Láz általában NINCS (ha van, pyelonephritis gyanú!)',
-          'Vesetájék nem érzékeny',
-          'Hüvelyi folyás hiánya növeli a cystitis valószínűségét',
-          'A tünetek jellemzően az alsó húgyutakra korlátozódnak, nincs általános rossz közérzet'
+          'Suprapubicus nyomásérzékenység az alhas áttapintásakor',
+          'Láz ÉS deréktáji/CVA ütögetési érzékenység HIÁNYZIK (Giordano-jel negatív)',
+          'Hüvelyi folyás és irritáció hiánya (segít elkülöníteni a vaginistől/cervicitistől)',
+          'Normál vitális paraméterek (nincs tachycardia, nincs hypotonia)'
         ],
-        complications: ['Ascendáló pyelonephritis', 'Recidív cystitis']
+        complications: ['Ascendáló akut pyelonephritis', 'Recidiváló cystitis (rUTI)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Vizelet tesztcsík', finding: 'Leukocyta esterase+, Nitrit+', interpretation: 'Pozitív prediktív érték magas' },
-          { test: 'Vizelet üledék', finding: 'Pyuria (>10 fvs/látótér)', interpretation: 'Gyakori, de nem specifikus' }
+          { test: 'Vizelet tesztcsík', finding: 'Leukocyta esterase+, Nitrit+ (Gram-negatív pálcák jelenlétében)', interpretation: 'Tipikus klinikai tünetekkel együtt magas pozitív prediktív érték (>90%)' },
+          { test: 'Vizelet üledék', finding: 'Pyuria (>10 FVS/látótér), fvs-csoportok, fvs-cilinderek nélkül', interpretation: 'Alsó húgyúti gyulladást igazol' }
         ],
         imaging: [
-          { test: 'Nem szükséges', finding: 'Kizárólag atípusos esetekben', interpretation: 'Általános diagnózisnál nem alkalmazandó' }
+          { test: 'Képalkotás nem indikált', finding: 'Rutin nem komplikált cystitisben nem végzendő', interpretation: 'Kizárólag szövődmény vagy atípusos lefolyás esetén' }
         ],
         microbiology: [
-          { test: 'Vizelet tenyésztés', finding: '≥10^3 CFU/ml', significance: 'Csak komplikált, recidív vagy atípusos esetben javasolt (EAU 2025)' }
+          { test: 'Vizelet tenyésztés (EAU 2025/2026)', finding: '≥10^3 CFU/ml uropathogén baktérium', significance: 'Rutin nem komplikált cystitisben NEM szükséges! Indikációi: gyanított pyelonephritis, 2-4 héten belüli recidíva, atípusos tünetek, terhesség.' }
         ]
       },
       differential: [
-        { disease: 'Vaginitis', distinguishing: 'Folyás, viszketés, dysuria külső jellegű' },
-        { disease: 'Urethritis (STD)', distinguishing: 'Új partner, fokozatos kezdet, pyuria steril tenyésztéssel' },
-        { disease: 'Interstitialis cystitis', distinguishing: 'Krónikus, tenyésztés negatív' }
+        { disease: 'Vaginitis / Vulvovaginitis', distinguishing: 'Hüvelyi folyás, viszketés, a dysuria inkább külső irritációs jellegű' },
+        { disease: 'Urethritis (STD - Chlamydia, Gonorrhoea, Mycoplasma)', distinguishing: 'Lassúbb lefolyás, új szexuális partner, urethralis váladékozás, steril pyuria' },
+        { disease: 'Interstitialis cystitis / Hólyagfájdalom szindróma', distinguishing: 'Krónikus (>6 hét) fájdalom teli hólyagnál, negatív vizelettenyésztés' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Fosfomycin trometamol', dose: '3g PO', duration: 'Egyszeri dózis', note: 'Első választás (EAU 2025)' },
-            { drug: 'Nitrofurantoin', dose: '2x100mg PO', duration: '5 nap', note: 'Első választás (EAU 2025)' },
-            { drug: 'Pivmecillinam', dose: '3x400mg PO', duration: '3-5 nap', note: 'Első választás (EAU 2025)' }
+            { drug: 'Fosfomycin trometamol', dose: '3g PO', duration: '1x egyszeri dózis', note: 'EAU 2025/2026 első választandó szer (First-line)' },
+            { drug: 'Nitrofurantoin', dose: '2x100mg PO (makrokristály)', duration: '5 nap', note: 'EAU 2025/2026 első választandó szer (First-line)' },
+            { drug: 'Pivmecillinam', dose: '3x400mg PO', duration: '3-5 nap', note: 'EAU 2025/2026 első választandó szer (First-line)' },
+            { drug: 'Nitroxolin', dose: '3x250mg PO', duration: '5 nap', note: 'EAU 2025/2026 elfogadott alternatíva' }
           ],
           inpatient: [
-            { drug: 'Nem igényel kórházi kezelést', dose: '-', duration: '-', note: 'Kivéve komplikáció' }
+            { drug: 'Nem igényel kórházi felvételt', dose: '-', duration: '-', note: 'Kivételt képez a súlyos társbetegség vagy szövődmény' }
           ]
         },
-        targeted: 'Tenyésztés alapján. Fluorokinolonok (Ciprofloxacin, Levofloxacin) NEM ajánlottak empirikusan nem komplikált cystitisben!',
-        supportive: ['Bőséges folyadékfogyasztás', 'Gyakori vizeletürítés', 'NSAID fájdalomcsillapítás'],
-        prevention: ['Viselkedési: Bőséges folyadékbevitel, postcoitalis vizeletürítés', 'Nem-antibiotikus (EAU 2025): Lokális ösztrogén (postmenopauza), OM-89 immunstimuláció, D-mannóz, Hólyag instilláció', 'Antibiotikum profilaxis (utolsó lépés): Nitrofurantoin 50-100mg este vagy Fosfomycin 3g 10 naponta']
+        targeted: 'Tenyésztési eredmény alapján igazítandó. EAU 2025/2026 figyelmeztetés: Fluorokinolonok (Ciprofloxacin, Levofloxacin) és oralis 3. gen Cephalosporinok EMPIRIKUSAN KERÜLENDŐK nem komplikált cystitisben!',
+        supportive: [
+          'Nem gyógyszeres terápia: Bőséges napi folyadékfogyasztás (min. 2.0-2.5 liter vízfogyasztás a baktériumok mechanikus kimosására).',
+          'Gyakori, rendszeres vizeletürítés, a vizelet halogatásának kerülése.',
+          'Symptomaticus fájdalomcsillapítás: NSAID (pl. Ibuprofen 3x400mg PO 3-5 napig) enyhe/mérsékelt tüneteknél önmagában is mérlegelhető az antibiotikum-stewardship részeként.',
+          'Alhas melegítése (melegvizes palack, meleg borogatás) a hólyagizomzat görcsének oldására.',
+          'Fitoterápia: Medveszőlőlevél-kivonat (Uvae ursi folium) alkalmazása rövid távon enyhítheti a panaszokat.'
+        ],
+        prevention: [
+          'Életmódi megelőzés: Bőséges napi folyadékbevitel (>2L/nap), postcoitalis (szexuális aktus utáni 15 percen belüli) vizeletürítés, spermicid krémet tartalmazó óvszerek és diaphragma kerülése, elölről hátrafelé törlés székelés után.',
+          'EAU 2025/2026 Nem-antibiotikus profilaxis (Kiemelten ajánlott rUTI esetén):',
+          '1) Helyi / Topikális ösztrogénpótlás (Estriol hüvelykúp/krém): Postmenopauzális nőknél bizonyítottan helyreállítja a hüvelyi Lactobacillus flórát (Erős EAU ajánlás!).',
+          '2) Immunprofilaxis / Oralis immunostimuláció (OM-89 / Uro-Vaxom®): 1 kapszula/nap orálisan 3 hónapig (Erős EAU ajánlás rUTI megelőzésére!).',
+          '3) D-mannóz: 2g/nap orálisan gátolja az E. coli fimbriák kötődését a hólyagfalhoz.',
+          '4) Hólyag-instillációs terápia (GAG-réteg pótlás): Hialuronsav + kondroitin-szulfát (HA/CS) instilláció refrakter visszatérő cystitisben.',
+          '5) Methenamine hippurate: 2x1g/nap orálisan (ép anatómiai húgyutak esetén).',
+          '6) Probiotikumok: Vaginalis Lactobacillus crispatus pótlás.',
+          'Antibiotikum profilaxis (Kizárólag utolsó lépésként, ha a nem-antibiotikus intézkedések sikertelenek): Postcoitalis (Nitrofurantoin 50mg vagy Fosfomycin 3g aktus után) vagy kis dózisú folyamatos profilaxis 3-6 hónapig (Nitrofurantoin 50-100mg este vagy Fosfomycin 3g 10 naponta).'
+        ]
       },
       prognosis: {
-        mortality: 'Nulla',
-        factors: 'Recidíva hajlam'
+        mortality: 'Nincs mortalitás',
+        factors: 'Recidíva hajlam (20-30%-ban alakul ki visszatérő fertőzés)'
       }
     },
     {
       id: 'pyelonephritis',
-      name: 'Szisztémás tünetekkel nem járó pyelonephritis',
-      pathogen: { type: 'Baktérium', name: '<i>Escherichia coli</i> (80%)', gram: 'Gram-negatív', shape: 'pálca' },
+      name: 'Akut nem komplikált pyelonephritis (Vesemedence-gyulladás)',
+      pathogen: { type: 'Baktérium', name: '<i>Escherichia coli</i> (75-80%)', gram: 'Gram-negatív', shape: 'pálca' },
       epidemiology: {
-        incidence: 'Gyakori szövődménye a kezeletlen cystitisnek',
-        risk_groups: ['Nők', 'Terhesség', 'Obstrukció (kő, prostata)', 'Vesefejlődési rendellenesség', 'Diabetes'],
+        incidence: '10-12 eset / 10 000 nő / év; kezeletlen cystitis szövődménye is lehet',
+        risk_groups: ['Fiatal szexuálisan aktív nők', 'Terhesség', 'Anatómiai/funkcionális urológiai rendellenesség', 'Diabetes mellitus'],
         seasonality: 'Nincs',
-        transmission: 'Felszálló fertőzés (95%), ritkán hematogén'
+        transmission: 'Ascendáló fertőzés a hólyagból az uretereken át (95%), ritkán hematogén'
       },
       pathomechanism: {
         steps: [
-          'Ascendáló fertőzés: A baktériumok a hólyagból az ureteren keresztül (gyakran vesico-ureteralis reflux segítségével) feljutnak a vesemedencébe.',
-          'Parenchyma invázió: A kórokozók behatolnak a vese parenchymájába, elsősorban a velőállományba.',
-          'Gyulladásos válasz: A baktériumok ellen heves akut gyulladásos reakció indul (neutrophil infiltráció), ami szöveti ödémát, mikrotályogokat és tubulus károsodást okoz.',
-          'Szisztémás hatás: A gyulladásos mediátorok a keringésbe jutva lázat és szisztémás tüneteket váltanak ki.'
+          'Ascendálás: A kórokozók a hólyagból feljutnak az ureteren keresztül a vesemedencébe (vesico-ureteralis reflux elősegítheti).',
+          'Vese parenchyma invázió: A baktériumok elárasztják a vese vesemedencéjét és parenchymáját (különösen a velőállományt).',
+          'Akut gyulladásos válasz: Heves granulocytás infiltráció, interstitialis ödéma, mikrotályogok képződése és tubuláris necrosis alakul ki.',
+          'Szisztémás transzlokáció: A gyulladásos mediátorok (IL-1, IL-6, TNF-alpha) és endotoxinok a keringésbe jutva magas lázat, hidegrázást és szisztémás gyulladást okoznak.'
         ],
-        virulence_factors: ['P-fimbriae', 'Endotoxin', 'Kapszula']
+        virulence_factors: ['P-fimbriae (pyelonephritis-associated pili, vesesejtekhez kötődés)', 'Lipopoliszacharid (LPS endotoxin)', 'Kapszula (K-antigén)']
       },
       clinical: {
-        incubation: 'Cystitis után napokkal',
-        onset: 'Hirtelen',
+        incubation: '1-3 nap cystitis után',
+        onset: 'Hirtelen, heves kezdet',
         symptoms: [
-          { name: 'Láz és hidegrázás', description: 'Magas láz (>38°C) és hidegrázás a felső húgyúti gyulladás jellemző jelei; a vese parenchyma érintettségét és a szisztémás gyulladást jelzik.', severity: 'severe' },
-          { name: 'Deréktáji fájdalom', description: 'Tompa, folyamatos, egy- vagy kétoldali fájdalom a vesetájékon, a vese tokjának megfeszülése miatt; pontszerű érzékenység a costovertebralis szögletben.', severity: 'severe' },
-          { name: 'Gastrointestinális tünetek', description: 'Hányinger, hányás, étvágytalanság gyakori kísérője, mivel a vese gyulladása reflexes hasi panaszokat is okozhat.', severity: 'moderate' },
-          { name: 'Alsó húgyúti tünetek', description: 'Dysuria és pollakisuria gyakran jelen vannak, de a felső húgyúti fertőzés nem zárható ki a húgyúti tünetek hiánya esetén sem.', severity: 'moderate' },
-          { name: 'Atypia', description: 'Idősekben, immunszupprimáltaknál vagy cukorbetegeknél a klasszikus tünetek enyhébbek lehetnek; helyettük zavartság, gyengeség vagy általános rossz közérzet dominálhat.', severity: 'moderate' }
+          { name: 'Magas láz és hidegrázás', description: 'Hirtelen felszökő magas láz (>38.5°C), rázó hideg és profúz izzadás a vese parenchymális fertőzésének és bakterémiának a jele.', severity: 'severe' },
+          { name: 'Deréktáji / CVA fájdalom', description: 'Unilateralis vagy bilateralis tompa, állandó deréktáji fájdalom a vese tokjának (capsula fibrosa) feszülése miatt.', severity: 'severe' },
+          { name: 'Gastrointestinalis tünetek', description: 'Kifejezett hányinger, hányás, étvágytalanság, hasi diszkomfort a vese peritoneális és celiacus reflex-irritációja miatt.', severity: 'moderate' },
+          { name: 'Alsó húgyúti tünetek', description: 'Dysuria, pollakisuria és urgencia jelen lehetnek, de az esetek 30-50%-ában hiányoznak!', severity: 'moderate' },
+          { name: 'Atípusos megjelenés idősekben', description: 'Idős vagy immunszupprimált betegeknél a láz hiányozhat; helyette delírium, zavartság, elesettség és hypotonia lehet a vezető tünet.', severity: 'severe' }
         ],
         physical_exam: [
-          'Costovertebralis szöglet érzékenysége (Giordano-jel)',
-          'Láz és tachycardia',
-          'Szubrapubikus nyomásérzékenység csak alkalomszerűen',
-          'Hasi érzékenység jelen lehet, de a vizsgálat gyakran enyhe'
+          'Giordano-jel pozitív: Costovertebralis szöglet (CVA) ütögetési érzékenysége az érintett oldalon',
+          'Láz (>38.5°C), tachycardia, szisztémás rossz közérzet',
+          'Hasi érzékenység lehet jelen az azonos oldali hypochondriumban, de izomvédekezés nélkül',
+          'Dehidráció jelei (száraz nyálkahártyák, csökkent turgor)'
         ],
-        complications: ['Vese tályog', 'Perinephricus tályog', 'Urosepsis', 'Papilla necrosis', 'Krónikus veseelégtelenség (recidív)']
+        complications: ['Vesetályog / Perinephriticus tályog', 'Urosepsis és szeptikus sokk', 'Emphysematosus pyelonephritis (cukorbetegekben)', 'Vesepapilla necrosis', 'Akut vesekárosodás (AKI)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Vérkép', finding: 'Leukocytosis, balra tolt', interpretation: 'Szisztémás gyulladás' },
-          { test: 'CRP/PCT', finding: 'Jelentősen emelkedett', interpretation: 'Bakteriális infekció' },
-          { test: 'Vizelet', finding: 'Leukocyturia, bakteriuria, fehérvérsejt cilinderek', interpretation: 'Felső húgyúti eredet' },
-          { test: 'Vesefunkció', finding: 'Kreatinin emelkedhet', interpretation: 'Akut vesekárosodás' }
+          { test: 'Vérkép', finding: 'Kifejezett leukocytosis balra tolt fvs-képpel, granulocytosissal', interpretation: 'Szisztémás bakteriális fertőzés' },
+          { test: 'CRP és Procalcitonin (PCT)', finding: 'Jelentősen emelkedett (CRP >100 mg/L, PCT >0.5 ng/mL)', interpretation: 'Parenchymális gyulladást és szepszis rizikót jelez' },
+          { test: 'Vesefunkció és elektrolitok', finding: 'Kreatinin, karbamid emelkedése, eGFR csökkenése', interpretation: 'Akut vesekárosodás vagy dehidráció' },
+          { test: 'Vizelet üledék', finding: 'Kifejezett pyuria, fvs-cilinderek (leukocyta fuzió - felső húgyúti specifikus!)', interpretation: 'Vese parenchymális gyulladást igazol' }
         ],
         imaging: [
-          { modality: 'CT has/kismedence', finding: 'Vese megnagyobbodás, perinephricus folyadék, ék alakú hypodenzitás', significance: 'Gold standard a komplikációk kizárására (EAU 2025)' },
-          { modality: 'Vese UH', finding: 'Obstrukció, tályog', significance: 'Sugárterhelés mentes alternatíva' }
+          { modality: 'CT has/kismedence (EAU 2025/2026)', finding: 'Ék alakú hypodenzitás a parenchyma-fázisban, vese megnagyobbodás, perinephriticus zsíroddéma', significance: 'Gold standard képalkotás szövődmények (tályog, obstrukció) kizárására. Indikáció: 48-72 órás célszerű AB utáni lázas perzisztencia.' },
+          { modality: 'Has/vese UH', finding: 'Obstrukció (üregrendszeri tágulat), vesekő, tályog', significance: 'Elsőként választandó sugármentes képalkotás' }
         ],
         microbiology: [
-          { test: 'Vizelet tenyésztés', finding: '≥10^4 CFU/ml', significance: 'Mindig levenni! (EAU 2025)' },
-          { test: 'Hemokultúra', finding: 'Pozitív', significance: 'Kórházi felvételkor javasolt' }
+          { test: 'Vizelet tenyésztés (EAU 2025/2026)', finding: '≥10^4 CFU/ml uropathogén baktérium', significance: 'MINDIG KÖTELEZŐen levenendő az antibiotikum megkezdése előtt!' },
+          { test: 'Hemokultúra', finding: 'Bakterémia jelenléte (~15-20%-ban pozitív)', significance: 'Kórházi felvételt igénylő vagy lázas, szeptikus betegeknél kötelező (2 szett)' }
         ]
       },
       differential: [
-        { disease: 'Vesekő', distinguishing: 'Görcsös fájdalom, nincs láz (ha nincs fertőzés), hematuria dominál' },
-        { disease: 'Akut hasi kórképek', distinguishing: 'Appendicitis, cholecystitis (hasi status, UH)' },
-        { disease: 'Kismedencei gyulladás (PID)', distinguishing: 'Nőgyógyászati vizsgálat, folyás' }
+        { disease: 'Urolithiasis (Vesekő)', distinguishing: 'Görcsös, derékból gátba sugárzó fájdalom, láz hiánya (ha nincs lázas elzáródás), hematuria dominál' },
+        { disease: 'Akut appendicitis / Cholecystitis', distinguishing: 'Hasi status, peritonealitás, UH vizsgálat, nincs pyuria' },
+        { disease: 'Kismedencei gyulladás (PID) / Adnexitis', distinguishing: 'Nőgyógyászati vizsgálati érzékenység, hüvelyi váladékozás' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Cefuroxim axetil', dose: '2x500mg PO', duration: '7 nap', note: 'nincs Enterococcus elleni hatása' },
-            { drug: 'Levofloxacin', dose: '1x750mg PO', duration: '5 nap', note: 'Csak alternatíva, ha E. coli rezisztencia <10% (EAU 2025)' },
-            { drug: 'Ceftibuten/Cefixim', dose: 'PO', duration: '10 nap', note: 'Ha kinolon nem adható (kevésbé hatékony)' }
+            { drug: 'Cefuroxim axetil', dose: '2x500mg PO', duration: '7 nap', note: 'EAU 2025/2026 elsővonalbeli oralis opció' },
+            { drug: 'Cefpodoxim proxetil', dose: '2x200mg PO', duration: '10 nap', note: 'Oralis 3. gen cephalosporin alternatíva' },
+            { drug: 'Ciprofloxacin', dose: '2x500mg PO', duration: '7 nap', note: 'CSAK AKKOR adható empirikusan, ha a helyi E. coli rezisztencia <10%! (EAU 2025/2026)' },
+            { drug: 'Levofloxacin', dose: '1x750mg PO', duration: '5 nap', note: 'CSAK AKKOR adható empirikusan, ha a helyi E. coli rezisztencia <10%! (EAU 2025/2026)' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxon', dose: '1x1-2g IV', duration: '10-14 nap', note: 'Első választás' },
-            { drug: 'Ciprofloxacin', dose: '2x400mg IV', duration: '10-14 nap', note: 'Alternatíva, ha az E. coli rezisztencia <10% (EAU 2025)' }
+            { drug: 'Ceftriaxon', dose: '1x1-2g IV', duration: '10-14 nap', note: 'EAU 2025/2026 első választandó parenterális szer' },
+            { drug: 'Cefotaxim', dose: '3x2g IV', duration: '10-14 nap', note: 'Parenterális alternatíva' },
+            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '10-14 nap', note: 'Pseudomonas vagy korábbi AB kezetes esetén' },
+            { drug: 'Gentamicin / Amikacin', dose: 'Single daily dose IV', duration: '3-5 nap', note: 'Súlyos esetben kombinációs opció' }
           ]
         },
-        targeted: 'Antibiogram alapján. ESBL gyakori!',
-        supportive: ['Folyadékpótlás', 'Lázcsillapítás', 'Obstrukció megoldása (katéter, stent)'],
-        prevention: ['Cystitis megfelelő kezelése', 'Anatómiai rendellenességek korrekciója']
+        targeted: 'Antibiogram alapján korrigálandó. Ha oralis béta-laktamot választunk járóbetegként, kezdő 1x IV Ceftriaxon (1g) vagy Aminoglikozid dózis adása javasolt a sürgősségi osztályon!',
+        supportive: [
+          'Nem gyógyszeres terápia: Rehidráció parenterális (IV kristályos infúzió) vagy orális bőséges folyadékkal a renalis perfúzió fenntartására.',
+          'Szigorú ágynyugalom a lázas fázisban.',
+          'Mérsékelt láz- és fájdalomcsillapítás: Paracetamol (3-4x500-1000mg PO/IV) vagy Metamizol (3-4x500-1000mg IV/PO). NSAID-ok óvatosan adhatók a vesefunkció szoros ellenőrzése mellett.',
+          'Hányinger és hányás csillapítása (Metoclopramid 3x10mg IV/PO vagy Ondansetron 4-8mg IV) az orális folyadék- és gyógyszer-tolerancia biztosítására.',
+          'Vitális paraméterek (vérnyomás, pulzus, diurézis, véroxigén) és vesefunkció szoros monitorozása.'
+        ],
+        prevention: [
+          'Cystitis időben történő, szakszerű kezelése.',
+          'EAU 2025/2026 nem-antibiotikus megelőző intézkedések alkalmazása (bőséges folyadékbevitel, OM-89 immunprofilaxis, lokalizált ösztrogén postmenopauzában).',
+          'Esetlegesen meglévő urológiai rendellenességek (vesekő, vesico-ureteralis reflux) korrekciója.'
+        ]
       },
       prognosis: {
-        mortality: 'Alacsony (<1%), de urosepsis esetén 10-20%',
-        factors: 'Idős kor, obstrukció, rezisztens kórokozó'
+        mortality: 'Megfelelő antibiotikum mellett <1%, de urosepsis vagy emphysematosus szövődmény esetén 10-20%',
+        factors: 'Idős kor, cukorbetegség, urológiai obstrukció, multidrog-rezisztens (MDR/ESBL) kórokozó'
       }
     },
     {
       id: 'complicated_uti',
-      name: 'Szisztémás tünetekkel járó húgyúti fertőzés',
-      pathogen: { type: 'Baktérium', name: '<i>E. coli, Enterococcus, Pseudomonas, Klebsiella, Proteus</i>', gram: 'Vegyes', shape: 'Vegyes' },
+      name: 'Szisztémás / Komplikált húgyúti fertőzés',
+      pathogen: { type: 'Baktérium', name: '<i>E. coli, Enterococcus faecalis, Pseudomonas aeruginosa, Klebsiella, Proteus, Enterobacter</i>', gram: 'Vegyes', shape: 'Vegyes' },
       epidemiology: {
-        incidence: 'Gyakori kórházi környezetben és urológiai betegeknél',
-        risk_groups: ['Katéter viselők', 'Férfiak', 'Terhesek', 'Anatómiai/funkcionális rendellenesség', 'Veseelégtelenség', 'Immunszuppresszió'],
+        incidence: 'Gyakori nozokomiális környezetben, urológiai és katéterezett betegek körében',
+        risk_groups: ['Katéterezett betegek (CAUTI)', 'Férfiak', 'Terhes nők', 'Anatómiai/funkcionális rendellenességek (neurogén hólyag, obstrukció)', 'Veseelégtelenség / Transplantáció', 'Immunszuppresszió / Diabetes'],
         seasonality: 'Nincs',
-        transmission: 'Felszálló, katéter-asszociált, hematogén'
+        transmission: 'Ascendáló, katéter-asszociált (biofilm), nozokomiális terjedés'
       },
       pathomechanism: {
         steps: [
-          'Hajlamosító tényező: Anatómiai (pl. szűkület, kő) vagy funkcionális (pl. neurogén hólyag) rendellenesség, vagy idegentest (katéter) jelenléte gátolja a vizeletáramlást és a baktériumok kimosódását.',
-          'Biofilm képzés: A baktériumok (pl. Proteus, Pseudomonas) biofilm réteget képeznek a katéteren vagy kövön, ami védi őket az antibiotikumoktól és az immunrendszertől.',
-          'Perzisztencia: A fertőzés nehezen eradikálható, gyakori a rezisztens törzsek szelekciója és a visszatérő fertőzés.'
+          'Hajlamosító tényezők: Anatómiai (szűkület, kő, prostata hypertrophia) vagy funkcionális (neurogén hólyag) elzáródás, vagy idegentest (hólyagkatéter, stent) akadályozza a vizeletáramlást.',
+          'Biofilmképződés: A baktériumok (főleg Proteus, Pseudomonas, Enterococcus) ellenálló biofilmet képeznek az eszközök felületén, gátolva az antibiotikumok és az immunsejtek bejutását.',
+          'Parenchymális és szisztémás invázió: A vizeletstasis és a megnövekedett intraluminalis nyomás miatt a baktériumok könnyen a szövetekbe és a vénás keringésbe jutnak, urosepsist váltva ki.'
         ],
-        virulence_factors: ['Biofilm', 'Multidrog rezisztencia', 'Ureáz (Proteus)']
+        virulence_factors: ['Biofilm képzés', 'Multidrog-rezisztencia (ESBL, AmpC, Carbapenemase)', 'Ureáz termelés (Proteus - infektív kövek)']
       },
       clinical: {
         incubation: 'Változó',
-        onset: 'Változó (lehet tünetszegény is)',
+        onset: 'Változó (lehet tünetszegény vagy heves szisztémás)',
         symptoms: [
-          { name: 'Alsó húgyúti tünetek', description: 'Dysuria, gyakori vizelés és sürgető inger előfordulhatnak, de elmaradhatnak is; a fertőzés lokalizációja változó.', severity: 'moderate' },
-          { name: 'Felső húgyúti/jelentős lokális fájdalom', description: 'Suprapubicus vagy deréktáji fájdalom előfordulhat, különösen obstrukció vagy vesét érintő gyulladás esetén.', severity: 'moderate' },
-          { name: 'Szisztémás gyulladás', description: 'Láz, hidegrázás és tachycardia a nagyobb kórokozó-terhelésre és a szervezet általános válaszára utalnak.', severity: 'severe' },
-          { name: 'Sepsis jelek', description: 'Hypotonia, tachypnea, zavartság vagy oliguria súlyos urosepsisben fordulhat elő, ezért azonnali forráskontroll szükséges.', severity: 'severe' },
-          { name: 'Oligosymptomatikus', description: 'Katéteres, neurogén hólyaggal vagy immunszupprimált betegeknél a klasszikus tünetek gyakran hiányoznak, de a labor- és vitáljeleket figyelni kell.', severity: 'mild' }
+          { name: 'Szisztémás gyulladásos tünetek', description: 'Magas láz, hidegrázás, tachycardia, tachypnea, szisztémás intoxikáció jelei.', severity: 'severe' },
+          { name: 'Urosepsis / Szeptikus sokk jelei', description: 'Hypotonia (RR <90 mmHg), oliguria (<0.5 ml/kg/óra), zavartság, emelkedett szérum laktát szint - AZONNALI beavatkozást igényel!', severity: 'severe' },
+          { name: 'Flank / Suprapubicus fájdalom', description: 'Deréktáji vagy alhasi fájdalom jelen lehet, de katéteres vagy neurogén betegeknél gyakran hiányzik.', severity: 'moderate' },
+          { name: 'Alsó húgyúti tünetek', description: 'Dysuria, pollakisuria, vagy katéteres betegeknél zavaros, bűzös vizelet, katéter-elzáródás.', severity: 'moderate' },
+          { name: 'Oligosymptomatikus / Atípusos forma', description: 'Időseknél vagy immunszupprimáltaknál a láz hiányozhat, kizárólag a tudatállapot megváltozása (delírium) vagy vérnyomásesés jelzi a bajt.', severity: 'severe' }
         ],
         physical_exam: [
-          'Gyakran szegényes lelet, különösen katéteres betegeknél',
-          'Suprapubicus vagy vesetáji nyomásérzékenység',
-          'Katéter vagy más húgyúti eszköz jelenléte',
-          'Láz vagy hypothermia'
+          'Szisztémás tünetek: Láz vagy hypothermia (<36°C), tachycardia, tachypnea',
+          'Vesetáji érzékenység vagy suprapubicus nyomásérzékenység',
+          'Indwelling hólyagkatéter, cystostoma vagy ureterstent jelenléte',
+          'Sokk jelei: hűvös, mrványozott végtagok, megnyúlt kapilláris újratelődési idő'
         ],
-        complications: ['Urosepsis', 'Vese tályog', 'Veseelégtelenség', 'Recidíva', 'Katéter elzáródás']
+        complications: ['Urosepsis és szeptikus sokk (mortalitás 20-40%)', 'Akut vesekárosodás (AKI)', 'Vesetályog, perinephriticus tályog', 'Ureter elzáródás és pyonephros']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Vizelet tenyésztés', finding: 'Nők: ≥10^5 CFU/ml, Férfiak: ≥10^4 CFU/ml', interpretation: 'Diagnosztikus küszöbértékek (EAU 2025)' },
-          { test: 'Katéteres vizelet', finding: '≥10^4 CFU/ml', interpretation: 'Szignifikáns bakteriuria' },
-          { test: 'Vesefunkció', finding: 'Kreatinin ellenőrzés', interpretation: 'Obstrukció/károsodás' }
+          { test: 'Vizelet tenyésztés (EAU 2025/2026)', finding: 'Nők: ≥10^5 CFU/ml, Férfiak / Katéteresek: ≥10^4 CFU/ml szignifikáns csíraszám', interpretation: 'KÖTELEZŐen elvégzendő az antibiotikum megkezdése előtt!' },
+          { test: 'Hemokultúra', finding: 'Pozitív baktérium izolálás (2 szett)', interpretation: 'Minden szisztémás/lázas esetben kötelező' },
+          { test: 'Gyulladásos marker & Vesefunkció', finding: 'Procalcitonin (PCT), CRP, vérkép, kreatinin, laktát, vérgáz', interpretation: 'Sepsis és organikus diszfunkció monitorozása' }
         ],
         imaging: [
-          { modality: 'CT urográfia', finding: 'Anatómiai/funkcionális rendellenesség', significance: 'KÖTELEZŐ a hajlamosító tényező tisztázására' }
+          { modality: 'CT Urográfia / Has-kismedence CT (EAU 2025/2026)', finding: 'Húgyúti obstrukció, psoas/vesetályog, infektív kő, emphysematosus elváltozás', significance: 'KÖTELEZŐ az anatómiai hajlamosító tényező és forrás tisztázására!' },
+          { modality: 'Sürgősségi Vese UH', finding: 'Üregrendszeri tágulat (hydronephrosis), pyonephros', significance: 'AZONNAL elvégzendő elzáródás kizárására' }
         ],
         microbiology: [
-          { test: 'Tenyésztés + Rezisztencia', finding: 'Esszenciális', significance: 'Célzott kezelés alapja' }
+          { test: 'Célzott tenyésztés + Antibiogram', finding: 'MDR kórokozók gyanúja', significance: 'Célzott terápia alapja' }
         ]
       },
       differential: [
-        { disease: 'Nem komplikált UTI', distinguishing: 'Nincs rizikófaktor/anatómiai hiba' },
-        { disease: 'Prostatitis', distinguishing: 'Rectalis vizsgálat' }
+        { disease: 'Nem komplikált pyelonephritis', distinguishing: 'Nincs anatómiai/funkcionális eltérés, nincsenek rizikófaktorok' },
+        { disease: 'Akut prostatitis', distinguishing: 'RDV során kifejezetten érzékeny, duzzadt prosztata' },
+        { disease: 'Egyéb szeptikus gócpontok (Intraabdominalis sepsis, Pneumonia)', distinguishing: 'Anamnézis, képalkotók, fizokális lelet' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Cefuroxim axetil', dose: '2x500mg PO', duration: '7-14 nap', note: 'nincs Enterococcus elleni hatása' },
-            { drug: 'Ciprofloxacin', dose: '2x500-750mg PO', duration: '7-14 nap', note: 'Csak ha nincs fluorokinolon kezelés az elmúlt 6 hónapban és az E. coli rezisztencia <10% (EAU 2025)' },
-            { drug: 'Levofloxacin', dose: '1x750mg PO', duration: '7-14 nap', note: 'Alternatíva, ha E. coli rezisztencia <10% (EAU 2025)' }
+            { drug: 'Cefuroxim axetil', dose: '2x500mg PO', duration: '7-14 nap', note: 'Kizárólag enyhe, szisztémás tünetektől mentes esetben' },
+            { drug: 'Ciprofloxacin / Levofloxacin', dose: 'PO', duration: '7-14 nap', note: 'Csak ha az elmúlt 6 hónapban nem kapott kinolont és a helyi rezisztencia <10% (EAU 2025/2026)' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxon', dose: '1x1-2g IV', duration: '10-14 nap', note: 'Súlyos esetben' },
-            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '10-14 nap', note: 'Pseudomonas gyanú/korábbi AB kezelés' },
-            { drug: 'Carbapenem (Meropenem)', dose: '3x1g IV', duration: '10-14 nap', note: 'ESBL rizikó vagy szeptikus shock' }
+            { drug: 'Ceftriaxon', dose: '1x2g IV', duration: '7-14 nap', note: 'Elsővonalbeli opció' },
+            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '7-14 nap', note: 'Pseudomonas gyanú vagy nozokomiális fertőzés' },
+            { drug: 'Cefepime', dose: '2x2g IV', duration: '7-14 nap', note: 'Pseudomonas és Enterobacteriaceae lefedés' },
+            { drug: 'Meropenem', dose: '3x1g IV', duration: '7-14 nap', note: 'ESBL rizikó vagy szeptikus sokk' },
+            { drug: 'Ceftazidim/avibactam vagy Cefiderocol', dose: 'IV', duration: '7-14 nap', note: 'Multidrog-rezisztens (MDR) Gram-negatív törzsek esetén (EAU 2025/2026)' }
           ]
         },
-        targeted: 'Tenyésztés alapján korrekció. Obstrukció megoldása (katéter csere, stent, nefrosztóma) elengedhetetlen!',
-        supportive: ['Folyadékpótlás', 'Lázcsillapítás'],
-        prevention: ['Katéter care (zárt rendszer, mielőbbi eltávolítás)', 'Obstrukció megszüntetése', 'Aszimptomatikus bakteriuria kezelésének kerülése']
+        targeted: 'FORRÁSKONTROLL (Source Control) AZONNAL: Az elzáródott húgyutak tehermentesítése (percutan nephrostomia vagy DJ stent behelyezése), az indwelling hólyagkatéter azonnali cseréje vagy eltávolítása elengedhetetlen!',
+        supportive: [
+          'Nem gyógyszeres terápia / Intenzív forráskontroll: Asepticus urológiai szervizelés, a záró katéter haladéktalan cseréje (az elrévült biofilm megelőzésére).',
+          'Sepsis protokoll szerinti szupportív terápia: Agresszív IV folyadékpótlás (kristályos oldatok 30 ml/kg az első 3 órában) a keringés stabilizálására.',
+          'Vasopressor terápia (Noradrenalin) ha a szisztolés vérnyomás és MAP <65 mmHg marad infúzió ellenére.',
+          'Urológiai invazív intervenció (tályog percutan drainage, kő eltávolítása).',
+          'Oszigénterápia, szoros intenzív osztályos monitorozás (diurézis, laktát, vérgáz).'
+        ],
+        prevention: [
+          'Hólyagkatéterezés indikációjának szigorú korlátozása (amint lehet, el kell távolítani!).',
+          'Zárt katéterrendszer fenntartása, aszeptikus katéterápolás.',
+          'Aszimptomatikus bakteriuria felesleges antibiotikum-kezelésének KERÜLÉSE (megelőzi a rezisztens törzsek szelekcióját).',
+          'Anatómiai obstrukciók korai urológiai megoldása.'
+        ]
       },
       prognosis: {
-        mortality: 'Urosepsis esetén 10-30%',
-        factors: 'Alapbetegség, rezisztencia, forrás kontroll'
+        mortality: 'Urosepsis és szeptikus sokk esetén 20-40%',
+        factors: 'Idős kor, nem megfelelő forráskontroll, multidrog-rezisztens (MDR) kórokozó, súlyos alapbetegség'
       }
     },
     {
       id: 'prostatitis',
-      name: 'Bakteriális prostatitis',
-      pathogen: { type: 'Baktérium', name: '<i>E. coli, Klebsiella, Proteus, Enterococcus, Pseudomonas</i>', gram: 'Vegyes', shape: 'Vegyes' },
+      name: 'Akut és krónikus bakteriális prostatitis',
+      pathogen: { type: 'Baktérium', name: '<i>E. coli</i> (80%), <i>Klebsiella, Proteus, Pseudomonas aeruginosa, Enterococcus faecalis</i>', gram: 'Vegyes', shape: 'Vegyes' },
       epidemiology: {
-        incidence: 'Férfiak 50%-a tapasztal tüneteket élete során',
-        risk_groups: ['Fiatal/középkorú férfiak', 'Katéterezés', 'Húgyúti beavatkozás (biopszia)', 'HIV', 'Diabetes'],
+        incidence: 'Férfiak 10-15%-a tapasztal életében prosztatagyulladást; az urológiai vizitek 8%-a',
+        risk_groups: ['Fiatal és középkorú férfiak', 'Prosztata biopszián átesettek', 'Hólyagkatéterezett betegek', 'BPH / kismedencei diszfunkció', 'HIV / Cukorbetegség'],
         seasonality: 'Nincs',
-        transmission: 'Felszálló (reflux), hematogén, lymphogen, direkt (biopszia)'
+        transmission: 'Ascendáló fertőzés fertőzött vizeletből (intraprostaticus reflux), transrectalis biopszia utáni direkt inokuláció'
       },
       pathomechanism: {
         steps: [
-          'Fertőzés útja: Leggyakrabban a fertőzött vizelet intraprostaticus refluxa révén jutnak be a baktériumok a prosztata mirigyeibe.',
-          'Gyulladás: Akut esetben a mirigyekben ödéma és mikroabscessusok alakulnak ki, ami a prosztata duzzanatát és feszülését okozza.',
-          'Krónikussá válás: A baktériumok biofilmet képezhetnek a prosztataköveken vagy a mirigycsatornákban, ami fenntartja a visszatérő fertőzéseket.'
+          'Intraprostaticus reflux: A fertőzött vizelet a prosztatacsatornákba jut a vizelés alatti magas intraurethralis nyomás hatására.',
+          'Akut gyulladás (NIH Type I - ABP): A mirigyállományban kifejezett stroma-ödéma, leukocytás infiltráció és mikroabscessusok keletkeznek, ami a prosztata fokozott feszüléséhez és duzzanatához vezet.',
+          'Krónikussá válás (NIH Type II - CBP): A baktériumok áthatolhatatlan biofilmet képeznek a prosztatakövek (prostatolithiasis) vagy a mirigyek felületén, ami megakadályozza az antibiotikumok bejutását és relapszáló fertőzéseket okoz.'
         ],
-        virulence_factors: ['Biofilm', 'Anatómiai elhelyezkedés (rossz AB penetráció)']
+        virulence_factors: ['Biofilm képzés', 'Szerkezeti barrier (a prosztata tok és a savas pH gátolja sok antibiotikum penetrációját)']
       },
       clinical: {
-        incubation: 'Változó',
-        onset: 'Akut (ABP) or Krónikus (CBP)',
+        incubation: '1-7 nap',
+        onset: 'Akut (ABP) hirtelen; Krónikus (CBP) elhúzódó, perzisztáló (>3 hónap)',
         symptoms: [
-          { name: 'Akut: Szisztémás tünetek', description: 'Hirtelen kezdődő magas láz, hidegrázás, izomfájdalom, rossz közérzet (influenzaszerű kezdet).', severity: 'severe' },
-          { name: 'Fájdalom', description: 'Jellegzetes gáttájéki (perinealis), végbél körüli, alhasi fájdalom, amely sugározhat a herékbe és a péniszbe.', severity: 'moderate' },
-          { name: 'LUTS (Alsó húgyúti tünetek)', description: 'Kifejezett dysuria, pollakisuria, sürgető vizelési inger.', severity: 'moderate' },
-          { name: 'Obstrukció', description: 'A duzzadt prosztata összenyomja a húgycsövet, ami nehezített vizelést, vékony sugarat vagy teljes vizeletretenciót okozhat.', severity: 'severe' },
-          { name: 'Húgyúti retenció', description: 'Az elzáródás súlyos szakaszában a hólyag megtelhet, ami akut vizeletvisszatartáshoz és suprapubicus diszkomforthoz vezethet.', severity: 'severe' },
-          { name: 'Krónikus tünetek', description: 'Enyhébb, visszatérő panaszok: kismedencei diszkomfort, visszatérő húgyúti fertőzések, fájdalmas ejakuláció.', severity: 'mild' }
+          { name: 'Akut: Szisztémás lázas tünetek', description: 'Hirtelen felszökő magas láz, hidegrázás, izomfájdalmak, influenzaszerű rossz közérzet.', severity: 'severe' },
+          { name: 'Pelvicus / Gáttáji fájdalom', description: 'Jellegzetes gáttáji (perinealis), rectalis, suprapubicus fájdalom, amely a péniszbe, herékbe vagy deréktájba sugárzik.', severity: 'severe' },
+          { name: 'LUTS és vizelési nehézség', description: 'Kifejezett dysuria, pollakisuria, urgencia, gyenge vizeletsugár, szakaszos vizelés.', severity: 'moderate' },
+          { name: 'Akut vizeletretenció', description: 'A duzzadt prosztata teljes elzáródást okozhat, mely heves alhasi fájdalommal és a hólyag túltágulásával jár.', severity: 'severe' },
+          { name: 'Krónikus: Visszatérő panaszok', description: 'Elhúzódó kismedencei/gáttáji diszkomfort, fájdalmas ejakuláció, recidiváló hólyaghurutok ugyanazon kórokozóval.', severity: 'moderate' }
         ],
         physical_exam: [
-          'Rectalis digitális vizsgálat (RDV):',
-          'Akut: Duzzadt, meleg, EXTRÉM érzékeny prosztata (Masszázs TILOS - bacteremia veszély!)',
-          'Krónikus: Lehet normál vagy enyhén érzékeny, nem duzzadt',
-          'Teltség a húgyhólyagban visszatartás esetén'
+          'Rectalis Digitális Vizsgálat (RDV):',
+          'AKUT PROSTATITISNÉL: A prosztata duzzadt, forró, feszülő, EXTRÉMEN ÉRZÉKENY. A PROSZTATAMASSZÁZS AKUTBAN SZIGORÚAN TILOS (bakterémia és urosepsis kockázata!)',
+          'KRÓNIKUS PROSTATITISNÉL: A prosztata lehet normál tapintatú, tömöttebb vagy enyhén érzékeny.',
+          'Hólyag-distensio tapintható suprapubicus tompulattal vizeletretenció esetén.'
         ],
-        complications: ['Prosztata tályog', 'Urosepsis', 'Krónikussá válás', 'Epididymitis', 'Vizeletretenció', 'Szexuális diszfunkció']
+        complications: ['Prosztatatályog (főleg cukorbetegekben)', 'Urosepsis', 'Akut vizeletretenció', 'Epididymo-orchitis', 'Krónikus kismedencei fájdalom szindróma (CPPS) kialakulása']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Vizelet', finding: 'Pyuria, bakteriuria', interpretation: 'Pozitív' },
-          { test: 'Vérkép/CRP', finding: 'Emelkedett (Akut)', interpretation: 'Szisztémás gyulladás' },
-          { test: 'PSA', finding: 'Emelkedett', interpretation: 'Gyulladás miatt (akut fázisban nem rák diagnosztika!)' }
+          { test: 'Vizelet üledék és tesztcsík', finding: 'Kifejezett pyuria, bakteriuria', interpretation: 'Húgyúti fertőzést igazol' },
+          { test: 'Gyulladásos panell', finding: 'Magas leukocytosis, jelentősen emelkedett CRP', interpretation: 'Akut szisztémás gyulladást jelez' },
+          { test: 'Szérum PSA', finding: 'Kifejezetten emelkedett (akár >20-50 ng/mL)', interpretation: 'Akut gyulladás következménye! Akut fázisban daganatszűrésre NEM alkalmas, a gyulladás gyógyulása után 2-3 hónappal kontrollálandó.' }
         ],
         imaging: [
-          { modality: 'Transrectalis UH (TRUS)', finding: 'Tályog (hipoechogén terület)', significance: 'Csak ha nem javul a kezelésre vagy tályog gyanú' }
+          { modality: 'Transrectalis UH (TRUS) vagy Kismedencei MRI', finding: 'Prosztatatályog (hipoechogén/folyadéknívót mutató terület)', significance: 'Indikált, ha 48-72 órás antibiotikum terápia ellenére a beteg lázas marad vagy kismedencei tályog gyanúja merül fel.' }
         ],
         microbiology: [
-          { test: 'Akut: Vizelet tenyésztés', finding: 'Középsugár vizelet', significance: 'Prosztata masszázs TILOS!' },
-          { test: 'Krónikus: Meares-Stamey teszt', finding: '4 pohár próba vagy 2 pohár próba (masszázs előtt/után)', significance: 'Gold standard (EAU 2025)' }
+          { test: 'Akut: Középsugár vizelet tenyésztés (EAU 2025/2026)', finding: '≥10^4 CFU/ml uropathogén', significance: 'Prosztatamasszázs nélkül vétel!' },
+          { test: 'Krónikus: Meares-Stamey 4-pohár próba vagy 2-pohár próba (EAU 2025/2026)', finding: 'Masszázs utáni vizeletben (VB3) vagy prosztataváladékban (EPS) 10-szeres baktériumszám a masszázs előtti vizelethez (VB2) képest', significance: 'Gold standard a krónikus bakteriális prostatitis diagnosztikájában!' }
         ]
       },
       differential: [
-        { disease: 'Cystitis', distinguishing: 'Nincs láz, nincs prosztata érzékenység' },
-        { disease: 'BPH', distinguishing: 'Nincs infekciós jel, lassú progresszió' },
-        { disease: 'Krónikus kismedencei fájdalom szindróma (CPPS)', distinguishing: 'Negatív tenyésztés, krónikus fájdalom' }
+        { disease: 'BPH (Jóindulatú prosztata megnagyobbodás)', distinguishing: 'Lassú progresszió, nincsenek infekciós jelek, nincs láz' },
+        { disease: 'Krónikus kismedencei fájdalom szindróma (CPPS / NIH Type III)', distinguishing: 'Hasonló fájdalmas tünetek, de a vizelet és prosztataváladék tenyésztése tartósan negatív' },
+        { disease: 'Prosztata carcinoma', distinguishing: 'Tenyésztés negatív, kemény göb az RDV során, akut tünetek hiánya' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Levofloxacin', dose: '1x500-750mg PO', duration: '2-4 hét (Akut), 4-6 hét (Krónikus)', note: 'EAU 2025: Első választás (jó penetráció)' },
-            { drug: 'Ciprofloxacin', dose: '2x500mg PO', duration: '2-4 hét (Akut), 4-6 hét (Krónikus)', note: 'EAU 2025: Első választás' },
-            { drug: 'Cotrimoxazol', dose: '2x960mg PO', duration: '4-6 hét', note: 'Alternatíva' }
+            { drug: 'Fluoroquinolones (Levofloxacin / Ciprofloxacin)', dose: 'Levofloxacin 1x500mg PO vagy Ciprofloxacin 2x500mg PO', duration: 'Akutban 2-4 hét, Krónikusban 4-6 hét!', note: 'EAU 2025/2026 első választandó szerek a kiváló prosztata-szöveti penetráció miatt' },
+            { drug: 'Trimethoprim-sulfamethoxazole (Cotrimoxazol)', dose: '2x960mg PO', duration: '4-6 hét', note: 'Alternatív választás krónikus prostatitisben' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxon', dose: '1-2g IV', duration: '14 nap', note: 'Súlyos akut esetben (majd PO váltás)' },
-            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '', note: 'Urosepsis/Pseudomonas gyanú' }
+            { drug: 'Ceftriaxon', dose: '1x2g IV', duration: 'A láztalanságig, majd orális váltás', note: 'Súlyos akut prostatitis esetén' },
+            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: 'A láztalanságig', note: 'Szeptikus vagy nozokomiális esetben' }
           ]
         },
-        targeted: 'Fluorokinolonok (első választás krónikusban). Makrolidok (Chlamydia gyanú). Fosfomycin (MDR - vitatott penetráció).',
-        supportive: ['NSAID fájdalomcsillapítás', 'Alfa-blokkoló (Tamsulosin) a tünetek enyhítésére', 'Suprapubicus katéter (retenció esetén, urethralis kerülendő akut gyulladásban!)'],
-        prevention: ['Húgyúti fertőzések korai kezelése', 'Prosztata biopszia profilaxis: Célzottan (rectalis törlet alapján) vagy Fosfomycin/Ceftriaxon (Fluorokinolon kerülendő!)']
+        targeted: 'Antibiogram alapján igazítandó. EAU 2025/2026: A gyógyszerelést a prosztatastroma jó lipid-oldékony penetrációja szerint kell kiválasztani (Fluorokinolonok, Cotrimoxazol, Doxycyclin).',
+        supportive: [
+          'Nem gyógyszeres terápia / Vizelet elvezetés: Akut vizeletretenció esetén SUPRAPUBICUS KATÉTER (Cystostoma) behelyezése kötelező! Transurethralis katéter behelyezése AKUT PROSTATITISBEN KERÜLENDŐ, mert súlyosbítja a gyulladást és bakterémiát okozhat.',
+          'Alfa-1 adrenoreceptor blokkolók (pl. Tamsulosin 0.4mg PO qd vagy Silodosin 8mg PO qd) adása a prosztatanyak ellazítására, a vizeletáramlás megkönnyítésére és a fájdalom csökkentésére.',
+          'Gyulladás- és fájdalomcsillapítás: NSAID (Ibuprofen 3x400mg PO vagy Celecoxib) 2-4 hétig.',
+          'Meleg ülőfürdő (38-40°C), gáttáji terhelés csökkentése (speciális lyukas ülőpárna használata).',
+          'Székrekedés megelőzése (székletlágyítók), bőséges folyadékbevitel.'
+        ],
+        prevention: [
+          'Húgyúti fertőzések korai, teljes kezelése.',
+          'EAU 2025/2026 ajánlás prosztata biopszia előtt: Célzott rectalis törlet alapú profilaxis, vagy Ceftriaxon / Fosfomycin profilaxis (Fluorokinolon monoterápia kerülendő a magas rezisztencia miatt!).'
+        ]
       },
       prognosis: {
-        mortality: 'Akut: alacsony (de sepsis veszély); Krónikus: életminőséget rontja, nehezen gyógyul (recidíva gyakori)',
-        factors: 'Biofilm, rezisztencia, anatómia, CPPS átmenet'
+        mortality: 'Akut esetben alacsony megfelelő terápia mellett, de urosepsis alakulhat ki; Krónikus esetben a mortalitás nulla, de az életminőséget jelentősen rontja',
+        factors: 'Prosztat Tályog kialakulása, biofilm képződés, CPPS-be való átmenet'
       }
     },
     {
       id: 'asymptomatic_bacteriuria',
-      name: 'Aszimptomatikus bakteriuria',
-      pathogen: { type: 'Baktérium', name: '<i>E. coli, Enterococcus, GBS</i>, stb.', gram: 'Változó', shape: 'Változó' },
+      name: 'Aszimptomatikus bakteriuria (ASB)',
+      pathogen: { type: 'Baktérium', name: '<i>Escherichia coli, Enterococcus faecalis, Klebsiella, Proteus, Streptococcus agalactiae (GBS)</i>', gram: 'Vegyes', shape: 'Vegyes' },
       epidemiology: {
-        incidence: 'Gyakori (nők 3-5%, idősek 10-50%, katéteresek 100%)',
-        risk_groups: ['Idősek', 'Diabetes', 'Katéter viselés', 'Terhesség'],
+        incidence: 'Egészséges nők: 3-5%, Cukorbetegek: 9-27%, Idős otthoni lakók: 25-50%, Tartós katéteresek: 100%',
+        risk_groups: ['Idősek', 'Cukorbetegek', 'Hólyagkatétert viselők', 'Terhes nők', 'Gerincvelő-sérültek'],
         seasonality: 'Nincs',
-        transmission: 'Endogén kolonizáció'
+        transmission: 'Endogén uropathogén kolonizáció'
       },
       pathomechanism: {
         steps: [
-          'Kolonizáció: A baktériumok megtelepednek a húgyutakban, de hiányoznak belőlük azok a virulenciafaktorok (pl. specifikus fimbriák), amelyek szöveti inváziót vagy gyulladást váltanának ki.',
-          'Kommensalizmus: A baktériumok és a gazdaszervezet között egyfajta egyensúlyi állapot alakul ki, tünetek nélkül.',
-          'Védő hatás: A kolonizáló törzsek versenghetnek a virulensebb kórokozókkal, így akár védő hatásuk is lehet.'
+          'Kommensalis kolonizáció: Alacsony virulenciájú baktériumtörzsek (melyekből hiányoznak a P-fimbriák és hemolizinek) kolonizálják a hólyagot anélkül, hogy szöveti inváziót vagy gyulladásos kaszkádot indítanának el.',
+          'Immun-tolerancia: A gazdaszervezet immunrendszere és a baktériumok között stabil egyensúlyi állapot alakul ki.',
+          'Protektív protekció: A kolonizáló avirulens törzsek jelenléte megelőzheti a virulensebb, agresszív felülfertőző kórokozók megtelepedését!'
         ],
-        virulence_factors: ['Csökkent virulencia']
+        virulence_factors: ['Hiányzó vagy csökkent virulenciafaktorok (fimbria-hiány)']
       },
       clinical: {
         incubation: '-',
         onset: 'Tünetmentes',
         symptoms: [
-          { name: 'Tünetmentes', description: 'A betegnek nincsenek húgyúti panaszai (nincs dysuria, nincs láz, nincs fájdalom). A bakteriuria véletlenszerű lelet.', severity: 'mild' }
+          { name: 'Klinikai tünetek teljes HIÁNYA', description: 'A betegnek SEMMILYEN alsó vagy felső húgyúti panaszai (nincs dysuria, nincs pollakisuria, nincs láz, nincs deréktáji fájdalom) nincsenek. A bakteriuria kizárólag szűrővizsgálat vagy egyéb okból végzett vizeletvizsgálat melléklelete.', severity: 'mild' }
         ],
         physical_exam: [
-          'Negatív',
-          'Zavaros/bűzös vizelet önmagában nem diagnosztikus és nem igényel kezelést!',
+          'Teljesen negatív fizokális lelet',
+          'A zavaros vagy bűzös vizelet ÖNMAGÁBAN NEM tünet és NEM képez diagnosztikai vagy kezelési indikációt! (EAU 2025/2026)',
           'Nincs suprapubicus vagy vesetáji nyomásérzékenység'
         ],
-        complications: ['Felesleges antibiotikum kezelés -> rezisztencia', 'Pyelonephritis (csak terhességben/beavatkozásnál rizikó)']
+        complications: ['Indokolatlan antibiotikum használat -> Multidrog-rezisztencia és Clostridioides difficile colitis kialakulása!', 'Pyelonephritis és koraszülés kockázata TERHESSÉGBEN (ezért terhesekben kezelendő!)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Vizelet tenyésztés', finding: '≥10^5 CFU/ml (ugyanaz a törzs)', interpretation: 'Nők: 2 konzekutív minta, Férfiak: 1 minta (EAU 2025)' },
-          { test: 'Katéteres minta', finding: '≥10^5 CFU/ml', interpretation: 'Egy minta elegendő' },
-          { test: 'Vizelet üledék', finding: 'Pyuria gyakran jelen van', interpretation: 'NEM indikál kezelést tünetek nélkül!' }
+          { test: 'Vizelet tenyésztés (EAU 2025/2026)', finding: 'Nőkben: ≥10^5 CFU/ml ugyanazon baktériumfajjal 2 EGYMÁST KÖVETŐ tiszta középsugár vizeletmintában; Férfiakban: ≥10^5 CFU/ml 1 tiszta középsugár mintában', interpretation: 'Szigorú diagnosztikus kritérium aszimptomatikus esetben' },
+          { test: 'Katéteres vizeletminta', finding: '≥10^5 CFU/ml 1 mintában', interpretation: 'Bakteriuria jelenléte' },
+          { test: 'Vizelet üledék', finding: 'Pyuria gyakran jelen van', interpretation: 'A pyuria jelenléte önmagában NEM INDOKOLJA az antibiotikum adását tünetmentes betegnél! (EAU 2025/2026)' }
         ],
         imaging: [
-          { test: 'Nem szükséges', finding: 'Nincs javallat', interpretation: 'Kizárólag tünetmentes esetben nem végzendő' }
+          { test: 'Képalkotás nem indikált', finding: 'Nincs javallat', interpretation: 'Kizárólag tünetmentes esetben nem végzendő' }
         ],
         microbiology: [
-          { test: 'Tenyésztés', finding: 'Pozitív', significance: 'Csak szűrési indikáció esetén (pl. terhesség, urológiai beavatkozás)' }
+          { test: 'Vizelet tenyésztés szűrés', finding: 'Kizárólag indokolt betegcsoportban szűrendő', significance: 'KIZÁRÓLAG Terhességben és nyálkahártya-sérüléssel járó urológiai műtétek előtt szűrendő!' }
         ]
       },
       differential: [
-        { disease: 'Cystitis', distinguishing: 'Tünetek jelenléte (dysuria, urgencia)' },
-        { disease: 'Kontamináció', distinguishing: 'Alacsony csíraszám, vegyes flóra' }
+        { disease: 'Symptomaticus cystitis / pyelonephritis', distinguishing: 'Subjektív panaszok (dysuria, urgencia) vagy szisztémás tünetek (láz) jelenléte' },
+        { disease: 'Vizeletminta kontamináció', distinguishing: 'Alacsonyabb csíraszám (<10^5 CFU/ml), vegyes flóra' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'NINCS kezelés', dose: '-', duration: '-', note: 'Főszabály (idősek, cukorbetegek, katéteresek esetén sem!)' }
+            { drug: 'NINCS ANTIBIOTIKUM KEZELÉS (DO NOT TREAT)', dose: '-', duration: '-', note: 'EAU 2025/2026 szigorú ajánlás: NEM KEZELENDŐ! (Kivételt képez a terhesség és az urológiai műtét)' }
           ],
           inpatient: [
-            { drug: 'NINCS kezelés', dose: '-', duration: '-', note: 'Kivéve indikációk' }
+            { drug: 'NINCS ANTIBIOTIKUM KEZELÉS (DO NOT TREAT)', dose: '-', duration: '-', note: 'Nincs kezelési indikáció idős, cukorbeteg, katéteres vagy transzplantált betegeknél sem' }
           ]
         },
-        targeted: 'Csak indikáció esetén (Terhesség, Urológiai beavatkozás nyálkahártya sérüléssel). Terhességben: Fosfomycin, Nitrofurantoin, Cephalosporin.',
-        supportive: ['Felvilágosítás (vizelet szaga/színe nem indokol AB-t)'],
-        prevention: ['Felesleges szűrés és kezelés kerülése', 'Katéter care']
+        targeted: 'KIZÁRÓLAGOS KEZELÉSI INDIKÁCIÓK (EAU 2025/2026):\n1) TERHES NŐK: Szűrendő a 12-16. héten. Kezelendő célzottan tenyésztés alapján (Fosfomycin 3g 1x, Nitrofurantoin 2x100mg 5 nap, Cefalexin vagy Amoxicillin-clavulanat 5-7 nap) a pyelonephritis és koraszülés megelőzésére.\n2) NYÁLKAHÁRTYA-SÉRÜLÉSSEL JÁRÓ UROLÓGIAI MŰTÉTEK ELŐTT (pl. TURP, ureteroscopia): A beavatkozás előtt célzott antibiotikum adandó.\nTILOS KEZELNI: Postmenopauzális nőkben, cukorbetegekben, tartós katéteresekben, időskorúakban, gerincvelő-sérültekben!',
+        supportive: [
+          'Nem gyógyszeres terápia / Edukáció: A beteg és a szakápolók tájékoztatása, hogy a vizelet szaga, színe vagy zavarossága önmagában nem fertőzés és nem igényel antibiotikumot.',
+          'Bőséges folyadékfogyasztás, a hólyag rendszeres kiürítése.',
+          'A felesleges vizelet-szűrőtesztek leállítása a nem indikált betegcsoportokban.'
+        ],
+        prevention: [
+          'Az indokolatlan vizeletvizsgálatok és tenyésztések KERÜLÉSE.',
+          'A hólyagkatéterek mielőbbi eltávolítása.',
+          'Megfelelő higiéné és hidráció.'
+        ]
       },
       prognosis: {
-        mortality: 'Nem növeli a mortalitást kezeletlenül sem',
-        factors: '-'
+        mortality: 'Az aszimptomatikus bakteriuria nem növeli a mortalitást, kezelése kifejezetten káros a szövődmények és rezisztencia miatt',
+        factors: 'Terhességben kezeletlenül pyelonephritishez és koraszüléshez vezethet'
       }
     }
   ]

@@ -1155,106 +1155,114 @@ window._abdomen_hu = window._abdomen_hu || {
       {
         id: 'hav',
         name: 'Hepatitis A',
-        pathogen: { type: 'Vírus', name: '<i>Hepatitis A vírus</i> (HAV)', gram: 'ssRNS, Picornaviridae', shape: 'ikozahidrális' },
+        pathogen: { type: 'Vírus', name: '<i>Hepatitis A vírus</i> (HAV)', gram: 'ssRNS (+), Picornaviridae (Hepatovirus nemzetség)', shape: 'ikozahidrális, burok nélküli (székletben) / kvázi-burokkal rendelkező (eHAV, vérben)' },
         epidemiology: {
-          incidence: 'Endémiás területeken magas, fejlett országokban sporadikus/járványos',
-          risk_groups: ['Utazók', 'MSM', 'Intravénás droghasználók', 'Hajléktalanok'],
+          incidence: 'Alacsony jövedelmű országokban magas endémia (gyermekkori átfertőzöttség); fejlett országokban alacsony, de sporadikus kitörések (MSM, élelmiszer, utazók).',
+          risk_groups: ['Endémiás területekre utazók', 'Férfiakkal szexuáló férfiak (MSM)', 'Intravénás droghasználók', 'Hajléktalanok', 'Krónikus májbetegek (HBV, HCV, MASLD, cirrhosis)', 'Szennyvízkezelő és laboratóriumi dolgozók'],
           seasonality: 'Nincs',
-          transmission: 'Feko-orális (szennyezett víz, élelmiszer), szexuális (orális-anális)'
+          transmission: 'Feko-orális (szennyezett ivóvíz, élelmiszer, tenger gyümölcsei), szexuális (orális-anális kontaktus), ritkán parenterális (viraemiás vér/tűmegosztás).'
         },
         pathomechanism: {
           steps: [
-            'Orális bejutás: A vírus a bélrendszerből felszívódva a portális keringéssel jut a májba.',
-            'Hepatocyta fertőzés: A vírus a HAVCR-1 receptoron keresztül jut be a májsejtekbe, ahol a citoplazmában replikálódik, de nem okoz direkt sejtpusztulást (nem citopatikus).',
-            'Immunválasz: A májsejt-károsodást a szervezet saját celluláris immunválasza (CD8+ citotoxikus T-sejtek és NK sejtek) okozza, amelyek elpusztítják a fertőzött hepatocytákat.',
-            'Ürítés: A vírus az epével a székletbe ürül, már a tünetek megjelenése előtt.'
+            'Orális bejutás: A szájon át bejutott HAV a bélhámsejteken átjutva a portális keringéssel jut a májba.',
+            'Hepatocyta fertőzés: A HAVCR-1 (TIM-1) receptoron keresztül jut be a májsejtekbe, ahol a citoplazmában replikálódik, de nem citopatikus (nem okoz közvetlen sejt-nekrózist).',
+            'Immunmediált sejtpusztulás: A májsejt-károsodást a gazdaszervezet CD8+ citotoxikus T-lymphocytái és NK-sejtjei által indított immunválasz okozza, amelyek elpusztítják a fertőzött hepatocytákat.',
+            'Ürítés és kvázi-burok (eHAV): A vírus az epével a székletbe ürül (a tünetek előtt 1–2 héttel a legmagasabb a széklet vírustitere). A vérben lipidekkel körülvett kvázi-burokkal (eHAV) kering, megvédve a semlegesítő antitestektől.'
           ],
-          virulence_factors: ['Kapszid stabilitás (saválló)', 'Membránburok a vérben (eHAV) - immunelkerülés']
+          virulence_factors: ['Saválló kapszid (túléli a gyomorsavat)', 'eHAV kvázi-burok (vérbeli immunelkerülés)', 'Magas környezeti stabilitás']
         },
         clinical: {
-          incubation: '15-50 nap (átlag 28 nap)',
+          incubation: '15–50 nap (átlagosan 28 nap)',
           onset: 'Hirtelen',
           symptoms: [
-            { name: 'Prodroma', description: 'Influenzaszerű tünetek (láz, fejfájás, izomfájdalom), étvágytalanság, undor a dohányfüsttől/zsíros ételektől.', severity: 'moderate' },
-            { name: 'Icterusos fázis', description: 'Sötét vizelet (bilirubinuria), világos széklet, majd sárgaság (bőr, sclera). A láz ekkorra gyakran megszűnik.', severity: 'moderate' },
-            { name: 'Hasi panaszok', description: 'Jobb bordaív alatti tompa fájdalom, hepatomegalia, hányinger.', severity: 'mild' }
+            { name: 'Prodromalis fázis', description: 'Influenzaszerű tünetek (láz, gyengeség, fejfájás), hányinger, jobb bordaív alatti fájdalom, étvágytalanság, undor a dohányfüsttől/zsíros ételektől (1–2 hétig tart).', severity: 'moderate' },
+            { name: 'Icterusos fázis', description: 'Sötét vizelet (bilirubinuria), acholiás (világos) széklet, sárgaság (sclera, bőr). A láz ekkorra megszűnik.', severity: 'moderate' },
+            { name: 'Atipikus formák (kolesztatikus / relapszáló)', description: 'Elhúzódó kolesztázis (pruritus, magas ALP/GGT >12 hétig) vagy relapszus (4–20%-ban, 4–15 héttel a primer javulás után).', severity: 'moderate' }
           ],
           physical_exam: [
             'Icterus (sclera, bőr)',
-            'Hepatomegalia, érzékeny máj',
-            'Splenomegalia (ritka)',
-            'Exanthema (ritka)'
+            'Hepatomegalia, érzékeny májszél',
+            'Splenomegalia (10–20%-ban)',
+            'Ritkán póknaevus vagy átmeneti exanthema'
           ],
-          complications: ['Fulmináns hepatitis (<1%, idősebbeknél gyakoribb)', 'Kolesztatikus hepatitis (elhúzódó)', 'Relapszus (3-20%)', 'NINCS krónikus hordozás']
+          complications: [
+            'Fulmináns hepatitis / Akut májelégtelenség (ALF): <0.5–1%, de idős korban (>50 év) vagy meglévő krónikus májbetegségben (HBV, HCV, cirrhosis) sokkal magasabb (koagulopátia, encephalopathia).',
+            'Kolesztatikus hepatitis (elhúzódó kolesztázis, kifejezett viszketés, maradványtünet nélkül gyógyul).',
+            'Relapszáló HAV (újabb májenzim- és tünetkiugrás hetekkel a látszólagos gyógyulás után, krónikussá válás nélkül).',
+            'Extrahepatikus manifesztációk: Acut interstitialis nephritis, aplasztikus anémia, leukocytoclasticus vasculitis, Guillain-Barré szindróma.',
+            'NINCS krónikus hordozás vagy krónikus hepatitis!'
+          ]
         },
         diagnostics: {
           laboratory: [
-            { test: 'Májenzimek', finding: 'ALT/AST >1000 U/L', interpretation: 'Akut hepatocelluláris nekrózis' },
-            { test: 'Bilirubin', finding: 'Emelkedett (direkt és indirekt)', interpretation: 'Icterus' },
-            { test: 'ALP/GGT', finding: 'Mérsékelten emelkedett', interpretation: 'Kolesztázis esetén magasabb' }
+            { test: 'Májenzimek (ALT, AST)', finding: 'Extrém emelkedett (>1000 U/L, gyakran >2000–5000 U/L; ALT > AST)', interpretation: 'Akut gravior hepatocelluláris nekrózis' },
+            { test: 'Bilirubin (direkt és totál)', finding: 'Szignifikánsan emelkedett (>50–200 µmol/L)', interpretation: 'Kevert/hepatocelluláris és kolesztatikus icterus' },
+            { test: 'ALP / GGT', finding: 'Mérsékelten emelkedett (kolesztatikus formánál extrém magas)', interpretation: 'Kolesztázis jele' },
+            { test: 'Prothrombin idő / INR', finding: 'INR monitorozása kötelező!', interpretation: 'INR >1.5 acute liver failure (ALF) és fulmináns lefolyás gyanúját kelti' }
           ],
           imaging: [
-            { modality: 'Has UH', finding: 'Hepatomegalia, epehólyag fal megvastagodás', significance: 'Nem specifikus' }
+            { modality: 'Hasi ultrahang', finding: 'Hepatomegalia, epehólyag-fal reactiv megvastagodása, minimális perihepatikus folyadék', significance: 'Kizárja az epeúti obstrukciót és egyéb szerkezeti eltéréseket' }
           ],
           microbiology: [
-            { test: 'Anti-HAV IgM', finding: 'Pozitív', significance: 'Akut fertőzés diagnózisa (3-6 hónapig marad +)' },
-            { test: 'Anti-HAV IgG', finding: 'Pozitív', significance: 'Védettség (oltás vagy átvészelés)' },
-            { test: 'HAV RNS (PCR)', finding: 'Pozitív', significance: 'Viremia (ritkán szükséges)' }
+            { test: 'Anti-HAV IgM (ELISA)', finding: 'Pozitív', significance: 'Akut Hepatitis A fertőzés diagnózisának aranystandardja (3–6 hónapig perzisztál)' },
+            { test: 'Anti-HAV IgG / Total Anti-HAV', finding: 'Pozitív', significance: 'Átvészelt fertőzést vagy vakcinációs immunitást igazol (élethosszig megmarad)' },
+            { test: 'HAV RNS (RT-PCR)', finding: 'Pozitív', significance: 'Atipikus szerológiai ablak, relapszus vagy epidemiológiai vizsgálatok esetén' }
+          ],
+          differential: [
+            { disease: 'Egyéb akut vírushepatitisek (HBV, HCV, HEV, EBV, CMV)', distinguishing: 'Azonos tünettan; szerológiai panel (HBsAg, Anti-HBV, Anti-HCV, Anti-HEV IgM) alapján különíthető el' },
+            { disease: 'Gyógyszer-indukált májkárosodás (DILI)', distinguishing: 'Anamnézis (paracetamol, gomba, antibiotikumok), toxikológiai szűrés' },
+            { disease: 'Choledocholithiasis / Acut cholangitis', distinguishing: 'Hasi UH/MRCP (tágult epeutak, kövek), Charcot-triád, ALP/GGT dominancia' },
+            { disease: 'Autoimmun hepatitis (akut kezdet)', distinguishing: 'Autoantitestek (ANA, ASMA), szérum IgG emelkedés, májbiopszia' },
+            { disease: 'Ischaemiás hepatitis / Sokkmáj', distinguishing: 'Anamnézisben keringési összeomlás, LDH extrém gyors kiugrása' }
           ]
         },
-        differential: [
-          { disease: 'Egyéb vírushepatitisek (HBV, HCV, HEV)', distinguishing: 'Szerológia (HBsAg, Anti-HCV, Anti-HEV)' },
-          { disease: 'Toxikus/Gyógyszer-indukált hepatitis', distinguishing: 'Anamnézis (paracetamol, gomba), toxikológia' },
-          { disease: 'Epeúti elzáródás (Choledocholithiasis)', distinguishing: 'Hasi UH (tágult epeutak), ALP/GGT dominancia, colica' },
-          { disease: 'EBV/CMV mononucleosis', distinguishing: 'Torokfájás, lymphadenopathia, monospot/szerológia' },
-          { disease: 'Autoimmun hepatitis', distinguishing: 'Autoantitestek (ANA, ASMA), IgG emelkedés' }
-        ],
         therapy: {
           empirical: {
             outpatient: [
-              { drug: 'Szupportív', dose: '-', duration: '-', note: 'Pihenés, megfelelő kalória, alkohol tilalom' }
+              { drug: 'Szupportív terápia', dose: '-', duration: '-', note: 'Ágynyugalom, szimptomatikus kezelés, kiegyensúlyozott étrend, alkohol és hepatotoxikus gyógyszerek szigorú tilalma' }
             ],
             inpatient: [
-              { drug: 'Szupportív', dose: '-', duration: '-', note: 'Súlyos hányás, dehidráció vagy koagulopátia esetén' }
+              { drug: 'IV Folyadékpótlás & Antiemetikum', dose: 'Egyéni', duration: 'Akut fázis', note: 'Súlyos dehidráció, terhesség, idős kor vagy koagulopátia esetén' }
             ],
             icu: [
-              { drug: 'Májtranszplantáció', dose: 'Listázás', duration: '', note: 'Fulmináns májelégtelenség esetén' }
+              { drug: 'Sürgősségi májtranszplantáció', dose: 'Transzplantációs lista', duration: 'Azonnali', note: 'King\'s College kritériumoknak megfelelő fulmináns májelégtelenségben' }
             ]
           },
-          targeted: 'Nincs specifikus antivirális szer.',
-          supportive: ['Folyadékpótlás', 'Antiemetikumok', 'Alkohol és hepatotoxikus szerek kerülése'],
-          prevention: ['Vakcináció (inaktivált, 2 dózis)', 'Higiénia (kézmosás)', 'Post-expozíciós profilaxis (vakcina vagy IG 2 héten belül)']
+          targeted: 'Nincs specifikus engedélyezott antivirális terápia.',
+          supportive: ['Adekvát hidratáció', 'Szénhidrátdús étrend', 'Kolesztázis esetén cholestyramin/ursodeoxikolsav', 'Szigorú alkoholtilalom legalább 6 hónapig'],
+          prevention: [
+            'Pre-expozíciós vakcináció (inaktivált HAV oltás 2 dózisban: 0 és 6–12 hónap)',
+            'Post-expozíciós profilaxis (PEP): expozíció után 14 napon belül. 1–40 éves egészségeseknek 1 dózis HAV vakcina; >40 év felettieknek, immunszupprimáltaknak vagy krónikus májbetegeknek HAV vakcina + Immunglobulin (HNIG) adandó.'
+          ]
         },
         guidelines: {
           diagnosis: [
-            'Akut hepatitis gyanúja: májenzimek (ALT/AST), bilirubin, ALP/GGT, INR',
-            'Anti-HAV IgM pozitív igazolja az akut HAV fertőzést; ha korai ablakperiódus gyanúja, ismétlés vagy HAV RNS (PCR) javasolt',
-            'Súlyos májfunkciózavar esetén koagulációs paraméterek és transzplantációs konzílium'
+            'Akut HAV fertőzés igazolására szérum Anti-HAV IgM elengedhetetlen; az INR szoros követése kötelező az akut májelégtelenség (ALF) szűrésére.',
+            'Ha korai ablakperiódus gyanúja áll fenn, szerológia ismétlése vagy HAV RNS (PCR) javasolt.'
           ],
           treatment_indications: [
-            'Alapvetően szupportív kezelés. Hospitalizáció súlyos dehidratáció, koagulopátia vagy fulmináns májkárosodás esetén',
-            'Májtranszplantáció vizsgálata King\'s College kritériumok alapján fulmináns esetben'
+            'Kizárólag szupportív. Kórházi felvétel javasolt INR > 1.5, encephalopathy, súlyos dehidráció vagy veszélyeztetett betegcsoport (idős, krónikus májbeteg) esetén.',
+            'Májtranszplantáció vizsgálata King\'s College kritériumok alapján fulmináns esetben.'
           ],
           post_exposure: [
-            'Expozíció után 2 héten belül vakcina adása (ha korábban nem oltott) vagy immunglobulin (IG) adott esetben (idős, immunszupprimált, krónikus májbetegek)'
+            'Post-expozíciós profilaxis (PEP): Expozíciót követő 14 napon belül 1 dózis HAV vakcina (1–40 év) vagy vakcina + HNIG (>40 év, immunszuppresszió, cirrhosis).'
           ],
           prevention: [
-            'Oltás: 2 dózis (0 és 6–12 hónap), előzetes oltás utazás előtt 2 héttel optimális',
-            'Higiénia, ivóvíz és élelmiszerbiztonság'
+            'Pre-expozíciós prevenció: Inaktivált vakcina 2 dózisban (0 és 6–12 hó). Kiemelt javallat: utazók endémiás területre, MSM, krónikus májbetegek, IV droghasználók.'
           ],
           special_populations: [
-            'Terhesség: HAV általában nem súlyosabb terhesekben, de oltás és post-expozíciós IG mérlegelendő',
-            'Immunhiányos betegek: oltás kevésbé hatékony lehet, szoros követés javasolt'
+            'Terhesség: A HAV terhesség alatt általában nem okoz fulmináns lefolyást, de post-expozíciós igénynél vakcina és/vagy HNIG adandó.',
+            'Immunhiányos és krónikus májbetegek: Oltás korán indokolt; szerológiai válasz ellenőrzendő.'
           ]
         },
         prognosis: {
-          mortality: 'Alacsony (<0.1%), de 50 év felett 1.8%',
-          prognostic_scores: ['King\'s College kritériumok (fulmináns)'],
-          factors: 'Életkor, alap májbetegség'
+          mortality: 'Fiataloknál alacsony (<0.1%), de 50 év felett és krónikus májbetegségben 1.8–5%',
+          prognostic_scores: ['King\'s College kritériumok (akut májelégtelenség)'],
+          factors: 'Életkor, meglévő krónikus májbetegség (HBV, HCV, cirrhosis), koagulopátia fokozódása (INR)'
         },
         references: [
-          'WHO. Hepatitis A fact sheet.',
-          'CDC Yellow Book: Hepatitis A.'
+          'EASL Clinical Practice Guidelines & Public Health Recommendations on Hepatitis A.',
+          'WHO. Hepatitis A fact sheet & CDC Yellow Book.'
         ],
         gallery: [
           {
@@ -1267,110 +1275,123 @@ window._abdomen_hu = window._abdomen_hu || {
       {
         id: 'hbv',
         name: 'Hepatitis B',
-        pathogen: { type: 'Vírus', name: '<i>Hepatitis B vírus</i> (HBV)', gram: 'dsDNS (RT), Hepadnaviridae', shape: 'gömb (Dane-partikula)' },
+        pathogen: { type: 'Vírus', name: '<i>Hepatitis B vírus</i> (HBV)', gram: 'dsDNS (reverz transzkriptázzal), Hepadnaviridae', shape: 'gömb (42 nm-es Dane-partikula, burokkal)' },
         epidemiology: {
-          incidence: 'Világszerte 290 millió krónikus hordozó',
-          risk_groups: ['IV droghasználók', 'Szexuális partnerek', 'Eü. dolgozók', 'Dializáltak', 'Perinatális (anya-gyermek)'],
+          incidence: 'Világszerte 250–290 millió krónikus HBsAg-hordozó; évente ~820 000 haláleset cirrhosis és HCC miatt.',
+          risk_groups: ['Intravénás droghasználók', 'Több szexuális partner, MSM', 'Egészségügyi dolgozók (tűszúrásos baleset)', 'Hemodializált és transzfundált betegek', 'Endémiás területről származók és újszülötteik (perinatális átvitel)'],
           seasonality: 'Nincs',
-          transmission: 'Parenterális (vér), szexuális, perinatális'
+          transmission: 'Parenterális (vér, testnedvek), szexuális, vertikális (perinatális/anya-gyermek), perkután.'
         },
         pathomechanism: {
           steps: [
-            'Bejutás és Replikáció: A vírus a véráramból az NTCP receptoron keresztül jut a májsejtekbe. A sejtmagban cccDNS-t (kovalensen zárt cirkuláris DNS) képez, ami a perzisztencia alapja.',
-            'Immunpatogenezis: A vírus önmagában nem citopatikus. A májkárosodást a fertőzött sejtek ellen irányuló citotoxikus T-sejtes immunválasz okozza.',
-            'Krónikussá válás: Ha az immunválasz nem elég erős (pl. újszülöttek), a vírus perzisztál. A vírus DNS integrálódhat a gazdasejt genomjába, növelve a hepatocelluláris carcinoma (HCC) kockázatát.'
+            'Hepatocyta belépés & Receptor: A HBV a májsejtek felszínén lévő NTCP (nátrium-taurokolát kotraszportáló polipeptid) receptorhoz kötődve jut a citoplazmába.',
+            'cccDNS képződés: A sejtmagba jutva a parciálisan kettős szálú DNS kovalensen zárt cirkuláris DNS-sé (cccDNS) alakul át. A cccDNS rendkívül stabil episzomális reservoirt képez, ami a vírusperzisztencia alapja és a jelenlegi nukleos(t)id analógokkal nem eradikálható.',
+            'DNS Integráció & Karcinogenezis: A HBV DNS egy része integrálódik a gazdasejt genomjába. Ez cccDNS-független HBsAg és HBx fehérje termelést okoz, valamint genomikus instabilitást és hepatocelluláris carcinomát (HCC) vált ki – akár cirrhosis hiányában is!',
+            'Immunpatogenezis: A HBV nem közvetlenül citopatikus. A májsejt-károsodást és a gyulladást a fertőzött hepatocyták ellen irányuló CD8+ citotoxikus T-sejtes immunválasz váltja ki.',
+            'EASL Természetes Lefolyási Fázisok: 1. HBeAg+ krónikus fertőzés ("immuntoleráns": magas HBV DNS, normál ALT); 2. HBeAg+ krónikus hepatitis (magas DNS, emelkedett ALT, fibroszis); 3. HBeAg- krónikus fertőzés ("inaktív hordozó": alacsony DNS <2000 IU/ml, normál ALT); 4. HBeAg- krónikus hepatitis (fluctuáló DNS >2000 IU/ml, ALT emelkedés, progrediáló fibroszis); 5. HBsAg-negatív fázis (Okkult HBV / resolved: HBsAg-, cccDNS perzisztál a májban, immunszuppresszióban reaktiválódhat).'
           ],
-          virulence_factors: ['HBsAg (decoy)', 'HBeAg (immuntolerancia)', 'X protein (transzaktivátor)']
+          virulence_factors: ['cccDNS (tartós reservoir)', 'HBx fehérje (transzaktivátor, karcinogén)', 'HBsAg túltermelés (immun-decoy)', 'HBeAg (immuntolerancia indukció)']
         },
         clinical: {
-          incubation: '45-160 nap (átlag 90 nap)',
-          onset: 'Lassú',
+          incubation: '45–160 nap (átlagosan 90 nap)',
+          onset: 'Lappangó / Lassú',
           symptoms: [
-            { name: 'Akut fázis', description: 'Gyakran tünetmentes. Ha van tünet: szérumbetegség-szerű prodroma (kiütés, ízületi fájdalom), majd sárgaság, fáradtság, jobb felhasi fájdalom.', severity: 'moderate' },
-            { name: 'Krónikus fázis', description: 'Többnyire tünetmentes ("csendes gyilkos"). Késői stádiumban a májcirrhosis jelei (ascites, varixvérzés, encephalopathia) dominálnak.', severity: 'mild' },
-            { name: 'Extrahepatikus tünetek', description: 'Polyarteritis nodosa, glomerulonephritis.', severity: 'moderate' }
+            { name: 'Akut fázis', description: '70%-ban anicterusos/subclinicus. Szimptómás esetben szérumbetegség-szerű prodroma (arthralgia, urticaria, láz - Gianotti-Crosti szindróma gyermekeknél), majd sárgaság, sötét vizelet, jobb felhasi tompa fájdalom.', severity: 'moderate' },
+            { name: 'Krónikus fázis', description: 'Évtizedekig aszimptomatikus ("csendes gyilkos"). Késői stádiumban a májcirrhosis dekompenzációs jelei (ascites, varixvérzés, hepaticus encephalopathia, icterus, splenomegalia) dominálnak.', severity: 'severe' },
+            { name: 'Extrahepatikus manifesztációk (EASL kiemelt)', description: 'Polyarteritis nodosa (PAN), Membranous / Membranoproliferativ glomerulonephritis, cryoglobulinemia, Gianotti-Crosti szindróma.', severity: 'severe' }
           ],
           physical_exam: [
-            'Hepatomegalia',
-            'Splenomegalia',
-            'Póknaevusok, palmaris erythema (krónikus/cirrhosis)',
-            'Ascites, caput medusae (dekompenzált cirrhosis)'
+            'Hepatomegalia (érzékeny májszél)',
+            'Icterus (sclera, bőr)',
+            'Splenomegalia és póknaevusok, palmaris erythema (krónikus/cirrhosis)',
+            'Ascites, caput medusae, flapping tremor / asterixis (dekompenzált cirrhosis)'
           ],
-          complications: ['Krónikus hepatitis (csecsemőknél 90%, felnőtteknél <5%)', 'Cirrhosis', 'Hepatocellularis carcinoma (HCC)', 'Polyarteritis nodosa', 'Glomerulonephritis']
+          complications: [
+            'Krónikus Hepatitis B (csecsemőkori fertőzésnél 90%, felnőttkorban <5%)',
+            'Májcirrhosis és dekompenzáció',
+            'Hepatocellularis carcinoma (HCC - akár cirrhosis hiányában is!)',
+            'Polyarteritis nodosa (PAN) és Glomerulonephritis',
+            'HBV reaktiváció immunszuppresszió / biológiai terápia / rituximab hatására'
+          ]
         },
         diagnostics: {
           laboratory: [
-            { test: 'ALT/AST', finding: 'Emelkedett', interpretation: 'Gyulladás aktivitása' }
+            { test: 'Májenzimek (ALT, AST)', finding: 'Akut esetben >1000 U/L; krónikusban fluktuáló emelkedés', interpretation: 'Májsejt-károsodás és gyulladásos aktivitás' },
+            { test: 'Bilirubin & Albumin & INR', finding: 'Direkt bilirubin emelkedett, hypoalbuminaemia, INR megnyúlás', interpretation: 'Máj szintetizáló funkciójának csökkenése, dekompenzáció' },
+            { test: 'Thrombocyta szám', finding: 'Thrombocytopenia (<150 G/L)', interpretation: 'Portalis hypertensio és hypersplenia jele' }
           ],
           microbiology: [
-            { test: 'HBsAg', finding: 'Pozitív', significance: 'Fertőzés jelenléte (akut vagy krónikus)' },
-            { test: 'Anti-HBs', finding: 'Pozitív', significance: 'Védettség (oltás vagy gyógyulás)' },
-            { test: 'Anti-HBc IgM', finding: 'Pozitív', significance: 'Akut fertőzés (ablakperiódusban fontos!)' },
-            { test: 'Anti-HBc IgG', finding: 'Pozitív', significance: 'Átvészelt vagy krónikus fertőzés' },
-            { test: 'HBeAg', finding: 'Pozitív', significance: 'Magas replikáció és fertőzőképesség' },
-            { test: 'HBV DNS', finding: 'Pozitív', significance: 'Vírusreplikáció mértéke (terápia monitorozás)' }
+            { test: 'HBsAg', finding: 'Pozitív', significance: 'Fertőzés jelenléte (>6 hónap fennállás = krónikus HBV)' },
+            { test: 'Anti-HBs', finding: 'Pozitív (≥10 IU/L)', significance: 'Immunitás és védettség (sikeres oltás vagy átvészelt fertőzés)' },
+            { test: 'Anti-HBc IgM', finding: 'Pozitív', significance: 'Akut HBV fertőzés igazolása (az ablakperiódusban is pozitív!) vagy akut flare' },
+            { test: 'Anti-HBc Total (IgG+IgM)', finding: 'Pozitív', significance: 'Átvészelt vagy jelenleg fennálló HBV fertőzés (minden HBsAg+ személynél pozitív)' },
+            { test: 'HBeAg / Anti-HBe', finding: 'HBeAg+ vagy Anti-HBe+', significance: 'HBeAg+ = magas virális replikáció; HBeAg- = szerokonverzió vagy precore mutáns' },
+            { test: 'HBV DNS (Kvantitatív RT-PCR)', finding: 'Pozitív (IU/mL)', significance: 'Virális replikáció pontos mérése; a kezelési indikáció és a terápia követésének alapja' }
           ]
         },
         differential: [
-          { disease: 'Egyéb vírushepatitisek (HAV, HCV, HDV)', distinguishing: 'Szerológia (Anti-HAV IgM, Anti-HCV, Anti-HDV)' },
-          { disease: 'Autoimmun hepatitis', distinguishing: 'Autoantitestek (ANA, ASMA, LKM-1), hypergammaglobulinaemia' },
-          { disease: 'Alkoholos májbetegség', distinguishing: 'Anamnézis, AST > ALT (2:1 arány), GGT emelkedés' },
-          { disease: 'Gyógyszer-indukált májkárosodás (DILI)', distinguishing: 'Gyógyszer anamnézis, javulás elhagyás után' },
-          { disease: 'Wilson-kór', distinguishing: 'Fiatal kor, alacsony cöruloplazmin, Kayser-Fleischer gyűrű' }
+          { disease: 'Egyéb vírushepatitisek (HAV, HCV, HDV, HEV)', distinguishing: 'Szerológiai és PCR tesztek (Anti-HAV IgM, Anti-HCV, Anti-HDV, Anti-HEV IgM)' },
+          { disease: 'Autoimmun hepatitis', distinguishing: 'Autoantitestek (ANA, ASMA, LKM-1), emelkedett szérum IgG, májbiopszia' },
+          { disease: 'Alkoholos vagy Metabolikus májbetegség (MASLD/MASH)', distinguishing: 'Anamnézis, AST/ALT >2, metabolikus szindróma, ultrahang steatosis' },
+          { disease: 'Gyógyszer-indukált májkárosodás (DILI)', distinguishing: 'Anamnézisben hepatotoxikus szer, szoros időbeli összefüggés' },
+          { disease: 'Wilson-kór', distinguishing: 'Fiatal beteg, alacsony cöruloplazmin, magas 24h vizelet réz, Kayser-Fleischer gyűrű' }
         ],
         therapy: {
           guidelines: ['EASL 2017 Clinical Practice Guidelines on the management of hepatitis B virus infection'],
           empirical: {
             outpatient: [
-              { drug: 'Entecavir', dose: '0.5 mg PO 1x/nap', duration: 'Hosszú távú', note: 'Nukleozid analóg. Lamivudin rezisztencia esetén 1 mg.' },
-              { drug: 'Tenofovir disoproxil (TDF)', dose: '300 mg PO 1x/nap', duration: 'Hosszú távú', note: 'Nukleotid analóg. Vesefunkció és csontsűrűség monitorozása szükséges.' },
-              { drug: 'Tenofovir alafenamide (TAF)', dose: '25 mg PO 1x/nap', duration: 'Hosszú távú', note: 'Preferált, ha csont/vese betegség kockázata áll fenn.' }
+              { drug: 'Entecavir (ETV)', dose: '0.5 mg PO 1x/nap (1.0 mg lamivudin-rezisztens vagy dekompenzált esetben)', duration: 'Hosszú távú / élethosszig', note: 'Első vonalbeli nukleozid analóg, magas rezisztenciagáttal.' },
+              { drug: 'Tenofovir disoproxil fumarát (TDF)', dose: '300 mg PO 1x/nap', duration: 'Hosszú távú / élethosszig', note: 'Első vonalbeli nukleotid analóg, nulla rezisztencia. Vesefunkció és csontsűrűség monitorozása szükséges.' },
+              { drug: 'Tenofovir alafenamid (TAF)', dose: '25 mg PO 1x/nap', duration: 'Hosszú távú / élethosszig', note: 'Preferált első vonal >60 év felett, meglévő csontbetegség/osteoporosis vagy veseelégtelenség (eGFR <60) esetén.' }
             ],
             inpatient: [
-              { drug: 'Tenofovir (TDF/TAF) vagy Entecavir', dose: 'Standard', duration: '', note: 'Súlyos akut hepatitis vagy akut májelégtelenség esetén azonnal indítandó.' }
+              { drug: 'Tenofovir (TDF/TAF) vagy Entecavir', dose: 'Standard adagolás', duration: 'Azonnali indítás', note: 'Súlyos akut hepatitis B, fulmináns májelégtelenség vagy akut dekompenzáció esetén azonnal indítandó!' }
             ]
           },
-          targeted: 'Krónikus HBV: Élethosszig tartó NA (Entecavir, TDF, TAF) a vírusreplikáció gátlására. Véges idejű kezelés: Peg-IFN alfa (48 hét) válogatott betegeknél.',
-          supportive: ['HCC szűrés (UH félévente)', 'Vakcináció HAV ellen', 'Családtagok szűrése'],
-          prevention: ['Vakcináció (rekombináns HBsAg, 0-1-6 hó)', 'Szűrés terhességben', 'HBIG + vakcina újszülötteknek (≤12 óra; oltási sorozat folytatása)']
+          targeted: 'EASL Irányelv: Hosszú távú / élethosszig tartó nukleos(t)id analóg (NA: Entecavir, TDF, TAF) kezelés a HBV DNS tartós elnyomására. Véges (48 hetes) Peg-IFN alfa-2a terápia válogatott, kompenzált, jó májfunkciójú betegeknél mérlegelhető.',
+          supportive: ['Rendszeres HCC szűrés (hasi UH 6 havonta)', 'HAV oltás adása', 'Családtagok és szexuális partnerek szűrése és oltása', 'Szigorú alkoholtilalom'],
+          prevention: ['Rekombináns HBV vakcináció (0-1-6 hónapos oltási sorrend)', 'Terhesek univerzális HBsAg szűrése az 1. trimeszterben', 'Post-expozíciós profilaxis (HBIG + 1. vakcina dózis 12 órán belül) újszülötteknek és tűszúrásos expozíciónak']
         },
         guidelines: {
           definitions: [
-            'Akut HBV: HBsAg pozitív és Anti-HBc IgM pozitív.',
-            'Krónikus HBV: HBsAg pozitív >6 hónap.',
-            'Gyógyult (Past infection): HBsAg negatív, Anti-HBc (Total) pozitív, Anti-HBs pozitív.',
-            'Oltott (Vaccinated): Csak Anti-HBs pozitív (minden más negatív).',
-            'Inaktív hordozó: HBsAg+, HBeAg-, Anti-HBe+, normál ALT, alacsony HBV DNS.',
-            'Szerokonverzió: Antigén eltűnése és antitest megjelenése (pl. HBeAg → Anti-HBe).',
-            'Kezelési indikáció: Krónikus hepatitis (ALT emelkedett + HBV DNS >2000 IU/ml + fibrosis) VAGY Cirrhosis.'
+            'Akut HBV: HBsAg+ és Anti-HBc IgM+.',
+            'Krónikus HBV: HBsAg+ >6 hónapja.',
+            'Gyógyult (Resolved/Past infection): HBsAg-, Anti-HBc+, Anti-HBs+ (vagy Anti-HBs-).',
+            'Oltott (Vaccinated): Csak Anti-HBs+ (≥10 IU/L), minden más marker negatív.',
+            'EASL Fázis 1 (HBeAg+ krónikus fertőzés / Immuntoleráns): HBsAg+, HBeAg+, magas HBV DNS (>10^7 IU/ml), normál ALT, nincs/minimális fibroszis.',
+            'EASL Fázis 2 (HBeAg+ krónikus hepatitis): HBsAg+, HBeAg+, magas HBV DNS, emelkedett ALT, fibroszis.',
+            'EASL Fázis 3 (HBeAg- krónikus fertőzés / Inaktív hordozó): HBsAg+, HBeAg-, Anti-HBe+, alacsony HBV DNS (<2000 IU/ml), normál ALT.',
+            'EASL Fázis 4 (HBeAg- krónikus hepatitis): HBsAg+, HBeAg-, Anti-HBe+, fluktuáló HBV DNS (>2000 IU/ml), ALT emelkedés, fibroszis.',
+            'EASL Fázis 5 (HBsAg-negatív / Okkult HBV): HBsAg-, Anti-HBc+, perzisztáló cccDNS a májban (immunszuppresszióban reaktiválódhat!).'
           ],
           diagnosis: [
-            'Kezdeti vizsgálat: HBsAg, Anti-HBs, Anti-HBc (IgM/IgG), HBeAg/Anti-HBe, HBV DNS (quantitativ)',
-            'Fibrosis értékelés: FibroScan vagy szérum markerek (FIB-4)'
+            'Kezdeti szűrés és diagnózis: HBsAg, Anti-HBs, Anti-HBc Total/IgM, HBeAg/Anti-HBe, kvantitatív HBV DNS RT-PCR',
+            'Máj-fibrosis és steatosis értékelés: Transient Elastography (FibroScan) vagy szérum FIB-4 / APRI index'
           ],
           treatment_indications: [
-            'Minden cirrhosisos beteg kezelendő',
-            'HBeAg pozitív vagy negatív krónikus hepatitis (ALT > ULN, DNS > 2000 IU/ml, F2+ fibrosis)',
-            'Immunszuppresszió előtt HBsAg+ betegek (profilaxis)'
+            'MINDEN cirrhosisos beteg (kompenzált vagy dekompenzált), ha a HBV DNS kimutatható (szinttől függetlenül!)',
+            'Krónikus hepatitis B: HBV DNS >2000 IU/ml ÉS ALT > ULN ÉS legalább mérsékelt fibroszis (≥F2)',
+            'HBV DNS >20 000 IU/ml ÉS ALT >2x ULN (fibroszistól függetlenül)',
+            'Immunszuppresszív / biológiai / kemoterápiás kezelés (pl. Rituximab) előtt álló HBsAg+ vagy Anti-HBc+ betegek profilaxisa'
           ],
           first_line: [
-            'Entecavir, TDF, TAF (magas rezisztencia barrierű NA-k)',
-            'Peg-IFN alfa (48 hét) - alternatíva enyhe/közepes fibrosisnál'
+            'Entecavir (0.5 mg/nap), Tenofovir disoproxil (TDF 300 mg/nap), Tenofovir alafenamid (TAF 25 mg/nap)',
+            'Peg-IFN alfa-2a (48 hét) - válogatott kompenzált betegeknél'
           ],
           special_populations: [
-            'Terhesség: TDF adása a 24-28. héttől, ha HBV DNS >200,000 IU/ml',
-            'Veseelégtelenség: TAF vagy Entecavir (dóziscsökkentés)',
-            'HDV koinfekció: Peg-IFN vagy Bulevirtide'
+            'Terhesség: TDF (Tenofovir disoproxil) indítandó a 24–28. terhességi héttől, ha az anyai HBV DNS >200 000 IU/ml. Újszülöttnek HBIG + vakcina 12 órán belül.',
+            'Veseelégtelenség / eGFR <60 ml/perc vagy osteoporosis: TAF vagy Entecavir preferált a TDF-el szemben.',
+            'HDV koinfekció: Peg-IFN vagy Bulevirtide 2mg SC naponta.'
           ],
           monitoring: [
-            'NA kezelés alatt: ALT és HBV DNS 3-6 havonta',
-            'HCC szűrés ultrahanggal ± AFP minden 6 hónapban cirrhosisos pácienseknél'
+            'NA kezelés alatt: ALT, HBV DNS és renalis funkció / szérum foszfát 3–6 havonta',
+            'HCC szűrés: Hasi ultrahang ± AFP 6 havonta kötelező minden cirrhosisos, magas PAGE-B score-ú vagy családi HCC-vel rendelkező betegnél'
           ]
         },
         prognosis: {
-          mortality: 'Akut: <1%; Krónikus: cirrhosis/HCC miatt jelentős',
-          prognostic_scores: ['PAGE-B (HCC rizikó)'],
-          factors: 'HBeAg státusz, virális load, genotípus, koinfekciók'
+          mortality: 'Akut: <1% (fulmináns lefolyás kivételével); Krónikus: kezeletlenül 5-éves cirrhosis kockázat 8-20%, HCC kockázat 2-5%/év',
+          prognostic_scores: ['PAGE-B score (HCC kockázat becslése NA terápia alatt)', 'MELD / Child-Pugh score (cirrhosisban)'],
+          factors: 'Virális load (HBV DNS), HBeAg szerokonverzió, fibroszis stádiuma, HDV/HCV/HIV koinfekció, alkohol'
         },
         gallery: [
           {
@@ -1392,91 +1413,100 @@ window._abdomen_hu = window._abdomen_hu || {
       {
         id: 'hcv',
         name: 'Hepatitis C',
-        pathogen: { type: 'Vírus', name: '<i>Hepatitis C vírus</i> (HCV)', gram: 'ssRNS, Flaviviridae', shape: 'gömb, burokban' },
+        pathogen: { type: 'Vírus', name: '<i>Hepatitis C vírus</i> (HCV)', gram: 'ssRNS (+), Flaviviridae (Hepacivirus nemzetség)', shape: 'gömb alakú, burokkal rendelkező vírus (50 nm)' },
         epidemiology: {
-          incidence: 'Világszerte 71 millió krónikus beteg',
-          risk_groups: ['IV droghasználók', 'Transzfúzió (1992 előtt)', 'Tetoválás/piercing', 'Eü. dolgozók (tűszúrás)'],
+          incidence: 'Világszerte ~58–71 millió krónikus fertőzött; évente ~290 000 haláleset cirrhosis és HCC miatt.',
+          risk_groups: ['Intravénás droghasználók (tűmegosztás)', 'Transzfúziót kapottak (1992 előtti vérkészítmények)', 'Egészségügyi dolgozók (tűszúrásos sérülés)', 'Tetoválást/piercinget vagy nem steril orvosi beavatkozást elszenvedők', 'Férfiakkal szexuáló férfiak (MSM, főleg HIV-koinfekcióban)'],
           seasonality: 'Nincs',
-          transmission: 'Parenterális (vér), szexuális (ritka, MSM magasabb), perinatális'
+          transmission: 'Parenterális (vér útján – domináns), szexuális (ritkább, kivéve MSM/HIV), vertikális (anya-magzat ~5%).'
         },
         pathomechanism: {
           steps: [
-            'Replikáció: A vírus a hepatocyták citoplazmájában replikálódik (nincs sejtmagi fázis, ezért gyógyítható).',
-            'Immunelkerülés: A vírus RNS-polimeráza hibázik, így folyamatosan mutálódik (quasispecies), elkerülve az immunrendszer felismerését.',
-            'Fibrózis: A krónikus gyulladás aktiválja a csillagsejteket (stellate cells), amelyek kollagént termelnek, ami májfibrózishoz, majd cirrhosisoz vezet.'
+            'Replikáció a citoplazmában: A HCV kizárólag a hepatocyták citoplazmájában replikálódik. Nem képez sejtmagi dDNS-t vagy cccDNS-t – ezért a fertőzés közvetlenül támadható és DAA-kkal biológiailag TELJESEN ERADIKÁLHATÓ (gyógyítható!).',
+            'Quasispecies & Immunelkerülés: A virális NS5B RNS-függő RNS-polimeráz nem rendelkezik hibajavító (proofreading) aktivitással, ami folyamatos mutációkhoz (quasispecies) és az immunválasz elkerüléséhez vezet.',
+            'Magas chronicitás & Fibrogenezis: Az fertőzöttek 75–85%-ában krónikus hepatitis alakul ki. A tartós parenchymás gyulladás aktiválja a hepaticus stellate sejteket, ami konfluáló fibrózishoz, májcirrhosisoz (20–30 év alatt 20–30%-ban) és HCC-hez vezet.'
           ],
-          virulence_factors: ['NS3/4A proteáz', 'NS5A/B polimeráz', 'Lipid metabolizmus moduláció']
+          virulence_factors: ['NS3/4A proteáz', 'NS5A komplex fehérje', 'NS5B RNS-polimeráz', 'Nagy fokú quasispecies variabilitás']
         },
         clinical: {
-          incubation: '14-180 nap',
-          onset: 'Lassú/Tünetmentes',
+          incubation: '14–180 nap (átlagosan 6–8 hét)',
+          onset: 'Lappangó / Tünetszegény',
           symptoms: [
-            { name: 'Akut fázis', description: 'Ritkán diagnosztizálják (80% tünetmentes). Enyhe fáradtság, étvágytalanság előfordulhat.', severity: 'mild' },
-            { name: 'Krónikus fázis', description: 'Évtizedekig tünetmentes lehet. A vezető tünet a krónikus fáradtság. Gyakran csak a cirrhosis szövődményei vagy a laborlelet hívja fel rá a figyelmet.', severity: 'moderate' },
-            { name: 'Extrahepatikus tünetek', description: 'Krioglobulinémia (vasculitis), porphyria cutanea tarda, lichen planus, diabetes.', severity: 'moderate' }
+            { name: 'Akut fázis', description: '80%-ban aszimptomatikus ("csendes gyilkos"). Enyhe fáradtság, étvágytalanság, anicterusos lefolyás. A spontán clearance csak 15–25%-ban következik be.', severity: 'mild' },
+            { name: 'Krónikus fázis', description: 'Évtizedekig tünetmentes lehet. A leggyakoribb vezető tünet a krónikus fáradtság, kognitív zavarok ("brain fog"). Késői stádiumban a cirrhosis szövődményei jelennek meg.', severity: 'moderate' },
+            { name: 'Extrahepatikus manifesztációk (EASL kiemelt)', description: 'Kevert II/III típusú cryoglobulinemiás vasculitis (purpura, arthralgia, glomerulonephritis), B-sejtes non-Hodgkin lymphoma, Porphyria cutanea tarda (PCT), Lichen planus, inzulinrezisztencia és Type 2 Diabetes.', severity: 'severe' }
           ],
           physical_exam: [
-            'Gyakran negatív',
-            'Cirrhosis jelei késői stádiumban'
+            'Korai/középső stádiumban teljesen negatív fizikai lelet',
+            'Cirrhosis jelei (palmaris erythema, póknaevus, splenomegalia, ascites, icterus) késői stádiumban',
+            'Alsó végtagi purpura vagy ulcers cryoglobulinemia esetén'
           ],
-          complications: ['Krónikus hepatitis (70-80%!)', 'Cirrhosis (20-30% 20 év alatt)', 'HCC', 'Extrahepatikus: Krioglobulinémia, Porphyria cutanea tarda, Lichen planus, Diabetes']
+          complications: [
+            'Krónikus Hepatitis C (75–85%-ban kialakul!)',
+            'Májcirrhosis (20–30% 20–30 év alatt)',
+            'Hepatocellularis carcinoma (HCC - évi 1–4% kockázat cirrhosisban)',
+            'Extrahepatikus szövődmények: Cryoglobulinemiás vasculitis, B-sejtes lymphoma, glomerulonephritis, T2DM'
+          ]
         },
         diagnostics: {
           laboratory: [
-            { test: 'ALT', finding: 'Hullámzóan emelkedett', interpretation: 'Krónikus gyulladás' }
+            { test: 'ALT / AST', finding: 'Hullámzóan emelkedett vagy akár normális', interpretation: 'Májgyulladás jelenléte; normál ALT sem zárja ki a súlyos fibroszist!' },
+            { test: 'Thrombocyta & APRI / FIB-4 index', finding: 'Thrombocytopenia, magas FIB-4 (>3.25)', interpretation: 'Előrehaladott fibroszis / cirrhosis gyanúja' }
           ],
           microbiology: [
-            { test: 'Anti-HCV', finding: 'Pozitív', significance: 'Expozíció (nem feltétlenül aktív fertőzés)' },
-            { test: 'HCV RNS', finding: 'Pozitív', significance: 'Aktív fertőzés (konfirmálás szükséges!)' },
-            { test: 'Genotipizálás', finding: '1-6', significance: 'Terápia választás (bár pangenotípusos szerek dominálnak)' }
+            { test: 'Anti-HCV (ELISA)', finding: 'Pozitív', significance: 'Expozíció igazolása (önmagában nem különíti el az aktív fertőzést a gyógyulttól)' },
+            { test: 'HCV RNS (Kvantitatív RT-PCR)', finding: 'Pozitív (IU/mL)', significance: 'AKTÍV fertőzés igazolása (minden Anti-HCV+ betegnél elengedhetetlen kiterjesztett teszt!)' },
+            { test: 'Genotipizálás (1–6)', finding: 'Genotípus meghatározás', significance: 'Történeti jelentőségű; pangenotípusos DAA érában már nem feltétlenül kötelező az egyszerűsített kezeléshez' },
+            { test: 'Fibroszis stádium meghatározás (EASL)', finding: 'FibroScan (Transient Elastography) / FIB-4', significance: 'Elengedhetetlen a cirrhosis (F4) azonosítására a poszt-SVR HCC szűrési kötelezettség miatt' }
           ]
         },
         differential: [
-          { disease: 'Hepatitis B', distinguishing: 'HBsAg pozitív' },
-          { disease: 'Alkoholos májbetegség', distinguishing: 'Anamnézis, AST > ALT, makrocitózis' },
-          { disease: 'Nem-alkoholos zsírmáj (NAFLD/NASH)', distinguishing: 'Metabolikus szindróma, UH (steatosis), biopszia' },
-          { disease: 'Autoimmun hepatitis', distinguishing: 'Autoantitestek, szövettan (plazmasejtes infiltráció)' },
-          { disease: 'Hemochromatosis', distinguishing: 'Magas ferritin, transzferrin szaturáció, HFE génmutáció' }
+          { disease: 'Hepatitis B és D vírusfertőzés', distinguishing: 'Szerológia (HBsAg, Anti-HBc, Anti-HDV, HBV DNS)' },
+          { disease: 'Alkoholos májbetegség', distinguishing: 'Anamnézis, AST/ALT >2, GGT és MCV kiugró emelkedése' },
+          { disease: 'Metabolikus diszfunkcióhoz társuló zsírmáj (MASLD / MASH)', distinguishing: 'Metabolikus szindróma, ultrahangos steatosis, szövettan' },
+          { disease: 'Autoimmun hepatitis', distinguishing: 'Autoantitestek (ANA, ASMA), emelkedett szérum IgG' },
+          { disease: 'Hemochromatosis', distinguishing: 'Magas szérum vas, ferritin és transzferrin szaturáció (>45%), HFE génmutáció' }
         ],
         therapy: {
-          guidelines: ['EASL Recommendations on Treatment of Hepatitis C 2020'],
+          guidelines: ['EASL Recommendations on Treatment of Hepatitis C 2020 update'],
           empirical: {
             outpatient: [
-              { drug: 'Glecaprevir / Pibrentasvir (Maviret)', dose: '3 tab (300/120mg) PO 1x', duration: '8 hét', note: 'Pangenotípusos. Cirrhosis nélkül és kompenzált cirrhosisban is 8 hét.' },
-              { drug: 'Sofosbuvir / Velpatasvir (Epclusa)', dose: '1 tab (400/100mg) PO 1x', duration: '12 hét', note: 'Pangenotípusos. Decompensált cirrhosisban is adható (RBV-vel).' }
+              { drug: 'Glecaprevir / Pibrentasvir (Maviret)', dose: '3 tabletta (300 mg / 120 mg) PO 1x/nap étkezéssel', duration: '8 hét', note: 'Pangenotípusos DAA. Kezelés-naív betegeknek cirrhosis nélkül ÉS kompenzált cirrhosisban (Child-Pugh A) is CSUPÁN 8 HÉT!' },
+              { drug: 'Sofosbuvir / Velpatasvir (Epclusa)', dose: '1 tabletta (400 mg / 100 mg) PO 1x/nap', duration: '12 hét', note: 'Pangenotípusos DAA. Non-cirrhoticus és kompenzált cirrhoticus betegekben egyaránt adható.' }
             ]
           },
-          targeted: 'Pangenotípusos DAA kezelés minden betegnek (Simplified treatment). Genotipizálás nem feltétlenül szükséges a kezelés indításához (kivéve cirrhosis/korábbi sikertelen kezelés).',
-          supportive: ['Gyógyszerinterakciók ellenőrzése (www.hep-druginteractions.org)', 'Alkohol tilalom'],
-          prevention: ['Nincs vakcina', 'Vérkészítmények szűrése', 'Ártalomcsökkentés (tűcsere)', 'Biztonságos szex']
+          targeted: 'EASL Irányelv: Pangenotípusos DAA (Direct-Acting Antiviral) kezelés MINDEN viraemiás (HCV RNS+) betegnek. Cél a Tartós Virológiai Válasz (SVR12 = nem kimutatható HCV RNS 12 héttel a kezelés után), ami végleges biológiai GYÓGYULÁST jelent (>95-99% sikerráta!).',
+          supportive: ['Gyógyszerinterakciók ellenőrizendők az indítás előtt (www.hep-druginteractions.org)', 'Szigorú alkoholtilalom', 'Májprotektív életmód'],
+          prevention: ['Nincs védőoltás (magas virális variabilitás miatt)', 'Vérkészítmények és szervdonorok kötelező PCR szűrése', 'Ártalomcsökkentési programok (steril tűcsere IV droghasználóknak)', 'Biztonságos szexuális élet']
         },
         guidelines: {
           diagnosis: [
             'Szűrés: Anti-HCV szerológia (ELISA) minden kockázati csoportban és véradásnál',
-            'HCV RNS pozitív = Aktív fertőzés -> Kezelés'
+            'HCV RNS pozitív = Aktív fertőzés -> Azonnali DAA kezelés javallott'
           ],
           treatment_indications: [
-            'Minden krónikus HCV fertőzött kezelendő, kivéve rövid élettartamú páciensek vagy terhesség',
-            'Különös prioritás: cirrhosis, extrahepatikus manifesztációk, transzplantációs jelöltek'
+            'MINDEN krónikus HCV fertőzött beteg kezelendő, függetlenül a fibroszis stádiumától.',
+            'Kivételek: terhesség (DAA nem engedélyezett) vagy nagyon rövid várható élettartam nem-máj eredetű okból.'
           ],
           first_line: [
-            'Glecaprevir/Pibrentasvir (8 hét)',
-            'Sofosbuvir/Velpatasvir (12 hét)'
+            'Glecaprevir / Pibrentasvir (8 hét)',
+            'Sofosbuvir / Velpatasvir (12 hét)'
           ],
           monitoring: [
-            'SVR12 (Sustained Virologic Response): HCV RNS negatív 12 héttel a kezelés után = Gyógyulás',
-            'Cirrhosis esetén HCC szűrés folytatása SVR után is!'
+            'SVR12 (Sustained Virologic Response): HCV RNS negatív 12 héttel a kezelés után = Biológiai gyógyulás (>95-99%)',
+            'F3 / F4 (cirrhosis) stádium esetén az SVR után is ÉLETHOSSZIG TARTÓ HCC szűrés (hasi UH 6 havonta) kötelező!'
           ],
           special_populations: [
-            'Decompensált cirrhosis: Proteáz inhibitorok (Glecaprevir, Grazoprevir) KONTRAINDIKÁLTAK! Sof/Vel + Ribavirin adható.'
+            'Dekompenzált cirrhosis (Child-Pugh B/C): Proteáz inhibitorok (Glecaprevir, Grazoprevir, Voxilaprevir) ABSZOLÚT KONTRAINDIKÁLTAK! Sofosbuvir/Velpatasvir + Ribavirin adható.'
           ]
         },
         prognosis: {
-          mortality: 'Kezeléssel kiváló (SVR = gyógyulás), cirrhosis esetén rosszabb',
-          factors: 'Fibrózis stádiuma, koinfekció (HIV/HBV), alkohol'
+          mortality: 'Kiváló (>95–99% SVR12 = gyógyulás DAA-val); dekompenzált cirrhosisban vagy előrehaladott HCC-ben rosszabb',
+          prognostic_scores: ['FIB-4 / APRI index', 'Child-Pugh és MELD score (cirrhosisban)'],
+          factors: 'Fibroszis stádiuma a kezelés előtt, dekompenzáció megléte, HIV/HBV koinfekció, alkohol'
         },
         references: [
-          'EASL Recommendations on Treatment of Hepatitis C (2020 update).',
+          'EASL Recommendations on Treatment of Hepatitis C (2020 update). J Hepatol. 2020;73(5):1170-1218.',
           'WHO. Guidelines for the care and treatment of persons diagnosed with chronic hepatitis C virus infection.'
         ],
         gallery: [
@@ -1490,69 +1520,84 @@ window._abdomen_hu = window._abdomen_hu || {
       {
         id: 'hdv',
         name: 'Hepatitis D',
-        pathogen: { type: 'Vírus', name: '<i>Hepatitis D vírus</i> (HDV)', gram: 'ssRNS (defektív)', shape: 'HBsAg burokban' },
+        pathogen: { type: 'Vírus', name: '<i>Hepatitis D vírus</i> (HDV / Deltavirus nemzetség)', gram: 'ssRNS (-), defektív satellit vírus', shape: 'gömb alakú (36 nm), HBsAg burokba zárt cirkuláris RNS' },
         epidemiology: {
-          incidence: 'HBV fertőzöttek 5%-a (kb. 15-20 millió)',
+          incidence: 'Világszerte a HBsAg-pozitív betegek kb. 5%-a (12–20 millió ember) fertőzött HDV-vel.',
+          risk_groups: ['Krónikus HBV fertőzöttek (HBsAg hordozók)', 'Intravénás droghasználók', 'Magas kockázatú szexuális magatartás / MSM', 'Endémiás területekről (Mediterráneum, Kelet-Európa, Amazonasz) származók'],
           seasonality: 'Nincs',
-          risk_groups: ['HBV fertőzöttek', 'IV droghasználók', 'Szexuális partnerek', 'Eü. dolgozók'],
-          transmission: 'Parenterális, szexuális (mint HBV). Csak HBV jelenlétében fertőz!'
+          transmission: 'Parenterális (vér), szexuális, perkután. KIZÁRÓLAG Hepatitis B vírus (HBsAg) jelenlétében képes fertőzni és terjedni!'
         },
         pathomechanism: {
           steps: [
-            'Defektív vírus: A replikációhoz és a fertőző részecskék képzéséhez a Hepatitis B vírus felszíni antigénjére (HBsAg) van szüksége.',
-            'Koinfekció: HBV és HDV egyszerre fertőz. Általában súlyos akut hepatitist okoz, de a krónikussá válás ritka (<5%).',
-            'Szuperinfekció: Krónikus HBV hordozó fertőződik HDV-vel. Ez a legsúlyosabb forma, gyakran fulmináns lefolyású vagy gyorsan progrediáló cirrhosisba torkollik.'
+            'Defektív satellit vírus: A HDV nem tud saját burokfehérjét szintetizálni. A hepatocytákba való bejutáshoz, az összeépüléshez és a vírusrészecskék kiszabadulásához a Hepatitis B vírus által termelt HBsAg-t használja fel (NTCP receptoron keresztül).',
+            'Koinfekció (HBV + HDV egyidejű akut fertőzés): Általában súlyos akut hepatitist okoz magas fulmináns lefolyási kockázattal, de a krónikussá válás ritka (<5%).',
+            'Szuperinfekció (Krónikus HBV hordozó fertőződik HDV-vel): >80–90%-ban krónikussá válik. Ez a human vírushepatitisek LEGAGRESSZÍVEBB és LEGGYORSABBAN PROGREDIÁLÓ formája! 5–10 év alatt 70–80%-ban májcirrhosis alakul ki, kiemelkedően magas HCC és dekompenzációs kockázattal.'
           ],
-          virulence_factors: ['Delta antigén (HDAg)']
+          virulence_factors: ['HDAg (Small és Large Hepatitis Delta Antigén)', 'HBsAg köpeny kihasználása', 'Közvetlen citopatikus és immunmediált hepatocytotoxicitás']
         },
         clinical: {
-          incubation: '30-60 nap',
-          onset: 'Hirtelen',
+          incubation: '30–60 nap (szuperinfekció esetén rövidebb)',
+          onset: 'Hirtelen / Akut fellángolás',
           symptoms: [
-            { name: 'Súlyosbodás', description: 'Ismert HBV beteg állapotának hirtelen romlása (akut fellángolás).', severity: 'severe' },
-            { name: 'Dekompenzáció', description: 'Gyorsan kialakuló májelégtelenség, sárgaság, coagulopathia.', severity: 'severe' }
+            { name: 'Szuperinfekció / Akut fellángolás', description: 'Ismert krónikus HBV-s beteg állapotának hirtelen, drámai romlása: kifejezett sárgaság, súlyos fáradékonyság, hányinger, jobb felhasi fájdalom.', severity: 'severe' },
+            { name: 'Gyorsan progrediáló cirrhosis', description: 'Portalis hypertensio jelei (ascites, varixvérzés, splenomegalia) meglepően korán, fiatal felnőttkorban megjelenhetnek.', severity: 'severe' }
           ],
-          complications: ['Fulmináns hepatitis', 'Gyors progresszió cirrhosisba (legagresszívebb vírushepatitis)']
+          physical_exam: [
+            'Icterus (sclera és bőr kifejezett sárgasága)',
+            'Fájdalmas hepatomegalia',
+            'Splenomegalia, póknaevusok, ascites, asterixis (korai cirrhosis és dekompenzáció jelei)'
+          ],
+          complications: [
+            'Fulmináns májelégtelenség (ALF) akut szuperinfekcióban',
+            'Rendkívül gyors progresszió májcirrhosisba (5–10 év alatt)',
+            'Hepatocellularis carcinoma (HCC - 3x magasabb kockázat, mint HBV monoferfertőzésben)',
+            'Korai májdekompenzáció és elhalálozás'
+          ]
         },
         diagnostics: {
           laboratory: [
-            { test: 'ALT/AST', finding: 'emelkedett', interpretation: 'Akut fellángolás' }
+            { test: 'ALT / AST', finding: 'Kifejezetten emelkedett vagy fluktuáló kiugrásokat mutat', interpretation: 'Súlyos nekroinflammatórikus aktivitás' },
+            { test: 'Bilirubin & INR', finding: 'Progresszíven emelkedő bilirubin, INR >1.5', interpretation: 'Májfunkció gyors romlása, akut májelégtelenség veszélye' }
           ],
           microbiology: [
-            { test: 'Anti-HDV', finding: 'Pozitív', significance: 'Szűrés minden HBV betegnél' },
-            { test: 'HDV RNS', finding: 'Pozitív', significance: 'Aktív replikáció' }
+            { test: 'Anti-HDV Total (IgG/IgM ELISA)', finding: 'Pozitív', significance: 'EASL Követelmény: MINDEN HBsAg-pozitív beteget ALÁBBAN EGYSZER szűrni kell Anti-HDV-re!' },
+            { test: 'HDV RNS (Kvantitatív RT-PCR)', finding: 'Pozitív (IU/mL)', significance: 'Aktív HDV replikáció igazolása; a diagnózis és a kezelés monitorozásának alappillére' },
+            { test: 'HBsAg & Anti-HBc IgM', finding: 'HBsAg+; Anti-HBc IgM+ (koinfekció) vagy Anti-HBc IgM- (szuperinfekció)', significance: 'Különbségtétel a koinfekció és szuperinfekció között' }
           ]
         },
         differential: [
-          { disease: 'HBV koinfekció', distinguishing: 'HDV RNS pozitív, Anti-HDV pozitív' },
-          { disease: 'Akut HBV fellángolás', distinguishing: 'HDV RNS negatív, Anti-HDV negatív' }
+          { disease: 'Akut HBV reaktiváció / flare (HDV nélkül)', distinguishing: 'HDV RNS negatív, Anti-HDV negatív; HBV DNS hirtelen kiugrása' },
+          { disease: 'Egyéb akut felülfertőződések (HAV, HEV, HCV)', distinguishing: 'Anti-HAV IgM, Anti-HEV IgM, HCV RNS tesztelés' },
+          { disease: 'Gyógyszer-indukált májkárosodás (DILI) HBV hordozóban', distinguishing: 'Anamnézisben hepatotoxikus szer, HDV RNS negatív' }
         ],
         therapy: {
-          guidelines: ['EASL Clinical Practice Guidelines on hepatitis delta virus 2023'],
+          guidelines: ['EASL Clinical Practice Guidelines on Hepatitis Delta Virus 2023'],
           empirical: {
             outpatient: [
-              { drug: 'Bulevirtide', dose: '2 mg SC naponta', duration: 'Hosszú távú', note: 'Belépés gátló. Monoterápia vagy Peg-IFN kombináció. (Feltételes engedély)' },
-              { drug: 'Peg-IFN alfa', dose: '180 mcg SC hetente', duration: '48 hét', note: 'Alternatíva, de alacsony tartós válaszarány.' }
+              { drug: 'Bulevirtide (Hepcludex)', dose: '2 mg SC 1x/nap (öninjekciózás)', duration: 'Hosszú távú fenntartó terápia (évekig)', note: 'EASL Első Vonalbeli Szer: Belépésgátló lipopeptid (NTCP receptor gátló). Kompenzált májbetegségben és HDV RNS pozitivitás esetén indítandó.' },
+              { drug: 'Peg-IFN alfa-2a', dose: '180 mcg SC 1x/hét', duration: '48 hét', note: 'Off-label alternatíva (ha Bulevirtide nem elérhető); alacsony tartós válaszarány (~20-30%).' }
             ]
           },
-          targeted: 'Bulevirtide (hosszú távú fenntartó kezelés) vagy Peg-IFN (48 hét). Nukleozid analógok (HBV ellen) folytatandók, de HDV-re nem hatnak közvetlenül.',
-          prevention: ['HBV vakcináció véd HDV ellen is (mivel HBsAg kell neki)']
+          targeted: 'EASL 2023 Irányelv: Bulevirtide 2 mg SC naponta monoterápiában vagy nukleos(t)id analóggal (NA) kombinálva. Mivel a Bulevirtide nem hat közvetlenül a HBV cccDNS-re, az alapvető HBV elleni NA (Tenofovir/Entecavir) kezelést folytatni kell!',
+          supportive: ['Szigorú alkoholtilalom', 'Rendszeres HCC szűrés (hasi UH + AFP 6 havonta)', 'Májtranszplantációs konzílium korai lefolyásban'],
+          prevention: ['Hepatitis B elleni védőoltás (mivel a HDV terjedéséhez HBsAg szükséges)', 'Biztonságos tűhasználat és vérszűrés']
         },
         guidelines: {
-          screening: ['Minden HBsAg pozitív beteget egyszer szűrni kell anti-HDV-re'],
+          screening: ['Minden HBsAg-pozitív beteget legalább egyszer szűrni kell Anti-HDV-re!'],
           treatment: [
-            'Bulevirtide 2mg SC naponta: Kompenzált májbetegség és HDV RNS pozitivitás esetén. Kezelés addig, amíg klinikai haszon van (évekig).',
-            'Peg-IFN alfa: 48 hetes kúra megkísérelhető (kb. 25% tartós válasz).'
+            'Bulevirtide 2mg SC naponta: Kompenzált májbetegség és aktív HDV RNS pozitivitás esetén indítandó. Kezelés addig, amíg klinikai és virológiai haszon észlelhető (éveken át).',
+            'Peg-IFN alfa-2a (48 hét): Alternatíva, ha a Bulevirtide nem elérhető.'
           ],
-          monitoring: ['HDV RNS, ALT, HBsAg']
+          monitoring: ['HDV RNS, ALT, HBsAg, epe-sav szintek követése']
         },
         prognosis: {
-          mortality: 'Magas, gyors cirrhosis progresszió',
-          factors: 'Szuperinfekció rosszabb prognózisú'
+          mortality: 'A legmagasabb mortalitású vírushepatitis; kezeletlenül 10-éves cirrhosis kockázat >70%, magas májeredetű halálozás',
+          prognostic_scores: ['BEHIND score', 'Child-Pugh és MELD score'],
+          factors: 'Szuperinfekció vs koinfekció, HDV RNS perzisztencia, fibroszis stádiuma, Bulevirtide kezelési válasz'
         },
         references: [
-          'EASL Clinical Practice Guidelines on hepatitis delta virus (2023).',
-          'WHO. Hepatitis D resources and technical brief.'
+          'EASL Clinical Practice Guidelines on Hepatitis Delta Virus. J Hepatol. 2023;79(2):433-460.',
+          'European Medicines Agency (EMA). Hepcludex (bulevirtide) summary of product characteristics.'
         ],
         gallery: [
           {
@@ -1565,78 +1610,98 @@ window._abdomen_hu = window._abdomen_hu || {
       {
         id: 'hev',
         name: 'Hepatitis E',
-        pathogen: { type: 'Vírus', name: '<i>Hepatitis E vírus</i> (HEV)', gram: 'ssRNS, Hepeviridae', shape: 'ikozahidrális' },
+        pathogen: { type: 'Vírus', name: '<i>Hepatitis E vírus</i> (HEV / Orthohepevirus A)', gram: 'ssRNS (+), Hepeviridae (Orthohepevirus A)', shape: 'ikozahidrális, burok nélküli (székletben) / kvázi-burokkal rendelkező (eHEV, vérben)' },
         epidemiology: {
-          incidence: 'Fejlődő országok (víz), Fejlett (sertés/vad)',
-          risk_groups: ['Terhesek (súlyos lefolyás)', 'Immunszupprimáltak (krónikus)', 'Májbetegek', 'Sertésgondozók'],
-          seasonality: 'Esős évszak (trópusokon)',
-          transmission: 'Feko-orális (víz - Genotípus 1,2), Zoonózis (nyers sertés/vadhús - Genotípus 3,4)'
+          incidence: 'A világ leggyakoribb akut vírushepatitis oka. Fejlődő országokban vízi járványok (Genotípus 1, 2); Európában és Észak-Amerikában zoonózis (Genotípus 3, 4).',
+          risk_groups: ['Nyers/félig nyers sertés- vagy vadhúst (kolbász, máj) fogyasztók', 'Szervtranszplantáltak (SOT)', 'HIV-fertőzöttek (CD4 <200/µL)', 'Kemoterápiás és biológiai terápiát (anti-TNF, rituximab) kapó betegek', 'Terhesek (Genotípus 1/2 esetén fulmináns kockázat)', 'Meglévő krónikus májbetegségben / cirrhosisban szenvedők'],
+          seasonality: 'Trópusokon esős évszak (vízszennyezés); mérsékelt égövön nincs szezonalitás',
+          transmission: 'Zoonózis (nem megfelelően átsütött sertés-, vaddisznó- és szarvashús - G3, G4), feko-orális (szennyezett ivóvíz - G1, G2), vértranszfúzió, szervátültetés, vertikális (anya-magzat).'
         },
         pathomechanism: {
           steps: [
-            'Bejutás: Feko-orális (szennyezett víz - 1., 2. genotípus) vagy zoonózis (nyers hús - 3., 4. genotípus) útján.',
-            'Terhesség: Terheseknél (főleg 3. trimeszter) a vírus fulmináns májelégtelenséget okozhat, valószínűleg hormonális és immunológiai változások miatt (20% mortalitás).',
-            'Krónikussá válás: Immunszupprimált betegekben (pl. transzplantáltak) a vírus nem eliminálódik, krónikus hepatitist és fibrosist okozva.'
+            'Transzmisszió és szisztémás bejutás: Feko-orális (szennyezett víz - Genotípus 1, 2) vagy zoonotikus (alulművelt sertés/vadhús - Genotípus 3, 4) úton.',
+            'Májsejt-károsodás: A hepatocyták fertőzését követően az immunmediált T-sejtes válasz okoz nekrózist és lobáris gyulladást.',
+            'Terhességi fulmináns lefolyás (Genotípus 1, 2): A 3. trimeszterben a magas progeszteron/ösztrogén szintek, az alterált Th2 immunválasz és a placenta-máj tengely károsodása miatt fulmináns májelégtelenség alakulhat ki (20–25% mortalitás).',
+            'Krónikussá válás (EASL definíció): Immunszupprimáltakban (SOT transzplantáltak, HIV, kemoterápia, anti-TNF/rituximab) a Genotípus 3 fertőzés nem eliminálódik. >3 hónapos HEV RNS perzisztencia esetén KRÓNIKUS HEV fertőzésről beszélünk, amely 2–5 év alatt krónikus hepatitishez és cirrhosisba progrediál.'
           ],
-          virulence_factors: ['ORF3 protein (kiszabadulás)', 'Kapszid protein']
+          virulence_factors: ['ORF3 fehérje (kiszabadulás és immunelkerülés)', 'ORF2 kapszid fehérje', 'eHEV kvázi-burok a szérumban']
         },
         clinical: {
-          incubation: '15-60 nap (átlag 40)',
-          onset: 'Hirtelen',
+          incubation: '15–60 nap (átlagosan 40 nap)',
+          onset: 'Hirtelen vagy lappangó',
           symptoms: [
-            { name: 'Akut hepatitis', description: 'Hasonló a HAV-hoz (láz, sárgaság, hányás).', severity: 'moderate' },
-            { name: 'Neurológiai tünetek', description: 'Gyakrabban társul neurológiai szövődményekkel (Guillain-Barré szindróma, neuralgiás amyotrophia).', severity: 'severe' },
-            { name: 'Terhességben', description: 'Súlyos, életveszélyes májelégtelenség jelei.', severity: 'severe' }
+            { name: 'Akut icterusos hepatitis', description: 'Láz, étvágytalanság, hányinger, jobb bordaív alatti fájdalom, sárgaság, sötét vizelet.', severity: 'moderate' },
+            { name: 'Neurológiai extrahepatikus tünetek (EASL kiemelt)', description: 'Guillain-Barré szindróma, Neuralgiás amyotrophia (Parsonage-Turner szindróma), encephalitis, myelitis.', severity: 'severe' },
+            { name: 'Terhességi szövődmények (G1, G2)', description: 'Fulmináns májelégtelenség, koraszülés, fötális elhalás.', severity: 'severe' },
+            { name: 'Krónikus HEV fertőzés (G3 immunszupprimáltakban)', description: 'Gyakran aszimptomatikus vagy enyhe fáradékonyság, perzisztens májenzim-emelkedés, gyorsan progrediáló cirrhosis.', severity: 'severe' }
           ],
-          physical_exam: ['Icterus', 'Hepatomegalia'],
-          complications: ['Fulmináns hepatitis terheseknél (20% mortalitás! - G1,2)', 'Krónikus hepatitis immunszupprimáltakban (G3)', 'Neurológiai tünetek (Guillain-Barré, Neuralgiás amyotrophia)']
+          physical_exam: [
+            'Icterus (sclera, bőr)',
+            'Hepatomegalia (fájdalmas májszél)',
+            'Neurológiai manifesztációk esetén perifériás paresis, izomgyengeség, reflexkiesés'
+          ],
+          complications: [
+            'Fulmináns májelégtelenség (ALF): Terheseknél G1/G2 fertőzésben akár 20–25% mortalitás.',
+            'Akut-on-krónikus májelégtelenség (ACLF): Meglévő cirrhosisban szenvedőknél súlyos dekompenzáció.',
+            'Krónikus Hepatitis E (EASL: >3 hónap HEV RNS jelenlét): Szervtranszplantáltakban, HIV-fertőzöttekben és kemoterápiás betegekben gyors cirrhosishez vezet.',
+            'Neurológiai manifesztációk: Guillain-Barré szindróma, Neuralgiás amyotrophia (Parsonage-Turner).',
+            'Renális szövődmények: Membranoproliferatív glomerulonephritis (MPGN), membranous nephropathia.'
+          ]
         },
         diagnostics: {
           laboratory: [
-            { test: 'Májenzimek', finding: 'ALT/AST emelkedett', interpretation: 'Hepatitis' }
+            { test: 'Májenzimek (ALT, AST)', finding: 'Kifejezetten emelkedett akut fázisban; krónikus esetben mérsékelt fluktuáló emelkedés', interpretation: 'Májsejt-károsodás' },
+            { test: 'Bilirubin & ALP/GGT', finding: 'Emelkedett icterusos fázisban', interpretation: 'Kolesztázis' }
           ],
           imaging: [
-            { modality: 'Has UH', finding: 'Hepatomegalia', significance: 'Nem specifikus' }
+            { modality: 'Hasi ultrahang', finding: 'Hepatomegalia, krónikus esetben cirrhosis jelei (májfelszíni egyenetlenség, splenomegalia, ascites)', significance: 'Szerkezeti és vascularis eltérések értékelése' }
           ],
           microbiology: [
-            { test: 'Anti-HEV IgM', finding: 'Pozitív', significance: 'Akut fertőzés' },
-            { test: 'HEV RNS', finding: 'Pozitív', significance: 'Konfirmálás, krónikus eset' }
+            { test: 'Anti-HEV IgM & IgG (ELISA)', finding: 'Anti-HEV IgM pozitív immunkompetenseknél', significance: 'Akut HEV fertőzés szerológiai igazolása' },
+            { test: 'HEV RNS (RT-PCR vérből/székletből)', finding: 'Kvantitatív PCR pozitív', significance: 'KÖTELEZŐ immunszupprimáltaknál (hol a szerológia álnegatív lehet!) és a krónikus HEV (>3 hónap) diagnózisához!' }
           ]
         },
         differential: [
-          { disease: 'Hepatitis A', distinguishing: 'Szerológia (Anti-HAV IgM)' },
-          { disease: 'Gyógyszer-indukált májkárosodás (DILI)', distinguishing: 'Anamnézis (pl. antibiotikumok, NSAID)' },
-          { disease: 'Ischaemiás hepatitis', distinguishing: 'Shock, hypotonia anamnézis, LDH extrém emelkedés' },
-          { disease: 'Wilson-kór (fulmináns esetben)', distinguishing: 'Hemolízis, alacsony ALP, magas vizelet réz' }
+          { disease: 'Egyéb akut vírushepatitisek (HAV, HBV, HCV, CMV, EBV)', distinguishing: 'Azonos tünettan; specifikus szerológia és PCR tesztek alapján különíthető el' },
+          { disease: 'Gyógyszer-indukált májkárosodás (DILI)', distinguishing: 'Gyakori mimetikum; HEV RNS és Anti-HEV IgM tesztelés minden feltételezett DILI esetén javasolt az EASL szerint!' },
+          { disease: 'Autoimmun hepatitis', distinguishing: 'Autoantitestek (ANA, ASMA), szérum IgG, májbiopszia' },
+          { disease: 'Ischaemiás/Toxikus hepatitis', distinguishing: 'Keringési anamnézis, gomba- vagy paracetamol toxicity' }
         ],
         therapy: {
           guidelines: ['EASL Clinical Practice Guidelines on hepatitis E virus infection'],
           empirical: {
             outpatient: [
-              { drug: 'Szupportív', dose: '-', duration: '-', note: 'Immundompetens akut fertőzés esetén (önkorlátozó).' }
+              { drug: 'Szupportív kezelés', dose: '-', duration: '-', note: 'Immunkompetens akut fertőzésben önkorlátozó, specifikus antivirális szer általában nem szükséges' }
             ],
             inpatient: [
-              { drug: 'Ribavirin', dose: '600-800 mg PO', duration: '12 hét', note: 'Krónikus HEV (immunszupprimáltak) vagy súlyos akut esetek.' }
+              { drug: 'Ribavirin (off-label)', dose: '600–1000 mg/nap PO', duration: '21–30 nap', note: 'Súlyos akut HEV vagy Akut-on-krónikus májelégtelenség (ACLF) megelőzésére' }
+            ],
+            icu: [
+              { drug: 'Ribavirin monoterápia', dose: '600–1000 mg/nap (eGFR adaptált)', duration: '12 hét (3 hónap)', note: 'Krónikus HEV fertőzés elsővonalbeli kezelése immunszupprimáltakban (EASL CPG)' }
             ]
           },
-          targeted: 'Krónikus HEV (immunszupprimáltak): 1. Immunszuppresszió csökkentése (ha lehet). 2. Ribavirin 12 hétig. Ha sikertelen: Ribavirin 24 hétig vagy Peg-IFN.',
-          supportive: ['Folyadékpótlás', 'Terheseknél szoros monitorozás (fulmináns veszély!)'],
-          prevention: ['Élelmiszerbiztonság (sertéshús, vadhús átsütése)']
+          targeted: 'EASL Krónikus HEV Algoritmus: 1. Immunszuppresszió csökkentése (ha lehet, ~30% tisztulás). 2. Ribavirin monoterápia (600–1000 mg/nap) 12 hétig. 3. Ha a 12. héten HEV RNS+, Ribavirin folytatása összesen 24 hétig (6 hónap). 4. Peg-Interferon-alfa kizárólag májtranszplantáltakban mérlegelhető (vese/szív transzplantációban kontraindikált!).',
+          supportive: ['Folyadék- és elektrolit-háztartás rendezése', 'Terhesek és cirrhoticus betegek szoros obszervációja', 'Neurológiai szövődmények specifikus ellátása'],
+          prevention: ['Sertéshús, máj és vadhús alapos hőkezelése (>70°C)', 'Vérkészítmények HEV RNS szűrése magas kockázatú populációnak', 'HEV 239 vakcina (Hecolin) jelenleg csak Kínában engedélyezett']
         },
         guidelines: {
-          diagnosis: ['Anti-HEV IgM és IgG', 'HEV RNS (vér és széklet) - krónikus fertőzés gyanújakor kötelező'],
+          diagnosis: [
+            'Immunszuppresszióban a szerológia megbízhatatlan (álnegatív); HEV RNS (RT-PCR) vizsgálat kötelező.',
+            'Minden feltételezett gyógyszer-indukált májkárosodás (DILI) esetén kötelező az HEV szűrés (Anti-HEV IgM és HEV RNS).'
+          ],
           treatment_indications: [
-            'Akut: általában nem igényel kezelést (kivéve májelégtelenség)',
-            'Krónikus (>3 hónap HEV RNS+): Immunszupprimált betegek (transzplantált, HIV). Kezelés: Ribavirin.'
+            'Krónikus HEV definíció (EASL): Szervtranszplantált vagy immunszupprimált betegekben a HEV RNS perzisztenciája >3 hónapig.',
+            'Krónikus HEV kezelése: 1. Immunszuppresszió csökkentése. 2. Ribavirin monoterápia 12 hétig (szükség esetén 24 hétre kiterjesztve).',
+            'Súlyos akut HEV / ACLF: Ribavirin (600–1000 mg/nap) 21–30 napos adása megfontolandó a májelégtelenség kivédésére.'
           ]
         },
         prognosis: {
-          mortality: 'Általában alacsony; terheseknél (genotípus 1–2) mortalitás akár 20%',
+          mortality: 'Általában alacsony (<1%); terheseknél (G1/G2) akár 20–25%, krónikus HEV esetén cirrhosis progresszió',
           prognostic_scores: ['Nincs'],
-          factors: 'Terhesség, immunszuppresszió'
+          factors: 'Terhesség (G1/G2), immunszuppresszió mértéke, meglévő krónikus májbetegség/cirrhosis'
         },
         references: [
-          'EASL Clinical Practice Guidelines on hepatitis E virus infection.',
+          'EASL Clinical Practice Guidelines on Hepatitis E Virus Infection (Journal of Hepatology).',
           'WHO. Hepatitis E fact sheet.'
         ],
         gallery: [
@@ -1649,142 +1714,156 @@ window._abdomen_hu = window._abdomen_hu || {
       },
       {
         id: 'hgv',
-        name: 'Hepatitis G (GBV-C)',
-        pathogen: { type: 'Vírus', name: '<i>GB vírus C</i> (HGV)', gram: 'ssRNS, Flaviviridae', shape: '-' },
+        name: 'Hepatitis G vírus / Human Pegivirus 1 (HPgV-1 / GBV-C)',
+        pathogen: { type: 'Vírus', name: '<i>Human Pegivirus 1</i> (HPgV-1, korábban GBV-C / HGV)', gram: 'ssRNS (+), Flaviviridae (Pegivirus nemzetség)', shape: 'gömb alakú, burokkal rendelkező' },
         epidemiology: {
-          incidence: 'Véradók 1-4%-a',
-          risk_groups: ['IV droghasználók', 'Hemodializáltak', 'Többszörös transzfúzió'],
+          incidence: 'Világszerte elterjedt; az egészséges véradók 1–5%-a perzisztensen viraemiás. A népesség 20–50%-a rendelkezik korábbi fertőzésre utaló Anti-E2 antitesttel.',
+          risk_groups: ['Intravénás droghasználók', 'Hemodializált betegek', 'Többszörös vérkészítmény-recepiensek', 'HIV- és HCV-fertőzöttek', 'Fokozott szexuális kockázatú személyek'],
           seasonality: 'Nincs',
-          transmission: 'Vér, szexuális, vertikális'
+          transmission: 'Parenterális (vér, tűszúrás, vérkészítmények), szexuális úton, vertikális (anya-gyermek)'
         },
         pathomechanism: {
-          steps: ['Lymphotrop vírus', 'Replikáció lymphocytákban', 'Nem hepatotrop (vitatott)', 'Interferencia HIV replikációval'],
-          virulence_factors: ['Nem ismert']
+          steps: [
+            'Lymphotrop vírus: T- és B-lymphocytákban, valamint perifériás mononukleáris sejtekben (PBMC) replikálódik. NEM hepatotrop vírus!',
+            'A májsejteket (hepatocytákat) nem károsítja, nem okoz citopatikus hatást vagy szövettani gyulladást a májban.',
+            'HIV-1 koinfekcióban kedvező immunmoduláló hatást fejt ki: csökkenti a HIV koreceptorok (CD4, CXCR4, CCR5) expresszióját és növeli a gátló chemokinek (SDF-1, RANTES, MIP-1α/β) szintjét.',
+            'Mérsékli a T-sejtek túlzott immunaktivációját és az apoptózist, ezáltal lassítja a CD4+ sejtszám csökkenését és a HIV/AIDS progresszióját.'
+          ],
+          virulence_factors: ['E2 burokglikoproteid (sejtbejutás, immunmoduláció)', 'NS5A nem-strukturális fehérje']
         },
         clinical: {
-          incubation: 'Ismeretlen',
+          incubation: '14–60 nap (ha mérik), klinikailag irreleváns',
           onset: 'Tünetmentes',
           symptoms: [
-            { name: 'Tünetmentes', description: 'Nem okoz akut vagy krónikus hepatitist', severity: 'mild' }
+            { name: 'Asymptomatikus hordozás', description: 'Önállóan sem akut, sem krónikus hepatitist, sem májcirrhosist vagy májelégtelenséget NEM okoz. A "Hepatitis G" elnevezés történelmi tévedés.', severity: 'mild' }
           ],
-          physical_exam: ['Negatív'],
-          complications: ['HIV koinfekcióban lassítja az AIDS progressziót (kedvező hatás)']
+          physical_exam: ['Fizikális lelet teljesen negatív (nincs sárgaság, nincs hepatomegalia)'],
+          complications: ['Májkomplikációja NINCS.', 'HIV-1 koinfekció esetén perzisztáló viraemiája lassítja az AIDS progresszióját és javítja a túlélést (protektív hatás).']
         },
         diagnostics: {
-          laboratory: [{ test: 'Májfunkció', finding: 'Normál', interpretation: 'Nem okoz hepatitist' }],
-          imaging: [{ modality: 'Nincs', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'Májenzimek (ALT, AST), Bilirubin, ALP, GGT', finding: 'Teljesen normális tartományban', interpretation: 'Nincs hepatozelluláris károsodás' }],
+          imaging: [{ modality: 'Abdominális ultrahang', finding: 'Normális máj- és epeút-struktúra', significance: 'Kizárja az egyéb patológiákat' }],
           microbiology: [
-            { test: 'PCR', finding: 'RNS', significance: 'Kutatási cél, klinikai rutinban nem használják' }
+            { test: 'HPgV-1 RT-PCR', finding: 'RNS kimutatása', significance: 'Kutatási/speciális célból; aktív viraemiát igazol' },
+            { test: 'Anti-E2 antitest', finding: 'Positivitás', significance: 'A viraemia tisztázódását és korábbi fertőzést jelez' }
           ]
         },
         differential: [
-          { disease: 'Egyéb vírushepatitisek', distinguishing: 'Szerológia (HBV, HCV)' },
-          { disease: 'Nem fertőző májbetegségek', distinguishing: 'Kizárásos diagnózis' }
+          { disease: 'Valódi hepatotrop vírushepatitisek (HBV, HCV, HAV, HEV, HDV)', distinguishing: 'Szerológia és PCR vizsgálatok (HBsAg, Anti-HCV, HCV-RNA stb.)' },
+          { disease: 'Nem fertőző májbetegségek (DILI, NAFLD/NASH, Autoimmun hepatitis)', distinguishing: 'Kizárásos diagnózis, autoantitestek, toxikológia' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'Nem igényel kezelést.',
-          supportive: [],
-          prevention: ['Vérkészítmények szűrése (nem rutinszerű)']
+          targeted: 'Specifikus antivirális kezelést NEM igényel. A fertőzésnek sincs hepatológiai indikációja a kezelésre.',
+          supportive: ['Nem szükséges klinikai beavatkozás.'],
+          prevention: ['Vérkészítmények rutinszerű HPgV-1 szűrése nem indokolt. Standard infekciókontroll.']
         },
         prognosis: {
-          mortality: 'Nem patogén a májra nézve',
+          mortality: 'Májbetegség szempontjából nem patogén (nulla mortalitás).',
           prognostic_scores: [],
-          factors: '-'
+          factors: 'HIV koinfekció esetén kedvező prognosztikai tényező a HPgV-1 perzisztencia.'
         },
         references: [
-          'Stapleton JT. GB Virus Type C/Hepatitis G Virus. Semin Liver Dis.',
-          'Viral hepatitis reviews discussing human pegivirus (HPgV/GBV-C).'
+          'Stapleton JT, et al. HPgV-1 (GBV-C) infection and pathogenesis. Nat Rev Microbiol.',
+          'EASL & CDC Clinical Guidelines on Viral Hepatitis misnomers and Anelloviridae/Pegivirus.'
         ]
       },
       {
         id: 'ttv',
         name: 'Torque teno vírus (TTV)',
-        pathogen: { type: 'Vírus', name: '<i>Torque teno virus</i>', gram: 'ssDNS, Anelloviridae', shape: '-' },
+        pathogen: { type: 'Vírus', name: '<i>Torque teno virus</i> (TTV)', gram: 'ssDNS (-/+), Anelloviridae (Alphatorquevirus nemzetség)', shape: 'kicsi (28-32 nm), burok nélküli, ikozaéderes' },
         epidemiology: {
-          incidence: 'Ubiquiter (népesség >90%-a hordozó)',
-          risk_groups: ['Általános populáció'],
+          incidence: 'Ubikviter: a népesség >70–90%-ában jelen van perzisztens viraemia formájában. Az emberi kommensális virom alapvető tagja.',
+          risk_groups: ['Általános populáció', 'Szervtranszplantáltak (máj, vese, szív, tüdő)', 'Immunszupprimált betegek'],
           seasonality: 'Nincs',
-          transmission: 'Vér, nyál, széklet, anyatej'
+          transmission: 'Cseppfertőzés, fékál-orális, parenterális (vér), szexuális, vertikális és anyatej útján'
         },
         pathomechanism: {
-          steps: ['Perzisztens viraemia', 'Replikáció számos szövetben', 'Nem bizonyított patogenitás'],
-          virulence_factors: ['-']
+          steps: [
+            'Szisztémás replikáció: Csontvelőben, PBMC sejtekben, T- és B-lymphocytákban, májban és tüdőszövetben egyaránt jelen van.',
+            'NEM citopatikus: Nem okoz májsejt-nekrózist, szövettani gyulladást vagy májfunkciós zavart.',
+            'Immunrendszeri egyensúly: A TTV DNS plazmakopiaszáma inverz módon arányos a gazdaszervezet sejtes immunitásának mértékével (T-sejt funkció).',
+            'Biomarker szervtranszplantációban: Magas TTV-szint túlzott immunszuppresszióra és opportunista fertőzésekre (CMV, BK-vírus, gombák) hajlamosít; alacsony TTV-szint elégtelen immunszuppressziót és graft-kilökődési (rejection) kockázatot jelez.'
+          ],
+          virulence_factors: ['ORF1 kapszidfehérje (széles genetikai variabilitás, immunevasion)']
         },
         clinical: {
-          incubation: '-',
+          incubation: 'Klinikailag nem értelmezhető (élethosszig tartó kommenzális perzisztencia)',
           onset: 'Tünetmentes',
           symptoms: [
-            { name: 'Tünetmentes', description: 'Kommenzális vírusnak tekinthető', severity: 'mild' }
+            { name: 'Kommenzális állapot', description: 'Nem okoz akut vagy krónikus hepatitist, sem szisztémás megbetegedést.', severity: 'mild' }
           ],
-          physical_exam: ['Negatív'],
-          complications: ['Pathogenitása nem bizonyított', 'Immunszuppresszió mértékének jelzője lehet']
+          physical_exam: ['Fizikális vizsgálat teljesen negatív.'],
+          complications: ['Nem patogén a májra. Újabb klinikai evidenciák alapján a TTV plazma-DNS szintje megbízható biomarkerként szolgál a szervtranszplantált betegek immunszuppresszív terhelésének személyre szabott beállításához.']
         },
         diagnostics: {
-          laboratory: [{ test: '-', finding: '-', interpretation: '-' }],
-          imaging: [{ modality: '-', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'Májfunkciós panel (ALT, AST, Bilirubin)', finding: 'Normális', interpretation: 'Nincs májkárosodás' }],
+          imaging: [{ modality: 'Ultrahang', finding: 'Normális', significance: 'Nincs elváltozás' }],
           microbiology: [
-            { test: 'PCR', finding: 'DNS', significance: 'Kutatás' }
+            { test: 'Kvantitatív Real-Time PCR (TTV DNS kopiaszám)', finding: 'DNS kimutatása (kopia/mL)', significance: 'Klinikai szurokmarker transzplantációs immunszuppresszió monitorozására' }
           ]
         },
         differential: [
-          { disease: 'Egyéb vírushepatitisek', distinguishing: 'Szerológia (HBV, HCV)' },
-          { disease: 'Nem fertőző májbetegségek', distinguishing: 'Kizárásos diagnózis' }
+          { disease: 'Klinikai hepatitisz szindrómák (HAV-HEV, EBV, CMV)', distinguishing: 'Szerológia, kiterjedt PCR panel' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'Nincs',
-          supportive: [],
-          prevention: ['-']
+          targeted: 'Antivirális kezelést NEM igényel.',
+          supportive: ['Szervtranszplantáltaknál a TTV DNS szintje alapján az immunszuppresszív dózisok finomhangolása (kutatási/klinikai protokollok szerint).'],
+          prevention: ['Universal jelenlét miatt megelőzése nem lehetséges és nem is szükséges.']
         },
         prognosis: {
-          mortality: 'Jó',
+          mortality: 'Fiziológiás virome elem (nulla mortalitás).',
           prognostic_scores: [],
-          factors: '-'
+          factors: 'TTV DNS kopiaszám transzplantáltaknál korrelál az opportunista fertőzések és a kilökődés kockázatával.'
         }
       },
       {
         id: 'senv',
-        name: 'SEN vírus',
-        pathogen: { type: 'Vírus', name: '<i>SEN vírus</i>', gram: 'ssDNS, Anelloviridae', shape: '-' },
+        name: 'SEN vírus (SENV-D / SENV-H)',
+        pathogen: { type: 'Vírus', name: '<i>SEN virus</i> (SENV-D és SENV-H genotípusok)', gram: 'ssDNS (-/+), Anelloviridae család', shape: 'kicsi, burok nélküli körkörös DNS-vírus' },
         epidemiology: {
-          incidence: 'Ismeretlen',
-          risk_groups: ['Transzfundáltak'],
+          incidence: 'Egészséges véradók 10–20%-ában, transzfundált betegek, hemodializáltak és IV droghasználók 40–60%-ában van jelen.',
+          risk_groups: ['Transzfúzióban részesültek', 'Hemodializáltak', 'IV droghasználók', 'Általános populáció'],
           seasonality: 'Nincs',
-          transmission: 'Transzfúzió, vér útján'
+          transmission: 'Parenterális (transzfúzió, vér, tűszúrás), nem-parenterális (fékál-orális, vertikális)'
         },
         pathomechanism: {
-          steps: ['Vér útján terjed', 'Májsejtekben replikálódhat', 'Okozhat enyhe hepatitist (vitatott)'],
-          virulence_factors: ['-']
+          steps: [
+            'Vér útján terjed és perzisztens viraemiát hoz létre.',
+            'Májsejtekben és perifériás sejtekben is kimutatható a DNS-e, de NEM okoz citopatológiát vagy nekroinflammációt.',
+            'Rigorózus prospektív és retrospektív klinikai vizsgálatok igazolták, hogy a SENV jelenléte NEM növeli a posttranszfúziós hepatitis, a kriptogén hepatitis, a májcirrhosis vagy az alacsony májfunkció kockázatát.',
+            'Az emberi kommensális anellovirom opportunista eleme.'
+          ],
+          virulence_factors: ['Nincs igazolt virulenciafaktor.']
         },
         clinical: {
-          incubation: '-',
-          onset: 'Lassú',
+          incubation: 'Nem értelmezhető',
+          onset: 'Tünetmentes',
           symptoms: [
-            { name: 'Enyhe hepatitis?', description: 'Transzfúzió utáni hepatitishez társították, de ok-okozat nem bizonyított', severity: 'mild' }
+            { name: 'Tünetmentes hordozás', description: 'Nem okoz sem akut, sem krónikus májbetegséget. Korábban transzfúzió utáni hepatitishez társították, de az ok-okozati összefüggést a tudományos kutatások cáfolták.', severity: 'mild' }
           ],
-          physical_exam: ['-'],
-          complications: ['Nem bizonyított jelentős májkárosodás']
+          physical_exam: ['Fizikális vizsgálattal kóros eltérés nem található.'],
+          complications: ['Nincs igazolt máj- vagy szisztémás szövődménye.']
         },
         diagnostics: {
-          laboratory: [{ test: 'ALT', finding: 'Enyhe emelkedés lehetséges', interpretation: '?' }],
-          imaging: [{ modality: '-', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'ALT / AST', finding: 'Normális tartományban', interpretation: 'Nincs szignifikáns hepatocytolysis' }],
+          imaging: [{ modality: 'Ultrahang', finding: 'Normális', significance: '-' }],
           microbiology: [
-            { test: 'PCR', finding: 'DNS', significance: 'Kutatás' }
+            { test: 'SENV-D / SENV-H PCR', finding: 'DNS kimutatása', significance: 'Kutatólaboratóriumi vizsgálat; rutinszerűen nem javallott' }
           ]
         },
         differential: [
-          { disease: 'Egyéb vírushepatitisek', distinguishing: 'Szerológia (HBV, HCV)' },
-          { disease: 'Nem fertőző májbetegségek', distinguishing: 'Kizárásos diagnózis' }
+          { disease: 'Posttranszfúziós hepatitis (HCV, HBV, CMV, EBV)', distinguishing: 'Szerológia és specifikus PCR tesztek' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'Nincs',
+          targeted: 'Kezelést nem igényel.',
           supportive: [],
-          prevention: ['-']
+          prevention: ['Vérkészítmények SENV-szűrése nem indokolt és nem javasolt.']
         },
         prognosis: {
-          mortality: 'Jó',
+          mortality: 'Kiváló (nem patogén virus).',
           prognostic_scores: [],
           factors: '-'
         }

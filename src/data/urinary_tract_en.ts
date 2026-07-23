@@ -5,386 +5,456 @@ export const urinaryTractEn: Category = {
   icon: '🚽',
   color: '#3b82f6',
   didactics: {
-    overview: 'Distinguish lower (usually without systemic signs) and upper (pyelonephritis, systemic signs) urinary tract infections. Lower UTIs are mostly ambulatory; upper UTIs often require broader work-up and sometimes hospitalization.',
-    lower: 'Typical symptoms: dysuria (burning), urinary frequency, urgency, suprapubic discomfort, occasional hematuria. Vital signs usually normal.',
-    upper: 'Systemic signs: fever (>38°C), chills, malaise; local: flank/CVA tenderness, nausea/vomiting. Labs: leukocytosis, elevated CRP, pyuria; obtain urine culture and consider blood cultures in febrile patients.',
-    diagnostics: ['1) Focused history and vitals', '2) Urine dipstick and microscopy', '3) Urine culture if complicated/recurrent or before treatment when systemic signs present', '4) Blood tests (CBC, creatinine, CRP) and blood cultures if systemic', '5) Imaging (US/CT) if obstruction, persistent symptoms or abscess suspected'],
-    red_flags: ['Sepsis signs (hypotension, altered mental status)', 'Rapidly rising creatinine or obstruction', 'Pregnancy with fever', 'Inability to tolerate oral intake (vomiting)', 'Immunosuppression'],
-    special_populations: 'Elderly: often atypical (confusion, falls, functional decline) — low threshold for investigation. Children: fever may be the sole sign. Pregnancy: low threshold for treatment and follow-up due to higher risk of pyelonephritis.',
-    teaching_tip: 'If urinary symptoms are present without systemic signs → think cystitis. Add fever and flank pain or abnormal vitals → suspect pyelonephritis and escalate evaluation and care.'
+    overview: 'According to EAU 2025/2026 Guidelines, UTIs are classified into: localized uncomplicated lower UTI (cystitis), localized uncomplicated upper UTI (pyelonephritis), systemic / complicated UTI (in patients with risk factors, anatomical/functional abnormalities, or devices), bacterial prostatitis (acute and chronic), and asymptomatic bacteriuria (ASB).',
+    lower: 'Lower UTI (Cystitis): Acute dysuria, frequency, urgency, suprapubic discomfort WITHOUT systemic symptoms (fever, flank pain). Routine urine culture is NOT required according to EAU 2025/2026.',
+    upper: 'Upper UTI (Pyelonephritis): Fever (>38°C), chills, flank/CVA pain, Giordano sign, nausea/vomiting. Urine culture mandatory; imaging (CT/US) indicated if fever persists for 48-72h under treatment.',
+    diagnostics: [
+      '1) Evaluation of history and clinical symptoms (presence/absence of fever and flank pain)',
+      '2) Urine dipstick and sediment analysis (leukocyte esterase, nitrite, pyuria)',
+      '3) Urine culture (mandatory for pyelonephritis, complicated cases, recurrences, or pregnancy)',
+      '4) Inflammatory markers (CBC, CRP, procalcitonin) and renal function for systemic symptoms',
+      '5) Abdominal/pelvic US or CT imaging in suspected obstruction, abscess, or treatment failure'
+    ],
+    red_flags: [
+      'Signs of sepsis / septic shock (hypotension, tachycardia, tachypnea, confusion)',
+      'Acute urinary tract obstruction (urolithiasis, BPH) with stasis',
+      'Febrile pyelonephritis in pregnancy',
+      'Inability to tolerate oral medication (severe vomiting)',
+      'Immunosuppression or non-resolving fever >72h under targeted antibiotics'
+    ],
+    special_populations: 'Elderly: frequently present with atypical symptoms (delirium, confusion, falls) - low threshold for investigation, but DO NOT treat asymptomatic bacteriuria! Pregnancy: ASB must be routinely screened and treated. Men: UTIs should always be considered complicated or prostatitis.',
+    teaching_tip: 'Empirical fluoroquinolones (Ciprofloxacin, Levofloxacin) for uncomplicated cystitis must be STRONGLY AVOIDED per EAU 2025/2026 guidelines due to serious collateral damage and resistance risks!'
   },
   diseases: [
     {
       id: 'cystitis',
-      name: 'Localised Urinary Tract Infection: Cystitis',
+      name: 'Acute Uncomplicated Cystitis',
       pathogen: { type: 'Bacterium', name: '<i>Escherichia coli</i> (75-95%)', gram: 'Gram-negative', shape: 'rod' },
       epidemiology: {
-        incidence: '50% of women at least once in their lifetime',
-        risk_groups: ['Sexually active women', 'Postmenopause', 'Pregnancy', 'Diabetes', 'Catheter use'],
+        incidence: '50% of women at least once in their lifetime; 20-30% experience recurrence',
+        risk_groups: ['Sexually active premenopausal women', 'Postmenopausal women (estrogen deficiency)', 'Pregnancy', 'New sexual partner or spermicide use'],
         seasonality: 'None',
-        transmission: 'Ascending infection (perineal flora)'
+        transmission: 'Ascending infection from perineal and periurethral flora'
       },
       pathomechanism: {
         steps: [
-          'Colonization: Gut bacteria (mainly E. coli) colonize the periurethral area and vaginal introitus.',
-          'Ascension: Bacteria ascend through the urethra into the bladder (shorter urethra in women predisposes).',
-          'Adherence and Invasion: Bacteria adhere to the bladder urothelium using P-fimbriae, avoiding washout by urine, and then invade cells.',
-          'Inflammation: Bacterial multiplication and toxins (e.g., hemolysin) trigger an inflammatory response, causing mucosal hyperemia, edema, and symptoms.'
+          'Colonization: Uropathogenic gut bacteria (UPEC) colonize the periurethral area and vaginal introitus.',
+          'Ascension: Bacteria ascend through the short female urethra into the urinary bladder.',
+          'Adherence & Invasion: Bacteria adhere to uroplakin molecules on urothelial cells via type 1 and P fimbriae, forming intracellular bacterial communities (IBCs).',
+          'Inflammatory Response: Bacteria and toxins trigger mucosal inflammation, hyperemia, edema, and bladder nerve irritation.'
         ],
-        virulence_factors: ['P-fimbriae (adherence)', 'Hemolysin', 'Aerobactin (iron uptake)']
+        virulence_factors: ['Type 1 & P fimbriae (adherence)', 'Hemolysin (urothelial damage)', 'Aerobactin (iron acquisition)']
       },
       clinical: {
-        incubation: 'Variable',
-        onset: 'Sudden',
+        incubation: '1-3 days',
+        onset: 'Acute, sudden onset',
         symptoms: [
-          { name: 'Dysuria', description: 'Burning, stinging sensation during urination caused by irritation of the inflamed urethra and bladder neck.', severity: 'moderate' },
-          { name: 'Frequency', description: 'Frequent voiding of small amounts of urine due to bladder wall irritation and reduced capacity.', severity: 'moderate' },
-          { name: 'Urgency', description: 'Sudden, compelling urge to urinate that is difficult to defer (risk of urge incontinence).', severity: 'moderate' },
-          { name: 'Suprapubic pain', description: 'Pressure or pain felt in the lower abdomen, above the pubic bone.', severity: 'mild' },
-          { name: 'Hematuria', description: 'Macroscopic bloody urine (approx. 30%), often at the end of urination (terminal hematuria), due to bleeding from the hyperemic mucosa.', severity: 'mild' },
-          { name: 'Atypical elderly presentation', description: 'Older patients may have fewer urinary symptoms and may present with confusion, delirium, or falls.', severity: 'mild' }
+          { name: 'Dysuria', description: 'Burning, stinging sensation during and at the end of micturition.', severity: 'moderate' },
+          { name: 'Frequency', description: 'Frequent voiding of small volumes due to increased bladder wall irritability.', severity: 'moderate' },
+          { name: 'Urgency', description: 'Sudden, compelling urge to urinate that is difficult to defer.', severity: 'moderate' },
+          { name: 'Suprapubic pain', description: 'Pressure, dull pain, or cramp-like discomfort above the pubic bone.', severity: 'mild' },
+          { name: 'Terminal hematuria', description: 'Macroscopically bloody urine at the end of voiding (~30% of cases).', severity: 'mild' },
+          { name: 'Absence of fever', description: 'Systemic signs (fever, chills, flank pain) are ABSENT. Presence of fever suggests upper UTI (pyelonephritis)!', severity: 'mild' }
         ],
         physical_exam: [
-          'Suprapubic tenderness',
-          'Fever is usually ABSENT (if present, suspect pyelonephritis!)',
-          'Flank is not tender',
-          'Absence of vaginal discharge (increases probability of cystitis)',
-          'In elderly or diabetic patients exam may be non-specific and fever may be absent'
+          'Suprapubic tenderness on lower abdominal palpation',
+          'ABSENCE of fever and flank/CVA tenderness (Giordano sign negative)',
+          'Absence of vaginal discharge (helps distinguish from vulvovaginitis)',
+          'Normal vital signs'
         ],
-        complications: ['Ascending pyelonephritis', 'Recurrent cystitis']
+        complications: ['Ascending acute pyelonephritis', 'Recurrent cystitis (rUTI)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urine dipstick', finding: 'Leukocyte esterase+, Nitrite+', interpretation: 'High positive predictive value' },
-          { test: 'Urine sediment', finding: 'Pyuria (>10 WBC/field)', interpretation: 'Common, but not specific' }
+          { test: 'Urine dipstick', finding: 'Leukocyte esterase+, Nitrite+ (with Gram-negative rods)', interpretation: 'High positive predictive value (>90%) with typical symptoms' },
+          { test: 'Urine sediment', finding: 'Pyuria (>10 WBC/HPF)', interpretation: 'Confirms lower urinary tract inflammation' }
         ],
         imaging: [
-          { test: 'Not necessary', finding: 'Only in atypical cases', interpretation: 'Not performed for standard cystitis' }
+          { test: 'Imaging not indicated', finding: 'Not performed routinely', interpretation: 'Reserved for complications or atypical presentations' }
         ],
         microbiology: [
-          { test: 'Urine culture', finding: '≥10^3 CFU/ml', significance: 'Recommended only in complicated, recurrent, or atypical cases (EAU 2025)' }
+          { test: 'Urine culture (EAU 2025/2026)', finding: '≥10^3 CFU/ml uropathogen', significance: 'NOT routinely required for uncomplicated cystitis! Indications: suspected pyelonephritis, recurrence within 2-4 weeks, atypical symptoms, pregnancy.' }
         ]
       },
       differential: [
-        { disease: 'Vaginitis', distinguishing: 'Discharge, itching, external dysuria' },
-        { disease: 'Urethritis (STD)', distinguishing: 'New partner, gradual onset, pyuria with sterile culture' },
-        { disease: 'Interstitial cystitis', distinguishing: 'Chronic, negative culture' }
+        { disease: 'Vaginitis / Vulvovaginitis', distinguishing: 'Vaginal discharge, pruritus, external dysuria' },
+        { disease: 'Urethritis (STD)', distinguishing: 'Gradual onset, new sexual partner, urethral discharge, sterile pyuria' },
+        { disease: 'Interstitial cystitis / Bladder pain syndrome', distinguishing: 'Chronic (>6 weeks) pain with full bladder, negative urine culture' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Fosfomycin trometamol', dose: '3g PO', duration: 'Single dose', note: 'First choice (EAU 2025)' },
-            { drug: 'Nitrofurantoin', dose: '2x100mg PO', duration: '5 days', note: 'First choice (EAU 2025)' },
-            { drug: 'Pivmecillinam', dose: '3x400mg PO', duration: '3-5 days', note: 'First choice (EAU 2025)' }
+            { drug: 'Fosfomycin trometamol', dose: '3g PO', duration: 'Single dose', note: 'EAU 2025/2026 First-line choice' },
+            { drug: 'Nitrofurantoin', dose: '2x100mg PO (macrocrystals)', duration: '5 days', note: 'EAU 2025/2026 First-line choice' },
+            { drug: 'Pivmecillinam', dose: '3x400mg PO', duration: '3-5 days', note: 'EAU 2025/2026 First-line choice' },
+            { drug: 'Nitroxoline', dose: '3x250mg PO', duration: '5 days', note: 'EAU 2025/2026 Accepted alternative' }
           ],
           inpatient: [
-            { drug: 'Does not require hospital treatment', dose: '-', duration: '-', note: 'Except complications' }
+            { drug: 'Does not require hospital admission', dose: '-', duration: '-', note: 'Except for severe complications' }
           ]
         },
-        targeted: 'Based on culture. Fluoroquinolones (Ciprofloxacin, Levofloxacin) are NOT recommended empirically for uncomplicated cystitis!',
-        supportive: ['Ample fluid intake', 'Frequent urination', 'NSAID for pain relief'],
-        prevention: ['Behavioral: Ample fluid intake, postcoital voiding', 'Non-antibiotic (EAU 2025): Topical estrogen (postmenopause), OM-89 immunostimulation, D-mannose, Bladder instillation', 'Antibiotic prophylaxis (last resort): Nitrofurantoin 50-100mg at night or Fosfomycin 3g every 10 days']
+        targeted: 'Adjusted per culture. EAU 2025/2026 warning: Fluoroquinolones (Ciprofloxacin, Levofloxacin) and oral 3rd gen Cephalosporins MUST BE AVOIDED EMPIRICALLY in uncomplicated cystitis!',
+        supportive: [
+          'Non-pharmacological therapy: Generous daily fluid intake (at least 2.0-2.5 L/day for mechanical flushing of bacteria).',
+          'Regular voiding, avoiding delayed micturition.',
+          'Symptomatic pain relief: NSAIDs (e.g., Ibuprofen 3x400mg PO for 3-5 days) may be considered as monotherapy for mild symptoms in antimicrobial stewardship.',
+          'Suprapubic warmth (warm water bottle) for spasm relief.',
+          'Phytotherapy: Bearberry leaf extract (Uvae ursi folium) for short-term symptom relief.'
+        ],
+        prevention: [
+          'Behavioral prevention: Generous hydration (>2L/day), postcoital voiding (within 15 min), avoiding spermicides/diaphragms, front-to-back wiping.',
+          'EAU 2025/2026 Non-antibiotic Prophylaxis (Strongly recommended for rUTI):',
+          '1) Topical / Local Estrogen Replacement (Estriol cream/pessary): Restores vaginal Lactobacillus flora in postmenopausal women (Strong EAU Recommendation!).',
+          '2) Immunoactive Prophylaxis / Oral Immunostimulation (OM-89 / Uro-Vaxom®): 1 capsule/day PO for 3 months (Strong EAU Recommendation!).',
+          '3) D-Mannose: 2g/day PO.',
+          '4) Bladder Instillation (GAG Layer Replacement): Hyaluronic acid + chondroitin sulfate (HA/CS) in refractory rUTI.',
+          '5) Methenamine hippurate: 2x1g/day PO in intact urinary anatomy.',
+          '6) Probiotics: Vaginal Lactobacillus crispatus.',
+          'Antibiotic Prophylaxis (Only as last resort): Postcoital (Nitrofurantoin 50mg or Fosfomycin 3g) or low-dose continuous prophylaxis for 3-6 months (Nitrofurantoin 50-100mg qhs or Fosfomycin 3g every 10 days).'
+        ]
       },
       prognosis: {
-        mortality: 'Zero',
-        factors: 'Tendency to recur'
+        mortality: 'Zero mortality',
+        factors: 'Tendency to recur (20-30% recurrence rate)'
       }
     },
     {
       id: 'pyelonephritis',
-      name: 'Localised Urinary Tract Infection: Pyelonephritis',
-      pathogen: { type: 'Bacterium', name: '<i>Escherichia coli</i> (80%)', gram: 'Gram-negative', shape: 'rod' },
+      name: 'Acute Uncomplicated Pyelonephritis',
+      pathogen: { type: 'Bacterium', name: '<i>Escherichia coli</i> (75-80%)', gram: 'Gram-negative', shape: 'rod' },
       epidemiology: {
-        incidence: 'Common complication of untreated cystitis',
-        risk_groups: ['Women', 'Pregnancy', 'Obstruction (stone, prostate)', 'Renal developmental anomaly', 'Diabetes'],
+        incidence: '10-12 cases per 10,000 women/year; can occur as a complication of untreated cystitis',
+        risk_groups: ['Young sexually active women', 'Pregnancy', 'Anatomical/functional urological anomalies', 'Diabetes mellitus'],
         seasonality: 'None',
-        transmission: 'Ascending infection (95%), rarely hematogenous'
+        transmission: 'Ascending infection from bladder via ureter (95%), rarely hematogenous'
       },
       pathomechanism: {
         steps: [
-          'Ascending Infection: Bacteria ascend from the bladder up the ureter to the renal pelvis (often facilitated by vesicoureteral reflux).',
-          'Parenchymal Invasion: Pathogens invade the renal parenchyma, primarily the medulla.',
-          'Inflammatory Response: A vigorous acute inflammatory reaction (neutrophil infiltration) is triggered against the bacteria, causing tissue edema, microabscesses, and tubular damage.',
-          'Systemic Effect: Inflammatory mediators entering the circulation cause fever and systemic symptoms.'
+          'Ascension: Pathogens ascend from the bladder up the ureter to the renal pelvis.',
+          'Parenchymal Invasion: Pathogens invade renal parenchyma (primarily the medulla).',
+          'Acute Inflammatory Response: Vigorous neutrophilic infiltration, interstitial edema, microabscess formation, and tubular necrosis.',
+          'Systemic Translocation: Inflammatory mediators (IL-1, IL-6, TNF-alpha) and endotoxins enter the systemic circulation causing high fever and chills.'
         ],
-        virulence_factors: ['P-fimbriae', 'Endotoxin', 'Capsule']
+        virulence_factors: ['P fimbriae (Pyelonephritis-associated pili)', 'Endotoxin (LPS)', 'Capsular antigen (K-antigen)']
       },
       clinical: {
-        incubation: 'Days after cystitis',
-        onset: 'Sudden',
+        incubation: '1-3 days after cystitis',
+        onset: 'Acute, sudden onset',
         symptoms: [
-          { name: 'Fever and Chills', description: 'High fever (>38°C) with shaking chills is the hallmark of renal parenchymal infection and indicates a systemic inflammatory response.', severity: 'severe' },
-          { name: 'Flank Pain', description: 'Dull, constant pain in the kidney area caused by stretching of the renal capsule; it may be unilateral or bilateral.', severity: 'severe' },
-          { name: 'Gastrointestinal Symptoms', description: 'Nausea, vomiting, and appetite loss are common because renal inflammation can trigger visceral reflexes.', severity: 'moderate' },
-          { name: 'Lower Urinary Tract Symptoms', description: 'Dysuria and frequency often precede fever but may be absent in 30-50% of cases; absence of bladder symptoms does not exclude an upper UTI.', severity: 'moderate' },
-          { name: 'Atypical Presentation', description: 'Elderly or immunocompromised patients may present primarily with confusion, weakness, or functional decline rather than classic symptoms.', severity: 'moderate' }
+          { name: 'High fever and chills', description: 'Sudden spike of high fever (>38.5°C), shaking chills, and profuse sweating indicating parenchymal and bacteremic involvement.', severity: 'severe' },
+          { name: 'Flank / CVA pain', description: 'Unilateral or bilateral dull, constant flank pain due to renal capsular stretching.', severity: 'severe' },
+          { name: 'Gastrointestinal symptoms', description: 'Nausea, vomiting, anorexia due to reflex peritoneal and celiac irritation.', severity: 'moderate' },
+          { name: 'Lower urinary tract symptoms', description: 'Dysuria, frequency, urgency may be present, but are absent in 30-50% of cases!', severity: 'moderate' },
+          { name: 'Atypical presentation in elderly', description: 'Fever may be absent; delirium, confusion, weakness, and hypotension may dominate.', severity: 'severe' }
         ],
         physical_exam: [
-          'Costovertebral angle tenderness (Giordano\'s sign)',
-          'Fever and tachycardia',
-          'Abdominal tenderness may be present but is less specific',
-          'The exam can be subtle in older or immunocompromised patients'
+          'Giordano sign positive: Costovertebral angle (CVA) tenderness on the affected side',
+          'Fever (>38.5°C), tachycardia, systemic ill appearance',
+          'Abdominal tenderness in the ipsilateral hypochondrium without rigidity',
+          'Signs of dehydration'
         ],
-        complications: ['Renal abscess', 'Perinephric abscess', 'Urosepsis', 'Papillary necrosis', 'Chronic renal failure (recurrent)']
+        complications: ['Renal abscess / Perinephric abscess', 'Urosepsis and septic shock', 'Emphysematous pyelonephritis (in diabetics)', 'Papillary necrosis', 'Acute kidney injury (AKI)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'CBC', finding: 'Leukocytosis, left shift', interpretation: 'Systemic inflammation' },
-          { test: 'CRP/PCT', finding: 'Significantly elevated', interpretation: 'Bacterial infection' },
-          { test: 'Urinalysis', finding: 'Leukocyturia, bacteriuria, white blood cell casts', interpretation: 'Upper urinary tract origin' },
-          { test: 'Renal function', finding: 'Creatinine may be elevated', interpretation: 'Acute kidney injury' }
+          { test: 'CBC', finding: 'Marked leukocytosis with left shift', interpretation: 'Systemic bacterial infection' },
+          { test: 'CRP and Procalcitonin (PCT)', finding: 'Significantly elevated (CRP >100 mg/L, PCT >0.5 ng/mL)', interpretation: 'Indicates parenchymal inflammation and sepsis risk' },
+          { test: 'Renal function & Electrolytes', finding: 'Elevated creatinine, BUN', interpretation: 'Acute kidney injury or dehydration' },
+          { test: 'Urine sediment', finding: 'Marked pyuria, WBC casts (pathognomonic for upper UTI!)', interpretation: 'Confirms renal parenchymal infection' }
         ],
         imaging: [
-          { modality: 'Abdominal/pelvic CT', finding: 'Renal enlargement, perinephric fluid, wedge-shaped hypodensity', significance: 'Gold standard to rule out complications (EAU 2025)' },
-          { modality: 'Renal US', finding: 'Obstruction, abscess', significance: 'Radiation-free alternative' }
+          { modality: 'Abdominal/pelvic CT (EAU 2025/2026)', finding: 'Wedge-shaped hypodensities, renal enlargement, perinephric fat stranding', significance: 'Gold standard imaging to rule out abscess or obstruction in non-responders after 48-72h of targeted antibiotics.' },
+          { modality: 'Renal Ultrasound', finding: 'Obstruction (hydronephrosis), urolithiasis, abscess', significance: 'First-line radiation-free imaging' }
         ],
         microbiology: [
-          { test: 'Urine culture', finding: '≥10^4 CFU/ml', significance: 'Always take! (EAU 2025)' },
-          { test: 'Blood culture', finding: 'Positive', significance: 'Recommended on hospital admission' }
+          { test: 'Urine culture (EAU 2025/2026)', finding: '≥10^4 CFU/ml uropathogen', significance: 'ALWAYS MANDATORY prior to initiating antibiotics!' },
+          { test: 'Blood culture', finding: 'Bacteremia (~15-20% positive)', significance: 'Mandatory in hospitalized or septic patients (2 sets)' }
         ]
       },
       differential: [
-        { disease: 'Kidney stone', distinguishing: 'Colicky pain, no fever (if no infection), hematuria dominates' },
-        { disease: 'Acute abdominal conditions', distinguishing: 'Appendicitis, cholecystitis (abdominal status, US)' },
-        { disease: 'Pelvic inflammatory disease (PID)', distinguishing: 'Gynecological exam, discharge' }
+        { disease: 'Urolithiasis (Kidney stone)', distinguishing: 'Colicky pain radiating to groin, absence of fever (unless obstructed), hematuria dominates' },
+        { disease: 'Acute appendicitis / Cholecystitis', distinguishing: 'Abdominal exam, ultrasound findings, absence of pyuria' },
+        { disease: 'Pelvic Inflammatory Disease (PID)', distinguishing: 'Gynecological tenderness, vaginal discharge' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Cefuroxime axetil', dose: '2x500mg PO', duration: '7 days', note: 'no activity against Enterococcus' },
-            { drug: 'Levofloxacin', dose: '1x750mg PO', duration: '5 days', note: 'Only an alternative if E. coli resistance <10% (EAU 2025)' },
-            { drug: 'Ceftibuten/Cefixime', dose: 'PO', duration: '10 days', note: 'If quinolone cannot be given (less effective)' }
+            { drug: 'Cefuroxime axetil', dose: '2x500mg PO', duration: '7 days', note: 'EAU 2025/2026 First-line oral option' },
+            { drug: 'Cefpodoxime proxetil', dose: '2x200mg PO', duration: '10 days', note: 'Oral 3rd gen cephalosporin alternative' },
+            { drug: 'Ciprofloxacin', dose: '2x500mg PO', duration: '7 days', note: 'ONLY if local E. coli resistance is <10%! (EAU 2025/2026)' },
+            { drug: 'Levofloxacin', dose: '1x750mg PO', duration: '5 days', note: 'ONLY if local E. coli resistance is <10%! (EAU 2025/2026)' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxone', dose: '1x1-2g IV', duration: '10-14 days', note: 'First choice' },
-            { drug: 'Ciprofloxacin', dose: '2x400mg IV', duration: '10-14 days', note: 'Alternative if E. coli resistance <10% (EAU 2025)' }
+            { drug: 'Ceftriaxone', dose: '1x1-2g IV', duration: '10-14 days', note: 'EAU 2025/2026 First-line IV choice' },
+            { drug: 'Cefotaxime', dose: '3x2g IV', duration: '10-14 days', note: 'Parenteral alternative' },
+            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '10-14 days', note: 'If Pseudomonas or prior antibiotic exposure' },
+            { drug: 'Gentamicin / Amikacin', dose: 'Single daily dose IV', duration: '3-5 days', note: 'Combination option for severe cases' }
           ]
         },
-        targeted: 'Based on antibiogram. ESBL is common!',
-        supportive: ['Fluid replacement', 'Antipyretics', 'Resolution of obstruction (catheter, stent)'],
-        prevention: ['Proper treatment of cystitis', 'Correction of anatomical abnormalities']
+        targeted: 'Adjusted per antibiogram. When using oral beta-lactams in outpatients, an initial single IV dose of Ceftriaxone (1g) or Aminoglycoside in ED is recommended!',
+        supportive: [
+          'Non-pharmacological therapy: Rehydration (IV crystalloids or oral fluid) to preserve renal perfusion.',
+          'Strict bed rest during febrile phase.',
+          'Analgesia & Antipyresis: Paracetamol (3-4x500-1000mg PO/IV) or Metamizol (3-4x500-1000mg IV/PO). NSAIDs with caution under renal monitoring.',
+          'Antiemetics (Metoclopramid 3x10mg IV/PO or Ondansetron) to ensure oral intake.',
+          'Monitoring of vital signs (BP, heart rate, urine output) and renal panel.'
+        ],
+        prevention: [
+          'Prompt, effective treatment of cystitis.',
+          'EAU 2025/2026 non-antibiotic preventive measures.',
+          'Correction of urological obstructions.'
+        ]
       },
       prognosis: {
-        mortality: 'Low (<1%), but 10-20% in urosepsis',
-        factors: 'Old age, obstruction, resistant pathogen'
+        mortality: '<1% with adequate therapy, but 10-20% in urosepsis or emphysematous cases',
+        factors: 'Advanced age, diabetes, urological obstruction, MDR/ESBL pathogens'
       }
     },
     {
       id: 'complicated_uti',
-      name: 'Systemic Urinary Tract Infection',
-      pathogen: { type: 'Bacterium', name: '<i>E. coli, Enterococcus, Pseudomonas, Klebsiella, Proteus</i>', gram: 'Mixed', shape: 'Mixed' },
+      name: 'Systemic / Complicated Urinary Tract Infection',
+      pathogen: { type: 'Bacterium', name: '<i>E. coli, Enterococcus faecalis, Pseudomonas aeruginosa, Klebsiella, Proteus, Enterobacter</i>', gram: 'Mixed', shape: 'Mixed' },
       epidemiology: {
-        incidence: 'Common in hospital settings and urological patients',
-        risk_groups: ['Catheter users', 'Men', 'Pregnant women', 'Anatomical/functional abnormality', 'Renal failure', 'Immunosuppression'],
+        incidence: 'Common in nosocomial settings, urological and catheterized patients',
+        risk_groups: ['Catheterized patients (CAUTI)', 'Men', 'Pregnant women', 'Neurogenic bladder / Obstruction', 'Renal failure / Transplant', 'Immunosuppression / Diabetes'],
         seasonality: 'None',
-        transmission: 'Ascending, catheter-associated, hematogenous'
+        transmission: 'Ascending, catheter-associated (biofilm), nosocomial'
       },
       pathomechanism: {
         steps: [
-          'Predisposing Factor: Anatomical (e.g., stricture, stone) or functional (e.g., neurogenic bladder) abnormality, or presence of a foreign body (catheter) impedes urine flow and bacterial washout.',
-          'Biofilm Formation: Bacteria (e.g., Proteus, Pseudomonas) form a biofilm layer on the catheter or stone, protecting them from antibiotics and the immune system.',
-          'Persistence: Infection is difficult to eradicate; selection of resistant strains and recurrent infection are common.'
+          'Predisposing Factors: Anatomical (stricture, stone, BPH) or functional voiding dysfunction or foreign body (catheter, stent) impairs urine drainage.',
+          'Biofilm Formation: Bacteria (especially Proteus, Pseudomonas, Enterococci) form a resistant biofilm on foreign bodies.',
+          'Parenchymal & Systemic Invasion: Bacteria enter tissues and bloodstream, triggering urosepsis.'
         ],
-        virulence_factors: ['Biofilm', 'Multidrug resistance', 'Urease (Proteus)']
+        virulence_factors: ['Biofilm formation', 'Multidrug resistance (ESBL, AmpC, Carbapenemase)', 'Urease production (Proteus - infective stones)']
       },
       clinical: {
         incubation: 'Variable',
-        onset: 'Variable (can be oligosymptomatic)',
+        onset: 'Variable (oligosymptomatic to severe sepsis)',
         symptoms: [
-          { name: 'Lower Urinary Tract Symptoms', description: 'Dysuria, frequency, and urgency may occur but are not always dominant; the infection can involve multiple segments of the urinary tract.', severity: 'moderate' },
-          { name: 'Upper Urinary Tract/Local Pain', description: 'Suprapubic or flank pain may be present, especially when obstruction or renal involvement exists.', severity: 'moderate' },
-          { name: 'Systemic Inflammation', description: 'Fever, chills and tachycardia point to a larger pathogen burden and a systemic host response.', severity: 'severe' },
-          { name: 'Sepsis Signs', description: 'Hypotension, tachypnea, altered mental status, or oliguria may develop in urosepsis and require urgent source control.', severity: 'severe' },
-          { name: 'Oligosymptomatic', description: 'Catheterized, neurogenic bladder, or immunosuppressed patients often lack classic symptoms, so lab and vital sign monitoring is essential.', severity: 'mild' }
+          { name: 'Systemic inflammatory symptoms', description: 'High fever, chills, tachycardia, tachypnea.', severity: 'severe' },
+          { name: 'Signs of urosepsis / Septic shock', description: 'Hypotension (BP <90 mmHg), oliguria (<0.5 ml/kg/h), confusion, elevated lactate – REQUIRES IMMEDIATE ACTION!', severity: 'severe' },
+          { name: 'Flank / Suprapubic pain', description: 'May be present, but often absent in catheterized or neurogenic patients.', severity: 'moderate' },
+          { name: 'Lower urinary tract symptoms', description: 'Dysuria, cloudy/foul urine, catheter obstruction.', severity: 'moderate' },
+          { name: 'Oligosymptomatic in elderly', description: 'Delirium or hypotension as the sole presenting sign.', severity: 'severe' }
         ],
         physical_exam: [
-          'Often unremarkable, especially in catheterized patients',
-          'Suprapubic or flank tenderness',
-          'Presence of a catheter or other urinary device',
-          'Fever or hypothermia'
+          'Fever or hypothermia (<36°C), tachycardia, tachypnea',
+          'Flank or suprapubic tenderness',
+          'Indwelling catheter, cystostomy, or ureteral stent present',
+          'Signs of shock (cool, mottled extremities, prolonged capillary refill)'
         ],
-        complications: ['Urosepsis', 'Renal abscess', 'Renal failure', 'Recurrence', 'Catheter obstruction']
+        complications: ['Urosepsis and septic shock (20-40% mortality)', 'Acute kidney injury (AKI)', 'Renal abscess', 'Pyonephrosis']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urine culture', finding: 'Women: ≥10^5 CFU/ml, Men: ≥10^4 CFU/ml', interpretation: 'Diagnostic thresholds (EAU 2025)' },
-          { test: 'Catheter urine', finding: '≥10^4 CFU/ml', interpretation: 'Significant bacteriuria' },
-          { test: 'Renal function', finding: 'Check creatinine', interpretation: 'Obstruction/damage' }
+          { test: 'Urine culture (EAU 2025/2026)', finding: 'Women: ≥10^5 CFU/ml, Men/Catheter: ≥10^4 CFU/ml', interpretation: 'ALWAYS MANDATORY prior to antibiotics!' },
+          { test: 'Blood culture', finding: '2 sets mandatory in septic patients', interpretation: 'Detects bacteremia' },
+          { test: 'Inflammatory & Renal panel', finding: 'Procalcitonin (PCT), CRP, WBC, creatinine, lactate, blood gas', interpretation: 'Monitors sepsis and organ dysfunction' }
         ],
         imaging: [
-          { modality: 'CT urography', finding: 'Anatomical/functional abnormality', significance: 'MANDATORY to clarify predisposing factor' }
+          { modality: 'CT urography / Pelvic CT (EAU 2025/2026)', finding: 'Obstruction, abscess, infective stone, emphysema', significance: 'MANDATORY for source control identification!' },
+          { modality: 'Emergency Ultrasound', finding: 'Hydronephrosis, pyonephrosis', significance: 'Immediate evaluation of obstruction' }
         ],
         microbiology: [
-          { test: 'Culture + Susceptibility', finding: 'Essential', significance: 'Basis for targeted therapy' }
+          { test: 'Pathogen ID + Antibiogram', finding: 'MDR suspicion', significance: 'Basis for targeted therapy' }
         ]
       },
       differential: [
-        { disease: 'Uncomplicated UTI', distinguishing: 'No risk factors, no systemic signs' },
-        { disease: 'Prostatitis', distinguishing: 'Rektal examination' }
+        { disease: 'Uncomplicated Pyelonephritis', distinguishing: 'No obstruction, no underlying risk factors' },
+        { disease: 'Acute Prostatitis', distinguishing: 'Tender, swollen prostate on DRE' },
+        { disease: 'Other sepsis sources', distinguishing: 'History, focal imaging' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Cefuroxime axetil', dose: '2x500mg PO', duration: '7-14 days', note: 'no activity against Enterococcus' },
-            { drug: 'Ciprofloxacin', dose: '2x500-750mg PO', duration: '7-14 days', note: 'Only if no fluoroquinolone treatment in the last 6 months and E. coli resistance <10% (EAU 2025)' },
-            { drug: 'Levofloxacin', dose: '1x750mg PO', duration: '7-14 days', note: 'Alternative if E. coli resistance <10% (EAU 2025)' }
+            { drug: 'Cefuroxime axetil', dose: '2x500mg PO', duration: '7-14 days', note: 'Only for mild cases without systemic toxicity' },
+            { drug: 'Ciprofloxacin / Levofloxacin', dose: 'PO', duration: '7-14 days', note: 'Only if no quinolones in last 6 months and resistance <10% (EAU 2025/2026)' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxone', dose: '1x1-2g IV', duration: '10-14 days', note: 'In severe cases' },
-            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '10-14 days', note: 'Suspicion of Pseudomonas/previous AB treatment' },
-            { drug: 'Carbapenem (Meropenem)', dose: '3x1g IV', duration: '10-14 days', note: 'ESBL risk or septic shock' }
+            { drug: 'Ceftriaxone', dose: '1x2g IV', duration: '7-14 days', note: 'First-line option' },
+            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '7-14 days', note: 'If Pseudomonas suspected' },
+            { drug: 'Cefepime', dose: '2x2g IV', duration: '7-14 days', note: 'Pseudomonas and Enterobacteriaceae coverage' },
+            { drug: 'Meropenem', dose: '3x1g IV', duration: '7-14 days', note: 'If ESBL risk or septic shock' },
+            { drug: 'Ceftazidime/Avibactam or Cefiderocol', dose: 'IV', duration: '7-14 days', note: 'For multidrog-resistant (MDR) Gram-negative pathogens (EAU 2025/2026)' }
           ]
         },
-        targeted: 'Correction based on culture. Resolution of obstruction (catheter change, stent, nephrostomy) is essential!',
-        supportive: ['Fluid replacement', 'Antipyretics'],
-        prevention: ['Catheter care (closed system, prompt removal)', 'Elimination of obstruction', 'Avoidance of treating asymptomatic bacteriuria']
+        targeted: 'SOURCE CONTROL IMMEDIATELY: Decompression of obstructed kidney (percutaneous nephrostomy or DJ stent), immediate replacement or removal of catheter!',
+        supportive: [
+          'Non-pharmacological therapy / Source control: Aseptic catheter replacement (removing biofilm reservoir).',
+          'Sepsis protocol: Aggressive IV fluid resuscitation (crystalloids 30 ml/kg within first 3 hours).',
+          'Vasopressors (Norepinephrine) if MAP <65 mmHg despite fluids.',
+          'Urological invasive intervention (abscess drainage, stone removal).',
+          'ICU monitoring (urine output, lactate, blood gas).'
+        ],
+        prevention: [
+          'Strict indication for urinary catheterization (prompt removal!).',
+          'Closed catheter system, aseptic care.',
+          'Avoiding treatment of asymptomatic bacteriuria.',
+          'Surgical correction of anatomical obstacles.'
+        ]
       },
       prognosis: {
-        mortality: '10-30% in urosepsis',
-        factors: 'Underlying disease, resistance, source control'
+        mortality: '20-40% in urosepsis and septic shock',
+        factors: 'Advanced age, inadequate source control, MDR pathogens, severe comorbidities'
       }
     },
     {
       id: 'prostatitis',
-      name: 'Bacterial Prostatitis',
-      pathogen: { type: 'Bacterium', name: '<i>E. coli, Klebsiella, Proteus, Enterococcus, Pseudomonas</i>', gram: 'Mixed', shape: 'Mixed' },
+      name: 'Acute and Chronic Bacterial Prostatitis',
+      pathogen: { type: 'Bacterium', name: '<i>E. coli</i> (80%), <i>Klebsiella, Proteus, Pseudomonas aeruginosa, Enterococcus faecalis</i>', gram: 'Mixed', shape: 'Mixed' },
       epidemiology: {
-        incidence: '50% of men experience symptoms in their lifetime',
-        risk_groups: ['Young/middle-aged men', 'Catheterization', 'Urological procedure (biopsy)', 'HIV', 'Diabetes'],
+        incidence: '10-15% of men experience prostatitis in their lifetime; 8% of urology visits',
+        risk_groups: ['Young and middle-aged men', 'Post prostate biopsy', 'Catheterized patients', 'BPH / pelvic dysfunction', 'HIV / Diabetes'],
         seasonality: 'None',
-        transmission: 'Ascending (reflux), hematogenous, lymphogenic, direct (biopsy)'
+        transmission: 'Ascending via intraprostatic reflux, direct inoculation after transrectal biopsy'
       },
       pathomechanism: {
         steps: [
-          'Route of Infection: Most commonly, bacteria enter the prostatic ducts via intraprostatic reflux of infected urine.',
-          'Inflammation: In acute cases, edema and microabscesses develop in the glands, causing swelling and tension of the prostate.',
-          'Chronicity: Bacteria can form biofilms on prostatic stones or in ductal channels, maintaining recurrent infections.'
+          'Intraprostatic Reflux: Infected urine enters prostatic ducts under high voiding pressure.',
+          'Acute Inflammation (NIH Type I - ABP): Stroma edema, neutrophilic infiltration, microabscesses cause prostate swelling and tension.',
+          'Chronicity (NIH Type II - CBP): Bacteria form biofilms on prostatic calculi or ductal walls, leading to recurrent infections.'
         ],
-        virulence_factors: ['Biofilm', 'Anatomical location (poor AB penetration)']
+        virulence_factors: ['Biofilm formation', 'Tissue barrier (prostate capsule & acidic pH impede antibiotic penetration)']
       },
       clinical: {
-        incubation: 'Variable',
-        onset: 'Acute (ABP) or Chronic (CBP)',
+        incubation: '1-7 days',
+        onset: 'Acute (ABP) sudden onset; Chronic (CBP) insidious, persistent (>3 months)',
         symptoms: [
-          { name: 'Acute: Systemic Symptoms', description: 'Sudden onset of high fever, chills, myalgia, malaise (flu-like onset).', severity: 'severe' },
-          { name: 'Pain', description: 'Characteristic perineal, rectal, lower abdominal pain, radiating to testes and penis.', severity: 'moderate' },
-          { name: 'LUTS (Lower Urinary Tract Symptoms)', description: 'Marked dysuria, frequency, urgent need to void.', severity: 'moderate' },
-          { name: 'Obstruction', description: 'The swollen prostate compresses the urethra, which can cause difficulty voiding, weak stream, or complete urinary retention.', severity: 'severe' },
-          { name: 'Urinary retention', description: 'Severe obstruction may lead to bladder overdistension and acute urinary retention.', severity: 'severe' },
-          { name: 'Chronic Symptoms', description: 'Milder, recurrent complaints: pelvic discomfort, recurrent urinary tract infections, painful ejaculation.', severity: 'mild' }
+          { name: 'Acute: Systemic fever symptoms', description: 'Sudden high fever, chills, myalgia, flu-like malaise.', severity: 'severe' },
+          { name: 'Pelvic / Perineal pain', description: 'Pain in perineum, rectum, suprapubic area radiating to penis and testes.', severity: 'severe' },
+          { name: 'LUTS and voiding difficulty', description: 'Marked dysuria, frequency, urgency, weak stream.', severity: 'moderate' },
+          { name: 'Acute urinary retention', description: 'Swollen prostate causes complete obstruction with painful bladder distension.', severity: 'severe' },
+          { name: 'Chronic: Recurrent complaints', description: 'Pelvic/perineal discomfort, painful ejaculation, recurrent UTIs with same strain.', severity: 'moderate' }
         ],
         physical_exam: [
-          'Digital rectal exam (DRE):',
-          'Acute: Swollen, warm, EXTREMELY tender prostate (Massage FORBIDDEN - risk of bacteremia!)',
-          'Chronic: May be normal or slightly tender, not swollen',
-          'Distended bladder on exam if urinary retention is present'
+          'Digital Rectal Examination (DRE):',
+          'IN ACUTE PROSTATITIS: Prostate is swollen, hot, tender, EXTREMELY PAINFUL. PROSTATE MASSAGE IS STRONGLY FORBIDDEN IN ACUTE PROSTATITIS (Risk of bacteremia and urosepsis!)',
+          'IN CHRONIC PROSTATITIS: Prostate may feel normal, indurated, or slightly tender.',
+          'Suprapubic dullness in urinary retention.'
         ],
-        complications: ['Prostate abscess', 'Urosepsis', 'Chronicity', 'Epididymitis', 'Urinary retention', 'Sexual dysfunction']
+        complications: ['Prostatic abscess', 'Urosepsis', 'Acute urinary retention', 'Epididymo-orchitis', 'Transition to Chronic Pelvic Pain Syndrome (CPPS)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urinalysis', finding: 'Pyuria, bacteriuria', interpretation: 'Positive' },
-          { test: 'CBC/CRP', finding: 'Elevated (Acute)', interpretation: 'Systemic inflammation' },
-          { test: 'PSA', finding: 'Elevated', interpretation: 'Due to inflammation (not for cancer diagnosis in acute phase!)' }
+          { test: 'Urinalysis & Dipstick', finding: 'Pyuria, bacteriuria', interpretation: 'Confirms UTI' },
+          { test: 'Inflammatory markers', finding: 'Leukocytosis, markedly elevated CRP', interpretation: 'Systemic inflammation' },
+          { test: 'Serum PSA', finding: 'Markedly elevated (often >20-50 ng/ml)', interpretation: 'Reactive elevation! Not for cancer screening in acute phase; recheck 2-3 months after resolution.' }
         ],
         imaging: [
-          { modality: 'Transrectal US (TRUS)', finding: 'Abscess (hypoechoic area)', significance: 'Only if no improvement on treatment or suspicion of abscess' }
+          { modality: 'Transrectal US (TRUS) / Pelvic MRI', finding: 'Prostatic abscess (hypoechoic/fluid cavity)', significance: 'Indicated if fever persists after 48-72h of targeted antibiotics.' }
         ],
         microbiology: [
-          { test: 'Acute: Urine culture', finding: 'Midstream urine', significance: 'Prostate massage FORBIDDEN!' },
-          { test: 'Chronic: Meares-Stamey test', finding: '4-glass test or 2-glass test (pre/post massage)', significance: 'Gold standard (EAU 2025)' }
+          { test: 'Acute: Midstream urine culture (EAU 2025/2026)', finding: '≥10^4 CFU/ml uropathogen', significance: 'Obtained WITHOUT prostate massage!' },
+          { test: 'Chronic: Meares-Stamey 4-glass or 2-glass test (EAU 2025/2026)', finding: '10-fold higher bacterial count in post-massage urine (VB3) or EPS compared to pre-massage urine (VB2)', significance: 'Gold standard for chronic bacterial prostatitis!' }
         ]
       },
       differential: [
-        { disease: 'Cystitis', distinguishing: 'No fever, no prostate tenderness' },
-        { disease: 'BPH', distinguishing: 'No signs of infection, slow progression' },
-        { disease: 'Chronic pelvic pain syndrome (CPPS)', distinguishing: 'Negative culture, chronic pain' }
+        { disease: 'BPH (Benign Prostatic Hyperplasia)', distinguishing: 'Slow progression, no infection signs, no fever' },
+        { disease: 'Chronic Pelvic Pain Syndrome (CPPS / NIH Type III)', distinguishing: 'Pain present, but urine and EPS cultures consistently negative' },
+        { disease: 'Prostate carcinoma', distinguishing: 'No acute symptoms, hard nodule on DRE, culture negative' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Levofloxacin', dose: '1x500-750mg PO', duration: '2-4 weeks (Acute), 4-6 weeks (Chronic)', note: 'EAU 2025: First choice (good penetration)' },
-            { drug: 'Ciprofloxacin', dose: '2x500mg PO', duration: '2-4 weeks (Acute), 4-6 weeks (Chronic)', note: 'EAU 2025: First choice' },
-            { drug: 'Cotrimoxazole', dose: '2x960mg PO', duration: '4-6 weeks', note: 'Alternative' }
+            { drug: 'Fluoroquinolones (Levofloxacin / Ciprofloxacin)', dose: 'Levofloxacin 1x500mg PO or Ciprofloxacin 2x500mg PO', duration: 'Acute: 2-4 weeks, Chronic: 4-6 weeks!', note: 'EAU 2025/2026 First choice due to excellent tissue penetration' },
+            { drug: 'Trimethoprim-Sulfamethoxazole (Cotrimoxazole)', dose: '2x960mg PO', duration: '4-6 weeks', note: 'Alternative choice in chronic prostatitis' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxone', dose: '1-2g IV', duration: '14 days', note: 'In severe acute cases (then switch to PO)' },
-            { drug: 'Piperacillin/tazobactam', dose: '3x4.5g IV', duration: '', note: 'Urosepsis/suspicion of Pseudomonas' }
+            { drug: 'Ceftriaxone', dose: '1x2g IV', duration: 'Until afebrile, then switch to PO', note: 'In severe acute prostatitis' },
+            { drug: 'Piperacillin/Tazobactam', dose: '3x4.5g IV', duration: 'Until afebrile', note: 'In septic or nosocomial cases' }
           ]
         },
-        targeted: 'Fluoroquinolones (first choice in chronic). Macrolides (suspicion of Chlamydia). Fosfomycin (MDR - controversial penetration).',
-        supportive: ['NSAID for pain relief', 'Alpha-blocker (Tamsulosin) to relieve symptoms', 'Suprapubic catheter (in retention, urethral should be avoided in acute inflammation!)'],
-        prevention: ['Early treatment of UTIs', 'Prostate biopsy prophylaxis: Targeted (based on rectal swab) or Fosfomycin/Ceftriaxon (Fluoroquinolones should be avoided!)']
+        targeted: 'Adjusted per antibiogram. EAU 2025/2026: Select lipophilic agents (Fluoroquinolones, Cotrimoxazole, Doxycycline).',
+        supportive: [
+          'Non-pharmacological therapy / Urinary drainage: In acute urinary retention, SUPRAPUBIC CYSTOSTOMY is mandatory! AVOID transurethral catheterization in acute prostatitis (urosepsis risk).',
+          'Alpha-1 blockers (e.g., Tamsulosin 0.4mg PO qd) to relax bladder neck and ease voiding.',
+          'Analgesia & Anti-inflammatory: NSAIDs (Ibuprofen 3x400mg PO or Celecoxib) for 2-4 weeks.',
+          'Warm sitz baths (38-40°C), pressure relief on perineum (special cushion).',
+          'Stool softeners, ample hydration.'
+        ],
+        prevention: [
+          'Early, complete treatment of UTIs.',
+          'EAU 2025/2026 recommendation prior to prostate biopsy: Targeted rectal swab-based prophylaxis, or Ceftriaxone/Fosfomycin (avoid fluoroquinolone monotherapy!).'
+        ]
       },
       prognosis: {
-        mortality: 'Acute: low (but risk of sepsis); Chronic: impairs quality of life, difficult to cure (recurrence common)',
-        factors: 'Biofilm, resistance, anatomy, transition to CPPS'
+        mortality: 'Very low with therapy, but sepsis risk in acute phase; Chronic significantly impairs quality of life',
+        factors: 'Abscess formation, biofilm, transition to CPPS'
       }
     },
     {
       id: 'asymptomatic_bacteriuria',
-      name: 'Asymptomatic Bacteriuria',
-      pathogen: { type: 'Bacterium', name: '<i>E. coli, Enterococcus, GBS</i>, etc.', gram: 'Variable', shape: 'Variable' },
+      name: 'Asymptomatic Bacteriuria (ASB)',
+      pathogen: { type: 'Bacterium', name: '<i>Escherichia coli, Enterococcus faecalis, Klebsiella, Proteus, Streptococcus agalactiae (GBS)</i>', gram: 'Mixed', shape: 'Mixed' },
       epidemiology: {
-        incidence: 'Common (women 3-5%, elderly 10-50%, catheterized 100%)',
-        risk_groups: ['Elderly', 'Diabetes', 'Catheter use', 'Pregnancy'],
+        incidence: 'Healthy women: 3-5%, Diabetics: 9-27%, Nursing home residents: 25-50%, Indwelling catheters: 100%',
+        risk_groups: ['Elderly', 'Diabetics', 'Catheterized patients', 'Pregnant women', 'Spinal cord injury'],
         seasonality: 'None',
-        transmission: 'Endogenous colonization'
+        transmission: 'Endogenous uropathogen colonization'
       },
       pathomechanism: {
         steps: [
-          'Colonization: Bacteria colonize the urinary tract but lack virulence factors (e.g., specific fimbriae) that would trigger tissue invasion or inflammation.',
-          'Commensalism: A state of equilibrium develops between the bacteria and the host, without symptoms.',
-          'Protective Effect: Colonizing strains may compete with more virulent pathogens, potentially having a protective effect.'
+          'Commensal Colonization: Low-virulence bacterial strains colonize the bladder without tissue invasion or inflammatory cascade.',
+          'Immune Tolerance: A stable equilibrium is established between host and bacteria.',
+          'Protective Function: Colonization by avirulent strains can prevent superinfection by highly virulent pathogens!'
         ],
-        virulence_factors: ['Reduced virulence']
+        virulence_factors: ['Absence or reduction of virulence factors']
       },
       clinical: {
         incubation: '-',
         onset: 'Asymptomatic',
         symptoms: [
-          { name: 'Asymptomatic', description: 'The patient has no urinary complaints (no dysuria, no fever, no pain). Bacteriuria is an incidental finding.', severity: 'mild' }
+          { name: 'Complete ABSENCE of clinical symptoms', description: 'No lower or upper urinary tract complaints (no dysuria, no frequency, no fever). Incidental laboratory finding.', severity: 'mild' }
         ],
         physical_exam: [
-          'Negative',
-          'Cloudy/foul-smelling urine alone is not diagnostic and does not require treatment!',
+          'Completely normal physical exam',
+          'Cloudy or foul-smelling urine ALONE is NOT a symptom and NOT an indication for treatment! (EAU 2025/2026)',
           'No suprapubic or flank tenderness'
         ],
-        complications: ['Unnecessary antibiotic treatment → resistance', 'Pyelonephritis (risk only in pregnancy/procedure)']
+        complications: ['Unnecessary antibiotic treatment -> Multidrug resistance and Clostridioides difficile colitis!', 'Risk of pyelonephritis and premature delivery in PREGNANCY (hence treated in pregnant women!)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urine culture', finding: '≥10^5 CFU/ml (same strain)', interpretation: 'Women: 2 consecutive samples, Men: 1 sample (EAU 2025)' },
-          { test: 'Catheterized sample', finding: '≥10^5 CFU/ml', interpretation: 'One sample is sufficient' },
-          { test: 'Urine sediment', finding: 'Pyuria is often present', interpretation: 'Does NOT indicate treatment without symptoms!' }
+          { test: 'Urine culture (EAU 2025/2026)', finding: 'Women: ≥10^5 CFU/ml of same species in 2 CONSECUTIVE samples; Men: ≥10^5 CFU/ml in 1 sample', interpretation: 'Strict diagnostic criteria' },
+          { test: 'Catheterized urine', finding: '≥10^5 CFU/ml in 1 sample', interpretation: 'Bacteriuria confirmed' },
+          { test: 'Urine sediment', finding: 'Pyuria frequently present', interpretation: 'Pyuria ALONE does NOT warrant antibiotic therapy in asymptomatic patients! (EAU 2025/2026)' }
         ],
         imaging: [
-          { test: 'Not necessary', finding: 'No indication', interpretation: 'Not recommended for asymptomatic cases' }
+          { test: 'Imaging not indicated', finding: 'No indication', interpretation: 'Not recommended' }
         ],
         microbiology: [
-          { test: 'Culture', finding: 'Positive', significance: 'Only if screening is indicated (e.g., pregnancy, urological procedure)' }
+          { test: 'Urine culture screening', finding: 'Perform only in indicated groups', significance: 'Screen ONLY in pregnancy and prior to urological procedures violating mucosal integrity!' }
         ]
       },
       differential: [
-        { disease: 'Cystitis', distinguishing: 'Presence of symptoms (dysuria, urgency)' },
-        { disease: 'Contamination', distinguishing: 'Low colony count, mixed flora' }
+        { disease: 'Symptomatic cystitis / pyelonephritis', distinguishing: 'Presence of subjective symptoms (dysuria, urgency) or fever' },
+        { disease: 'Contamination', distinguishing: 'Lower colony count (<10^5 CFU/ml), mixed flora' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'NO treatment', dose: '-', duration: '-', note: 'General rule (not even in elderly, diabetics, catheterized patients!)' }
+            { drug: 'NO ANTIBIOTIC TREATMENT (DO NOT TREAT)', dose: '-', duration: '-', note: 'EAU 2025/2026 Strict Recommendation: DO NOT TREAT! (Exceptions: Pregnancy & urological surgery)' }
           ],
           inpatient: [
-            { drug: 'NO treatment', dose: '-', duration: '-', note: 'Except indications' }
+            { drug: 'NO ANTIBIOTIC TREATMENT (DO NOT TREAT)', dose: '-', duration: '-', note: 'No treatment indication in elderly, diabetics, catheterized, or transplant patients' }
           ]
         },
-        targeted: 'Only if indicated (Pregnancy, Urological procedure with mucosal injury). In pregnancy: Fosfomycin, Nitrofurantoin, Cephalosporin.',
-        supportive: ['Education (urine smell/color does not warrant AB)'],
-        prevention: ['Avoid unnecessary screening and treatment', 'Catheter care']
+        targeted: 'EXCLUSIVE INDICATIONS (EAU 2025/2026):\n1) PREGNANT WOMEN: Screen at 12-16 weeks. Treat targeted by culture (Fosfomycin 3g 1x, Nitrofurantoin 2x100mg 5 days, Cefalexin or Amoxicillin-clavulanate 5-7 days) to prevent pyelonephritis and premature labor.\n2) PRIOR TO UROLOGICAL SURGERY VIOLATING MUCOSAL INTEGRITY (e.g., TURP, ureteroscopy): Targeted antibiotic prior to procedure.\nDO NOT TREAT: Postmenopausal women, diabetics, catheterized patients, nursing home residents, spinal cord injury!',
+        supportive: [
+          'Non-pharmacological therapy / Education: Inform patients and staff that urine odor or cloudiness alone does not justify antibiotics.',
+          'Generous fluid intake, regular voiding.',
+          'Discontinue unnecessary urine dipsticks/cultures.'
+        ],
+        prevention: [
+          'AVOID unnecessary urine testing and cultures.',
+          'Prompt removal of urinary catheters.',
+          'Good hygiene and hydration.'
+        ]
       },
       prognosis: {
-        mortality: 'Does not increase mortality even if untreated',
-        factors: '-'
+        mortality: 'ASB does not increase mortality; treatment is harmful due to resistance and side effects',
+        factors: 'Untreated in pregnancy carries high risk of pyelonephritis'
       }
     }
   ]

@@ -5,386 +5,456 @@ export const urinaryTractDe: Category = {
   icon: '🚽',
   color: '#3b82f6',
   didactics: {
-    overview: 'Unterscheiden Sie untere (meist ohne systemische Zeichen) und obere (Pyelonephritis, mit systemischen Zeichen) Harnwegsinfektionen. Untere HWI sind meist ambulant behandelbar; obere HWI benotigen haufiger umfassendere Abklarung und ggf. Klinikaufnahme.',
-    lower: 'Typische Symptome: Dysurie (brennend), Pollakisurie, Harndrang, suprapubische Beschwerden, gelegentlich Hamaturie. Vitalparameter meist unauffallig.',
-    upper: 'Systemische Zeichen: Fieber (>38°C), Schuttelfrost, Abgeschlagenheit; lokal: Flankenschmerz/CVA-Druckschmerz, Ubelkeit/Erbrechen. Labor: Leukozytose, CRP-Anstieg, Pyurie; Urinkultur und bei Fieber Blutkulturen erwagen.',
-    diagnostics: ['1) Anamnese und Vitalzeichen', '2) Urinstreifen und Mikroskopie', '3) Urinkultur bei komplizierten/rezidivierenden Fallen oder bei systemischen Zeichen', '4) Bluttests (BB, Kreatinin, CRP) und Blutkulturen bei systemischer Erkrankung', '5) Bildgebung (US/CT) bei Obstruktion, Persistenz oder Abszessverdacht'],
-    red_flags: ['Sepsiszeichen (Hypotonie, Bewusstseinsstorung)', 'Rascher Kreatininanstieg oder Obstruktion', 'Schwangerschaft mit Fieber', 'Unfahigkeit, oral zuzufuhren (Erbrechen)', 'Immunsuppression'],
-    special_populations: 'Altere: haufig atypisch (Verwirrung, Sturz, Gebrechlichkeit) — niedrige Schwelle fur Abklarung. Kinder: Fieber kann einziges Zeichen sein. Schwangerschaft: niedrige Schwelle fur Therapie und engmaschige Nachverfolgung.',
-    teaching_tip: 'Urinbeschwerden ohne systemische Zeichen → Zystitis wahrscheinlich. Hinzukommen Fieber und Flankenschmerzen → Pyelonephritis vermuten, Evaluation und Behandlung eskalieren.'
+    overview: 'Gemäß den EAU-Leitlinien 2025/2026 werden Harnwegsinfektionen klassifiziert in: lokalisierte unkomplizierte untere HWI (Zystitis), lokalisierte unkomplizierte obere HWI (Pyelonephritis), systemische / komplizierte HWI (bei Risikofaktoren, anatomischen/funktionellen Veränderungen oder Kathetern), bakterielle Prostatitis (akut und chronisch) sowie asymptomatische Bakteriurie (ASB).',
+    lower: 'Untere HWI (Zystitis): Akute Dysurie, Pollakisurie, Harndrang, suprapubische Beschwerden OHNE systemische Zeichen (Fieber, Flankenschmerz). Eine Urinkultur ist laut EAU 2025/2026 nicht routinemäßig erforderlich.',
+    upper: 'Obere HWI (Pyelonephritis): Fieber (>38°C), Schüttelfrost, Flankenschmerz, Giordano-Zeichen, Übelkeit/Erbrechen. Urinkultur obligat; bei Symptompersistenz nach 48–72h Bildgebung (CT/Ultraschall).',
+    diagnostics: [
+      '1) Beurteilung von Anamnese und klinischen Symptomen (Vorhandensein/Fehlen von Fieber und Flankenschmerz)',
+      '2) Urinstreifen und Urinsediment (Leukozytenesterase, Nitrit, Pyurie)',
+      '3) Urinkultur (obligatorisch bei Pyelonephritis, komplizierten Fällen, Rezidiven oder Schwangerschaft)',
+      '4) Entzündungslabor (Blutbild, CRP, Procalcitonin) und Nierenfunktion bei systemischen Symptomen',
+      '5) Abdomineller/Becken-Ultraschall oder CT bei Verdacht auf Obstruktion, Abszess oder Therapieversagen'
+    ],
+    red_flags: [
+      'Zeichen der Sepsis / septischer Schock (Hypotonie, Tachykardie, Tachypnoe, Verwirrtheit)',
+      'Akute Obstruktion der Harnwege (Harnstein, Prostatahyperplasie) mit Stauung',
+      'Fieberhafte Pyelonephritis in der Schwangerschaft',
+      'Fehlende orale Toleranz (schweres Erbrechen)',
+      'Immunsuppression oder persisierenden Fieber >72h unter adäquater Antibiose'
+    ],
+    special_populations: 'Ältere: häufig atypische Symptome (Delir, Verwirrtheit, Sturz) – niedrige Schwelle zur Diagnostik, aber KEINE Antibiose bei asymptomatischer Bakteriurie! Schwangere: ASB muss gescreened und behandelt werden. Männer: HWI gilt immer als kompliziert oder Prostatitis.',
+    teaching_tip: 'Fluorchinolone (Ciprofloxacin, Levofloxacin) sollten empirisch bei unkomplizierter Zystitis gemäß EAU 2025/2026 STRENG VERMIEDEN werden (Gefahr schwerer Kollateralschäden und Resistenzentwicklung)!'
   },
   diseases: [
     {
       id: 'cystitis',
-      name: 'Lokalisierte Harnwegsinfektion: Zystitis (Blasenentzundung)',
-      pathogen: { type: 'Bakterium', name: '<i>Escherichia coli</i> (75-95%)', gram: 'Gram-negativ', shape: 'Stabchen' },
+      name: 'Akute unkomplizierte Zystitis (Blasenentzündung)',
+      pathogen: { type: 'Bakterium', name: '<i>Escherichia coli</i> (75-95%)', gram: 'Gram-negativ', shape: 'Stäbchen' },
       epidemiology: {
-        incidence: '50% der Frauen mindestens einmal im Leben',
-        risk_groups: ['Sexuell aktive Frauen', 'Postmenopause', 'Schwangerschaft', 'Diabetes', 'Kathetertrager'],
+        incidence: '50% aller Frauen mindestens einmal im Leben, 20-30% Rezidivrisiko',
+        risk_groups: ['Sexuell aktive prämenopausale Frauen', 'Postmenopausale Frauen (Östrogenmangel)', 'Schwangerschaft', 'Neuer Sexualpartner oder Spermidine-Nutzung'],
         seasonality: 'Keine',
-        transmission: 'Aufsteigende Infektion (perineale Flora)'
+        transmission: 'Aufsteigende (aszendierende) Infektion aus der Perineal- und Periurethralflora'
       },
       pathomechanism: {
         steps: [
-          'Kolonisation: Darmbakterien (hauptsachlich E. coli) besiedeln den periurethralen Bereich und den Vaginaleingang.',
-          'Aufstieg: Bakterien steigen durch die Harnrohre in die Blase auf (kurzere Harnrohre bei Frauen pradiszoniert).',
-          'Adharenz und Invasion: Bakterien haften mit P-Fimbrien am Blasenurothel, vermeiden das Auswaschen durch Urin und dringen dann in Zellen ein.',
-          'Entzundung: Bakterienvermehrung und Toxine (z.B. Hamolysin) losen eine Entzundungsreaktion aus, die Schleimhauthyperamie, Odeme und Symptome verursacht.'
+          'Kolonisation: Uropathogene Darmbakterien (UPEC) besiedeln den periurethralen Bereich und den Vaginaleingang.',
+          'Aufstieg: Bakterien steigen über die kurze weibliche Urethra in die Harnblase auf.',
+          'Adhärenz und Invasion: Bakterien haften mittels Typ-1- und P-Fimbrien an Uroplakin-Molekülen des Blasenurothels und bilden intrazelluläre bakterielle Gemeinschaften (IBC).',
+          'Entzündungsreaktion: Die Bakterien und Toxine lösen eine heftige Schleimhautentzündung, Hyperämie, Ödematrisierung und Reizung der Blasennerven aus.'
         ],
-        virulence_factors: ['P-Fimbrien (Adharenz)', 'Hamolysin', 'Aerobactin (Eisenaufnahme)']
+        virulence_factors: ['Typ-1- und P-Fimbrien (Adhärenz)', 'Hämolysin (Urothel-Schädigung)', 'Aerobactin (Eisengewinnung)']
       },
       clinical: {
-        incubation: 'Variabel',
-        onset: 'Plotzlich',
+        incubation: '1-3 Tage',
+        onset: 'Akut, plötzlicher Beginn',
         symptoms: [
-          { name: 'Dysurie', description: 'Brennendes, stechendes Gefuhl beim Wasserlassen, verursacht durch Reizung der entzundeten Harnrohre und des Blasenhalses.', severity: 'moderate' },
-          { name: 'Pollakisuria', description: 'Haufiges Entleeren kleiner Urinmengen aufgrund von Blasenwandreizung und reduzierter Kapazitat.', severity: 'moderate' },
-          { name: 'Harndrang', description: 'Plotzlicher, zwingender Harndrang, der schwer zu unterdrucken ist (Risiko der Dranginkontinenz).', severity: 'moderate' },
-          { name: 'Suprapubische Schmerzen', description: 'Druck oder Schmerz im Unterbauch, uber dem Schambein.', severity: 'mild' },
-          { name: 'Hamaturie', description: 'Makroskopisch blutiger Urin (ca. 30%), oft am Ende des Wasserlassens (terminale Hamaturie), aufgrund von Blutungen der hyperamischen Schleimhaut.', severity: 'mild' },
-          { name: 'Atypische Prasentation bei Alteren', description: 'Altere Patienten konnen weniger Harnwegssymptome haben und stattdessen mit Verwirrtheit, Sturzen oder verminderter Leistungsfahigkeit auffallen.', severity: 'mild' }
+          { name: 'Dysurie', description: 'Brennendes, stechendes Gefühl während und am Ende des Wasserlassens.', severity: 'moderate' },
+          { name: 'Pollakisurie', description: 'Häufiges Entleeren kleiner Urinmengen aufgrund gesteigerter Reizbarkeit der Blasenwand.', severity: 'moderate' },
+          { name: 'Harndrang (Urgencly)', description: 'Plötzlicher, zwingender Harndrang, der schwer zu unterdrücken ist.', severity: 'moderate' },
+          { name: 'Suprapubischer Schmerz', description: 'Druck, dumpfer Schmerz oder krampfartige Beschwerden über dem Schambein.', severity: 'mild' },
+          { name: 'Terminale Hämaturie', description: 'Makroskopisch blutiger Urin am Ende der Miktion (~30% der Fälle).', severity: 'mild' },
+          { name: 'Fehlen von Fieber', description: 'Systemische Zeichen (Fieber, Schüttelfrost, Flankenschmerz) FEHLEN. Wenn Fieber auftritt, liegt eine Pyelonephritis nahe!', severity: 'mild' }
         ],
         physical_exam: [
-          'Suprapubische Druckempfindlichkeit',
-          'Fieber meist NICHT vorhanden (wenn ja, Verdacht auf Pyelonephritis!)',
-          'Nierenlager nicht klopfschmerzhaft',
-          'Fehlen von vaginalem Ausfluss (erhoht Wahrscheinlichkeit fur Zystitis)',
-          'Bei Alteren oder Diabetikern kann die Untersuchung unspezifisch sein, Fieber fehlt haufig'
+          'Suprapubische Druckempfindlichkeit bei Unterbauchpalpation',
+          'FEHLEN von Fieber und Flankenklopfschmerz (Giordano-Zeichen negativ)',
+          'Fehlen von vaginalem Ausfluss (Differenzierung zur Vulvovaginitis)',
+          'Unauffällige Vitalparameter'
         ],
-        complications: ['Aufsteigende Pyelonephritis', 'Rezidivierende Zystitis']
+        complications: ['Aszendierende akute Pyelonephritis', 'Rezidivierende Zystitis (rUTI)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urinstreifen', finding: 'Leukozytenesterase+, Nitrit+', interpretation: 'Hoher positiver Vorhersagewert' },
-          { test: 'Urinsediment', finding: 'Pyurie (>10 Leukozyten/Gesichtsfeld)', interpretation: 'Haufig, aber nicht spezifisch' }
+          { test: 'Urinstreifen', finding: 'Leukozytenesterase+, Nitrit+ (bei Gram-negativen Stäbchen)', interpretation: 'Bei typischen Symptomen hoher positiver Vorhersagewert (>90%)' },
+          { test: 'Urinsediment', finding: 'Pyurie (>10 Leukozyten/Gesichtsfeld)', interpretation: 'Befürwortet untere Harnwegsentzündung' }
         ],
         imaging: [
-          { test: 'Nicht erforderlich', finding: 'Nur bei atypischen Symptomen', interpretation: 'Nicht zur Standarddiagnose' }
+          { test: 'Bildgebung nicht indiziert', finding: 'Routinemäßig nicht erforderlich', interpretation: 'Nur bei Komplikationen oder atypischem Verlauf' }
         ],
         microbiology: [
-          { test: 'Urinkultur', finding: '≥10^3 KBE/ml', significance: 'Nur bei komplizierten, rezidivierenden oder atypischen Fallen empfohlen (EAU 2025)' }
+          { test: 'Urinkultur (EAU 2025/2026)', finding: '≥10^3 KBE/ml uropathogener Keim', significance: 'Routinemäßig bei unkomplizierter Zystitis NICHT erforderlich! Indikationen: Verdacht auf Pyelonephritis, Rezidiv innerhalb von 2-4 Wochen, atypische Symptome, Schwangerschaft.' }
         ]
       },
       differential: [
-        { disease: 'Vaginitis', distinguishing: 'Ausfluss, Juckreiz, externe Dysurie' },
-        { disease: 'Urethritis (STD)', distinguishing: 'Neuer Partner, schleichender Beginn, Pyurie mit steriler Kultur' },
-        { disease: 'Interstitielle Zystitis', distinguishing: 'Chronisch, Kultur negativ' }
+        { disease: 'Vaginitis / Vulvovaginitis', distinguishing: 'Vaginaler Ausfluss, Juckreiz, externe Dysurie' },
+        { disease: 'Urethritis (STD)', distinguishing: 'Schleichender Beginn, neuer Sexualpartner, urethraler Ausfluss, sterile Pyurie' },
+        { disease: 'Interstitielle Zystitis / Blasenschmerzsyndrom', distinguishing: 'Chronischer (>6 Wochen) Schmerz bei voller Blase, negative Urinkultur' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Fosfomycin-Trometamol', dose: '3g p.o.', duration: 'Einzeldosis', note: 'Erste Wahl (EAU 2025)' },
-            { drug: 'Nitrofurantoin', dose: '2x100mg p.o.', duration: '5 Tage', note: 'Erste Wahl (EAU 2025)' },
-            { drug: 'Pivmecillinam', dose: '3x400mg p.o.', duration: '3-5 Tage', note: 'Erste Wahl (EAU 2025)' }
+            { drug: 'Fosfomycin-Trometamol', dose: '3g p.o.', duration: '1x Einzeldosis', note: 'EAU 2025/2026 Erste Wahl (First-line)' },
+            { drug: 'Nitrofurantoin', dose: '2x100mg p.o. (Makrokristalle)', duration: '5 Tage', note: 'EAU 2025/2026 Erste Wahl (First-line)' },
+            { drug: 'Pivmecillinam', dose: '3x400mg p.o.', duration: '3-5 Tage', note: 'EAU 2025/2026 Erste Wahl (First-line)' },
+            { drug: 'Nitroxolin', dose: '3x250mg p.o.', duration: '5 Tage', note: 'EAU 2025/2026 Akzeptierte Alternative' }
           ],
           inpatient: [
-            { drug: 'Erfordert keine Krankenhausbehandlung', dose: '-', duration: '-', note: 'Außer bei Komplikationen' }
+            { drug: 'Keine stationäre Aufnahme erforderlich', dose: '-', duration: '-', note: 'Außer bei schweren Komplikationen' }
           ]
         },
-        targeted: 'Basierend auf Kultur. Fluorchinolone (Ciprofloxacin, Levofloxacin) werden empirisch fur unkomplizierte Zystitis NICHT empfohlen!',
-        supportive: ['Reichlich Flussigkeitszufuhr', 'Haufiges Wasserlassen', 'NSAID zur Schmerzlinderung'],
-        prevention: ['Verhalten: Reichlich Flussigkeitszufuhr, Miktion nach Geschlechtsverkehr', 'Nicht-antibiotisch (EAU 2025): Lokales Ostrogen (Postmenopause), OM-89 Immunstimulation, D-Mannose, Blaseninstillation', 'Antibiotikaprophylaxe (letzter Schritt): Nitrofurantoin 50-100mg abends oder Fosfomycin 3g alle 10 Tage']
+        targeted: 'Gezielt nach Antibiogramm. EAU 2025/2026 Warnung: Fluorchinolone (Ciprofloxacin, Levofloxacin) und orale Cephalosporine der 3. Generation EMPIRISCH VERMEIDEN bei unkomplizierter Zystitis!',
+        supportive: [
+          'Nicht-pharmakologische Therapie: Reichliche Flüssigkeitszufuhr (mind. 2,0–2,5 Liter/Tag zum mechanischen Auswaschen von Bakterien).',
+          'Regelmäßige Blasenentleerung, Unterdrückung des Harndrangs vermeiden.',
+          'Symptomatische Schmerzlinderung: NSAR (z. B. Ibuprofen 3x400mg p.o. für 3–5 Tage) als Monotherapie bei milden Symptomen im Rahmen des Antibiotic Stewardship denkbar.',
+          'Wärmeanwendung am Unterbauch (Wärmflasche) zur Krampflösung.',
+          'Phytotherapie: Bärentraubenblätter-Extrakt (Uvae ursi folium) kurzfristig möglich.'
+        ],
+        prevention: [
+          'Verhaltensmaßnahmen: Reichliche Flüssigkeitszufuhr (>2L/Tag), Miktion nach dem Geschlechtsverkehr (innerhalb von 15 Min.), Vermeidung von Diaphragmen/Spermidinen, Hygiene von vorne nach hinten.',
+          'EAU 2025/2026 Nicht-antibiotische Prophylaxe (Dringend empfohlen bei rUTI):',
+          '1) Lokale / Topische Östrogentherapie (Estriol-Creme/Zäpfchen): Bei Postmenopause stellt dies die laktobazilläre Vaginalflora wieder her (Starke EAU-Empfehlung!).',
+          '2) Immunprophylaxe / Orale Immunstimulation (OM-89 / Uro-Vaxom®): 1 Kapsel/Tag p.o. für 3 Monate (Starke EAU-Empfehlung!).',
+          '3) D-Mannose: 2g/Tag p.o.',
+          '4) Blaseninstillation (GAG-Schicht-Ersatz): Hyaluronsäure + Chondroitinsulfat (HA/CS) bei refraktärer rUTI.',
+          '5) Methenaminhippurat: 2x1g/Tag p.o. bei intakter Anatomie.',
+          '6) Probiotika: Vaginales Lactobacillus crispatus.',
+          'Antibiotikaprophylaxe (Nur als letzte Option): Postkoital (Nitrofurantoin 50mg oder Fosfomycin 3g) oder niedrig dosierte Langzeitprophylaxe für 3–6 Monate (Nitrofurantoin 50–100mg abends oder Fosfomycin 3g alle 10 Tage).'
+        ]
       },
       prognosis: {
-        mortality: 'Null',
-        factors: 'Neigung zu Rezidiven'
+        mortality: 'Keine Mortalität',
+        factors: 'Neigung zu Rezidiven (20–30% Rezidivrate)'
       }
     },
     {
       id: 'pyelonephritis',
-      name: 'Lokalisierte Harnwegsinfektion: Pyelonephritis (Nierenbeckenentzundung)',
-      pathogen: { type: 'Bakterium', name: '<i>Escherichia coli</i> (80%)', gram: 'Gram-negativ', shape: 'Stabchen' },
+      name: 'Akute unkomplizierte Pyelonephritis (Nierenbeckenentzündung)',
+      pathogen: { type: 'Bakterium', name: '<i>Escherichia coli</i> (75-80%)', gram: 'Gram-negativ', shape: 'Stäbchen' },
       epidemiology: {
-        incidence: 'Haufige Komplikation einer unbehandelten Zystitis',
-        risk_groups: ['Frauen', 'Schwangerschaft', 'Obstruktion (Stein, Prostata)', 'Nierenfehlbildung', 'Diabetes'],
+        incidence: '10-12 Fälle per 10.000 Frauen pro Jahr; Komplikation einer unbehandelten Zystitis',
+        risk_groups: ['Junge sexuell aktive Frauen', 'Schwangerschaft', 'Anatomische/funktionelle Harnwegsanomalien', 'Diabetes mellitus'],
         seasonality: 'Keine',
-        transmission: 'Aufsteigende Infektion (95%), selten hamatogen'
+        transmission: 'Aszendierende Infektion aus der Blase über den Ureter (95%), selten hämatogen'
       },
       pathomechanism: {
         steps: [
-          'Aufsteigende Infektion: Bakterien steigen von der Blase uber den Harnleiter ins Nierenbecken auf (oft begünstigt durch vesikoureteralen Reflux).',
-          'Parenchyminvasion: Erreger dringen in das Nierenparenchym ein, primar in das Mark.',
-          'Entzundungsreaktion: Eine heftige akute Entzundungsreaktion (Neutrophileninfiltration) wird gegen die Bakterien ausgelost, was zu Gewebeodemen, Mikroabszessen und Tubulusschaden fuhrt.',
-          'Systemische Wirkung: Entzundungsmediatoren, die in den Kreislauf gelangen, verursachen Fieber und systemische Symptome.'
+          'Aufstieg: Erreger steigen aus der Blase über den Ureter ins Nierenbecken auf.',
+          'Parenchyminvasion: Erreger dringen in das Nierenparenchym (vor allem das Mark) ein.',
+          'Akute Entzündungsreaktion: Starke neutrophile Infiltration, interstitielles Ödem, Mikroabszessbildung und Tubulusnekrosen.',
+          'Systemische Translokation: Entzündungsmediatoren (IL-1, IL-6, TNF-alpha) und Endotoxine gelangen in die Blutbahn und verursachen Fieber und Schüttelfrost.'
         ],
-        virulence_factors: ['P-Fimbrien', 'Endotoxin', 'Kapsel']
+        virulence_factors: ['P-Fimbrien (Pyelonephritis-associated pili)', 'Endotoxin (LPS)', 'Kapsel-Antigen (K-Antigen)']
       },
       clinical: {
-        incubation: 'Tage nach Zystitis',
-        onset: 'Plotzlich',
+        incubation: '1-3 Tage nach Zystitis',
+        onset: 'Akut, heftig',
         symptoms: [
-          { name: 'Fieber und Schuttelfrost', description: 'Hohes Fieber (>38°C) und Schuttelfrost sind typische Zeichen einer Nierenparenchyminfektion und zeigen eine systemische Entzundungsreaktion an.', severity: 'severe' },
-          { name: 'Flankenschmerz', description: 'Dumpfer, anhaltender Schmerz in der Nierengegend durch Dehnung der Nierenkapsel; ein- oder beidseitig moglich.', severity: 'severe' },
-          { name: 'Gastrointestinale Symptome', description: 'Ubelkeit, Erbrechen und Appetitlosigkeit sind haufig, da die Nierenentzundung viszerale Reflexe auslosen kann.', severity: 'moderate' },
-          { name: 'Symptome der unteren Harnwege', description: 'Dysurie und Pollakisurie konnen vorhanden sein, fehlen jedoch in 30-50% der Falle; das Fehlen von Blasensymptomen schließt eine obere HWI nicht aus.', severity: 'moderate' },
-          { name: 'Atypische Prasentation', description: 'Altere oder immungeschwachte Patienten konnen hauptsachlich mit Verwirrtheit, Schwache oder Funktionsabfall auffallen.', severity: 'moderate' }
+          { name: 'Hohes Fieber und Schüttelfrost', description: 'Plötzliches hohes Fieber (>38,5°C), Schüttelfrost und profuses Schwitzen als Zeichen der Parenchym- und Blutbahnbeteiligung.', severity: 'severe' },
+          { name: 'Flankenschmerz / CVA-Druckschmerz', description: 'Ein- oder beidseitiger dumpfer, anhaltender Flankenschmerz durch Kapseldehnung der Niere.', severity: 'severe' },
+          { name: 'Gastrointestinale Symptome', description: 'Nausea, Vomitus, Anorexie durch reffektive peritoneale/zöliakale Reizung.', severity: 'moderate' },
+          { name: 'Untere Harnwegssymptome', description: 'Dysurie, Pollakisurie und Harndrang können vorhanden sein, fehlen aber in 30-50% der Fälle!', severity: 'moderate' },
+          { name: 'Atypische Präsentation bei Älteren', description: 'Fehlendes Fieber; stattdessen Delir, Verwirrtheit, Abgeschlagenheit und Hypotonie.', severity: 'severe' }
         ],
         physical_exam: [
-          'Klopfschmerz im costovertebralen Winkel (Nierenlager) (Giordano-Zeichen)',
-          'Fieber, Tachykardie',
-          'Abdominelle Druckempfindlichkeit kann vorhanden sein, ist jedoch weniger spezifisch',
-          'Besonders bei Alteren oder Immungeschwachten kann die Untersuchung unauffallig sein'
+          'Giordano-Zeichen positiv: Klopfschmerz im costovertebralen Winkel (CVA)',
+          'Fieber (>38,5°C), Tachykardie, reduzierter Allgemeinzustand',
+          'Abdominelle Druckempfindlichkeit im ipsilateralen Hypochondrium möglich',
+          'Zeichen der Dehydratation'
         ],
-        complications: ['Nierenabszess', 'Perinephritischer Abszess', 'Urosepsis', 'Papillennekrose', 'Chronische Niereninsuffizienz (rezidivierend)']
+        complications: ['Nierenabszess / Perinephritischer Abszess', 'Urosepsis und septischer Schock', 'Emphysematöse Pyelonephritis (Diabetiker)', 'Papillennekrose', 'Akutes Nierenversagen (AKI)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Blutbild', finding: 'Leukozytose mit Linksverschiebung', interpretation: 'Systemische Entzundung' },
-          { test: 'CRP/PCT', finding: 'Deutlich erhoht', interpretation: 'Bakterielle Infektion' },
-          { test: 'Urin', finding: 'Leukozyturie, Bakteriurie, Leukozytenzylinder', interpretation: 'Ursprung in den oberen Harnwegen' },
-          { test: 'Nierenfunktion', finding: 'Kreatinin kann erhoht sein', interpretation: 'Akute Nierenschadigung' }
+          { test: 'Blutbild', finding: 'Deutliche Leukozytose mit Linksverschiebung', interpretation: 'Systemische bakterielle Infektion' },
+          { test: 'CRP und Procalcitonin (PCT)', finding: 'Deutlich erhöht (CRP >100 mg/L, PCT >0,5 ng/mL)', interpretation: 'Zeigt Parenchym- und Sepsisrisiko an' },
+          { test: 'Nierenfunktion & Elektrolyte', finding: 'Erhöhung von Kreatinin, Harnstoff', interpretation: 'Nierenfunktionseinschränkung oder Dehydratation' },
+          { test: 'Urinsediment', finding: 'Ausgeprägte Pyurie, Leukozytenzylinder (pathognomonisch für obere HWI!)', interpretation: 'Beweist Nierenparenchyminfektion' }
         ],
         imaging: [
-          { modality: 'CT Abdomen/Becken', finding: 'Nierenvergroßerung, perinephritische Flussigkeit, keilformige Hypodensitat', significance: 'Goldstandard zum Ausschluss von Komplikationen (EAU 2025)' },
-          { modality: 'Nieren-US', finding: 'Obstruktion, Abszess', significance: 'Strahlenfreie Alternative' }
+          { modality: 'CT Abdomen/Becken (EAU 2025/2026)', finding: 'Keilförmige Hypodensitäten, Nierenvergrößerung, perinephritisches Ödem', significance: 'Goldstandard zum Ausschluss von Abszessen oder Obstruktion bei Fieberpersistenz nach 48–72h.' },
+          { modality: 'Nieren-Ultraschall', finding: 'Harnstauung (Hydronephrose), Nierenstein, Abszess', significance: 'Erste strahlenfreie Bildgebung' }
         ],
         microbiology: [
-          { test: 'Urinkultur', finding: '≥10^4 KBE/ml', significance: 'Immer abnehmen! (EAU 2025)' },
-          { test: 'Blutkultur', finding: 'Positiv', significance: 'Bei Krankenhausaufnahme empfohlen' }
+          { test: 'Urinkultur (EAU 2025/2026)', finding: '≥10^4 KBE/ml uropathogener Keim', significance: 'IMMER OBLIGATORISCH vor Antibiotikagabe!' },
+          { test: 'Blutkultur', finding: 'Bakteriämie (~15–20% positiv)', significance: 'Obligat bei stationärer Aufnahme oder septischem Bild' }
         ]
       },
       differential: [
-        { disease: 'Nierenstein', distinguishing: 'Kolikartiger Schmerz, kein Fieber (wenn keine Infektion), Hamaturie dominiert' },
-        { disease: 'Akutes Abdomen', distinguishing: 'Appendizitis, Cholezystitis (Abdominalstatus, US)' },
-        { disease: 'Beckenentzundung (PID)', distinguishing: 'Gynakologische Untersuchung, Ausfluss' }
+        { disease: 'Urolithiasis (Nierenstein)', distinguishing: 'Kolikartiger Schmerz, kein Fieber (ohne Infektion), Hämaturie dominiert' },
+        { disease: 'Akute Appendizitis / Cholezystitis', distinguishing: 'Abdominalbefund, Ultraschall, keine Pyurie' },
+        { disease: 'Pelvic Inflammatory Disease (PID)', distinguishing: 'Gynäkologischer Befund, vaginaler Ausfluss' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Cefuroxim-Axetil', dose: '2x500mg p.o.', duration: '7 Tage', note: 'keine Wirksamkeit gegen Enterokokken' },
-            { drug: 'Levofloxacin', dose: '1x750mg p.o.', duration: '5 Tage', note: 'Nur Alternative, wenn E. coli Resistenz <10% (EAU 2025)' },
-            { drug: 'Ceftibuten/Cefixim', dose: 'p.o.', duration: '10 Tage', note: 'Wenn Chinolon nicht gegeben werden kann (weniger wirksam)' }
+            { drug: 'Cefuroxim-Axetil', dose: '2x500mg p.o.', duration: '7 Tage', note: 'EAU 2025/2026 First-line orale Option' },
+            { drug: 'Cefpodoxim-Proxetil', dose: '2x200mg p.o.', duration: '10 Tage', note: 'Oraler 3. Gen. Cephalosporin-Ersatz' },
+            { drug: 'Ciprofloxacin', dose: '2x500mg p.o.', duration: '7 Tage', note: 'NUR wenn lokale E. coli Resistenz <10%! (EAU 2025/2026)' },
+            { drug: 'Levofloxacin', dose: '1x750mg p.o.', duration: '5 Tage', note: 'NUR wenn lokale E. coli Resistenz <10%! (EAU 2025/2026)' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxon', dose: '1x1-2g i.v.', duration: '10-14 Tage', note: 'Erste Wahl' },
-            { drug: 'Ciprofloxacin', dose: '2x400mg i.v.', duration: '10-14 Tage', note: 'Alternative, wenn E. coli Resistenz <10% (EAU 2025)' }
+            { drug: 'Ceftriaxon', dose: '1x1-2g i.v.', duration: '10-14 Tage', note: 'EAU 2025/2026 Erste Wahl i.v.' },
+            { drug: 'Cefotaxim', dose: '3x2g i.v.', duration: '10-14 Tage', note: 'Parenterale Alternative' },
+            { drug: 'Piperacillin/Tazobactam', dose: '3x4.5g i.v.', duration: '10-14 Tage', note: 'Bei Pseudomonas oder vorheriger AB-Gabe' },
+            { drug: 'Gentamicin / Amikacin', dose: 'Einzeldosis i.v.', duration: '3-5 Tage', note: 'Kombinationsoption bei schweren Fällen' }
           ]
         },
-        targeted: 'Basierend auf Antibiogramm. ESBL ist haufig!',
-        supportive: ['Flussigkeitsersatz', 'Fiebersenkung', 'Beseitigung der Obstruktion (Katheter, Stent)'],
-        prevention: ['Adaquate Behandlung der Zystitis', 'Korrektur anatomischer Anomalien']
+        targeted: 'Anpassung nach Antibiogramm. Bei oraler Betalaktam-Therapie wird eine initiale Einzeldosis Ceftriaxon (1g i.v.) oder Aminoglykosid in der Notaufnahme empfohlen!',
+        supportive: [
+          'Nicht-pharmakologische Therapie: Rehydratation (i.v. Kristalloid-Infusion oder p.o. reichlich Flüssigkeit) zur Nierenperfusion.',
+          'Bettruhe während der fieberhaften Phase.',
+          'Analgesie und Antipyrese: Paracetamol (3-4x500-1000mg p.o./i.v.) oder Metamizol (3-4x500-1000mg i.v./p.o.). NSAR mit Vorsicht unter Nierenfunktionskontrolle.',
+          'Antiemetika (Metoclopramid 3x10mg i.v./p.o. oder Ondansetron) zur Sicherung der oralen Toleranz.',
+          'Überwachung von Vitalparametern (BD, Puls, Diurese) und Nierenwerten.'
+        ],
+        prevention: [
+          'Frühzeitige, adäquate Behandlung von Zystitiden.',
+          'EAU 2025/2026 nicht-antibiotische Präventionsmaßnahmen.',
+          'Korrektur anatomischer Urinstauungen.'
+        ]
       },
       prognosis: {
-        mortality: 'Niedrig (<1%), aber 10-20% bei Urosepsis',
-        factors: 'Hohes Alter, Obstruktion, resistenter Erreger'
+        mortality: '<1% unter adäquater Therapie, jedoch 10-20% bei Urosepsis oder emphysematösem Verlauf',
+        factors: 'Hohes Alter, Diabetes, Uretherobstruktion, MDR/ESBL-Erreger'
       }
     },
     {
       id: 'complicated_uti',
-      name: 'Systemisch Harnwegsinfektion',
-      pathogen: { type: 'Bakterium', name: '<i>E. coli, Enterococcus, Pseudomonas, Klebsiella, Proteus</i>', gram: 'Gemischt', shape: 'Gemischt' },
+      name: 'Systemische / Komplizierte Harnwegsinfektion',
+      pathogen: { type: 'Bakterium', name: '<i>E. coli, Enterococcus faecalis, Pseudomonas aeruginosa, Klebsiella, Proteus, Enterobacter</i>', gram: 'Gemischt', shape: 'Gemischt' },
       epidemiology: {
-        incidence: 'Haufig im Krankenhausumfeld und bei urologischen Patienten',
-        risk_groups: ['Kathetertrager', 'Manner', 'Schwangere', 'Anatomische/funktionelle Anomalie', 'Niereninsuffizienz', 'Immunsuppression'],
+        incidence: 'Häufig im nosokomialen Umfeld, bei urologischen und katheterisierten Patienten',
+        risk_groups: ['Katheterträger (CAUTI)', 'Männer', 'Schwangere', 'Neurogene Blase / Obstruktion', 'Niereninsuffizienz / Transplantat', 'Immunsuppression / Diabetes'],
         seasonality: 'Keine',
-        transmission: 'Aufsteigend, Katheter-assoziiert, hamatogen'
+        transmission: 'Aszendierend, katheterassoziiert (Biofilm), nosokomial'
       },
       pathomechanism: {
         steps: [
-          'Pradisponierender Faktor: Anatomische (z.B. Striktur, Stein) oder funktionelle (z.B. neurogene Blase) Anomalie oder Vorhandensein eines Fremdkorpers (Katheter) behindert den Urinfluss und das Auswaschen von Bakterien.',
-          'Biofilmbildung: Bakterien (z.B. Proteus, Pseudomonas) bilden eine Biofilmschicht auf dem Katheter oder Stein, die sie vor Antibiotika und dem Immunsystem schutzt.',
-          'Persistenz: Infektion ist schwer zu eradizieren; Selektion resistenter Stamme und rezidivierende Infektionen sind haufig.'
+          'Prädisponierende Faktoren: Anatomische (Striktur, Stein, BPH) oder funktionelle Abflussstörungen oder Fremdkörper (Katheter, Stent) behindern die Miktion.',
+          'Biofilmbildung: Bakterien (insb. Proteus, Pseudomonas, Enterokokken) bilden einen resistenten Biofilm auf Fremdkörpern.',
+          'Parenchym- und systemische Invasion: Bakterien gelangen in das Gewebe und die Blutbahn, was Urosepsis auslöst.'
         ],
-        virulence_factors: ['Biofilm', 'Multiresistenz', 'Urease (Proteus)']
+        virulence_factors: ['Biofilmbildung', 'Multiresistenz (ESBL, AmpC, Carbapenemase)', 'Ureaseproduktion (Proteus - Infektsteine)']
       },
       clinical: {
         incubation: 'Variabel',
-        onset: 'Variabel (kann oligosymptomatisch sein)',
+        onset: 'Variabel (oligosymptomatisch bis schwer septisch)',
         symptoms: [
-          { name: 'Symptome der unteren Harnwege', description: 'Dysurie, Pollakisurie und Harndrang konnen auftreten, sind aber nicht immer dominant; die Infektion kann mehrere Abschnitte des Harntrakts betreffen.', severity: 'moderate' },
-          { name: 'Obere Harnwegs-/lokale Schmerzen', description: 'Suprapubische oder Flankenschmerzen konnen vorhanden sein, insbesondere wenn Obstruktion oder Nierenbeteiligung vorliegen.', severity: 'moderate' },
-          { name: 'Systemische Entzundung', description: 'Fieber, Schuttelfrost und Tachykardie deuten auf eine großere Erregerlast und eine systemische Wirtsreaktion hin.', severity: 'severe' },
-          { name: 'Sepsiszeichen', description: 'Hypotonie, Tachypnoe, veranderter Bewusstseinszustand oder Oligurie konnen bei Urosepsis auftreten und erfordern dringende Quellekontrolle.', severity: 'severe' },
-          { name: 'Oligosymptomatisch', description: 'Katheterisierte, neurogene Blase oder immungeschwachte Patienten zeigen oft keine klassischen Symptome; Labor und Vitalparameter mussen aktiv uberwacht werden.', severity: 'mild' }
+          { name: 'Systemische Entzündungssymptome', description: 'Hohes Fieber, Schüttelfrost, Tachykardie, Tachypnoe.', severity: 'severe' },
+          { name: 'Zeichen der Urosepsis / Septischer Schock', description: 'Hypotonie (RR <90 mmHg), Oligurie (<0,5 ml/kg/h), Verwirrtheit, Laktatanstieg – SOFORTIGER HANDLUNGSBEDARF!', severity: 'severe' },
+          { name: 'Flanken- / Suprapubischer Schmerz', description: 'Kann vorhanden sein, fehlt aber oft bei Katheter- oder neurogenen Patienten.', severity: 'moderate' },
+          { name: 'Untere Harnwegssymptome', description: 'Dysurie, Trüber/übelriechender Urin, Katheterblockade.', severity: 'moderate' },
+          { name: 'Oligosymptomatisch bei Älteren', description: 'Delir oder RR-Abfall als einziges Zeichen.', severity: 'severe' }
         ],
         physical_exam: [
-          'Oft unauffallig, insbesondere bei katheterisierten Patienten',
-          'Suprapubische oder Flankendruckempfindlichkeit',
-          'Vorhandensein eines Katheters oder eines anderen Harnwegssystems',
-          'Fieber oder Hypothermie'
+          'Fieber oder Hypothermie (<36°C), Tachykardie, Tachypnoe',
+          'Flanken- oder suprapubischer Druckschmerz',
+          'Verweilkatheter, Cystostoma oder Ureterstent vorhanden',
+          'Schockzeichen (kühle, marmorierte Extremitäten, verlängerte Rekapillarisierungszeit)'
         ],
-        complications: ['Urosepsis', 'Nierenabszess', 'Nierenversagen', 'Rezidiv', 'Katheterverschluss']
+        complications: ['Urosepsis und septischer Schock (20–40% Mortalität)', 'Akutes Nierenversagen (AKI)', 'Nierenabszess', 'Pyonephrose']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urinkultur', finding: 'Frauen: ≥10^5 KBE/ml, Manner: ≥10^4 KBE/ml', interpretation: 'Diagnostische Schwellenwerte (EAU 2025)' },
-          { test: 'Katheterurin', finding: '≥10^4 KBE/ml', interpretation: 'Signifikante Bakteriurie' },
-          { test: 'Nierenfunktion', finding: 'Kreatinin prufen', interpretation: 'Obstruktion/Schadigung' }
+          { test: 'Urinkultur (EAU 2025/2026)', finding: 'Frauen: ≥10^5 KBE/ml, Männer/Katheter: ≥10^4 KBE/ml', interpretation: 'IMMER OBLIGATORISCH vor Antibiose!' },
+          { test: 'Blutkultur', finding: '2 Sets obligat bei septischem Bild', interpretation: 'Bakteriämienachweis' },
+          { test: 'Entzündungs- & Nierenwerte', finding: 'Procalcitonin (PCT), CRP, Leukozyten, Kreatinin, Laktat, Blutgas', interpretation: 'Sepsis- und Organfunktionsmonitoring' }
         ],
         imaging: [
-          { modality: 'CT-Urographie', finding: 'Anatomische/funktionelle Anomalie', significance: 'OBLIGATORISCH zur Klarung des pradisponierenden Faktors' }
+          { modality: 'CT-Urographie / Becken-CT (EAU 2025/2026)', finding: 'Obstruktion, Abszess, Infektstein, Emphysem', significance: 'OBLIGATORISCH zur Klärung der Herdsanierung!' },
+          { modality: 'Notfall-Ultraschall', finding: 'Hydronephrose, Pyonephros', significance: 'Sofortiger Ausschluss einer Abflussstörung' }
         ],
         microbiology: [
-          { test: 'Kultur + Resistenz', finding: 'Essenziell', significance: 'Basis fur gezielte Therapie' }
+          { test: 'Erregerdifferenzierung + Antibiogramm', finding: 'MDR-Verdacht', significance: 'Basis gezielter Therapie' }
         ]
       },
       differential: [
-        { disease: 'Unkomplizierte HWI', distinguishing: 'Kein Risikofaktor/anatomischer Fehler' },
-        { disease: 'Prostatitis', distinguishing: 'Rektale Untersuchung' }
+        { disease: 'Unkomplizierte Pyelonephritis', distinguishing: 'Keine Abflussstörung, keine Risikofaktoren' },
+        { disease: 'Akute Prostatitis', distinguishing: 'Schmerzhafte, geschwollene Prostata bei DRU' },
+        { disease: 'Andere Sepsisursachen', distinguishing: 'Anamnese, Herddiagnostik' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Cefuroxim-Axetil', dose: '2x500mg p.o.', duration: '7-14 Tage', note: 'keine Wirksamkeit gegen Enterokokken' },
-            { drug: 'Ciprofloxacin', dose: '2x500-750mg p.o.', duration: '7-14 Tage', note: 'Nur wenn keine Fluorchinolon-Behandlung in den letzten 6 Monaten und E. coli Resistenz <10% (EAU 2025)' },
-            { drug: 'Levofloxacin', dose: '1x750mg p.o.', duration: '7-14 Tage', note: 'Alternative, wenn E. coli Resistenz <10% (EAU 2025)' }
+            { drug: 'Cefuroxim-Axetil', dose: '2x500mg p.o.', duration: '7-14 Tage', note: 'Nur bei milden Verläufen ohne Septikämie' },
+            { drug: 'Ciprofloxacin / Levofloxacin', dose: 'p.o.', duration: '7-14 Tage', note: 'Nur wenn keine Chinolone in den letzten 6 Monaten und Resistenz <10% (EAU 2025/2026)' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxon', dose: '1x1-2g i.v.', duration: '10-14 Tage', note: 'In schweren Fallen' },
-            { drug: 'Piperacillin/Tazobactam', dose: '3x4.5g i.v.', duration: '10-14 Tage', note: 'Verdacht auf Pseudomonas/vorherige AB-Behandlung' },
-            { drug: 'Carbapenem (Meropenem)', dose: '3x1g i.v.', duration: '10-14 Tage', note: 'ESBL-Risiko oder septischer Schock' }
+            { drug: 'Ceftriaxon', dose: '1x2g i.v.', duration: '7-14 Tage', note: 'First-line Option' },
+            { drug: 'Piperacillin/Tazobactam', dose: '3x4.5g i.v.', duration: '7-14 Tage', note: 'Bei Pseudomonas-Verdacht' },
+            { drug: 'Cefepim', dose: '2x2g i.v.', duration: '7-14 Tage', note: 'Pseudomonas- und Enterobacteriaceae-Abdeckung' },
+            { drug: 'Meropenem', dose: '3x1g i.v.', duration: '7-14 Tage', note: 'Bei ESBL-Risiko oder septischem Schock' },
+            { drug: 'Ceftazidim/Avibactam oder Cefiderocol', dose: 'i.v.', duration: '7-14 Tage', note: 'Bei multiresistenten (MDR) Gram-negativen Keimen (EAU 2025/2026)' }
           ]
         },
-        targeted: 'Korrektur basierend auf Kultur. Beseitigung der Obstruktion (Katheterwechsel, Stent, Nephrostomie) ist unerlasslich!',
-        supportive: ['Flussigkeitsersatz', 'Fiebersenkung'],
-        prevention: ['Katheterpflege (geschlossenes System, sofortige Entfernung)', 'Beseitigung der Obstruktion', 'Vermeidung der Behandlung asymptomatischer Bakteriurie']
+        targeted: 'HERDSANIERUNG (Source Control) SOFORT: Entlastung der gestauten Niere (perkutane Nephrostomie oder DJ-Stent), sofortiger Wechsel oder Entfernung des Katheters!',
+        supportive: [
+          'Nicht-pharmakologische Therapie / Herdsanierung: Aseptischer Katheterwechsel (Entfernung des Biofilms).',
+          'Sepsis-Bundles: Agressive i.v. Flüssigkeitsgabe (Kristalloide 30 ml/kg in den ersten 3 Stunden).',
+          'Vasopressoren (Noradrenalin) bei MAP <65 mmHg trotz Infusion.',
+          'Urologisch-invasive Intervention (Abszessdrainage, Steinentfernung).',
+          'Intensivmedizinische Überwachung (Diurese, Laktat, Blutgase).'
+        ],
+        prevention: [
+          'Indikation für Katheterisierung streng prüfen (frühestmögliche Entfernung!).',
+          'Geschlossene Kathetersysteme, aseptische Katheterpflege.',
+          'Vermeidung der unnötigen Behandlung asymptomatischer Bakteriurien.',
+          'Urologische Korrektur anatomischer Hindernisse.'
+        ]
       },
       prognosis: {
-        mortality: '10-30% bei Urosepsis',
-        factors: 'Grunderkrankung, Resistenz, Sanierung des Herdes'
+        mortality: '20–40% bei Urosepsis und septischem Schock',
+        factors: 'Hohes Alter, unzureichende Herdsanierung, MDR-Erreger, schwere Begleiterkrankungen'
       }
     },
     {
       id: 'prostatitis',
-      name: 'Bakterielle Prostatitis',
-      pathogen: { type: 'Bakterium', name: '<i>E. coli, Klebsiella, Proteus, Enterococcus, Pseudomonas</i>', gram: 'Gemischt', shape: 'Gemischt' },
+      name: 'Akute und chronische bakterielle Prostatitis',
+      pathogen: { type: 'Bakterium', name: '<i>E. coli</i> (80%), <i>Klebsiella, Proteus, Pseudomonas aeruginosa, Enterococcus faecalis</i>', gram: 'Gemischt', shape: 'Gemischt' },
       epidemiology: {
-        incidence: '50% der Manner erleben Symptome im Laufe ihres Lebens',
-        risk_groups: ['Junge/mittelalte Manner', 'Katheterisierung', 'Urologischer Eingriff (Biopsie)', 'HIV', 'Diabetes'],
+        incidence: '10–15% aller Männer im Laufe ihres Lebens; 8% aller urologischen Konsile',
+        risk_groups: ['Junge und mittelalte Männer', 'Nach Prostatabiopsie', 'Blasenkatheterträger', 'BPH / Beckenbutstörungen', 'HIV / Diabetes'],
         seasonality: 'Keine',
-        transmission: 'Aufsteigend (Reflux), hamatogen, lymphogen, direkt (Biopsie)'
+        transmission: 'Aszendierend durch intraprostatischen Reflux, direkte Inokulation nach transrektaler Biopsie'
       },
       pathomechanism: {
         steps: [
-          'Infektionsweg: Am haufigsten gelangen Bakterien durch intraprostatischen Reflux von infiziertem Urin in die Prostatadrusen.',
-          'Entzundung: In akuten Fallen entwickeln sich Odeme und Mikroabszesse in den Drusen, was zu Schwellung und Spannung der Prostata fuhrt.',
-          'Chronifizierung: Bakterien konnen Biofilme auf Prostatasteinen oder in Drusengangen bilden, was rezidivierende Infektionen aufrechterhalt.'
+          'Intraprostatischer Reflux: Infizierter Urin gelangt unter hohem Miktionsdruck in die Prostatagänge.',
+          'Akute Entzündung (NIH Type I - ABP): Stromaödem, leukozytäre Infiltration und Mikroabszesse führen zu Schwellung und Spannung der Prostata.',
+          'Chronifizierung (NIH Type II - CBP): Bakterien bilden Biofilme auf Prostatasteinen oder in den Drüsengängen, was zu rezidivierenden Infektionen führt.'
         ],
-        virulence_factors: ['Biofilm', 'Anatomische Lage (schlechte AB-Penetration)']
+        virulence_factors: ['Biofilmbildung', 'Gewebebarriere (Prostatakapsel und saurer pH behindern viele Antibiotika)']
       },
       clinical: {
-        incubation: 'Variabel',
-        onset: 'Akut (ABP) oder Chronisch (CBP)',
+        incubation: '1-7 Tage',
+        onset: 'Akut (ABP) plötzliche Fieberschübe; Chronisch (CBP) schleichend, anhaltend (>3 Monate)',
         symptoms: [
-          { name: 'Akut: Systemische Symptome', description: 'Plotzlich einsetzendes hohes Fieber, Schuttelfrost, Muskelschmerzen, Unwohlsein (grippeahnlicher Beginn).', severity: 'severe' },
-          { name: 'Schmerzen', description: 'Charakteristische perineale, rektale, Unterbauchschmerzen, die in Hoden und Penis ausstrahlen.', severity: 'moderate' },
-          { name: 'LUTS (Symptome der unteren Harnwege)', description: 'Ausgepragte Dysurie, Pollakisurie, dringender Harndrang.', severity: 'moderate' },
-          { name: 'Obstruktion', description: 'Die geschwollene Prostata komprimiert die Harnrohre, was zu erschwertem Wasserlassen, schwachem Strahl oder vollständigem Harnverhalt fuhren kann.', severity: 'severe' },
-          { name: 'Harnverhalt', description: 'Schwere Obstruktion kann zu Uberdehnung der Blase und akutem Harnverhalt fuhren.', severity: 'severe' },
-          { name: 'Chronische Symptome', description: 'Mildere, wiederkehrende Beschwerden: Beckenbeschwerden, rezidivierende Harnwegsinfektionen, schmerzhafte Ejakulation.', severity: 'mild' }
+          { name: 'Akut: Systemische Fiebersymptome', description: 'Hohes Fieber, Schüttelfrost, Myalgien, grippeähnliches Krankheitsgefühl.', severity: 'severe' },
+          { name: 'Pelviner / Perinealer Schmerz', description: 'Schmerzen im Dammbereich (Perineum), Rektum, Suprapubisch, mit Ausstrahlung in Penis und Hoden.', severity: 'severe' },
+          { name: 'LUTS und Miktionsbeschwerden', description: 'Ausgeprägte Dysurie, Pollakisurie, Harndrang, schwacher Harnstrahl.', severity: 'moderate' },
+          { name: 'Akuter Harnverhalt', description: 'Geschwollene Prostata führt zu kompletter Obstruktion mit schmerzhafter Blasenüberdehnung.', severity: 'severe' },
+          { name: 'Chronisch: Wiederkehrende Beschwerden', description: 'Becken- und Dammdruck, schmerzhafte Ejakulation, rezidivierende Zystitiden mit demselben Keim.', severity: 'moderate' }
         ],
         physical_exam: [
-          'Digitale rektale Untersuchung (DRU):',
-          'Akut: Geschwollene, warme, EXTREM druckempfindliche Prostata (Massage VERBOTEN - Bakteriämiegefahr!)',
-          'Chronisch: Kann normal oder leicht druckempfindlich sein, nicht geschwollen',
-          'Blase kann bei Harnverhalt palpabel sein'
+          'Digitale Rektale Untersuchung (DRU):',
+          'BEI AKUTER PROSTATITIS: Prostata ist geschwollen, heiß, prall-elastisch und EXTREM DRUCKEMPFINDLICH. PROSTATAMASSAGE IST BEI AKUTER PROSTATITIS STRENG VERBOTEN (Gefahr der Bakteriämie und Urosepsis!)',
+          'BEI CHRONISCHER PROSTATITIS: Prostata unauffällig, derber oder leicht druckschmerzhaft.',
+          'Suprapubische Dämpfung bei Harnverhalt.'
         ],
-        complications: ['Prostataabszess', 'Urosepsis', 'Chronifizierung', 'Epididymitis', 'Harnverhalt', 'Sexuelle Dysfunktion']
+        complications: ['Prostataabszess', 'Urosepsis', 'Akuter Harnverhalt', 'Epididymoorchitis', 'Übergang in chronisches Beckenschmerzsyndrom (CPPS)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urin', finding: 'Pyurie, Bakteriurie', interpretation: 'Positiv' },
-          { test: 'Blutbild/CRP', finding: 'Erhoht (Akut)', interpretation: 'Systemische Entzundung' },
-          { test: 'PSA', finding: 'Erhoht', interpretation: 'Aufgrund von Entzundung (nicht zur Krebsdiagnose in der akuten Phase!)' }
+          { test: 'Urinsediment & Teststreifen', finding: 'Pyurie, Bakteriurie', interpretation: 'Bestätigt HWI' },
+          { test: 'Entzündungswerte', finding: 'Leukozytose, deutlich erhöhtes CRP', interpretation: 'Systemische Entzündung' },
+          { test: 'Serum-PSA', finding: 'Stark erhöht (oft >20–50 ng/ml)', interpretation: 'Reaktiv durch Entzündung! Nicht zur Krebsdiagnostik in der Akutphase; Kontrolle 2–3 Monate nach Ausheilung.' }
         ],
         imaging: [
-          { modality: 'Transrektaler US (TRUS)', finding: 'Abszess (hypoechogener Bereich)', significance: 'Nur wenn keine Besserung auf Behandlung oder Verdacht auf Abszess' }
+          { modality: 'Transrektaler Ultraschall (TRUS) / Becken-MRT', finding: 'Prostataabszess (hypoechogene/flüssigkeitsgefüllte Höhle)', significance: 'Indiziert bei Fieberpersistenz nach 48–72h Antibiose.' }
         ],
         microbiology: [
-          { test: 'Akut: Urinkultur', finding: 'Mittelstrahlurin', significance: 'Prostatamassage VERBOTEN!' },
-          { test: 'Chronisch: Meares-Stamey-Test', finding: '4-Glaser-Probe oder 2-Glaser-Probe (vor/nach Massage)', significance: 'Goldstandard (EAU 2025)' }
+          { test: 'Akut: Mittelstrahl-Urinkultur (EAU 2025/2026)', finding: '≥10^4 KBE/ml uropathogen', significance: 'OHNE Prostatamassage gewinnen!' },
+          { test: 'Chronisch: Meares-Stamey-4-Gläser-Test oder 2-Gläser-Test (EAU 2025/2026)', finding: '10-fach höhere Keimzahl im Urin nach Massage (VB3) oder Prostatasekret (EPS) im Vergleich zum Urin vor Massage (VB2)', significance: 'Goldstandard bei chronischer bakterieller Prostatitis!' }
         ]
       },
       differential: [
-        { disease: 'Zystitis', distinguishing: 'Kein Fieber, keine Prostataempfindlichkeit' },
-        { disease: 'BPH', distinguishing: 'Keine Infektionszeichen, langsame Progression' },
-        { disease: 'Chronisches Beckenschmerzsyndrom (CPPS)', distinguishing: 'Negative Kultur, chronische Schmerzen' }
+        { disease: 'BPH (Benigne Prostatahyperplasie)', distinguishing: 'Langsame Progression, keine Infektzeichen, kein Fieber' },
+        { disease: 'Chronisches Beckenschmerzsyndrom (CPPS / NIH Type III)', distinguishing: 'Schmerzen vorhanden, aber Urin- und Sekretkulturen dauerhaft negativ' },
+        { disease: 'Prostatakarzinom', distinguishing: 'Keine Akutsymptome, derber Knoten bei DRU, Kultur negativ' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'Levofloxacin', dose: '1x500-750mg p.o.', duration: '2-4 Wochen (Akut), 4-6 Wochen (Chronisch)', note: 'EAU 2025: Erste Wahl (gute Penetration)' },
-            { drug: 'Ciprofloxacin', dose: '2x500mg p.o.', duration: '2-4 Wochen (Akut), 4-6 Wochen (Chronisch)', note: 'EAU 2025: Erste Wahl' },
-            { drug: 'Cotrimoxazol', dose: '2x960mg p.o.', duration: '4-6 Wochen', note: 'Alternative' }
+            { drug: 'Fluorchinolone (Levofloxacin / Ciprofloxacin)', dose: 'Levofloxacin 1x500mg p.o. oder Ciprofloxacin 2x500mg p.o.', duration: 'Akut: 2-4 Wochen, Chronisch: 4-6 Wochen!', note: 'EAU 2025/2026 Erste Wahl aufgrund exzellenter Gewebepenetration' },
+            { drug: 'Trimethoprim-Sulfamethoxazol (Cotrimoxazol)', dose: '2x960mg p.o.', duration: '4-6 Wochen', note: 'Alternative bei chronischer Prostatitis' }
           ],
           inpatient: [
-            { drug: 'Ceftriaxon', dose: '1-2g i.v.', duration: '14 Tage', note: 'Bei schweren akuten Fallen (dann p.o. Wechsel)' },
-            { drug: 'Piperacillin/Tazobactam', dose: '3x4.5g i.v.', duration: '', note: 'Urosepsis/Verdacht auf Pseudomonas' }
+            { drug: 'Ceftriaxon', dose: '1x2g i.v.', duration: 'Bis zur Entfieberung, dann p.o. Wechsel', note: 'Bei schwerer akuter Prostatitis' },
+            { drug: 'Piperacillin/Tazobactam', dose: '3x4.5g i.v.', duration: 'Bis zur Entfieberung', note: 'Bei septischen oder nosokomialen Fällen' }
           ]
         },
-        targeted: 'Fluorchinolone (erste Wahl bei chronisch). Makrolide (Verdacht auf Chlamydien). Fosfomycin (MDR - umstrittene Penetration).',
-        supportive: ['NSAID zur Schmerzlinderung', 'Alpha-Blocker (Tamsulosin) zur Symptomlinderung', 'Suprapubischer Katheter (bei Retention, urethral sollte bei akuter Entzundung vermieden werden!)'],
-        prevention: ['Frühzeitige Behandlung von HWI', 'Prostatabiopsie-Prophylaxe: Gezielt (basierend auf Rektalabstrich) oder Fosfomycin/Ceftriaxon (Fluorchinolone vermeiden!)']
+        targeted: 'Gezielt nach Antibiogramm. EAU 2025/2026: Substanzen mit hoher Lipophilie wählen (Fluorchinolone, Cotrimoxazol, Doxycyclin).',
+        supportive: [
+          'Nicht-pharmakologische Therapie / Harnableitung: Bei akutem Harnverhalt ist eine SUPRAPUBISCHE ZYSTOSTOMIE obligat! Transurethrale Katheterisierung bei akuter Prostatitis VERMEIDEN (Urosepsisrisiko).',
+          'Alpha-1-Adrenorezeptorblocker (z.B. Tamsulosin 0,4mg p.o. 1x/Tag) zur Entspannung des Blasenhalses und Erleichterung der Miktion.',
+          'Analgesie und Entzündungshemmung: NSAR (Ibuprofen 3x400mg p.o. oder Celecoxib) für 2–4 Wochen.',
+          'Warme Sitzbäder (38–40°C), Entlastung des Damms (spezielle Sitzkissen).',
+          'Stuhlregulierung, reichliche Flüssigkeitszufuhr.'
+        ],
+        prevention: [
+          'Frühzeitige, vollständige Therapie von HWI.',
+          'EAU 2025/2026 Empfehlung vor Prostatabiopsie: Gezielte Rektalabstrich-basierte Prophylaxe oder Ceftriaxon/Fosfomycin (Fluorchinolon-Monotherapie vermeiden!).'
+        ]
       },
       prognosis: {
-        mortality: 'Akut: niedrig (aber Sepsisrisiko); Chronisch: beeintrachtigt Lebensqualitat, schwer zu heilen (Rezidiv haufig)',
-        factors: 'Biofilm, Resistenz, Anatomie, Ubergang zu CPPS'
+        mortality: 'Sehr gering unter Therapie, aber Sepsisrisiko akuten Verläufen; Chronisch beeinträchtigt Lebensqualität erheblich',
+        factors: 'Abszessbildung, Biofilm, Übergang in CPPS'
       }
     },
     {
       id: 'asymptomatic_bacteriuria',
-      name: 'Asymptomatische Bakteriurie',
-      pathogen: { type: 'Bakterium', name: '<i>E. coli, Enterococcus, GBS</i>, etc.', gram: 'Variabel', shape: 'Variabel' },
+      name: 'Asymptomatische Bakteriurie (ASB)',
+      pathogen: { type: 'Bakterium', name: '<i>Escherichia coli, Enterococcus faecalis, Klebsiella, Proteus, Streptococcus agalactiae (GBS)</i>', gram: 'Gemischt', shape: 'Gemischt' },
       epidemiology: {
-        incidence: 'Haufig (Frauen 3-5%, Altere 10-50%, Kathetertrager 100%)',
-        risk_groups: ['Altere', 'Diabetes', 'Kathetertrager', 'Schwangerschaft'],
+        incidence: 'Gesunde Frauen: 3-5%, Diabetikerinnen: 9-27%, Pflegeheimbewohner: 25-50%, Dauerkatheterträger: 100%',
+        risk_groups: ['Ältere', 'Diabetiker', 'Katheterträger', 'Schwangere', 'Rückenmarksverletzte'],
         seasonality: 'Keine',
-        transmission: 'Endogene Kolonisation'
+        transmission: 'Endogene Uropathogen-Kolonisation'
       },
       pathomechanism: {
         steps: [
-          'Kolonisation: Bakterien besiedeln die Harnwege, aber es fehlen ihnen Virulenzfaktoren (z.B. spezifische Fimbrien), die Gewebeinvasion oder Entzundung auslosen wurden.',
-          'Kommensalismus: Ein Gleichgewichtszustand entwickelt sich zwischen Bakterien und Wirt, ohne Symptome.',
-          'Schutzwirkung: Kolonisierende Stamme konnen mit virulenteren Pathogenen konkurrieren und so moglicherweise eine schutzende Wirkung haben.'
+          'Kommensale Kolonisation: Bakterienstämme niedriger Virulenz besiedeln die Blase ohne Gewebeinvasion oder Entzündungskaskade.',
+          'Immun-Toleranz: Ein stabiler Gleichgewichtszustand zwischen Wirt und Bakterien entsteht.',
+          'Schutzfunktion: Die Besiedlung mit avirulenten Stämmen kann das Festsetzen hochvirulenter Erreger verhindern!'
         ],
-        virulence_factors: ['Reduzierte Virulenz']
+        virulence_factors: ['Fehlende oder reduzierte Virulenzfaktoren']
       },
       clinical: {
         incubation: '-',
         onset: 'Asymptomatisch',
         symptoms: [
-          { name: 'Asymptomatisch', description: 'Der Patient hat keine Harnwegsbeschwerden (keine Dysurie, kein Fieber, keine Schmerzen). Bakteriurie ist ein Zufallsbefund.', severity: 'mild' }
+          { name: 'Vollständiges FEHLEN klinischer Symptome', description: 'Keine Untere oder Obere Harnwegsbeschwerden (keine Dysurie, keine Pollakisurie, kein Fieber). Reine Zufallsdiagnose.', severity: 'mild' }
         ],
         physical_exam: [
-          'Negativ',
-          'Truber/ubelriechender Urin allein ist nicht diagnostisch und erfordert keine Behandlung!',
-          'Keine suprapubische oder flankente Druckempfindlichkeit'
+          'Völlig unauffälliger Befund',
+          'Trüber oder übelriechender Urin ALLEIN ist KEIN Symptom und KEINE Behandlungsindikation! (EAU 2025/2026)',
+          'Kein suprapubischer oder Flankendruckschmerz'
         ],
-        complications: ['Unnotige Antibiotikabehandlung → Resistenz', 'Pyelonephritis (Risiko nur in Schwangerschaft/bei Eingriffen)']
+        complications: ['Unnötige Antibiotikagabe -> Multiresistenz und Clostridioides difficile Colitis!', 'Pyelonephritis- und Frühgeburtsrisiko in der SCHWANGERSCHAFT (daher hier behandlungsbedürftig!)']
       },
       diagnostics: {
         laboratory: [
-          { test: 'Urinkultur', finding: '≥10^5 KBE/ml (gleicher Stamm)', interpretation: 'Frauen: 2 aufeinanderfolgende Proben, Manner: 1 Probe (EAU 2025)' },
-          { test: 'Katheterprobe', finding: '≥10^5 KBE/ml', interpretation: 'Eine Probe ist ausreichend' },
-          { test: 'Urinsediment', finding: 'Pyurie ist oft vorhanden', interpretation: 'Indiziert KEINE Behandlung ohne Symptome!' }
+          { test: 'Urinkultur (EAU 2025/2026)', finding: 'Frauen: ≥10^5 KBE/ml desselben Keims in 2 AUFEINANDERFOLGENDEN Proben; Männer: ≥10^5 KBE/ml in 1 Probe', interpretation: 'Strenge diagnostische Kriterien' },
+          { test: 'Katheterurin', finding: '≥10^5 KBE/ml in 1 Probe', interpretation: 'Nachweis von Bakteriurie' },
+          { test: 'Urinsediment', finding: 'Pyurie häufig vorhanden', interpretation: 'Pyurie ALLEIN indiziert KEINE Antibiose bei asymptomatischen Patienten! (EAU 2025/2026)' }
         ],
         imaging: [
-          { test: 'Nicht erforderlich', finding: 'Keine Indikation', interpretation: 'Ausgeschlossen bei asymptomatischen Befunden' }
+          { test: 'Bildgebung nicht indiziert', finding: 'Keine Indikation', interpretation: 'Nicht durchzuführen' }
         ],
         microbiology: [
-          { test: 'Kultur', finding: 'Positiv', significance: 'Nur wenn Screening indiziert ist (z.B. Schwangerschaft, urologischer Eingriff)' }
+          { test: 'Urinkultur-Screening', finding: 'Nur bei indizierten Gruppen durchführen', significance: 'NUR in der Schwangerschaft und vor urologischen Eingriffen mit Schleimhautverletzung!' }
         ]
       },
       differential: [
-        { disease: 'Zystitis', distinguishing: 'Vorhandensein von Symptomen (Dysurie, Harndrang)' },
-        { disease: 'Kontamination', distinguishing: 'Niedrige Keimzahl, Mischflora' }
+        { disease: 'Symptomatische Zystitis / Pyelonephritis', distinguishing: 'Vorhandensein subjektiver Beschwerden (Dysurie) oder Fieber' },
+        { disease: 'Kontamination', distinguishing: 'Niedrige Keimzahl (<10^5 KBE/ml), Mischflora' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'KEINE Behandlung', dose: '-', duration: '-', note: 'Allgemeine Regel (auch nicht bei Alteren, Diabetikern, Katheterpatienten!)' }
+            { drug: 'KEINE ANTIBIOTIKABEHANDLUNG (DO NOT TREAT)', dose: '-', duration: '-', note: 'EAU 2025/2026 Strenge Empfehlung: NICHT BEHANDELN! (Ausnahmen: Schwangerschaft & urologische OP)' }
           ],
           inpatient: [
-            { drug: 'KEINE Behandlung', dose: '-', duration: '-', note: 'Außer bei Indikationen' }
+            { drug: 'KEINE ANTIBIOTIKABEHANDLUNG (DO NOT TREAT)', dose: '-', duration: '-', note: 'Keine Behandlungsindikation bei Älteren, Diabetikern, Katheterträgern oder Transplantierten' }
           ]
         },
-        targeted: 'Nur bei Indikation (Schwangerschaft, urologischer Eingriff mit Schleimhautverletzung). In der Schwangerschaft: Fosfomycin, Nitrofurantoin, Cephalosporin.',
-        supportive: ['Aufklarung (Uringeruch/-farbe rechtfertigt kein AB)'],
-        prevention: ['Vermeidung unnotigen Screenings und Behandlung', 'Katheterpflege']
+        targeted: 'AUSSCHLIESSLICHE INDIKATIONEN (EAU 2025/2026):\n1) SCHWANGERE: Screening in der 12.-16. SSW. Gezielte Therapie nach Kultur (Fosfomycin 3g 1x, Nitrofurantoin 2x100mg 5 Tage, Cefalexin oder Amoxicillin-Clavulanat 5-7 Tage) zur Prävention von Pyelonephritis und Frühgeburt.\n2) VOR UROLOGISCHEN EINGRIFFEN MIT SCHLEIMHAUTVERLETZUNG (z.B. TURP, Ureteroskopie): Gezielte Antibiose vor dem Eingriff.\nNICHT BEHANDELN: Postmenopausale Frauen, Diabetiker, Dauerkatheterträger, Pflegeheimbewohner, Rückenmarksverletzte!',
+        supportive: [
+          'Nicht-pharmakologische Therapie / Schulung: Aufklärung von Patienten und Pflegepersonal, dass Uringeruch/-trübung kein Antibiotikum rechtfertigt.',
+          'Reichliche Flüssigkeitszufuhr, regelmäßige Miktion.',
+          'Einstellung unnötiger Urintests.'
+        ],
+        prevention: [
+          'VERMEIDUNG unnötiger Urinuntersuchungen und Kulturen.',
+          'Frühestmögliche Entfernung von Blasenkathetern.',
+          'Gute Genitalhygiene und Hydratation.'
+        ]
       },
       prognosis: {
-        mortality: 'Erhoht die Mortalitat auch unbehandelt nicht',
-        factors: '-'
+        mortality: 'ASB erhöht die Mortalität nicht; eine Behandlung ist schädlich wegen Resistenz und Nebenwirkungen',
+        factors: 'Unbehandelt in der Schwangerschaft hohes Pyelonephritisrisiko'
       }
     }
   ]

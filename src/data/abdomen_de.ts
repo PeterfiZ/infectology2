@@ -1606,142 +1606,156 @@ window._abdomen_de = window._abdomen_de || {
       },
       {
         id: 'hgv',
-        name: 'Hepatitis G (GBV-C)',
-        pathogen: { type: 'Virus', name: '<i>GB-Virus C</i> (HGV)', gram: 'ssRNA, Flaviviridae', shape: '-' },
+        name: 'Hepatitis-G-Virus / Humanes Pegivirus 1 (HPgV-1 / GBV-C)',
+        pathogen: { type: 'Virus', name: '<i>Humanes Pegivirus 1</i> (HPgV-1, ehemals GBV-C / HGV)', gram: 'ssRNA (+), Flaviviridae (Gattung Pegivirus)', shape: 'sphärisch, umhüllt' },
         epidemiology: {
-          incidence: '1-4% der Blutspender',
-          risk_groups: ['IV-Drogenkonsumenten', 'Hämodialysepatienten', 'Mehrfachtransfusionen'],
+          incidence: 'Weltweit verbreitet; 1–5% gesunder Blutspender sind virämisch. 20–50% der Bevölkerung weisen Anti-E2-Antikörper auf.',
+          risk_groups: ['i.v.-Drogenkonsumenten', 'Hämodialysepatienten', 'Mehrfach-Empfänger von Blutprodukten', 'HIV- und HCV-Koinfizierte', 'Personen mit risikoreichem Sexualverhalten'],
           seasonality: 'Keine',
-          transmission: 'Blut, sexuell, vertikal'
+          transmission: 'Parenteral (Blut, Nadelstich, Blutprodukte), sexuell, vertikal (Mutter-Kind)'
         },
         pathomechanism: {
-          steps: ['Lymphotropes Virus', 'Replikation in Lymphozyten', 'Nicht hepatotrop (umstritten)', 'Interferenz mit HIV-Replikation'],
-          virulence_factors: ['Nicht bekannt']
+          steps: [
+            'Lymphotropes Virus: Replikation primär in T- und B-Lymphozyten sowie mononukleären Zellen des peripheren Blutes (PBMC). Nicht hepatotrop!',
+            'Schädigt Leberzellen nicht, kein zytopathischer Effekt oder histologische Entzündung in der Leber.',
+            'Bei HIV-1-Koinfektion günstige immunmodulatorische Wirkung: Herabregulierung von HIV-Korezeptoren (CD4, CXCR4, CCR5), Erhöhung inhibitorischer Chemokine (SDF-1, RANTES, MIP-1α/β).',
+            'Reduziert T-Zell-Hyperaktivierung und Apoptose, was den Abfall der CD4+-Zellzahl und die HIV/AIDS-Progression verlangsamt.'
+          ],
+          virulence_factors: ['E2-Hüllprotein (Zelleintritt, Immunmodulation)', 'NS5A-Nichtstrukturprotein']
         },
         clinical: {
-          incubation: 'Unbekannt',
+          incubation: '14–60 Tage, klinisch irrelevant',
           onset: 'Asymptomatisch',
           symptoms: [
-            { name: 'Asymptomatisch', description: 'Verursacht keine akute oder chronische Hepatitis', severity: 'mild' }
+            { name: 'Asymptomatische Infektion', description: 'Verursacht eigenständig weder akute noch chronische Hepatitis, keine Leberzirrhose und kein Leberversagen. Die Bezeichnung „Hepatitis G“ ist ein historischer Irrtum.', severity: 'mild' }
           ],
-          physical_exam: ['Negativ'],
-          complications: ['Bei HIV-Koinfektion verlangsamt es die AIDS-Progression (günstiger Effekt)']
+          physical_exam: ['Körperlicher Befund völlig unauffällig (kein Ikterus, keine Hepatomegalie)'],
+          complications: ['Keine hepatischen Komplikationen.', 'Bei HIV-1-Koinfektion verlangsamt die HPgV-1-Persistenz die AIDS-Progression und verbessert das Überleben (protektiver Effekt).']
         },
         diagnostics: {
-          laboratory: [{ test: 'Leberfunktion', finding: 'Normal', interpretation: 'Verursacht keine Hepatitis' }],
-          imaging: [{ modality: 'Keine', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'Leberenzyme (ALT, AST), Bilirubin, AP, GGT', finding: 'Völlig im Normbereich', interpretation: 'Kein hepatozellulärer Schaden' }],
+          imaging: [{ modality: 'Abdomen-Sonographie', finding: 'Unauffällige Leber- und Gallenwegsstrukturen', significance: 'Ausschluss anderer Pathologien' }],
           microbiology: [
-            { test: 'PCR', finding: 'RNA', significance: 'Forschungszweck, nicht in der klinischen Routine verwendet' }
+            { test: 'HPgV-1 RT-PCR', finding: 'RNA-Nachweis', significance: 'Spezial- und Forschungsdiagnostik; weist aktive Virämie nach' },
+            { test: 'Anti-E2-Antikörper', finding: 'Positiv', significance: 'Zeigt Ausheilung der Virämie und durchgemachte Infektion an' }
           ]
         },
         differential: [
-          { disease: 'Andere Virushepatitiden', distinguishing: 'Serologie (HBV, HCV)' },
-          { disease: 'Nicht-infektiöse Lebererkrankungen', distinguishing: 'Ausschlussdiagnose' }
+          { disease: 'Echte hepatotrope Viren (HBV, HCV, HAV, HEV, HDV)', distinguishing: 'Serologie und PCR (HBsAg, Anti-HCV, HCV-RNA etc.)' },
+          { disease: 'Nicht-infektiöse Lebererkrankungen (DILI, NAFLD/NASH, Autoimmunhepatitis)', distinguishing: 'Ausschlussdiagnostik, Autoantikörper, Toxikologie' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'Erfordert keine Behandlung.',
-          supportive: [],
-          prevention: ['Screening von Blutprodukten (nicht routinemäßig)']
+          targeted: 'Erfordert KEINE spezifische antivirale Therapie.',
+          supportive: ['Keine klinische Intervention erforderlich.'],
+          prevention: ['Routinemäßiges HPgV-1-Screening von Blutspenden nicht indiziert. Standard-Infektionskontrolle.']
         },
         prognosis: {
-          mortality: 'Nicht pathogen für die Leber',
+          mortality: 'Nicht pathogen für die Leber (Null Mortalität).',
           prognostic_scores: [],
-          factors: '-'
+          factors: 'Bei HIV-Koinfektion ist die HPgV-1-Persistenz ein günstiger Prognosefaktor.'
         },
         references: [
-          'Stapleton JT. GB Virus Type C/Hepatitis G Virus. Semin Liver Dis.',
-          'Viral hepatitis reviews discussing human pegivirus (HPgV/GBV-C).'
+          'Stapleton JT, et al. HPgV-1 (GBV-C) infection and pathogenesis. Nat Rev Microbiol.',
+          'EASL & CDC Clinical Guidelines on Viral Hepatitis misnomers and Anelloviridae/Pegivirus.'
         ]
       },
       {
         id: 'ttv',
         name: 'Torque-Teno-Virus (TTV)',
-        pathogen: { type: 'Virus', name: '<i>Torque-Teno-Virus</i>', gram: 'ssDNA, Anelloviridae', shape: '-' },
+        pathogen: { type: 'Virus', name: '<i>Torque-Teno-Virus</i> (TTV)', gram: 'ssDNA (-/+), Anelloviridae (Gattung Alphatorquevirus)', shape: 'klein (28-32 nm), unbehüllt, ikosaedrisch' },
         epidemiology: {
-          incidence: 'Ubiquitär (>90% der Bevölkerung sind Träger)',
-          risk_groups: ['Allgemeinbevölkerung'],
+          incidence: 'Ubiquitär: in >70–90% der Bevölkerung als perzipitierende Virämie nachweisbar. Essenzieller Bestandteil des menschlichen Kommensalviroms.',
+          risk_groups: ['Allgemeinbevölkerung', 'Organtransplantierte (Leber, Niere, Herz, Lunge)', 'Immunsupprimierte Patienten'],
           seasonality: 'Keine',
-          transmission: 'Blut, Speichel, Stuhl, Muttermilch'
+          transmission: 'Tröpfchen-, fäkal-orale, parenterale, sexuelle, vertikale Übertragung sowie Muttermilch'
         },
         pathomechanism: {
-          steps: ['Persistierende Virämie', 'Replikation in vielen Geweben', 'Nicht nachgewiesene Pathogenität'],
-          virulence_factors: ['-']
+          steps: [
+            'Systemische Replikation in Knochenmark, PBMCs, T- und B-Lymphozyten, Leber und Lunge.',
+            'Nicht zytopathisch: Verursacht keine Hepatozytennekrose, Histologie ohne Entzündungszeichen.',
+            'Immungleichgewicht: Die TTV-DNA-Kopienzahl korreliert invers mit der zellulären Immunkompetenz des Wirts.',
+            'Biomarker bei Organtransplantation: Hohe TTV-Spiegel zeigen übermäßige Immunsuppression (Infektionsrisiko für CMV, BK-Virus, Pilze); niedrige TTV-Spiegel zeigen unzureichende Immunsuppression (Rejektionsrisiko) an.'
+          ],
+          virulence_factors: ['ORF1-Kapsidprotein (hohe genetische Variabilität, Immunevasion)']
         },
         clinical: {
-          incubation: '-',
+          incubation: 'Nicht zutreffend (lebenslange Kommensalpersistenz)',
           onset: 'Asymptomatisch',
           symptoms: [
-            { name: 'Asymptomatisch', description: 'Kann als kommensales Virus betrachtet werden', severity: 'mild' }
+            { name: 'Kommensaler Zustand', description: 'Verursacht weder akute/chronische Hepatitis noch systemische Erkrankung.', severity: 'mild' }
           ],
-          physical_exam: ['Negativ'],
-          complications: ['Pathogenität nicht nachgewiesen', 'Kann Indikator für das Ausmaß der Immunsuppression sein']
+          physical_exam: ['Unauffällig'],
+          complications: ['Keine Leberschädigung. TTV-DNA im Plasma dient als quantitativer Biomarker zur Steuerung der Immunsuppression bei Transplantationspatienten.']
         },
         diagnostics: {
-          laboratory: [{ test: '-', finding: '-', interpretation: '-' }],
-          imaging: [{ modality: '-', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'Leberfunktionspanel (ALT, AST, Bilirubin)', finding: 'Normal', interpretation: 'Keine Hepatopathologie' }],
+          imaging: [{ modality: 'Sonographie', finding: 'Normal', significance: 'Kein Befund' }],
           microbiology: [
-            { test: 'PCR', finding: 'DNA', significance: 'Forschung' }
+            { test: 'Quantitative Real-Time PCR (TTV-DNA Kopienzahl)', finding: 'DNA-Nachweis (Kopien/mL)', significance: 'Surrogatmarker zur Feinabstimmung der Immunsuppression bei Transplantierten' }
           ]
         },
         differential: [
-          { disease: 'Andere Virushepatitiden', distinguishing: 'Serologie (HBV, HCV)' },
-          { disease: 'Nicht-infektiöse Lebererkrankungen', distinguishing: 'Ausschlussdiagnose' }
+          { disease: 'Klinische Hepatitis-Syndrome (HAV-HEV, EBV, CMV)', distinguishing: 'Serologie, erweitertes PCR-Panel' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'Keine',
-          supportive: [],
-          prevention: ['-']
+          targeted: 'Erfordert KEINE antivirale Therapie.',
+          supportive: ['Dosisanpassung der Immunsuppression bei Transplantierten basierend auf TTV-Kopienzahlen (nach Protokoll).'],
+          prevention: ['Wegen ubiquitärer Prävalenz weder möglich noch erforderlich.']
         },
         prognosis: {
-          mortality: 'Gut',
+          mortality: 'Physiologische Viromkomponente (Null Mortalität).',
           prognostic_scores: [],
-          factors: '-'
+          factors: 'TTV-DNA-Kopienzahl korreliert bei Transplantierten mit Infektions- und Rejektionsrisiko.'
         }
       },
       {
         id: 'senv',
-        name: 'SEN-Virus',
-        pathogen: { type: 'Virus', name: '<i>SEN-Virus</i>', gram: 'ssDNA, Anelloviridae', shape: '-' },
+        name: 'SEN-Virus (SENV-D / SENV-H)',
+        pathogen: { type: 'Virus', name: '<i>SEN-Virus</i> (SENV-D und SENV-H Genotypen)', gram: 'ssDNA (-/+), Familie Anelloviridae', shape: 'kleines, unbehülltes zirkuläres DNA-Virus' },
         epidemiology: {
-          incidence: 'Unbekannt',
-          risk_groups: ['Transfusionsempfänger'],
+          incidence: 'Bei 10–20% gesunder Blutspender, bis zu 40–60% bei Transfundierten, Dialysepatienten und i.v.-Drogenkonsumenten.',
+          risk_groups: ['Transfusionsempfänger', 'Hämodialysepatienten', 'i.v.-Drogenkonsumenten', 'Allgemeinbevölkerung'],
           seasonality: 'Keine',
-          transmission: 'Transfusion, über Blut'
+          transmission: 'Parenteral (Transfusion, Blut, Nadelstich), non-parenteral (fäkal-oral, vertikal)'
         },
         pathomechanism: {
-          steps: ['Verbreitung über Blut', 'Kann in Leberzellen replizieren', 'Kann leichte Hepatitis verursachen (umstritten)'],
-          virulence_factors: ['-']
+          steps: [
+            'Übertragung über Blut mit perzipitierender Virämie.',
+            'SENV-DNA in Hepatozyten und peripheren Zellen nachweisbar, führt jedoch NICHT zu Zytopathologie oder Nekroinflammation.',
+            'Prospektive und retrospektive klinische Studien zeigten, dass SENV das Risiko für Posttransfusionshepatitis, kryptogene Hepatitis oder Leberzirrhose NICHT erhöht.',
+            'Kommensales Element des menschlichen Anelloviroms.'
+          ],
+          virulence_factors: ['Keine bekannten Virulenzfaktoren.']
         },
         clinical: {
-          incubation: '-',
-          onset: 'Langsam',
+          incubation: 'Nicht zutreffend',
+          onset: 'Asymptomatisch',
           symptoms: [
-            { name: 'Leichte Hepatitis?', description: 'Wurde mit Posttransfusionshepatitis in Verbindung gebracht, aber Kausalität nicht bewiesen', severity: 'mild' }
+            { name: 'Asymptomatische Trägerschaft', description: 'Verursacht keine akute oder chronische Lebererkrankung. Frühere Vermutungen einer Kausalität bei Posttransfusionshepatitis wurden widerlegt.', severity: 'mild' }
           ],
-          physical_exam: ['-'],
-          complications: ['Kein signifikanter Leberschaden nachgewiesen']
+          physical_exam: ['Körperlich unauffällig'],
+          complications: ['Keine nachgewiesenen hepatischen oder systemischen Komplikationen.']
         },
         diagnostics: {
-          laboratory: [{ test: 'ALT', finding: 'Leichte Erhöhung möglich', interpretation: '?' }],
-          imaging: [{ modality: '-', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'ALT / AST', finding: 'Im Normbereich', interpretation: 'Keine relevante Hepatolytik' }],
+          imaging: [{ modality: 'Sonographie', finding: 'Normal', significance: '-' }],
           microbiology: [
-            { test: 'PCR', finding: 'DNA', significance: 'Forschung' }
+            { test: 'SENV-D / SENV-H PCR', finding: 'DNA-Nachweis', significance: 'Forschungsdiagnostik; routinemäßig nicht indiziert' }
           ]
         },
         differential: [
-          { disease: 'Andere Virushepatitiden', distinguishing: 'Serologie (HBV, HCV)' },
-          { disease: 'Nicht-infektiöse Lebererkrankungen', distinguishing: 'Ausschlussdiagnose' }
+          { disease: 'Posttransfusionshepatitis (HCV, HBV, CMV, EBV)', distinguishing: 'Serologie und spezifische PCR-Tests' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'Keine',
+          targeted: 'Keine Behandlung erforderlich.',
           supportive: [],
-          prevention: ['-']
+          prevention: ['SENV-Screening von Blutspenden nicht indiziert.']
         },
         prognosis: {
-          mortality: 'Gut',
+          mortality: 'Ausgezeichnet (nicht-pathogenes Virus).',
           prognostic_scores: [],
           factors: '-'
         }

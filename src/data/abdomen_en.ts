@@ -1637,142 +1637,156 @@ window._abdomen_en = window._abdomen_en || {
       },
       {
         id: 'hgv',
-        name: 'Hepatitis G (GBV-C)',
-        pathogen: { type: 'Virus', name: '<i>GB virus C</i> (HGV)', gram: 'ssRNA, Flaviviridae', shape: '-' },
+        name: 'Hepatitis G virus / Human Pegivirus 1 (HPgV-1 / GBV-C)',
+        pathogen: { type: 'Virus', name: '<i>Human Pegivirus 1</i> (HPgV-1, formerly GBV-C / HGV)', gram: 'ssRNA (+), Flaviviridae (genus Pegivirus)', shape: 'spherical, enveloped' },
         epidemiology: {
-          incidence: '1-4% of blood donors',
-          risk_groups: ['IV drug users', 'Hemodialysis patients', 'Multiple transfusions'],
+          incidence: 'Worldwide distribution; 1–5% of healthy blood donors are persistently viremic. 20–50% of the general population have Anti-E2 antibodies.',
+          risk_groups: ['People who inject drugs (PWID)', 'Hemodialysis patients', 'Multiple blood product recipients', 'HIV and HCV co-infected individuals', 'High-risk sexual behavior'],
           seasonality: 'None',
-          transmission: 'Blood, sexual, vertical'
+          transmission: 'Parenteral (blood, needle stick, blood products), sexual contact, vertical (mother-to-child)'
         },
         pathomechanism: {
-          steps: ['Lymphotropic virus', 'Replication in lymphocytes', 'Not hepatotropic (controversial)', 'Interference with HIV replication'],
-          virulence_factors: ['Unknown']
+          steps: [
+            'Lymphotropic virus: Replicates primarily in T and B lymphocytes and peripheral blood mononuclear cells (PBMCs). NOT hepatotropic!',
+            'Does not cause hepatocyte injury, cytopathic effects, or histological liver inflammation.',
+            'In HIV-1 co-infection, exerts favorable immunomodulatory effects: downregulates HIV co-receptors (CD4, CXCR4, CCR5) and upregulates inhibitory chemokines (SDF-1, RANTES, MIP-1α/β).',
+            'Reduces T-cell hyperactivation and apoptosis, thereby slowing CD4+ decline and delaying HIV/AIDS disease progression.'
+          ],
+          virulence_factors: ['E2 envelope glycoprotein (cell entry, immunomodulation)', 'NS5A non-structural protein']
         },
         clinical: {
-          incubation: 'Unknown',
+          incubation: '14–60 days, clinically irrelevant',
           onset: 'Asymptomatic',
           symptoms: [
-            { name: 'Asymptomatic', description: 'Does not cause acute or chronic hepatitis', severity: 'mild' }
+            { name: 'Asymptomatic infection', description: 'Does NOT independently cause acute or chronic hepatitis, liver cirrhosis, or liver failure. "Hepatitis G" is a historical misnomer.', severity: 'mild' }
           ],
-          physical_exam: ['Negative'],
-          complications: ['In HIV coinfection slows AIDS progression (favorable effect)']
+          physical_exam: ['Physical examination completely normal (no jaundice, no hepatomegaly)'],
+          complications: ['No hepatic complications.', 'In HIV-1 co-infection, persistent HPgV-1 viremia slows HIV disease progression and improves survival (protective effect).']
         },
         diagnostics: {
-          laboratory: [{ test: 'Liver function', finding: 'Normal', interpretation: 'Does not cause hepatitis' }],
-          imaging: [{ modality: 'None', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'Liver enzymes (ALT, AST), Bilirubin, ALP, GGT', finding: 'Completely within normal reference limits', interpretation: 'No hepatocellular damage' }],
+          imaging: [{ modality: 'Abdominal ultrasound', finding: 'Normal liver parenchyma and biliary tract', significance: 'Excludes other pathology' }],
           microbiology: [
-            { test: 'PCR', finding: 'RNA', significance: 'Research purpose, not used in clinical routine' }
+            { test: 'HPgV-1 RT-PCR', finding: 'RNA detection', significance: 'Research/specialized setting; confirms active viremia' },
+            { test: 'Anti-E2 antibody', finding: 'Positive', significance: 'Indicates clearance of viremia and past infection' }
           ]
         },
         differential: [
-          { disease: 'Other viral hepatitis', distinguishing: 'Serology (HBV, HCV)' },
-          { disease: 'Non-infectious liver diseases', distinguishing: 'Diagnosis of exclusion' }
+          { disease: 'True hepatotropic viruses (HBV, HCV, HAV, HEV, HDV)', distinguishing: 'Serology and PCR assays (HBsAg, Anti-HCV, HCV-RNA, etc.)' },
+          { disease: 'Non-infectious liver diseases (DILI, NAFLD/NASH, Autoimmune hepatitis)', distinguishing: 'Diagnosis of exclusion, autoantibodies, toxicology' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'Does not require treatment.',
-          supportive: [],
-          prevention: ['Screening of blood products (not routine)']
+          targeted: 'Does NOT require specific antiviral therapy.',
+          supportive: ['No medical intervention required.'],
+          prevention: ['Routine blood donor screening for HPgV-1 is not recommended. Standard infection control measures.']
         },
         prognosis: {
-          mortality: 'Not pathogenic to the liver',
+          mortality: 'Non-pathogenic to the liver (zero liver mortality).',
           prognostic_scores: [],
-          factors: '-'
+          factors: 'In HIV co-infection, HPgV-1 persistence is a favorable prognostic factor.'
         },
         references: [
-          'Stapleton JT. GB Virus Type C/Hepatitis G Virus. Semin Liver Dis.',
-          'Viral hepatitis reviews discussing human pegivirus (HPgV/GBV-C).'
+          'Stapleton JT, et al. HPgV-1 (GBV-C) infection and pathogenesis. Nat Rev Microbiol.',
+          'EASL & CDC Clinical Guidelines on Viral Hepatitis misnomers and Anelloviridae/Pegivirus.'
         ]
       },
       {
         id: 'ttv',
         name: 'Torque teno virus (TTV)',
-        pathogen: { type: 'Virus', name: '<i>Torque teno virus</i>', gram: 'ssDNA, Anelloviridae', shape: '-' },
+        pathogen: { type: 'Virus', name: '<i>Torque teno virus</i> (TTV)', gram: 'ssDNA (-/+), Anelloviridae (genus Alphatorquevirus)', shape: 'small (28-32 nm), non-enveloped, icosahedral' },
         epidemiology: {
-          incidence: 'Ubiquitous (>90% of population are carriers)',
-          risk_groups: ['General population'],
+          incidence: 'Ubiquitous: present in >70–90% of healthy population as persistent viremia. Fundamental component of the human commensal virome.',
+          risk_groups: ['General population', 'Solid organ transplant recipients (liver, kidney, heart, lung)', 'Immunosuppressed patients'],
           seasonality: 'None',
-          transmission: 'Blood, saliva, stool, breast milk'
+          transmission: 'Respiratory droplets, fecal-oral, parenteral, sexual, vertical, and breast milk'
         },
         pathomechanism: {
-          steps: ['Persistent viremia', 'Replication in many tissues', 'Unproven pathogenicity'],
-          virulence_factors: ['-']
+          steps: [
+            'Systemic replication in bone marrow, PBMCs, T/B lymphocytes, liver, and lung tissues.',
+            'Non-cytopathic: Does not cause hepatocyte necrosis or histological inflammation.',
+            'Immune equilibrium: Plasma TTV DNA load inversely mirrors cellular immunocompetence of the host (T-cell function).',
+            'Biomarker in organ transplantation: High TTV load indicates over-immunosuppression (risk of opportunistic infections like CMV, BKV, fungal infections); low TTV load indicates under-immunosuppression (risk of allograft rejection).'
+          ],
+          virulence_factors: ['ORF1 capsid protein (high genetic variability, immune evasion)']
         },
         clinical: {
-          incubation: '-',
+          incubation: 'Not applicable (life-long commensal persistence)',
           onset: 'Asymptomatic',
           symptoms: [
-            { name: 'Asymptomatic', description: 'Can be considered a commensal virus', severity: 'mild' }
+            { name: 'Commensal state', description: 'Does not cause acute or chronic hepatitis or systemic illness.', severity: 'mild' }
           ],
-          physical_exam: ['Negative'],
-          complications: ['Pathogenicity not proven', 'Can be an indicator of the degree of immunosuppression']
+          physical_exam: ['Unremarkable'],
+          complications: ['No liver pathology. Quantitative plasma TTV DNA viral load serves as a valuable biomarker to tailor immunosuppressive therapy in organ transplant recipients.']
         },
         diagnostics: {
-          laboratory: [{ test: '-', finding: '-', interpretation: '-' }],
-          imaging: [{ modality: '-', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'Liver function panel (ALT, AST, Bilirubin)', finding: 'Normal', interpretation: 'No liver injury' }],
+          imaging: [{ modality: 'Ultrasound', finding: 'Normal', significance: '-' }],
           microbiology: [
-            { test: 'PCR', finding: 'DNA', significance: 'Research' }
+            { test: 'Quantitative Real-Time PCR (TTV DNA copies)', finding: 'DNA detection (copies/mL)', significance: 'Surrogate biomarker to monitor and guide immunosuppressive load in transplant recipients' }
           ]
         },
         differential: [
-          { disease: 'Other viral hepatitis', distinguishing: 'Serology (HBV, HCV)' },
-          { disease: 'Non-infectious liver diseases', distinguishing: 'Diagnosis of exclusion' }
+          { disease: 'Clinical hepatitis syndromes (HAV-HEV, EBV, CMV)', distinguishing: 'Serology, expanded PCR panel' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'None',
-          supportive: [],
-          prevention: ['-']
+          targeted: 'Does NOT require antiviral therapy.',
+          supportive: ['Dose adjustment of immunosuppressive drugs in transplant recipients based on TTV DNA levels (protocol-guided).'],
+          prevention: ['Not feasible or required due to ubiquitous prevalence.']
         },
         prognosis: {
-          mortality: 'Good',
+          mortality: 'Physiological virome component (zero mortality).',
           prognostic_scores: [],
-          factors: '-'
+          factors: 'TTV DNA load in transplant recipients correlates with infection and rejection risks.'
         }
       },
       {
         id: 'senv',
-        name: 'SEN virus',
-        pathogen: { type: 'Virus', name: '<i>SEN virus</i>', gram: 'ssDNA, Anelloviridae', shape: '-' },
+        name: 'SEN virus (SENV-D / SENV-H)',
+        pathogen: { type: 'Virus', name: '<i>SEN virus</i> (SENV-D and SENV-H strains)', gram: 'ssDNA (-/+), family Anelloviridae', shape: 'small, non-enveloped circular DNA virus' },
         epidemiology: {
-          incidence: 'Unknown',
-          risk_groups: ['Transfusion recipients'],
+          incidence: 'Present in 10–20% of healthy blood donors, and up to 40–60% of transfused patients, hemodialysis patients, and PWID.',
+          risk_groups: ['Transfusion recipients', 'Hemodialysis patients', 'People who inject drugs (PWID)', 'General population'],
           seasonality: 'None',
-          transmission: 'Transfusion, via blood'
+          transmission: 'Parenteral (transfusion, blood, needle stick), non-parenteral (fecal-oral, vertical)'
         },
         pathomechanism: {
-          steps: ['Spread via blood', 'Can replicate in hepatocytes', 'Can cause mild hepatitis (controversial)'],
-          virulence_factors: ['-']
+          steps: [
+            'Transmitted via blood, establishing persistent viremia.',
+            'DNA detectable in hepatocytes and peripheral cells, but does NOT cause cytopathology or necroinflammation.',
+            'Rigorous prospective and retrospective clinical studies demonstrate that SENV does NOT increase the risk of post-transfusion hepatitis, cryptogenic hepatitis, or cirrhosis.',
+            'Commensal member of the human anellovirome.'
+          ],
+          virulence_factors: ['No proven virulence factors.']
         },
         clinical: {
-          incubation: '-',
-          onset: 'Slow',
+          incubation: 'Not applicable',
+          onset: 'Asymptomatic',
           symptoms: [
-            { name: 'Mild hepatitis?', description: 'Associated with post-transfusion hepatitis, but causality not proven', severity: 'mild' }
+            { name: 'Asymptomatic carriage', description: 'Does not cause acute or chronic liver disease. Historical associations with post-transfusion hepatitis were disproven.', severity: 'mild' }
           ],
-          physical_exam: ['-'],
-          complications: ['No significant liver damage proven']
+          physical_exam: ['Physical examination completely normal'],
+          complications: ['No proven hepatic or systemic complications.']
         },
         diagnostics: {
-          laboratory: [{ test: 'ALT', finding: 'Mild elevation possible', interpretation: '?' }],
-          imaging: [{ modality: '-', finding: '-', significance: '-' }],
+          laboratory: [{ test: 'ALT / AST', finding: 'Within normal limits', interpretation: 'No relevant liver cell damage' }],
+          imaging: [{ modality: 'Ultrasound', finding: 'Normal', significance: '-' }],
           microbiology: [
-            { test: 'PCR', finding: 'DNA', significance: 'Research' }
+            { test: 'SENV-D / SENV-H PCR', finding: 'DNA detection', significance: 'Research tool; not clinically indicated' }
           ]
         },
         differential: [
-          { disease: 'Other viral hepatitis', distinguishing: 'Serology (HBV, HCV)' },
-          { disease: 'Non-infectious liver diseases', distinguishing: 'Diagnosis of exclusion' }
+          { disease: 'Post-transfusion hepatitis (HCV, HBV, CMV, EBV)', distinguishing: 'Serology and specific PCR assays' }
         ],
         therapy: {
           empirical: {},
-          targeted: 'None',
+          targeted: 'No treatment required.',
           supportive: [],
-          prevention: ['-']
+          prevention: ['Donor screening for SENV is not indicated.']
         },
         prognosis: {
-          mortality: 'Good',
+          mortality: 'Excellent (non-pathogenic virus).',
           prognostic_scores: [],
           factors: '-'
         }
