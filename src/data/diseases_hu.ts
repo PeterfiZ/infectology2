@@ -2,6 +2,7 @@ import './init_hu';
 
 import './CNS_hu';
 import './BoneandSST_hu';
+import './bone_joint_hu';
 import './childhood_hu';
 import './emerging_hu';
 import './STD_hu';

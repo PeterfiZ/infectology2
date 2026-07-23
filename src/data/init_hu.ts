@@ -1,5 +1,7 @@
 import { abdomenHu } from './abdomen_hu';
 import { gastrointestinalHu } from './gastrointestinal_hu';
+import { boneJointHu } from './bone_joint_hu';
+import { zoonosisHu } from './zoonozis_hu';
 
 if (typeof window !== 'undefined') {
   (window as any).diseaseMetadata = {
@@ -9,6 +11,8 @@ if (typeof window !== 'undefined') {
     intraabdominal: { icon: '🩺', color: '#16a34a' },
     cns_infections: { icon: '🧠', color: '#0891b2' },
     skin_soft_tissue: { icon: '🩹', color: '#e11d48' },
+    bone_joint: { icon: '🦴', color: '#57534e' },
+    zoonotic: { icon: '🐾', color: '#059669' },
     childhood: { icon: '👶', color: '#6366f1' },
     emerging: { icon: '🚨', color: '#be185d' },
     parasitic: { icon: '🪱', color: '#84cc16' },
@@ -23,8 +27,10 @@ if (typeof window !== 'undefined') {
   };
   (window as any).diseases = {};
   
-  // Seed window.diseases with abdomen categories and override gastrointestinal with updated gastrointestinalHu
+  // Seed window.diseases with abdomen categories and override gastrointestinal, bone_joint, and zoonotic with updated modules
   Object.assign((window as any).diseases, abdomenHu, {
-    gastrointestinal: gastrointestinalHu
+    gastrointestinal: gastrointestinalHu,
+    bone_joint: boneJointHu,
+    zoonotic: zoonosisHu
   });
 }
