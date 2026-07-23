@@ -130,6 +130,7 @@ export interface Disease {
   diagnostics?: Diagnostics;
   differential?: { disease: string; distinguishing: string }[];
   therapy?: Therapy;
+  guidelines?: any;
   prognosis?: Prognosis;
   references?: string[];
   gallery?: GalleryItem[];

@@ -2282,412 +2282,377 @@ window._abdomen_hu = window._abdomen_hu || {
     diseases: [
       {
         id: 'primary_bacterial_peritonitis',
-        name: 'Primer bakteriális peritonitis (SBP)',
-        pathogen: { type: 'Baktérium', name: '<i>E. coli, Klebsiella, S. pneumoniae</i>', gram: 'Változó', shape: 'Változó' },
+        name: 'Primer / Spontán bakteriális peritonitis (SBP)',
+        pathogen: { type: 'Baktérium', name: '<i>E. coli (leggyakoribb), Klebsiella pneumoniae, Streptococcus pneumoniae, Enterococcus spp.</i> (tipikusan monobakteriális)', gram: 'Változó', shape: 'Változó' },
         epidemiology: {
-          incidence: 'Gyakori cirrhosisos betegeknél ascites esetén',
-          risk_groups: ['Cirrhosis hepatis ascites-szel', 'Nephrosis szindróma'],
+          incidence: 'Gyakori dekompenzált cirrhosis hepatis és ascites esetén (10-30% kórházi felvételkor)',
+          risk_groups: ['Cirrhosis hepatis ascites-szel (alacsony ascitikus fehérje < 15 g/L)', 'Gyomor-bélrendszeri vérzés cirrhosisban', 'Korábbi SBP epizód', 'Nephrosis szindróma'],
           seasonality: 'Nincs',
-          transmission: 'Endogén flóra transzlokációja'
+          transmission: 'Endogén bélflóra transzlokációja'
         },
         pathomechanism: {
           steps: [
-            'A bélflóra baktériumai transzlokálódnak a bélfalon keresztül a nyirokcsomókba és a véráramba.',
-            'A portális hypertonia és a csökkent immunválasz miatt a baktériumok megtelepednek az ascites folyadékban.',
-            'Gyulladásos válasz alakul ki a peritoneumban.'
+            'Bakteriális transzlokáció: a bélflóra baktériumai átjutnak a bélfalon a mesenterialis nyirokcsomókba.',
+            'Portalis hypertonia és immunológiai károsodás miatt átmeneti bacteraemia jön létre.',
+            'A csökkent opsonisatiós kapacitású ascites folyadékban a baktériumok elszaporodnak (monobakteriális fertőzés).'
           ]
         },
         clinical: {
           incubation: 'Akut',
-          onset: 'Hirtelen, heves',
+          onset: 'Fokozatos vagy hirtelen',
           symptoms: [
-            { name: 'Hasi fájdalom', description: 'Éles, késszúrásszerű, mozgásra fokozódó fájdalom (defense musculature).', severity: 'severe' },
-            { name: 'Láz', description: 'Magas láz, hidegrázás.', severity: 'moderate' },
-            { name: 'Ileus tünetek', description: 'Hányás, széklet- és szélakadás.', severity: 'severe' }
+            { name: 'Hasi fájdalom', description: 'Diffúz, tompa vagy enyhe-közepes hasi fájdalom, érzékenység (ritkán heves peritonealitás).', severity: 'moderate' },
+            { name: 'Láz', description: 'Hőemelkedés vagy láz, hidegrázás.', severity: 'moderate' },
+            { name: 'Encephalopathia', description: 'Hepaticus encephalopathia hirtelen megjelenése vagy súlyosbodása.', severity: 'severe' },
+            { name: 'Tünetszegény lefolyás', description: 'Az esetek 10-20%-ában alig van hasi panasz, csak a máj- vagy vesefunkció romlása jelzi.', severity: 'mild' }
           ],
-          physical_exam: ['Deszkakemény has (defense musculature)', 'Blumberg-jel (felengedési fájdalom)', 'Bélhangok hiánya', 'Tachycardia, hypotonia'],
-          complications: ['Szeptikus shock', 'Többszervi elégtelenség (MODS)', 'Intraabdominalis tályogok']
+          physical_exam: ['Diffúz hasi érzékenység', 'Ascites jelei', 'Hepaticus encephalopathia (flapping tremor, zavartság)', 'Tachycardia, hypotonia'],
+          complications: ['Hepatorenalis szindróma (HRS-AKI)', 'Szeptikus shock', 'Májfunkció akut dekompenzációja (ACLF)']
         },
         diagnostics: {
           laboratory: [
-            { test: 'Vérkép', finding: 'Jelentős leukocytosis balra tolt vérképpel', interpretation: 'Heves gyulladás' },
-            { test: 'Laktát', finding: 'Emelkedett', interpretation: 'Szöveti hypoperfusio, sepsis' }
+            { test: 'Ascites punctio (Paracentesis)', finding: 'PMN (polymorphonuclearis) fvs-szám > 250/mm3 (0,25 x 10^9/L)', interpretation: 'DIAGNOSZTIKUS SBP-RE! Azonnali empirikus antibiotikum indítandó.' },
+            { test: 'SAAG (Serum-Ascites Albumin Gradiens)', finding: '≥ 1,1 g/dL', interpretation: 'Portalis hypertonia igazolása' },
+            { test: 'Vérkép és vesefunkció', finding: 'Leukocytosis, emelkedett szérum kreatinin és karbamid', interpretation: 'Gyulladás és vesefunkció-romlás (HRS kockázat)' }
           ],
           imaging: [
-            { modality: 'CT has', finding: 'Szabad levegő a hasüregben, folyadékgyülem, tályog', significance: 'Gold standard a perforáció helyének keresésében' },
-            { modality: 'Mellkas röntgen', finding: 'Szabad levegő a rekesz alatt', significance: 'Gyors tájékozódó vizsgálat' }
+            { modality: 'Has UH', finding: 'Ascites kimutatása, szerkezete, diagnosticus punctio vezérlése', significance: 'Elsőként választandó' }
           ],
           microbiology: [
-            { test: 'Intraoperatív minta', finding: 'Polimikrobiális tenyésztés (aerob + anaerob)', significance: 'Célzott terápia' },
-            { test: 'Hemokultúra', finding: 'Gyakran pozitív', significance: 'Sepsis igazolása' }
+            { test: 'Ascites tenyésztés', finding: 'Ágy melletti beoltás hemokultúra palackba (aerob + anaerob)', significance: 'Monobakteriális tenyésztés (50-80% pozitív)' },
+            { test: 'Hemokultúra', finding: 'Pozitív 30-50%-ban', significance: 'Mindig le kell venni' }
           ],
           differential: [
-            { disease: 'Primer peritonitis', distinguishing: 'Ascites, monobakteriális, nincs szabad levegő' },
-            { disease: 'Akut pancreatitis', distinguishing: 'Lipáz emelkedés, CT kép' }
+            { disease: 'Szekunder peritonitis', distinguishing: 'Polimikrobiális tenyésztés, ascitikus fehérje > 10 g/L, LDH emelkedett, szabad levegő a CT-n' },
+            { disease: 'Iatrogén / Citoszis asciticus peritonitis', distinguishing: 'PMN < 250/mm3, negatív tenyésztés' }
           ]
         },
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Forráskontrolltól függ', note: 'Enyhe/Közepes' },
-              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Forráskontrolltól függ', note: 'Súlyos / Nosocomialis' },
-              { drug: 'Meropenem', dose: '3x1g IV', duration: '-', note: 'Súlyos sepsis, ESBL gyanú' }
+              { drug: 'Ceftriaxon', dose: '1x2g IV', duration: '5-7 nap', note: 'Standard első vonal (EASL guideline)' },
+              { drug: 'Cefotaxim', dose: '3x2g IV', duration: '5-7 nap', note: 'Alternatív 3. generációs cephalosporin' },
+              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: '5-7 nap', note: 'Nosocomialis SBP vagy súlyos szepszis esetén' },
+              { drug: 'Meropenem', dose: '3x1g IV', duration: '5-7 nap', note: 'Kórházi/nosocomialis fertőzés, ESBL gyanú' }
             ]
           },
-          targeted: 'Tenyésztés alapján, de az anaerob fedést gyakran folytatják tenyésztés nélkül is.',
-          supportive: ['Sepsis protokoll (folyadék, vazopresszorok)'],
-          prevention: ['Műtéti profilaxis, korai diagnózis és sebészeti beavatkozás']
+          targeted: 'Tenyésztés és érzékenység alapján, de 3. generációs cephalosporin általában hatásos.',
+          supportive: [
+            'IV ALBUMIN INFÚZIÓ (EASL guideline): 1,5 g/ttkg az 1. napon ÉS 1,0 g/ttkg a 3. napon. Igazoltan csökkenti a hepatorenalis szindróma (HRS) kialakulását és a mortalitást!',
+            'Nephrotoxikus szerek (NSAID, aminoglycosid) és diuretikumok szüneteltetése.'
+          ],
+          prevention: [
+            'Szekunder profilaxis SBP epizód után: Norfloxacin 400 mg/nap PO VAGY Ciprofloxacin 500 mg/nap PO VAGY TMP-SMX 800/160 mg/nap PO tartósan.',
+            'Primer profilaxis GI vérzés cirrhosisban (Ceftriaxon 1g IV 7 napig).'
+          ]
         },
         guidelines: {
           diagnosis: [
-            'Sürgős képalkotás (CT) szabad levegő, folyadék vagy tályog azonosítására.',
-            'Preoperatív laborok (laktát) a szepszis rizikó felmérésére.'
+            'Diagnosztikus paracentesis elvégzendő minden hospitalizált cirrhosisos betegnél felvételkor, vagy hasi panaszok, láz, hepaticus encephalopathia, vesefunkció-romlás esetén.',
+            'Diagnózis: asciticus PMN fvs-szám > 250/mm3.'
           ],
           treatment_indications: [
-            'Sebészeti góceltávolítás (source control) az ellátás alapja. Antibiotikum önmagában nem elég!'
+            'Empirikus antibiotikum (Ceftriaxon) azonnal indítandó, amint a PMN > 250/mm3 igazolódik.',
+            'IV Albumin adása (1,5 g/ttkg 1. nap, 1,0 g/ttkg 3. nap) KÖTELEZŐ a HRS és a mortalitás csökkentésére (EASL Guideline)!'
           ],
-          first_line: ['Forráskontroll (műtét) + Széles spektrumú antibiotikum (Ceftriaxon/Metronidazol vagy Pip/Tazo).'],
-          supportive: ['Intenzív terápia szeptikus shock esetén.'],
-          prevention: ['Megfelelő perioperatív antibiotikum profilaxis.']
+          first_line: ['Ceftriaxon 1x2g IV (5-7 nap) + IV Albumin infúzió.'],
+          supportive: ['Albumin pótlás, diuretikumok szüneteltetése, vesefunkció szoros monitorozása.'],
+          prevention: ['Norfloxacin vagy Ciprofloxacin profilaxis SBP után vagy alacsony ascitikus fehérje (<15 g/L) esetén.']
         },
         prognosis: {
-          mortality: '10-50% (késői diagnózis, idős kor, komorbiditások esetén magasabb)',
-          factors: 'Forráskontroll sikeressége, sepsis súlyossága'
-        }
-      },
-      {
-        id: 'pyogenic_liver_abscess',
-        name: 'Pyogen májtályog',
-        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Klebsiella, Streptococcus spp., Anaerobok</i>', gram: 'Vegyes', shape: 'Vegyes' },
-        epidemiology: {
-          incidence: 'Leggyakoribb visceralis tályog',
-          risk_groups: ['Epeúti betegség', 'Malignitás', 'Diabetes', 'Hasüregi gyulladás (appendicitis, diverticulitis)'],
-          seasonality: 'Nincs',
-          transmission: 'Biliaris ascendálás, portalis véna, vagy haematogén szóródás'
-        },
-        pathomechanism: {
-          steps: [
-            'A baktériumok leggyakrabban az epeutakon keresztül (cholangitis) jutnak a májba, vagy a vena portaen át (pylephlebitis) hasi gyulladásokból.',
-            'A kórokozók megtelepednek a máj parenchymában, gyulladást, majd lokális necrosist és gennygyülemet okozva.',
-            'K. pneumoniae (K1/K2 hypermucoviscous) szindróma ázsiai betegeknél cryptogen tályogot és áttétes fertőzéseket (endophthalmitis) okozhat.'
-          ]
-        },
-        clinical: {
-          incubation: 'Változó',
-          onset: 'Gyakran alattomos, subakut',
-          symptoms: [
-            { name: 'Láz', description: 'Láz, hidegrázás gyakran a vezető tünet.', severity: 'moderate' },
-            { name: 'Jobb bordaív alatti fájdalom', description: 'Tompa fájdalom, esetleg pleuritis tüneteivel (légzésre fokozódó).', severity: 'moderate' },
-            { name: 'Fogyás, rossz közérzet', description: 'Subakut esetben.', severity: 'mild' }
-          ],
-          physical_exam: ['Jobb bordaív alatti érzékenység', 'Hepatomegalia', 'Icterus (ritka, inkább epeúti elzáródásnál)'],
-          complications: ['Ruptura (peritonitis, pleurális empyema)', 'Sepsis', 'Metastaticus fertőzés (K. pneumoniae)']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Vérkép', finding: 'Leukocytosis, anémia (krónikus esetben)', interpretation: 'Gyulladás' },
-            { test: 'Májenzimek', finding: 'Emelkedett ALP, GGT', interpretation: 'Térfoglaló folyamat a májban' }
-          ],
-          imaging: [
-            { modality: 'Has UH', finding: 'Hypoechogén, folyadék-szintet mutató képlet', significance: 'Első vizsgálat' },
-            { modality: 'CT has', finding: 'Kontrasztanyagot halmozó falú, hypodens lézió', significance: 'Pontos lokalizáció, multiplex tályogok' }
-          ],
-          microbiology: [
-            { test: 'Tályog punkció/drainage', finding: 'Pozitív tenyésztés', significance: 'Diagnosztikus és terápiás' },
-            { test: 'Hemokultúra', finding: 'Pozitív 50%-ban', significance: 'Mindig le kell venni' }
-          ],
-          differential: [
-            { disease: 'Amőbás májtályog', distinguishing: 'E. histolytica szerológia, utazási anamnézis' },
-            { disease: 'Echinococcus cysta', distinguishing: 'Szerológia, UH kép (leányhólyagok), PUNKCIÓ VESZÉLYES' },
-            { disease: 'Hepatocellularis carcinoma', distinguishing: 'Tumormarkerek, CT kép' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: '2-4 hét', note: 'Standard' },
-              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: '2-4 hét', note: 'Súlyos / epeúti eredet' }
-            ]
-          },
-          targeted: 'Tenyésztés alapján, utána orális step-down (Ciprofloxacin/Amoxicillin-Clavulansav + Metronidazol) 4-6 hétig.',
-          supportive: ['Perkután drainage (első választandó forráskontroll!)'],
-          prevention: ['Epeúti és intraabdominalis infekciók korai kezelése']
-        },
-        guidelines: {
-          diagnosis: [
-            'UH/CT vezérelt diagnosztikus és terápiás aspiráció/drainage alapvető a mikrobiológiai mintavételhez.',
-            'Amőbás és echinococcus eredet kizárása szerológiával.'
-          ],
-          treatment_indications: [
-            'Kisebb (<3-5 cm) tályogok kezelhetők csak antibiotikummal, nagyobbak (főleg >5 cm) drainálást igényelnek.'
-          ],
-          first_line: ['Kombinált antibiotikum (Ceftriaxon+Metronidazol) + Perkután drainage.'],
-          supportive: ['Folyadékpótlás, fájdalomcsillapítás.'],
-          prevention: ['Nincs specifikus profilaxis, kivéve az alapbetegségek kezelését.']
-        },
-        prognosis: {
-          mortality: '5-15% (megfelelő drainage mellett)',
-          factors: 'Multiplex tályog, epeúti eredet (malignitás), késői diagnózis rontja.'
-        }
-      },
-      {
-        id: 'cholangitis',
-        name: 'Ascendáló cholangitis',
-        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Klebsiella, Enterococcus spp., Anaerobok (ritkábban)</i>', gram: 'Vegyes', shape: 'Vegyes' },
-        epidemiology: {
-          incidence: 'Epeúti obstructio talaján (kő, tumor, stent)',
-          risk_groups: ['Epekövesség (Choledocholithiasis)', 'Malignus epeúti szűkület', 'ERCP utáni állapot'],
-          seasonality: 'Nincs',
-          transmission: 'Duodenum felől aszcendáló baktériumok elzáródás mellett'
-        },
-        pathomechanism: {
-          steps: [
-            'Epeúti elzáródás (kő, daganat) miatt az epe áramlása megáll, a nyomás megnő az epeutakban.',
-            'A pangó epében a bélből aszcendáló baktériumok elszaporodnak.',
-            'A megemelkedett intraductalis nyomás miatt a baktériumok és toxinok bejutnak a véráramba (súlyos sepsis).'
-          ]
-        },
-        clinical: {
-          incubation: 'Akut',
-          onset: 'Hirtelen, heves',
-          symptoms: [
-            { name: 'Charcot-triász', description: 'Láz/hidegrázás, jobb bordaív alatti fájdalom, Icterus.', severity: 'severe' },
-            { name: 'Reynolds-pentád', description: 'Charcot-triász + Hypotonia (shock) + Tudatzavar.', severity: 'severe' }
-          ],
-          physical_exam: ['Icterus (sárgaság)', 'Jobb bordaív alatti érzékenység', 'Láz', 'Hypotonia'],
-          complications: ['Szeptikus shock', 'Májtályog', 'Akut veseelégtelenség']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Vérkép', finding: 'Leukocytosis balra tolttal', interpretation: 'Gyulladás' },
-            { test: 'Májenzimek', finding: 'Kifejezetten emelkedett ALP, GGT, bilirubin', interpretation: 'Epeúti obstructio' }
-          ],
-          imaging: [
-            { modality: 'Has UH', finding: 'Tágult epeutak, esetleg kő', significance: 'Első vizsgálat (kő gyakran nem látszik)' },
-            { modality: 'MRCP', finding: 'Epeúti kövek pontos ábrázolása', significance: 'Ha az UH nem diagnosztikus, de a gyanú erős' }
-          ],
-          microbiology: [
-            { test: 'Hemokultúra', finding: 'Gyakran pozitív', significance: 'Mindig le kell venni AB előtt' },
-            { test: 'Epe tenyésztés', finding: 'Polimikrobiális', significance: 'Drainage (ERCP) során levett minta' }
-          ],
-          differential: [
-            { disease: 'Akut cholecystitis', distinguishing: 'Icterus ritka, epeutak nem tágak (csak az epehólyag)' },
-            { disease: 'Pyogen májtályog', distinguishing: 'Icterus kevésbé domináns, CT kép' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Elzáródás megoldása után 4-7 nap', note: 'Közösségben szerzett, enyhe/közepes' },
-              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Elzáródás megoldása után 4-7 nap', note: 'Súlyos / stent okozta' }
-            ]
-          },
-          targeted: 'Tenyésztés alapján, de a sikeres dekompresszió a legfontosabb!',
-          supportive: ['Sepsis kezelése, folyadékresuscitáció'],
-          prevention: ['Epekövek eltávolítása, stentek cseréje']
-        },
-        guidelines: {
-          diagnosis: [
-            'Tokyo Guidelines: szisztémás gyulladás (láz, labor), cholestasis (bilirubin, ALP), és képalkotóval igazolt epeúti betegség/tágulat.',
-            'Reynolds-pentád jelenléte azonnali sürgősségi intervenciót igényel.'
-          ],
-          treatment_indications: [
-            'Azonnali széles spektrumú antibiotikum ÉS sürgős (24 órán belüli) epeúti dekompresszió (ERCP vagy PTC).'
-          ],
-          first_line: ['Antibiotikum (pl. Pip/Tazo) ÉS ERCP kőextrakcióval/stenteléssel.'],
-          supportive: ['Intenzív osztályos felvétel, vazopresszorok shock esetén.'],
-          prevention: ['Cholecystectomia az akut epizód után, ERCP profilaxis.']
-        },
-        prognosis: {
-          mortality: '5-10% (dekompresszió nélkül közel 100%)',
-          factors: 'Korai felismerés és sikeres dekompresszió életmentő.'
+          mortality: '10-30% a kórházi epizód alatt',
+          prognostic_scores: ['MELD score', 'Child-Pugh score'],
+          factors: 'Hepatorenalis szindróma (HRS) es a korai albumin hiánya jelentősen rontja a túlélést.'
         }
       },
       {
         id: 'secondary_peritonitis',
         name: 'Szekunder peritonitis',
-        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Klebsiella, Enterococcus, B. fragilis, anaerobok</i>', gram: 'Vegyes', shape: 'Vegyes' },
+        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Klebsiella, Proteus, Enterococcus spp., Bacteroides fragilis, Peptostreptococcus</i> (polimikrobiális aerob + anaerob)', gram: 'Vegyes', shape: 'Vegyes' },
         epidemiology: {
-          incidence: 'Gyakori sebészeti sürgősségi állapot',
-          risk_groups: ['Fekély perforáció', 'Appendicitis', 'Diverticulitis', 'Iatrogén bélműtét után'],
+          incidence: 'Gyakori sebészeti sürgősségi állapot (GI traktus perforációja)',
+          risk_groups: ['Peptikus fekély perforáció', 'Akut appendicitis / diverticulitis perforációja', 'Postoperatív anasztomózis elégtelenség', 'Ischaemiás bélnecrosis', 'Hasüregi trauma'],
           seasonality: 'Nincs',
-          transmission: 'A gastrointestinalis traktus perforációja'
+          transmission: 'A gastrointestinalis traktus perforációja vagy necrozisa'
         },
         pathomechanism: {
           steps: [
-            'A gyomor-bél traktus falának folytonossága megszakad (perforáció, necrosis).',
-            'A bél élettani, kevert flórája a steril hasüregbe kerül.',
-            'Heves gyulladás (fibrin kiválás), letokolódás (tályogképződés) és/vagy generalizált szisztémás toxicitás alakul ki.',
+            'A gyomor-bél traktus falának folytonossága megszakad (perforáció, necrosis, iatrogén sérülés).',
+            'A bél élettani, endogén kevert flórája a steril peritonealis üregbe jut.',
+            'Intenzív fibrinos-purulens gyulladás alakul ki, ami generalizált peritonitishez, szeptikus shockhoz és MODS-hoz vezethet.'
           ]
         },
         clinical: {
-          incubation: 'Változó',
-          onset: 'Akut vagy szubakut',
+          incubation: 'Akut',
+          onset: 'Hirtelen, heves',
           symptoms: [
-            { name: 'Hasi fájdalom', description: 'Diffúz, enyhe vagy közepes hasi fájdalom, érzékenység.', severity: 'moderate' },
-            { name: 'Láz', description: 'Hőemelkedés vagy láz.', severity: 'moderate' },
-            { name: 'Hepaticus encephalopathia', description: 'A tudatállapot romlása gyakran az első jel cirrhosisos betegeknél.', severity: 'severe' }
+            { name: 'Hasi fájdalom', description: 'Hirtelen kezdődő, igen heves, éles, diffúz hasi fájdalom, amely mozgásra, köhögésre elviselhetetlenné válik.', severity: 'severe' },
+            { name: 'Láz', description: 'Magas láz, hidegrázás (idősekben hypothermia is lehet).', severity: 'moderate' },
+            { name: 'Gastrointestinalis tünetek', description: 'Hányinger, hányás, paralyticus ileus (széklet- és szélakadás).', severity: 'severe' }
           ],
-          physical_exam: ['Láz', 'Hasi érzékenység (ritkán defense musculature)', 'Ascites jelei', 'Encephalopathia'],
-          complications: ['Sepsis', 'Hepatorenalis szindróma', 'Májbetegség progressziója']
+          physical_exam: ['Deszkakemény has (izomvédekezés / defense musculature)', 'Blumberg-jel (felengedési fájdalom)', 'Bélhangok hiánya (néma has)', 'Tachycardia, hypotonia, szepszis jelei'],
+          complications: ['Szeptikus shock', 'Többszervi elégtelenség (MODS)', 'Intraabdominalis tályogok (subphrenicus, Douglas-ür)', 'Anasztomózis elégtelenség']
         },
         diagnostics: {
           laboratory: [
-            { test: 'Ascites punctatum', finding: 'PMN szám > 250/mm3', interpretation: 'Diagnosztikus SBP-re' },
-            { test: 'Vérkép', finding: 'Leukocytosis, emelkedett CRP', interpretation: 'Gyulladás' }
+            { test: 'Vérkép', finding: 'Kifejezett leukocytosis balra tolt vérképpel (vagy leukopenia súlyos szepszisben)', interpretation: 'Súlyos szisztémás gyulladás' },
+            { test: 'Laktát és Sepsis markerek', finding: 'Emelkedett laktát, CRP, Procalcitonin', interpretation: 'Szöveti hypoperfusio, szepszis' }
+          ],
+          imaging: [
+            { modality: 'Hasi/kismedencei kontrasztos CT', finding: 'Pneumoperitoneum (szabad levegő), extraluminalis folyadék, tályog, perforáció pontos helye', significance: 'GOLD STANDARD a forráskontroll megtervezéséhez' },
+            { modality: 'Mellkas/has rtg (álló/bal oldalfekvő)', finding: 'Subdiaphragmaticus szabad levegő (sarló alakú gázárnyék)', significance: 'Gyors tájékozódás perforáció gyanújakor' }
           ],
           microbiology: [
-            { test: 'Ascites tenyésztés', finding: 'Monobakteriális (leggyakrabban E. coli)', significance: 'Kórokozó azonosítása' },
-            { test: 'Hemokultúra', finding: 'Pozitív lehet', significance: 'Szisztémás fertőzés' }
+            { test: 'Intraoperatív mintavétel', finding: 'Polimikrobiális tenyésztés (aerob + anaerob)', significance: 'A célzott posztoperatív antibiotikum terápiához' },
+            { test: 'Hemokultúra', finding: 'Műtét előtt levendő (aerob + anaerob)', significance: 'Sepsis igazolása' }
           ],
           differential: [
-            { disease: 'Szekunder peritonitis', distinguishing: 'Polimikrobiális tenyésztés, nagyon magas ascitikus fehérje' }
+            { disease: 'Primer bakteriális peritonitis (SBP)', distinguishing: 'Ascites, monobakteriális, nincs szabad levegő a CT-n, nincs műtéti forrás' },
+            { disease: 'Akut pancreatitis', distinguishing: 'Lipáz/Amiláz kifejezett emelkedése, nincs szabad levegő' }
           ]
         },
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxon', dose: '1x2g IV', duration: '5-7 nap', note: 'Első vonal' }
+              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Forráskontroll után 4 nap (WSES/SIS guideline)', note: 'Enyhe/Közepes közösségben szerzett peritonitis' },
+              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Forráskontroll után 4 nap', note: 'Súlyos közösségi / Szeptikus shock / Nosocomialis' },
+              { drug: 'Meropenem', dose: '3x1g IV', duration: 'Forráskontroll után 4 nap', note: 'Nosocomialis, szeptikus shock, ESBL gyanú' }
             ]
           },
-          targeted: 'Tenyésztés és antibiogram alapján',
-          supportive: ['Albumin pótlás (veseelégtelenség megelőzésére)', 'Diuretikumok szüneteltetése'],
-          prevention: ['Antibiotikum profilaxis (Norfloxacin vagy TMP-SMX)']
+          targeted: 'Intraoperatív tenyésztés alapján, de az anaerob lefedettség fenntartandó.',
+          supportive: ['Korai célvezérelt folyadékresuscitáció, vazopresszorok (Noradrenalin), intensiv osztályos ellátás.'],
+          prevention: ['Perioperatív antibiotikum profilaxis, fekélybetegség megfelelő kezelése.']
         },
         guidelines: {
           diagnosis: [
-            'Ascites punctio minden hospitalizált ascitessel rendelkező cirrhosisos betegnél.',
-            'Diagnózis: asciticus PMN > 250/mm3.'
+            'Sürgős kontrasztos CT vizsgálat a perforáció helyének és a peritonitis kiterjedésének igazolására.',
+            'Sepsis szűrés (Laktát, Procalcitonin) és fókusz keresés azonnal.'
           ],
           treatment_indications: [
-            'Empirikus antibiotikum azonnal indítandó, ha PMN > 250/mm3.'
+            'SEBÉSZI FORRÁSKONTROLL (SOURCE CONTROL) 6-12 órán belül elengedhetetlen (perforáció zárása/resectio, lavázs, drainage)!',
+            'WSES 2024 / SIS GUIDELINES (STOP-IT TRIAL): Sikeres, adekvát forráskontroll után 4 napos (96 órás) antibiotikum kezelés teljes mértékben elegendő és egyenértékű a hosszabb kúrákkal!'
           ],
-          first_line: ['Ceftriaxon vagy Cefotaxim IV.'],
-          supportive: ['IV Albumin adása csökkenti a hepatorenalis szindróma kockázatát.'],
-          prevention: ['Korábbi SBP vagy GI vérzés esetén profilaxis javasolt.']
+          first_line: ['Sürgős műtéti forráskontroll + Széles spektrumú IV antibiotikum (Ceftriaxon+Metronidazol vagy Pip/Tazo).'],
+          supportive: ['Azonnali hemodinamikai stabilizáció, hemodinamikai monitorozás.'],
+          prevention: ['Megfelelő sebészeti technika, korai diagnózis.']
         },
         prognosis: {
-          mortality: '10-30% a kórházi epizód alatt',
-          factors: 'Hepatorenalis szindróma rontja a prognózist.'
+          mortality: '10-40% (szeptikus shock és időskori komorbiditás esetén jóval magasabb)',
+          prognostic_scores: ['APACHE II score', 'Mannheim Peritonitis Index (MPI)'],
+          factors: 'A forráskontroll gyorsasága (időablak) és sikeressége a legfontosabb prognosztikai tényező.'
+        }
+      },
+      {
+        id: 'cholangitis',
+        name: 'Akut (Ascendáló) cholangitis',
+        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli (25-50%), Klebsiella pneumoniae (15-20%), Enterococcus spp., Enterobacter, Pseudomonas aeruginosa, Bacteroides fragilis</i>', gram: 'Vegyes', shape: 'Vegyes' },
+        epidemiology: {
+          incidence: 'Epeúti obstructio talaján kialakuló életveszélyes fertőzés',
+          risk_groups: ['Choledocholithiasis (epeúti kő)', 'Benignus vagy malignus epeúti szűkület (pancreas/cholangiocarcinom)', 'Epeúti stent elzáródás', 'ERCP vagy biliaris beavatkozás után'],
+          seasonality: 'Nincs',
+          transmission: 'Duodenum felől aszcendáló bélbaktériumok epeúti elzáródás mellett'
+        },
+        pathomechanism: {
+          steps: [
+            'Epeúti elzáródás (kő, tumor, stent) következtében az epeáramlás leáll, az intraductalis nyomás megemelkedik (>20 cmH2O).',
+            'A nyálkahártya gát sérül, a bélből aszcendáló baktériumok elszaporodnak a pangó epében.',
+            'A magas nyomás miatt a baktériumok és endotoxinok a hepaticus venákon és nyirokutakon át a szisztémás keringésbe jutnak (cholangio-venosus reflux), súlyos szepszist okozva.'
+          ]
+        },
+        clinical: {
+          incubation: 'Akut',
+          onset: 'Hirtelen, heves',
+          symptoms: [
+            { name: 'Charcot-triász', description: 'Láz/hidegrázás + Jobb bordaív alatti fájdalom + Icterus (~50-70%-ban jelen van mindhárom).', severity: 'severe' },
+            { name: 'Reynolds-pentád', description: 'Charcot-triász + Hypotonia (szeptikus shock) + Tudatzavar (Grade III / súlyos cholangitis jele!).', severity: 'severe' }
+          ],
+          physical_exam: ['Icterus (sárgaság)', 'Jobb bordaív alatti nyomásérzékenység', 'Láz / hidegrázás', 'Hypotonia, zavartság (súlyos esetben)'],
+          complications: ['Szeptikus shock', 'Pyogen májtályogok', 'Akut veseelégtelenség (AKI)', 'DIC']
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Májenzimek es Bilirubin', finding: 'Kifejezetten emelkedett szérum bilirubin (konjugált), ALP, GGT (cholestasis pattern)', interpretation: 'Epeúti obstructio' },
+            { test: 'Gyulladásos markerek', finding: 'Leukocytosis balra tolt vérképpel, emelkedett CRP, Procalcitonin', interpretation: 'Szisztémás gyulladás / Szepszis' }
+          ],
+          imaging: [
+            { modality: 'Hasi UH', finding: 'Tágult intra- es extrahepaticus epeutak, choledocholithiasis, stent', significance: 'Elsőként választandó vizsgálat' },
+            { modality: 'MRCP / Hasi CT', finding: 'Epeúti kövek, szűkületek, tumorok pontos ábrázolása', significance: 'Ha az UH nem diagnosztikus vagy szövődmény gyanúja áll fenn' }
+          ],
+          microbiology: [
+            { test: 'Hemokultúra', finding: 'Pozitív 20-50%-ban (aerob + anaerob)', significance: 'Kötelező levenni az antibiotikum előtt' },
+            { test: 'Epe tenyésztés', finding: 'Polimikrobiális tenyésztés', significance: 'ERCP vagy biliaris drainage során vett minta' }
+          ],
+          differential: [
+            { disease: 'Akut cholecystitis', distinguishing: 'Icterus ritka, epeutak nem tágak (csak az epehólyag fal vastag)', severity: 'moderate' },
+            { disease: 'Pyogen májtályog', distinguishing: 'CT/UH képen körülírt folyadékgyülem, icterus kevésbé domináns' }
+          ]
+        },
+        therapy: {
+          empirical: {
+            inpatient: [
+              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Dekompresszió után 4-7 nap', note: 'TG18 Grade I-II közösségben szerzett' },
+              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Dekompresszió után 4-7 nap', note: 'TG18 Grade III súlyos / Stentelt / Nosocomialis' },
+              { drug: 'Meropenem', dose: '3x1g IV', duration: 'Dekompresszió után 4-7 nap', note: 'Szeptikus shock, ESBL gyanú' }
+            ]
+          },
+          targeted: 'Epe és hemokultúra tenyésztés alapján, de az epeúti dekompresszió elengedhetetlen!',
+          supportive: ['Azonnali folyadékresuscitáció, vasopressorok (Noradrenalin), intenzív osztályos megfigyelés.'],
+          prevention: ['Epekövesség korai sebészi megoldása, epeúti stentek rendszeres cseréje.']
+        },
+        guidelines: {
+          diagnosis: [
+            'TOKYO GUIDELINES (TG18/TG24) DIAGNOSZTIKUS KRITÉRIUMOK:',
+            'A. Szisztémás gyulladás: Láz (>38°C) és/vagy hidegrázás, vagy laboratóriumi gyulladás (WBC <4.0 vagy >10.0 x10^9/L, CRP ≥1 mg/dL).',
+            'B. Cholestasis: Icterus (Totál bilirubin ≥2.0 mg/dL) vagy emelkedett májenzimek (ALP, GGT, AST, ALT >1,5x ULN).',
+            'C. Képalkotó: Epeúti tágulat vagy az ok (kő, szűkület, stent) jelenléte.',
+            'Gyanú: 1 elem A-ból + 1 elem B-ből vagy C-ből. Biztos diagnózis: 1 elem A-ból + 1 elem B-ből + 1 elem C-ből.'
+          ],
+          treatment_indications: [
+            'TOKYO GUIDELINES (TG18/TG24) SÚLYOSSÁGI OSZTÁLYOZÁS ÉS KEZELÉS:',
+            'Grade III (Súlyos): Bármely szervrendszeri diszfunkció (keringési: vasopressor igény; neurológiai: tudatzavar; légzési: PaO2/FiO2 <300; vese: Kreatinin >2.0 mg/dL; máj: INR >1.5; hematológiai: Fvs <100.000/µL) -> AZONNALI EPEÚTI DEKOMPRESSZIÓ (ERCP / PTC) + Intenzív terápia + IV antibiotikum.',
+            'Grade II (Közepes): fvs >12.000 vagy <4.000, Láz ≥39°C, Életkor ≥75 év, Bilirubin ≥5 mg/dL, Hypoalbuminemia -> KORAI EPEÚTI DEKOMPRESSZIÓ (24-48 órán belül) + IV antibiotikum.',
+            'Grade I (Enyhe): Nem teljesíti a Grade II/III kritériumait -> Antimikrobiális kezelés; ha 24 órán belül nincs javulás, korai epeúti dekompresszió.'
+          ],
+          first_line: [
+            'Epeúti dekompresszió (ERCP + papillotomia / kőextrakció / stentelés VAGY PTC) ÉS Széles spektrumú IV antibiotikum (Enyhe/Közepes: Ceftriaxon+Metronidazol; Súlyos/Stented: Piperacillin-Tazobactam vagy Meropenem).'
+          ],
+          supportive: ['Sepsis kezelése, folyadékpótlás, intenzív osztályos monitorozás.'],
+          prevention: ['Elektív cholecystectomia az akut epizód után, stentek időben történő cseréje.']
+        },
+        prognosis: {
+          mortality: '5-10% (korai dekompresszió mellett, dekompresszió nélkül közel 100%)',
+          prognostic_scores: ['Tokyo Guidelines TG18/TG24 Severity Score'],
+          factors: 'A sikeres és időben elvégzett epeúti dekompresszió a túlélés legfőbb záloga.'
         }
       },
       {
         id: 'acute_cholecystitis',
         name: 'Akut cholecystitis',
-        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Klebsiella, Enterococcus spp., ritkábban anaerobok</i>', gram: 'Vegyes', shape: 'Vegyes' },
+        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Klebsiella pneumoniae, Enterococcus spp., Enterobacter, Pseudomonas, Anaerobok</i>', gram: 'Vegyes', shape: 'Vegyes' },
         epidemiology: {
-          incidence: 'Gyakori sebészeti kórkép',
-          risk_groups: ['Epekövesség (Nők, >40 év, Elhízás, Multipara)', 'Kritikus állapotú betegek (Acalculous cholecystitis)'],
+          incidence: 'Az egyik leggyakoribb akut sebészeti kórkép',
+          risk_groups: ['Epekövesség (Nők, >40 év, Elhízás, Termékeny kor)', 'Acalculous cholecystitis: Intenzív osztályos, kritikus állapotú, égési sérült, szepszises betegek'],
           seasonality: 'Nincs',
-          transmission: 'Epehólyag nyakának vagy a ductus cysticusnak az elzáródása, majd szekunder bakteriális fertőződés'
+          transmission: 'Ductus cysticus elzáródása epekő által, majd szekunder bakteriális fertőződés'
         },
         pathomechanism: {
           steps: [
-            'Epekő ékelődik a ductus cysticusba, akadályozva az epe ürülését.',
-            'Az epehólyag fala feszül, ischaemiássá válik (kémiai gyulladás).',
-            'Szekunder módon bélbaktériumok telepednek meg a pangó epében, bakteriális gyulladást okozva.',
-            'Acalculous (kő nélküli) formában epepangás és ischaemia okozza a necrosist (súlyos betegek).'
+            'A ductus cysticus tartós elzáródása (epekő beékelődés).',
+            'Az epehólyag intraluminalis nyomása megemelkedik, fali ischaemia és kémiai gyulladás jön létre (lysolecithin hatása).',
+            'Másodlagos bakteriális felülfertőződés alakul ki a pangó epében.',
+            'Acalculous formában epepangás és splanchnicus ischaemia okoz fali necrosist epekő nélkül.'
           ]
         },
         clinical: {
           incubation: 'Akut',
-          onset: 'Fokozatosan erősödő, majd folyamatos',
+          onset: 'Fokozatosan erősödő, majd állandósuló',
           symptoms: [
-            { name: 'Hasi fájdalom', description: 'Jobb bordaív alatti vagy epigastrialis, hátba (jobb lapocka) sugárzó görcsös, majd állandósuló fájdalom.', severity: 'severe' },
+            { name: 'Jobb bordaív alatti / Epigastrialis fájdalom', description: 'Görcsösből állandósuló, heves fájdalom, amely a jobb lapockába / vállba sugározhat.', severity: 'severe' },
             { name: 'Hányinger, hányás', description: 'Gyakori kísérőtünet.', severity: 'moderate' },
-            { name: 'Láz', description: 'Hőemelkedés vagy láz.', severity: 'moderate' }
+            { name: 'Láz', description: 'Hőemelkedés vagy láz, hidegrázás.', severity: 'moderate' }
           ],
-          physical_exam: ['Murphy-jel (pozitív: mély belégzésnél a jobb bordaív alatti tapintáskor a beteg fájdalmában megakad a légzésben)', 'Jobb bordaív alatti érzékenység', 'Icterus általában NINCS (ha van, choledocholithiasis gyanúja)'],
-          complications: ['Epehólyag perforáció', 'Biliaris peritonitis', 'Empyema vesicae felleae', 'Gangraenás cholecystitis']
+          physical_exam: ['Murphy-jel: Pozitív (mély belégzéskor a jobb bordaív alatti palpatio hirtelen belégzési elakadást vált ki a fájdalom miatt)', 'Jobb bordaív alatti nyomásérzékenység, izomvédekezés', 'Tapintható, érzékeny epehólyag (hidropsz/empyema)', 'Icterus általában hiányzik (ha van, choledocholithiasis vagy Mirizzi-szindróma gyanúja)'],
+          complications: ['Gangraenás cholecystitis', 'Empyema vesicae felleae', 'Epehólyag perforáció és biliaris peritonitis', 'Pericholecystas tályog', 'Cholecysto-entericus fistula (epeköves ileus)']
         },
         diagnostics: {
           laboratory: [
-            { test: 'Vérkép', finding: 'Leukocytosis balra tolt vérképpel, emelkedett CRP', interpretation: 'Gyulladás' },
-            { test: 'Májenzimek', finding: 'Általában normálisak vagy enyhén emelkedettek', interpretation: 'Ha ALP/Bilirubin magas, epeúti kő (Mirizzi-szindróma vagy choledocholithiasis) is lehet' }
+            { test: 'Vérkép és CRP', finding: 'Leukocytosis balra tolt vérképpel, emelkedett CRP', interpretation: 'Akut gyulladás' },
+            { test: 'Májenzimek és Bilirubin', finding: 'Általában normálisak vagy enyhén emelkedettek', interpretation: 'Ha ALP/Bilirubin kifejezett, choledocholithiasis vagy Mirizzi-szindróma valószínű' }
           ],
           imaging: [
-            { modality: 'Has UH', finding: 'Megvastagodott epehólyag fal (>3 mm), pericholecystás folyadék, kő, pozitív ultrahangos Murphy-jel', significance: 'Gold standard, legérzékenyebb és legspecifikusabb' },
-            { modality: 'CT has', finding: 'Gyulladásos jelek', significance: 'Szövődmények (perforáció, tályog) gyanúja esetén' }
+            { modality: 'Hasi UH', finding: 'Epehólyag fali megvastagodás (>3-4 mm), pericholecystas folyadék, epekő/beékelt kő, sonographiás Murphy-jel', significance: 'GOLD STANDARD (szenzitivitás >90%)' },
+            { modality: 'CT / HIDA scan', finding: 'Fali dúsulás, pericholecystas gyulladás, gázképződés', significance: 'Szövődmények (perforáció, emphysematous cholecystitis) gyanújakor' }
           ],
           microbiology: [
-            { test: 'Hemokultúra', finding: 'Súlyos esetben pozitív lehet', significance: 'Sepsis esetén' },
-            { test: 'Epe tenyésztés', finding: 'Pozitív (műtét során)', significance: 'Komplikált esetekben' }
+            { test: 'Hemokultúra', finding: 'Súlyos esetben / láz esetén levendő', significance: 'Sepsis igazolása' },
+            { test: 'Epe tenyésztés', finding: 'Műtéti minta tenyésztése', significance: 'Szövődményes vagy nosocomialis esetben' }
           ],
           differential: [
             { disease: 'Akut cholangitis', distinguishing: 'Icterus, tág epeutak, Reynolds-pentád' },
-            { disease: 'Akut pancreatitis', distinguishing: 'Lipáz jelentősen emelkedett' },
-            { disease: 'Peptikus fekélybetegség', distinguishing: 'Anamnézis, gastroscopia' }
+            { disease: 'Akut pancreatitis', distinguishing: 'Lipáz emelkedés >3x ULN, CT kép' },
+            { disease: 'Peptikus fekélybetegség', distinguishing: 'Gastroscopia lelete' }
           ]
         },
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Lázmentességig / műtétig', note: 'Enyhe/Közepes' },
-              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Lázmentességig / műtétig', note: 'Súlyos / Nosocomialis (acalculous)' }
+              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Lázmentességig / Műtétig', note: 'TG18 Grade I-II enyhe/közepes' },
+              { drug: 'Amoxicillin-Clavulansav', dose: '3x1.2g IV', duration: 'Lázmentességig / Műtétig', note: 'Alternatív első vonal' },
+              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Lázmentességig / Műtétig', note: 'TG18 Grade III súlyos / Acalculous / Nosocomialis' }
             ]
           },
-          targeted: 'Tenyésztés alapján (ritkán szükséges, a műtét a végleges megoldás).',
-          supportive: ['Folyadékpótlás, fájdalomcsillapítás (görcsoldók)'],
+          targeted: 'Tenyésztés alapján (ritkán szükséges, a sebészi eltávolítás a végleges megoldás).',
+          supportive: ['Folyadékpótlás, görcsoldás, fájdalomcsillapítás (NSAID / OPIOID).'],
           prevention: ['Tünetes epekövesség elektív műtéti megoldása']
         },
         guidelines: {
           diagnosis: [
-            'Tokyo Guidelines: lokális gyulladás (Murphy-jel, fájdalom), szisztémás gyulladás (láz, CRP, fvs), és jellegzetes képalkotó (UH) lelet.'
+            'TOKYO GUIDELINES (TG18/TG24) DIAGNOSZTIKUS KRITÉRIUMOK:',
+            'A. Lokális gyulladásos jelek: Murphy-jel, jobb bordaív alatti fájdalom / nyomásérzékenység / rezisztencia.',
+            'B. Szisztémás gyulladásos jelek: Láz, emelkedett CRP, emelkedett WBC.',
+            'C. Képalkotó jelek: Akut cholecystitisre jellegzetes UH/CT lelet.',
+            'Gyanú: 1 elem A-ból + 1 elem B-ből. Biztos diagnózis: 1 elem A-ból + 1 elem B-ből + 1 elem C-ből.'
           ],
           treatment_indications: [
-            'Minden akut cholecystitis kórházi felvételt és sebészeti konzíliumot igényel.'
+            'TOKYO GUIDELINES (TG18/TG24) SÚLYOSSÁGI STÁDIUMOK ÉS SEBÉSZI STRATÉGIA:',
+            'Grade I (Enyhe): Szervdiszfunkció nélkül, enyhe gyulladás -> KORAI LAPAROSZKÓPOS CHOLECYSTECTOMIA (Lap-C) az elsőként választandó terápia!',
+            'Grade II (Közepes): WBC >18.000/µL, tapintható érzékeny képlet, tünetek tartama >72h, vagy kifejezett lokális gyulladás (gangraena, pericholecystas tályog, emphysematous cholecystitis) -> KORAI LAPAROSZKÓPOS CHOLECYSTECTOMIA (Lap-C) tapasztalt sebész által; ha a műtéti kockázat magas, Percutan Transhepaticus Gallbladder Drainage (PTGBD).',
+            'Grade III (Súlyos): Bármely szervrendszeri diszfunkció (keringési, neurológiai, légzési, vese, máj, hematológiai) -> PERCUTAN TRANSHEPATICUS CHOLECYSTOSTOMIA (PTGBD - epehólyag dekompresszió) + IV antibiotikum + Intenzív terápia (vagy sürgős Lap-C szigorúan válogatott betegekben).'
           ],
-          first_line: ['Korai (ideálisan 72 órán belüli) laparoszkópos cholecystectomia.'],
-          supportive: ['Ha műtétre nem alkalmas (magas rizikó), perkután cholecystostomia (drainage) javasolt AB védelemben.'],
-          prevention: ['Elektív cholecystectomia epeköves panaszok esetén.']
+          first_line: [
+            'Korai Laparoszkópos Cholecystectomia (Lap-C) 72-96 órán belül + IV Antibiotikum (Grade I/II: Ceftriaxon+Metronidazol vagy Amoxicillin-Clavulansav; Grade III: Piperacillin-Tazobactam vagy Meropenem).'
+          ],
+          supportive: ['Folyadékpótlás, fájdalomcsillapítás, PTGBD drainage magas műtéti rizikójú betegben.'],
+          prevention: ['Elektív cholecystectomia tünetes epekövesség esetén.']
         },
         prognosis: {
-          mortality: 'Alacsony (1-3%), de idősekben és perforáció esetén emelkedik',
-          factors: 'Korai műtét javítja a prognózist, acalculous forma mortalitása magas (kritikus betegek).'
+          mortality: '1-3% (idősekben, acalculous formában es perforáció esetén magasabb)',
+          prognostic_scores: ['Tokyo Guidelines TG18/TG24 Severity Score'],
+          factors: 'Korai laparoszkópos műtét (72 órán belül) jelentősen csökkenti a szövődményeket és a kórházi tartózkodást.'
         }
       },
       {
         id: 'acute_diverticulitis',
         name: 'Akut diverticulitis',
-        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, B. fragilis, egyéb bélbaktériumok</i>', gram: 'Vegyes', shape: 'Vegyes' },
+        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Bacteroides fragilis, Enterococcus spp., Klebsiella, Peptostreptococcus</i>', gram: 'Vegyes', shape: 'Vegyes' },
         epidemiology: {
-          incidence: 'Idősebb korban nagyon gyakori (a nyugati társadalmakban)',
-          risk_groups: ['>50 év', 'Rostszegény étrend', 'Elhízás', 'NSAID szedés'],
+          incidence: 'Nagyon gyakori kórkép (a 60 év feletti lakosság 50%-ának van diverticulosisa, 10-25%-ukban alakul ki diverticulitis)',
+          risk_groups: ['Idős kor (>50-60 év)', 'Rostszegény, feldolgozott étrend', 'Elhízás, mozgásszegény életmód', 'NSAID, szteroid szedése'],
           seasonality: 'Nincs',
           transmission: 'A vastagbél (leggyakrabban sigma) diverticulumainak elzáródása és gyulladása (microperforatio)'
         },
         pathomechanism: {
           steps: [
-            'A colon falának gyenge pontjain kitüremkedések (diverticulumok) alakulnak ki (diverticulosis).',
-            'Székletrög (faecolith) zárja el a diverticulum nyakát, pangás és bakteriális túlnövekedés alakul ki.',
-            'A nyálkahártya ischaemiás lesz, microperforatio jön létre, ami peridiverticularis gyulladást vagy tályogot okoz.'
+            'A colon falának gyenge pontjain (a vasa recta behatolási helyein) kitüremkedések (diverticulumok) képződnek (leggyakrabban a sigmában).',
+            'Székletrög (faecolith) zárja el a diverticulum nyakát, microperforatiót, fali ischaemiát és peridiverticularis gyulladást okozva.',
+            'Súlyos esetben makroperforatio, tályogképződés vagy generalizált peritonitis alakul ki.'
           ]
         },
         clinical: {
           incubation: 'Akut',
           onset: 'Fokozatosan erősödő',
           symptoms: [
-            { name: 'Bal alhasi fájdalom', description: 'Gyakran folyamatos, tompa vagy görcsös fájdalom (bal oldali appendicitis-szerű).', severity: 'moderate' },
-            { name: 'Láz', description: 'Hőemelkedés, súlyos esetben magas láz hidegrázással.', severity: 'moderate' },
-            { name: 'Széklethabitus változása', description: 'Székrekedés (gyakoribb) vagy hasmenés, puffadás.', severity: 'mild' }
+            { name: 'Bal alhasi fájdalom', description: 'Folyamatos, tompa vagy görcsös fájdalom ("bal oldali appendicitis").', severity: 'moderate' },
+            { name: 'Láz', description: 'Hőemelkedés, magas láz hidegrázással (szövődményes esetben).', severity: 'moderate' },
+            { name: 'Széklethabitus változása', description: 'Székrekedés, hasmenés, puffadás, tenesmus.', severity: 'mild' }
           ],
-          physical_exam: ['Bal alhasi nyomásérzékenység', 'Esetleg tapintható rezisztencia (tályog, phlegmone)', 'Fokozott bélhangok vagy (ha peritonitis) hiányzó bélhangok'],
-          complications: ['Tályogképződés (Hinchey II)', 'Perforáció, generalizált peritonitis (Hinchey III-IV)', 'Fistula (pl. colovesicalis: pneumaturia)', 'Bélelzáródás']
+          physical_exam: ['Bal alhasi nyomásérzékenység, izomvédekezés', 'Tapintható érzékeny rezisztencia (phlegmone vagy tályog)', 'A peritonealis izgalom jelei perforáció esetén'],
+          complications: ['Pericolicus vagy kismedencei tályog', 'Perforáció és purulens/faeculens peritonitis', 'Fistula képződés (colovesicalis: pneumaturia, fecaluria; colovaginalis)', 'Bélelzáródás (strictura)']
         },
         diagnostics: {
           laboratory: [
-            { test: 'Vérkép', finding: 'Leukocytosis, emelkedett CRP', interpretation: 'Gyulladás fokmérője' },
-            { test: 'Vizeletvizsgálat', finding: 'Lehet steril pyuria', interpretation: 'A gyulladt bél irritálja a hólyagot' }
+            { test: 'Vérkép és CRP', finding: 'Leukocytosis balra tolt vérképpel, emelkedett CRP', interpretation: 'Gyulladás fokmérője' },
+            { test: 'Vizeletvizsgálat', finding: 'Steril pyuria lehetséges', interpretation: 'A gyulladt bél irritálja a hólyagot' }
           ],
           imaging: [
-            { modality: 'CT has (kontrasztos)', finding: 'Vastagbélfal megvastagodás (>4 mm), perikolikus zsír beszűrődése, esetleg tályog vagy szabad levegő', significance: 'Gold standard, osztályozás (Hinchey)' },
-            { modality: 'Colonoscopia', finding: 'KONTRAINDIKÁLT akut fázisban', significance: 'Perforáció veszélye miatt! 6 héttel később javasolt malignitás kizárására.' }
+            { modality: 'Hasi/kismedencei kontrasztos CT', finding: 'Vastagbélfali megvastagodás (>4 mm), pericolicus zsírbeszűrődés, tályog, szabad levegő jelenléte', significance: 'GOLD STANDARD (Hinchey / WSES stádiumbeosztás)' },
+            { modality: 'Colonoscopia', finding: 'AKUT SZAKBAN STRICTLY KONTRAINDIKÁLT', significance: 'Perforáció veszélye miatt! 6 héttel a gyógyulás után javasolt a colorectalis carcinoma kizárására.' }
           ],
           microbiology: [
-            { test: 'Tenyésztés', finding: 'Csak tályog punkció vagy műtét esetén', significance: 'Kevert flóra' }
+            { test: 'Tenyésztés', finding: 'Tályog aspirátum vagy műtéti minta', significance: 'Kevert flóra' }
           ],
           differential: [
-            { disease: 'Colorectalis carcinoma', distinguishing: 'CT, majd halasztott colonoscopia' },
+            { disease: 'Colorectalis carcinoma', distinguishing: 'CT lelet, majd halasztott colonoscopia' },
             { disease: 'IBD (Crohn-betegség)', distinguishing: 'Anamnézis, endoszkópia' },
             { disease: 'Nőgyógyászati kórképek', distinguishing: 'Ovarialis cysta ruptura, adnexitis (UH)' }
           ]
@@ -2695,36 +2660,221 @@ window._abdomen_hu = window._abdomen_hu || {
         therapy: {
           empirical: {
             outpatient: [
-              { drug: 'Amoxicillin-Clavulansav', dose: '2x1g PO', duration: '5-7 nap', note: 'Enyhe, szövődménymentes esetben' },
+              { drug: 'Amoxicillin-Clavulansav', dose: '2x1g PO', duration: '5-7 nap', note: 'Enyhe, szövődménymentes esetben (ha antibiotikum indokolt)' },
               { drug: 'Ciprofloxacin + Metronidazol', dose: '2x500mg PO + 3x500mg PO', duration: '5-7 nap', note: 'Penicillin allergia esetén' }
             ],
             inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Állapotjavulásig, majd PO', note: 'Közepes/Súlyos (Hinchey I-II)' },
-              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Műtét körül', note: 'Perforáció, peritonitis (Hinchey III-IV)' }
+              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: '5-7 nap', note: 'Közepes/Súlyos (WSES 1a-2a)' },
+              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: '5-7 nap', note: 'Perforáció, peritonitis (WSES 3-4)' }
             ]
           },
-          targeted: 'Ritkán specifikus, kivéve drainage esetén.',
-          supportive: ['Folyékony diéta vagy koplalás (súlyos esetben)', 'Fájdalomcsillapítás', 'Perkután drainage (>3-4 cm tályog esetén)'],
+          targeted: 'Tályog drainage tenyésztése alapján.',
+          supportive: ['Szupportív kezelés (fájdalomcsillapítás, folyadék, koplalás/folyékony diéta).', 'CT-vezérelt perkután drainage >4 cm-es tályog esetén.'],
           prevention: ['Rostdús étrend, bő folyadékfogyasztás, elhízás kerülése']
         },
         guidelines: {
           diagnosis: [
-            'CT vizsgálat javasolt a diagnózis megerősítésére és a szövődmények (tályog, perforáció) kizárására.',
-            'Akut szakban endoszkópia tilos.'
+            'Hasi kontrasztos CT a diagnózis megerősítésére és a szövődményes formák elkülönítésére.',
+            'WSES 2020 OSZTÁLYOZÁS:',
+            'Uncomplicated (WSES 0): Peridiverticularis gyulladás tályog vagy perforáció nélkül.',
+            'Complicated (WSES 1a-4): 1a (pericolicus phlegmone), 1b (pericolicus tályog <4 cm), 2a (távoli/kismedencei tályog >4 cm), 2b (távoli szabad gáz), 3 (generalizált purulens peritonitis), 4 (generalizált faeculens peritonitis).'
           ],
           treatment_indications: [
-            'Enyhe, szövődménymentes (CT-vel igazolt) esetben egyre gyakrabban elhagyják az antibiotikumot (csak szupportív kezelés) szoros kontroll mellett.',
-            'Antibiotikum: immunszupprimáltaknak, szisztematikus gyulladásos jeleknél, vagy szövődményeknél.'
+            'SZÖVŐDMÉNYMENTES DIVERTICULITIS (AVERT & DIABOLO vizsgálatok, WSES 2020 Guideline):',
+            'Immunkompetens, jó általános állapotú, láztalan betegeknél az ANTIBIOTIKUM ELHAGYHATÓ! Ambuláns szupportív kezelés (fájdalomcsillapítás, folyadék) elegendő szoros kontroll mellett.',
+            'ANTIBIOTIKUM INDIKÁCIÓI: Immunszupprimált állapot, magas láz, CRP >140 mg/L, szepszis jelei, komorbiditások, vagy szövődményes stádium (WSES 1a-4).',
+            'SZÖVŐDMÉNYES STÁDIUMOK KEZELÉSE:',
+            'Tályog >4 cm (WSES 2a): CT-vezérelt Perkután Drainage + IV antibiotikum.',
+            'Peritonitis (WSES 3-4): Sürgős sebészeti beavatkozás (Laparoszkópos lavázs/drainage VAGY Hartmann-műtét VAGY Resectio + primér anasztomózis + terelő ileostoma).'
           ],
-          first_line: ['Szövődményes vagy magas rizikójú beteg: Amoxicillin-Clavulansav vagy Ceftriaxon+Metronidazol.'],
-          supportive: ['Perkután drainage nagy tályog esetén. Sürgős műtét (Hartmann-műtét vagy resectio) purulens vagy faeculens peritonitis (Hinchey III-IV) esetén.'],
-          prevention: ['Gyógyulás után 6 héttel colonoscopia malignitás kizárására.']
+          first_line: [
+            'Enyhe szövődménymentes: Szupportív / ha indokolt: Amoxicillin-Clavulansav 2x1g PO 5-7 napig.',
+            'Súlyos / Szövődményes: Ceftriaxon 1x2g IV + Metronidazol 3x500mg IV VAGY Piperacillin-Tazobactam 3-4x4.5g IV.'
+          ],
+          supportive: ['CT-guided drainage tályog esetén, szoros sebészeti kontroll.'],
+          prevention: ['Gyógyulás után 6 héttel colonoscopia elvégzése kötelező a malignitás kizárására.']
         },
         prognosis: {
-          mortality: 'Szövődménymentes esetben <1%, perforáció esetén magas (akár 20%)',
-          factors: 'Hinchey stádium határozza meg a prognózist és a kezelési stratégiát.'
+          mortality: 'Szövődménymentes esetben <1%, faeculens peritonitis esetén magas (akár 20%)',
+          prognostic_scores: ['Hinchey classification', 'WSES classification'],
+          factors: 'A Hinchey/WSES stádium és az életkor/komorbiditás határozza meg a prognózist.'
         }
-      }]
+      },
+      {
+        id: 'pyogenic_liver_abscess',
+        name: 'Pyogen májtályog',
+        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Klebsiella pneumoniae (hypermucoviscous K1/K2 törzsek), Streptococcus anginosus group, Enterococcus spp., Bacteroides fragilis</i>', gram: 'Vegyes', shape: 'Vegyes' },
+        epidemiology: {
+          incidence: 'A leggyakoribb visceralis tályog',
+          risk_groups: ['Epeúti betegség (cholangitis, choledocholithiasis)', 'Diabetes mellitus (különösen K. pneumoniae tályog)', 'Hasüregi gyulladás (appendicitis, diverticulitis, IBD)', 'Malignitás, chemoembolisatio'],
+          seasonality: 'Nincs',
+          transmission: 'Biliaris ascendálás, pylephlebitis (portal szóródás), vagy haematogen szóródás'
+        },
+        pathomechanism: {
+          steps: [
+            'Biliaris aszcendálás (leggyakoribb): epeúti infekcióból aszcendáló fertőzés.',
+            'Portalis szóródás (pylephlebitis): appendicitisből, diverticulitisből vagy IBD-ből a vena portae ágain át.',
+            'Haematogen szóródás: szisztémás bacteraemia / endocarditis során az arteria hepatica útján.',
+            'Klebsiella pneumoniae (hypermucoviscous ST23/K1/K2): primer cryptogen tályogot okozhat, amely metastatiskusan szóródhat (endophthalmitis, meningitis, spondylodiscitis!).'
+          ]
+        },
+        clinical: {
+          incubation: 'Változó',
+          onset: 'Gyakran alattomos, subakut vagy akut',
+          symptoms: [
+            { name: 'Láz, hidegrázás', description: 'A vezető tünet az esetek >90%-ában, gyakran pikozo láz formájában.', severity: 'moderate' },
+            { name: 'Jobb bordaív alatti fájdalom', description: 'Tompa, állandó fájdalom, amely a jobb vállba / hátba sugározhat.', severity: 'moderate' },
+            { name: 'Étvágytalanság, fogyás', description: 'Subakut lefolyás esetén kifejezett testsúlyvesztés, rossz közérzet.', severity: 'mild' }
+          ],
+          physical_exam: ['Jobb bordaív alatti nyomásérzékenység, vesetájéki/máj ütögetési érzékenység', 'Hepatomegalia', 'Icterus (20-30%-ban, főleg epeúti eredetnél)'],
+          complications: ['Tályog ruptura (biliaris peritonitis, pleurális empyema, pericarditis)', 'Szeptikus shock', 'Metastaticus fertőzés (K. pneumoniae endophthalmitis - látásvesztés!)']
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Vérkép es CRP', finding: 'Kifejezett leukocytosis, emelkedett CRP', interpretation: 'Gyulladás' },
+            { test: 'Májenzimek', finding: 'Emelkedett ALP, GGT (máj enzim pattern), hyperbilirubinemia', interpretation: 'Intrahepaticus cholestasis / térfoglalás' }
+          ],
+          imaging: [
+            { modality: 'Hasi UH', finding: 'Hypoechogén, folyadékot/gázt tartalmazó képlet', significance: 'Elsőként választandó szűrővizsgálat' },
+            { modality: 'Hasi kontrasztos CT', finding: 'Kontrasztanyagot halmozó falú, hypodens lézió, halo-jel, többkamrás szerkezet', significance: 'GOLD STANDARD (lokalizáció, drainage megtervezése)' }
+          ],
+          microbiology: [
+            { test: 'Tályog aspirátum tenyésztése', finding: 'UH/CT-vezérelt aspiráció tenyésztésre', significance: 'DIAGNOSZTIKUS ÉS TERÁPIÁS (célzott antibiotikum)' },
+            { test: 'Hemokultúra', finding: 'Pozitív 50%-ban', significance: 'Mindig le kell venni' }
+          ],
+          differential: [
+            { disease: 'Amőbás májtályog (Entamoeba histolytica)', distinguishing: 'Endémiás utazási anamnézis, szerológia pozitív, csokoládébarna aspirátum' },
+            { disease: 'Echinococcus cysta', distinguishing: 'Szerológia, UH képen leányhólyagok. PUNKCIÓ ANAPHYLAXIA ES SZÓRÓDÁS VESZÉLYE MIATT KONTRAINDIKÁLT!' },
+            { disease: 'Hepatocellularis carcinoma / Metastasis', distinguishing: 'Tumormarkerek (AFP), CT dúsulási dinamika' }
+          ]
+        },
+        therapy: {
+          empirical: {
+            inpatient: [
+              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: '2-4 hét IV, majd PO step-down total 4-6 hét', note: 'Standard közösségben szerzett' },
+              { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: '2-4 hét IV, majd PO step-down total 4-6 hét', note: 'Súlyos / Epeúti eredet / Nosocomialis' }
+            ]
+          },
+          targeted: 'Tályog aspirátum tenyésztése alapján. Orális step-down (pl. Amoxicillin-Clavulansav, Ciprofloxacin + Metronidazol) a teljes 4-6 hetes kúra befejezéséig.',
+          supportive: ['Percutan drainage / aspiráció, szoros képalkotó kontroll.'],
+          prevention: ['Epeúti és intraabdominalis infekciók korai kezelése']
+        },
+        guidelines: {
+          diagnosis: [
+            'UH/CT-vezérelt diagnosztikus es terápiás aspiráció/drainage elengedhetetlen a mikrobiológiai mintavételhez.',
+            'Amőbás es Echinococcus eredet kizárása szerológiával es képalkotóval!'
+          ],
+          treatment_indications: [
+            'FORRÁSKONTROLL ÉS ANTIBIOTIKUM:',
+            'Kisebb tályogok (<3-4 cm): Percutan tű-aspiráció (repeated aspiration) + IV antibiotikum.',
+            'Nagyobb tályogok (>4-5 cm vagy multilocularis): PERCUTAN KATÉTERES DRAINAGE (PCD) a választandó eljárás!',
+            'Sebészi drainage: Sikertelen PCD, multilocularis vastag falú tályog, vagy ruptura esetén.'
+          ],
+          first_line: [
+            'Percutan katéteres drainage (PCD) + IV Antibiotikum (Ceftriaxon+Metronidazol vagy Pip/Tazo) 2-4 hétig IV, majd orális váltással total 4-6 hétig.'
+          ],
+          supportive: ['Szemészeti konzílium K. pneumoniae tályog esetén (endophthalmitis szűrés!).'],
+          prevention: ['Epeúti betegségek és intraabdominalis gyulladások korai kezelése.']
+        },
+        prognosis: {
+          mortality: '5-10% (megfelelő drainage mellett)',
+          prognostic_scores: ['Nincs specifikus'],
+          factors: 'K. pneumoniae áttétes endophthalmitis látásvesztést okozhat; szövődményes epeúti elzáródás rontja a túlélést.'
+        }
+      },
+      {
+        id: 'acute_appendicitis',
+        name: 'Akut appendicitis',
+        pathogen: { type: 'Kevert (Baktérium)', name: '<i>E. coli, Bacteroides fragilis, Pseudomonas aeruginosa, Enterococcus spp.</i>', gram: 'Vegyes', shape: 'Vegyes' },
+        epidemiology: {
+          incidence: 'A leggyakoribb akut sebészeti hasi kórkép (élettartam kockázat 7-8%)',
+          risk_groups: ['10-30 éves korosztály (bár bármely életkorban előfordulhat)', 'Férfiaknál enyhén gyakoribb'],
+          seasonality: 'Nincs',
+          transmission: 'A féregnyúlvány lumenének elzáródása, majd szekunder bakteriális invázió'
+        },
+        pathomechanism: {
+          steps: [
+            'A féregnyúlvány lumenének elzáródása (faecolith/székletrög, lymphoid hyperplasia, idegentest).',
+            'A folyamatos nyálkahártya-szekréció miatt a luminalis nyomás megemelkedik, a vénás és nyirokkeringés leáll.',
+            'Ischaemia, fali necrosis és bakteriális invázió alakul ki.',
+            'Kezelés nélkül 24-72 órán belül perforáció, periappendicularis tályog vagy diffúz peritonitis jön létre.'
+          ]
+        },
+        clinical: {
+          incubation: 'Akut',
+          onset: 'Fokozatosan alakul ki 12-24 óra alatt',
+          symptoms: [
+            { name: 'Átvándorló hasi fájdalom', description: 'Epigastrialis / periumbilicalis tompa fájdalom, amely 4-12 óra alatt a jobb alhasra (McBurney-pont) lokalizálódik.', severity: 'severe' },
+            { name: 'Anorekszia es Hányinger', description: 'Étvágytalanság (szinte univerzális!), hányinger, 1-2 alkalommal hányás.', severity: 'moderate' },
+            { name: 'Láz', description: 'Hőemelkedés, alacsony fokú láz (perforáció esetén magas láz hidegrázással).', severity: 'moderate' }
+          ],
+          physical_exam: [
+            'McBurney- és Lanz-pont nyomásérzékenység',
+            'Blumberg-jel (indirekt felengedési fájdalom)',
+            'Rovsing-jel (bal alhasi nyomásra a jobb alhasban jelentkező fájdalom)',
+            'Psoas-jel (jobb csípő hyperextensiójára fájdalom - retrocaecalis appendicitis)',
+            'Obturator-jel (jobb csípő flexiója és belső rotációja fájdalmas)'
+          ],
+          complications: ['Appendicularis infiltrátum / tályog', 'Perforáció és diffúz peritonitis', 'Pylephlebitis (vena portae thrombophlebitis)', 'Sepsis']
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Vérkép es CRP', finding: 'Leukocytosis balra tolt vérképpel, emelkedett CRP', interpretation: 'Kombinált normál WBC + CRP esetén az appendicitis valószínűsége nagyon alacsony!' },
+            { test: 'Vizeletvizsgálat', finding: 'Pyuria/haematuria nélkül (vagy minimális)', interpretation: 'UTI kizárása (irritáció miatt fvs előfordulhat)' }
+          ],
+          imaging: [
+            { modality: 'Hasi UH', finding: 'Vak tasakban végződő, nem komprimálható féregnyúlvány, külső átmérő >6 mm, fali hyperaemia, faecolith', significance: 'ELSŐKÉNT VÁLASZTANDÓ fiatalokban, gyermekekben, terhesekben' },
+            { modality: 'Hasi kontrasztos CT', finding: 'Megvastagodott féregnyúlvány, periappendicularis zsírbeszűrődés, appendicolith', significance: 'GOLD STANDARD felnőttekben bizonytalan diagnózis esetén' }
+          ],
+          microbiology: [
+            { test: 'Tenyésztés', finding: 'Perforált esetben intraoperatív genny minta', significance: 'Célzott postoperatív antibiotikum kezeléshez' }
+          ],
+          differential: [
+            { disease: 'Mesenterialis lymphadenopathy / Yersiniosis', distinguishing: 'UH képen tágult nyirokcsomók, vékony féregnyúlvány, viralis/diarrhoeas előzmény' },
+            { disease: 'Meckel-diverticulitis', distinguishing: 'Műtéti incidentális lelet' },
+            { disease: 'Gy nőgyógyászati kórképek (EU terhesség, Ovulációs fájdalom, Adnexitis)', distinguishing: 'Nőgyógyászati UH, b-hCG teszt' }
+          ]
+        },
+        therapy: {
+          empirical: {
+            outpatient: [],
+            inpatient: [
+              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Preoperatív profilaxis / szövődményes esetben 3-5 nap', note: 'Standard perioperatív regimen' },
+              { drug: 'Amoxicillin-Clavulansav', dose: '3x1.2g IV', duration: 'Preoperatív profilaxis / szövődményes esetben 3-5 nap', note: 'Alternatív perioperatív regimen' }
+            ]
+          },
+          targeted: 'Tenyésztés alapján perforált esetben.',
+          supportive: ['Koplalás, IV folyadék, fájdalomcsillapítás.'],
+          prevention: ['Nincs specifikus megelőzés.']
+        },
+        guidelines: {
+          diagnosis: [
+            'WSES JERUSALEM GUIDELINES 2020:',
+            'Klinikai pontrendszerek (Alvarado / AIR score) használata a alacsony rizikójú betegek kiszűrésére (Score <5: appendicitis valószínűtlen).',
+            'UH az elsőként választandó képalkotó fiatalokban és terhesekben, CT felnőtteknél bizonytalan esetben.'
+          ],
+          treatment_indications: [
+            'MŰTÉTI KEZELÉS:',
+            'Laparoszkópos Appendectomia (Lap-Appy) a GOLD STANDARD terápia mind szövődménymentes, mind szövődményes appendicitisben.',
+            'KONZERVATÍV (NEM-OPERATÍV) KEZELÉS (CODA & APPAC vizsgálatok):',
+            'Kiválasztott, szövődménymentes appendicitisben (faecolith/appendicolith NÉLKÜL) az IV antibiotikum kezelés elfogadható alternatíva lehet a beteggel való megbeszélés alapján, de 1-5 éven belül 25-30%-os kiújulási kockázattal kell számolni.',
+            'ANTIBIOTIKUM PROFILAXIS ÉS TERÁPIA:',
+            'Egyszeri adag preoperatív antibiotikum profilaxis (pl. Cefazolin + Metronidazol vagy Ceftriaxon + Metronidazol) mindenkinek javasolt.',
+            'Szövődménymentes műtét után postoperatív antibiotikum NEM SZÜKSÉGES! Szövődményes (perforált/gangraenás) esetben 3-5 nap IV antibiotikum javasolt.'
+          ],
+          first_line: [
+            'Laparoszkópos Appendectomia + Preoperatív profilaxis (Ceftriaxon 2g IV + Metronidazol 500mg IV).'
+          ],
+          supportive: ['Fájdalomcsillapítás, folyadékpótlás.'],
+          prevention: ['Nincs']
+        },
+        prognosis: {
+          mortality: '<0.5% szövődménymentes esetben, perforáció es idős kor esetén 2-5%',
+          prognostic_scores: ['Alvarado Score', 'AIR (Appendicitis Inflammatory Response) Score'],
+          factors: 'Készültségi idő es korai műtét megelőzi a perforációt és a szeptikus szövődményeket.'
+        }
+      }
+    ]
   }
 };
 

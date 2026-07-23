@@ -1370,73 +1370,76 @@ Object.assign(window.diseases, {
           {
             id: 'upper_respiratory_infections',
             name: 'Felsőlégúti fertőzések (közönséges nátha)',
-            pathogen: { type: 'Vírus', name: '<i>Rhinovirus</i> (leggyakoribb), <i>Coronavirus, Adenovirus, Influenza</i>', gram: 'RNS vírusok', shape: 'változó' },
+            pathogen: { type: 'Vírus', name: '<i>Human Rhinovirus</i> (>50%), <i>Human Coronavirus</i> (229E, NL63, OC43, HKU1), <i>Adenovirus, Parainfluenza, RSV, Enterovirus, Metapneumovirus</i>', gram: 'RNS/DNS vírusok', shape: 'változó' },
             epidemiology: {
-              incidence: 'Leggyakoribb fertőzés, felnőttek 2-3x/év, gyermekek 6-8x/év',
-              risk_groups: ['Gyermekek', 'Idősek', 'Immunszupprimáltak'],
-              seasonality: 'Egész évben, csúcs ősz-tél',
-              transmission: 'Cseppfertőzés, kontakt, fomit'
+              incidence: 'Leggyakoribb humán fertőzés; felnőttek 2-4x/év, gyermekek 6-8x/év',
+              risk_groups: ['Gyermekek (bölcsőde/óvoda)', 'Idősek', 'Krónikus tüdőbetegek', 'Immunszupprimáltak'],
+              seasonality: 'Egész évben, kifejezett őszi-téli és tavaszi csúcsok',
+              transmission: 'Aeroszol/cseppfertőzés, direkt kéz-kontaktus, fomitok'
             },
             pathomechanism: {
               steps: [
-                'A vírusok a felső légutak nyálkahártyáján keresztül jutnak be, ahol a hámsejtekben szaporodnak.',
-                'A fertőzés lokális gyulladást, ödémát és fokozott váladéktermelést vált ki.',
-                'Ez okozza a jellegzetes tüneteket: orrfolyás, orrdugulás, torokfájás.'
+                'A vírusok az orr- és garatnyálkahártya cilliatív hámsejtjeihez kötődnek (pl. ICAM-1 receptor rhinovirusoknál).',
+                'A sejtbejutás után a replikáció gyulladásos mediátorok (bradykinin, IL-1, IL-6, IL-8, TNF-alfa) és hisztamin felszabadulását váltja ki.',
+                'Vascularis hyperaemia, mucosa-ödéma, plazma exsudatio és fokozott mucin-termelés alakul ki (orrfolyás, orrdugulás, tüsszögés).'
               ],
-              virulence_factors: ['Receptor kötés (ICAM-1 rhinovirusnál)', 'Immunmoduláció']
+              virulence_factors: ['Receptor-specifikus kötődés (ICAM-1, LDL-R)', 'Interferon válasz gátlása', 'Magas antigén variabilitás (>100 rhinovirus szerotípus)']
             },
             clinical: {
-              incubation: '1-3 nap',
-              onset: 'Hirtelen',
+              incubation: '1-3 nap (átlag 24-48 óra)',
+              onset: 'Hirtelen vagy fokozatos',
               symptoms: [
-                { name: 'Tipikus tünetek', description: 'Jellemzően orrfolyás, orrdugulás, tüsszögés, torokfájás és száraz köhögés. A láz általában enyhe vagy hiányzik. A tünetek általában 7-10 nap alatt maguktól gyógyulnak.', severity: 'mild' }
+                { name: 'Garat- és orrtünetek', description: 'Kezdeti torokkaparás/torokfájás, melyet hamar bőséges savós orrfolyás (rhinorrhoea), orrdugulás és tüsszögés követ.', severity: 'mild' },
+                { name: 'Köhögés és szisztémás tünetek', description: 'Száraz köhögés, enyhe hőemelkedés (gyermekekben láz lehet), fejfájás, rossz közérzet. A váladék 3-4. napon mucoid/purulenssé válhat baktérium hiányában is!', severity: 'mild' }
               ],
               physical_exam: [
-                'Orrnyálkahártya hyperaemia, ödéma',
-                'Pharynx enyhe vörösség',
-                'Cervicalis lymphadenopathia',
-                'Normál hallgatózási lelet'
+                'Orrnyálkahártya vérbőség (hyperaemia) és ödéma',
+                'Orrjáratokban vizes vagy nyákos váladék',
+                'Garat hátsó falán enyhe hyperaemia',
+                'Tapintható, mérsékelten érzékeny cervicalis nyirokcsomók',
+                'Tiszta tüdőhallgatózási lelet'
               ],
-              complications: ['Sinusitis', 'Otitis media', 'Bronchitis', 'Pneumonia (ritka)']
+              complications: ['Akut rhinosinusitis (ABRS)', 'Otitis media acuta (különösen gyermekeknél)', 'Asthma / COPD exacerbáció', 'Bakteriális felülfertőződés']
             },
             diagnostics: {
               laboratory: [
-                { test: 'Nincs szükség', finding: '-', interpretation: 'Klinikai diagnózis' }
+                { test: 'Rutin labor', finding: 'Nem szükséges', interpretation: 'Szigorúan klinikai diagnózis; normál CRP és fvs-szám' }
               ],
               imaging: [
-                { test: 'Nincs szükség', finding: '-', interpretation: 'Klinikai diagnózis' }
+                { test: 'Képalkotás', finding: 'Nem indokolt', interpretation: 'Komplikációmentes esetben ellenjavallt' }
               ],
               microbiology: [
-                { test: 'Vírus PCR', finding: 'Etiológia', significance: 'Ha szükséges (pl. járvány)' }
+                { test: 'Multiplex légúti PCR panel', finding: 'Vírus RNS/DNS kimutatás', significance: 'Kizárólag epidemiológiai, nosocomialis vagy immunszupprimált indikációval' }
               ]
             },
             differential: [
-              { disease: 'Allergiás rhinitis', distinguishing: 'Pruritus, szezonalitás, eosinophilia' },
-              { disease: 'Bakteriális sinusitis', distinguishing: 'Tartós tünetek, láz, fájdalom' },
-              { disease: 'Influenza', distinguishing: 'Magas láz, myalgia, prostráció' }
+              { disease: 'Allergiás rhinitis', distinguishing: 'Kifejezett orr- és szemviszketés, tüsszögési rohamok, láz hiánya, eosinophilia' },
+              { disease: 'Akut bakteriális rhinosinusitis (ABRS)', distinguishing: 'Tünetek >10 napig tartanak, vagy "double sickening" (kettős rosszabbodás), magas láz, arcnyomás' },
+              { disease: 'Influenza / COVID-19', distinguishing: 'Hirtelen kezdet, magas láz (>38.5°C), kifejezett myalgia, prostratio, szaglászavar' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Szupportív', dose: '-', duration: '7-10 nap', note: 'Pihenés, folyadék, tüneti kezelés' },
-                  { drug: 'Dekongesztáns', dose: 'Oxymetazolin orr', duration: '3-5 nap', note: 'Ne hosszabb ideig!' },
-                  { drug: 'Antihisztamin', dose: 'Loratadin', duration: '', note: 'Ha allergia gyanú' }
+                  { drug: 'Szupportív kezelés', dose: '-', duration: '5-7 nap', note: 'Bőséges folyadék, pihenés. ANTIBIOTIKUM SZIGORÚAN KONTRAINDIKÁLT!' },
+                  { drug: 'Lokális orrdekongesztáns', dose: 'Oxymetazolin / Xylometazolin orrspray', duration: 'MAX 3-5 NAP!', note: 'Rhinitis medicamentosa megelőzése miatt 5 napnál tovább nem adható' },
+                  { drug: 'Intranasalis sóoldat', dose: 'Isotonias / Hypertonias tengervíz', duration: 'Szükség szerint', note: 'Mucociliaris clearance javítására' },
+                  { drug: 'Analgetikum / Antipyretikum', dose: 'Paracetamol 500-1000mg PO / Ibuprofen 400mg PO', duration: 'Tüneti', note: 'Fájdalom és láz csökkentésére' }
                 ],
                 inpatient: [
-                  { drug: 'Nincs szükség', dose: '-', duration: '-', note: 'Ritka' }
+                  { drug: 'Nincs szükség', dose: '-', duration: '-', note: 'Szigorúan ambuláns kórkép' }
                 ],
                 icu: [
-                  { drug: 'Nincs szükség', dose: '-', duration: '-', note: 'Ritka' }
+                  { drug: 'Nincs szükség', dose: '-', duration: '-', note: '-' }
                 ]
               },
-              targeted: 'Nincs specifikus antivirális',
-              supportive: ['Pihenés', 'Folyadékpótlás', 'Lázcsillapítás'],
-              prevention: ['Kézhigiéné', 'Maszkviselés járvány idején']
+              targeted: 'Nincs specifikus antivirális terápia standard náthára.',
+              supportive: ['Folyadékpótlás', 'Párásítás', 'Orrmosás isotonias sóoldattal', 'Analgetikumok'],
+              prevention: ['Rendszeres, alapos kézhigiéné (szappanos kézmosás / alkoholos kézfertőtlenítés)', 'Etiológiai szellőztetés', 'Maszkviselés szezonalitás idején', 'Megjegyzés: A több mint 100 rhinovirus szerotípus miatt specifikus védőoltás nem áll rendelkezésre.']
             },
             prognosis: {
-              mortality: 'Nagyon alacsony',
+              mortality: '<0.01% (kiváló)',
               prognostic_scores: ['Nincs'],
-              factors: 'Immunstátusz'
+              factors: 'Mögöttes krónikus tüdőbetegség (COPD, asthma)'
             },
             gallery: [
               {
@@ -1448,155 +1451,178 @@ Object.assign(window.diseases, {
           },
           {
             id: 'laryngitis',
-            name: 'Laryngitis',
-            pathogen: { type: 'Vírus/baktérium', name: '<i>Rhinovirus, Parainfluenza, Adenovirus</i>; bakteriális esetben <i>Streptococcus pyogenes, Streptococcus pneumoniae, Haemophilus influenzae</i>', gram: 'Vírus/baktérium', shape: 'változó' },
+            name: 'Laryngitis és Croup (Laryngotracheobronchitis)',
+            pathogen: { type: 'Vírus/Baktérium', name: '<i>Human Parainfluenza Virus</i> 1-3 (croup 75%-a), <i>Rhinovirus, Adenovirus, RSV, Influenza A/B, SARS-CoV-2</i>; ritkán bakteriális felülfertőződés: <i>Staphylococcus aureus, Streptococcus pyogenes, Streptococcus pneumoniae</i>', gram: 'Vírus/baktérium', shape: 'változó' },
             epidemiology: {
-              incidence: 'Gyakori, különösen hideg évszakban',
-              risk_groups: ['Gyermekek', 'Énekesek', 'Dohányzók', 'Immunszupprimáltak'],
-              seasonality: 'Ősz-tél',
-              transmission: 'Cseppfertőzés, kontakt'
+              incidence: 'Igen gyakori; gyermekeknél 6 hó - 3 év között a leggyakoribb felsőlégúti obstrukció',
+              risk_groups: ['Kisgyermekek (6 hó - 3 év)', 'Énekesek, szónokok (vokális túlterhelés)', 'Dohányzók', 'Immunszupprimáltak'],
+              seasonality: 'Ősz-tél (Parainfluenza csúcsok)',
+              transmission: 'Cseppfertőzés, direkt kontaktus'
             },
             pathomechanism: {
               steps: [
-                'A felsőlégúti vírusok vagy baktériumok gyulladást váltanak ki a gége nyálkahártyájában.',
-                'A gyulladás ödémát okoz, ami a hangképzés zavarához vezet.',
-                'Súlyos esetben a subglotticus rész ödémája légúti szűkülethez és stridorhoz vezethet.'
+                'A vírusok a nasopharynx hámját fertőzve leterjednek a gége és a trachea nyálkahártyájára.',
+                'A subglotticus spatium szöveti ödémája, vérbősége és a mucinosus exsudatum a légutak beszűkülését eredményezi.',
+                'A subglotticus átmérő 1 mm-es szűkülete kisgyermekben 50%-os keresztmetszet-csökkenést és 16-szoros légúti ellenállást okoz, ami belégzési stridorhoz és ugató köhögéshez vezet.'
               ],
-              virulence_factors: ['Lokális gyulladás', 'Mucosal barrier sérülés', 'Baktériumok esetén toxinok']
+              virulence_factors: ['Lokális mucosa invázió', 'Súlyos subglotticus spatium ödéma', 'Bakteriális szuperinfekció esetén exotoxinok']
             },
             clinical: {
-              incubation: '1-3 nap',
-              onset: 'Fokozatos',
+              incubation: '1-4 nap',
+              onset: 'Fokozatosan kezdődő prodromalis nátha, majd éjszaka hirtelen súlyosbodó stridor',
               symptoms: [
-                { name: 'Hangzavar', description: 'Rekedtség, rekedt hang, néha teljes hangkiesés.', severity: 'moderate' },
-                { name: 'Torok- és köhögési tünetek', description: 'Torokfájás, száraz köhögés, felsőlégúti tünetek.', severity: 'moderate' },
-                { name: 'Légzési tünetek', description: 'Súlyos esetben stridor és nehézlégzés.', severity: 'severe' }
+                { name: 'Ugató köhögés és rekedtség', description: 'Jellegzetes "fóka-ugatásszerű" (barking) köhögés, rekedtség vagy teljes aphonia.', severity: 'moderate' },
+                { name: 'Belégzési stridor és dyspnoe', description: 'Belégzési (inspiratorikus) stridor, mely fizikai terhelésre/sírásra, majd súlyos esetben nyugalomban is megjelenik. Bordaközi és jugularis behúzódások (retractio).', severity: 'severe' }
               ],
               physical_exam: [
-                'Rekedtség',
-                'A gége nyálkahártyájának hyperaemiája',
-                'Stridor, ha súlyos',
-                'Láz lehet'
+                'Rekedtséggel járó beszéd/sírás',
+                'Inspiratorikus stridor',
+                'Subcostalis, intercostalis és jugularis retractiók',
+                'Tachypnoe, tachycardia',
+                'Pharynx/epiglottis mérsékelten hyperaemiás (az epiglottis NEM duzzadt, ellenben az epiglottitisszel!)'
               ],
-              complications: ['Krónikus laryngitis', 'Légúti szűkület', 'Másodlagos bakteriális fertőzés']
+              complications: ['Bakteriális tracheitis', 'Teljes légúti obstrukció', 'Hypoxia és légzési kimerülés', 'Otitis media']
             },
             diagnostics: {
               laboratory: [
-                { test:'garatleoltás', finding: 'Baktériumok esetén', interpretation: 'Bakteriális etiológiához' }
+                { test: 'Laborvizsgálatok', finding: 'Rutinból nem szükségesek', interpretation: 'Stressz miatti sírás rontja a légúti szűkületet! Csak súlyos esetben' }
               ],
               imaging: [
-                { modality: 'Nincs szükség', finding: '-', interpretation: 'Klinikai diagnózis' }
+                { modality: 'Anteroposterior nyaki Rtg', finding: 'A.p. felvételen "Templomtorony-jel" (Steeple sign)', significance: 'A subglotticus légút kúpszerű beszűkülése (nem rutin, klinikai diagnózis!)' }
               ],
               microbiology: [
-                { test: 'PCR / tenyésztés', finding: 'Etiológia', significance: 'Ha a kezelés irányítása szükséges' }
+                { test: 'Légúti PCR panel', finding: 'Parainfluenza / RSV / Influenza RNS', significance: 'Differenciáldiagnosztika súlyos lefolyás esetén' }
               ]
             },
+            calculators: [
+              {
+                name: 'Westley Croup Score - Croup Súlyossági Skála',
+                items: [
+                  { label: 'Inspiratorikus Stridor: Nincs (0), Izgatottságra (1), Nyugalomban (2)', points: 1 },
+                  { label: 'Behúzódás (Retractio): Nincs (0), Enyhe (1), Mérsékelt (2), Súlyos (3)', points: 1 },
+                  { label: 'Belégzési Hang (Ventiláció): Normális (0), Csökkent (1), Súlyosan csökkent (2)', points: 1 },
+                  { label: 'Cyanosis: Nincs (0), Izgatottságra (4), Nyugalomban (5)', points: 0 },
+                  { label: 'Tudatállapot: Normális (0), Desorientált / Kimerült (5)', points: 0 }
+                ],
+                interpretation: [
+                  { min: 0, max: 2, text: 'Enyhe Croup: Otthoni tüneti kezelés, egyszeri orális Dexamethason.' },
+                  { min: 3, max: 5, text: 'Mérsékelt Croup: Dexamethason + Inhalációs Epinefrin megfontolandó, megfigyelés.' },
+                  { min: 6, max: 17, text: 'Súlyos Croup / Imminens légzési elégtelenség: Dexamethason IV/PO + Inhalációs Epinefrin, Sürgősségi / ICU felvétel.' }
+                ]
+              }
+            ],
             differential: [
-              { disease: 'Epiglottitis', distinguishing: 'Akut légzési distress, jelentős nyelési nehezítettség' },
-              { disease: 'Légúti allergia', distinguishing: 'Pruritus, csalánkiütés, allergiás anamnézis' },
-              { disease: 'Vokális túlterhelés', distinguishing: 'Nincs fertőzés, normál hőmérséklet' }
+              { disease: 'Akut Epiglottitis', distinguishing: 'Hirtelen magas láz, nyáladzás (drooling), tripod helyzet, NINCS ugató köhögés, toxikus küllem' },
+              { disease: 'Bakteriális Tracheitis', distinguishing: 'Magas láz, purulens trachealis váladék, nem reagál nebulizált epinefrinre' },
+              { disease: 'Idegentest aspiráció', distinguishing: 'Hirtelen fulladás, apnoés epizód játék/evés közben, asszimmetrikus tüdőlelet' },
+              { disease: 'Anaphylaxis / Angioedema', distinguishing: 'Urticaria, az ajkak/nyelv duzzanata, allergiás trigger' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Tüneti kezelés', dose: '-', duration: '3-7 nap', note: 'Pihenés, hangpihentetés, párás levegő' },
-                  { drug: 'Antibiotikum', dose: 'Amoxicillin/clavulanate', duration: '5-7 nap', note: 'Bakteriális gyanú esetén' }
+                  { drug: 'Dexamethason', dose: '0.15 - 0.6 mg/kg PO egyszeri dózis (max 16 mg)', duration: 'Egyszeri adag', note: 'Standard I. vonalbeli kezelés MINDEN croupos gyermeknek (AAP/NICE irányelvek)!' },
+                  { drug: 'Prednisolon orális', dose: '1-2 mg/kg PO egyszeri adag', duration: 'Egyszeri adag', note: 'Alternatíva, ha a Dexamethason nem elérhető' }
                 ],
                 inpatient: [
-                  { drug: 'IV antibiotikum', dose: 'Ampicillin/sulbactam vagy ceftriaxon', duration: '3-5 nap', note: 'Súlyos vagy légúti tünetekkel' }
+                  { drug: 'Inhalációs Epinefrin (Adrenalin)', dose: '0.5 mL/kg (max 5 mL) 1:1000 epinefrin párásítva', duration: 'Szükség szerint ismételhető 20 percenként', note: 'Súlyos stridor / retrakció esetén. Legalább 2-4 órás klinikai megfigyelés szükséges az "ebbe-rebound" hatás miatt!' },
+                  { drug: 'Dexamethason IV / IM', dose: '0.6 mg/kg IV/IM', duration: 'Egyszeri adag', note: 'Ha orálisan nem tolerálja hányás miatt' }
                 ],
                 icu: [
-                  { drug: 'Légútbiztosítás', dose: '-', duration: '-', note: 'Stridor/obstrukció esetén' }
+                  { drug: 'Heliox (Hélium-Oxigén) / Intubáció', dose: 'Párásított O2', duration: '-', note: 'Endotrachealis intubáció 0.5-1.0 számmal kisebb tubussal a subglotticus spatium szűkülete miatt' }
                 ]
               },
-              targeted: 'Bakteriális esetben célzott antibiotikum a tenyésztés alapján',
-              supportive: ['Pihenés', 'Hangpihentetés', 'Folyadékpótlás', 'Oxigén, ha szükséges'],
-              prevention: ['Kézhigiéné', 'Dohányzás elhagyása', 'Fertőzések kezelése']
+              targeted: 'A rutin antibiotikum kezelés KONTRAINDIKÁLT virális laryngitisben! Csak igazolt bakteriális tracheitis esetén indokolt (Ceftriaxon + Vancomycin).',
+              supportive: ['Párásított hideg levegő / oxigén', 'Lázcsillapítás (Paracetamol, Ibuprofen)', 'Csendes, nyugodt környezet (a gyermek megnyugtatása kulcsfontosságú)'],
+              prevention: ['Kézhigiéné', 'Influenza és SARS-CoV-2 elleni védőoltás', 'Dohányzásmentes környezet biztosítása']
             },
             prognosis: {
-              mortality: 'Nagyon alacsony',
-              prognostic_scores: ['Nincs'],
-              factors: 'Kor, dohányzás, ismétlődő fertőzések'
+              mortality: '<0.1% (időben alkalmazott steroid/epinefrin mellett kiváló)',
+              prognostic_scores: ['Westley Croup Score'],
+              factors: 'Életkor (<1 év magasabb rizikó), subglotticus stenosis anamnézise'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Larynx.jpg',
-                caption: 'A gége nyálkahártyájának gyulladása.',
+                caption: 'A gége és subglotticus spatium nyálkahártyájának gyulladása.',
                 type: 'Anatómia'
               }
             ]
           },
           {
             id: 'epiglottitis',
-            name: 'Epiglottitis',
-            pathogen: { type: 'Baktérium', name: '<i>Haemophilus influenzae</i> típus b (leggyakoribb), <i>Streptococcus pyogenes, Streptococcus pneumoniae</i>', gram: 'Gram-negatív/pozitív', shape: 'rúd/coccus' },
+            name: 'Akut Epiglottitis (Supraglottitis)',
+            pathogen: { type: 'Baktérium', name: '<i>Haemophilus influenzae</i> b típus (Hib, korábban 90%, gyermekeknél a vakcináció óta drasztikusan csökkent). Oltatlanoknál/felnőtteknél: <i>Streptococcus pneumoniae, Streptococcus pyogenes (GAS), Staphylococcus aureus</i> (beleértve MRSA)', gram: 'Gram-negatív / Gram-pozitív', shape: 'coccapálca / coccus' },
             epidemiology: {
-              incidence: 'Ritka, de életveszélyes',
-              risk_groups: ['Gyermekek', 'Nem immunizáltak', 'Immunszupprimáltak'],
-              seasonality: 'Egész évben',
-              transmission: 'Cseppfertőzés'
+              incidence: 'Ritka, de fulmináns, ÉLETVESZÉLYES airway sürgősség!',
+              risk_groups: ['Hib ellen NEM oltott gyermekek', 'Felnőttek (átlagéletkor 40-50 év)', 'Diabéteszesek', 'Immunszupprimáltak'],
+              seasonality: 'Egész évben előfordulhat',
+              transmission: 'Cseppfertőzés, nasopharyngealis kolonisáció'
             },
             pathomechanism: {
               steps: [
-                'A kórokozó a garat nyálkahártyáját fertőzi, és gyorsan súlyos gyulladást okoz az epiglottisban.',
-                'Az ödéma a felső légút gyors bezáródásához vezethet.',
-                'A beteg súlyos dyspnoe, stridor és nyelési nehezítettség miatt sürgős ellátást igényel.'
+                'A baktériumok a supraglotticus képleteket (epiglottis, aryepiglotticus redők, arytenoid porcok) fertőzik.',
+                'Gyorsan progrediáló, fulmináns gyulladásos ödéma és cellulitis alakul ki a laza submucosus kötőszövetben.',
+                'Órák alatt a duzzadt epiglottis mechanikusan elzárja a rima glottidist, ami komplett légúti obstrukcióhoz, asphyxiához és leálláshoz vezet.'
               ],
-              virulence_factors: ['Tok', 'Adhezinek', 'Toxinok']
+              virulence_factors: ['Hib B-típusú antifagocita tok (PRP - polyribosylribitol phosphate)', 'Endotoxinok', 'Invazív szöveti destrukció']
             },
             clinical: {
-              incubation: 'Számos óra-1 nap',
-              onset: 'Hirtelen',
+              incubation: 'Néhány órától 1-2 napig',
+              onset: 'Hirtelen, fulmináns progresszió (órák alatt drámai lefolyás!)',
               symptoms: [
-                { name: 'Akut légzési distress', description: 'Hirtelen kialakuló légszomj, stridor, nyelési nehezítettség, nyáladzás.', severity: 'severe' },
-                { name: 'Láz és általános tünetek', description: 'Láz, hidegrázás, általános rossz közérzet.', severity: 'severe' }
+                { name: 'Klasszikus 4 "D" tünet', description: '1. Dysphagia (súlyos nyelési nehézség), 2. Dysphonia (mormogó "forró krumpli" hang), 3. Drooling (folyó nyál a nyelési képtelenség miatt), 4. Distress (kifejezett légzési elégtelenség).', severity: 'severe' },
+                { name: 'Testtartás és magas láz', description: 'Jellegzetes "Tripod" pozíció: a beteg előredőlve ülést preferál, fejét hátrahajtja, állát előretolja. Magas láz (>39°C), hiányzik az ugató köhögés!', severity: 'severe' }
               ],
               physical_exam: [
-                'Tripod helyzet',
-                'Stridor',
-                'Nyelési nehezítés',
-                'Tachypnoe'
+                'Tripod üléstartás, fokozott szorongás',
+                'Drooling (nyálcsorgás)',
+                'Inspiratorikus stridor (már a kimerülés jelét mutatja!)',
+                'Toxikus, lázas küllem',
+                'FIGYELMEZTETÉS: A garat spatulás vizsgálata SZIGORÚAN TILOS, mert reflexiós komplett laryngospasmt és azzonali légúti elzáródást vált ki!'
               ],
-              complications: ['Légút-obstrukció', 'Szepszis', 'Légzési elégtelenség']
+              complications: ['Komplett légúti obstrukció és asphyxia', 'Szepszis, szeptikus shock', 'Epiglottis tályog', 'Meningitis, pneumonia (Hib bacteraemia miatt)']
             },
             diagnostics: {
               laboratory: [
-                { test: 'Hemokultúra', finding: 'Pozitív lehet', interpretation: 'Súlyos bakteriális fertőzés' }
+                { test: 'Hemokultúra (2 szett)', finding: 'Pozitív Hib / S. pneumoniae / GAS', interpretation: 'A légút biztosítása UTÁN veendő levételre!' },
+                { test: 'Vérkép / CRP / PCT', finding: 'Kifejezett leukocytosis balra toltággal, magas CRP', interpretation: 'Súlyos bakteriális fertőzés' }
               ],
               imaging: [
-                { modality: 'Laryngoscopy / lateral neck X-ray', finding: 'Epiglottis duzzanata', significance: 'Diagnózis' }
+                { modality: 'Nyaki lateralis Rtg (csak ha stabil!)', finding: 'Lágyrész felvételen "Hüvelykujj-jel" (Thumbprint sign)', significance: 'Az epiglottis kifejezett gömbölyű duzzanata (csak intubációs készenlét mellett végezhető!)' }
               ],
               microbiology: [
-                { test: 'Garat / hemokultúra', finding: 'Kórokozó', significance: 'Terápia irányítása' }
+                { test: 'Epiglottis/garat tenyésztés', finding: 'Kórokozó azonosítás', significance: 'Kizárólag a légútbiztosítást követően a műtőben vehető le!' }
               ]
             },
             differential: [
-              { disease: 'Laryngitis', distinguishing: 'Kevésbé súlyos, nincs jelentős légúti szűkület' },
-              { disease: 'Peritonsillaris tályog', distinguishing: 'Fájdalmas torok, uvula eltolódás, garatfekély' },
-              { disease: 'Anaphylaxis', distinguishing: 'Urticaria, angioedema, bronchoobstrukció' }
+              { disease: 'Croup (Laryngotracheobronchitis)', distinguishing: 'Lassabb kezdet, ugató köhögés jelen van, NINCS nyáladzás (drooling), nincs tripod pozíció' },
+              { disease: 'Peritonsillaris / Retropharyngealis tályog', distinguishing: 'Uvula deviatio, trismus (szájzár), nyaki mozgáskorlátozottság, CT-vel elkülöníthető' },
+              { disease: 'Idegentest aspiráció', distinguishing: 'Láz hiánya, hirtelen tünetkezdés evés/játék közben' }
             ],
             therapy: {
               empirical: {
                 inpatient: [
-                  { drug: 'III. generációs cefalosporin + vancomycin', dose: 'IV', duration: '7-10 nap', note: 'Sürgős kórházi kezelés' }
+                  { drug: 'SÜRGŐS LÉGÚTBIZTOSÍTÁS', dose: 'Műtői / ICU körülmények között', duration: 'Azonnal', note: 'A legfőbb prioritás! Döntően intubáció fül-orr-gégész és aneszteziológus jelenlétében, készenlétben cricothyroidotomiára/tracheostomiára!' },
+                  { drug: 'Ceftriaxon IV', dose: '2g IV naponta egyszer (gyermek: 50-100 mg/kg/nap)', duration: '7-10 nap', note: 'III. generációs cefalosporin első választásként' },
+                  { drug: 'Vancomycin / Clindamycin IV', dose: 'Vancomycin 15-20 mg/kg IV q8-12h', duration: '7-10 nap', note: 'MRSA / Gram-pozitív lefedettség kiegészítésére szepszis/súlyos állapot esetén' }
                 ],
                 icu: [
-                  { drug: 'Légútbiztosítás', dose: '-', duration: '-', note: 'Súlyos obstrukció esetén' }
+                  { drug: 'Cefotaxime IV', dose: '2g IV q6-8h', duration: '7-10 nap', note: 'Alternatív III. gen cefalosporin' }
                 ]
               },
-              targeted: 'Tenyésztés alapján célzott antibiotikum',
-              supportive: ['Sürgős airway management', 'IV antibiotikum', 'Oxigén'],
-              prevention: ['Hib-vakcináció', 'Kézhigiéné']
+              targeted: 'A tenyésztés és antibiotikum érzékenység alapján módosítandó.',
+              supportive: ['Sürgős műtői intubáció', 'Oxigénterápia', 'IV hidratáció', 'Szedáció intubáció alatt'],
+              prevention: ['Hib elleni védőoltás (Haemophilus influenzae b konjugált vakcina) a kötelező csecsemőkori oltási rendben (DTaP-IPV-Hib-HepB hexavalens oltás 2, 3, 4 és 18 hónapos korban).', 'Közeli kontaktok kemoprofilaxisa: Rifampicin 1x600mg PO 4 napig (amennyiben a háztartásban 4 év alatti oltatlan gyermek él).']
             },
             prognosis: {
-              mortality: 'Alacsony megfelelő kezelés esetén',
-              prognostic_scores: ['Nincs'],
-              factors: 'Késői kezelés, gyermekkor, immunhiány'
+              mortality: '<1% korai szakszerű intubáció és IV antibiotikum mellett; >10-20% kezeletlen vagy későn intubált esetben!',
+              prognostic_scores: ['Nincs specifikus'],
+              factors: 'Légútbiztosítás gyorsasága, életkor, sokk jelenléte'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Epiglottis.jpg',
-                caption: 'Az epiglottis akut gyulladása.',
+                caption: 'Az epiglottis és supraglotticus képletek fulmináns gyulladása.',
                 type: 'Anatómia'
               }
             ]
@@ -1604,497 +1630,599 @@ Object.assign(window.diseases, {
           {
             id: 'rsv_infection',
             name: 'RSV fertőzés (Respiratory Syncytial Virus)',
-            pathogen: { type: 'Vírus', name: '<i>Human Respiratory Syncytial Virus</i> (HRSV)', gram: 'RNS vírus, Pneumoviridae', shape: 'helikális' },
+            pathogen: { type: 'Vírus', name: '<i>Human Respiratory Syncytial Virus</i> (HRSV A és B törzsek)', gram: 'RNS vírus, Pneumoviridae', shape: 'helikális / pleiomorph' },
             epidemiology: {
-              incidence: 'Minden gyermek átesik 2 éves koráig, felnőttek reinfekció',
-              risk_groups: ['Csecsemők (<6 hó)', 'Idősek (>65 év)', 'Krónikus tüdőbetegek', 'Immunszupprimáltak'],
-              seasonality: 'Tél-tavasz',
-              transmission: 'Cseppfertőzés, kontakt (nagyon fertőző!)'
+              incidence: 'Igen magas; a gyermekek >95%-a átesik 2 éves koráig. Felnőttekben ismétlődő fertőzések, idősekben tüdőgyulladást okoz.',
+              risk_groups: ['Csecsemők (<6 hónap, különösen <2 hónap)', 'Koraszülöttek', 'Bronchopulmonalis dysplasiás (BPD) és congenitalis szívbeteg csecsemők', 'Idősek (≥60 év)', 'Krónikus tüdő- és szívbetegek', 'Immunszupprimáltak'],
+              seasonality: 'Szezonális epidémiák: késő ősz - tél - kora tavasz',
+              transmission: 'Cseppfertőzés, direkt kontaktus fertőzött váladékkal (fomitokon órákig életképes, rendkívül fertőző!)'
             },
             pathomechanism: {
               steps: [
-                'A vírus a légúti hámsejteket fertőzi, és a fúziós (F) fehérjéje segítségével a sejtek összeolvadását, ún. syncytiumok képződését idézi elő.',
-                'Ez a folyamat a hámsejtek pusztulásához, a csillók károsodásához és fokozott váladéktermeléshez vezet.',
-                'Csecsemőkben a kis légutak (bronchiolusok) a váladék és az ödéma miatt beszűkülnek, ami a jellegzetes bronchiolitis képét hozza létre (sípolás, nehézlégzés).'
+                'A vírus a nasopharynx és az alsó légutak csillós hámsejtjeihez kötődik az elülső G glikoproteinnel.',
+                'A fúziós (F) fehérje mediálja a vírus bejutását és a szomszédos sejtek összeolvadását, sokmagvú óriássejteket (syncytiumokat) képezve.',
+                'Hámsejt necrosis, ciliaris dysfunctio, fokozott nyákelválasztás és peribronchialis lymphocytás infiltráció alakul ki.',
+                'Csecsemők szűk bronchioluszaiban a nyálkadugók (plugging) és az ödéma szelepes obstrukciót, hyperinflációt és atelectasiát okoznak (akut bronchiolitis).'
               ],
-              virulence_factors: ['Fúziós fehérje (F)', 'G glikoprotein (adherencia)']
+              virulence_factors: ['Fúziós (F) fehérje (sejt-sejt fúzió)', 'G glikoprotein (adherencia)', 'SH protein (apoptosis gátlás)', 'NS1/NS2 (interferon válasz blokkolása)']
             },
             clinical: {
-              incubation: '4-6 nap',
-              onset: 'Fokozatos',
+              incubation: '2-8 nap (átlag 4-6 nap)',
+              onset: 'Fokozatos; felsőlégúti tünetekkel indul, majd a 3-5. napon terjedhet az alsó légutakra',
               symptoms: [
-                { name: 'Kezdeti tünetek', description: 'Enyhe, felső légúti tünetekkel (orrfolyás, hőemelkedés) kezdődik.', severity: 'mild' },
-                { name: 'Bronchiolitis (csecsemők)', description: 'A legsúlyosabb forma csecsemőkben. Nehézlégzés, sípoló légzés (wheezing), tachypnoe és bordaközi behúzódások jellemzik. Súlyos esetben apnoe (légzéskimaradás) és légzési elégtelenség is kialakulhat.', severity: 'severe' }
+                { name: 'Kezdeti / Felsőlégúti tünetek', description: 'Orrfolyás, orrdugulás, tüsszögés, mérsékelt láz/hőemelkedés, torkfájás.', severity: 'mild' },
+                { name: 'Akut Bronchiolitis (Csecsemőkben)', description: 'Tachypnoe, sípoló légzés (wheezing), elhúzódó expirium, kilégzési stridor, bordaközi/subcostalis behúzódások, orrszárnyi légzés. Csecsemőknél apnoe (légzéskimaradás) lehet az első tünet!', severity: 'severe' },
+                { name: 'Alsólégúti fertőzés (Idősekben)', description: 'Súlyos kisköri nehézlégzés, száraz/produktív köhögés, COPD/szívelégtelenség akut exacerbációja.', severity: 'severe' }
               ],
               physical_exam: [
-                'Tachypnoe, retractions',
-                'Wheezing, crepitatio',
-                'Apnoe csecsemőkön',
-                'Hypoxia'
+                'Tachypnoe, orrszárnyi légzés, intercostalis behúzódások',
+                'Tüdő felett diffúz kilégzési sípolás-búgás (wheezing) és apróhólyagú szörnyfejcsek (crepitatio)',
+                'Hypoxia (SpO2 csökkenés)',
+                'Csecsemőkben ingerlékenység, kiszáradás jelei (elégtelen szopás miatti dehidratáció)'
               ],
-              complications: ['Bronchiolitis obliterans', 'Pneumonia', 'Apnoe', 'Halál (csecsemőkön ritka, de lehetséges)']
+              complications: ['Apnoe (csecsemőknél)', 'Akut légzési elégtelenség', 'Szekunder bakteriális pneumonia', 'Otitis media acuta (50%-ban kíséri)', 'Későbbi gyermekkori rekurrens wheezing / asthma']
             },
             diagnostics: {
               laboratory: [
-                { test: 'Vérkép', finding: 'Normál vagy enyhe leukocytosis', interpretation: 'Nem specifikus' }
+                { test: 'Vérkép / CRP', finding: 'Általában normális fvs-szám és CRP', interpretation: 'Mérsékelten emelkedett; szuperinfekció kizárása' }
               ],
               imaging: [
-                { modality: 'Mellkas rtg', finding: 'Hyperinfláció, atelectasia', significance: 'Bronchiolitis' }
+                { modality: 'Mellkas röntgen', finding: 'Tüdő hyperinfláció (rekesz mélyen áll), szétszórt peribronchialis rajzolatfokozódás, foltos atelectasiák', significance: 'Bronchiolitis jellegzetessége' }
               ],
               microbiology: [
-                { test: 'Nasopharyngealis aspirátum PCR', finding: 'RSV RNS', significance: 'Gold standard' },
-                { test: 'Immunfluoreszcencia', finding: 'Antigén kimutatás', significance: 'Gyors' }
+                { test: 'RSV Rapid Antigén Teszt / RT-PCR (nasopharyngeal aspirate)', finding: 'RSV RNS / F-fehérje kimutatás', significance: 'Gold standard a pontos etiológiai diagnózishoz' }
               ]
             },
             differential: [
-              { disease: 'Bronchiolitis egyéb okok', distinguishing: 'Vírus PCR' },
-              { disease: 'Asthma', distinguishing: 'Anamnézis, atopia' },
-              { disease: 'Pertussis', distinguishing: 'Whoop, lymphocytosis' }
+              { disease: 'Egyéb virális bronchiolitis (Rhinovirus, Human Metapneumovirus, Bocavirus)', distinguishing: 'Klinikailag elkülöníthetetlen, légúti multiplex PCR panel alapján állapítható meg' },
+              { disease: 'Asthma bronchiale / Csecsemőkori wheezing', distinguishing: 'Atopiás anamnézis, rekurrens rohamok, bronchodilatatorra adott válasz' },
+              { disease: 'Pertussis (Szamárköhögés)', distinguishing: 'Húzó kilégzés/whoop, paroxysmalis köhögési rohamok, kifejezett lymphocytosis' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Szupportív', dose: '-', duration: '-', note: 'Oxigén, hidratáció' },
-                  { drug: 'Bronchodilatátor', dose: 'Salbutamol', duration: '', note: 'Ha wheezing' }
+                  { drug: 'Szupportív terápia', dose: '-', duration: '7-10 nap', note: 'Adekvát hidratáció, rendszeres orrszívás, lázcsillapítás' },
+                  { drug: 'Intranasalis sóoldat', dose: 'Isotonias / Hypertonias orrcsepp', duration: 'Szükség szerint', note: 'Orrjáratok átjárhatóságának biztosítására szoptatás/etetés előtt' }
                 ],
                 inpatient: [
-                  { drug: 'Ribavirin', dose: 'Aeroszol', duration: '3-5 nap', note: 'Súlyos esetben, immunszupprimáltak' }
+                  { drug: 'Oxigénterápia / HFNC', dose: 'Párásított O2 (SpO2 >90-92% cél)', duration: 'Klinikai kép szerint', note: 'High-Flow Nasal Cannula (HFNC) csökkenti a légzési munkát' },
+                  { drug: 'Parenteralis hidratáció', dose: 'IV infúzió / szonda táplálás', duration: 'Klinikai kép szerint', note: 'Aspiráció megelőzésére tachypnoés csecsemőben' }
                 ],
                 icu: [
-                  { drug: 'Lélegeztetés', dose: 'NIV vagy intubáció', duration: '', note: 'Apnoe esetén' }
+                  { drug: 'CPAP / Invazív gépi lélegeztetés', dose: '-', duration: '-', note: 'Súlyos apnoe, hypercapnia vagy kimerülés esetén' },
+                  { drug: 'Aeroszolizált Ribavirin', dose: 'Kizárólag immunszupprimáltaknál', duration: '3-7 nap', note: 'Súlyos tüdőtranszplantált / csontvelő-transzplantált betegekben megfontolandó' }
                 ]
               },
-              targeted: 'Palivizumab profilaxis magas rizikójú csecsemőknek',
-              supportive: ['Oxigén', 'Hydratáció', 'Fizioterápia'],
-               prevention: ['Kézhigiéné', 'Izoláció', 'Passzív immunizáció: Nirsevimab, Clesrovimab (hosszú hatásúak), Palivizumab', 'Vakcináció: Idősek (>60 év) és terhesek (anyai oltás)']
+              targeted: 'A rutin antibiotikumok, kortikoszteroidok és bronchodilatátorok KONTRAINDIKÁLTAK szövődménymentes RSV bronchiolitisben (AAP/ECDC irányelvek)!',
+              supportive: ['Párásított oxigén (HFNC)', 'Systemás hidratálás', 'Orrváladék leszívása', 'Lázcsillapítás'],
+              prevention: [
+                '1. PASSZÍV IMMUNIZÁCIÓ CSECSEMŐKBEN (Legújabb áttörések - ECDC / CDC / EMA):',
+                '- NIRSEVIMAB (Beyfortus): Hosszú hatású monoklonális antitest (IgG11). 1 single-dose injekció az EGÉSZ RSV SZEZONRA védelmet nyújt! Minden újszülöttnek és csecsemőnek javasolt az I. RSV szezonjában, valamint magas kockázatú gyermekeknek a II. szezonban.',
+                '- CLESROVIMAB (Ensevis): Új (2024-2025) single-dose hosszú hatású monoklonális antitest újszülötteknek és csecsemőknek.',
+                '- PALIVIZUMAB (Synagis): Havi adagolású monoklonális antitest koraszülötteknek és BPD/congenitalis szívbeteg csecsemőknek.',
+                '2. ANYAI OLTÁS (Maternal RSV vaccine):',
+                '- ABRYSVO (Pfizer bivalens rekombináns F-protein vakcina): A várandósok oltása a terhesség 32-36. hetében. Az átadott transplacentalis IgG antitestek élete első 6 hónapjában megvédik a csecsemőt a súlyos RSV fertőzéstől!',
+                '3. FELNŐTT ÉS IDŐSKORI RSV VAKCINÁK (≥60 év és magas kockázatú 50-59 évesek):',
+                '- AREXVY (GSK adjuvált rekombináns F-protein vakcina): Igen magas védőhatás időskorban.',
+                '- ABRYSVO (Pfizer rekombináns F-protein vakcina): Időseknek engedélyezve.',
+                '- mRESVIA (Moderna mRNS-1345 RSV vakcina): mRNS alapú vakcina felnőtteknek.'
+              ]
             },
             prognosis: {
-              mortality: 'Alacsony, de csecsemőkön magasabb rizikó',
-              prognostic_scores: ['Nincs'],
-              factors: 'Kor, komorbiditás'
+              mortality: '<0.5% kórházba került csecsemőknél fejlett országokban; magasabb elhúzódó apnoe, koraszülöttség vagy szívfejlődési rendellenesség esetén. Idősekben a mortalitás eléri az influenzáét (2-5%).',
+              prognostic_scores: ['Nincs univerzális'],
+              factors: 'Életkor (<8 hét), koraszülöttség (<35. hét), congenitalis vitium, immundeficit'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Respiratory_syncytial_virus_01.jpg',
-                caption: 'Respiratory syncytial vírus (RSV) mikroszkópos képe.',
+                caption: 'Respiratory syncytial vírus (RSV) elektronmikroszkópos felvételen.',
                 type: 'Virológia'
               }
             ]
           },
-                    {
+          {
             id: 'influenza',
-            name: 'Influenza',
-            pathogen: { type: 'Vírus', name: '<i>Influenza A/B/C vírus</i>', gram: 'RNS vírus, Orthomyxoviridae', shape: 'helikális' },
+            name: 'Influenza (Szezonális és Pandémiás)',
+            pathogen: { type: 'Vírus', name: '<i>Influenza A vírus</i> (pl. H1N1, H3N2 szubtípusok) és <i>Influenza B vírus</i> (Victoria vonal; a Yamagata vonal mára kiveszett)', gram: 'RNS vírus, Orthomyxoviridae (szegmentált, 8 RNS szegmens)', shape: 'helikális / gömb' },
             epidemiology: {
-              incidence: 'Szezonális járvány: 5-20% populáció/év, pandémiák: akár 50%',
-              risk_groups: ['65 év felettiek', '5 év alattiak', 'Várandósok', 'Krónikus betegek', 'Egészségügyi dolgozók', 'Immunszupprimáltak'],
-              seasonality: 'November-március (északi félteke)',
-              transmission: 'Cseppfertőzés, kontakt (1-2 méter), fomit'
+              incidence: 'Szezonális epidémiák során a népesség 5-20%-a fertőződik évente. Pandémiák alatt >30-50%.',
+              risk_groups: ['≥65 éves idősek', '5 év alatti gyermekek (<2 év különösen)', 'Várandósok', 'Krónikus betegek (szív-, tüdő-, vese-, máj-, metabolikus betegségek, elhízás BMI>40)', 'Immunszupprimáltak', 'Egészségügyi dolgozók'],
+              seasonality: 'Északi féltekén novembertől áprilisig (téli csúcs)',
+              transmission: 'Aeroszol és cseppfertőzés (1-2 méteren belül), direkt kontaktus és fomitok'
             },
             pathomechanism: {
               steps: [
-                'A vírus a hemagglutinin (HA) segítségével kötődik a légúti hámsejtekhez, majd bejut a sejtbe.',
-                'A sejten belül replikálódik, majd a neuraminidáz (NA) segítségével kiszabadul, hogy új sejteket fertőzzön meg.',
-                'A vírusfertőzés a légúti hámsejtek pusztulásához és a csillószőrök károsodásához vezet, ami rontja a légutak tisztulását.',
-                'A szervezet heves immunválasza (citokinvihar) okozza a szisztémás tüneteket, mint a láz és az izomfájdalom.'
+                'A vírus a felszíni Hemagglutinin (HA) fehérjéjével a légúti csillós hámsejtek sziálsav receptoraihoz kötődik és endocytosissal bejut.',
+                'A sejtben az RNS replikáció után az új virionok a Neuraminidáz (NA) enzim segítségével szabadulnak fel, elpusztítva a gazdasejtet.',
+                'A légúti hám károsodása rontja a mucociliaris clearance-t, utat nyitva a szekunder bakteriális felülfertőződésnek.',
+                'A heves gyulladásos citokin-válasz (IL-6, TNF-alfa, IFN-gamma "citokinvihar") felelős a súlyos szisztémás tünetekért (magas láz, myalgia, prostratio).'
               ],
-              virulence_factors: ['Hemagglutinin (H1-18)', 'Neuraminidáz (N1-11)', 'NS1 protein (IFN antagonista)', 'PB1-F2 (pro-apoptotikus)']
+              virulence_factors: ['Hemagglutinin (HA - sejtbejutás)', 'Neuraminidáz (NA - kiszabadulás)', 'Antigén Drift (pontmutációk -> epidémiák)', 'Antigén Shift (rekombináció -> pandémiák)', 'M2 protoncsatorna', 'NS1 protein (interferon antagonist)']
             },
             clinical: {
               incubation: '1-4 nap (átlag 2 nap)',
-              onset: 'Hirtelen',
+              onset: 'Azonnali, drámai, hirtelen kezdet ("mintha elütötte volna egy kamion")',
               symptoms: [
-                { name: 'Hirtelen kezdet', description: 'Magas láz (>38°C), hidegrázás, súlyos fejfájás és izomfájdalom (myalgia).', severity: 'severe' },
-                { name: 'Légúti tünetek', description: 'Jellemző a száraz, kínzó köhögés és a torokfájás.', severity: 'moderate' },
-                { name: 'Általános tünetek', description: 'Kifejezett gyengeség, elesettség és étvágytalanság.', severity: 'moderate' }
+                { name: 'Szisztémás tünetek', description: 'Hirtelen felszökő magas láz (38.5 - 40°C), hidegrázás, kifejezett izom- és ízületi fájdalom (myalgia, főleg hát és végtagok), súlyos fejfájás és extremitásig terjedő gyengeség/prostratio.', severity: 'severe' },
+                { name: 'Légúti tünetek', description: 'Száraz, kínzó, retrosternalis égő érzéssel járó köhögés, torokfájás, orrdugulás, orrfolyás.', severity: 'moderate' }
               ],
               physical_exam: [
-                'Lázas, elesett állapot',
-                'Conjunctivitis',
-                'Pharynx hyperaemia',
-                'Tiszta hallgatózási lelet (komplikálatlan)',
-                'Tachycardia'
+                'Lázas, elesett, kimerült beteg',
+                'Kipirult arc, conjunctivalis hyperaemia (szemvörösség)',
+                'Garat nyálkahártya kifejezetten belövellt',
+                'Tiszta tüdőhallgatózási lelet szövődménymentes esetben',
+                'Tachycardia, mialgiás izomérzékenység'
               ],
-              complications: ['Primer influenza pneumonia', 'Szekunder bakteriális pneumonia', 'Myocarditis', 'Encephalitis', 'Reye-szindróma (aspirin!)', 'Myositis']
+              complications: [
+                'Primer influenza pneumonia (akut ARDS-hez vezető virális tüdőgyulladás)',
+                'Szekunder bakteriális pneumonia (leggyakrabban <i>Staphylococcus aureus</i> - beleértve MRSA - vagy <i>Streptococcus pneumoniae</i>; jellegzetes "kettős hullám" lefolyás!)',
+                'Myocarditis / Pericarditis',
+                'Encephalitis / Asepticus meningitis',
+                'Myositis / Rhabdomyolysis',
+                'Reye-szindróma (lázas gyermekek Aspirin kezelése esetén - KONTRAINDIKÁLT!)'
+              ]
             },
             diagnostics: {
               laboratory: [
-                { test: 'Vérkép', finding: 'Leukopenia vagy normál, lymphopenia', interpretation: 'Vírusinfekció jellegzetes' },
-                { test: 'CRP', finding: 'Mérsékelten emelkedett', interpretation: 'Alacsonyabb mint bakteriálisnál' },
-                { test: 'PCT', finding: 'Normális (<0.25)', interpretation: 'Bakteriális szuperinfekció kizárása' }
+                { test: 'Vérkép', finding: 'Leukopenia lymphopeniával vagy normál fvs-szám', interpretation: 'A kifejezett leukocytosis balra toltággal szekunder bakteriális fertőzésre utal' },
+                { test: 'Procalcitonin (PCT)', finding: 'Normális (<0.25 ug/L)', interpretation: 'Emelkedett PCT bakteriális szuperinfekciót jelez!' },
+                { test: 'CRP', finding: 'Mérsékelten emelkedett (20-60 mg/L)', interpretation: 'Magas érték (>100 mg/L) szövődményre utal' }
               ],
               imaging: [
-                { modality: 'Mellkas rtg', finding: 'Normális vagy interstitialis rajzolat', significance: 'Pneumonia kizárása' },
-                { modality: 'CT', finding: 'Ground-glass opacitások', significance: 'Vírus pneumonia' }
+                { modality: 'Mellkas röntgen', finding: 'Szövődménymentesben normális; primer pneumoniánál bilaterális interstitialis/reticulonodularis rajzolat; szekunder pneumoniánál lobaris konszolidáció', significance: 'Pneumonia igazolására' }
               ],
               microbiology: [
-                { test: 'Rapid antigén teszt (RAT)', finding: 'Influenza A/B', significance: 'Gyors (15 perc), alacsony szenzitivitás (50-70%)' },
-                { test: 'RT-PCR', finding: 'Vírus RNS kimutatás', significance: 'Gold standard, szubtipizálás' },
-                { test: 'Vírus tenyésztés', finding: 'Izolálás', significance: 'Epidemiológiai/surveillance' }
+                { test: 'RT-PCR (Nasopharyngeal swab)', finding: 'Influenza A / B RNS kimutatás és szubtipizálás', significance: 'Gold standard, legmagasabb szenzitivitás és specifitás' },
+                { test: 'Gyors Antigén Teszt (RAT)', finding: 'Influenza A/B nucleoprotein', significance: 'Gyors (15 perc), de alacsonyabb szenzitivitás (50-70%) - a negatív eredmény nem zárja ki az influenzát!' }
               ]
             },
             differential: [
-              { disease: 'COVID-19', distinguishing: 'Szaglás/ízlelés vesztés, PCR' },
-              { disease: 'RSV fertőzés', distinguishing: 'Gyermekek, idősek, bronchiolitis' },
-              { disease: 'Adenovírus fertőzés', distinguishing: 'Conjunctivitis, pharyngitis, hosszabb lázas periódus' },
-              { disease: 'Bakteriális pneumonia', distinguishing: 'Produktív köpet, lokalizált lelet, magas PCT' }
+              { disease: 'COVID-19 (SARS-CoV-2)', distinguishing: 'Szaglás/ízlelés vesztés kifejezettebb, elhúzódóbb lefolyás; RT-PCR / antigén teszt különíti el' },
+              { disease: 'RSV fertőzés', distinguishing: 'Idősekben és csecsemőkben súlyosabb kisköri bronchialis tünetek' },
+              { disease: 'Akut Bakteriális Pneumonia', distinguishing: 'Produktív rozsdabarna/purulens köpet, lokalizált szörnyfejcsek, magas PCT és leukocytosis' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Oseltamivir', dose: '2x75mg PO', duration: '5 nap', note: 'Tünetek kezdetétől 48 órán belül!' },
-                  { drug: 'Baloxavir', dose: '1x40-80mg PO', duration: 'Egyszeri dózis', note: '>80kg: 80mg' }
+                  { drug: 'Oseltamivir (Tamiflu)', dose: '2x75 mg PO', duration: '5 nap', note: 'Leghatékonyabb, ha a tünetek kezdetétől 48 ÓRÁN BELÜL elindítják! Magas kockázatú betegeknél 48h-n túl is indítandó.' },
+                  { drug: 'Baloxavir marboxil (Xofluza)', dose: '1x40 mg PO (40-80 kg) vagy 1x80 mg PO (>80 kg)', duration: 'EGYSZERI ADAG!', note: 'Cap-dependent endonukleáz gátló. Egyszeri orális dózis 48h-n belül! Rendkívül gyorsan csökkenti a vírusürítést.' }
                 ],
                 inpatient: [
-                  { drug: 'Oseltamivir', dose: '2x75mg PO/NG', duration: '5-10 nap', note: 'Súlyos esetben hosszabban' },
-                  { drug: 'Peramivir', dose: '1x600mg IV', duration: 'Egyszeri vagy ismételt', note: 'Ha PO nem tolerált' }
+                  { drug: 'Oseltamivir PO / szonda', dose: '2x75 mg PO (súlyos/ICU esetben 2x150 mg megfontolandó)', duration: '5-10 nap', note: 'Kórházi felvételt igénylő szövődményes betegnél a tünetek időtartamától függetlenül AZONNAL indítandó!' },
+                  { drug: 'Peramivir IV', dose: '1x600 mg IV infúzió', duration: 'Egyszeri dózis (vagy naponta ismételve súlyos esetben)', note: 'IV neuraminidáz inhibitor, amennyiben az orális adagolás nem lehetséges' }
                 ],
                 icu: [
-                  { drug: 'Oseltamivir', dose: '2x150mg PO/NG', duration: '10 nap', note: 'Magasabb dózis megfontolandó' },
-                  { drug: '+ Empirikus AB', dose: 'CAP fedezet', duration: '', note: 'Bakteriális szuperinfekció' }
+                  { drug: 'Oseltamivir + Empirikus AB', dose: 'Oseltamivir 2x75-150mg + Ceftriaxon + Vancomycin/Linezolid', duration: '7-10 nap', note: 'MRSA / Pneumococcus szekunder pneumonia fedezetére' }
                 ]
               },
-              targeted: 'Neuraminidáz inhibitorok (oseltamivir, zanamivir, peramivir) vagy cap-dependent endonukleáz inhibitor (baloxavir)',
-              supportive: ['Lázcsillapítás (paracetamol!)', 'Folyadékpótlás', 'Oxigén', 'Lélegeztetés ARDS esetén'],
-              prevention: ['Éves influenza oltás', 'Kézhigiéné', 'Beteg izolálás', 'Kemoprofilaxis (oseltamivir 1x75mg)']
+              targeted: 'Neuraminidáz inhibitorok (Oseltamivir, Zanamivir, Peramivir) vagy Cap-dependent Endonukleáz inhibitor (Baloxavir marboxil).',
+              supportive: ['Szigorú ágynyugalom', 'Bőséges folyadékpótlás', 'Láz- és fájdalomcsillapítás (Paracetamol, Ibuprofen). ASPIRIN GYERMEKEKBEN KONTRAINDIKÁLT (Reye-szindróma!)', 'Oxigénterápia'],
+              prevention: [
+                '1. ÉVES SZEZONÁLIS INFLUENZA VÉDŐOLTÁSOK (Legújabb WHO / ECDC / CDC irányelvek):',
+                '- TRIVALENS / QUADRIVALENS VAKCINÁK: Szezonálisan frissített törzsekkel.',
+                '- MAGAS DÓZISÚ / ADJUVÁLT VAKCINÁK 65 ÉV FELETTIEKNEK:',
+                '  * Fluzone High-Dose (4x-es antigénmennyiséget tartalmazó vakcina) vagy Fluad (MF59 adjuvánssal kiegészített oltóanyag): Lényegesen erőteljesebb immunválaszt és alacsonyabb szövődményarányt biztosítanak az időskori immunosenescentia ellen!',
+                '- Rekombináns vakcina (Flublok - tojásfehérje mentes), Sejt-alapú vakcina (Flucelvax), Nazális élő gyengített vakcina (LAIV / FluMist 2-49 éveseknek).',
+                '2. EXPOZÍCIÓ UTÁNI KEMOPROFILAXIS:',
+                '- Oseltamivir 1x75 mg PO naponta 7-10 napig magas kockázatú oltatlan személyeknek fertőzöttel való szoros érintkezés után.'
+              ]
             },
             prognosis: {
-              mortality: 'Összességében 0.1%, 65+ éveseknél 1-2%, pandémiás törzs magasabb',
-              prognostic_scores: ['Nincs specifikus'],
-              factors: 'Életkor, komorbiditás, vírus szubtípus, oltási státusz'
+              mortality: 'Szezonális influenzában összességében ~0.1%; 65 év felettiekben és szövődményes virális/bakteriális pneumoniában elérheti az 1-5%-ot. Pandémiás törzseknél sokkal magasabb.',
+              prognostic_scores: ['CURB-65 / PSI (pneumonia esetén)'],
+              factors: 'Életkor (≥65 év), terhesség, krónikus tüdő/szívbetegség, elhízás, oltási státusz'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Influenza_A_virus_particle.jpg',
-                caption: 'Influenza A vírus részecske (elektronmikroszkópia).',
+                caption: 'Influenza A vírus részecske elektronmikroszkópos felvételen.',
                 type: 'Mikroszkópia'
               }
             ]
           },
           {
             id: 'covid19',
-            name: 'COVID-19',
-            pathogen: { type: 'Vírus', name: '<i>SARS-CoV-2</i>', gram: 'RNS vírus, Coronaviridae', shape: 'gömb, spike fehérjék' },
+            name: 'COVID-19 (SARS-CoV-2 fertőzés)',
+            pathogen: { type: 'Vírus', name: '<i>SARS-CoV-2</i> (Severe Acute Respiratory Syndrome Coronavirus 2; Omikron variánsok és sublineage-ei, pl. JN.1, KP.2, KP.3)', gram: 'RNS vírus, Coronaviridae (+SS-RNS)', shape: 'gömb, felszíni Spike (S) glikoproteinnel' },
             epidemiology: {
-              incidence: 'Pandémia 2020-tól, endémiássá válás',
-              risk_groups: ['65 év felettiek', 'Elhízottak (BMI>30)', 'Diabetes', 'Kardiovaszkuláris betegség', 'Immunszupprimáltak', 'Krónikus tüdőbetegek'],
-              seasonality: 'Téli csúcs, de egész évben',
-              transmission: 'Légúti (aeroszol + cseppfertőzés), kontakt, feko-orális ritka'
+              incidence: '2020-as pandémia óta endémiás szezonalitású kórkép, időszakos hullámokkal',
+              risk_groups: ['≥65 éves idősek', 'Súlyos elhízás (BMI ≥30-35)', 'Diabetes mellitus', 'Kardiovaszkuláris és cerebrovaszkuláris betegségek', 'Krónikus vesebetegség', 'Immunszupprimáltak (szervtranszplantáltak, daganatos betegek, biológiai terápián lévők)', 'Várandósok'],
+              seasonality: 'Egész évben előfordul, kifejezettebb téli és kora őszi csúcsokkal',
+              transmission: 'Légúti aeroszol (zárt térben lebegő mikrocseppek) és cseppfertőzés, direkt kontaktus'
             },
             pathomechanism: {
               steps: [
-                'A vírus a Spike (S) fehérjével kötődik a sejtek felszínén lévő ACE2 receptorhoz, ami számos szervben (tüdő, szív, erek, bél) megtalálható.',
-                'A bejutás után a vírus a sejtben replikálódik (virális fázis).',
-                'Súlyos esetekben a betegség második hetében egy túlzott immunválasz, az ún. citokinvihar alakulhat ki.',
-                'Ez a hiperinflammáció szisztémás endothelkárosodáshoz, mikrotrombózisokhoz, és a tüdőben akut légzési distressz szindrómához (ARDS) vezet, ami a súlyos lefolyás alapja.'
+                'A vírus a felszíni Spike (S) fehérjéjével a gazdasejtek Angiotenzin Konvertáló Enzim 2 (ACE2) receptorához kötődik (TMPRSS2 ko-faktorral).',
+                'ACE2 receptorok a tüdő Type II pneumocytáiban, az vascularis endothelsejtekben, szívizomban, vesében és bélben bőségesen kifejeződnek.',
+                'I. Virális fázis (korai 1-5. nap): A vírus direkt cytopathiás károsodást okoz a légúti hámban.',
+                'II. Hiperinflammációs fázis (2. hét): Súlyos esetben a szervezet túlzott, szisztematikus immunválasza ("citokinvihar": IL-6, IL-1beta, TNF-alfa) alakul ki.',
+                'Szisztémás endothelitis, fokozott procoagulant állapot (mikrotrombózisok, immunthrombosis) és diffus alveolaris károsodás (ARDS) jön létre.'
               ],
-              virulence_factors: ['Spike protein', 'NSP1 (host shutdown)', 'ORF8 (immunmoduláció)', 'Nucleocapsid']
+              virulence_factors: ['Spike (S) protein (RBD tartomány)', 'ACE2 receptor affinitás', 'NSP1 (gazdasejt fehérjeszintézisének leállítása)', 'ORF8 (MHC-I lefedése)', 'N-protein']
             },
             clinical: {
-              incubation: '2-14 nap (medián 5 nap, Omikron 3 nap)',
-              onset: 'Változó',
+              incubation: '2-14 nap (medián 3-5 nap; Omikron variánsoknál rövidebb, ~3 nap)',
+              onset: 'Változó: enyhe felsőlégúti tünetektől a hirtelen progrediáló hypoxiáig',
               symptoms: [
-                { name: 'Gyakori tünetek', description: 'Láz, száraz köhögés, fáradékonyság, izomfájdalom (myalgia).', severity: 'moderate' },
-                { name: 'Jellegzetes tünetek', description: 'A szaglás és ízlelés elvesztése (anosmia, dysgeusia) korai, specifikus jel lehet.', severity: 'mild' },
-                { name: 'Súlyos tünetek', description: 'Nehézlégzés (dyspnoe), mellkasi fájdalom és hypoxaemia (csökkent véroxigénszint), ami ARDS-hez vezethet.', severity: 'severe' }
+                { name: 'Klasszikus és felsőlégúti tünetek', description: 'Láz/hőemelkedés, száraz köhögés, fáradékonyság, torokfájás, orrdugulás, fejfájás, myalgia.', severity: 'moderate' },
+                { name: 'Specifikus és Gastrointestinalis jelek', description: 'A szaglás és ízlelés hirtelen elvesztése (anosmia, dysgeusia - Omikronnál ritkább). Hányinger, hasmenés.', severity: 'mild' },
+                { name: 'Súlyos alsólégúti / Szisztémás tünetek', description: 'Progresszív nehézlégzés (dyspnoe), mellkasi nyomásérzés, súlyos hypoxaemia (gyakran tünetmentes "néma hypoxia" / silent hypoxia formájában!), ami ARDS-hez és szervi elégtelenséghez vezet.', severity: 'severe' }
               ],
               physical_exam: [
-                'Láz, tachypnoe',
-                'SpO2 csökkent (silent hypoxia!)',
-                'Bilaterális crepitatio',
-                'Tachycardia',
-                'Nincs specifikus fizikális jel'
+                'Tachypnoe, tachycardia, láz',
+                'SpO2 csökkenés (pulzusoximéterrel kötelező mérni!)',
+                'Tüdő felett bilaterálisan finom hólyagú szörnyfejcsek (crepitatio)',
+                'Cianózis, zavartság (súlyos hypoxia jelei)',
+                'Gyakran nincs jellegzetes hallgatózási eltérés a betegség korai szakában'
               ],
-              complications: ['ARDS', 'Pulmonalis embólia', 'Myocarditis', 'Akut veseelégtelenség', 'Stroke', 'MIS (gyermekek)', 'Long COVID']
+              complications: [
+                'Akut Légzési Distressz Szindróma (ARDS)',
+                'Thromboembolias szövődmények (Pulmonalis embólia, mélyvénás thrombosis, stroke, AMI)',
+                'Szeptikus shock és Többszervi Elégtelenség (MODS)',
+                'Akut Myocarditis és Arrhythmiák',
+                'Gyermekkori Szisztémás Gyulladásos Szindróma (MIS-C / MIS-A)',
+                'Long COVID / Post-COVID szindróma (fáradtság, agyköd, dyspnoe, dysautonomia >12 héten túl)'
+              ]
             },
             diagnostics: {
               laboratory: [
-                { test: 'Vérkép', finding: 'Lymphopenia, normál/csökkent thrombocyta', interpretation: 'Súlyosság jelzője' },
-                { test: 'D-dimer', finding: 'Emelkedett', interpretation: 'Thrombotikus rizikó, rossz prognózis' },
-                { test: 'Ferritin', finding: 'Emelkedett', interpretation: 'Citokin vihar markere' },
-                { test: 'CRP/IL-6', finding: 'Emelkedett', interpretation: 'Gyulladás mértéke' },
-                { test: 'LDH, troponin', finding: 'Emelkedett súlyos esetben', interpretation: 'Szöveti károsodás' }
+                { test: 'Vérkép', finding: 'Kifejezett Lymphopenia, normál vagy csökkent thrombocytaszám', interpretation: 'A lymphopenia a betegség súlyosságának közvetlen indikátora' },
+                { test: 'Gyulladásos es Thrombotikus markerek', finding: 'Emelkedett D-dimer, Ferritin, CRP, IL-6, LDH', interpretation: 'A magas D-dimer és Ferritin citokinvihart és magas thromboembolias rizikót jelez!' },
+                { test: 'Kardiális markerek', finding: 'Troponin, NT-proBNP emelkedés', interpretation: 'Myocardialis károsodás / szívelégtelenség' }
               ],
               imaging: [
-                { modality: 'Mellkas rtg', finding: 'Bilaterális periférás infiltrátumok', significance: 'Kevésbé érzékeny' },
-                { modality: 'CT mellkas', finding: 'Ground-glass opacitások, crazy paving, konszolidáció', significance: 'Jellegzetes pattern' }
+                { modality: 'Mellkas HRCT (Gold standard)', finding: 'Bilaterális, perifériás és basalis eloszlású "Tejüveghomály" (Ground-Glass Opacities - GGO), "Crazy-paving" minta és konszolidációk', significance: 'Pneumonia kiterjedésének megítélése' },
+                { modality: 'Mellkas Röntgen', finding: 'Kétoldali multifokális interstitialis infiltrátumok', significance: 'Súlyos esetben' }
               ],
               microbiology: [
-                { test: 'RT-PCR (nasopharynx/oropharynx)', finding: 'SARS-CoV-2 RNS', significance: 'Gold standard, Ct érték' },
-                { test: 'Rapid antigén teszt', finding: 'Nucleocapsid fehérje', significance: 'Gyors, fertőzőképesség' },
-                { test: 'Szerológia', finding: 'Anti-S, Anti-N IgG/IgM', significance: 'Átvészeltség, oltás hatékonysága' }
+                { test: 'RT-PCR (Nasopharyngeal / Oropharyngeal swab)', finding: 'SARS-CoV-2 RNS kimutatás (Ct értékkel)', significance: 'Gold standard etiológiai diagnózis' },
+                { test: 'Gyors Antigén Teszt (RAT)', finding: 'Nucleocapsid (N) protein kimutatás', significance: 'Gyors (15 perc), magas fertőzőképesség esetén megbízható pozitív' }
               ]
             },
             differential: [
-              { disease: 'Influenza', distinguishing: 'Gyorsabb lefolyás, myalgia dominál, PCR' },
-              { disease: 'Bakteriális pneumonia', distinguishing: 'Magas PCT, lobaris infiltrátum' },
-              { disease: 'Szívelégtelenség', distinguishing: 'Kardiális anamnézis, BNP, kétoldali' },
-              { disease: 'Pulmonalis embólia', distinguishing: 'D-dimer, CTPA' }
+              { disease: 'Influenza A/B', distinguishing: 'Hirtelen kezdet, kifejezettebb kezdeti myalgia; differenciálható multiplex PCR-rel' },
+              { disease: 'Bakteriális Pneumonia', distinguishing: 'Unilaterális lobaris konszolidáció, magas Procalcitonin (>0.5 ug/L), purulens köpet' },
+              { disease: 'Akut Pulmonalis Embólia (PE)', distinguishing: 'Hirtelen mellkasi fájdalom, dyspnoe, CT Pulmonalis Angiographiával (CTPA) igazolható' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Paxlovid (nirmatrelvir/ritonavir)', dose: '2x300/100mg PO', duration: '5 nap', note: 'Korai, rizikócsoport, interakciók!' },
-                  { drug: 'Molnupiravir', dose: '2x800mg PO', duration: '5 nap', note: 'Alternatíva ha Paxlovid kontraindikált' }
+                  { drug: 'PAXLOVID (Nirmatrelvir / Ritonavir)', dose: '2x300 mg Nirmatrelvir + 100 mg Ritonavir PO', duration: '5 nap', note: 'I. vonalbeli antivirális terápia magas kockázatú enyhe-mérsékelt betegeknek! A tünetek kezdetétől 5 NAPON BELÜL elindítandó. FIGYELEM: Ritonavir miatti súlyos gyógyszer-interakciók (CYP3A4) ellenőrizendők!' },
+                  { drug: 'Remdesivir (Veklury) ambuláns IV', dose: '200 mg IV D1, majd 100 mg IV D2-D3', duration: '3 napos kúra', note: 'Alternatíva magas kockázatú ambuláns betegnek, ha a Paxlovid kontraindikált' },
+                  { drug: 'Molnupiravir', dose: '2x800 mg PO', duration: '5 nap', note: 'Másodvonalbeli orális alternatíva, ha a Paxlovid és Remdesivir sem alkalmazható' }
                 ],
                 inpatient: [
-                  { drug: 'Remdesivir', dose: '200mg IV D1, majd 100mg/nap', duration: '5 nap (max 10)', note: 'O2 igény esetén' },
-                  { drug: 'Dexamethason', dose: '6mg/nap IV/PO', duration: '10 nap', note: 'Csak O2 igény/lélegeztetés mellett!' }
+                  { drug: 'Remdesivir IV (Kórházi)', dose: '200 mg IV D1, majd 100 mg IV naponta', duration: '5 nap (max 10 nap)', note: 'Kórházi ápolást és oxigénterápiát igénylő betegekben' },
+                  { drug: 'DEXAMETHASON IV / PO', dose: '6 mg IV / PO naponta egyszer', duration: 'Max 10 nap', note: 'Szigorúan CSAK OXIGÉNIGÉNYES / gépi lélegeztetett betegeknek! (A RECOVERY vizsgálat alapján nem-oxigénigényes esetben rontja a kimenetelt!)' },
+                  { drug: 'LMWH (Kismolekulasúlyú Heparin)', dose: 'Profilaktikus / Terápiás dózis', duration: 'Kórházi tartózkodás alatt', note: 'Thromboembolias szövődmények megelőzésére minden kórházi COVID betegnek' }
                 ],
                 icu: [
-                  { drug: 'Dexamethason', dose: '6-20mg/nap', duration: '10 nap', note: 'Citokin vihar' },
-                  { drug: 'Tocilizumab', dose: '8mg/kg IV egyszeri', duration: '', note: 'IL-6 gátló, gyorsan romló' },
-                  { drug: 'LMWH', dose: 'Terápiás dózis', duration: '', note: 'Thromboprofilaxis/terápia' }
+                  { drug: 'Dexamethason + Tocilizumab / Baricitinib', dose: 'Tocilizumab 8 mg/kg IV egyszeri (max 800mg) VAGY Baricitinib 4 mg PO naponta', duration: 'Tocilizumab 1-2 dózis; Baricitinib 14 nap', note: 'Súlyos, hirtelen romló citokinviharban és gépi lélegeztetés / HFNC mellett' }
                 ]
               },
-              targeted: 'Antivirális (Paxlovid, Remdesivir) korai; Immunmoduláns (steroid, tocilizumab) hipoxiás fázisban',
-              supportive: ['Oxigén (prone pozíció!)', 'HFNC/NIV', 'Invazív lélegeztetés', 'ECMO'],
-              prevention: ['mRNS vakcinák (Pfizer, Moderna)', 'Kézhigiéné', 'Maszkviselés', 'Izoláció']
+              targeted: 'Korai virális fázisban antivirális szerek (Paxlovid, Remdesivir); kései hiperinflammációs fázisban immunmodulánsok (Dexamethason, Tocilizumab, Baricitinib).',
+              supportive: ['Oxigénterápia (Prone/hasra fektetési pozíció javítja a V/Q arányt!)', 'High-Flow Nasal Cannula (HFNC)', 'NIV / CPAP', 'Invazív gépi lélegeztetés / ECMO', 'Adekvát hidratáció'],
+              prevention: [
+                '1. LEGÚJABB MÓDOSÍTOTT mRNS ÉS FEHÉRJE VÁLTOZAT-MATCHELT VAKCINÁK (2024-2026 SZEZON):',
+                '- Évente frissített monovalens vakcinák az aktuálisan domináns variánsokra (pl. JN.1 / KP.2 / KP.3 variánsokra adaptált mRNS oltóanyagok):',
+                '  * COMIRNATY (Pfizer-BioNTech mRNS vakcina)',
+                '  * SPIKEVAX (Moderna mRNS vakcina)',
+                '  * NUVAXOVID (Novavax rekombináns fehérje vakcina)',
+                '- Kiemelten javasolt 65 év felettieknek, krónikus betegeknek, immunszupprimáltaknak, várandósoknak és egészségügyi dolgozóknak!',
+                '2. ÁLTALÁNOS PREVENCIÓ: FFP2/KN95 maszkviselés zárt térben, kézhigiéné, beteg izolációja.'
+              ]
             },
             prognosis: {
-              mortality: 'Omikron <1%, korábban 2-5%, ICU 20-40%',
+              mortality: 'Omikron érában és oltott népességben <0.5%; 80 év felett, immunszupprimáltakban vagy szellőztetett ICU betegekben 10-25%.',
               prognostic_scores: ['4C Mortality Score', 'NEWS2'],
-              factors: 'Életkor, komorbiditás, lymphopenia, D-dimer, ferritin, oltási státusz'
+              factors: 'Életkor (≥65 év), D-dimer és Ferritin szint, Lymphopenia, komorbiditások, oltási státusz'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/SARS-CoV-2_without_background.png',
-                caption: 'SARS-CoV-2 vírusmodell.',
+                caption: 'SARS-CoV-2 vírus szerkezeti modellje Spike fehérjékkel.',
                 type: 'Virológia'
               }
             ]
           },
           {
             id: 'tonsillitis',
-            name: 'Tonsillitis (mandulagyulladás)',
-            pathogen: { type: 'Baktérium', name: '<i>Streptococcus pyogenes</i> (GAS, leggyakoribb)', gram: 'Gram-pozitív', shape: 'lánc' },
+            name: 'Tonsillitis acuta (Tüszős és catarrhalis mandulagyulladás)',
+            pathogen: { type: 'Baktérium / Vírus', name: '<i>Streptococcus pyogenes</i> (Group A Streptococcus - GAS, 15-30% gyermekekben, 10% felnőttekben); ritkábban C és G csoportú Streptococcus, <i>Fusobacterium necrophorum</i>; Virális: EBV, Adenovirus, Enterovirus, HSV', gram: 'Gram-pozitív coccus', shape: 'lánc' },
             epidemiology: {
-              incidence: 'Gyakori gyermekkorban, 5-15 év',
-              risk_groups: ['Gyermekek', 'Fiatal felnőttek'],
-              seasonality: 'Tél-tavasz',
-              transmission: 'Cseppfertőzés, kontakt'
+              incidence: 'Leggyakoribb gyermekkori és fiatal felnőttkori fertőzések egyike (csúcs 5-15 év között)',
+              risk_groups: ['Iskolás korú gyermekek', 'Zárt közösségekben élők (iskolák, laktanyák)', 'Fiatal felnőttek (EBV / Fusobacterium rizikó)'],
+              seasonality: 'Tél és kora tavasz (bakteriális); ősz/tavasz (virális)',
+              transmission: 'Cseppfertőzés (köhögés, tüsszentés) és direkt kontaktus fertőzött nyállal'
             },
             pathomechanism: {
               steps: [
-                'A baktériumok a garat nyálkahártyáján megtapadva heves lokális gyulladást váltanak ki.',
-                'Ez a mandulák duzzanatát, vörösségét és gennyes lepedék (tüszők) képződését okozza.',
-                'A bakteriális toxinok (pl. streptolysin) felelősek a szisztémás tünetekért, mint a láz, és az eritrogén toxin a skarlát kiütéseiért.'
+                'A kórokozó a Waldeyer-féle lymphaticus garatgyűrű (főleg a tonsilla palatina) nyálkahártyáján tapad meg.',
+                'A baktérium felületi M-proteinei gátolják a phagocytosist, míg az exotoxinok (Streptolysin O és S) sejtkárosodást okoznak.',
+                'Kifejezett neutrofil granulocytás infiltráció alakul ki, ami a tonsilla cryptáiban gennyes exsudatumot (tüszőket) képez.',
+                'A pyrogén exotoxinok szisztémás lázat, míg a streptococcus szuperantigének skarlátos kiütést (Scarlatina) válthatnak ki.'
               ],
-              virulence_factors: ['M protein', 'Streptolysinek', 'Hyaluronidáz']
+              virulence_factors: ['M-protein (antiphagocyter)', 'Streptolysin O és S (hemolizin, cytotoxin)', 'Streptokináz és Hyaluronidáz (szöveti terjedés)', 'Pyrogén Exotoxinok (SPE A, B, C - skarlát, STSS)']
             },
             clinical: {
-              incubation: '2-5 nap',
-              onset: 'Hirtelen',
+              incubation: '2-5 nap (GAS esetén)',
+              onset: 'Hirtelen, heves kezdet',
               symptoms: [
-                { name: 'Helyi tünetek', description: 'Hirtelen kezdődő, erős torokfájás és nyelési nehézség. A mandulák duzzadtak, vörösek, és gyakran fehér, gennyes lepedék (tüszők) borítja őket.', severity: 'severe' },
-                { name: 'Általános tünetek', description: 'Magas láz, hidegrázás, fejfájás és a nyaki nyirokcsomók fájdalmas duzzanata kíséri.', severity: 'moderate' }
+                { name: 'Tonsillaris és Lokalizált tünetek', description: 'Hirtelen fellépő, fülekbe sugárzó, heves torokfájás és súlyos nyelési fájdalom (odynophagia). A mandulák vörösek, duzzadtak, felszínükön sárgásfehér gennyes lepedék / tüszők (tonsillitis follicularis / lacunaris) láthatók.', severity: 'severe' },
+                { name: 'Szisztémás és Nyirokcsomó tünetek', description: 'Magas láz (≥38.5°C), hidegrázás, fejfájás, rossz közérzet. Az elülső nyaki nyirokcsomók kifejezetten duzzadtak és nyomásérzékenyek (lymphadenitis angularis). KÖHÖGÉS HIÁNYZIK!', severity: 'severe' }
               ],
               physical_exam: [
-                'Tonsilla hyperaemia, duzzanat',
-                'Exsudátum',
-                'Cervicalis lymphadenitis',
-                'Skarlát tünetek (ritka)'
+                'Duzzadt, belövellt garatívek és palatinus tonsillák punctiform vagy konfluáló gennyes lepedékkel',
+                'Érzékeny, megnagyobbodott elülső nyaki nyirokcsomók (cervicalis lymphadenopathia)',
+                'Uvula oedema (mészáros-garat)',
+                'Málnanyelv és scarlatiniform kiütés (Skarlát gyanúja esetén)',
+                'Trismus (szájzár) vagy uvula deviáció jelenléte PERITONSILLARIS ABSCESSUS-ra utal!'
               ],
-              complications: ['Peritonsillaris abscessus', 'Reumás láz', 'Glomerulonephritis', 'Lemierre-szindróma']
+              complications: [
+                'Peritonsillaris abscessus (PTA / Paratonsillaris tályog - sürgős fül-orr-gégészeti szikét igényel!)',
+                'Retro- és Parapharyngealis tályog',
+                'Lemierre-szindróma (<i>Fusobacterium necrophorum</i> okozta v. jugularis interna suppurativ thrombophlebitis és tüdőabscessusok fiatalokban!)',
+                'Reumás láz (Febris rheumatica - szívbillentyű károsodás; a 10 napos Penicillinterápia fő célja ennek megelőzése!)',
+                'Poststreptococcalis Glomerulonephritis (PSGN)',
+                'Streptococcalis Toxikus Sokk Szindróma (STSS)'
+              ]
             },
             diagnostics: {
               laboratory: [
-                { test: 'Strep teszt', finding: 'Pozitív', interpretation: 'Gyors diagnózis' }
+                { test: 'Vérkép / CRP / Süllyedés', finding: 'Kifejezett leukocytosis balra toltággal, magas CRP (>50-100 mg/L) és süllyedés', interpretation: 'Bakteriális etiológiát támogat' },
+                { test: 'ASO / AST titer (Antistreptolysin-O)', finding: 'Emelkedett ASO titer', interpretation: 'Átvészelt fertőzést igazol (akut szakban még nem emelkedik, retrospaktív értékű)' }
               ],
               microbiology: [
-                { test: 'Torokváladék tenyésztés', finding: 'GAS', significance: 'Konfirmálás' }
+                { test: 'Gyors A-csoportú Streptococcus Antigén Teszt (RADT)', finding: 'GAS antigén kimutatás toroktörlésből', significance: 'Gyors (5-10 perc), magas specifitású (>95%). Pozitív esetben azonnal indítható az antibiotikum!' },
+                { test: 'Torokváladék tenyésztés', finding: '<i>Streptococcus pyogenes</i> (béta-hemolizáló) izolálás', significance: 'Gold standard, rezisztenciavizsgálat' }
               ]
             },
             calculators: [
               {
-                name: 'Centor Score (McIsaac) - Strep A valószínűség',
+                name: 'McIsaac / Módosított Centor Score - GAS Pharyngitis Valószínűség',
                 items: [
-                  { label: 'Láz > 38°C', points: 1 },
-                  { label: 'Köhögés hiánya', points: 1 },
-                  { label: 'Érzékeny elülső nyaki nyirokcsomók', points: 1 },
-                  { label: 'Tonsilla duzzanat vagy exsudatum', points: 1 },
+                  { label: 'Láz a kórelőzményben vagy jelenleg > 38°C', points: 1 },
+                  { label: 'Köhögés HIÁNYA', points: 1 },
+                  { label: 'Érzékeny elülső nyaki nyirokcsomó duzzanat', points: 1 },
+                  { label: 'Tonsillaris duzzanat vagy gennyes exsudatum', points: 1 },
                   { label: 'Életkor 3-14 év', points: 1 },
+                  { label: 'Életkor 15-44 év', points: 0 },
                   { label: 'Életkor ≥ 45 év', points: -1 }
                 ],
                 interpretation: [
-                  { min: -1, max: 1, text: 'Alacsony kockázat (<10%). Antibiotikum nem javasolt.' },
-                  { min: 2, max: 3, text: 'Közepes kockázat (15-30%). Tenyésztés vagy gyorsteszt javasolt. Pozitív esetben AB.' },
-                  { min: 4, max: 5, text: 'Magas kockázat (>50%). Empirikus antibiotikum adható vagy tesztelés.' }
+                  { min: -1, max: 1, text: 'Igen alacsony kockázat (<10%). Nem szükséges sem gyorsteszt, sem antibiotikum. Tüneti terápia.' },
+                  { min: 2, max: 3, text: 'Közepes kockázat (15-30%). RADT gyorsteszt vagy tenyésztés javasolt; antibiotikum csak pozitív teszt esetén.' },
+                  { min: 4, max: 5, text: 'Magas kockázat (38-52%). Pozitív RADT után empirikus antibiotikum (Penicillin) javasolt.' }
                 ]
               }
             ],
             differential: [
-              { disease: 'Vírusos pharyngitis', distinguishing: 'Enyhe tünetek, nincs exsudátum' },
-              { disease: 'Mononucleosis', distinguishing: 'Lymphocytosis, hepatosplenomegalia' }
+              { disease: 'Infectiosus Mononucleosis (EBV / CMV)', distinguishing: 'Kifejezett generalizált nyirokcsomó duzzanat, hepatosplenomegalia, atípusos lymphocytosis a vérképben; Amoxicillin adásakor maculopapulosus kiütés lép fel!' },
+              { disease: 'Virális Pharyngitis (Adenovirus, Enterovirus, HSV)', distinguishing: 'Cough, coryza, rekedtség, stomatitis, kötőhártya-gyulladás kíséri; Centor score 0-1' },
+              { disease: 'Diphtheria (Torokgyík - <i>Corynebacterium diphtheriae</i>)', distinguishing: 'Szürkésfehér, vérzően lefejthető álhártya (pseudomembran), "bikanyak" oedema; oltatlanokban' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Penicillin V', dose: '4x500mg PO', duration: '10 nap', note: 'Első választás' },
-                  { drug: 'Amoxicillin', dose: '3x500mg PO', duration: '10 nap', note: 'Alternatíva' }
+                  { drug: 'PENICILLIN V (Phenoxymethylpenicillin)', dose: 'Felnőtt: 2-3x1 millió IU PO; Gyermek: 50.000 IU/kg/nap 2-3 adagban', duration: 'SZIGORÚAN 10 NAP!', note: 'I. vonalbeli választandó szer! Nem létezik Penicillin-rezisztens GAS. A 10 napos időtartam kötelező a Reumás láz megelőzésére!' },
+                  { drug: 'Amoxicillin PO', dose: 'Felnőtt: 2x1000 mg PO; Gyermek: 50 mg/kg/nap 2 adagban', duration: '10 nap', note: 'I. vonalbeli alternatíva (jobb ízű szirup gyermekeknél)' },
+                  { drug: 'Cefalexin / Cefadroxil (I. gen. Cefalosporin)', dose: 'Felnőtt: 2x500-1000 mg PO', duration: '10 nap', note: 'Enyhe/nem-anafilaxiás Penicillin allergia esetén' },
+                  { drug: 'Azithromycin / Clarithromycin', dose: 'Azithromycin: 1x500 mg PO 5 napig; Clarithromycin: 2x250-500 mg PO 10 napig', duration: '5-10 nap', note: 'Súlyos (Type I anafilaxiás) Penicillin allergia esetén! (Figyelem: makrolid rezisztencia előfordulhat)' }
                 ],
                 inpatient: [
-                  { drug: 'Penicillin G', dose: '4x4 millió IU IV', duration: '7-10 nap', note: 'Súlyos esetben' }
+                  { drug: 'Benzathine Penicillin G IM', dose: 'Egyetlen IM injekció: 1.2 millió IU (gyermek <27kg: 600.000 IU)', duration: '1 dózis', note: 'Gyenge beteg-együttműködés vagy terápiarezisztencia esetén tökéletes alternatíva' },
+                  { drug: 'Penicillin G IV + Clindamycin IV', dose: 'Penicillin G 4x2-4 millió IU IV + Clindamycin 3x600mg IV', duration: '7-10 nap', note: 'Súlyos szövődményes / szeptikus / STSS állapotban' }
                 ],
                 icu: [
-                  { drug: 'Sebészi drenázs', dose: 'Abscessus esetén', duration: '', note: '' }
+                  { drug: 'Sürgős Fül-orr-gégészeti Incisio / Drenázs', dose: '-', duration: '-', note: 'Peritonsillaris abscessus (PTA) esetén azonnali punctio/incisio és szisztémás antibiotikum' }
                 ]
               },
-              targeted: 'Penicillin',
-              supportive: ['Fájdalomcsillapítás', 'Folyadék'],
-              prevention: ['Higiénia']
+              targeted: 'A <i>Streptococcus pyogenes</i> 100%-ban érzékeny Penicillinre. Béta-laktám allergia esetén Macrolid vagy Clindamycin.',
+              supportive: ['Szisztémás fájdalom- és lázcsillapítás (Ibuprofen / Paracetamol)', 'Lokális torkfertőtlenítők és anesztetikumos szopogató tabletták (Benzydamin, Chlorhexidin)', 'Bőséges folyadékpótlás (hűvös/pürés ételek)'],
+              prevention: [
+                '1. VAKCINÁCIÓS HELYZET:',
+                '- Jelenleg nincs törzskönyvezett vakcina <i>Streptococcus pyogenes</i> (GAS) ellen (fejlesztési fázisban vannak M-protein alapú oltóanyagok).',
+                '- A differenciáldiagnosztikában és kevert fertőzések megelőzésében fontos a kötelező csecsemőkori Hib és Pneumococcus (PCV) oltások megléte.',
+                '2. HIGIÉNIA ÉS IZO LÁCIÓ:',
+                '- A beteg gyermek az antibiotikum elindítása után 24 órával válik cseppfertőzéssel nem fertőzővé, ekkor térhet vissza közösségbe.'
+              ]
             },
             prognosis: {
-              mortality: 'Alacsony',
-              prognostic_scores: ['Centor Score (McIsaac)'],
-              factors: 'Késői kezelés'
+              mortality: 'Megfelelő antibiotikum kezelés mellett kiváló (<0.01%). Kezeletlenül a Reumás láz és szuppuratív szövődmények kockázata magas.',
+              prognostic_scores: ['Centor / McIsaac Score', 'FeverPAIN Score'],
+              factors: 'Beteg-együttműködés (10 napos antibiotikum kúrák végigvitele!), gyors diagnózis'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Tonsillitis.jpg',
-                caption: 'Exsudatív tonsillitis klinikai képe.',
+                caption: 'Tonsillitis acuta follicularis (tüszős mandulagyulladás) lepedékkel.',
                 type: 'Klinikai fotó'
               }
             ]
           },
           {
             id: 'sinusitis',
-            name: 'Sinusitis (arcüreggyulladás)',
-            pathogen: { type: 'Vírus/Baktérium', name: 'Vírusok (első 7-10 nap), majd <i>Streptococcus pneumoniae, Haemophilus influenzae</i>', gram: 'Vegyes', shape: 'változó' },
+            name: 'Sinusitis acuta (Akut Rhinosinusitis - ARS / ABRS)',
+            pathogen: { type: 'Vírus / Baktérium', name: 'Vírusok (90-98%-ban: Rhinovirus, Influenza, Parainfluenza, Adenovirus, RSV, Coronavirus); Akut Bakteriális Rhinosinusitisben (ABRS, 2-10%): <i>Streptococcus pneumoniae, Haemophilus influenzae</i> (non-typeable), <i>Moraxella catarrhalis</i>, <i>Staphylococcus aureus</i>', gram: 'Vegyes', shape: 'coccus / bacillus' },
             epidemiology: {
-              incidence: 'Gyakori, felnőttek 1-2x/év',
-              risk_groups: ['Allergiások', 'Dohányosok', 'Immunszupprimáltak'],
-              seasonality: 'Tél',
-              transmission: 'Endogén, felsőlégúti fertőzés szövődménye'
+              incidence: 'Rendkívül gyakori; felnőttek átlagosan 2-4 virális rhinosinusitis epizódot élnek át évente',
+              risk_groups: ['Allergiás rhinitisben szenvedők', 'Anatómiai orrsövény-ferdüléses betegek', 'Dohányosok és passzív dohányosok', 'Asthmás és Cisztás Fibrosisos betegek', 'Immunszupprimáltak'],
+              seasonality: 'Őszi és téli hónapok',
+              transmission: 'Felsőlégúti virális fertőzések szövődménye (endogén bakteriális felülfertőződés)'
             },
             pathomechanism: {
               steps: [
-                'Egy felső légúti vírusfertőzés (nátha) következtében az orr- és melléküreg-nyálkahártya megduzzad.',
-                'Az ödéma elzárja a melléküregek kivezető nyílásait (ostiumokat), ami a váladék pangásához vezet.',
-                'A pangó váladék ideális táptalajt biztosít a bakteriális felülfertőződés számára, ami gennyes gyulladást eredményez.'
+                'Virális felsőlégúti fertőzés következtében az orr- és paranasalis sinus nyálkahártyája belövellté válik és megduzzad.',
+                'A nyálkahártya-ödéma elzárja a melléküregek természetes kivezető nyílásait (ostium meatus medius).',
+                'A sinusokban csökken az oxigéntenzió, a csillószőrös hám очищение (mucociliaris clearance) leáll, és serosus/purulens váladék halmozódik fel.',
+                'A pangó váladékban a nasopharynxból származó baktériumok elszaporodnak, Akut Bakteriális Rhinosinusitist (ABRS) és szöveti destruktív gyulladást idézve elő.'
               ],
-              virulence_factors: ['Biofilm képzés']
+              virulence_factors: ['Biofilm képződés a sinus nyálkahártyán', 'Béta-laktamáz termelés (<i>H. influenzae, M. catarrhalis</i>)', 'Pneumococcus kapszula']
             },
             clinical: {
-              incubation: 'Felsőlégúti fertőzés után',
-              onset: 'Fokozatos',
+              incubation: 'Virális náthát követően 5-10 nap múlva alakul ki a bakteriális szuperinfekció',
+              onset: 'Fokozatos vagy "kettős rosszabbodás" (double sickening)',
               symptoms: [
-                { name: 'Jellegzetes tünetek', description: 'Arcfájdalom vagy nyomásérzés, amely előrehajlásra fokozódik. Orrdugulás, gennyes orrfolyás és gyakran fejfájás kíséri.', severity: 'moderate' },
-                { name: 'Bakteriális felülfertőződés jelei', description: 'A 10 napnál tovább tartó vagy rosszabbodó tünetek ("kettős rosszabbodás"), illetve a magas láz (>38°C) és az egyoldali arcfájdalom utal bakteriális eredetre.', severity: 'moderate' }
+                { name: 'Kardinális Akut Rhinosinusitis tünetek', description: 'Orrdugulás (nasal congestion), gátolt orrlégzés, purulens/sárgászöld orrfolyás (anterior/posterior rhinorrhoea) és faciobullaris nyomásérzés/arcfájdalom, amely előrehajlásra kifejezetten fokozódik. Szaglászavar (hyposmia/anosmia).', severity: 'moderate' },
+                { name: 'Bakteriális felülfertőződés (ABRS) diagnosztikus jelei (EPOS 2020)', description: 'Legalább 3 jelenléte szükséges: 1) Kifejezett purulens orrváladék; 2) Súlyos helyi arcfájdalom (főleg egyoldali); 3) Magas láz (>38°C); 4) "Kettős rosszabbodás" (kezdeti javulás utáni hirtelen súlyosbodás); 5) Emelkedett CRP/süllyedés.', severity: 'severe' }
               ],
               physical_exam: [
-                'Facialis nyomásérzékenység',
-                'Mukopurulens orrváladék',
-                'Pharynx hátsó falán váladék'
+                'Arcérzékenység a sinus maxillaris, frontalis vagy ethmoidalis felett nyomásra/kopogtatásra',
+                'Elülső rhinoscopia: belövellt orrnyálkahártya, purulens váladék a középső orrkagyló alatt',
+                'Hátsó garatfali purulens váladékcsorgás (post-nasal drip)',
+                'Periorbitalis oedema vagy mocsaras duzzanat jelenléte szövődményre utal!'
               ],
-              complications: ['Orbitalis cellulitis', 'Meningitis', 'Osteomyelitis']
+              complications: [
+                'Orbitalis szövődmények (Chandler stádiumok: Preseptalis cellulitis, Orbitalis cellulitis, Subperiostealis abscessus, Orbitalis abscessus - látásvesztést okozhat!)',
+                'Intracranialis szövődmények (Epiduralis/Subduralis abscessus, Meningitis, Sinus cavernosus thrombosis)',
+                'Osseus szövődmények (Pott\'s puffy tumor - a os frontale osteomyelitise és homloktájéki fluctuáló subperiostealis tályog)'
+              ]
             },
             diagnostics: {
+              laboratory: [
+                { test: 'CRP és fvs-szám', finding: 'Virálisban normális/enyhe; ABRS-ben és szövődményben emelkedett CRP (>30-50 mg/L) és leukocytosis', interpretation: 'A bakteriális etiológia megerősítésére' }
+              ],
               imaging: [
-                { modality: 'CT arcüregek', finding: 'Folyadék szint, mucosa megvastagodás', significance: 'Ha szükséges' }
+                { modality: 'Arcüreg CT (Arckoponya CT)', finding: 'Sinus maxillaris/frontalis/ethmoidalis komplett fedettsége, nívót képző folyadék, nyálkahártya-megvastagodás (>4mm) vagy csontos erózió', significance: 'Rutinszerűen NEM javasolt szövődménymentes esetben! KIZÁRÓLAG szövődmény gyanúja, terápiarezisztencia vagy mûtéti tervezés (FESS) esetén kötelező!' },
+                { modality: 'Röntgen (Rieder/Waters felvétel)', finding: 'Folyadéknívó', significance: 'Korszerű irányelvekben (EPOS 2020) ALACSONY SENZITIVITÁSA MIATT MÁR NEM JAVASOLT!' }
               ]
             },
             differential: [
-              { disease: 'Migraine', distinguishing: 'Egyoldali fejfájás, aura' },
-              { disease: 'Dentalis fájdalom', distinguishing: 'Fogászati vizsgálat' }
+              { disease: 'Virális Rhinosinusitis (Közönséges Nátha)', description: 'Tünetek tartama <10 nap, lázmentes vagy alacsony hőemelkedés, serosus/vizes váladék' },
+              { disease: 'Allergiás Rhinitis', distinguishing: 'Tüsszögés, szemviszketés, vizes orrfolyás, szezonális/perenniális lefolyás, eozinofília' },
+              { disease: 'Odontogén Sinusitis Maxillaris', distinguishing: 'Felső őrlőfogak gyulladása/periapicalis abscessus okozza; kifejezetten bűzös (anaerob) egyoldali orrfolyás' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Amoxicillin/Clavulanate', dose: '2x875/125mg PO', duration: '7-10 nap', note: 'Bakteriális gyanú' },
-                  { drug: 'Dekongesztáns', dose: 'Pseudoephedrin', duration: '3-5 nap', note: 'Tüneti' }
+                  { drug: 'INTRANASALIS KORTIKOSZTEROID (INCS - Mometason, Fluticason)', dose: '2x2 fújás orrnyílásként naponta', duration: '14-21 nap', note: 'AZ AKUT RHINOSINUSITIS EGÉSZSÉGÜGYI ALAPTERÁPIÁJA (EPOS 2020)! Erőteljesen csökkenti a nyálkahártya-ödémát és nyitja az ostiumokat.' },
+                  { drug: 'Orrmosás isotonias/hypertonias sós oldattal', dose: 'Napi 2-3 alkalommal orrmosó kancsóval', duration: '10-14 nap', note: 'Eltávolítja a pangó nyákot és javítja a ciliaris clearance-t' },
+                  { drug: 'Amoxicillin / Clavulanate (Augmentin / Amoksiklav)', dose: '2x875/125 mg PO (vagy nagy dózis: 2x1000 mg PO)', duration: '5-7 nap (felnőtt) / 10 nap (gyermek)', note: 'I. VONALBELI ANTIBIOTIKUM Kizárólag igazolt ABRS (bakteriális) diagnózis esetén! Rutin adása virális rhinosinusitisben HIBÁS.' },
+                  { drug: 'Doxycyclin PO VAGY Cefuroxim axetil PO', dose: 'Doxycyclin: 1x200mg D1, majd 1x100mg PO; Cefuroxim: 2x500mg PO', duration: '5-7 nap', note: 'Penicillin allergia esetén választandó alternatívák felnőttben' }
                 ],
                 inpatient: [
-                  { drug: 'IV antibiotikum', dose: 'Ha szövődmény', duration: '', note: '' }
+                  { drug: 'Ceftriaxon IV + Metronidazol IV', dose: 'Ceftriaxon 1x2g IV + Metronidazol 3x500mg IV', duration: '10-14 nap', note: 'Súlyos, szövődményes (orbitalis/intracranialis) vagy szeptikus beteg ápolására' }
                 ],
                 icu: [
-                  { drug: 'Sebészi drenázs', dose: 'Ha abscessus', duration: '', note: '' }
+                  { drug: 'Sürgős FESS mûtét (Functional Endoscopic Sinus Surgery)', dose: '-', duration: '-', note: 'Orbitalis/intracranialis tályog, csontdestrukció vagy konzervatív terápiás kudarc esetén azonnali sinus drenázs' }
                 ]
               },
-              targeted: 'Antibiotikum ha bakteriális',
-              supportive: ['Dekongesztáns', 'Nedves inhaláció'],
-              prevention: ['Allergia kezelés']
+              targeted: 'Bakteriális tenyésztés (középső orrjáratból vett váladék) alapján célzott antibiotikum terápia.',
+              supportive: ['Lokális sympathomimeticus orrcseppek/spray-k (Xylometazolin, Oxymetazolin) max 5-7 napig (RHINITIS MEDICAMENTOSA veszély!)', 'Szisztémás NSAID / Paracetamol fájdalomcsillapításra', 'Bőséges folyadékpótlás'],
+              prevention: [
+                '1. LÉGÚTI VAKCINÁCIÓK A BAKTERIÁLIS SZUPERINFEKCIÓ MEGELŐZÉSÉRE:',
+                '- PNEUMOCOCUS VAKCINÁK (PCV15, PCV20, PCV24): Kifejezetten csökkentik a <i>Streptococcus pneumoniae</i> okozta invazív és sinusitises megbetegedéseket.',
+                '- HAEMOPHILUS INFLUENZAE B (Hib) oltás a gyermekkori oltási rendben.',
+                '- ÉVES INFLUENZA OLTÁS: Megelőzi a poszt-influenzás súlyos bakteriális felülfertőződéseket.',
+                '2. Allergiás rhinitis és orrsövény-ferdülés időben történő szakszerű kezelése.'
+              ]
             },
             prognosis: {
-              mortality: 'Alacsony',
-              prognostic_scores: ['Nincs'],
-              factors: 'Immunstátusz'
+              mortality: 'Szövődménymentes esetben 0%; orbitalis/intracranialis szövődménnyel (még ma is) 2-10% mortalitás vagy maradandó látásvesztés/neurológiai deficit.',
+              prognostic_scores: ['EPOS 2020 stádiumbeosztás'],
+              factors: 'Korai INCS és adekvát orröblítés, szövődmények időben történő felismerése (CT/FESS)'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Sinusitis_01.jpg',
-                caption: 'Sinusitis radiológiai ábrázolása.',
+                caption: 'Sinusitis maxillaris (arcüreggyulladás) CT felvételen látható folyadéknívóval.',
                 type: 'Képalkotás'
               }
             ]
           },
           {
             id: 'otitis_media',
-            name: 'Otitis media (középfülgyulladás)',
-            pathogen: { type: 'Baktérium', name: '<i>Streptococcus pneumoniae, Haemophilus influenzae, Moraxella catarrhalis</i>', gram: 'Vegyes', shape: 'coccus/bacillus' },
+            name: 'Otitis media acuta (Akut Gennyes Középfülgyulladás - AOM)',
+            pathogen: { type: 'Baktérium / Vírus', name: 'Baktériumok (60-70%): <i>Streptococcus pneumoniae</i> (leggyakoribb és legsúlyosabb), <i>Haemophilus influenzae</i> (non-typeable NTHi), <i>Moraxella catarrhalis</i>, <i>Streptococcus pyogenes</i>; Virális ko-fertőzés (30-40%): RSV, Influenza, Rhinovirus, Adenovirus', gram: 'Vegyes', shape: 'coccus / bacillus' },
             epidemiology: {
-              incidence: 'Gyakori gyermekkorban, 80% átesik 3 éves koráig',
-              risk_groups: ['Csecsemők', 'Gyermekek', 'Passzív dohányzás'],
-              seasonality: 'Tél',
-              transmission: 'Felsőlégúti fertőzés szövődménye'
+              incidence: 'A kora gyermekkori életkor leggyakoribb bakteriális fertőzése; a gyermekek >80%-a átesik legalább egy AOM epizódon 3 éves koráig (csúcs 6-24 hónapos kor között)',
+              risk_groups: ['Csecsemők és kisgyermekek (anatómiailag rövid, vízszintes Eustach-kürt!)', 'Bölcsődébe/óvodába járó gyermekek', 'Passzív dohányzásnak kitett gyermekek', 'Cumi használata, üvegből fekve táplálás', 'Acrofacialis rendellenesség / Csípőpadlás-hasadék'],
+              seasonality: 'Téli és kora tavaszi hónapok',
+              transmission: 'Virális felsőlégúti fertőzést követő endogén fülkürt-dysfunctio és bakteriális transslocatio'
             },
             pathomechanism: {
               steps: [
-                'Felső légúti fertőzés következtében a fülkürt (Eustach-kürt) funkciója károsodik, a nyálkahártya megduzzad.',
-                'A középfülben negatív nyomás alakul ki, ami folyadék felhalmozódásához vezet (savós középfülgyulladás).',
-                'Ez a folyadék felülfertőződhet a nasopharynxból származó baktériumokkal, gennyes gyulladást okozva, ami a dobhártya elődomborodásához és fájdalomhoz vezet.'
+                'Virális felsőlégúti fertőzés következtében a nasopharynx és az Eustach-kürt (fülkürt) nyálkahártyája megduzzad.',
+                'A fülkürt elzáródása miatt a cavum tympani-ban (dobüreg) negatív nyomás alakul ki, ami a nasopharyngealis váladék és baktériumok aspirációjához vezet.',
+                'A dobüregben gyulladásos exsudatum és purulens exudátum halmozódik fel, ami a dobhártya fokozott nyomását, elődomborodását (bulging) és ischaemiás fájdalmát okozza.',
+                'A kezeletlen nyomásemelkedés a dobhártya spontán perforációjához és otorrhoeához (fülfolyáshoz) vezethet.'
               ],
-              virulence_factors: ['Biofilm', 'Toxinok']
+              virulence_factors: ['Pneumococcus pneumolysin és kapszula', 'NTHi adherenciás pili és biofilm képzés', 'Béta-laktamáz termelés (<i>M. catarrhalis</i> >90%, <i>H. influenzae</i> ~30-40%)']
             },
             clinical: {
-              incubation: 'Felsőlégúti fertőzés után',
-              onset: 'Hirtelen',
+              incubation: 'Virális náthás epizódot követő 2-7. napon lép fel',
+              onset: 'Hirtelen, gyakran éjszaka fellépő éles fülfájdalom',
               symptoms: [
-                { name: 'Főbb tünetek', description: 'Hirtelen kezdődő, erős, lüktető fülfájás, láz és halláscsökkenés.', severity: 'severe' },
-                { name: 'Csecsemőkori jelek', description: 'Csecsemőkben ingerlékenység, vigasztalhatatlan sírás, étvágytalanság és a fülhöz kapkodás a jellemző.', severity: 'moderate' }
+                { name: 'Klasszikus Gyermekkori Tünetek', description: 'Hirtelen kezdődő, lüktető, rendkívül heves fülfájás (otalgia), magas láz (≥38.5-39°C), halláscsökkenés (vezetési típusú hypacusis).', severity: 'severe' },
+                { name: 'Csecsemőkori Nem-specifikus Tünetek', description: 'Vigasztalhatatlan sírás, ingerlékenység, éjszakai felriadás, a beteg fülhöz való kapkodás/dörzsölés, étvágytalanság, hányás, hasmenés.', severity: 'moderate' },
+                { name: 'Otorrhoea (Fülfolyás)', description: 'A dobhártya spontán perforációját követően gennyes fülfolyás alakul ki, melyet a fülfájás és láz hirtelen enyhülése kísér.', severity: 'moderate' }
               ],
               physical_exam: [
-                'Dobhártya hyperaemia, duzzanat',
-                'Perforáció esetén váladék',
-                'Dobhártya punctio ha szükséges'
+                'Otoszkópia / Pneumatkus otoszkópia (Gold standard):',
+                '  * Elődomborodó (bulging), sárgás/vörös, nem áttetsző, hyperaemiás dobhártya',
+                '  * A dobhártya mobilitásának kifejezett csökkenése vagy hiánya',
+                '  * A fényreflex és a kalapácsnyél kontúrjainak eltűnése',
+                'Tragus-érzékenység és a csecsemő sírása a fül megnyomására',
+                'Cimbalom/mastoid feletti erythema, oedema vagy a fülkagyló elálló helyzete MASTOIDITIS-re utal!'
               ],
-              complications: ['Mastoiditis', 'Meningitis', 'Labyrinthitis']
+              complications: [
+                'Akut Mastoiditis (a cselédsejtek gennyes beolvadása és a retroauricularis régió fluctuating oedemája - SÜRGŐS FÜL-ORR-GÉGÉSZETI MŰTÉT / MASTOIDECTOMIA!)',
+                'Facialis paresis (n. VII. gyulladásos kompressziója)',
+                'Labyrinthitis és Sensorineuralis hallásvesztés',
+                'Bezold-tályog (m. sternocleidomastoideus alatti tályog)',
+                'Intracranialis szövődmények (Epiduralis tályog, Otogen Meningitis, Sinus sigmoideus thrombosis)'
+              ]
             },
             diagnostics: {
+              laboratory: [
+                { test: 'Vérkép és CRP', finding: 'Magas láz és súlyos tünetek esetén kifejezett leukocytosis és emelkedett CRP (>40-80 mg/L)', interpretation: 'Bakteriális AOM megerősítésére' }
+              ],
               imaging: [
-                { modality: 'Otoszkópia', finding: 'Dobhártya vizsgálat', significance: 'Diagnosztikus' }
+                { modality: 'Otoszkópia / Otomikroszkópia', finding: 'Elődomborodó, hyperaemiás dobhártya csökkent mobilitással', significance: 'AOM alapvető diagnosztikai eszköze' },
+                { modality: 'Koponya / Temporalis CT', finding: 'Mastoid sejtek komplett fedettsége és csontos trabeculák destruktív beolvadása', significance: 'KIZÁRÓLAG Mastoiditis vagy intracranialis szövődmény gyanújakor!' }
               ]
             },
             differential: [
-              { disease: 'Külső fülgyulladás', distinguishing: 'Fülkagyló érintett' },
-              { disease: 'Pharyngitis', distinguishing: 'Nincs fülfájás' }
+              { disease: 'Otitis media serosa (OME - Savós középfülgyulladás)', distinguishing: 'NINCS akut gyulladás, láz vagy fájdalom! A dobhártya mögött folyadéknívó/légbuborékok láthatók, áttetsző fénytelen dobhártyával.' },
+              { disease: 'Otitis externa acuta (Hallójárat-gyulladás)', distinguishing: 'A tragus nyomására és a fülkagyló húzására szörnyű fájdalom váltódik ki; a dobhártya ép, a hallójárat szűk és oedemás.' },
+              { disease: 'Kisgyermekkori fogzás / Pharyngitis miatti kisugárzó fájdalom', distinguishing: 'Otoszkóppal a dobhártya teljesen ép és mobilis.' }
             ],
             therapy: {
               empirical: {
                 outpatient: [
-                  { drug: 'Amoxicillin', dose: '3x40mg/kg PO', duration: '7-10 nap', note: 'Első választás' },
-                  { drug: 'Cefuroxim', dose: '2x250mg PO', duration: '7 nap', note: 'Alternatíva' }
+                  { drug: 'SZIKSZTÉMÁS FÁJDALOMCSILLAPÍTÁS (Ibuprofen / Paracetamol)', dose: 'Ibuprofen 10 mg/kg q6h VAGY Paracetamol 15 mg/kg q6h PO/PR', duration: '3-5 nap', note: 'AZ AOM TERÁPIÁJÁNAK LEGFŐBB ELSŐ LÉPÉSE! A fájdalomcsillapítást AZONNAL el kell indítani.' },
+                  { drug: '"WATCHFUL WAITING" (Várakozó álláspont - AAP / ECDC irányelvek)', dose: 'Szigorú fájdalomcsillapítás + 48-72 órás megfigyelés', duration: '48 óra', note: 'ALKALMAZHATÓ: ≥2 éves gyermeknél, enyhe tünetekkel, egyoldali AOM esetén, amennyiben a szoros kontroll biztosított. Az esetek >60-80%-a sponte gyógyul!' },
+                  { drug: 'AMOXICILLIN (Nagy dózisú orális terápia)', dose: '80-90 mg/kg/nap PO 2-3 adagban (felnőtt: 3x1000 mg PO)', duration: '10 nap (<2 év) / 5-7 nap (>2 év)', note: 'I. VONALBELI ANTIBIOTIKUM! Kötelezően azonnal indítandó: 1) <6 hónapos csecsemőnél; 2) Kétoldali AOM-ben <2 évesnél; 3) Magas láz (≥39°C) és súlyos fájdalom esetén; 4) Perforált fülfolyás (otorrhoea) esetén!' },
+                  { drug: 'Amoxicillin / Clavulanate (Nagy dózisú)', dose: '90 mg/kg/nap Amoxicillin komponensre méretezve (felnőtt: 2x1000 mg PO)', duration: '7-10 nap', note: 'Indikált: 30 napon belüli korábbi amoxicillin kezelés, egyidejű purulens conjunctivitis (H. influenzae gyanú) vagy Amoxicillin kudarc (48h után) esetén.' },
+                  { drug: 'Cefdinir / Cefuroxim axetil / Azithromycin', dose: 'Cefuroxim: 30 mg/kg/nap PO; Azithromycin: 10 mg/kg D1, majd 5 mg/kg 2-5. nap', duration: '5-10 nap', note: 'Penicillin allergia esetén választandó alternatívák' }
                 ],
                 inpatient: [
-                  { drug: 'IV antibiotikum', dose: 'Ha szövődmény', duration: '', note: '' }
+                  { drug: 'Ceftriaxon IV / IM', dose: '50 mg/kg IV / IM naponta egyszer', duration: '1-3 nap', note: 'Hányó, gyógyszert bevenni képtelen gyermeknél vagy konzervatív terápia kudarca esetén' }
                 ],
                 icu: [
-                  { drug: 'Sebészi drenázs', dose: 'Ha abscessus', duration: '', note: '' }
+                  { drug: 'Sürgős Paracentesis (Dobhártya bemetszés) + Mastoidectomia', dose: '-', duration: '-', note: 'Akut Mastoiditis, szövődmény vagy elviselhetetlen fájdalom esetén fül-orr-gégészeti myringotomia és szellőztető tubus (Grommet) behelyezése' }
                 ]
               },
-              targeted: 'Antibiotikum',
-              supportive: ['Fájdalomcsillapítás', 'Dekongesztáns'],
-              prevention: ['Vakcinák (Pneumococcus, Hib)']
+              targeted: 'Fülfolyásból vagy paracentesisből származó váladék tenyésztése alapján célzott béta-laktám antibiotikum.',
+              supportive: ['Azonnali orális NSAID / Paracetamol (A fülcseppek zárt dobhártyánál hatástalanok, perforáltnál KONTRAINDIKÁLTAK!)', 'Orrcsepp / Orrszívás a fülkürt szellőzésének javítására'],
+              prevention: [
+                '1. VAKCINÁCIÓK MEGHATÁROZÓ SZEREPA KÖZÉPFÜLGYULLADÁS MEGELŐZÉSÉBEN:',
+                '- PNEUMOCOCCUS KONJUGÁLT VAKCINÁK (PCV13, PCV15, PCV20): A kötelező csecsemőkori PCV oltási rend bevezetése óta az invazív és súlyos Pneumococcus okozta AOM epizódok száma >60-80%-kal csökkent!',
+                '- HAEMOPHILUS INFLUENZAE B (Hib) oltás (Hexavalens oltóanyag részeként 2, 3, 4 és 18 hónaposan).',
+                '- ÉVES INFLUENZA VÁRKONJUGÁLT OLTÁS: 30-50%-kal csökkenti a szezonális poszt-influenzás AOM kialakulását kisgyermekekben.',
+                '2. RIZIKÓTÉNYEZŐK CSÖKKENTÉSE: Szoptatás támogatása 6 hónapos korig, passzív dohányzás megszüntetése, cumi használatának korlátozása 6 hónapos kor után.'
+              ]
             },
             prognosis: {
-              mortality: 'Alacsony',
-              prognostic_scores: ['Nincs'],
-              factors: 'Kor, ismétlődés'
+              mortality: 'Szövődménymentes esetben 0%; Akut Mastoiditis és intracranialis szövődmények esetén 1-3%.',
+              prognostic_scores: ['AOM Severity Score'],
+              factors: 'Csecsemőkor (<6 hónap), PCV oltási státusz, gyors adekvát fájdalomcsillapítás és adekvát amoxicillin dózis'
             },
             gallery: [
               {
                 url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Blausen_0871_TympanicMembrane_2.png',
-                caption: 'Otitis media esetén látható dobhártyaeltérés.',
+                caption: 'Otitis media acuta (AOM) során látható elődomborodó, belövellt dobhártya.',
                 type: 'Otoszkópia'
               }
             ]

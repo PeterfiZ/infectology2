@@ -1,4 +1,5 @@
 import { abdomenHu } from './abdomen_hu';
+import { gastrointestinalHu } from './gastrointestinal_hu';
 
 if (typeof window !== 'undefined') {
   (window as any).diseaseMetadata = {
@@ -22,6 +23,8 @@ if (typeof window !== 'undefined') {
   };
   (window as any).diseases = {};
   
-  // Seed window.diseases with the existing abdomen categories
-  Object.assign((window as any).diseases, abdomenHu);
+  // Seed window.diseases with abdomen categories and override gastrointestinal with updated gastrointestinalHu
+  Object.assign((window as any).diseases, abdomenHu, {
+    gastrointestinal: gastrointestinalHu
+  });
 }

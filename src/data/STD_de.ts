@@ -120,113 +120,131 @@ Object.assign(window.diseases, {
             name: 'HIV-Infektion und AIDS',
             pathogen: { type: 'Virus', name: '<i>Humanes Immundefizienz-Virus</i> (HIV-1, HIV-2)', gram: 'RNA-Retrovirus', shape: 'sphärisch' },
             epidemiology: {
-              incidence: '~38 Millionen Menschen leben weltweit mit HIV',
-              risk_groups: ['MSM', 'i.v.-Drogenkonsumenten', 'Sexarbeiter', 'Transfusionsempfänger (Entwicklungsländer)', 'Partner'],
+              incidence: '~39 Millionen Menschen leben weltweit mit HIV (UNAIDS 2024)',
+              risk_groups: ['MSM (Männer, die Sex mit Männern haben)', 'i.v.-Drogenkonsumenten (PWID)', 'Sexarbeiter', 'Empfänger von Blutprodukten (Entwicklungsländer)', 'Sexualpartner mit Risikoverhalten'],
               seasonality: 'Keine',
-              transmission: 'Sexuell, parenteral (Blut), vertikal (Mutter-Kind)'
+              transmission: 'Sexuell (vaginal, anal, oral), parenteral (Blut, Nadelstich), vertikal (Mutter-Kind: Schwangerschaft, Geburt, Stillen)'
             },
             pathomechanism: {
               steps: [
-                'Eintritt und Bindung: Virales gp120 bindet an CD4-Rezeptor und CCR5/CXCR4-Korezeptoren auf T-Helferzellen und Makrophagen.',
-                'Replikation und Integration: Virale RNA wird durch Reverse Transkriptase in DNA umgeschrieben (fehleranfällig) und durch Integrase in das Wirtsgenom integriert (Provirus), wo es latent bleiben kann.',
-                'Immunzerstörung: Infizierte CD4+ T-Zellen sterben durch Virusreplikation (Pyroptose), Angriff durch zytotoxische T-Zellen und Synzytienbildung. Früher Verlust von darmassoziiertem lymphatischem Gewebe (GALT) treibt chronische Entzündung an.',
-                'Folge: Kritischer Abfall der CD4+ Zahl (<200/µL) führt zum Zusammenbruch des Immunsystems und zu opportunistischen Infektionen/Tumoren (AIDS).'
+                'Eintritt und Bindung: Das virale gp120 bindet mit hoher Affinität an den CD4-Rezeptor von T-Helferzellen (CD4+), Makrophagen und Reservoiren sowie an die CCR5- oder CXCR4-Korezeptoren.',
+                'Replikation und Integration: Im Zellinneren wird die virale RNA durch die Reverse Transkriptase in DNA umgeschrieben (fehlerträchtiger Prozess, der zu hohen Mutationsraten und Resistenzen führt). Die Integrase baut die provirale DNA in das Wirtsgenom ein, wo sie latent verbleiben kann (Reservoire).',
+                'Zerstörung des Immunsystems: Infizierte CD4+-T-Zellen sterben durch virale Replikation (Pyroptose), zytotoxische T-Zell-Attacken und Synzytienbildung. Ein frühzeitiger Verlust des darmassoziierten lymphoiden Gewebes (GALT) führt zu chronischer systemischer Entzündung und mikrobieller Translokation.',
+                'Konsequenz: Der kritische Abfall der CD4+-Zellzahl (<200/µL) führt zum Kollaps des Immunsystems und zum Auftreten opportunistischer Infektionen/Malignome (AIDS).'
               ],
-              virulence_factors: ['gp120/gp41 (Eintritt)', 'Reverse Transkriptase (hohe Mutationsrate)', 'Nef, Tat, Rev (Regulatoren)']
+              virulence_factors: ['gp120/gp41 (Eintritt und Fusion)', 'Reverse Transkriptase (hohe Mutationsrate)', 'Integrase (Genomintegration)', 'Nef, Tat, Rev, Vif (Regulatoren, Immunflucht)']
             },
             clinical: {
               incubation: '2-4 Wochen (akutes retrovirales Syndrom)',
               onset: 'Akut (ARS) oder latent',
               symptoms: [
                 { name: 'Akutes retrovirales Syndrom (ARS)', description: 'Mononukleose-ähnliche Erkrankung 2–4 Wochen nach Infektion: Fieber, Halsschmerzen, Lymphknotenschwellung, Muskelschmerzen und makulopapulöser Ausschlag. Hohe Viruslast und vorübergehender CD4-Abfall.', severity: 'moderate' },
-                { name: 'Klinische Latenz', description: 'Asymptomatische oder milde Phase (8-10 Jahre ohne Therapie). Das Virus repliziert aktiv in Lymphknoten. Persistierende generalisierte Lymphadenopathie (PGL) kann auftreten.', severity: 'mild' },
-                { name: 'AIDS-Stadium', description: 'Wenn die CD4-Zahl unter 200/µL fällt. Auftreten opportunistischer Infektionen (z.B. Pneumocystis-Pneumonie, Ösophagus-Candidose, Toxoplasma-Enzephalitis, CMV-Retinitis) und Tumoren (Kaposi-Sarkom, Lymphom).', severity: 'severe' }
+                { name: 'Klinische Latenz (Asymptomatisches Stadium)', description: 'Symptomfreie oder symptomarme Phase von durchschnittlich 8-10 Jahren ohne Behandlung. Aktive Replikation in Lymphknoten. Persistierende generalisierte Lymphadenopathie (PGL) möglich.', severity: 'mild' },
+                { name: 'Fortgeschrittene HIV-Erkrankung (Advanced HIV Disease - AHD) / AIDS-Stadium', description: 'Wenn die CD4-Zahl unter 200/µL fällt (oder WHO-Stadium III/IV). Auftreten opportunistischer Infektionen (z. B. Pneumocystis jirovecii-Pneumonie, ösophageale Candidose, Toxoplasma-Enzephalitis, Kryptokokken-Meningitis, CMV-Retinitis, disseminierte Tuberkulose) und Malignome (Kaposi-Sarkom, Non-Hodgkin-Lymphom, invasives Zervixkarzinom).', severity: 'severe' }
               ],
               physical_exam: [
                 'Generalisierte Lymphadenopathie (PGL)',
-                'Orale Candidose (Soor)',
-                'Seborrhoe der Kopfhaut',
-                'Kaposi-Sarkom (violette Hautläsionen)'
+                'Orale Candidose (Soor) oder orale Haarleukoplakie',
+                'Seborrhoisches Ekzem der Kopfhaut, makulopapulöse Exantheme',
+                'Kaposi-Sarkom (violette/bräunliche Hautveränderungen, Knoten)',
+                'Kachexie (HIV-Wasting-Syndrom)'
               ],
-              complications: ['Pneumocystis-jirovecii-Pneumonie (PCP)', 'Toxoplasma-Enzephalitis', 'Kryptokokken-Meningitis', 'CMV-Retinitis', 'Kaposi-Sarkom', 'Lymphom']
+              complications: ['Pneumocystis jirovecii-Pneumonie (PCP)', 'Toxoplasma-Enzephalitis', 'Kryptokokken-Meningitis', 'CMV-Retinitis / Colitis', 'Disseminierte TB / MAC', 'Kaposi-Sarkom', 'Non-Hodgkin-Lymphom', 'HIV-Enzephalopathie / Demenz']
             },
             diagnostics: {
               laboratory: [
-                { test: 'CD4-Zellzahl', finding: 'Abnehmend (<200/µL = AIDS)', interpretation: 'Immunstatus' },
-                { test: 'Blutbild', finding: 'Lymphopenie, Thrombozytopenie', interpretation: 'Zytopenie' }
+                { test: 'CD4-Zellzahl', finding: 'Abfallend (<200/µL = AHD / AIDS-Stadium)', interpretation: 'Immunstatus und Abschätzung des Risikos opportunistischer Infektionen' },
+                { test: 'Blutbild & Organfunktionen', finding: 'Lymphopenie, Thrombozytopenie, Anämie, erhöhte Leber-/Nierenwerte', interpretation: 'Screening auf Komorbiditäten und Organschäden' }
               ],
               microbiology: [
-                { test: 'Screening-Test (ELISA der 4. Generation)', finding: 'Ag/Ak positiv', significance: 'Kurzes diagnostisches Fenster (2-3 Wochen)' },
-                { test: 'Bestätigungstest (Western Blot / Immunoblot)', finding: 'Positiv', significance: 'Diagnose' },
-                { test: 'HIV-RNA-PCR (Viruslast)', finding: 'Kopien/ml', significance: 'Therapieüberwachung und akute Infektion' }
+                { test: 'Suchtest (4. Generation Ag/Ab-Kombi-ELISA/ECLIA)', finding: 'p24-Antigen und HIV-1/2-Antikörper positiv', significance: 'Kurzes Diagnostisches Fenster (2-3 Wochen). Bei Positivität Bestätigung erforderlich!' },
+                { test: 'Bestätigungstest (HIV-1/HIV-2 Differenzierungs-Immunoassay / Western Blot)', finding: 'Positiv', significance: 'Endgültige Diagnosesicherung' },
+                { test: 'HIV-RNA-PCR (Viruslast)', finding: 'Kopien/ml', significance: 'Ausgangswert vor ART, Bestätigung akuter Infektionen und Therapiemonitoring' },
+                { test: 'Genotypische Resistenztestung (GRT)', finding: 'Pre-treatment Resistenzmutationen', significance: 'Vor Beginn der ART bei allen Neudiagnostizierten empfohlen' },
+                { test: 'HLA-B*5701 Genetik', finding: 'Positiv oder Negativ', significance: 'Obligatorisch vor Abacavir (ABC)-Gabe (Verhinderung schwerer Überempfindlichkeitsreaktionen!)' },
+                { test: 'AHD-Screening (bei CD4 <200/µL)', finding: 'Serum-CrAg LFA (Kryptokokken-Antigen) + Urin-TB-LAM', significance: 'Schneller Nachweis okkulter Kryptokokkose und Tuberkulose' }
               ]
             },
             differential: [
-              { disease: 'Mononukleose (EBV)', distinguishing: 'Heterophile Antikörper, atypische Lymphozyten' },
-              { disease: 'Influenza', distinguishing: 'Saisonalität, schnellerer Verlauf' },
-              { disease: 'Sekundäre Syphilis', distinguishing: 'Serologie, Ausschlag an Handflächen/Fußsohlen' }
+              { disease: 'Mononukleose (EBV / CMV)', distinguishing: 'Heterophile Antikörper positiv, atypische Lymphozyten, HIV-Ag/Ab negativ' },
+              { disease: 'Influenza / COVID-19', distinguishing: 'Respiratorische Symptome dominieren, PCR-Testung' },
+              { disease: 'Sekundäre Syphilis', distinguishing: 'Serologie (TPHA/RPR), papulöses Exanthem an Handflächen/Fußsohlen' }
             ],
             therapy: {
-              guidelines: ['EACS-Leitlinien Version 12.0 (2023)'],
+              guidelines: ['EACS Guidelines Version 12.1 (2024)', 'Deutsch-Österreichische Leitlinien (DÖAG 2024)', 'IAS-USA 2024'],
               empirical: {
                 drug_classes: {
-                  title: 'Antiretrovirale Medikamentenklassen',
+                  title: 'Antiretrovirale Medikamentenklassen (ART)',
                   drugs: [
-                    { drug: 'NRTI (Nukleosid-/Nukleotid-Reverse-Transkriptase-Inhibitoren)', dose: '-', duration: '-', note: 'z.B. Tenofovir (TDF/TAF), Emtricitabin (FTC), Lamivudin (3TC), Abacavir (ABC)' },
-                    { drug: 'INSTI (Integrase-Inhibitoren)', dose: '-', duration: '-', note: 'z.B. Bictegravir (BIC), Dolutegravir (DTG), Raltegravir (RAL)' },
-                    { drug: 'NNRTI (Nicht-Nukleosidische-Reverse-Transkriptase-Inhibitoren)', dose: '-', duration: '-', note: 'z.B. Doravirin (DOR), Rilpivirin (RPV), Efavirenz (EFV)' },
-                    { drug: 'PI (Protease-Inhibitoren)', dose: '-', duration: '-', note: 'z.B. Darunavir (DRV), Atazanavir (ATV) - mit Booster (Ritonavir/Cobicistat)' }
+                    { drug: 'INSTI (Integrase-Inhibitoren)', dose: '-', duration: '-', note: 'Höchste Resistenzbarriere, schnellster Abfall der Viruslast (Bictegravir, Dolutegravir, Cabotegravir, Raltegravir)' },
+                    { drug: 'NRTI (Nukleoside/Nukleotid-RT-Inhibitoren)', dose: '-', duration: '-', note: 'Tenofoviralafenamid (TAF), Tenofovirdisoproxil (TDF), Emtricitabin (FTC), Lamivudin (3TC), Abacavir (ABC)' },
+                    { drug: 'NNRTI (Nicht-nukleoside RT-Inhibitoren)', dose: '-', duration: '-', note: 'Doravirin (DOR), Rilpivirin (RPV), Efavirenz (EFV)' },
+                    { drug: 'PI (Protease-Inhibitoren)', dose: '-', duration: '-', note: 'Darunavir (DRV), Atazanavir (ATV) - geboostert (Ritonavir/Cobicistat)' },
+                    { drug: 'Kapsid-Inhibitor (Neue Klasse)', dose: '-', duration: '-', note: 'Lenacapavir (LEN) - 6-monatliche s.c.-Injektion bei MDR-HIV' }
                   ]
                 },
                 combinations: {
-                  title: 'Empfohlene Kombinationen',
+                  title: 'Erstlinien-Therapiestrategien',
                   drugs: [
-                    { drug: '2 NRTI + 1 INSTI', dose: '-', duration: '-', note: 'Standard-Erstlinientherapie (z.B. TAF/FTC + Bictegravir)' },
-                    { drug: '1 NRTI + 1 INSTI', dose: '-', duration: '-', note: 'Zweifachtherapie (z.B. 3TC + Dolutegravir) - unter bestimmten Bedingungen' },
-                    { drug: '2 NRTI + 1 NNRTI oder 1 PI', dose: '-', duration: '-', note: 'Alternativen' }
+                    { drug: '2 NRTI + 1 INSTI (3-Medikamente-Regime)', dose: '-', duration: '-', note: 'Standard Goldstandard (z. B. BIC/TAF/FTC oder DTG + TAF/FTC)' },
+                    { drug: '1 NRTI + 1 INSTI (2-Medikamente-Regime)', dose: '-', duration: '-', note: 'Dolutegravir + Lamivudin (DTG/3TC) - auch in der Erstlinie bei bestimmten Kriterien!' },
+                    { drug: 'Langwirksame injizierbare ART (Long-Acting Injectable)', dose: '-', duration: '-', note: 'Cabotegravir + Rilpivirin (CAB/RPV) alle 2 Monate i.m. (zur Umstellung bei supprimierten Patienten)' }
                   ]
                 },
                 regimens: {
-                  title: 'Spezifische empfohlene Regime (EACS)',
+                  title: 'Bevorzugte konkrete Regime (EACS 12.1)',
                   drugs: [
-                    { drug: 'Bictegravir / Tenofoviralafenamid (TAF) / Emtricitabin (FTC)', dose: '1 Tab (50/25/200mg) p.o. 1x/Tag', duration: 'Lebenslang', note: 'Bevorzugte Erstlinientherapie (STR). Erfordert keinen HLA-Test.' },
-                    { drug: 'Dolutegravir + Tenofovir (TDF/TAF) + Emtricitabin (FTC) / Lamivudin (3TC)', dose: 'Kombination', duration: 'Lebenslang', note: 'Bevorzugte Erstlinientherapie.' },
-                    { drug: 'Dolutegravir / Lamivudin (3TC)', dose: '1 Tab (50/300mg) p.o. 1x/Tag', duration: 'Lebenslang', note: 'Zweifachtherapie (wenn VL <500.000, kein HBV, CD4 >200).' }
+                    { drug: 'Bictegravir / Tenofoviralafenamid (TAF) / Emtricitabin (FTC)', dose: '1 Tab (50/25/200mg) p.o. 1x/Tag', duration: 'Lebenslang', note: 'Bevorzugtes Single Tablet Regimen (STR). Benötigt keinen HLA-Test, hohe Resistenzbarriere.' },
+                    { drug: 'Dolutegravir + Tenofovir (TDF oder TAF) + Emtricitabin (FTC) / Lamivudin (3TC)', dose: '50mg DTG + 1 Tab TAF/FTC p.o. 1x/Tag', duration: 'Lebenslang', note: 'Bevorzugte Erstlinie.' },
+                    { drug: 'Dolutegravir / Lamivudin (3TC)', dose: '1 Tab (50/300mg) p.o. 1x/Tag', duration: 'Lebenslang', note: 'Bevorzugtes 2-Medikamente-STR (BEDINGUNGEN: Viruslast <500.000 Kopien/ml, keine aktive HBV-Koinfektion, keine NRTI/INSTI-Resistenz).' },
+                    { drug: 'Dolutegravir / Abacavir / Lamivudin (DTG/ABC/3TC)', dose: '1 Tab (50/600/300mg) p.o. 1x/Tag', duration: 'Lebenslang', note: 'Nur für HLA-B*5701 NEGATIVE UND HBsAg NEGATIVE Patienten!' },
+                    { drug: 'Cabotegravir + Rilpivirin (CAB/RPV i.m.-Injektion)', dose: 'i.m.-Injektion alle 2 Monate (oder monatlich)', duration: 'Lebenslang', note: 'Switcheinleitung für stabil supprimierte (<50 Kopien/ml) Patienten ohne bisheriges Therapieversagen/Resistenzen.' }
                   ]
                 }
               },
-              targeted: 'Sofortiger ART-Beginn (Rapid Initiation) empfohlen. Ziel: nicht nachweisbare Viruslast (<50 Kopien/ml).',
-              supportive: ['Opportunistische Prophylaxe (PCP: TMP/SMX bei CD4<200; Toxoplasma: TMP/SMX bei CD4<100 und IgG+)', 'Impfungen (Pneumokokken, Influenza, HBV, HAV, HPV, Meningokokken, VZV - Lebendimpfstoff kontraindiziert bei CD4<200)'],
-              prevention: ['PrEP (TDF/FTC oder TAF/FTC)', 'PEP (ART für 28 Tage, Beginn <48 Stunden)', 'N=N (Nicht nachweisbar = Nicht übertragbar)']
+              targeted: 'Schneller ART-Start (Rapid / Same-day Initiation): Die ART sollte am Tag der Diagnose oder so schnell wie möglich bei allen Menschen mit HIV begonnen werden! Ziel: Erreichen und Aufrechterhalten einer nicht nachweisbaren Viruslast (<50 Kopien/ml).',
+              supportive: [
+                'Prophylaxe opportunistischer Infektionen: PCP-Prophylaxe (TMP/SMX 960mg 1x/Tag oder 3x/Woche) bei CD4 <200/µL. Toxoplasmose-Prophylaxe (TMP/SMX 960mg 1x/Tag) bei CD4 <100/µL und Toxoplasma-IgG+.',
+                'Primäre MAC (Mycobacterium avium)-Prophylaxe: In der Ära des schnellen ART-Starts ROUTINEMÄSSIG NICHT MEHR EMPFOHLEN (auch bei CD4 <50)!',
+                'Impfungen: Pneumokokken (PCV20/PCV15 + PPSV23), Influenza (jährlich), HBV, HAV, HPV, Meningokokken, VZV/Zoster (Totimpfstoff RZV). Lebendimpfstoffe (z. B. MMR, VZV) KONTRAINDIZIERT bei CD4 <200/µL!'
+              ],
+              prevention: [
+                'N=N / U=U (Nicht nachweisbar = Nicht übertragbar / Undetectable = Untransmittable): Menschen mit HIV unter wirksamer ART (<50 Kopien/ml seit mindestens 6 Monaten) können das Virus sexuell NICHT übertragen!',
+                'PrEP (Prä-Expositionsprophylaxe): Täglich orales TDF/FTC oder TAF/FTC (oder anlassbezogene "2-1-1"-PrEP mit TDF/FTC bei MSM). Langwirksame injizierbare PrEP: Cabotegravir LA (alle 2 Monate i.m.) oder Lenacapavir (alle 6 Monate s.c.).',
+                'PEP (Post-Expositionsprophylaxe): Beginn innerhalb von 72 Stunden (idealerweise <24h) für 28 Tage. Bevorzugt: TDF/FTC (oder TAF/FTC) + Dolutegravir (oder Bictegravir oder Raltegravir).',
+                'PMTCT (Mutter-Kind-Übertragung): Universelles Schwangerschaftsscreening, sofortige DTG-basierte ART, Entbindungsweg nach Viruslast zur Geburt, postexpositionelle Prophylaxe beim Neugeborenen.'
+              ]
             },
             guidelines: {
               diagnosis: [
-                'Screening: Ag/Ak-Kombinationstest der 4. Generation',
-                'Bestätigung: Western Blot oder Immunoblot',
-                'Baseline: CD4, Viruslast, HLA-B*5701 (vor ABC-Gabe), Resistenztestung (falls verfügbar)'
+                'Screening: 4. Generation Ag/Ab-Kombinationstest (p24-Antigen + Antikörper).',
+                'Bestätigung: HIV-1/2-Differenzierungstest / Western Blot.',
+                'Baseline vor ART: CD4-Zahl, HIV-RNA-Viruslast, Genotypische Resistenztestung (GRT), HLA-B*5701 (vor Abacavir), HBV/HCV-Serologie, Syphilis- und STD-Screening.',
+                'AHD-Diagnostik-Paket (bei CD4 <200/µL): CrAg LFA (Kryptokokkose) und Urin-TB-LAM (Tuberkulose).'
               ],
               treatment_indications: [
-                'Treat All: ART wird für alle Menschen mit HIV empfohlen, unabhängig von der CD4-Zellzahl.',
-                'Dringende ART: Schwangerschaft, akute opportunistische Infektion (außer TB-Meningitis/Kryptokokken-Meningitis - dort Aufschub), akutes HIV-Syndrom.'
+                'Treat All / Same-Day ART: Empfehlung zum unverzüglichen Beginn der ART für alle Menschen mit HIV unabhängig von der CD4-Zahl.',
+                'Ausnahme vom sofortigen Start: Bei ZNS-Tuberkulose-Meningitis oder Kryptokokken-Meningitis sollte der ART-Start um 2-6 Wochen verschoben werden, um ein lebensbedrohliches intrakranielles IRIS (Immunglobulines Reintegrations-Syndrom) zu verhindern!'
               ],
               first_line: [
-                '1. Bictegravir/TAF/FTC (STR)',
-                '2. Dolutegravir + TAF/FTC oder TDF/FTC oder ABC/3TC (HLA-B*5701 neg)',
-                '3. Dolutegravir/3TC (2-fach-Regime) - unter Bedingungen'
+                '1. Bictegravir / TAF / FTC (BIC/TAF/FTC - STR)',
+                '2. Dolutegravir + TAF/FTC oder TDF/FTC',
+                '3. Dolutegravir / Lamivudin (DTG/3TC - 2-Medikamente-STR, wenn VL <500k und HBV-negativ)',
+                '4. Dolutegravir / ABC / 3TC (wenn HLA-B*5701 negative und HBV-negativ)'
               ],
               monitoring: [
-                'Viruslast: nach 1, 3, 6 Monaten, dann alle 6 Monate (wenn stabil)',
-                'CD4: Anfänglich alle 3-6 Monate, bei stabilem Zustand seltener'
+                'Viruslast: Nach 1, 3 und 6 Monaten nach ART-Start/Wechsel, dann alle 6 Monate bei Stabilität. Ziel: <50 Kopien/ml.',
+                'CD4-Zahl: Initial alle 3-6 Monate; wenn VL <50 und CD4 >350 seit ≥1-2 Jahren, kann das Routine-CD4-Monitoring eingestellt werden.'
               ],
               special_populations: [
-                'Schwangerschaft: DTG-basierte Regime werden bevorzugt',
-                'TB-Koinfektion: ART-Beginn innerhalb von 2-8 Wochen (CD4-abhängig), Rifampicin-Interaktionen (DTG-Dosiserhöhung!)'
+                'Schwangerschaft: DTG-basierte Regime bevorzugt (früheres Signal für Neuralrohrdefekte klinisch nicht signifikant).',
+                'TB-Koinfektion: Beginn der ART innerhalb von 2 Wochen nach TB-Therapiestart bei CD4 <50, sonst innerhalb von 2-8 Wochen. Unter Rifampicin Verdopplung der Dolutegravir-Dosis auf 2x50mg/Tag!'
               ]
             },
             prognosis: {
-              mortality: 'Mit Behandlung fast normale Lebenserwartung; Unbehandeltes AIDS: tödlich',
-              prognostic_scores: ['CD4-Zellzahl', 'Viruslast'],
-              factors: 'Adhärenz, Frühdiagnose'
+              mortality: 'Bei rechtzeitiger und adhärenter ART nahezu normale Lebenserwartung; Unbehandeltes AHD/AIDS: hohe Mortalität',
+              prognostic_scores: ['CD4-Zahl', 'HIV-RNA-Viruslast', 'AHD / Vorhandensein opportunistischer Infektionen'],
+              factors: 'Therapieadhärenz, Früherkennung, dauerhafte Virusunterdrückung'
             }
           },
           {
