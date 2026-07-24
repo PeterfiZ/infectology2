@@ -1,9 +1,48 @@
-Object.assign(window.diseases, {
-     skin_soft_tissue: {
-        name: 'Bőr és lágyrész fertőzések',
-        icon: '🩹',
-        color: '#e11d48',
-        diseases: [
+import { Category } from '../types';
+
+export const skinSoftTissueHu: Category = {
+  name: 'Bőr és lágyrész fertőzések',
+  icon: '🩹',
+  color: '#e11d48',
+ didactics: {
+    overview: 'A bőr- és lágyrész-fertőzések (SSTI-k), valamint a mélyebb csont- és ízületi fertőzések széles klinikai spektrumot ölelnek fel, a felületes, lokalizált elváltozásoktól (impetigo, folliculitis) az életveszélyes nekrotizáló lágyrész-fertőzésekig (NSTI), a komplex diabéteszes lábfertőzésekig (DFI), valamint a csont-/ízületi destrukciókig (osteomyelitis, septicus arthritis, spondylodiscitis). A kezelést a legújabb, mérvadó irányelvek határozzák meg (IDSA 2024-es frissítések, WSES 2024, IWGDF 2023, NPIAP 2023 és az OVIVA-vizsgálat alapelvei). A terápia két fő pillérre épül: a gyors, agresszív sebészi forráskontrollra (debridement, drenázs vagy revaszkularizáció) és a célzott, bizonyítékalapú antimikrobiális kezelésre.',
+    primary: 'A gennyes és nem gennyes SSTI-k osztályozása (IDSA 2024): 1) Gennyes SSTI-k (bőr alatti tályogok, furunculusok, carbunculusok): Az elsődleges kezelés az incízió és drenázs (I&D). Antibiotikum javasolt közepesen súlyos/súlyos esetekben, szisztémás tünetek (láz, SIRS), immunszuppresszió vagy arc-/kéz-lokalizáció esetén. 2) Nem gennyes SSTI-k (erysipelas, cellulitis, nekrotizáló fertőzések): Az empirikus terápia a Streptococcusokat és az MSSA/MRSA-t célozza. Szövődménymentes cellulitis esetén a rövid (5–7 napos) orális kezelés ugyanolyan hatékony, mint a 10–14 napos, amennyiben klinikai válasz alakul ki.',
+    secondary: 'Nekrotizáló lágyrész-fertőzések (NSTI / necrotizáló fasciitis): Hiperakut sebészi sürgősségi állapotok. Fő diagnosztikus jel: a fizikális lelethez képest aránytalanul erős fájdalom. A LRINEC-score alátámaszthatja a gyanút, de a műtétet SOHA nem szabad képalkotásra vagy laboreredményre várva halasztani. A sebészi feltárás ("ujjpróba") és a radikális debridement 6–12 órán belül életmentő. Empirikus hármas terápia: (Pip/Tazo vagy Meropenem) + Vancomycin + Clindamycin (toxinszintézis-gátlás céljából) ± IVIG GAS toxikus sokk szindróma esetén.',
+    biliary: 'Diabéteszes lábfertőzések (DFI – IWGDF 2023) és krónikus decubitus (nyomási) fekélyek (NPIAP 2023): A DFI kezelése fertőzés-stádiumbeosztást (enyhe, közepes, súlyos), csontig-tapintás tesztet (Probe-to-Bone, PTB), tehermentesítést és vaszkuláris státuszfelmérést (ABI) igényel. Szisztémás antibiotikum nem indokolt fertőzés nélküli, kolonizált krónikus fekélyeknél vagy nyomási sérüléseknél; kizárólag aktív klinikai fertőzés, cellulitis vagy osteomyelitis esetén javasolt.',
+    diagnostics: [
+      '1) Klinikai vizsgálat: A gennyes és nem gennyes forma elkülönítése, a mélység, crepitatio, bullák, érzéketlenség és a csontig-tapintás (PTB) státuszának felmérése.',
+      '2) Sebészi feltárás ("ujjpróba"): Vérzés hiánya, "mosogatóvíz-szerű" folyadék és a fasciaellenállás elvesztése megerősíti a necrotizáló fasciitist.',
+      '3) Diagnosztikus arthrocentesis: Kötelező septicus arthritis gyanúja esetén, MÉG az antibiotikum megkezdése ELŐTT (synovialis fehérvérsejtszám >50 000/µL, >90% PMN).',
+      '4) Mikrobiológia: Mély szöveti biopszia vagy kürettázs DFI/osteomyelitis esetén (kerülendő a nem tisztított fekély felületi tamponja); vérkultúra (50%-ban pozitív spondylodiscitisben/septicus arthritisben).',
+      '5) Képalkotás: Kontrasztos CT lágyrész-gáz/tályog kimutatására NSTI-ben; MRI (arany standard) spondylodiscitis, osteomyelitis és mély szöveti tályogok esetén.'
+    ],
+    red_flags: [
+      'A fizikális lelethez képest aránytalanul erős, gyötrő fájdalom (korai NSTI-figyelmeztető jel)',
+      'Bőr alatti crepitatio, bőrnekrózis, bullák vagy érzéskiesés (idegnekrózis okozta anesztézia)',
+      'Reynolds/SIRS-kritériumok vagy septicus shock (hypotonia, emelkedett laktát >2 mmol/L, tudatállapot-változás)',
+      'Pozitív csontig-tapintás (PTB) teszt, exponált csonttal, diabéteszes láb fekélyben',
+      'Akut monoarthritis, az ízület aktív és passzív mozgatásának képtelenségével (septicus arthritis – sürgősségi állapot)',
+      'Progresszív neurológiai deficit (motoros paresis, sphincter-diszfunkció) spondylodiscitis gyanúja esetén (epiduralis tályog)'
+    ],
+    special_populations: 'Diabéteszes betegek: A polyneuropathia tompítja a fájdalomérzést; a mikro-/makrovaszkuláris betegség rontja a gyógyulást – alacsony küszöbérték a PTB-teszt és a képalkotás elvégzésére. Idősek és immunszupprimált betegek: Gyakran láz és klasszikus leukocytosis nélkül jelentkeznek. Intravénás droghasználók: Magas a CA-MRSA, a septicus arthritis, a spondylodiscitis és az infektív endocarditis előfordulása.',
+    teaching_tip: 'Gennyes SSTI-k esetén az incízió és drenázs az elsődleges! NSTI-ben a sebészi forráskontroll életmentő! Csont- és ízületi fertőzéseknél (osteomyelitis, septicus arthritis, spondylodiscitis) a korai orális antibiotikum-váltás 7–10 napos iv. indukció után (OVIVA-vizsgálat) nem alacsonyabb hatékonyságú, mint a 6 hetes iv. terápia.'
+  },
+  tables: [
+    {
+      title: 'Irányelvek összefoglalása és a főbb bőr-, lágyrész- és csont-/ízületi fertőzések differenciáldiagnosztikája',
+      headers: ['Betegség', 'Kórokozó-spektrum', 'Diagnosztikus arany standard', 'Fő irányelvi kritériumok', 'Empirikus antimikrobiális terápia', 'Intervenciós / sebészi forráskontroll'],
+      rows: [
+        ['Necrotizáló fasciitis (NSTI)', 'I. típus: polimikrobiális; II. típus: GAS, S. aureus; III. típus: Vibrio/Clostridium', 'Sebészi feltárás ("ujjpróba") és szöveti biopszia', 'WSES 2024 / IDSA: sürgősségi debridement <6-12 órán belül; LRINEC-score ≥6/8', 'Pip/Tazo 4,5g 6 óránként + Vanco 15-20mg/kg + Clindamycin 900mg 8 óránként iv.', 'Azonnali sürgősségi radikális sebészi debridement + revízió <24 órán belül'],
+        ['Erysipelas', 'Streptococcus pyogenes (GAS) >> B/C/G csoportú Streptococcus', 'Klinikai kép: éles szélű, kiemelkedő, lángnyelv-szerű, élénkvörös plakk', 'IDSA 2024 / AWMF: nem gennyes felületes fertőzés; 7-10 napos orális terápia', 'Penicillin V 500-1000mg PO 6 óránként vagy Penicillin G 2-4ME iv. 4-6 óránként', 'Nem szükséges (a belépési kapu, pl. tinea pedis kezelése; végtag felpolcolása)'],
+        ['Cellulitis', 'Streptococcus pyogenes, MSSA, MRSA', 'Klinikai kép: diffúz, elmosódott szélű bőrpír, melegség, oedema', 'IDSA 2024: 5–7 napos időtartam nem alacsonyabb hatékonyságú klinikai válasz esetén', 'Cephalexin 500mg PO 6 óránként vagy Cefazolin 1-2g iv. 8 óránként (+ Vanco/TMP-SMX MRSA gyanú esetén)', 'Végtag felpolcolása; drenázs csak másodlagos tályog kialakulása esetén'],
+        ['Impetigo contagiosa', 'S. aureus (bullosus és nem bullosus forma), S. pyogenes', 'Klinikai kép: méz-színű pörkök vagy petyhüdt bullák', 'IDSA: topikus kezelés enyhe esetben (<5 elváltozás); orális kiterjedt/bullosus formában', 'Topikus Mupirocin 2% naponta kétszer, 5 napig VAGY orális Cephalexin 500mg PO 6 óránként, 7 napig', 'Helyi sebkezelés és a pörkök eltávolítása'],
+        ['Bőr alatti tályog / Furunculus', 'Staphylococcus aureus (MSSA és MRSA)', 'Klinikai vizsgálat és ágy melletti ultrahang (fluktuáció)', 'IDSA 2024: az elsődleges kezelés az incízió és drenázs; antibiotikum SIRS/arc esetén', 'Önmagában incízió és drenázs (SIRS/súlyos esetben TMP-SMX vagy Doxycyclin hozzáadása)', 'Elsődleges incízió és drenázs (I&D) + bőséges öblítés'],
+        ['Diabéteszes lábfertőzés (DFI)', 'Enyhe: monomikrobiális. Közepes/súlyos: polimikrobiális + anaerobok', 'Klinikai fertőzési jelek + mély szöveti biopszia + PTB-teszt', 'IWGDF / IDSA 2023: enyhe/közepes/súlyos stádiumbeosztás; PTB-teszt osteomyelitisre', 'Amoxicillin/klavulánsav PO (enyhe) vagy Pip/Tazo 4,5g iv. 6 óránként + Vanco (közepes/súlyos)', 'Sebészi debridement, tehermentesítés (total contact cast), vaszkuláris revaszkularizáció'],
+        ['Nyomási fekély (decubitus)', 'Másodlagos kolonizáció / polimikrobiális fertőzés', 'Klinikai stádiumbeosztás (NPIAP 1-4. stádium / DTPI)', 'NPIAP 2023: szisztémás antibiotikum KIZÁRÓLAG akut cellulitis, sepsis vagy osteomyelitis esetén', 'Nincs szisztémás antibiotikum nem fertőzött fekélynél! (Pip/Tazo csak cellulitis/sepsis esetén)', 'Nekrotikus lepedék/eschar debridementje + nyomástehermentesítés 2 óránként'],
+       ]
+    }
+  ],
+          diseases: [
           {
             id: 'necrotizing_fasciitis',
             name: 'Nekrotizáló fasciitis',
@@ -687,287 +726,11 @@ Object.assign(window.diseases, {
             }
           }
         ]
-      },
-      bone_joint: {
-        name: 'Csont- és ízületi fertőzések',
-        icon: '🦴',
-        color: '#57534e',
-        diseases: [
-          {
-            id: 'osteomyelitis',
-            name: 'Osteomyelitis',
-            pathogen: { type: 'Baktérium', name: '<i>Staphylococcus aureus</i> (leggyakoribb)', gram: 'Gram-pozitív', shape: 'coccus' },
-            epidemiology: {
-              incidence: 'Gyermekeknél hematogén, felnőtteknél poszttraumás/diabeteses láb',
-              risk_groups: ['Diabetes mellitus', 'Perifériás érbetegség', 'Trauma/műtét', 'IV droghasználók', 'Hemodialízis'],
-              seasonality: 'Nincs',
-              transmission: 'Hematogén szórás, direkt terjedés (seb), inokuláció (trauma)'
-            },
-            pathomechanism: {
-              steps: [
-                'Bejutás: A kórokozók a vérárammal (hematogén), környező lágyrészekből (per continuitatem) vagy direkt sérülés/műtét útján jutnak a csontba.',
-                'Gyulladás és Ischaemia: A csontban gyulladást okoznak, ami a csontvelőben ödémához és nyomásfokozódáshoz vezet. Ez a csont vérellátását rontja, ami csontelhaláshoz (sequester) vezet.',
-                'Krónikussá válás: A szervezet az elhalt csontrészt új csontképződéssel (involucrum) próbálja meg körülvenni. Krónikus esetben a baktériumok biofilmet képezve perzisztálnak.'
-              ],
-              virulence_factors: ['Biofilm képzés', 'Adhezinek (MSCRAMM)', 'Toxinok']
-            },
-            clinical: {
-              incubation: 'Napok (akut) vagy hetek-hónapok (krónikus)',
-              onset: 'Változó',
-              symptoms: [
-                { name: 'Akut osteomyelitis', description: 'Hirtelen kezdődő lokális fájdalom, duzzanat, bőrpír és láz. A beteg nem tudja terhelni az érintett végtagot.', severity: 'severe' },
-                { name: 'Krónikus osteomyelitis', description: 'Alattomosabb, tompa, mély fájdalommal, és gyakran a bőrön megjelenő, váladékozó sipollyal (sinus tract) jár. A láz ritka.', severity: 'moderate' }
-              ],
-              physical_exam: [
-                'Lokális nyomásérzékenység a csont felett',
-                'Melegség, duzzanat, erythema',
-                'Mozgáskorlátozottság az érintett végtagon',
-                'Probe-to-bone teszt: Fekély alapjában szondával csont tapintható (magas specificitás)'
-              ],
-              complications: ['Krónikus osteomyelitis', 'Patológiás törés', 'Szeptikus arthritis', 'Szisztémás szepszis', 'Amputáció szükségessége']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Vérkép', finding: 'Leukocytosis (akut)', interpretation: 'Gyulladás (krónikusban normál lehet)' },
-                { test: 'CRP/We', finding: 'Emelkedett', interpretation: 'Monitorozásra kiváló (terápiaválasz)' },
-                { test: 'Hemokultúra', finding: 'Pozitív (50%)', interpretation: 'Hematogén eredetnél (csigolya OM-nél fontos)' }
-              ],
-              imaging: [
-                { modality: 'Röntgen', finding: 'Korai fázisban (10-14 napig) negatív! Később periostalis reakció, lyticus léziók', significance: 'Késői jel, de alapvizsgálat' },
-                { modality: 'MRI', finding: 'Csontvelő ödéma, tályog, sequestrum', significance: 'Gold standard (szenzitivitás >90%)' },
-                { modality: 'Csontszcintigráfia/PET-CT', finding: 'Fokozott dúsítás', significance: 'Ha MRI nem végezhető vagy multifokális folyamat gyanúja' }
-              ],
-              microbiology: [
-                { test: 'Csontbiopszia tenyésztés', finding: 'Kórokozó azonosítás', significance: 'Gold standard diagnózis (antibiotikum előtt!)' },
-                { test: 'Sipoly váladék', finding: 'Gyakran kontaminált', significance: 'Csak S. aureus esetén korrelál jól a csonttal' }
-              ]
-            },
-            differential: [
-              { disease: 'Charcot láb', distinguishing: 'Nincs láz/gyulladásos labor, neuropátia dominál' },
-              { disease: 'Ewing sarcoma', distinguishing: 'Röntgen (hagymahéj), biopszia' },
-              { disease: 'Cellulitis', distinguishing: 'Csak lágyrész érintett, MRI elkülöníti' }
-            ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Nincs', dose: '-', duration: '-', note: 'Kórházi kivizsgálás/mintavétel szükséges' }
-                ],
-                inpatient: [
-                  { drug: 'Vancomycin', dose: '15-20mg/kg IV', duration: '4-6 hét', note: 'MRSA fedezet' },
-                  { drug: '+ Ceftriaxon/Cefepim', dose: '2g IV', duration: '4-6 hét', note: 'Gram-negatív fedezet (pl. Pseudomonas)' }
-                ],
-                icu: [
-                  { drug: 'Széles spektrum', dose: 'IV', duration: '', note: 'Sepszis esetén' }
-                ]
-              },
-              targeted: 'Csontbiopszia alapján! S. aureus: Cefazolin/Flucloxacillin. MRSA: Vancomycin. Implantátum esetén: Rifampicin kiegészítés (biofilm ellen).',
-              supportive: ['Sebészi debridement (nekrotikus csont eltávolítása) - KRITIKUS!', 'Implantátum eltávolítás (ha lehetséges)', 'Korai orális váltás lehetséges (OVIVA study)'],
-              prevention: ['Nyílt törések azonnali ellátása', 'Műtéti sterilitás', 'Diabeteses láb gondozása']
-            },
-            guidelines: {
-              diagnosis: [
-                'Képalkotó: MRI a legérzékenyebb. Rtg 2 hétig negatív lehet.',
-                'Mikrobiológia: Csontbiopszia (nyílt vagy perkután) tenyésztésre és hisztológiára kötelező az antibiotikum előtt (kivéve szepszis).'
-              ],
-              treatment_indications: [
-                'Minden igazolt osteomyelitis kezelendő. Sebészi debridement + antibiotikum.',
-                'Implantátummal asszociált fertőzésnél a biofilm miatt Rifampicin kombináció javasolt.'
-              ],
-              first_line: [
-                'Empirikus: Vancomycin + Ceftriaxon/Cefepim.',
-                'Célzott: 4-6 hét terápia. OVIVA vizsgálat alapján a korai (1 hét utáni) orális váltás (pl. kinolonok, clindamycin) nem rosszabb, mint a végig IV.'
-              ]
-            },
-            prognosis: {
-              mortality: 'Alacsony, de morbiditás magas (krónikussá válás)',
-              prognostic_scores: ['Cierny-Mader osztályozás'],
-              factors: 'Vérellátás, implantátum jelenléte, sebészi radikalitás'
-            }
-          },
-          {
-            id: 'septic_arthritis',
-            name: 'Szeptikus arthritis',
-            pathogen: { type: 'Baktérium', name: '<i>Staphylococcus aureus, N. gonorrhoeae</i>', gram: 'Vegyes', shape: 'coccus' },
-            epidemiology: {
-              incidence: '2-10/100,000 fő/év',
-              risk_groups: ['Rheumatoid arthritis', 'Ízületi protézis', 'Idősek (>80 év)', 'Diabetes', 'IV droghasználók', 'Szexuálisan aktív fiatalok (Gonococcus)'],
-              seasonality: 'Nincs',
-              transmission: 'Hematogén (leggyakoribb), direkt inokuláció, per continuitatem'
-            },
-            pathomechanism: {
-              steps: [
-                'Bejutás: A kórokozók a vérárammal (hematogén) vagy direkt sérülésből jutnak az ízületi résbe.',
-                'Gyulladásos válasz: A synovialis membránban megtelepedve heves gyulladásos választ váltanak ki, ami nagy mennyiségű gennyes folyadékgyülemhez vezet.',
-                'Porckárosodás: A neutrofil granulocytákból felszabaduló enzimek és a gyulladásos citokinek órák-napok alatt visszafordíthatatlanul károsítják az ízületi porcot.'
-              ],
-              virulence_factors: ['Adhezinek', 'Toxinok', 'Porckárosító enzimek']
-            },
-            clinical: {
-              incubation: 'Gyors (órák-napok)',
-              onset: 'Hirtelen',
-              symptoms: [
-                { name: 'Akut monarthritis', description: 'Leggyakrabban egyetlen nagy ízület (térd, csípő) hirtelen kialakuló, extrém fájdalmas duzzanata, vörössége és melegsége.', severity: 'severe' },
-                { name: 'Funkcióvesztés', description: 'A beteg az ízületet a fájdalom miatt sem aktívan, sem passzívan nem tudja mozgatni. Magas láz és hidegrázás kíséri.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Duzzadt, meleg, vörös ízület',
-                'Extrém nyomásérzékenység',
-                'Fájdalmas passzív és aktív mozgás',
-                'Ízületi folyadékgyülem (effusio)',
-                'Gonococcus: migrációs polyarthritis, tenosynovitis, dermatitis (pustulák)'
-              ],
-              complications: ['Ízületi destrukció (arthrosis)', 'Ankylosis', 'Sepszis', 'Osteomyelitis']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Vérkép', finding: 'Leukocytosis', interpretation: 'Szisztémás reakció' },
-                { test: 'CRP/We', finding: 'Jelentősen emelkedett', interpretation: 'Gyulladás' },
-                { test: 'Synovialis folyadék', finding: '>50,000 fvs/µL (>90% PMN)', interpretation: 'Szeptikus arthritisre jellemző' }
-              ],
-              imaging: [
-                { modality: 'Röntgen', finding: 'Kezdetben negatív/lágyrész duzzanat, később ízületi rés beszűkülés', significance: 'Baseline' },
-                { modality: 'UH', finding: 'Ízületi folyadék, synovialis megvastagodás', significance: 'Punkció vezérlése, korai diagnózis' },
-                { modality: 'MRI', finding: 'Ízületi folyadék, csontvelő ödéma, tályog', significance: 'Osteomyelitis kizárása, komplikációk' }
-              ],
-              microbiology: [
-                { test: 'Ízületi punkció (Arthrocentesis)', finding: 'Gennyes, Gram-festés pozitív (50%)', significance: 'AZONNAL elvégzendő!' },
-                { test: 'Tenyésztés (Synovia + Vér)', finding: 'Pozitív', significance: 'Gold standard' },
-                { test: 'PCR (16S rRNS)', finding: 'Kórokozó DNS', significance: 'Ha a tenyésztés negatív (előkezelt beteg)' }
-              ]
-            },
-            differential: [
-              { disease: 'Köszvény (Gout)', distinguishing: 'Kristályok a punktátumban (negatív kettőstörés)' },
-              { disease: 'Pseudoköszvény (CPPD)', distinguishing: 'Pozitív kettőstörésű kristályok' },
-              { disease: 'Reaktív arthritis', distinguishing: 'Steril gyulladás, anamnézis (GI/GU fertőzés)' },
-              { disease: 'Lyme arthritis', distinguishing: 'Kevésbé fájdalmas, szerológia' }
-            ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Nincs', dose: '-', duration: '-', note: 'Sürgősségi kórházi felvétel!' }
-                ],
-                inpatient: [
-                  { drug: 'Vancomycin', dose: '15-20mg/kg IV', duration: '', note: 'Gram+ (MRSA) fedezet' },
-                  { drug: '+ Ceftriaxon', dose: '1x2g IV', duration: '', note: 'Gram- (Gonococcus/G- pálca) fedezet' }
-                ],
-                icu: [
-                  { drug: 'Vancomycin + Meropenem', dose: 'IV', duration: '', note: 'Sepszis/immunszuppresszió esetén' }
-                ]
-              },
-              targeted: 'S. aureus: Cefazolin/Flucloxacillin; MRSA: Vancomycin/Daptomycin; Gonococcus: Ceftriaxon. Időtartam: 2-6 hét (IV, majd PO váltás lehetséges - OVIVA).',
-              supportive: ['Ízületi drenázs (tűaspiráció naponta, arthroscopia vagy nyílt feltárás) - KULCSFONTOSSÁGÚ!', 'Fájdalomcsillapítás', 'Korai mobilizáció a gyulladás csökkenése után'],
-              prevention: ['Protézis műtétek sterilitása', 'Gonorrhoea megelőzése', 'Bőrfertőzések kezelése']
-            },
-            guidelines: {
-              diagnosis: [
-                'Ízületi punkció (arthrocentesis) az antibiotikum előtt kötelező! Sejtszám, Gram, tenyésztés, kristály.',
-                'Hemokultúra levétele mindig szükséges (50% pozitív).'
-              ],
-              treatment_indications: [
-                'Minden szeptikus arthritis azonnali antibiotikumot és drenázst igényel.'
-              ],
-              first_line: [
-                'Azonnali ízületi drenázs (tűaspiráció vagy sebészi) + empirikus IV antibiotikum (Vancomycin + Ceftriaxon).',
-                'OVIVA vizsgálat alapján a korai orális váltás biztonságos lehet stabil betegnél.'
-              ]
-            },
-            prognosis: {
-              mortality: '10-15% (polyarticularis/idős betegnél magasabb)',
-              prognostic_scores: ['Nincs'],
-              factors: 'Késői drenázs (>24-48 óra) irreverzibilis porckárosodást okoz!'
-            }
-          },
-          {
-            id: 'spondylodiscitis',
-            name: 'Spondylodiscitis',
-            pathogen: { type: 'Baktérium', name: '<i>Staphylococcus aureus</i> (leggyakoribb), <i>Streptococcus</i> spp., Gram-negatívok', gram: 'Vegyes', shape: 'coccus/bacillus' },
-            epidemiology: {
-              incidence: 'Ritka, 2-7/100,000 fő/év',
-              risk_groups: ['Idősek (>50 év)', 'Diabetes mellitus', 'Immunszuppresszió', 'IV droghasználók', 'Gerincműtét után', 'Urogenitális fertőzések'],
-              seasonality: 'Nincs',
-              transmission: 'Hematogén (leggyakoribb), direkt (műtét, trauma), per continuitatem'
-            },
-            pathomechanism: {
-              steps: [
-                'Hematogén szóródás: A kórokozók leggyakrabban a vérárammal (hematogén úton) jutnak a csontvelőben gazdag csigolyatestekbe, gyakran egy távoli fertőzésből (pl. húgyúti, bőr).',
-                'Terjedés: A fertőzés a csigolyatestről ráterjed a szomszédos porckorongra (discus) és a másik csigolyára, gyulladást és szöveti destrukciót okozva.',
-                'Szövődmények: A folyamat epidurális vagy paravertebrális tályog képződéséhez, gerincvelő-kompresszióhoz és neurológiai tünetekhez vezethet.'
-              ],
-              virulence_factors: ['Adhezinek (MSCRAMM)', 'Biofilm képzés', 'Toxinok']
-            },
-            clinical: {
-              incubation: 'Napok-hét',
-              onset: 'Lassú, alattomos',
-              symptoms: [
-                { name: 'Hátfájás', description: 'A vezető tünet (>90%) egy fokozatosan erősödő, nyugalomban is fennálló, lokalizált hát- vagy derékfájás, ami ütögetésre érzékeny.', severity: 'severe' },
-                { name: 'Láz és neurológiai tünetek', description: 'A láz gyakran csak hőemelkedés vagy hiányozhat. Neurológiai tünetek (gyököki fájdalom, végtaggyengeség) epidurális tályogra utalnak és vészhelyzetet jelentenek.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Lokális nyomás- vagy ütögetési érzékenység az érintett csigolya felett',
-                'Paravertebralis izomspazmus',
-                'Mozgáskorlátozottság a gerincben',
-                'Neurológiai deficit (paresis, reflexkiesés, érzészavar)'
-              ],
-              complications: ['Epidurális abscessus', 'Paravertebrális abscessus', 'Szeptikus shock', 'Gerincdeformitás', 'Krónikus fájdalom']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Vérkép', finding: 'Leukocytosis vagy normális', interpretation: 'Gyulladás' },
-                { test: 'CRP/We', finding: 'Jelentősen emelkedett', interpretation: 'Monitorozásra kiváló' },
-                { test: 'Hemokultúra', finding: 'Pozitív (50-70%)', interpretation: 'Kórokozó azonosítás' }
-              ],
-              imaging: [
-                { modality: 'Röntgen', finding: 'Késői jel: csigolya destrukció, discus magasság csökkenés', significance: 'Nem érzékeny korai stádiumban' },
-                { modality: 'MRI', finding: 'Csontvelő ödéma, discus gyulladás, abscessus', significance: 'Gold standard (érzékenység >90%)' },
-                { modality: 'CT', finding: 'Csont destrukció, abscessus', significance: 'Ha MRI nem végezhető' }
-              ],
-              microbiology: [
-                { test: 'CT-vezérelt biopszia', finding: 'Tenyésztés + hisztológia', significance: 'Gold standard diagnózis' },
-                { test: 'Vértenyésztés', finding: 'Pozitív', significance: 'Gyakran elegendő' }
-              ]
-            },
-            differential: [
-              { disease: 'Degeneratív gerincbetegség', distinguishing: 'Nincs láz/CRP emelkedés, MRI különbözik' },
-              { disease: 'Gerinc tumor/metasztázis', distinguishing: 'Anamnézis, biopszia' },
-              { disease: 'Ankilozáló spondylitis', distinguishing: 'Fiatalabb kor, HLA-B27 pozitív' },
-              { disease: 'Tuberkulózis spondylitis', distinguishing: 'Krónikus, több csigolya, tuberkulin teszt' }
-            ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Nincs', dose: '-', duration: '-', note: 'Kórházi kezelés szükséges' }
-                ],
-                inpatient: [
-                  { drug: 'Vancomycin', dose: '15-20mg/kg IV', duration: '4-6 hét', note: 'MRSA fedezet' },
-                  { drug: '+ Ceftriaxon/Cefepim', dose: 'IV', duration: '4-6 hét', note: 'Gram-negatív fedezet' }
-                ],
-                icu: [
-                  { drug: 'Széles spektrum', dose: 'IV', duration: '', note: 'Sepszis/abscessus esetén' }
-                ]
-              },
-              targeted: 'Biopszia alapján! S. aureus: Flucloxacillin/Cefazolin; MRSA: Vancomycin; Gram-negatív: Ceftriaxon. Időtartam: 6-12 hét (IV majd PO)',
-              supportive: ['Sebészi debridement (abscessus esetén) - gyakran szükséges!', 'Gerincstabilizáció', 'Fájdalomcsillapítás', 'Fizioterápia'],
-              prevention: ['UTI/endo prophylaxis', 'Műtéti sterilitás', 'Diabetes kontroll']
-            },
-            guidelines: {
-              diagnosis: [
-                'Klinikai gyanú: Új vagy rosszabbodó hátfájás lázzal/emelkedett gyulladásos markerekkel.',
-                'Képalkotó: MRI a gold standard.',
-                'Mikrobiológia: Hemokultúra. Ha negatív, CT-vezérelt biopszia szükséges.'
-              ],
-              treatment_indications: [
-                'Minden igazolt eset kezelendő. Sebészi beavatkozás: neurológiai deficit, instabilitás, tályog.'
-              ],
-              first_line: [
-                'Hosszú távú (6-12 hét) IV, majd PO antibiotikum terápia a tenyésztés alapján.'
-              ]
-            },
-            prognosis: {
-              mortality: '2-10%',
-              prognostic_scores: ['Nincs specifikus'],
-              factors: 'Késői diagnózis, neurológiai deficit, komorbiditások'
-            }
-          }
-        ]
-      }
-});
+    };
+
+if (typeof window !== 'undefined') {
+  if (!(window as any).diseases) {
+    (window as any).diseases = {};
+  }
+  (window as any).diseases.skin_soft_tissue = skinSoftTissueHu;
+}

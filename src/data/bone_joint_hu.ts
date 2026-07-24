@@ -4,6 +4,39 @@ export const boneJointHu: Category = {
   name: 'Csont- és ízületi fertőzések',
   icon: '🦴',
   color: '#57534e',
+  didactics: {
+    overview: 'A csont- és ízületi fertőzések magukban foglalják a mély szervi/térbeli osteomyelitist, a septicus arthritist, a spondylodiscitist és a protézis-ízületi fertőzéseket (PJI). A kezelés gyors diagnosztikai kivizsgálást igényel (hemokultúra, synovialis folyadék arthrocentesis, képalkotással vezérelt biopszia és MRI), sebészi forrás-kontrollt (ízületi drenázs, sequestrectomia, implantátum-kezelés) és célzott antimikrobiális terápiát.',
+    primary: 'Akut osteomyelitis: Gyermekeknél jellemzően haematogen, felnőtteknél contiguus (diabéteszes láb, nyílt törés) eredetű. Az S. aureus (MSSA/MRSA) a fő kórokozó. Az arany standard diagnózis a csontbiopszia tenyésztésre és szövettanra, az antibiotikum megkezdése előtt (kivéve septicus esetben). Az OVIVA vizsgálat elvei szerint a korai áttérés jól felszívódó orális antibiotikumra (7–10 napos IV kezelés után) non-inferior a 6 hetes IV terápiával szemben.',
+    secondary: 'Septicus arthritis: Belgyógyászati és ortopédiai sürgősségi állapot. Az antibiotikum megkezdése előtt sürgősségi arthrocentesis szükséges (synovialis fehérvérsejtszám >50 000/µL, >90% PMN). A kezelés azonnali ízületi dekompressziót/drenázst igényel (ismételt tűaspiráció, arthroscopia vagy nyitott lavage) és 3–4 hetes célzott antibiotikum-kezelést.',
+    biliary: 'Fertőzéses spondylodiscitis: Csigolya-osteomyelitis és discitis. A vezető tünet a lokalizált mély hátfájdalom (>90%), de láz csak az esetek kb. 50%-ában van jelen. A kontrasztanyagos gerinc-MRI az arany standard képalkotó vizsgálat. Az antimikrobiális terápia teljes időtartama 6 hét. Sürgősségi műtét indokolt progresszív neurológiai deficit, gerincinstabilitás vagy epiduralis tályog esetén.',
+    diagnostics: [
+      '1) Diagnosztikus arthrocentesis (ízületi punkció): Septicus arthritis gyanúja esetén kötelező az antibiotikum megkezdése ELŐTT (synovialis fehérvérsejtszám >50 000/µL, >90% PMN).',
+      '2) Csontbiopszia és tenyésztés: Az osteomyelitis diagnózisának arany standardja (CT-vezérelt vagy intraoperatív biopszia) az antibiotikum megkezdése előtt.',
+      '3) Kontrasztanyagos MRI: Az arany standard képalkotás spondylodiscitis, osteomyelitis, valamint epiduralis/paravertebralis tályogok esetén.',
+      '4) Hemokultúra (2-3 pár): Spondylodiscitis és septicus arthritis eseteinek 50–70%-ában pozitív.',
+      '5) Szepszis-markerek: We (süllyedés) és CRP a kiindulási súlyosság és a terápiás válasz monitorozásához.'
+    ],
+    red_flags: [
+      'Akut monarthritis, amelynél az ízület aktívan és passzívan sem mozgatható (septicus arthritis, sürgősségi állapot)',
+      'Progresszív neurológiai deficit (motoros paresis, érzészavar, sphincter-diszfunkció) spondylodiscitis gyanúja esetén (epiduralis tályog)',
+      'Csigolya-kopogtatási érzékenység enyhülést nem mutató éjszakai hátfájdalommal',
+      'Pozitív "probe-to-bone" (PTB) teszt szabadon fekvő csonttal lábfekély esetén',
+      'SIRS kritériumok / septicus shock csont- vagy ízületi fertőzésben'
+    ],
+    special_populations: 'Diabéteszes betegek: Magas kockázat contiguus osteomyelitisre lábfekély esetén; PTB-teszt és MRI elvégzése szükséges. Intravénás droghasználók: Fokozott CA-MRSA előfordulás, septicus arthritis (sternoclavicularis/sacroiliacalis ízület) és spondylodiscitis. Idősek: Atípusos lefolyás, láz nélkül; magasabb mortalitás septicus arthritisben.',
+    teaching_tip: 'Septicus arthritisben az ízületi drenázs sürgősségi beavatkozás! Osteomyelitis és spondylodiscitis esetén a korai orális antibiotikum-váltás 7–10 napos IV indukció után (OVIVA vizsgálat) non-inferior a 6 hetes IV terápiával szemben.'
+  },
+  tables: [
+    {
+      title: 'A főbb csont- és ízületi fertőzések irányelv-összefoglalása és differenciáldiagnosztikája',
+      headers: ['Betegség', 'Kórokozó spektrum', 'Diagnosztikus arany standard', 'Fő irányelvi kritériumok', 'Empirikus antimikrobiális terápia', 'Intervenciós / sebészi forrás-kontroll'],
+      rows: [
+        ['Osteomyelitis', 'Staphylococcus aureus (MSSA/MRSA), S. epidermidis, Gram-negatívok', 'Csontbiopszia tenyésztéssel és szövettannal + MRI', 'IDSA / OVIVA vizsgálat: 4-6 hetes összesített terápia; korai orális váltás non-inferior', 'Vancomycin 15-20mg/kg IV + Ceftriaxon 2g IV 24 óránként (korai orális váltás)', 'Necroticus csont sebészi debridementje (sequestrectomia)'],
+        ['Septicus arthritis', 'Staphylococcus aureus, S. pyogenes, N. gonorrhoeae, Gram-negatívok', 'Ágymelletti arthrocentesis (synovialis fehérvérsejtszám >50 000/µL)', 'IDSA / BSH: Azonnali sürgősségi ízületi drenázs + IV antibiotikum', 'Vancomycin 15-20mg/kg IV + Ceftriaxon 2g IV 24 óránként, 3-4 hétig', 'Sürgősségi ízületi drenázs (arthroscopos átöblítés vagy tűaspiráció)'],
+        ['Spondylodiscitis', 'Staphylococcus aureus, E. coli, Streptococcusok, M. tuberculosis', 'Kontrasztanyagos gerinc-MRI + hemokultúra / CT-vezérelt biopszia', 'IDSA irányelvek: 6 hetes célzott antimikrobiális terápia + MRI-monitorozás', 'Vancomycin + Ceftriaxon 2g IV 24 óránként (6 hét összesen; korai orális váltás)', 'Műtét neurológiai deficit, gerincinstabilitás vagy epiduralis tályog esetén']
+      ]
+    }
+  ],
   diseases: [
     {
       id: 'osteomyelitis',

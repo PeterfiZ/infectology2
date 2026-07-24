@@ -4,6 +4,7 @@ import { viralHepatitisEn } from './viral_hepatitis_en';
 import { urinaryTractEn } from './urinary_tract_en';
 import { intraabdominalEn } from './intraabdominal_en';
 import { skinSoftTissueEn } from './skin_soft_tissue_en';
+import { boneJointEn } from './bone_joint_en';
 
 if (typeof window !== 'undefined') {
   (window as any).diseaseMetadata = {
@@ -13,6 +14,7 @@ if (typeof window !== 'undefined') {
     intraabdominal: { icon: '🩺', color: '#16a34a' },
     cns_infections: { icon: '🧠', color: '#0891b2' },
     skin_soft_tissue: { icon: '🩹', color: '#e11d48' },
+    bone_joint: { icon: '🦴', color: '#57534e' },
     childhood: { icon: '👶', color: '#6366f1' },
     emerging: { icon: '🚨', color: '#be185d' },
     parasitic: { icon: '🪱', color: '#84cc16' },
@@ -33,6 +35,7 @@ if (typeof window !== 'undefined') {
     viral_hepatitis: viralHepatitisEn,
     urinary_tract: urinaryTractEn,
     intraabdominal: intraabdominalEn,
-    skin_soft_tissue: skinSoftTissueEn
+    skin_soft_tissue: skinSoftTissueEn,
+    bone_joint: boneJointEn
   });
 }

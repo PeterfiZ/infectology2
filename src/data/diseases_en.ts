@@ -1,7 +1,7 @@
 import './init_en';
 
 import './CNS_en';
-import './BoneandSST_en';
+import './bone_joint_en';
 import './childhood_en';
 import './emerging_en';
 import './STD_en';

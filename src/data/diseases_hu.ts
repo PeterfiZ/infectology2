@@ -1,7 +1,7 @@
 import './init_hu';
 
 import './CNS_hu';
-import './BoneandSST_hu';
+import './skin_soft_tissue_hu';
 import './bone_joint_hu';
 import './childhood_hu';
 import './emerging_hu';
