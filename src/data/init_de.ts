@@ -1,4 +1,9 @@
 import { abdomenDe } from './abdomen_de';
+import { gastrointestinalDe } from './gastrointestinal_de';
+import { viralHepatitisDe } from './viral_hepatitis_de';
+import { urinaryTractDe } from './urinary_tract_de';
+import { intraabdominalDe } from './intraabdominal_de';
+import { skinSoftTissueDe } from './skin_soft_tissue_de';
 
 if (typeof window !== 'undefined') {
   (window as any).diseaseMetadata = {
@@ -22,6 +27,12 @@ if (typeof window !== 'undefined') {
   };
   (window as any).diseases = {};
   
-  // Seed window.diseases with the existing abdomen categories
-  Object.assign((window as any).diseases, abdomenDe);
+  // Seed window.diseases with the existing abdomen categories and override gastrointestinal, viral_hepatitis, urinary_tract, intraabdominal, and skin_soft_tissue
+  Object.assign((window as any).diseases, abdomenDe, {
+    gastrointestinal: gastrointestinalDe,
+    viral_hepatitis: viralHepatitisDe,
+    urinary_tract: urinaryTractDe,
+    intraabdominal: intraabdominalDe,
+    skin_soft_tissue: skinSoftTissueDe
+  });
 }

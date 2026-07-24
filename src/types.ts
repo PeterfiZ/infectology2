@@ -95,6 +95,9 @@ export interface Didactics {
   overview: string | string[];
   lower?: string | string[];
   upper?: string | string[];
+  primary?: string | string[];
+  secondary?: string | string[];
+  biliary?: string | string[];
   diagnostics?: string[];
   red_flags?: string[];
   special_populations?: string;
@@ -128,6 +131,7 @@ export interface Disease {
   };
   clinical?: Clinical;
   diagnostics?: Diagnostics;
+  calculators?: any[];
   differential?: { disease: string; distinguishing: string }[];
   therapy?: Therapy;
   guidelines?: any;
