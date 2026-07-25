@@ -1,8 +1,8 @@
 Object.assign(window.diseases, {
   emerging: {
     name: 'Újonnan felbukkanó kórokozók',
-    icon: window.diseaseMetadata.emerging.icon,
-    color: window.diseaseMetadata.emerging.color,
+    icon: (window.diseaseMetadata?.['emerging']?.['icon'] || '🩺'),
+    color: (window.diseaseMetadata?.['emerging']?.['color'] || '#065f46'),
     diseases: [
       {
         id: 'mpox',

@@ -1,8 +1,8 @@
 Object.assign(window.diseases, {
          sexually_transmitted: {
         name: 'Szexuálisan terjedő fertőzések',
-        icon: window.diseaseMetadata.sexually_transmitted.icon,
-        color: window.diseaseMetadata.sexually_transmitted.color,
+        icon: (window.diseaseMetadata?.['sexually_transmitted']?.['icon'] || '🩺'),
+        color: (window.diseaseMetadata?.['sexually_transmitted']?.['color'] || '#065f46'),
         diseases: [
           {
             id: 'syphilis',

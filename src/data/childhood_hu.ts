@@ -1,8 +1,8 @@
 Object.assign(window.diseases, {
   childhood: {
     name: 'Gyermekkori fertőzések',
-    icon: window.diseaseMetadata.childhood.icon,
-    color: window.diseaseMetadata.childhood.color,
+    icon: (window.diseaseMetadata?.['childhood']?.['icon'] || '🩺'),
+    color: (window.diseaseMetadata?.['childhood']?.['color'] || '#065f46'),
     diseases: [
       {
         id: 'measles',

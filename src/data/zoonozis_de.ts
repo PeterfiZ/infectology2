@@ -1,751 +1,1161 @@
 Object.assign(window.diseases, {
-      zoonotic: {
-        name: 'Zoonosen',
-        icon: '🐾',
-        color: '#059669',
-        diseases: [
-          {
-            id: 'leptospirosis',
-            name: 'Leptospirose',
-            pathogen: { type: 'Spirochäte', name: '<i>Leptospira interrogans</i>', gram: 'Gram-negativ', shape: 'spiralförmig, mit Haken' },
-            epidemiology: {
-              incidence: 'Tropisch/Subtropisch: 10-100/100.000; Gemäßigte Zone: 0.1-1/100.000',
-              risk_groups: ['Landarbeiter', 'Tierärzte', 'Schlachthofarbeiter', 'Kanalarbeiter', 'Wassersportler', 'Soldaten (Dschungel)'],
-              seasonality: 'Sommer-Herbst, Regenzeit',
-              transmission: 'Exposition gegenüber kontaminiertem Wasser oder Boden über Haut und Schleimhäute. Übertragung erfolgt durch Urin infizierter Nagetiere und anderer Tiere'
+  zoonotic: {
+    name: 'Zoonosen',
+    icon: '🐾',
+    color: '#059669',
+    diseases: [
+      {
+        id: 'leptospirosis',
+        name: 'Leptospirose',
+        pathogen: {
+          type: 'Spirochäte',
+          name: '<i>Leptospira interrogans</i> (>250 Serovare, z. B. icterohaemorrhagiae, canicola, pomona)',
+          gram: 'Gram-negativ (zart, Dunkelfeld/Silberimprägnierung)',
+          shape: 'dünn, spiralig, mit hakenförmigen Enden'
+        },
+        epidemiology: {
+          incidence: 'Tropen/Subtropen: 10-100/100.000; Gemäßigte Zonen: 0,1-1/100.000 pro Jahr. Weltweit am weitesten verbreitete Zoonose!',
+          risk_groups: [
+            'Landarbeiter, Reisfarmer',
+            'Tierärzte, Tierpfleger, Schlachthofpersonal',
+            'Kanalisationsarbeiter, Personal der Wasserwirtschaft',
+            'Wassersportler, Camper, Extremsportler (Rafting, Triathlon)',
+            'Personen mit Nagetierexposition, Militärpersonal'
+          ],
+          seasonality: 'Spätsommer bis Herbst in gemäßigten Zonen; Regenzeit / Überschwemmungen in den Tropen',
+          transmission: 'Kontaminiertes Süßwasser, feuchter Boden oder Schlamm durch Urin infizierter Tiere (Nager, Hunde, Schweine), der über Hautläsionen oder Schleimhäute (Konjunktiven, Mund, Nase) eindringt.'
+        },
+        pathomechanism: {
+          steps: [
+            'Invasion: Bakterien dringen bei Süßwasserexposition über kleine Hautabrasionen oder intakte Schleimhäute ein.',
+            'Hämatogene Ausbreitung & Endothelschaden: Erreger gelangt rasch in die Blutbahn (leptospirämische Phase), disseminiert in Organe und verursacht systemische Vaskulitis durch Schädigung kleiner Gefäßendothelien.',
+            'Kapillarpermeabilität & Blutung: Endothelschädigung führt zu erhöhter Kapillarpermeabilität, Organödemen, diffusen Petechien und systemischer Hämorrhagie.',
+            'Morbus Weil: Schwere Verlaufsform (~5-10%) mit hepatorenalem Syndrom (cholestatischer Ikterus ohne ausgeprägte Transaminasenerhöhung, akute Tubulusnekrose) und pulmonalem Hämorrhagiesyndrom (LPHS).',
+            'Immunphase: Ab Woche 2 eliminieren IgM-Antikörper Bakterien aus dem Blut; Erreger persistieren in Nierentubuli und Kammerwasser (aseptische Meningitis, Uveitis).'
+          ],
+          virulence_factors: ['LipL32-Äußeres-Membranprotein', 'Endotheliale Adhäsine', 'Cholestase-induzierende Faktoren', 'Hämolysine', 'Geißel-Motilität']
+        },
+        clinical: {
+          incubation: '2-30 Tage (Durchschnitt 7-12 Tage)',
+          onset: 'Klassisch biphasischer Verlauf (septisch/leptospirämisch -> Immunphase)',
+          symptoms: [
+            {
+              name: 'Anikterische Form (90%) - Akute / Septische Phase',
+              description: 'Plötzliches hohes Fieber, Schüttelfrost, schwere retrobulbäre Kopfschmerzen, ausgeprägte Waden- und Lendenmyalgien. Pathognomonisch: Konjunktivale Suffusion (Rötung der Konjunktiven ohne eitriges Sekret).',
+              severity: 'moderate'
             },
-            pathomechanism: {
-              steps: [
-                'Leptospiren überleben in Wasser oder Boden, der mit dem Urin infizierter Tiere (v.a. Nagetiere) kontaminiert ist. Der Erreger dringt durch verletzte Haut oder Schleimhäute (Augen, Nase, Mund) in den Körper ein.',
-                'Nach dem Eindringen gelangen die Bakterien schnell in den Blutkreislauf (hämatogene Streuung) und erreichen fast alle Organe, insbesondere Leber, Nieren, Lunge und das zentrale Nervensystem.',
-                'Der Erreger schädigt die Endothelzellen der Blutgefäße, was zu erhöhter vaskulärer Permeabilität, Flüssigkeitsverlust und Blutungen führt.',
-                'Die schwere Verlaufsform, die Weil-Krankheit, ist durch die Trias aus Leber- und Nierenversagen, Gelbsucht (Ikterus) und schweren hämorrhagischen Komplikationen (z.B. Lungenblutung) gekennzeichnet.',
-                'Ein Teil der klinischen Symptome wird durch die heftige, immunvermittelte Entzündungsreaktion des Wirts verursacht, nicht durch die direkte toxische Wirkung des Bakteriums.'
-              ],
-              virulence_factors: ['Äußere Membranproteine (LipL32)', 'Flagellum (Motilität)', 'Hämolysine', 'Lipopolysaccharid', 'Adhäsine']
+            {
+              name: 'Anikterische Form - Immunphase',
+              description: 'Erneuter Fieberanstieg nach briefem afebrilem Intervall, aseptische Meningitis (Kopfschmerzen, Nackensteifigkeit, CSF-Pleozytose), Uveitis, makulopapulöses Exanthem.',
+              severity: 'moderate'
             },
-            clinical: {
-              incubation: '2-30 Tage (durchschnittlich 7-12 Tage)',
-              onset: 'Biphasischer Verlauf',
-              symptoms: [
-                { name: 'Akute/Septische Phase (erste Woche)', description: 'Plötzlich einsetzendes hohes Fieber mit Schüttelfrost, intensive Kopfschmerzen und charakteristische, quälende Muskelschmerzen, besonders in den Waden und im Lendenbereich. Häufig ist eine konjunktivale Suffusion (Rötung der Augen ohne eitrigen Ausfluss).', severity: 'severe' },
-                { name: 'Immunphase (zweite Woche)', description: 'Nach der ersten Phase kann eine kurze Besserung eintreten, gefolgt von einer Rückkehr der Symptome aufgrund der Immunantwort. Hier können aseptische Meningitis, Uveitis und Organmanifestationen auftreten.', severity: 'moderate' },
-                { name: 'Weil-Krankheit (schwere Form)', description: 'Entwickelt sich bei 5-10% der Patienten. Merkmale sind Gelbsucht (Ikterus), Nierenversagen (akute tubuläre Nekrose) und hämorrhagische Komplikationen wie Lungenblutungen, die mit hoher Mortalität verbunden sind.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Hohes Fieber, Tachykardie',
-                'Konjunktivale Suffusion (Bindehautinjektion)',
-                'Lymphadenopathie',
-                'Hepatomegalie (Weil)',
-                'Wadendruckschmerz',
-                'Ikterus (schwer)',
-                'Meningeale Zeichen (25%)'
-              ],
-              complications: ['Weil-Krankheit (Ikterus, Nierenversagen)', 'ARDS', 'Myokarditis', 'Rhabdomyolyse', 'Uveitis (spät)', 'Aseptische Meningitis', 'Tod (5-15% in schweren Fällen)']
+            {
+              name: 'Morbus Weil (Ikterische Form, 5-10%)',
+              description: 'Schwere, lebensbedrohliche Form! Trias: 1. Orangegelber Ikterus mit Cholestase; 2. Akutes Nierenversagen (Oligurie/Anurie, Kreatininanstieg); 3. Hämorrhagische Diathese (Petechien, Ekchymosen, Epistaxis, GI-Blutung).',
+              severity: 'severe'
             },
-            diagnostics: {
-              laboratory: [
-                { test: 'Blutbild', finding: 'Leukozytose, Thrombozytopenie', interpretation: 'Unspezifisch' },
-                { test: 'Niere', finding: 'Kreatinin↑, Proteinurie, Hämaturie', interpretation: 'Weil-Krankheit' },
-                { test: 'Leber', finding: 'Bilirubin↑↑ (direkt), leichte Transaminasen↑', interpretation: 'Cholestatisches Muster' },
-                { test: 'CK', finding: 'Erhöht', interpretation: 'Myositis' },
-                { test: 'CRP/BSG', finding: 'Deutlich erhöht', interpretation: 'Entzündung' }
-              ],
-              imaging: [
-                { modality: 'Thorax-Röntgen', finding: 'Diffuses Infiltrat, alveoläre Blutung', significance: 'Lungenblutung' },
-                { modality: 'Abdomen-US', finding: 'Hepatomegalie, Aszites', significance: 'Schweregradbeurteilung' }
-              ],
-              microbiology: [
-                { test: 'Mikroagglutinationstest (MAT)', finding: '≥1:400 Titer oder 4x↑', significance: 'Goldstandard, aber spät (7-10 Tage)' },
-                { test: 'ELISA IgM', finding: 'Positiv', significance: 'Schneller, akute Phase' },
-                { test: 'Blut-/Urinkultur', finding: 'Leptospiren-Isolierung (EMJH-Medium)', significance: 'Früh (<7 Tage Blut, >7 Tage Urin), langsam (Wochen)' },
-                { test: 'PCR', finding: 'Leptospiren-DNA', significance: 'Schnell, sensitiv in der Frühphase' }
-              ]
-            },
-            differential: [
-              { disease: 'Dengue-Fieber', distinguishing: 'Thrombozytopenie ausgeprägter, Tourniquet-Test+, keine Wadenschmerzen' },
-              { disease: 'Malaria', finding: 'Plasmodium-Ausstrich, peripheres Blut, Periodizität des Schüttelfrosts' },
-              { disease: 'Hantavirus', distinguishing: 'Nagetier-Exposition, Proteinurie schwerer, Thrombozytopenie' },
-              { disease: 'Rickettsiose', distinguishing: 'Ausschlag charakteristisch, Eschar, Zeckenexposition' },
-              { disease: 'Virushepatitis', distinguishing: 'Transaminasen viel höher, Serologie' }
+            {
+              name: 'Pulmonales Hämorrhagiesyndrom (LPHS)',
+              description: 'Massive alveoläre Lungenblutung mit plötzlicher Hämoptoe, Erstickungsgefahr und fulminantem ARDS. Letalität >50%!',
+              severity: 'severe'
+            }
+          ],
+          physical_exam: [
+            'Konjunktivale Suffusion (Augenrötung ohne Eiter - hochcharakteristisch!)',
+            'Ausgeprägte Druckschmerzhaftigkeit der Wadenmuskulatur (Myositis)',
+            'Orangegelber Ikterus',
+            'Hepatomegalie und Klopfschmerz im Milzbereich',
+            'Meningismus (Nackensteifigkeit)',
+            'Petechien, Purpura, Blutung an Einstichstellen',
+            'Rasselgeräusche über den Lungen (Lungenblutung)'
+          ],
+          complications: [
+            'Weil-Syndrom (akutes Nierenversagen + Ikterus)',
+            'Massive Lungenblutung (LPHS) und ARDS',
+            'Aseptische Meningitis und Enzephalitis',
+            'Myokarditis, Arrhythmien, septischer Schock',
+            'Späte Uveitis (Monate nach Genesung)'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Blutbild', finding: 'Ausgeprägte Leukozytose mit Linksverschiebung, schwere Thrombozytopenie (<100 G/L)', interpretation: 'Zeigt schweren Verlauf und Verbrauchskoagulopathie' },
+            { test: 'Niere & Elektrolyte', finding: 'Kreatinin & Harnstoff akut↑, Hypokalämie (Frühstadium durch Tubulusschaden!), Proteinurie, Hämaturie', interpretation: 'Akute Tubulusnekrose' },
+            { test: 'Leberwerte', finding: 'Bilirubin↑↑ (direkt >200-300 µmol/L) bei nur MÄSSIGER Transaminasenerhöhung (GOT/GPT <200 U/L), AP/GGT erhöht', interpretation: 'Klassisches "cholestatisch-dissoziiertes" Lebermuster!' },
+            { test: 'CK & CRP', finding: 'Kreatinkinase (CK) deutlich erhöht (>1000 U/L), CRP/BSG stark erhöht', interpretation: 'Wadenmuskel-Rhabdomyolyse / Myositis' }
+          ],
+          imaging: [
+            { modality: 'Röntgen/CT-Thorax', finding: 'Schneeflockenartige oder fleckige bilaterale Infiltrate, alveoläre Verdichtungen', significance: 'Früherkennung der Lungenblutung' },
+            { modality: 'Abdomen-Sonographie', finding: 'Normale bis mäßige Hepatosplenomegalie, Gallenblasenwandödem, erhöhte Nierenparenchymechogenität', significance: 'Ausschluss anderer Ikterusursachen' }
+          ],
+          microbiology: [
+            { test: 'RT-PCR (Blut, Liquores / Urin)', finding: 'Leptospiren-DNA-Nachweis', significance: 'EFFEKTIVSTE FRÜHDIAGNOSTIK! Tag 1-7 in Blut/Liquor, ab Woche 2 im Urin.' },
+            { test: 'Mikroskopischer Agglutinationstest (MAT)', finding: 'Einzeltiter ≥1:400 oder 4-facher Titeranstieg im Paarserum', significance: 'SEROLOGISCHER GOLDSTANDARD, aber erst ab Tag 7-10 positiv!' },
+            { test: 'ELISA IgM', finding: 'Leptospiren-spezifisches IgM positiv', significance: 'Raschscreening ab Ende Woche 1' }
+          ]
+        },
+        differential: [
+          { disease: 'Dengue-Fieber', distinguishing: 'Tropenanamnese, retroorbitaler Schmerz, positiver Rumpel-Leede-Test, keine Wadenmyositis' },
+          { disease: 'Schwere Malaria falciparum', distinguishing: 'Plasmodium im dicken Tropfen/Blutausstrich/Schnelltest, Fieberperiodik' },
+          { disease: 'Hantavirus-Infektion (HFRS)', distinguishing: 'Nagerurin-Inhalation, Gesichtserythem, schwere Proteinurie, kein ausgeprägter Ikterus' },
+          { disease: 'Virale Hepatitis (HAV/HBV/HEV)', distinguishing: 'Exzessiv hohe Transaminasen (>1000 U/L), langsamerer Beginn, spezifische Serologie' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Doxycyclin', dose: '100 mg p.o. 2x/Tag', duration: '7 Tage', note: 'Erste Wahl bei mäßigen anikterischen Fällen!' },
+              { drug: 'Amoxicillin', dose: '500 mg p.o. 3x/Tag', duration: '7 Tage', note: 'Alternative für Schwangere und Kinder' },
+              { drug: 'Azithromycin', dose: '500 mg p.o. 1x/Tag', duration: '3 Tage', note: 'Bei Penicillin-/Doxycyclin-Allergie' }
             ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Doxycyclin', dose: '100 mg zweimal täglich p.o.', duration: '7 Tage', note: 'Erste Wahl bei leichten Fällen' },
-                  { drug: 'Amoxicillin', dose: '500 mg dreimal täglich p.o.', duration: '7 Tage', note: 'Alternative (Schwangere, Kinder)' }
-                ],
-                inpatient: [
-                  { drug: 'Penicillin G', dose: '1.5 Mio. IE alle 4 Stunden i.v.', duration: '7 Tage', note: 'Schwere/Weil-Krankheit' },
-                  { drug: 'Ceftriaxon', dose: '1-2 g einmal täglich i.v.', duration: '7 Tage', note: 'Alternative' }
-                ],
-                icu: [
-                  { drug: 'Penicillin G', dose: '1.5 Mio. IE alle 4 Stunden i.v.', duration: '7 Tage', note: 'Schwere Weil-Krankheit' },
-                  { drug: 'Dialyse', dose: 'Bei Nierenversagen', duration: '', note: 'Supportiv' },
-                  { drug: 'Beatmung', dose: 'Lungenblutung', duration: '', note: 'ARDS' }
-                ]
-              },
-              targeted: 'Leicht: Doxycyclin; Schwer: Penicillin G oder Ceftriaxon',
-              supportive: ['Flüssigkeitsersatz', 'Dialyse (Nierenversagen)', 'Beatmung (ARDS)', 'Transfusion (Blutung)'],
-              prevention: ['Doxycyclin-Chemoprophylaxe (200mg/Woche Extremsport)', 'Schutzkleidung bei Risikoadrbeit', 'Nagetierbekämpfung', 'Tierimpfung (Hund)', 'Reinigung von Wasserquellen']
-            },
-            prognosis: {
-              mortality: 'Leicht: <1%; Weil-Krankheit: 5-15%; Lungenblutung: 50%+',
-              prognostic_scores: ['APACHE II', 'SOFA'],
-              factors: 'Ikterus, Nierenversagen, Lungenblutung, Thrombozytopenie, Alter'
-            },
-            gallery: [
-              {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/3/3e/Leptospirosis_conjunctival_suffusion.jpg',
-                caption: 'Charakteristische konjunktivale Suffusion bei Leptospirose. Das Auge ist rot, aber ohne eitrigen Ausfluss.',
-                type: 'Klinisches Bild'
-              },
-              {
-                url: 'https://upload.wikimedia.org/wikipedia/commons/a/a4/Leptospira_interrogans.jpg',
-                caption: 'Dunkelfeldmikroskopie von Leptospira interrogans, die die charakteristische Spiralform mit hakenförmigen Enden zeigt.',
-                type: 'Mikroskopie'
-              }
+            inpatient: [
+              { drug: 'Penicillin G', dose: '1,5-2 Mio. IE i.v. alle 4 Std. (6x/Tag)', duration: '7 Tage', note: 'Erste Wahl bei schwerer Erkrankung / Morbus Weil!' },
+              { drug: 'Ceftriaxon', dose: '2 g i.v. 1x/Tag', duration: '7 Tage', note: 'Gleichwertige Alternative zu Penicillin G' },
+              { drug: 'Cefotaxim', dose: '2 g i.v. alle 8 Std.', duration: '7 Tage', note: 'Alternative i.v. Cephalosporin-Therapie' }
+            ],
+            icu: [
+              { drug: 'Ceftriaxon i.v. + Supportivtherapie auf Intensivstation', dose: 'Ceftriaxon 2 g i.v. 1x/Tag', duration: '7-10 Tage', note: 'Sofortige Hämodialyse / CRRT bei Nierenversagen; protektive Beatmung bei LPHS!' }
             ]
           },
-          {
-            id: 'hantavirus',
-            name: 'Hantavirus-Infektion',
-            pathogen: { type: 'Virus', name: '<i>Hantavirus</i> (HFRS: Hantaan, Puumala, Dobrava, Seoul; HPS: Sin Nombre, <b style="color: #ef4444">ANDES</b>, Bayou)', gram: 'Negativ-Strang-RNA-Virus, Bunyaviridae', shape: 'sphärisch' },
-            epidemiology: {
-              incidence: 'Europa: HFRS 10.000+ Fälle/Jahr; USA: HPS <50 Fälle/Jahr',
-              risk_groups: ['Landarbeiter', 'Förster', 'Soldaten', 'Camper/Wanderer', 'Berufe mit Nagetierkontakt', 'Reinigung schlecht belüfteter Gebäude'],
-              seasonality: 'Frühling-Herbst (Nagetierpopulationsspitze)',
-              transmission: 'Aerosol (Nagetierkot/-urin/-speichel). In der Regel NICHT von Mensch zu Mensch (außer beim Andes-Virus)!'
+          targeted: 'Mäßig: Doxycyclin 100 mg p.o. 2x/T (oder Amoxicillin). Schwer / Weil: Penicillin G 1,5-2 Mio. IE i.v. alle 4 Std. oder Ceftriaxon 2 g i.v. 1x/T für 7 Tage. Jarisch-Herxheimer-Reaktion nach Erstdosis möglich!',
+          supportive: [
+            'Frühzeitige Hämodialyse oder kontinuierliche Nierenersatztherapie (CRRT/CVVH) bei Akutem Nierenversagen.',
+            'Protektive Beatmung mit niedrigem Atemzugvolumen (ARDS-Protokoll) und erhöhtem PEEP bei Lungenblutung.',
+            'Thrombozyten- und Gefrierplasma-Transfusion (FFP) bei schwerer Thrombozytopenie und Blutungen.',
+            'Strikte Flüssigkeits- und Elektrolytkontrolle.'
+          ],
+          prevention: [
+            'Schutzkleidung (Gummistiefel, Handschuhe, Schutzbrille) bei Risikotätigkeiten und Hochwasser.',
+            'Schädlingsbekämpfung (Ratten/Mäuse) und Vermeidung der Kontamination von Süßwasser.',
+            'Doxycyclin-Chemoprophylaxe (200 mg 1x wöchentlich) bei hochexponierten Kurzzeitaufenthalten (z. B. Extremsport).'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'In der frühen septischen Phase (<7 Tage) ist die RT-PCR aus Blut und Liquor das effektivste Diagnosemittel.',
+            'Der serologische Goldstandard ist der MAT, wird aber erst ab Woche 2 positiv.',
+            'Konjunktivale Suffusion + Wadenschmerz + Ikterus mit Cholestase-Muster = Verdacht auf Leptospirose!'
+          ],
+          treatment_indications: [
+            'Alle Verdachtsfälle müssen umgehend ohne Warten auf Serologieergebnisse antibiotisch behandelt werden!'
+          ],
+          first_line: [
+            'Mäßig: Doxycyclin 100 mg p.o. 2x/T für 7 Tage.',
+            'Schwer / Morbus Weil: Penicillin G 1,5-2 Mio. IE i.v. alle 4 Std. oder Ceftriaxon 2 g i.v. 1x/T für 7 Tage.'
+          ]
+        },
+        prognosis: {
+          mortality: 'Anikterische Form: <1%; Morbus Weil: 10-15%; LPHS: >50%',
+          prognostic_scores: ['SOFA-Score', 'APACHE II'],
+          factors: 'Höheres Alter, Oligurie/Anurie, schwere Thrombozytopenie, Vorhandensein einer pulmonalen Hämorrhagie'
+        }
+      },
+      {
+        id: 'hantavirus',
+        name: 'Hantavirus-Infektion (HFRS und HPS)',
+        pathogen: {
+          type: 'Virus',
+          name: '<i>Hantaviridae</i>-Familie (Alte Welt: Puumala, Dobrava-Belgrad, Hantaan, Seoul -> HFRS; Neue Welt: Sin Nombre, <b style="color: #ef4444">Andes</b>, Bayou -> HPS)',
+          gram: 'Behülltes, dreisegmentiges Einzelstrang-RNA-Virus (-)',
+          shape: 'sphärisch'
+        },
+        epidemiology: {
+          incidence: '>10.000 HFRS-Fälle/Jahr in Europa (hauptsächlich Puumala in Nord-/Mitteleuropa, Dobrava im Balkan). HPS sporadisch in Nord-/Südamerika.',
+          risk_groups: ['Forst- und Landarbeiter', 'Soldaten, Camper, Wanderer', 'Reinigungskräfte von Schuppen, Dachböden, unbewohnten Hütten', 'Personen mit Nagetierexposition'],
+          seasonality: 'Frühjahr bis Herbst (Mäusepopulationspeak und Outdoor-Aktivitäten)',
+          transmission: 'Inhalation von Aerosolen aus getrocknetem Urin, Kot oder Speichel von Nagern. Ausnahme: <b style="color: #ef4444">Andes-Virus</b> kann von Mensch zu Mensch übertragen werden!'
+        },
+        pathomechanism: {
+          steps: [
+            'Inhalation von Aerosolen: Virus gelangt über Inhalation von nagerkontaminiertem Staub in die Atemwege.',
+            'Endotheltropismus: Hantaviren infizieren selektiv Gefäßendothelzellen über Beta-3-Integrin-Rezeptoren ohne direkte lytische Zellzerstörung.',
+            'T-Zell-vermittelte Immunpathogenese: Zytotoxische T-Zellen und Entzündungszytokine (TNF-alpha, IL-6, VEGF) lockern endotheliale Tight Junctions.',
+            'Vaskuläres Lecksyndrom: Kapillarleckage führt zu Plasmaextravasation, Flüssigkeitsverlust und Hämokonzentration.',
+            'Klinische Phänotypen: HFRS-Leckage dominiert in Nieren und Retroperitoneum (akute tubulointerstitielle Nephritis und Nierenversagen); HPS-Leckage dominiert in Lungenkapillaren (nicht-kardiogenes Lungenödem).'
+          ],
+          virulence_factors: ['Gn/Gc-Oberflächenglykoproteine (Beta-3-Integrin-Bindung)', 'Nukleokapsidprotein (Immunpathogenese)', 'VEGF-Induktion (Kapillarpermeabilität)']
+        },
+        clinical: {
+          incubation: '1-8 Wochen (Durchschnitt 2-4 Wochen)',
+          onset: 'Plötzlicher Beginn mit hohem Fieber und systemischem Prodrom'
+        ,
+          symptoms: [
+            {
+              name: 'HFRS (Hämorrhagisches Fieber mit renalem Syndrom) - Alte Welt',
+              description: 'Klassische 5 Phasen: 1. Febrile Phase (hohes Fieber, Gesichtserythem, Konjunktivitis, starke Rückenschmerzen); 2. Hypotensive Phase (Schock, Petechien); 3. Oligurische Phase (akutes Nierenversagen, Proteinurie, Urämie, Blutung); 4. Diuretische Phase (Polyurie, Elektrolytentgleisung); 5. Rekonvaleszenzphase.',
+              severity: 'severe'
             },
-            pathomechanism: {
-              steps: [
-                'Die Infektion erfolgt durch Inhalation von Aerosol, das mit getrocknetem Urin, Kot oder Speichel von Nagetieren (z.B. Rötelmaus) kontaminiert ist. Eine Übertragung von Mensch zu Mensch findet in der Regel nicht statt (außer beim Andes-Virus).',
-                'Das Virus gelangt über die Lunge in den Blutkreislauf und infiziert gezielt die Endothelzellen, die die Innenfläche der Blutgefäße auskleiden, ohne direkten Zelltod zu verursachen.',
-                'Der Hauptschaden wird durch die übermäßige Immunantwort des Körpers verursacht. Aktivierte T-Zellen und Zytokine (TNF-alpha) lockern die Verbindungen zwischen den Endothelzellen, was zu einem Kapillarleck (Capillary Leak) führt.',
-                'HFRS (Hämorrhagisches Fieber mit renalem Syndrom): Das Kapillarleck tritt hauptsächlich in der Niere auf, was zu akutem Nierenversagen, Proteinurie und Blutungen führt.',
-                'HPS (Hantavirus-Pulmonalsyndrom): Das Leck dominiert in der Lunge und führt zu einem schnell fortschreitenden, nicht-kardiogenen Lungenödem und zu kardiogenem Schock. Thrombozytopenie und Hämokonzentration sind entscheidende Laborzeichen.'
-              ],
-              virulence_factors: ['Nukleokapsidprotein (Immunantwort)', 'Glykoprotein Gn/Gc (Zelleintritt)', 'Endotheltropismus', 'Immunmodulation']
+            {
+              name: 'Nephropathia epidemica (Puumala-Virus)',
+              description: 'Mildere europäische HFRS-Form. Plötzliches Fieber, schwere Rücken-/Flankenschmerzen (Klopfschmerz im Nierenlager), vorübergehende Myopie (Sehstörung durch Ziliarkörperödem), Proteinurie, Kreatininanstieg.',
+              severity: 'moderate'
             },
-            clinical: {
-              incubation: '1-8 Wochen (durchschnittlich 2-4 Wochen)',
-              onset: 'Plötzlich',
-              symptoms: [
-                { name: 'Renale Form (Alte Welt - HFRS)', description: '<b>Ätiologie:</b> Hantaan-, Puumala-, Dobrava-Belgrad-, Seoul-Viren.<br><b>Stadien:</b> 1. Febril (Fieber, Facial Flush, Konjunktivitis), 2. Hypotensiv (Schock), 3. Oligurisch (akutes Nierenversagen, Proteinurie, Blutungen), 4. Diuretisch (Polyurie), 5. Rekonvaleszent.', severity: 'severe' },
-                { name: 'Pulmonale Form (Neue Welt - HPS)', description: '<b>Ätiologie:</b> Sin Nombre, <b style="color: #ef4444">ANDES</b> (Mensch-zu-Mensch-Übertragung!), Bayou, Black Creek Canal Viren.<br><b>Stadien:</b> 1. Prodromal (Fieber, Myalgie, Kopfschmerzen), 2. Kardiopulmonal (plötzliches nicht-kardiogenes Lungenödem, Hypoxie, Schock), 3. Diuretisch, 4. Rekonvaleszent.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Hohes Fieber',
-                'Gesichtsrötung (Facial flush)',
-                'Konjunktivale Injektion',
-                'Petechien (Gaumen, Achselhöhle)',
-                'Proteinurie, Hämaturie',
-                'Hypotonie (HPS)',
-                'Lungenödemzeichen (HPS)'
-              ],
-              complications: ['Akutes Nierenversagen (HFRS)', 'Kardiogenes Lungenödem (HPS)', 'Schock', 'Intrakranielle Blutung', 'Hypophysenblutung', 'Tod (HFRS 1-15%, HPS 30-50%)']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Blutbild', finding: 'Thrombozytopenie (<100 G/L), Leukozytose, atypische Lymphozyten', interpretation: 'Charakteristische Trias!' },
-                { test: 'Niere', finding: 'Kreatinin↑↑, BUN↑, Proteinurie+++, Hämaturie', interpretation: 'HFRS' },
-                { test: 'Hämokonzentration', finding: 'Hämatokrit↑', interpretation: 'Capillary Leak (HPS)' },
-                { test: 'Gerinnung', finding: 'DIC-Zeichen möglich', interpretation: 'Schwerer Fall' },
-                { test: 'Leberenzym', finding: 'Leichte AST/ALT↑', interpretation: 'Häufig' }
-              ],
-              imaging: [
-                { modality: 'Thorax-Röntgen', finding: 'Bilaterale interstitielle Infiltrate, Pleuraerguss', significance: 'HPS' },
-                { modality: 'Abdomen-US', finding: 'Nierenvergrößerung, Echogenität↑, Aszites', significance: 'HFRS' }
-              ],
-              microbiology: [
-                { test: 'ELISA IgM/IgG', finding: 'Hantavirus-spezifische Antikörper', significance: 'Goldstandard, früh positiv (3-7 Tage)' },
-                { test: 'RT-PCR', finding: 'Virus-RNA (Blut, Urin)', significance: 'Frühphase, Serotypisierung' },
-                { test: 'Immunhistochemie', finding: 'Virusantigen im Gewebe', significance: 'Forschung, Autopsie' }
-              ]
-            },
-            differential: [
-              { disease: 'Leptospirose', distinguishing: 'Wadenschmerzen, konjunktivale Suffusion, Wasserexposition' },
-              { disease: 'Rickettsiose', distinguishing: 'Ausschlag, Eschar, Zeckenexposition' },
-              { disease: 'Akute Glomerulonephritis', distinguishing: 'Ödeme, Hypertonie, Streptokokken-Anamnese' },
-              { disease: 'Septischer Schock', distinguishing: 'Hohes PCT, positive Kultur' },
-              { disease: 'Schwere Influenza-Pneumonie', distinguishing: 'Saisonalität, keine Thrombozytopenie/Proteinurie' }
-            ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'KEIN spezifisches Virostatikum', dose: 'Supportive Therapie', duration: '', note: 'Häusliche Beobachtung in leichten Fällen' }
-                ],
-                inpatient: [
-                  { drug: 'Ribavirin', dose: '33 mg/kg i.v. Ladedosis, dann 16 mg/kg alle 6h', duration: '4 Tage, dann 8 mg/kg alle 8h für 3 Tage', note: 'Wirksam bei HFRS, in der Frühphase (<5 Tage)' },
-                  { drug: 'Flüssigkeitssubstitution', dose: 'HFRS: MAP halten; HPS: restriktiv!', duration: '', note: 'Bei HPS kann eine aggressive Flüssigkeitszufuhr durch Verschlechterung des Lungenödems tödlich sein.' }
-                ],
-                icu: [
-                  { drug: 'Dialyse', dose: 'Nierenversagen', duration: '', note: 'HFRS' },
-                  { drug: 'Invasive Beatmung + ECMO', dose: 'HPS', duration: '', note: 'Kardiogener Schock' },
-                  { drug: 'Inotrope Unterstützung', dose: 'Dobutamin, Noradrenalin', duration: '', note: 'HPS Schockphase' }
-                ]
-              },
-              targeted: 'Ribavirin bei HFRS in der Frühphase; Wirksamkeit bei HPS nicht belegt',
-              supportive: ['Vorsichtige Flüssigkeitstherapie (In HPS restriktiv!)', 'Dialyse (Nierenversagen)', 'Beatmung/ECMO (HPS)', 'Inotrope Unterstützung', 'Transfusion (Thrombozytopenie)'],
-              prevention: ['Nagetierbekämpfung', 'Schutzmaske an staubigen Orten', 'Lüften von Gebäuden vor der Reinigung', 'Handschuhe tragen', 'KEIN Impfstoff (experimentell)']
-            },
-            prognosis: {
-              mortality: 'HFRS: 1-15% (serotypabhängig); HPS: 30-50%',
-              prognostic_scores: ['APACHE II', 'Grad der Thrombozytopenie'],
-              factors: 'Serotyp, frühe Diagnose, HPS vs HFRS, Vorhandensein von Schock'
+            {
+              name: 'HPS (Hantavirus-Pulmonales Syndrom) - Neue Welt',
+              description: 'Prodromales Fieber und Myalgien, gefolgt von rasch (innerhalb von Stunden) fortschreitender schwerer Dyspnoe, nicht-kardiogenem Lungenödem, fulminanter Hypoxie, Hypotonie und kardiogenem Schock. Letalität 30-50%!',
+              severity: 'severe'
             }
-          },
-          {
-            id: 'lyme',
-            name: 'Lyme-Borreliose',
-            pathogen: { type: 'Spirochäte', name: '<i>Borrelia burgdorferi sensu lato</i> (B. afzelii, B. garinii, B. burgdorferi ss.)', gram: 'Gram-negativ', shape: 'spiralig' },
-            epidemiology: {
-              incidence: 'USA: 476.000 Fälle/Jahr; Europa: 232.000 Fälle/Jahr. In Ungarn häufig und endemisch.',
-              risk_groups: ['Besucher von Waldgebieten', 'Wanderer, Camper', 'Förster, Jäger', 'Gärtner', 'Kinder'],
-              seasonality: 'Frühling bis Herbst (Zeckenaktivität)',
-              transmission: 'Stich der Ixodes ricinus Zecke (meist >24 Stunden Saugzeit erforderlich)'
-            },
-            pathomechanism: {
-              steps: [
-                'Während des Saugaktes einer infizierten Ixodes-Zecke gelangen Borrelien aus den Speicheldrüsen der Zecke in die Haut des Wirts (meist >24 Stunden Saugzeit erforderlich).',
-                'Die Bakterien vermehren sich lokal in der Haut und breiten sich zentrifugal aus, wodurch das charakteristische Erythema migrans (EM) entsteht.',
-                'Die Erreger gelangen in den Blutkreislauf (hämatogen) und das Lymphsystem und disseminieren so zu entfernten Organen (Herz, Nervensystem, Gelenke, Haut).',
-                'Die Bakterien können dem Immunsystem ausweichen (Antigenvariation, Komplementhemmung), was eine Persistenz und die Entwicklung einer chronischen Entzündung ermöglicht.',
-                'Die Gewebeschädigung wird primär nicht durch Toxine, sondern durch die Entzündungsreaktion des Wirts (Zytokine, Immunkomplexe) verursacht.'
-              ],
-              virulence_factors: ['Osp (Outer surface proteins)', 'VlsE (Antigenvariation)', 'Motilität']
-            },
-            clinical: {
-              incubation: 'EM: 1-30 Tage (Durchschnitt 7-14 Tage, mindestens 24 Std. Saugzeit erforderlich)',
-              onset: 'Stadienhaft',
-              symptoms: [
-                { name: 'Frühstadium lokalisiert (Erythema migrans)', description: '<b>Erythema migrans (EM):</b> Schmerzlose, nicht juckende, sich langsam ausbreitende Hautrötung. <u>Bei bekannter Zeckenexposition:</u> nach mindestens 1 Tag Inkubation an der Einstichstelle entstehender, allmählich wachsender, mindestens 5 cm großer roter Fleck, der für mindestens 3 Tage weiter anwächst und eine ovale Form annimmt. <u>Ohne bekannte Zeckenexposition oder an anderen Stellen:</u> mindestens 8 cm großes ovales Erythem, das seit mindestens 5 Tagen diese Größe hat und kontinuierlich wächst. Einzelne, nicht-expandierende Zielscheiben-Rötungen sind kein EM.', severity: 'moderate' },
-                { name: 'Frühstadium disseminiert (Organe)', description: 'Wochen bis Monate nach Streuung. <b>Neuroborreliose:</b> Bannwarth-Syndrom (heftige nächtliche radikuläre Schmerzen, periphere Fazialisparese [kann beidseitig sein], Meningitis). <b>Karditis:</b> fluktuierender AV-Block (Grad I-III, Bradykardie). <b>Haut:</b> Borrelien-Lymphozytom (schmerzloser, bläulich-roter, praller Knoten an Ohrläppchen, Brustwarze oder Skrotum, unbehandelt >1 Woche anhaltend).', severity: 'severe' },
-                { name: 'Spätstadium (Chronisch)', description: 'Monate bis Jahre später. <b>Lyme-Arthritis:</b> fieberfreie, schmerzarme asymmetrische Oligoarthritis großer Gelenke (v.a. Knie) mit ausgeprägter Schwellung. Eine seronegative Lyme-Arthritis existiert nicht! <b>Haut:</b> Acrodermatitis chronica atrophicans (ACA - initiale teigige, rot-livide Schwellung an Streckseiten der Extremitäten, gefolgt von pergamentartiger Hautatrophie). <b>Chronische Neuroborreliose:</b> Enzephalomyelitis.', severity: 'moderate' }
-              ],
-              physical_exam: [
-                'Erythema migrans: >5 cm (bei bekanntem Stich) bzw. >8 cm (ohne Stich-Anamnese) expandierendes ovales Erythem',
-                'Fazialisparese (kann plötzlicher Beginn sein, oft beidseitig)',
-                'Meningeale Reizzeichen (mild mit lymphozytärer Pleozytose)',
-                'Gelenkschwellung (asymmetrisch, meist Kniegelenk, fieberfrei)',
-                'Borrelien-Lymphozytom: prall-elastischer, bläulich-roter Knoten an Ohr, Brustwarze oder Skrotum',
-                'ACA: anfangs teigige Schwellung, später zigarettenpapierartig ausgedünnte Haut'
-              ],
-              complications: ['Chronische, therapieresistente Gelenkentzündung (v.a. nach intraartikulären Steroidinjektionen)', 'Post-Lyme-Syndrom (Müdigkeit, kognitive Beschwerden - spricht nicht auf Antibiotika an)', 'Schwere chronische Neuroborreliose']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Zweistufige Serologie (ELISA + Western Blot)', finding: 'IgM (2-4 Wochen), IgG (4-6 Wochen)', interpretation: 'Zweistufig! Bei klinisch klarem, typischem EM ist eine Serologie STRENGSTENS VERBOTEN (da noch negativ oder ohne therapeutische Relevanz). Bei Arthritis, ACA und chronischer Neuroborreliose ist eine extrem hohe IgG-Positivität (Western-Blot) ein obligates Kriterium.' },
-                { test: 'Kontrollserologie nach erfolgreicher Therapie', finding: 'NICHT empfohlen', interpretation: 'Antikörper können nach erfolgreicher Heilung über Jahre bis Jahrzehnte persistieren; sie weisen nicht auf eine aktive Infektion hin.' },
-                { test: 'Liquoruntersuchung', finding: 'Lymphozytäre Pleozytose (50-800 Lymph/µl), erhöhtes Protein, normale oder erniedrigte Glukose', interpretation: 'Intrathekale borrelienspezifische Antikörpersynthese (AI > 1.5) ist für den Nachweis einer Neuroborreliose zwingend erforderlich.' }
-              ],
-              imaging: [
-                { modality: 'EKG', finding: 'AV-Block (Grad I-III)', significance: 'Zwingend erforderlich bei Verdacht auf Karditis (z.B. niedriger Puls)' }
-              ],
-              microbiology: [
-                { test: 'Zeckenuntersuchung auf Borrelien', finding: 'STRENGSTENS KONTRAINDIZIERT', significance: 'Keine klinische Relevanz, eine prophylaktische Antibiotikatherapie darf auch bei positivem Befund nicht durchgeführt werden.' },
-                { test: 'PCR (Gelenkflüssigkeit oder Hautbiopsie)', finding: 'Borrelien-DNA positiv', significance: 'Aus Gelenkflüssigkeit (Lyme-Arthritis) oder Hautbiopsie (ACA, BL) mittels validierter PCR-Tests nützlich.' },
-                { test: 'ELISPOT LTT, CD57-Lymphozyten, Urin-Antigen', finding: 'NICHT empfohlen', significance: 'Nutzlose und klinisch unzuverlässige Untersuchungen.' }
-              ]
-            },
-            differential: [
-              { disease: 'Erysipel/Zellulitis', distinguishing: 'Hohes Fieber, heftiger Schmerz, rasche Ausbreitung, Leukozytose' },
-              { disease: 'Tinea corporis', distinguishing: 'Schuppender Randsaum, starker Juckreiz, KOH-Mikroskopie positiv' },
-              { disease: 'Andere Arthritis (septisch, RA)', distinguishing: 'Septische zeigt hohes Fieber und eitriges Sekret; RA verläuft symmetrisch an kleinen Gelenken mit spezifischer Serologie' },
-              { disease: 'Multiple Sklerose', distinguishing: 'MRT-Befunde, oligoklonale Banden im Liquor' }
+          ],
+          physical_exam: [
+            'Gesichts-, Hals- und Oberkörperrötung (Facial flush)',
+            'Injektion der Konjunktiven und Petechien an Gaumen / Achselhöhlen',
+            'Flankenschmerz / Nierenlagerklopfschmerz (Giordano-Zeichen positiv)',
+            'Hypotonie / systemische Schockzeichen',
+            'Feinblasige Rasselgeräusche der Lunge (HPS-Lungenödem)'
+          ],
+          complications: [
+            'Akutes Nierenversagen (Dialysepflichtigkeit)',
+            'Schweres nicht-kardiogenes Lungenödem und refraktäre Hypoxämie (HPS)',
+            'Kardiogener / distributiver Schock',
+            'Hypophysenapoplex / Pituitäre Hämorrhagie (später Panhypopituitarismus)',
+            'DIC und Organblutungen'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Blutbild', finding: 'Klassische Trias: 1. Ausgeprägte Thrombozytopenie (<50-100 G/L); 2. Leukozytose mit Linksverschiebung & atypischen Lymphozyten; 3. Hämokonzentration (Hämatokrit↑)', interpretation: 'Hochspezifisches hämatologisches Muster für Hantavirus!' },
+            { test: 'Niere & Urin', finding: 'Kreatinin & Harnstoff stark erhöht; Massive Proteinurie (3-4+), Mikrohämaturie', interpretation: 'Zeichen der akuten tubulointerstitiellen Nephritis' },
+            { test: 'Gerinnung', finding: 'APTT verlängert, D-Dimer erhöht, Fibrinogen erniedrigt', interpretation: 'Verbrauchskoagulopathie bei schweren Verläufen' }
+          ],
+          imaging: [
+            { modality: 'Röntgen/CT-Thorax', finding: 'HPS: Beidseitige interstitielle, später alveoläre Infiltrate, rasche Pleuraergussbildung ohne Kardiomegalie', significance: 'Hantavirus-Pulmonales Syndrom Diagnose' },
+            { modality: 'Abdomen-Sonographie', finding: 'Vergrößerte, ödematöse Nieren mit gesteigerter Parenchymechogenität', significance: 'HFRS-Bestätigung' }
+          ],
+          microbiology: [
+            { test: 'Serologie (ELISA / Immunoblot)', finding: 'Hantavirus-spezifisches IgM bei Symptombeginn positiv', significance: 'DIAGNOSTISCHER GOLDSTANDARD! IgM in der febrilen Phase fast immer nachweisbar.' },
+            { test: 'RT-PCR', finding: 'Virale RNA im Blut oder Gewebe', significance: 'In der Frühphase und zur Genotypisierung nützlich' }
+          ]
+        },
+        differential: [
+          { disease: 'Leptospirose', distinguishing: 'Cholestatischer Ikterus vorhanden, Wadenschmerz, Süßwasserexposition, spricht auf Penicillin an' },
+          { disease: 'Akute Glomerulonephritis', distinguishing: 'Post-Streptokokken-Anamnese, Hypertonie, keine schwere Thrombozytopenie' },
+          { disease: 'Legionellose / Schwere Influenza', distinguishing: 'Keine akute Niereninsuffizienz mit Proteinurie-Trias, spezifisches Urinantigen/PCR' },
+          { disease: 'Septischer Schock', distinguishing: 'Hohe Procalcitonin-Werte, positive Blutkultur' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Strikte Überwachung / Vermittlung ins Krankenhaus', dose: '-', duration: '-', note: 'Jeder Hantavirus-Verdachtsfall erfordert eine stationäre/intensivmedizinische Einweisung!' }
             ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Doxycyclin per os', dose: '2x100 mg PO (2x200 mg PO bei Neuroborreliose, falls andere Mittel kontraindiziert)', duration: '40 Tage (gleichermaßen bei EM, BL, ACA, Arthritis und Neuritis)', note: 'Leitlinien-Antibiotikum. Dosisanpassung bei hohem Gewicht: 1.5x Dosis ab 90 kg, 2x Dosis ab 120 kg. Unter 8 Jahren anwendbar, falls keine Alternative (2x2 mg/kg, max 2x100 mg). Verursacht starke Fotosensibilisierung!' },
-                  { drug: 'Amoxicillin per os', dose: '3x1000 mg PO', duration: '20 Tage (bei EM, BL, ACA, milder Karditis)', note: 'Erwachsenendosis ist 3x1000 mg! 1.5x Dosis ab 90 kg, 2x Dosis ab 120 kg. Kind: 3x50 mg/kg. Sicher in Schwangerschaft und Stillzeit.' },
-                  { drug: 'Cefuroxim-Axetil per os', dose: '2x500 mg PO', duration: '20 Tage (bei EM, BL, Karditis)', note: '1.5x Dosis ab 90 kg, 2x Dosis ab 120 kg. Kind: 2x10 mg/kg (max 2x500 mg).' },
-                  { drug: 'Azithromycin per os', dose: '1x500 mg PO', duration: '12 Tage (ausschließlich bei EM)', note: 'Nur bei EM im Falle einer schweren Allergie gegen Beta-Laktame oder Doxycyclin. Kind: 10 mg/kg.' }
-                ],
-                inpatient: [
-                  { drug: 'Ceftriaxon i.v.', dose: '1x2000 mg i.v. (oder i.m.)', duration: '15 Tage', note: 'Mittel der ersten Wahl bei Neuroborreliose, Karditis in der Schwangerschaft, schwerer Arthritis und ACA. Kind: 50 mg/kg (max 2 g). Auch im Sommer anwendbar.' }
-                ]
-              },
-              targeted: 'Gemäß ungarischer Leitlinie 2024: Typisches EM muss sofort ohne Serologie behandelt werden. Amoxicillin / Cefuroxim für 20 Tage, Doxycyclin für 40 Tage, oder Azithromycin (bei Allergie) für 12 Tage. Neuroborreliose, Gestationskarditis oder persistierende Arthritis werden primär mit Ceftriaxon i.v. für 15 Tage behandelt. Bei unklarem Befund sind Antibiotika verboten! Langzeit-/Wiederholungsbehandlungen (z. B. bei Post-Lyme-Syndrom) sind unwirksam und fachlich kontraindiziert.',
-              supportive: ['Symptomatische Schmerzlinderung', 'Physiotherapie', 'Lokale Steroidanwendung (bei EM) oder intraartikuläre Steroide (bei Arthritis) sind strengstens kontraindiziert, da sie die Krankheit generalisieren oder therapieresistent machen.'],
-              prevention: ['Eine Antibiotikaprophylaxe nach Zeckenstich ist strengstens kontraindiziert!', 'Die Zecke muss sofort mit einer feinen Pinzette entfernt werden, ohne den Körper zu quetschen.', 'Eine Desinfektion der Einstichstelle wird nicht empfohlen (kann Hautreaktionen hervorrufen, die ein EM imitieren).']
+            inpatient: [
+              { drug: 'Supportivtherapie + Vorsichtige Flüssigkeitsgabe', dose: 'Hämodynamisches Monitoring', duration: '', note: 'Flüssigkeitsersatz während der hypotensiven Phase bei HFRS, aber strengste Vorsicht in der oligurischen Phase!' },
+              { drug: 'IV Ribavirin (HFRS)', dose: '33 mg/kg i.v. Sättigung, dann 16 mg/kg alle 6 Std. für 4 Tage, dann 8 mg/kg alle 8 Std. für 3 Tage', duration: '7 Tage', note: 'Nur bei HFRS! Beginn innerhalb der ersten 5 Tage senkt Nierenversagen und Letalität. Bei HPS wirkungslos!' }
+            ],
+            icu: [
+              { drug: 'Inotropie + Renal/Respiratorische Unterstützung', dose: 'Dobutamin / Noradrenalin', duration: '', note: 'STRENG RESTRIKTIVE Flüssigkeitstherapie bei HPS! Frühzeitige venoarterielle ECMO und mechanische Beatmung indiziert!' }
+            ]
+          },
+          targeted: 'HFRS: Frühzeitiges i.v. Ribavirin (<5 Tage ab Beginn). HPS: Kein spezifisches Antivirusmittel verfügbar; Rein supportive Therapie.',
+          supportive: [
+            'HFRS: Frühzeitige Hämodialyse / CRRT bei akutem Nierenversagen zur Vermeidung urämischer Komplikationen und Hypervolämie.',
+            'HPS: Aggressive Flüssigkeitszufuhr ist STRENG KONTRAINDIZIERT, da sie das Lungenödem verschlimmert! Frühzeitige inotrope Unterstützung (Dobutamin) und invasives Monitoring.'
+          ],
+          prevention: [
+            'Schädlingsbekämpfung und Vermeidung des Kontakts mit Nagerexkrementen.',
+            'Feuchtes Reinigen (mit Desinfektionsmittel) und Belüftung geschlossener staubiger Räume.',
+            'FFP3/N95-Atemschutzmaske bei Reinigungsarbeiten in Risikobereichen.'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Thrombozytopenie + Hämokonzentration + Plötzliche Proteinurie + Nagerexposition = Hantavirus-Verdacht!',
+            'Serologischer Goldstandard: IgM ELISA bei Beginn positiv.',
+            'Bei HPS entwickelt sich das Lungenödem innerhalb von Stunden ohne Herzinsuffizienz.'
+          ],
+          treatment_indications: [
+            'HFRS: i.v. Ribavirin effektiv bei Beginn innerhalb der ersten 5 Tage.',
+            'HPS: Flüssigkeitsgabe MUSS RESTRIKTIV erfolgen, um das Lungenödem nicht zu verschlimmern!'
+          ],
+          first_line: [
+            'HFRS: i.v. Ribavirin + Nierenunterstützung.',
+            'HPS: Intensivstation, Dobutamin, restriktive Flüssigkeitstherapie, ECMO.'
+          ]
+        },
+        prognosis: {
+          mortality: 'HFRS (Puumala): <0,5-1%; HFRS (Dobrava/Hantaan): 5-15%; HPS (Sin Nombre/Andes): 30-50%',
+          prognostic_scores: ['SOFA-Score'],
+          factors: 'Virustyp, frühzeitige Intensivaufnahme, Verfügbarkeit von ECMO/CRRT'
+        }
+      },
+      {
+        id: 'lyme',
+        name: 'Lyme-Borreliose (Lyme-Krankheit)',
+        pathogen: {
+          type: 'Spirochäte',
+          name: '<i>Borrelia burgdorferi sensu lato</i> (<i>B. afzelii</i> [Haut], <i>B. garinii</i> [Neuro], <i>B. burgdorferi ss.</i> [Gelenk])',
+          gram: 'Gram-negativ',
+          shape: 'spiralig, beweglich'
+        },
+        epidemiology: {
+          incidence: 'USA: ~476.000 Fälle/Jahr; Europa: ~232.000 Fälle/Jahr. Hohe Inzidenz in Mitteleuropa.',
+          risk_groups: ['Wanderer, Camper, Forstwirte, Jäger, Gärtner, draußen spielende Kinder'],
+          seasonality: 'Frühjahr bis Herbst (Zeckenaktivitätsmaximum)',
+          transmission: 'Stich infizierter Ixodes ricinus / Ixodes scapularis Zecken (Saugdauer >24-36 Stunden für Erregerübertragung erforderlich).'
+        },
+        pathomechanism: {
+          steps: [
+            'Inokulation: Borrelien werden über den Zeckenspeichel während längeren Saugakts (>24-36h) in die menschliche Haut übertragen.',
+            'Zentrifugale Ausbreitung & EM: Bakterien vermehren sich in der Haut und breiten sich zentrifugal aus -> Erythema migrans (EM).',
+            'Dissemination: Hämatogene und lymphatische Ausbreitung in Organe (Nervensystem, Herz, Gelenke, Haut).',
+            'Immunevasion: VlsE-Antigenvariation und OspC-Expression ermöglichen Persistenz und Gewebeflucht.',
+            'Chronische Entzündung: Zytokin- und immunkomplexvermittelte Entzündungsreaktion führt zu Arthritis und Neuroborreliose.'
+          ],
+          virulence_factors: ['VlsE-Antigenvariation', 'OspC-Oberflächenprotein', 'Komplement-Inhibitoren-Bindung', 'Motilität']
+        },
+        clinical: {
+          incubation: 'EM: 1-30 Tage (Durchschnitt 7-14 Tage; setzt >24h Zeckensaugdauer voraus)',
+          onset: 'Stadienabhängig',
+          symptoms: [
+            {
+              name: 'Frühes lokalisiertes Stadium (Erythema migrans)',
+              description: '<b>Erythema migrans (EM):</b> Schmerzloses, nicht juckendes, sich ausbreitendes Erythem. <u>Mit bekanntem Zeckenstich:</u> >=1 Tag Inkubation, sich zentrifugal ausbreitender Fleck/Ring >=5 cm, wächst >=3 Tage. <u>Ohne bekannten Zeckenstich:</u> >=8 cm ovaler Fleck seit >=5 Tagen kontinuierlich wachsend. Einzelne nicht wachsende rote Punkte sind KEIN EM!',
+              severity: 'moderate'
             },
-            prognosis: {
-              mortality: 'Sehr niedrig',
-              prognostic_scores: ['Keine'],
-              factors: 'Früherkennung und Behandlung'
+            {
+              name: 'Frühes disseminiertes Stadium (Organmanifestationen)',
+              description: 'Wochen bis Monate später. <b>Neuroborreliose:</b> Bannwarth-Syndrom (quälende nächtliche radikuläre Schmerzen, periphere Fazialisparese [oft BEIDSEITIG!], lymphozytäre Meningitis). <b>Lyme-Karditis:</b> Fluktuierende AV-Blockierungen (I-III. Grad). <b>Lymphadenosis cutis benigna (BL):</b> Schmerzloser bläulich-roter Knoten an Ohrläppchen, Brustwarze oder Skrotum.',
+              severity: 'severe'
+            },
+            {
+              name: 'Spätes Stadium (Chronische Manifestationen)',
+              description: 'Monate bis Jahre später. <b>Lyme-Arthritis:</b> AFEBRILE, schmerzarme asymmetrische Oligo-/Monoarthritis großer Gelenke (Knie ~85%) mit massivem Erguss. Seronegative Lyme-Arthritis EXISTIERT NICHT! <b>ACA (Acrodermatitis chronica atrophicans):</b> Teigige livid-zyanotische Schwellung, später zigarettenpapierartige Hautatrophie.',
+              severity: 'moderate'
             }
-          },
-          {
-            id: 'tularemia',
-            name: 'Tularämie (Hasenpest)',
-            pathogen: { type: 'Bakterium', name: '<i>Francisella tularensis</i>', gram: 'Gram-negativ', shape: 'Kokkobazillus, intrazellulär' },
-            epidemiology: {
-              incidence: 'USA: 100-200 Fälle/Jahr; Europa: sporadisch',
-              risk_groups: ['Jäger', 'Gerber', 'Landarbeiter', 'Laboranten', 'Förster', 'Tierärzte'],
-              seasonality: 'Sommer (Zecke), Winter (Jagd)',
-              transmission: 'Zecken-/Fliegenstich, Kontakt mit infizierten Tieren (Kaninchen, Nagetiere), Inhalation, Wasser/Nahrung'
-            },
-            pathomechanism: {
-              steps: [
-                'Francisella tularensis ist ein extrem ansteckendes Bakterium (<10 Organismen genügen), das durch Zeckenstiche, direkten Kontakt mit infizierten Tieren (z.B. Kaninchen) oder Inhalation von kontaminiertem Staub in den Körper gelangt.',
-                'An der Eintrittsstelle wird das Bakterium von Makrophagen phagozytiert, kann aber aus dem Phagosom ins Zytoplasma entkommen, wo es sich vermehrt.',
-                'Die infizierten Makrophagen wandern zu den regionalen Lymphknoten, wo sich das Bakterium weiter vermehrt, was zu schmerzhaften, nekrotisierenden Granulomen und Lymphadenitis führt.',
-                'Abhängig von der Eintrittspforte entwickeln sich verschiedene klinische Formen (z.B. ulzeroglandulär, pulmonal).',
-                'Die Bakterien können vom Lymphsystem in den Blutkreislauf gelangen und eine systemische Infektion (typhöse Form) sowie eine Beteiligung entfernter Organe (Lunge, Leber, Milz) verursachen.'
-              ],
-              virulence_factors: ['Kapsel', 'Phagosomen-Escape (iglA-D Locus)', 'LPS (toxisch)', 'Siderophore', 'Intrazelluläres Überleben']
-            },
-            clinical: {
-              incubation: '3-5 Tage (1-14 Tage)',
-              onset: 'Plötzlich',
-              symptoms: [
-                { name: 'Ulzeroglanduläre Form (75-85%)', description: 'Die häufigste Form. An der Eintrittspforte (z.B. Stichstelle) bildet sich ein schmerzhaftes Geschwür (Ulkus) mit schwarzem Schorf, begleitet von einer schmerzhaften Schwellung der regionalen Lymphknoten (Bubo).', severity: 'moderate' },
-                { name: 'Glanduläre Form (5-10%)', description: 'Ähnlich der ulzeroglandulären Form, aber das primäre Hautgeschwür fehlt, nur die schmerzhafte Lymphknotenschwellung ist vorhanden.', severity: 'moderate' },
-                { name: 'Typhöse Form (5-15%)', description: 'Schwere, systemische Erkrankung mit hohem Fieber, Schüttelfrost, Kopfschmerzen, aber ohne primäre Lokalisation (Geschwür, Lymphknoten). Oft mit Lungenentzündung verbunden.', severity: 'severe' },
-                { name: 'Andere Formen', description: 'Okuloglandulär (Konjunktivitis und Lymphknotenschwellung bei Eintritt ins Auge), Oropharyngeal (Tonsillitis bei Verschlucken), Pulmonal (atypische Pneumonie bei Inhalation).', severity: 'moderate' }
-              ],
-              physical_exam: [
-                'Ulzeroglandulär (75%): Hautgeschwür (schwarzer Eschar) + druckempfindlicher Lymphknoten',
-                'Glandulär: Lymphknotenschwellung ohne Geschwür',
-                'Okuloglandulär: Konjunktivitis, knötchenförmige Läsionen, Lymphknoten',
-                'Oropharyngeal: Tonsillitis, zervikaler Lymphknoten',
-                'Typhös: Fieber, Hepatosplenomegalie, KEINE Lokalisation',
-                'Pulmonal: Pneumoniezeichen'
-              ],
-              complications: ['Abszessbildung (Lymphknoten)', 'Sepsis', 'ARDS', 'Meningitis', 'Perikarditis', 'Osteomyelitis', 'Tod (unbehandelt 5-15%, behandelt <2%)']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Blutbild', finding: 'Normal oder Leukopenie', interpretation: 'Unspezifisch' },
-                { test: 'CRP/BSG', finding: 'Erhöht', interpretation: 'Entzündung' },
-                { test: 'Leberenzyme', finding: 'AST/ALT leichte Erhöhung', interpretation: 'Typhös' }
-              ],
-              imaging: [
-                { modality: 'Thorax-Röntgen', finding: 'Infiltrat, hiläre Lymphadenopathie, Pleuraerguss', significance: 'Pulmonal/typhös' },
-                { modality: 'CT Hals/Thorax', finding: 'Nekrotisierende Lymphadenitis', significance: 'Abszessnachweis' }
-              ],
-              microbiology: [
-                { test: 'Serologie (Agglutination)', finding: 'Titer ≥1:160 oder 4x↑', significance: 'Retrospektive Diagnose (2-3 Wochen)' },
-                { test: 'PCR', finding: 'F. tularensis DNA (Geschwür, Lymphknoten)', significance: 'Schnell, sensitiv' },
-                { test: 'Kultur', finding: 'Spezialmedium (BSL-3!), GEFÄHRLICH!', significance: 'Vermeiden (Laborinfektionsrisiko)' },
-                { test: 'Immunhistochemie', finding: 'Antigennachweis im Gewebe', significance: 'Bei Biopsie' }
-              ]
-            },
-            differential: [
-              { disease: 'Lyme-Borreliose', distinguishing: 'EM-Ausschlag, Serologie, weniger toxisch' },
-              { disease: 'Katzenkratzkrankheit', distinguishing: 'Katzenkontakt, Bartonella-Serologie' },
-              { disease: 'Pyogene Lymphadenitis (Staph/Strep)', distinguishing: 'Schneller, spricht auf Antibiotika an, Kultur' },
-              { disease: 'Mykobakteriose (atypisch)', distinguishing: 'Langsamer, AFB, Kultur' },
-              { disease: 'Pest', distinguishing: 'Bubo noch schmerzhafter, Geografie, Yersinia' }
+          ],
+          physical_exam: [
+            'Erythema migrans: >5 cm (mit Zeckenstich) oder >8 cm (ohne Zeckenstichanamnese) wachsende Rötung',
+            'Fazialisparese (plötzlich auftretend, häufig beidseitig)',
+            'Meningismus (milde Nackensteifigkeit mit lymphozytärer Pleozytose)',
+            'Gelenkschwellung (asymmetrisch, vorwiegend Knie, AFEBRIL)',
+            'Borrelien-Lymphozytom: fester livid-roter Knoten an Ohrläppchen/Brustwarze/Skrotum',
+            'ACA: früh teigiges Ödem, spät zigarettenpapierartige Hautatrophie'
+          ],
+          complications: [
+            'Post-Lyme-Syndrom (Müdigkeit, kognitive Beschwerden - SPRICHT NICHT AUF ANTIBIOTIKA AN; weitere Antibiotika KONTRAINDIZIERT!)',
+            'Chronische refraktäre Arthritis (besonders nach intraartikulärer Steroidinjektion)',
+            'Chronische Neuroborreliose (Enzephalomyelitis)'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Zwei-Stufen-Serologie (ELISA + Western Blot)', finding: 'IgM (2-4 Wochen), IgG (4-6 Wochen)', interpretation: 'Zwei-Stufen-Diagnostik! Bei typischem EM ist SEROLOGIE STRENG KONTRAINDIZIERT (falsch-negativ/irrelevant). Obligat bei Arthritis, ACA und Neuroborreliose (hoher IgG-Blot).' },
+            { test: 'Serologische Verlaufskontrolle nach Therapie', finding: 'NICHT EMPFOHLEN / KONTRAINDIZIERT', interpretation: 'IgG/IgM-Antikörper persistieren jahrelang nach Ausheilung und zeigen keine aktive Infektion an.' },
+            { test: 'Liquoruntersuchung', finding: 'Lymphozytäre Pleozytose (50-800/µL), erhöhtes Protein', interpretation: 'Intrathekaler Borrelien-Antikörper-Index (AI >1,5) OBLIGAT für Neuroborreliose.' }
+          ],
+          imaging: [
+            { modality: 'EKG', finding: 'AV-Blockierungen (I-III. Grad)', significance: 'Obligat bei Verdacht auf Lyme-Karditis' }
+          ],
+          microbiology: [
+            { test: 'Untersuchung entferneter Zecken auf Borrelien', finding: 'STRENG KONTRAINDIZIERT', significance: 'Kein klinischer Wert; Prophylaktische Antibiotikagabe aufgrund positiver Zecke KONTRAINDIZIERT.' },
+            { test: 'PCR (Gelenkpunktat / Hautbiopsie)', finding: 'Borrelien-DNA positiv', significance: 'Nützlich bei Lyme-Arthritis (Synovialflüssigkeit) und ACA (Hautbiopsie).' },
+            { test: 'Nicht-validierte Tests (LTT, ELISPOT, CD57)', finding: 'NICHT EMPFOHLEN', significance: 'Unzuverlässig und wissenschaftlich nicht anerkannt.' }
+          ]
+        },
+        differential: [
+          { disease: 'Erysipel / Phlegmone', distinguishing: 'Hohes Fieber, starke Schmerzen, rasche Ausbreitung, deutliche Leukozytose' },
+          { disease: 'Tinea corporis', distinguishing: 'Schuppender aktiver Randsaum, starker Juckreiz, positiver KOH-Nativbefund' },
+          { disease: 'Septische Arthritis / Chronische Polyarthritis', distinguishing: 'Septisch hat hohes Fieber und eitrigen Erguss (Lyme-Arthritis ist AFEBRIL!). cP betrifft kleine Gelenke symmetrisch.' },
+          { disease: 'Multiple Sklerose', distinguishing: 'MRT-Demyelinisierung, oligoklonale Bänder im Liquor' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Doxycyclin p.o.', dose: '100 mg p.o. 2x/Tag (300 mg/T bei >90 kg, 400 mg/T bei >120 kg)', duration: '40 Tage (bei EM, BL, ACA, Lyme-Arthritis und isolierter peripherer Neuritis!)', note: 'Standard-Leitlinien-Antibiotikum. Bei Kindern <8 J. kurzzeitig möglich falls indiziert. Fotosensibilisierend!' },
+              { drug: 'Amoxicillin p.o.', dose: '1000 mg p.o. 3x/Tag (1,5-fache Dosis bei >90 kg, 2-fache bei >120 kg)', duration: '20 Tage (bei EM, BL, ACA)', note: 'Erste Wahl in Schwangerschaft und Stillzeit. Kinder: 50 mg/kg/Tag in 3 Dosen.' },
+              { drug: 'Cefuroximaxetil p.o.', dose: '500 mg p.o. 2x/Tag (1,5-fache Dosis bei >90 kg, 2-fache bei >120 kg)', duration: '20 Tage (bei EM, BL, ACA)', note: 'Zweite Wahl oral. Kinder: 30 mg/kg/Tag in 2 Dosen.' },
+              { drug: 'Azithromycin p.o.', dose: '500 mg p.o. 1x/Tag', duration: '12 Tage (EXKLUSIV bei EM)', note: 'Nur bei EM im Falle schwerer Beta-Laktam- und Doxycyclin-Allergie.' }
             ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Doxycyclin', dose: '100 mg zweimal täglich p.o.', duration: '14-21 Tage', note: 'Erste Wahl bei leichter Form' },
-                  { drug: 'Ciprofloxacin', dose: '500 mg zweimal täglich p.o.', duration: '14-21 Tage', note: 'Alternative' }
-                ],
-                inpatient: [
-                  { drug: 'Streptomycin', dose: '7.5-10 mg/kg zweimal täglich i.m.', duration: '10 Tage', note: 'Goldstandard in schweren Fällen' },
-                  { drug: 'Gentamicin', dose: '5 mg/kg einmal täglich i.v.', duration: '10 Tage', note: 'Streptomycin nicht verfügbar' },
-                  { drug: 'Doxycyclin', dose: '100 mg zweimal täglich i.v.', duration: '14-21 Tage', note: 'In Kombination' }
-                ],
-                icu: [
-                  { drug: 'Gentamicin + Doxycyclin', dose: 'Kombination', duration: '14-21 Tage', note: 'Typhös/pulmonal schwer' },
-                  { drug: 'Ciprofloxacin', dose: '400 mg zweimal täglich i.v.', duration: '14-21 Tage', note: 'Bessere Penetration bei Meningitis' }
-                ]
-              },
-              targeted: 'Aminoglykosid (Streptomycin, Gentamicin) erste Wahl; Doxycyclin/Ciprofloxacin Alternative',
-              supportive: ['Chirurgische Drainage (fluktuierender Lymphknoten)', 'Flüssigkeitsersatz', 'Isolierung NICHT erforderlich (keine Mensch-zu-Mensch-Übertragung)', 'Antipyretika'],
-              prevention: ['Schutzhandschuhe bei Tierbehandlung', 'Repellents (Zecken)', 'Fleisch richtig kochen', 'Impfstoff (nur Militär-/Laborpersonal, USA)', 'Antibiotikaprophylaxe nach Hochrisikoexposition (Doxycyclin 14 Tage)']
+            inpatient: [
+              { drug: 'Ceftriaxon i.v.', dose: '2 g i.v. 1x/Tag', duration: '15 Tage', note: 'Erste Wahl bei Neuroborreliose, Lyme-Karditis, schwerer Arthritis, ACA.' }
+            ]
+          },
+          targeted: 'Typisches EM: Sofortige Therapie ohne Serologie. Doxycyclin 40 Tage, Amoxicillin / Cefuroxim 20 Tage, oder Azithromycin 12 Tage. Neuroborreliose / Karditis: Ceftriaxon i.v. 2g 1x/T für 15 Tage. Verlängerte/wiederholte Antibiotikagaben bei Post-Lyme-Syndrom sind UNWIRKSAM UND KONTRAINDIZIERT!',
+          supportive: [
+            'Symptomatische Analgesie, Physiotherapie.',
+            'Lokale Steroidsalben auf das EM sind STRENG KONTRAINDIZIERT (lokale Immunsuppression)!',
+            'Intraartikuläre Steroidinjektionen bei Lyme-Arthritis sind STRENG KONTRAINDIZIERT (führt zu chronischer refraktärer Arthritis)!'
+          ],
+          prevention: [
+            'Antibiotikaprophylaxe nach Zeckenstich ist STRENG KONTRAINDIZIERT!',
+            'Zecke sofort mit einer feinen Pinzette hautnah entfernen, ohne den Körper zu quetschen.',
+            'Routinemäßige Desinfektion der Stichstelle nicht erforderlich.'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Typisches EM = Klinische Diagnose! Serologie ist bei EM STRENG KONTRAINDIZIERT.',
+            'Zwei-Stufen-Testung (ELISA + Blot) obligat für Organmanifestationen.',
+            'Zeckentestung und nicht-validierte Tests (LTT, CD57) sind wissenschaftlich wertlos.'
+          ],
+          treatment_indications: [
+            'EM: Doxycyclin 40 Tage, Amoxicillin 20 Tage.',
+            'Neuroborreliose / Karditis: Ceftriaxon i.v. 15 Tage.',
+            'Post-Lyme-Syndrom: Antibiotika streng KONTRAINDIZIERT.'
+          ],
+          first_line: [
+            'EM / Arthritis / ACA: Doxycyclin p.o. (100 mg 2x/T, gewichtsangepasst).',
+            'Neuroborreliose: Ceftriaxon i.v. 2 g 1x/T für 15 Tage.'
+          ]
+        },
+        prognosis: {
+          mortality: 'Extrem niedrig (<0,1%)',
+          prognostic_scores: ['Keine'],
+          factors: 'Frühzeitige Diagnose und adäquate Behandlungsdauer'
+        }
+      },
+      {
+        id: 'tularemia',
+        name: 'Tularämie (Hasenpest)',
+        pathogen: {
+          type: 'Bakterium',
+          name: '<i>Francisella tularensis</i> (subsp. <i>tularensis</i> [Typ A - Nordamerika] / subsp. <i>holarctica</i> [Typ B - Europa])',
+          gram: 'Gram-negativ',
+          shape: 'kleines, pleomorphes Kokkobazillus, intrazellulär'
+        },
+        epidemiology: {
+          incidence: 'Sporadisch in Europa und Nordamerika; endemisch in Skandinavien, Balkan, Mitteleuropa.',
+          risk_groups: ['Jäger, Wildbretbearbeiter, Landwirte, Forstwirte, Tierärzte, Laborpersonal (hohes Laborinfektionsrisiko!)'],
+          seasonality: 'Sommer (Zecken-/Bremse-Vektor), Winter (Jagdsaison)',
+          transmission: 'Extrem niedrige Infektionsdosis (10-50 Keime!). Übertragung durch Zecken-/Bremsenstich, direkten Kontakt mit Feldhasen/Nagern, Inhalation von kontaminiertem Heustaub, Ingestion von verseuchtem Wasser/Fleisch. Keine Mensch-zu-Mensch-Übertragung.'
+        },
+        pathomechanism: {
+          steps: [
+            'Inokulation: Bakterien dringen über Hautläsionen, Zeckenstiche, Aerosolinhalation oder Ingestion ein.',
+            'Phagosome Escape: Makrophagen phagozytieren Bakterien, F. tularensis entkommt jedoch über das IglA-D Typ-VI-Sekretionssystem aus dem Phagosom ins Zytoplasma.',
+            'Lymphatische Dissemination: Vermehrung in Makrophagen, Transport in regionale Lymphknoten -> suppurativ-nekrotisierende Granulome (Buboes).',
+            'Organausbreitung: Hämatogene Ausbreitung in Milz, Leber, Lunge und Knochenmark.',
+            'Klinische Formen: Eintrittspforte bestimmt Manifestation (ulzeroglandulär, glandulär, okuloglandulär, oropharyngeal, typhös/pulmonal).'
+          ],
+          virulence_factors: ['Tularemia Pathogenicity Island (T6SS)', 'Phagosom-Escape-Mechanismus', 'Kapsel', 'Atypisches LPS (geringe Endotoxizität)', 'Kategorie-A-Bioterrorismus-Erreger']
+        },
+        clinical: {
+          incubation: '3-5 Tage (Spanne 1-14 Tage)',
+          onset: 'Plötzlicher Beginn mit Fieber, Schüttelfrost, Kopfschmerzen und Prostration',
+          symptoms: [
+            {
+              name: 'Ulzeroglanduläre Form (75-85%)',
+              description: 'Gestanztes Hautulkus mit schwarzem Schorf (Eschar) an der Eintrittsstelle + schmerzhaft vergrößerter, nekrotisierender regionaler Lymphknoten (Bubo).',
+              severity: 'moderate'
             },
-            prognosis: {
-              mortality: 'Unbehandelt: 5-15%; Behandelt: <2%',
-              prognostic_scores: ['Keine spezifischen'],
-              factors: 'Form (typhös/pulmonal schlechter), frühe Behandlung, Alter'
+            {
+              name: 'Glanduläre Form (5-10%)',
+              description: 'Schmerzhafte regionale Lymphadenopathie (Bubo) ohne primäres Hautgeschwür.',
+              severity: 'moderate'
+            },
+            {
+              name: 'Okuloglanduläre Form',
+              description: 'Schmerzhafte eitrige Konjunktivitis mit Lidknoten und präaurikulärer/submandibulärer Lymphadenopathie (Parinaud-Syndrom).',
+              severity: 'moderate'
+            },
+            {
+              name: 'Oropharyngeale & Typhöse / Pulmonale Form',
+              description: 'Exsudative Pharyngitis/Tonsillitis (oropharyngeal). Pulmonal: Atypische Pneumonie mit hilärer Adenopathie. Typhös: Hohes Fieber, Sepsis, Hepatosplenomegalie ohne Lokalisation. Unbehandelte Letalität 30-60%!',
+              severity: 'severe'
             }
-          },
-          {
-            id: 'cat_scratch',
-            name: 'Katzenkratzkrankheit (Cat-Scratch Disease)',
-            pathogen: { type: 'Bakterium', name: '<i>Bartonella henselae</i>', gram: 'Gram-negativ', shape: 'Stäbchen, intrazellulär' },
-            epidemiology: {
-              incidence: 'USA: ~12.000 Fälle/Jahr (Schätzung), unterdiagnostiziert',
-              risk_groups: ['Kinder <10 Jahre', 'Katzenkontakt', 'Flohexposition', 'Immungeschwächte (HIV)', 'Tierärzte, Tierheimmitarbeiter'],
-              seasonality: 'Herbst-Winter (Kätzchen)',
-              transmission: 'Katzenkratzer/-biss (95%), selten Hund, Floh'
-            },
-            pathomechanism: {
-              steps: [
-                'Das Bakterium Bartonella henselae wird am häufigsten durch Kratzer oder Bisse von infizierten (aber symptomlosen) Katzen, insbesondere Jungtieren, auf die menschliche Haut übertragen. Die Katzen infizieren sich gegenseitig durch Flöhe.',
-                'An der Eintrittsstelle entwickelt sich innerhalb von 3-10 Tagen eine Primärläsion, eine rote Papel oder Pustel.',
-                'Die Bakterien wandern über die Lymphbahnen zu den regionalen Lymphknoten (z.B. axillär, zervikal).',
-                'In den Lymphknoten bildet der Erreger charakteristische, sternförmige (stellate) nekrotisierende Granulome, was zu einer schmerzhaften Vergrößerung der Lymphknoten führt.',
-                'Bei immunkompetenten Personen ist die Infektion in der Regel selbstlimitierend. Bei Immunsupprimierten (z.B. HIV) kann das Bakterium streuen und eine systemische Erkrankung wie die bazilläre Angiomatose (Gefäßwucherungen) oder Peliosis hepatis verursachen.'
-              ],
-              virulence_factors: ['Flagellum', 'Pili', 'Adhäsine', 'BadA-Autotransporter', 'Intrazelluläres Überleben (Erythrozyten, Endothel)']
-            },
-            clinical: {
-              incubation: '3-10 Tage (Papel), 1-3 Wochen (Lymphadenitis)',
-              onset: 'Subakut',
-              symptoms: [
-                { name: 'Typische Form', description: 'Nach einer primären Papel an der Kratzstelle entwickelt sich nach 1-3 Wochen eine einseitige, schmerzhafte regionale Lymphknotenschwellung (am häufigsten in der Achselhöhle oder am Hals). Leichtes Fieber und Unwohlsein können begleitend auftreten. Der Lymphknoten kann eitern.', severity: 'moderate' },
-                { name: 'Parinaud-okuloglanduläres Syndrom', description: 'Der Erreger dringt durch die Bindehaut ein, was zu einer einseitigen Konjunktivitis und einer Schwellung des präaurikulären Lymphknotens führt.', severity: 'moderate' },
-                { name: 'Atypische/Disseminierte Formen', description: 'Seltener, vor allem bei Immunsupprimierten, kann die Infektion streuen. Sie kann Neuroretinitis (Sehverlust), Enzephalitis, hepatosplenische Erkrankung (Leber- und Milzabszesse) oder bazilläre Angiomatose (Gefäßtumoren auf Haut und inneren Organen) verursachen.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Papel/Pustel an der Kratzstelle (heilt, vernarbt)',
-                'Einseitige regionale Lymphadenomegalie (axillär, epitrochleär, zervikal)',
-                'Lymphknoten: druckempfindlich, 1-5cm, warm',
-                'Fluktuierend (10-15%) → eitrig',
-                'Parinaud-Syndrom: Konjunktivitis, präaurikulärer Lymphknoten',
-                'Hepatosplenomegalie (disseminiert)'
-              ],
-              complications: ['Lymphknotenabszessbildung', 'Enzephalitis/Enzephalopathie', 'Osteomyelitis', 'Endokarditis (selten)', 'Bazilläre Angiomatose (HIV+)', 'Neuroretinitis', 'Peliosis hepatis']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Blutbild', finding: 'Normal oder leichte Leukozytose', interpretation: 'Unspezifisch' },
-                { test: 'CRP/BSG', finding: 'Leichte bis mäßige Erhöhung', interpretation: 'Entzündung' },
-                { test: 'Leber-/Milzenzyme', finding: 'Erhöht (disseminiert)', interpretation: 'Hepatosplenische Beteiligung' }
-              ],
-              imaging: [
-                { modality: 'US (Lymphknoten)', finding: 'Vergrößert, hypoechogen, fluktuierend (Abszess)', significance: 'Notwendigkeit der Drainage' },
-                { modality: 'CT/MRT', finding: 'Milz-/Leberläsionen (bazilläre Angiomatose)', significance: 'Disseminierte Erkrankung' }
-              ],
-              microbiology: [
-                { test: 'Bartonella-Serologie (IgG/IgM)', finding: 'IgG ≥1:256 (akut), ≥1:512 (Endokarditis)', significance: 'Goldstandard, 2-6 Wochen positiv' },
-                { test: 'PCR (Lymphknotenbiopsie)', finding: 'Bartonella-DNA', significance: 'Sensitiv, schnell' },
-                { test: 'Warthin-Starry-Silberfärbung', finding: 'Bazillen in Gewebeprobe', significance: 'Histologie' },
-                { test: 'Blutkultur (speziell)', finding: 'Langsames Wachstum (6-8 Wochen), schwierig', significance: 'Endokarditis' }
-              ]
-            },
-            differential: [
-              { disease: 'Pyogene Lymphadenitis (Staph/Strep)', distinguishing: 'Schnellerer Beginn, schnelles Ansprechen auf Antibiotika' },
-              { disease: 'Toxoplasmose', distinguishing: 'Beidseitige zervikale Lymphknoten, Serologie' },
-              { disease: 'Mykobakteriose (atypisch)', distinguishing: 'AFB positiv, langsamer, Kultur' },
-              { disease: 'Tularämie', distinguishing: 'Wildtierexposition, Geschwür schwerer, Serologie' },
-              { disease: 'Lymphom', distinguishing: 'Progressiv, Biopsie' },
-              { disease: 'Mononukleose', distinguishing: 'Halsschmerzen, Splenomegalie, Monospot/EBV-Serologie' }
+          ],
+          physical_exam: [
+            'Gestanztes Geschwür mit schwarzem Schorf (Eschar)',
+            'Schmerzhafte, fluktuierende regionale Lymphadenopathie (Bubo)',
+            'Eitrige Konjunktivitis mit präaurikulärem Lymphknoten',
+            'Exsudative Pharyngitis mit zervikalen Lymphknoten',
+            'Hepatomegalie, Splenomegalie, Rasselgeräusche über den Lungen'
+          ],
+          complications: [
+            'Suppurative Bubo-Fistelbildung',
+            'Septischer Schock und ARDS',
+            'Meningitis und Perikarditis',
+            'Osteomyelitis'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Routinekultur', finding: 'BSL-3 GEFAHR! ROUTINEMÄSSIG KONTRAINDIZIERT', interpretation: 'Extrem hohes Laborinfektionsrisiko! Labor vorab informieren.' },
+            { test: 'Serologie (Agglutination / ELISA)', finding: 'Titer ≥1:160 oder 4-facher Titeranstieg im Paarserum', interpretation: 'Diagnostisch, aber erst nach 2-3 Wochen positiv.' },
+            { test: 'PCR (Exsudat / Aspirat)', finding: 'F. tularensis-DNA positiv', interpretation: 'Schnelles, sensitives und sicheres Diagnosewerkzeug.' }
+          ],
+          imaging: [
+            { modality: 'Röntgen/CT-Thorax', finding: 'Hiläre Lymphadenopathie, fleckige Infiltrate, Pleuraerguss', significance: 'Pulmonale / typhöse Tularämie' }
+          ],
+          microbiology: [
+            { test: 'DFA / Immunhistochemie', finding: 'Antigen-positiv in Gewebe/Ulkus', significance: 'Rasche Bestätigung' }
+          ]
+        },
+        differential: [
+          { disease: 'Katzenkratzkrankheit', distinguishing: 'Katzenkontakt, indolenter Verlauf, Bartonella-Serologie' },
+          { disease: 'Pyogene Lymphadenitis', distinguishing: 'Rasches Ansprechen auf Beta-Laktame, Bakterienkultur' },
+          { disease: 'Hautmilzbrand (Anthrax)', distinguishing: 'SCHMERZLOSER Schorf mit gallertartigem Ödem (Tularämie-Ulkus ist SCHMERZHAFT!)' },
+          { disease: 'Pest (Yersinia pestis)', distinguishing: 'Bubo extrem schmerzhaft, endemische Geografie, Gram-negative bipolare Stäbchen' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Doxycyclin', dose: '100 mg p.o. 2x/Tag', duration: '14-21 Tage', note: 'Orale Option bei mäßiger ulzeroglandulärer Form' },
+              { drug: 'Ciprofloxacin', dose: '500 mg p.o. 2x/Tag', duration: '14-21 Tage', note: 'Alternative orale Option' }
             ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Azithromycin', dose: '500 mg an Tag 1, dann 250 mg täglich', duration: '5 Tage', note: 'Erste Wahl, reduziert Lymphknotengröße' },
-                  { drug: 'Doxycyclin', dose: '100 mg zweimal täglich p.o.', duration: '4-6 Wochen', note: 'Alternative bei Erwachsenen' },
-                  { drug: 'BEOBACHTUNG', dose: 'Selbstlimitierende Erkrankung', duration: '2-4 Monate', note: 'In leichten Fällen Antibiotika nicht unbedingt erforderlich' }
-                ],
-                inpatient: [
-                  { drug: 'Azithromycin', dose: '500 mg täglich i.v.', duration: '5 Tage, dann p.o.', note: 'Wenn p.o. nicht toleriert' },
-                  { drug: 'Doxycyclin + Rifampicin', dose: '100 mg zweimal täglich + 300 mg zweimal täglich p.o.', duration: '4-6 Wochen', note: 'Neuroretinitis' }
-                ],
-                icu: [
-                  { drug: 'Gentamicin + Doxycyclin', dose: '3 mg/kg täglich i.v. + 100 mg p.o./i.v. zweimal täglich', duration: '6 Wochen', note: 'Endokarditis' },
-                  { drug: 'Chirurgie', dose: 'Herzklappenersatz', duration: '', note: 'Bartonella-Endokarditis' }
-                ]
-              },
-              targeted: 'Typische CSD: Azithromycin (optional); Neuroretinitis/schwer: Doxycyclin±Rifampicin; Endokarditis: Gentamicin+Doxycyclin±Chirurgie',
-              supportive: ['Chirurgische Drainage (fluktuierender Lymphknoten)', 'Analgetika', 'Warme Kompressen', 'KEINE INZISIONSBIOPSIE (Narbenbildung, Sinusbildung)'],
-              prevention: ['Katzenflohbekämpfung', 'Vermeidung von Kratzern/Bissen (Spiel)', 'Händewaschen nach Katzenberührung', 'Wunddesinfektion', 'Immungeschwächte: Katzen meiden']
+            inpatient: [
+              { drug: 'Streptomycin i.m.', dose: '7,5-10 mg/kg i.m. 2x/Tag (max. 2 g/T)', duration: '10 Tage', note: 'GOLDSTANDARD bacterizide Ausheilung!' },
+              { drug: 'Gentamicin i.v.', dose: '5 mg/kg i.v. 1x/Tag', duration: '10 Tage', note: 'Erste Wahl i.v. Alternative falls Streptomycin nicht verfügbar' }
+            ],
+            icu: [
+              { drug: 'Gentamicin i.v. + Doxycyclin i.v.', dose: 'Gentamicin 5 mg/kg i.v. 1x/T + Doxy 100 mg i.v. 2x/T', duration: '14-21 Tage', note: 'Kombinationstherapie bei schwerer pulmonaler/typhöser Tularämie' }
+            ]
+          },
+          targeted: 'Aminoglykoside (Streptomycin / Gentamicin) sind die effektivsten bakteriziden Erregerkiller. Orale Optionen: Doxycyclin oder Ciprofloxacin für 14-21 Tage (kürzere Therapien führen zu Rezidiven). Beta-Laktame sind UNWIRKSAM!',
+          supportive: [
+            'Fluktuierender Bubo: Feinnadelaspiration empfohlen.',
+            'Offene chirurgische Inzision und Drainage ist KONTRAINDIZIERT (führt zu chronischer Fistelbildung)!'
+          ],
+          prevention: [
+            'Schutzhandschuhe beim Häuten/Zubereiten von Wildbret.',
+            'Repellents gegen Zecken und Bremsen.',
+            'Durchgaren von Wildfleisch.',
+            'Postexpositionsprophylaxe: Doxycyclin 100 mg p.o. 2x/T für 14 Tage nach Hochexposition.'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Schmerzhaftes Geschwür + Bubo + Wildbret-/Zeckenexposition = Tularämie!',
+            'Routinemäßige Bakterienkultur wegen BSL-3 Laborinfektionsgefahr KONTRAINDIZIERT.',
+            'PCR aus Ulkusexsudat ist die bevorzugte Schnelldiagnostik.'
+          ],
+          treatment_indications: [
+            'Aminoglykoside (Gentamicin/Streptomycin) erste Wahl bei mäßigen bis schweren Fällen.',
+            'Beta-Laktam-Antibiotika sind UNWIRKSAM.'
+          ],
+          first_line: [
+            'Stationär / Schwer: Gentamicin 5 mg/kg i.v. 1x/T für 10 Tage.',
+            'Ambulant / Mäßig: Doxycyclin 100 mg p.o. 2x/T für 14-21 Tage.'
+          ]
+        },
+        prognosis: {
+          mortality: 'Ulzeroglandulär: <1-2% (behandelt); Typhös/Pulmonal: 30-60% (unbehandelt), <5% (behandelt)',
+          prognostic_scores: ['Keine'],
+          factors: 'Klinische Form, frühzeitige Aminoglykosidtherapie'
+        }
+      },
+      {
+        id: 'cat_scratch',
+        name: 'Katzenkratzkrankheit (CSD)',
+        pathogen: {
+          type: 'Bakterium',
+          name: '<i>Bartonella henselae</i> (selten <i>B. clarridgeiae</i>)',
+          gram: 'Gram-negativ',
+          shape: 'kleines, anspruchsvolles Stäbchen, intrazellulär'
+        },
+        epidemiology: {
+          incidence: 'Am häufigsten bei Kindern und jungen Erwachsenen (<21 Jahre). Weltweite Verbreitung.',
+          risk_groups: ['Katzenbesitzer (besonders Katzenwelpen), Kinder, Tierärzte, Tierheimpersonal'],
+          seasonality: 'Herbst- und Wintergipfel',
+          transmission: 'Kratz- oder Bissverletzung durch infizierte (asymptomatische) Katzenwelpen, die Katzenflöhe (*Ctenocephalides felis*) tragen. Flohkot wird in die Haut eingerieben.'
+        },
+        pathomechanism: {
+          steps: [
+            'Inokulation: B. henselae wird durch mit Flohkot kontaminierte Katzenkratzer/-bisse inokuliert.',
+            'Primäre Hautläsion: Erythematöse Papel/Pustel entsteht an der Kratzstelle innerhalb von 3-10 Tagen.',
+            'Lymphatischer Transport: Bakterien wandern über Lymphgefäße in regionale Lymphknoten (axillär, epitrochlear, zervikal, inguinal).',
+            'Sternförmiges Granulom: Mikroabszesse umgeben von Histiozyten und Mehrkernigen Riesenzellen bilden sich im Lymphknoten (suppurative granulomatöse Lymphadenitis).',
+            'Angiogenese bei Immundefizienz: Bei HIV/Immunsuppression führt VEGF-Induktion zu vaskulärer Proliferation (Bacillary Angiomatosis und Peliosis hepatis).'
+          ],
+          virulence_factors: ['BadA-Adhäsin', 'Typ-IV-Sekretionssystem', 'Endothelproliferations-Induktion (VEGF)', 'Erythrozyteninvasion']
+        },
+        clinical: {
+          incubation: 'Primärpapel: 3-10 Tage; Regionale Lymphadenopathie: 1-3 Wochen',
+          onset: 'Subakut',
+          symptoms: [
+            {
+              name: 'Typische CSD (90%)',
+              description: 'Primäre Papel an der Kratzspur, gefolgt 1-3 Wochen später von schmerzhafter regionaler Lymphadenomegalie (axillär, epitrochlear, zervikal). Lymphknoten sind warm, rötlich und zu 10-20% einschmelzend/suppurativ.',
+              severity: 'moderate'
             },
-            prognosis: {
-              mortality: '<1% (Endokarditis selten)',
-              prognostic_scores: ['Keine'],
-              factors: 'Immunstatus (HIV: bazilläre Angiomatose), Komplikationen (Endokarditis), Alter'
+            {
+              name: 'Parinaud Oculoglanduläres Syndrom (5%)',
+              description: 'Direkte Inokulation in die Bindehaut -> granulomatöse Konjunktivitis + präaurikuläre/submandibuläre Lymphadenopathie.',
+              severity: 'moderate'
+            },
+            {
+              name: 'Atypische / Disseminierte Manifestationen (<5%)',
+              description: '<b>Neuroretinitis:</b> Plötzlicher schmerzloser Sehverlust, Papillenödem, makuläres Sternfigur-Exsudat. <b>Enzephalopathie:</b> Verwirrtheit, Krampfanfälle. <b>Hepatosplenische CSD:</b> Mikroabszesse in Leber/Milz.',
+              severity: 'severe'
+            },
+            {
+              name: 'Bacillary Angiomatosis & Peliosis hepatis (HIV+ / Immunsupprimierte)',
+              description: 'Rot-lividen Gefäßpapeln/Knoten der Haut ähnlich einem Kaposi-Sarkom, blutgefüllte Zysten in Leber/Milz.',
+              severity: 'severe'
             }
-          },
-          {
-            id: 'q_fever_zoo',
-            name: 'Q-Fieber',
-            pathogen: { type: 'Bakterium', name: '<i>Coxiella burnetii</i>', gram: 'Gram-negativ (intrazellulär)', shape: 'Kokkobazillus' },
-            epidemiology: {
-              incidence: 'Zoonose, Berufskrankheit',
-              risk_groups: ['Viehzüchter', 'Schlachthofarbeiter', 'Tierärzte'],
-              seasonality: 'Frühling (Ablammsaison)',
-              transmission: 'Aerosol (Plazenta, Fruchtwasser, Milch, Kotstaub)'
-            },
-            pathomechanism: {
-              steps: [
-                'Coxiella burnetii ist ein hochinfektiöses, obligat intrazelluläres Bakterium. Die Infektion erfolgt am häufigsten durch Inhalation von Aerosol, das sporenähnliche Partikel aus dem Geburtsvorgang infizierter Tiere (Schafe, Ziegen, Rinder) enthält.',
-                'Nach dem Eindringen in die Lunge wird der Erreger von Alveolarmakrophagen phagozytiert.',
-                'Das Bakterium überlebt nicht nur in den sauren Phagosomen der Makrophagen, sondern vermehrt sich dort auch und bildet eine spezielle Vakuole.',
-                'Nach Freisetzung aus den infizierten Zellen gelangt der Erreger mit dem Blutstrom (hämatogene Streuung) in verschiedene Teile des Körpers, hauptsächlich in Leber und Knochenmark.',
-                'Der Körper versucht, die Infektion durch die Bildung charakteristischer, "Doughnut"-förmiger Granulome einzudämmen. Die Krankheit kann akut oder chronisch (Endokarditis) verlaufen.'
-              ],
-              virulence_factors: ['Sporenähnliche Form (resistent)', 'LPS-Phasenvariation']
-            },
-            clinical: {
-              incubation: '2-3 Wochen',
-              onset: 'Plötzlich',
-              symptoms: [
-                { name: 'Akutes Q-Fieber', description: 'Etwa 60% der Fälle sind asymptomatisch. Die symptomatische Form beginnt plötzlich mit hohem Fieber, starken retrobulbären Kopfschmerzen und grippeähnlichen Symptomen. Häufig sind eine atypische Pneumonie (milder Husten) und eine granulomatöse Hepatitis (erhöhte Leberenzyme).', severity: 'moderate' },
-                { name: 'Chronisches Q-Fieber', description: 'Entwickelt sich Monate bis Jahre nach der akuten Infektion, hauptsächlich bei Patienten mit Herzklappenfehlern oder Immunsuppression. Die häufigste Manifestation ist eine kultur-negative Endokarditis. Andere Formen sind vaskuläre (Aneurysma) und Knocheninfektionen.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Hepatomegalie',
-                'Splenomegalie',
-                'Relative Bradykardie'
-              ],
-              complications: ['Chronisches Q-Fieber (Endokarditis)', 'Osteomyelitis', 'Chronische Hepatitis']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Leberenzyme', finding: 'Erhöht', interpretation: 'Hepatitis' },
-                { test: 'Thrombozytopenie', finding: 'Leicht', interpretation: 'Häufig' }
-              ],
-              imaging: [
-                { modality: 'Thorax-Röntgen', finding: 'Runde Opazitäten, multipel', significance: 'Pneumonie' },
-                { modality: 'Echo', finding: 'Vegetation', significance: 'Endokarditis (chronisch)' }
-              ],
-              microbiology: [
-                { test: 'Serologie (IF)', finding: 'Phase II (akut), Phase I (chronisch)', significance: 'Diagnostisch' },
-                { test: 'PCR', finding: 'Aus Blut', significance: 'In der Frühphase' }
-              ]
-            },
-            differential: [
-              { disease: 'Brucellose', distinguishing: 'Undulierendes Fieber, Milchprodukte' },
-              { disease: 'Influenza', distinguishing: 'Saisonalität, Atemwegssymptome dominieren' },
-              { disease: 'Virushepatitis', distinguishing: 'Serologie' }
+          ],
+          physical_exam: [
+            'Primäre Kratzspurläsion (Papel/borkige Effloreszenz)',
+            'Einseitige regionale Lymphadenomegalie (druckschmerzhaft, derb, 1-5 cm)',
+            'Parinaud-Konjunktivalknoten + präaurikulärer Lymphknoten',
+            'Funduskopie: Papillenödem mit makulärem Stern (Neuroretinitis)',
+            'Vaskuläre Hautveränderungen (Bacilläre Angiomatose)'
+          ],
+          complications: [
+            'Lymphknoteneinschmelzung / Abszess',
+            'Enzephalopathie und Neuroretinitis',
+            'Hepatosplenische Mikroabszesse',
+            'Kulturnegative Endokarditis'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Serologie IFT / ELISA (IgG / IgM)', finding: 'IgG ≥1:256 (akut) oder IgM positiv', interpretation: 'DIAGNOSTISCHER GOLDSTANDARD! Positiv 2-6 Wochen nach Exposition.' },
+            { test: 'PCR (Lymphknotenaspirat / Gewebe)', finding: 'B. henselae-DNA positiv', interpretation: 'Hochspezifisch und sensitiv' },
+            { test: 'Warthin-Starry-Silberimprägnierung', finding: 'Pleomorphe Stäbchen im nekrotisierenden Granulom', interpretation: 'Histopathologie' }
+          ],
+          imaging: [
+            { modality: 'Lymphknoten-Sonographie', finding: 'Vergrößerte echoarme Lymphknoten mit zentraler Nekrose/Einschmelzung', significance: 'Beurteilung der Punktionsbedürftigkeit' },
+            { modality: 'Abdomen-CT / Sonographie', finding: 'Multiple kleine echoarme/hypodense Herde in Leber und Milz', significance: 'Hepatosplenische CSD' }
+          ],
+          microbiology: [
+            { test: 'Blutkultur', finding: 'Meist negativ (anspruchsvolles Wachstum 6-8 Wochen)', significance: 'Spezielle Anzucht bei Endokarditis erforderlich' }
+          ]
+        },
+        differential: [
+          { disease: 'Pyogene Lymphadenitis (Staph/Strep)', distinguishing: 'Rascher Beginn, akute Eiterung, schnelles Ansprechen auf Beta-Laktame' },
+          { disease: 'Tularämie', distinguishing: 'Schmerzhaftes Primärgeschwür mit Eschar, Wildkontakt, BSL-3 Gefahr' },
+          { disease: 'Atypische Mykobakteriose', distinguishing: 'Säurefeste Stäbchen positiv, indolente violette Hautverfärbung' },
+          { disease: 'Lymphom', distinguishing: 'Schmerzlos, progressiv, B-Symptomatik, Biopsie erforderlich' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Azithromycin', dose: '500 mg Tag 1, dann 250 mg Tag 2-5 p.o.', duration: '5 Tage', note: 'Erste Wahl! Verkürzt die Lymphknotenschwellung und beschleunigt Abheilung.' },
+              { drug: 'Doxycyclin', dose: '100 mg p.o. 2x/Tag', duration: '14-21 Tage', note: 'Alternative für Erwachsene' },
+              { drug: 'Beobachtung', dose: 'Symptomatische Therapie', duration: '2-4 Monate', note: 'Milde typische CSD bei Immunkompetenten heilt spontan aus' }
             ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Doxycyclin', dose: '100 mg zweimal täglich', duration: '14 Tage', note: 'Akutes Q-Fieber' }
-                ],
-                inpatient: [
-                  { drug: 'Doxycyclin', dose: '100 mg zweimal täglich', duration: '14 Tage', note: '' }
-                ],
-                icu: [
-                  { drug: 'Doxycyclin + Hydroxychloroquin', dose: 'Langfristig', duration: '18-24 Monate', note: 'Chronisches Q-Fieber (Endokarditis)' }
-                ]
-              },
-              targeted: 'Doxycyclin',
-              supportive: ['Fiebersenkung'],
-              prevention: ['Schutzausrüstung beim Ablammen', 'Pasteurisierung von Milch', 'Impfstoff (Australien)']
+            inpatient: [
+              { drug: 'Doxycyclin + Rifampicin', dose: 'Doxy 100 mg 2x/T + Rifampicin 300 mg 2x/T p.o.', duration: '4-6 Wochen', note: 'Indiziert bei Neuroretinitis und ZNS-Beteiligung' }
+            ],
+            icu: [
+              { drug: 'Gentamicin i.v. + Doxycyclin i.v.', dose: 'Gentamicin 3 mg/kg 1x/T i.v. + Doxy 100 mg 2x/T i.v.', duration: '2 Wochen Gentamicin + 6 Wochen Doxycyclin', note: 'Erste-Wahl-Regimen bei Bartonellen-kulturnegativer Endokarditis' }
+            ]
+          },
+          targeted: 'Typische CSD: Azithromycin 5-Tage-Schema. Neuroretinitis / ZNS-CSD: Doxycyclin + Rifampicin für 4-6 Wochen. Bartonellen-Endokarditis: Doxycyclin + Gentamicin ± Klappenersatz-OP.',
+          supportive: [
+            'Einschmelzender Lymphknoten: FEINNADELASPIRATION zur Schmerzlinderung.',
+            'OFFENE CHIRURGISCHE INZISION UND DRAINAGE IST STRENG KONTRAINDIZIERT (führt zu chronischer Fistelbildung und Narben)!'
+          ],
+          prevention: [
+            'Flohbekämpfung bei Hauskatzen.',
+            'Vermeidung von Katzenkratzern/-bissen; Wunden sofort mit Wasser und Seife waschen.',
+            'Immungeschwächte Personen sollten junge Katzenwelpen meiden.'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Katzenkratzer + Einseitiger schmerzhafter Lymphknoten = CSD!',
+            'Serologie (IFT IgG ≥1:256) ist das primäre nicht-invasive Diagnosemittel.',
+            'Keine offene Biopsie/Inzision an einschmelzenden Knoten durchführen.'
+          ],
+          treatment_indications: [
+            'Azithromycin 5-Tage-Schema verkürzt die Rückbildungszeit der Lymphknoten.',
+            'Neuroretinitis erfordert 4-6 Wochen Doxycyclin + Rifampicin.'
+          ],
+          first_line: [
+            'Typische CSD: Azithromycin 500 mg Tag 1, 250 mg Tag 2-5 p.o.',
+            'ZNS / Neuroretinitis: Doxycyclin 100 mg 2x/T + Rifampicin 300 mg 2x/T p.o.'
+          ]
+        },
+        prognosis: {
+          mortality: '<1% (insgesamt hervorragend; höher bei schwerer Endokarditis)',
+          prognostic_scores: ['Keine'],
+          factors: 'Immunstatus (HIV+ Risiko für Bacillary Angiomatosis), Vorhandensein einer Endokarditis'
+        }
+      },
+      {
+        id: 'q_fever_zoo',
+        name: 'Q-Fieber',
+        pathogen: {
+          type: 'Bakterium',
+          name: '<i>Coxiella burnetii</i>',
+          gram: 'Gram-negativ',
+          shape: 'kleines, obligat intrazelluläres Kokkobazillus, sporenabähnliche Form'
+        },
+        epidemiology: {
+          incidence: 'Weltweite Zoonose; Berufskrankheit.',
+          risk_groups: ['Viehzüchter, Landwirte, Tierärzte, Schlachthofpersonal, Schaf-/Ziegen-/Rinderhalter'],
+          seasonality: 'Frühjahrsgipfel (Ablammsaison)',
+          transmission: 'Inhalation von Staub mit sporenabähnlicher Small Cell Variant (SCV) aus Geburtsprodukten (Plazenta, Fruchtwasser, Milch, Urin). SCV überlebt Monate-Jahre im Boden. Einzelner Erreger kann infizieren!'
+        },
+        pathomechanism: {
+          steps: [
+            'Inhalation: SCV-Form wird in die Alveolen inhaliert, von Alveolarmakrophagen phagozytiert.',
+            'Phagolysosomales Überleben: Coxiella überlebt und vermehrt sich in sauren Phagolysosomen (pH ~4,5).',
+            'Hämatogene Dissemination: Ausbreitung über das Blut in Leber, Knochenmark und Gefäßendothel.',
+            'Akute granulomatöse Entzündung: Bildung charakteristischer "Donut"-Granulome mit zentralem hellem Raum und Fibrinring in Leber/Knochenmark.',
+            'Chronischer Shift: Phasenvariation-Shift von Phase II zu Phase I Antigen-Expression führt zu chronischer Persistenz (kulturnegative Endokarditis).'
+          ],
+          virulence_factors: ['Sporenähnliche Small Cell Variant (SCV)', 'Phasenvariation (Phase I: virulent, Phase II: avirulent)', 'Phagolysosomale Säureresistenz']
+        },
+        clinical: {
+          incubation: '2-3 Wochen (Spanne 14-39 Tage)',
+          onset: 'Plötzlicher Beginn mit hohem Fieber und systemischem Krankheitsgefühl',
+          symptoms: [
+            {
+              name: 'Akutes Q-Fieber (60% Asymptomatisch oder MILD)',
+              description: 'Trias: Hohes Fieber mit Schüttelfrost + unerträgliche RETROBULBÄRE KOPFSCHMERZEN + Myalgien/Arthralgien. Atypische Pneumonie (milder Husten) und granulomatöse Hepatitis (Transaminasenanstieg). Exanthem MEIST ABWESEND!',
+              severity: 'moderate'
             },
-            prognosis: {
-              mortality: 'Akut <2%, Chronisch (Endokarditis) hoch bei Nichtbehandlung',
-              prognostic_scores: ['Keine'],
-              factors: 'Klappenfehler, Immunsuppression'
+            {
+              name: 'Chronisches Q-Fieber (1-2%)',
+              description: 'Entwickelt sich Monate bis Jahre später bei Patienten mit Herzklappenvorschaden oder Immunsuppression. Am häufigsten: Kulturnegative infektiöse Endokarditis (Aorten-/Mitralklappe). Zudem Gefäßprotheseninfektion, Aortenaneurysma, Osteomyelitis.',
+              severity: 'severe'
             }
-          },
-          {
-            id: 'rabies',
-            name: 'Tollwut (Rabies)',
-            pathogen: { type: 'Virus', name: '<i>Rabies lyssavirus</i>', gram: 'RNA-Virus', shape: 'projektilförmig' },
-            epidemiology: {
-              incidence: 'Weltweit 59.000 Todesfälle/Jahr (hauptsächlich Asien, Afrika)',
-              risk_groups: ['Tierpfleger', 'Reisende in Endemiegebiete', 'Höhlenforscher (Fledermaus)'],
-              seasonality: 'Keine',
-              transmission: 'Biss (Speichel), Kratzer, Schleimhautkontakt'
-            },
-            pathomechanism: {
-              steps: [
-                'Das Tollwutvirus wird durch den Biss eines infizierten Tieres (z.B. Hund, Fuchs, Fledermaus) über den Speichel in den Körper, typischerweise ins Muskelgewebe, übertragen.',
-                'Das Virus vermehrt sich zunächst in den Muskelzellen und dringt dann über die neuromuskuläre Endplatte (NMJ) in die peripheren Nerven ein.',
-                'In den Axonen der Nervenzellen wandert es durch retrograden (zum Zentrum gerichteten) Transport zum Zentralnervensystem (ZNS), also zu Rückenmark und Gehirn.',
-                'Im ZNS vermehrt sich das Virus schnell und verursacht eine schwere, tödliche Enzephalitis. In den infizierten Nervenzellen erscheinen charakteristische Einschlusskörperchen, die sogenannten Negri-Körperchen.',
-                'Vom Gehirn aus gelangt das Virus zentrifugal entlang der Nerven zu anderen Organen, am wichtigsten zu den Speicheldrüsen, was eine weitere Ausbreitung ermöglicht.'
-              ],
-              virulence_factors: ['Neurotropismus', 'Immunumgehung']
-            },
-            clinical: {
-              incubation: '1-3 Monate (Tage bis Jahre)',
-              onset: 'Akut neurologisch nach Prodrom',
-              symptoms: [
-                { name: 'Prodromalstadium', description: 'Die ersten Anzeichen der Krankheit sind unspezifisch: Fieber, Kopfschmerzen, Unwohlsein. Charakteristisch können Schmerzen, Juckreiz oder Parästhesien an der Bissstelle sein.', severity: 'moderate' },
-                { name: 'Akutes neurologisches Stadium', description: 'Es gibt zwei Hauptformen. Die "wütende" (enzephalitische) Form (80%) ist durch Unruhe, Verwirrtheit, Hydrophobie (Wasserscheu aufgrund schmerzhafter Kehlkopfkrämpfe beim Schluckversuch) und Aerophobie (Angst vor Luftzug) gekennzeichnet. Die "stille" (paralytische) Form (20%) ist durch eine von der Bissstelle ausgehende, aufsteigende schlaffe Lähmung charakterisiert.', severity: 'severe' },
-                { name: 'Koma und Tod', description: 'Beide Formen münden schließlich in Koma und Tod durch Atem-/Kreislaufversagen, in der Regel innerhalb von 7-10 Tagen nach Symptombeginn.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Autonome Instabilität (Hypersalivation, Piloerektion)',
-                'Veränderung des Geisteszustands',
-                'Fokale neurologische Zeichen',
-                'Fieber'
-              ],
-              complications: ['Tod (~100%)']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Kein früher Marker', finding: '-', interpretation: 'Klinischer Verdacht!' }
-              ],
-              imaging: [
-                { modality: 'MRT', finding: 'Unspezifische Enzephalitis', significance: 'Ausschluss' }
-              ],
-              microbiology: [
-                { test: 'PCR', finding: 'Speichel, Nackenhautbiopsie (Haarfollikel)', significance: 'Diagnostisch (ante mortem)' },
-                { test: 'Antigennachweis', finding: 'Hornhautabdruck, Haut', significance: 'DFA' },
-                { test: 'Serologie', finding: 'Liquor/Serum', significance: 'Spät' }
-              ]
-            },
-            differential: [
-              { disease: 'Tetanus', distinguishing: 'Trismus, keine Hydrophobie/Pleozytose' },
-              { disease: 'Andere Enzephalitis', distinguishing: 'Keine Bissanamnese, Hydrophobie' },
-              { disease: 'Psychiatrische Störung', distinguishing: 'Fieber, Progression' }
+          ],
+          physical_exam: [
+            'Hohes Fieber mit relativer Bradykardie',
+            'Hepatomegalie und Splenomegalie',
+            'Klappengeräusch / Herzinsuffizienzzeichen bei Endokarditis (chronisch)'
+          ],
+          complications: [
+            'Chronische Q-Fieber-Endokarditis (Aorten-/Mitralklappenzerstörung)',
+            'Aortenaneurysma-Infektion / Ruptur',
+            'Granulomatöse Hepatitis und Osteomyelitis'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Leberwerte', finding: 'GOT/GPT & AP erhöht', interpretation: 'Granulomatöse Hepatitis' },
+            { test: 'Blutbild', finding: 'Thrombozytopenie bei 25%, Leukozytose fehle/mild', interpretation: 'Akutes Q-Fieber' }
+          ],
+          imaging: [
+            { modality: 'Röntgen/CT-Thorax', finding: 'Multiple rundliche Verdichtungen, Segment-/Lappenkonsolidierung', significance: 'Atypische Pneumonie' },
+            { modality: 'Echokardiographie (TEE)', finding: 'Klappenvegetationen, Klappendestruktion', significance: 'Chronische Q-Fieber-Endokarditis' }
+          ],
+          microbiology: [
+            { test: 'Serologie IFT (Phase I vs Phase II)', finding: 'Akutes Q-Fieber: Phase II IgG/IgM positiv (IgG ≥1:200). Chronisches Q-Fieber: Phase I IgG ≥1:800!', significance: 'DIAGNOSTISCHER GOLDSTANDARD! Phasen-Shift unterscheidet akutes von chronischem Q-Fieber.' },
+            { test: 'RT-PCR (Blut / Gewebe)', finding: 'Coxiella-DNA positiv', significance: 'In der frühen akuten Phase vor Serokonversion nützlich' }
+          ]
+        },
+        differential: [
+          { disease: 'Brucellose', distinguishing: 'Undulierendes Fieber, Rohmilchkäse-Konsum, osteoartikuläre Beteiligung' },
+          { disease: 'Influenza / COVID-19', distinguishing: 'Atemwegssymptome im Vordergrund, virale PCR' },
+          { disease: 'Virale Hepatitis', distinguishing: 'Transaminasen >1000 U/L, spezifische Hepatitis-Serologie' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Doxycyclin', dose: '100 mg p.o. 2x/Tag', duration: '14 Tage', note: 'Erste Wahl bei Akutem Q-Fieber!' },
+              { drug: 'Ciprofloxacin', dose: '750 mg p.o. 2x/Tag', duration: '14 Tage', note: 'Alternative falls Doxycyclin kontraindiziert' }
             ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Postexpositionsprophylaxe (PEP)', dose: 'SOFORT!', duration: '', note: 'Lebensrettend!' }
-                ],
-                inpatient: [
-                  { drug: 'Palliative Sedierung', dose: 'Symptomatisch', duration: '', note: 'Bei klinischer Tollwut' }
-                ],
-                icu: [
-                  { drug: 'Milwaukee-Protokoll', dose: 'Experimentell', duration: '', note: 'Nicht routinemäßig empfohlen (erfolglos)' }
-                ]
-              },
-              targeted: 'Keine wirksame Therapie nach Symptombeginn.',
-              supportive: ['Sedierung', 'Analgesie', 'Isolierung'],
-              prevention: ['PEP: Wundreinigung + Impfstoff (Tage 0, 3, 7, 14) + RIG (Immunglobulin)', 'Tierimpfung', 'Präexpositionsprophylaxe (Reisende, Berufstätige)']
+            inpatient: [
+              { drug: 'Doxycyclin p.o./i.v.', dose: '100 mg 2x/Tag', duration: '14 Tage', note: 'Akutes Q-Fieber mit Pneumonie/Hepatitis' }
+            ],
+            icu: [
+              { drug: 'Doxycyclin + Hydroxychloroquin', dose: 'Doxy 100 mg 2x/T + Hydroxychloroquin 200 mg 3x/T p.o.', duration: 'MINDESTENS 18-24 MONATE!', note: 'OBLIGATES REGIMEN bei Chronischer Q-Fieber-Endokarditis! Hydroxychloroquin alkalisiert Phagolysosomen und macht Doxy bakterizid.' }
+            ]
+          },
+          targeted: 'Akutes Q-Fieber: Doxycyclin 100 mg p.o. 2x/T für 14 Tage. Chronische Q-Fieber-Endokarditis: Doxycyclin 100 mg 2x/T + Hydroxychloroquin 200 mg 3x/T für mindestens 18-24 Monate!',
+          supportive: [
+            'Symptomatische Antipyretika und Analgetika.',
+            'Klappenersatz-Operation bei schwerer chronischer Q-Fieber-Endokarditis.'
+          ],
+          prevention: [
+            'Schutzkleidung bei Geburtshelfer-Tätigkeiten bei Vieh.',
+            'Pasteurisierung von Milch.',
+            'Q-Fieber-Impffstoff (Q-Vax, in Australien für Risikogruppen verfügbar).'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Retrobulbäre Kopfschmerzen + Hohes Fieber + Pneumonie/Hepatitis + Viehkontakt = Q-Fieber!',
+            'Serologie IFT: Phase II IgG zeigt akutes Q-Fieber; Phase I IgG ≥1:800 zeigt chronisches Q-Fieber.',
+            'Anzucht gefährlich und BSL-3-pflichtig.'
+          ],
+          treatment_indications: [
+            'Akutes Q-Fieber: Sofortige Behandlung mit Doxycyclin 14 Tage.',
+            'Chronisches Q-Fieber: Doxycyclin + Hydroxychloroquin für 18-24 Monate.'
+          ],
+          first_line: [
+            'Akut: Doxycyclin 100 mg p.o. 2x/T für 14 Tage.',
+            'Chronisch: Doxycyclin 100 mg 2x/T + Hydroxychloroquin 200 mg 3x/T für 18-24 Monate.'
+          ]
+        },
+        prognosis: {
+          mortality: 'Akutes Q-Fieber: <1-2%; Chronische Endokarditis: 5-25% (unbehandelt)',
+          prognostic_scores: ['Keine'],
+          factors: 'Bestehender Herzklappenschaden, Adhärenz bei der 18-24 monatigen Kombinationstherapie'
+        }
+      },
+      {
+        id: 'rabies',
+        name: 'Tollwut (Rabies)',
+        pathogen: {
+          type: 'Virus',
+          name: '<i>Rabies lyssavirus</i> (Rhabdoviridae-Familie)',
+          gram: 'Behülltes, negativ-strängiges Einzelstrang-RNA-Virus',
+          shape: 'patronenförmig (bullet-shaped)'
+        },
+        epidemiology: {
+          incidence: '~59.000 menschliche Todesfälle/Jahr weltweit (überwiegend Asien und Afrika).',
+          risk_groups: ['Kinder, Tierpfleger, Tierärzte, Höhlenforscher (Fledermäuse), Reisende in Endemiegebiete'],
+          seasonality: 'Keine',
+          transmission: 'Biss, Kratzer oder Speichelkontakt auf Schleimhäuten/verletzter Haut durch infiziertes Tier (Hunde ~99% weltweit; Fledermäuse, Füchse, Waschbären).'
+        },
+        pathomechanism: {
+          steps: [
+            'Inokulation: Virus wird durch Tierbiss/Speichel in Muskel-/Subkutangewebe inokuliert.',
+            'Neuromuskulärer Eintritt: Bindung an nikotinische Acetylcholinrezeptoren (nAChR) an der neuromuskulären Endplatte.',
+            'Retrograder axonaler Transport: Wandert retrograd entlang peripherer Nervenaxone mit 12-24 mm/Tag zum Rückenmark und Gehirn.',
+            'ZNS-Enzephalitis: Massive Vermehrung im ZNS mit Bildung pathognomischer Negri-Körperchen (eosinophile zytoplasmatische Einschlusskörperchen in Purkinje-Zellen/Hippocampus).',
+            'Zentrifugale Ausbreitung: Wandert zentrifugal über autonome Nerven in Speicheldrüsen, Hornhaut und Haut.'
+          ],
+          virulence_factors: ['Patronenförmiges G-Glykoprotein (Neurotropismus)', 'Retrograder axonaler Transport', 'Immunflucht']
+        },
+        clinical: {
+          incubation: '1-3 Monate (Spanne: 1 Woche bis >1 Jahr, abhängig von der Bissentfernung zum ZNS)',
+          onset: 'Akute neurologische Progression nach Prodrom',
+          symptoms: [
+            {
+              name: 'Prodromalphase (2-10 Tage)',
+              description: 'Unspezifisches Fieber, Kopfschmerzen, Krankheitsgefühl. PATHOGNOMONISCH: Schmerz, intensiver Juckreiz oder Parästhesie an der ABGEHEILTEN Bissstelle!',
+              severity: 'moderate'
             },
-            prognosis: {
-              mortality: '~100% nach Symptombeginn',
-              prognostic_scores: ['Keine'],
-              factors: 'Bissstelle (Kopf/Hals schlechter), Inokulumgröße'
+            {
+              name: 'Enzephalitische / Enzephalopathische Tollwut ("Enrazierte Tollwut", 80%)',
+              description: 'Unruhe, Verwirrtheit, Halluzinationen. PATHOGNOMONISCH: Hydrophobie (krampfartige Kehlkopfspasmen beim Versuch zu trinken oder beim Anblick von Wasser), Aerophobie (Spasmen durch Luftzug), Hypersalivation, autonome Instabilität.',
+              severity: 'severe'
+            },
+            {
+              name: 'Stille / Paralytische Tollwut (20%)',
+              description: 'Aufsteigende schlaffe Muskellähmung beginnend an der gebissenen Extremität, ähnlich einem Guillain-Barré-Syndrom, ohne Hydrophobie.',
+              severity: 'severe'
+            },
+            {
+              name: 'Koma und Tod',
+              description: 'Beide Formen gehen in Koma, Hypoventilation, Herzstillstand und den Tod innerhalb von 7-10 Tagen nach Symptombeginn über.',
+              severity: 'severe'
             }
-          },
-          {
-            id: 'anthrax',
-            name: 'Milzbrand (Anthrax)',
-            pathogen: { type: 'Bakterium', name: '<i>Bacillus anthracis</i>', gram: 'Gram-positiv', shape: 'sporenbildendes Stäbchen' },
-            epidemiology: {
-              incidence: 'Selten, Bioterrorismus-Risiko',
-              risk_groups: ['Gerber', 'Viehzüchter', 'Laboranten'],
-              seasonality: 'Keine',
-              transmission: 'Sporeninokulation (Haut), Inhalation, Ingestion'
-            },
-            pathomechanism: {
-              steps: [
-                'Die Sporen von Bacillus anthracis können im Boden jahrzehntelang überleben. Die Infektion erfolgt durch das Eindringen der Sporen: über die Haut (kutan), durch Einatmen (inhalativ) oder durch Verschlucken (gastrointestinal).',
-                'Im Körper werden die Sporen von Makrophagen aufgenommen, wo sie zu vegetativen Bakterien keimen und dann in die Lymphknoten gelangen.',
-                'Die Bakterien besitzen zwei Hauptvirulenzfaktoren: eine antiphagozytäre Kapsel, die sie vor dem Immunsystem schützt, und ein dreikomponentiges Exotoxin.',
-                'Die Komponenten des Anthrax-Toxins sind: das Protective Antigen (PA), das an die Zellen bindet, der Edema Factor (EF), der Ödeme verursacht, und der Lethal Factor (LF), der Zelltod und eine Störung der Zytokinantwort bewirkt.',
-                'Die Toxine führen zu massiver Gewebenekrose, Ödemen, Blutungen und systemischem Schock, was für die hohe Mortalität der Krankheit verantwortlich ist.'
-              ],
-              virulence_factors: ['Poly-D-Glutaminsäure-Kapsel', 'Protektives Antigen (PA)', 'Ödemfaktor (EF)', 'Letalfaktor (LF)']
-            },
-            clinical: {
-              incubation: 'Haut: 1-7 Tage; Inhalation: 1-60 Tage',
-              onset: 'Formabhängig',
-              symptoms: [
-                { name: 'Kutaner Milzbrand (95%)', description: 'An der Eintrittsstelle erscheint eine juckende Papel, die sich zu einer Blase und dann zu einem schmerzlosen Geschwür mit schwarzer Mitte (Eschar) entwickelt, das von einem charakteristischen, nicht-entzündlichen Ödem umgeben ist. Ohne Behandlung beträgt die Mortalität 20%.', severity: 'moderate' },
-                { name: 'Lungenmilzbrand (inhalativ)', description: 'Biphasischer Verlauf. Anfangs milde, grippeähnliche Symptome (Fieber, Husten). Nach 1-3 Tagen tritt eine plötzliche Verschlechterung ein: hohes Fieber, Atemnot, Schock. Im Thorax-CT ist eine charakteristische Mediastinalverbreiterung (hämorrhagische Mediastinitis) zu sehen. Ohne Behandlung fast immer tödlich.', severity: 'severe' },
-                { name: 'Magen-Darm-Milzbrand', description: 'Entwickelt sich nach dem Verzehr von infiziertem Fleisch. Verursacht Übelkeit, Erbrechen, blutigen Durchfall und starke Bauchschmerzen. Hohe Mortalität.', severity: 'severe' }
-              ],
-              physical_exam: [
-                'Maligne Pustel (schwarzer Schorf, ödematöser Hof)',
-                'Massives mediastinales Ödem (Inhalation)',
-                'Meningeale Zeichen'
-              ],
-              complications: ['Septischer Schock', 'Meningitis', 'Mediastinitis', 'Tod']
-            },
-            diagnostics: {
-              laboratory: [
-                { test: 'Blutbild', finding: 'Leukozytose', interpretation: 'Entzündung' },
-                { test: 'Blutkultur', finding: 'Gram+ Stäbchen', interpretation: 'Sepsis' }
-              ],
-              imaging: [
-                { modality: 'Thorax-Röntgen/CT', finding: 'Mediastinale Verbreiterung (Lymphadenopathie), Pleuraerguss', significance: 'Lungenmilzbrand (pathognomonisch)' }
-              ],
-              microbiology: [
-                { test: 'Gram-Färbung', finding: 'Große Gram+ Stäbchen ("Bambusrohr")', significance: 'Aus Bläschenflüssigkeit' },
-                { test: 'PCR', finding: 'Positiv', significance: 'Schnell' },
-                { test: 'DFA', finding: 'Kapselantigen', significance: 'Bestätigung' }
-              ]
-            },
-            differential: [
-              { disease: 'Spinnenbiss', distinguishing: 'Schmerzhaft, kein Eschar' },
-              { disease: 'Tularämie', distinguishing: 'Schmerzhaftes Geschwür' },
-              { disease: 'Pneumonie', distinguishing: 'Fehlen einer mediastinalen Verbreiterung' }
+          ],
+          physical_exam: [
+            'Hypersalivation (Schaum vor dem Mund)',
+            'Kehlkopfspasmen ausgelöst durch Wasser oder Luftzug (Hydrophobie / Aerophobie)',
+            'Autonome Dysfunktion (fluktuierender Blutdruck, Tachykardie, Piloerektion)',
+            'Parästhesie an der Bissnarbe',
+            'Schlaffe aufsteigende Lähmung (paralytische Form)'
+          ],
+          complications: [
+            'Tod (~100% Letalität nach Beginn klinischer Symptome)'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Kein routinemäßiger Frühmarker', finding: '-', interpretation: 'Klinischer Verdacht obligat!' }
+          ],
+          imaging: [
+            { modality: 'CCT / cMRT', finding: 'Unspezifische T2-Hyperintensität in Hirnstamm, Basalganglien, limbischem System', significance: 'Ausschluss anderer Enzephalitisursachen' }
+          ],
+          microbiology: [
+            { test: 'RT-PCR (Speichel, Nacken-Hautbiopsie)', finding: 'Tollwut-RNA positiv', significance: 'Ante-mortem diagnostischer Goldstandard (Hautbiopsie enthält Haarfollikelnerven).' },
+            { test: 'Direkte Immunfluoreszenz (DFA)', finding: 'Virales Antigen in Hautbiopsie oder Hornhautabstrich positiv', significance: 'Rascher Ante-mortem-Test' },
+            { test: 'Post-mortem Gehirn-DFA', finding: 'Negri-Körperchen / Virales Antigen im Hirngewebe', significance: 'Definitive Post-mortem-Bestätigung' }
+          ]
+        },
+        differential: [
+          { disease: 'Tetanus', distinguishing: 'Trismus, schmerzhafte Muskelkrämpfe ohne Hydrophobie/Pleozytose' },
+          { disease: 'Guillain-Barré-Syndrom', distinguishing: 'Symmetrische aufsteigende Lähmung ohne autonome Übererregbarkeit/Hydrophobie' },
+          { disease: 'Virale Enzephalitis (HSV, Tollwut-ähnlich)', distinguishing: 'Keine Hydrophobie, spezifische virale PCR' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Postexpositionelle Prophylaxe (PEP)', dose: 'SOFORT NACH EXPOSITION!', duration: 'Tage 0, 3, 7, 14', note: '1. Wunde 15 Min. mit Wasser und Seife auswaschen! 2. Tollwut-Immunglobulin (HRIG 20 IE/kg) in die Wunde infiltrieren! 3. Tollwut-Impffstoff i.m. an den Tagen 0, 3, 7, 14.' }
             ],
-            therapy: {
-              empirical: {
-                outpatient: [
-                  { drug: 'Ciprofloxacin', dose: '500 mg zweimal täglich', duration: '60 Tage', note: 'Hautmilzbrand (60 Tage bei Bioterror-Verdacht)' },
-                  { drug: 'Doxycyclin', dose: '100 mg zweimal täglich', duration: '60 Tage', note: 'Alternative' }
-                ],
-                inpatient: [
-                  { drug: 'Ciprofloxacin + Meropenem + Linezolid', dose: 'IV-Kombination', duration: 'Lang', note: 'Inhalation/systemisch (Antitoxin wird auch gegeben)' }
-                ],
-                icu: [
-                  { drug: 'Raxibacumab', dose: 'Monoklonaler Antikörper', duration: 'Einmalig', note: 'Toxinneutralisation' }
-                ]
-              },
-              targeted: 'Ciprofloxacin, Doxycyclin, Penicillin G (wenn empfindlich)',
-              supportive: ['Flüssigkeitsersatz', 'Beatmung', 'Pleuradrainage'],
-              prevention: ['Impfstoff (Soldaten, Hochrisiko)', 'PEP (Ciprofloxacin 60 Tage)', 'Verbrennung von Tierkadavern']
+            inpatient: [
+              { drug: 'Palliative Sedierung & Analgesie', dose: 'Midazolam + Ketamin + Morphin', duration: 'Kontinuierlich', note: 'Palliative Linderung bei klinischer Tollwut.' }
+            ],
+            icu: [
+              { drug: 'Milwaukee-Protokoll', dose: 'EXPERIMENTELL / VERWORFEN', duration: '-', note: 'Von WHO/CDC NICHT empfohlen (nicht reproduzierbar, hohe Versagerquote).' }
+            ]
+          },
+          targeted: 'Nach Beginn klinischer Symptome existiert keine wirksame antivirale Behandlung (~100% tödlich). Die Postexpositionsprophylaxe (PEP) ist zu 100% wirksam, wenn sie vor Symptombeginn verabreicht wird!',
+          supportive: [
+            'Starke Sedierung, Analgesie, ruhiges dunkles Zimmer.',
+            'Vermeidung von Flüssigkeitsbolussen, die Kehlkopfspasmen auslösen.'
+          ],
+          prevention: [
+            'PEP: Sofortige 15-minütige Wundreinigung mit Seife + HRIG + 4-Dosen-Impfserie.',
+            'Systemische flächendeckende Hundeimpfung.',
+            'Präexpositionsprophylaxe (PrEP) für Tierärzte, Tierpfleger, Reisende.'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Parästhesie an abgeheilter Bissstelle + Hydrophobie = Klinische Tollwut!',
+            'Ante-mortem-Diagnose: RT-PCR / DFA aus Nackenhautbiopsie (Haarfollikelnerven) und Speichel.',
+            'Beißenden Hund/Katze wenn möglich 14 Tage beobachten.'
+          ],
+          treatment_indications: [
+            'PEP MUSS sofort nach Tierbiss-Exposition der Kategorie II/III begonnen werden!',
+            'Klinische Tollwut erfordert palliative Versorgung.'
+          ],
+          first_line: [
+            'PEP: HRIG 20 IE/kg in die Wunde infiltriert + Impfstoff i.m. an den Tagen 0, 3, 7, 14.'
+          ]
+        },
+        prognosis: {
+          mortality: '~100% nach Beginn klinischer Symptome',
+          prognostic_scores: ['Keine'],
+          factors: 'Rechtzeitige PEP-Verabreichung vor Symptombeginn'
+        }
+      },
+      {
+        id: 'anthrax',
+        name: 'Milzbrand (Anthrax)',
+        pathogen: {
+          type: 'Bakterium',
+          name: '<i>Bacillus anthracis</i>',
+          gram: 'Gram-positiv',
+          shape: 'großes Sporenbildner-Stäbchen in Ketten ("Bambusrohrform")'
+        },
+        epidemiology: {
+          incidence: 'Selten; endemisch in landwirtschaftlichen Viehzuchtregionen (Asien, Afrika, Südeuropa). Bioterrorismus-Erreger.',
+          risk_groups: ['Gerber, Wollverarbeiter, Viehzüchter, Tierärzte, Laborpersonal'],
+          seasonality: 'Keine',
+          transmission: 'Hautmilzbrand (95% - Sporeninokulation in Hautläsion), Lungenmilzbrand (Wollsortiererkrankheit - Sporeninhalation), Darmmilzbrand (Ingestion von infiziertem Fleisch).'
+        },
+        pathomechanism: {
+          steps: [
+            'Sporeninokulation: Sporen dringen über Hautläsionen, Inhalation oder Ingestion ein.',
+            'Keimung & Kapsel: Sporen keimen in Makrophagen, bilden Poly-D-Glutaminsäure-Kapsel, die der Phagozytose widersteht.',
+            'Exotoxinproduktion: Sekretion von drei Exotoxin-Komponenten: Protektives Antigen (PA), Ödemfaktor (EF) und Letalfaktor (LF).',
+            'Toxin-Kaskade: PA bildet Heptamer-Poren -> EF (Adenylatzyklase) verursacht massives gallertartiges entzündungsfreies Ödem -> LF (Zink-Metalloprotease) spaltet MAPKs und führt zu Gewebenekrose und Zytokinsturm.',
+            'Dissemination: Hämorrhagische Mediastinitis, septischer Schock und hämorrhagische Milzbrand-Meningitis.'
+          ],
+          virulence_factors: ['Poly-D-Glutaminsäure-Kapsel', 'Protektives Antigen (PA)', 'Ödemfaktor (EF)', 'Letalfaktor (LF)', 'Kategorie-A-Bioterrorismus-Erreger']
+        },
+        clinical: {
+          incubation: 'Hautmilzbrand: 1-7 Tage; Lungenmilzbrand: 1-6 Tage (bis zu 60 Tage wegen Sporenpersistenz)',
+          onset: 'Formabhängig',
+          symptoms: [
+            {
+              name: 'Hautmilzbrand (Cutaneous Anthrax, 95%)',
+              description: 'Juckende Papel -> Bläschen -> SCHMERZLOSER SCHWARZER SCHORF (Pustula maligna) umgeben von ausgedehntem gallertartigem Ödem. Schmerzlosigkeit ist Kardinalzeichen!',
+              severity: 'moderate'
             },
-            prognosis: {
-              mortality: 'Haut: <1% (behandelt), 20% (unbehandelt); Inhalation: >85% (unbehandelt), 45% (behandelt)',
-              prognostic_scores: ['Keine'],
-              factors: 'Inhalationsform, späte Behandlung, Meningitis'
+            {
+              name: 'Lungenmilzbrand (Inhalational Anthrax / Wollsortiererkrankheit)',
+              description: 'Biphasisch: 1. Prodromale milde grippeähnliche Symptome; 2. Plötzliche fulminante Phase mit schwerer Dyspnoe, Zyanose, Schock, hämorrhagischer Mediastinitis. Unbehandelt Letalität >85%!',
+              severity: 'severe'
             },
-          }, {
-              id: 'brucellosis',
-              name: 'Brucellose (Maltafieber)',
-              pathogen: { type: 'Bakterium', name: '<i>Brucella spp. (melitensis, abortus, suis)</i>', gram: 'Gram-negativ', shape: 'Kokkobazillus' },
-              epidemiology: {
-                incidence: 'Endemisch im Mittelmeerraum und im Nahen Osten',
-                risk_groups: ['Tierärzte', 'Hirten', 'Schlachthofarbeiter', 'Konsumenten von Rohmilchprodukten'],
-                seasonality: 'Frühling-Sommer',
-                transmission: 'Direkter Kontakt, Inhalation, unpasteurisierte Milchprodukte'
-              },
-              pathomechanism: {
-                steps: [
-                  'Eintritt: Bakterien dringen über verletzte Haut, Bindehaut, Atemwege oder den Magen-Darm-Trakt ein.',
-                  'Phagozytose: Makrophagen nehmen sie auf, aber die Bakterien überleben und vermehren sich intrazellulär.',
-                  'Ausbreitung: Infizierte Makrophagen wandern zu regionalen Lymphknoten und in den Blutkreislauf (Bakteriämie).',
-                  'Organbefall: Granulome bilden sich in retikuloendothelialen Organen (Leber, Milz, Knochenmark, Lymphknoten).'
-                ],
-                virulence_factors: ['LPS (glatt)', 'T4SS-Sekretionssystem', 'Intrazelluläres Überleben']
-              },
-              clinical: {
-                incubation: '2-4 Wochen (1 Woche bis Monate)',
-                onset: 'Schleichend oder plötzlich',
-                symptoms: [
-                  { name: 'Undulierendes Fieber', description: 'Wellenförmiger Fieberverlauf (morgens niedriger, nachmittags höher) mit profusem, muffig riechendem Schweiß.', severity: 'moderate' },
-                  { name: 'Muskuloskelettal', description: 'Gelenkschmerzen (Arthralgie), Rückenschmerzen (Sakroiliitis), Muskelschmerzen.', severity: 'moderate' },
-                  { name: 'Allgemeinsymptome', description: 'Müdigkeit, Kopfschmerzen, Depression, Gewichtsverlust.', severity: 'mild' },
-                  { name: 'Osteoartikuläre Form', description: 'Die häufigste Komplikation. <b>Spondylodiszitis</b>: Wirbelbeteiligung, heftige Rückenschmerzen, Bewegungseinschränkung. Sakroiliitis ist ebenfalls häufig.', severity: 'severe' },
-                  { name: 'Endokarditis', description: 'Die Haupttodesursache (<2%). Betrifft am häufigsten die Aortenklappe, führt zu rascher Klappendestruktion und Embolisation.', severity: 'severe' },
-                  { name: 'Urogenitale Beteiligung', description: '<b>Epididymoorchitis</b>: schmerzhafte Hoden- und Nebenhodenschwellung, meist einseitig.', severity: 'moderate' }
-                ],
-                physical_exam: ['Hepatomegalie', 'Splenomegalie', 'Lymphadenopathie', 'Klopfschmerz der Wirbelsäule'],
-                complications: ['Osteomyelitis (Wirbel)', 'Endokarditis', 'Neurobrucellose', 'Epididymoorchitis']
-              },
-              diagnostics: {
-                laboratory: [{ test: 'Blutbild', finding: 'Leukopenie, relative Lymphozytose', interpretation: '-' }, { test: 'Leberenzyme', finding: 'Leichte Erhöhung', interpretation: 'Granulomatöse Hepatitis' }],
-                imaging: [{ modality: 'MRT Wirbelsäule', finding: 'Spondylodiszitis', significance: 'Bei Rückenschmerzen' }],
-                microbiology: [
-                  { test: 'Blutkultur', finding: 'Brucella spp.', significance: 'Langsames Wachstum (bis zu 3-4 Wochen), Labor informieren!' },
-                  { test: 'Serologie (Wright)', finding: 'Titer ≥1:160 oder 4-facher Anstieg', significance: 'Standarddiagnose' }
-                ]
-              },
-              differential: [
-                { disease: 'Typhus', distinguishing: 'Roseolen, Bradykardie' },
-                { disease: 'Tuberkulose', distinguishing: 'Atemwegssymptome, Sputum' },
-                { disease: 'Malaria', distinguishing: 'Periodizität, Reise' }
-              ],
-              therapy: {
-                empirical: { outpatient: [{ drug: 'Doxycyclin + Rifampicin', dose: '100mg 2x/Tag + 600-900mg 1x/Tag p.o.', duration: '6 Wochen', note: 'Standardtherapie' }] },
-                targeted: 'Doxycyclin + Rifampicin (6 Wochen). Alternative: Doxycyclin + Streptomycin (2-3 Wochen). <b>Neurobrucellose:</b> Ceftriaxon + Doxycyclin + Rifampicin (3-6 Monate). <b>Endokarditis:</b> Doxycyclin + Rifampicin + Gentamicin (mind. 6-12 Wochen) + chirurgisches Konsil.',
-                supportive: ['Symptomatische Behandlung'],
-                prevention: ['Pasteurisierung von Milch', 'Schutzausrüstung', 'Tierimpfung']
-              },
-              prognosis: { mortality: '<2% (hauptsächlich durch Endokarditis)', prognostic_scores: [], factors: 'Komplikationen, Rezidiv häufig' }
-                       }
-                     ]
-                   },
+            {
+              name: 'Darmmilzbrand (Gastrointestinal Anthrax)',
+              description: 'Schwere Abdominalschmerzen, blutiges Erbrechen, Meläna, Aszites. Hohe Letalität.',
+              severity: 'severe'
+            }
+          ],
+          physical_exam: [
+            'Schmerzloser schwarzer Schorf mit umgebendem gallertartigem Ödem (Pustula maligna)',
+            'Mediastinalverbreiterung, Dämpfung bei Perkussion (Lungenmilzbrand)',
+            'Meningismus (Hämorrhagische Milzbrand-Meningitis)'
+          ],
+          complications: [
+            'Septischer Schock und DIC',
+            'Hämorrhagische Milzbrand-Meningitis (~100% tödlich)',
+            'Hämorrhagische Mediastinitis und Erstickung'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Gram-Färbung', finding: 'Große, rechtwinklig begrenzte Gram-positive Stäbchen in Ketten ("Bambusrohrform")', interpretation: 'Bläschenflüssigkeit oder Blutausstrich' },
+            { test: 'Blutkultur', finding: 'B. anthracis positiv', interpretation: 'Systemischer Milzbrand / Sepsis' }
+          ],
+          imaging: [
+            { modality: 'Röntgen/CT-Thorax', finding: 'PATHOGNOMONISCH: DEUTLICHE MEDIASTINALVERBREITERUNG und beidseitiger Pleuraerguss ohne Parenchyminfiltrat!', significance: 'Lungenmilzbrand Leitsymptom' }
+          ],
+          microbiology: [
+            { test: 'PCR', finding: 'B. anthracis-DNA positiv', significance: 'Rasche Bestätigung' },
+            { test: 'DFA', finding: 'Kapsel- und Zellwandantigen positiv', significance: 'Referenzlabor-Bestätigung' }
+          ]
+        },
+        differential: [
+          { disease: 'Spinnenbiss (Loxosceles)', distinguishing: 'Sehr schmerzhafter Schorf, nekrotische Hautläsion ohne gallertartiges Ödem' },
+          { disease: 'Tularämie', distinguishing: 'SCHMERZHAFTES Geschwür mit Schorf (Milzbrand-Schorf ist SCHMERZLOS!)' },
+          { disease: 'Bakterielle Pneumonie', distinguishing: 'Fehlen der ausgeprägten Mediastinalverbreiterung im CT/Röntgen' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Ciprofloxacin', dose: '500 mg p.o. 2x/Tag', duration: '60 Tage', note: 'Hautmilzbrand (60 Tage falls Bioterrorismus/Sporenexposition vermutet!)' },
+              { drug: 'Doxycyclin', dose: '100 mg p.o. 2x/Tag', duration: '60 Tage', note: 'Alternative bei Hautmilzbrand' }
+            ],
+            inpatient: [
+              { drug: 'Ciprofloxacin i.v. + Meropenem i.v. + Linezolid i.v. (Dreifachkombination)', dose: 'Ciprofloxacin 400 mg i.v. 2x/T + Meropenem 1 g i.v. 3x/T + Linezolid 600 mg i.v. 2x/T', duration: '14 Tage i.v., insgesamt 60 TAGE p.o./i.v.', note: 'OBLIGATE DREIFACHKOMBINATION bei Systemischem/Lungenmilzbrand! Linezolid/Clindamycin hemmt Toxinsynthese.' }
+            ],
+            icu: [
+              { drug: 'Dreifach-Antibiotika + Raxibacumab / Obiltoxaximab i.v.', dose: 'Raxibacumab 40 mg/kg i.v. Einzeldosis', duration: 'Einzeldosis', note: 'Monoklonaler Antikörper gegen Protektives Antigen (PA) zur Toxinneutralisation bei systemischem Milzbrand!' }
+            ]
+          },
+          targeted: 'Hautmilzbrand: Ciprofloxacin p.o. für 60 Tage. Systemisch / Lungenmilzbrand: Dreifachkombination i.v. (Ciprofloxacin + Linezolid + Meropenem) + Raxibacumab-Antitoxin für INSGESAMT 60 TAGE wegen verzögerter Sporenkeimung!',
+          supportive: [
+            'Pleuraerguss-Drainage (Thoraxdrainage).',
+            'CHIRURGISCHE EXZISION ODER DEBRIDEMENT DES HAUTSCHORFS IST STRENG KONTRAINDIZIERT (erhöht Toxin-Dissemination)!'
+          ],
+          prevention: [
+            'PEP: Ciprofloxacin (500 mg p.o. 2x/T) oder Doxycyclin (100 mg p.o. 2x/T) für 60 TAGE + 3-Dosen Milzbrand-Impfstoff nach Sporenexposition.',
+            'Infizierte Tierkadaver vor Ort verbrennen; KEINE Sektion durchführen (Sporenbildung bei Luftkontakt!).'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Schmerzloser schwarzer Schorf + Gallertartiges Ödem = Hautmilzbrand!',
+            'Mediastinalverbreiterung im Thorax-Röntgen/CT = Lungenmilzbrand!',
+            'Hautschorf NICHT exzidieren oder debridieren.'
+          ],
+          treatment_indications: [
+            'Systemischer/Lungenmilzbrand erfordert Dreifach-Antibiotikakombination + Antitoxin für 60 Tage.'
+          ],
+          first_line: [
+            'Systemisch: Ciprofloxacin i.v. + Linezolid i.v. + Meropenem i.v. + Raxibacumab i.v. für 60 Tage.',
+            'Hautmilzbrand: Ciprofloxacin 500 mg p.o. 2x/T für 60 Tage.'
+          ]
+        },
+        prognosis: {
+          mortality: 'Hautmilzbrand: <1% (behandelt), 20% (unbehandelt); Lungenmilzbrand: 45% (behandelt), >85% (unbehandelt); GI: 40%',
+          prognostic_scores: ['APACHE II'],
+          factors: 'Klinische Form, frühzeitige Antitoxinverabreichung, Vorhandensein einer hämorrhagischen Meningitis'
+        }
+      },
+      {
+        id: 'brucellosis',
+        name: 'Brucellose (Malta-Fieber / Undulierendes Fieber)',
+        pathogen: {
+          type: 'Bakterium',
+          name: '<i>Brucella</i>-Spezies (<i>B. melitensis</i> [Schafe/Ziegen - am virulentesten!], <i>B. abortus</i> [Rinder], <i>B. suis</i> [Schweine], <i>B. canis</i> [Hunde])',
+          gram: 'Gram-negativ',
+          shape: 'kleines, obligat aerobes, intrazelluläres Kokkobazillus'
+        },
+        epidemiology: {
+          incidence: 'Weitverbreitete Zoonose in Viehzuchtregionen (Mittelmeerraum, Naher Osten, Zentralasien, Südamerika).',
+          risk_groups: ['Hirten, Viehzüchter, Tierärzte, Schlachthofpersonal, Laborpersonal (hohes Aerosol-Infektionsrisiko!)'],
+          seasonality: 'Frühjahr und Sommer (Ablamm- und Melksaison)',
+          transmission: '1. Ingestion von unpasteurisierter Milch, Ziegen-/Schafskäse, Sahne (am häufigsten!); 2. Direkter Kontakt mit infiziertem Tiergewebe/Plazenta über Hautläsionen; 3. Aerosolinhalation in Viehställen/Laboren.'
+        },
+        pathomechanism: {
+          steps: [
+            'Invasion: Erreger dringen über Magen-Darm-Trakt, Hautläsionen oder Atemwegsschleimhaut ein.',
+            'Intrazelluläres Überleben: Phagozytose durch PMNs und Makrophagen; hemmt Phagolysosomenfusion und vermehrt sich im endoplasmatischen Retikulum.',
+            'Hämatogene Ausbreitung: Infizierte Makrophagen wandern in regionale Lymphknoten und Blutbahn (Bakteriämie) zu retikuloendothelialen Organen (Leber, Milz, Knochenmark).',
+            'Granulombildung: Wirt bildet nicht-verkäsende epitheloidzelligen Granulome in den betroffenen Organen.',
+            'Organmanifestation: Ansiedlung in Wirbelsäule/Gelenken (Spondylodiscitis), Hoden (Epididymo-Orchitis) oder Herzklappen (Endokarditis).'
+          ],
+          virulence_factors: ['Glattes LPS (O-Antigenkette widersteht Komplementlyse)', 'Typ-IV-Sekretionssystem (VirB-Operon hemmt Phagolysosomenfusion)', 'Intrazelluläre Persistenz']
+        },
+        clinical: {
+          incubation: '2-4 Wochen (Spanne: 1 Woche bis 2-3 Monate)',
+          onset: 'Schleichender, gradueller oder subakuter undulierender Fieberverlauf',
+          symptoms: [
+            {
+              name: 'Klassische Akute Brucellose (Undulierendes Fieber)',
+              description: '<b>Undulierendes Fieber (Febris undulans):</b> Fieber steigt nachmittags/abends an und fällt morphologisch spontan bis morgens ab, begleitet von profusem kellerartig/säuerlich riechendem Schweiß. Ausgeprägte Fatigue, Kreuzschmerzen, Myalgien, Arthralgien, deutliche Gemütsschwankungen (Depression).',
+              severity: 'moderate'
+            },
+            {
+              name: 'Osteoartikuläre Manifestationen (30-50% - Häufigste Komplikation!)',
+              description: '<b>Spondylodiscitis / Vertebrale Osteomyelitis:</b> Starke Lendenwirbelsäulenschmerzen, Klopfschmerz, Psoasabszess. Zudem Sakroiliitis und großgelenkige (Hüfte, Knie) Monoarthritis.',
+              severity: 'severe'
+            },
+            {
+              name: 'Urogenitale Manifestationen (10-20%)',
+              description: '<b>Epididymo-Orchitis:</b> Schmerzhafte, plötzliche einseitige Hodenschwellung und Fieber.',
+              severity: 'moderate'
+            },
+            {
+              name: 'Brucellen-Endokarditis (<2% - Haupttodesursache!)',
+              description: 'Kulturnegative Klappenzerstörung (vorwiegend Aortenklappe), rasch progressive Herzinsuffizienz, Klappenabszesse, Embolisationen.',
+              severity: 'severe'
+            }
+          ],
+          physical_exam: [
+            'Febris undulans (undulierendes Fieber) mit profusem Schwitzen',
+            'Hepatosplenomegalie und zervikale/axilläre Lymphadenopathie',
+            'Klopfschmerz der Wirbelsäule, Lasegue-Zeichen positiv (Spondylodiscitis)',
+            'Einseitig schmerzhafter geschwollener Hoden (Orchitis)'
+          ],
+          complications: [
+            'Spinale Spondylodiscitis, Wirbelkörperkollaps, Epiduralabszess',
+            'Infektiöse Endokarditis und Klappenperforation',
+            'Neurobrucellose (Meningitis, Radikulopathie, chronische Enzephalitis)',
+            'Chronische Brucellose (Symptome persistieren >1 Jahr)'
+          ]
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Blutbild', finding: 'Leukopenie mit relativer Lymphozytose, milde Anämie, Thrombozytopenie', interpretation: 'Retikuloendotheliale Knochenmarksdepression' },
+            { test: 'Leberwerte', finding: 'Mäßige Transaminasenerhöhung', interpretation: 'Granulomatöse Hepatitis' }
+          ],
+          imaging: [
+            { modality: 'MRT-Wirbelsäule (Kontrastmittel)', finding: 'Zwischenwirbelscheiben- und angrenzendes Wirbelkörperödem, Kontrastmittelanreicherung (Spondylodiscitis), paravertebraler/Psoas-Abszess', significance: 'Früherkennung von Spondylodiscitis und epiduraler Kompression' },
+            { modality: 'Echokardiographie (TTE/TEE)', finding: 'Aorten-/Mitralklappenvegetation, Ulzeration', significance: 'Obligat bei Endokarditisverdacht' }
+          ],
+          microbiology: [
+            { test: 'Blutkultur (Lysis-Zentrifugation / BACTEC)', finding: 'Brucella spp. Isolierung', significance: 'LANGSAMES WACHSTUM! Labor vorab über Brucellen-Verdacht informieren; Kulturen 21-28 Tage bebrüten!' },
+            { test: 'Serologie (Standard-Röhrchen-Agglutination - SAT / Wright)', finding: 'Titer ≥1:160 (oder 4-facher Anstieg)', significance: 'DIAGNOSTISCHER ECKPFEILER! Coombs-Test bei chronischen Fällen wegen blockierender Antikörper erforderlich.' },
+            { test: 'PCR', finding: 'Brucella-DNA positiv', significance: 'Rasche und spezifische Bestätigung' }
+          ]
+        },
+        differential: [
+          { disease: 'Typhus abdominalis (Salmonella Typhi)', distinguishing: 'Kontinuierliches Fieber, Roseolen, Bradykardie, Stuhlkultur' },
+          { disease: 'Tuberkulose (Morbus Pott)', distinguishing: 'Zwischenwirbelraum bei Pott früh erhalten, langsamer Verlauf, PPD/IGRA positiv' },
+          { disease: 'Q-Fieber', distinguishing: 'Atypische Pneumonie und retrobulbäre Kopfschmerzen dominieren, Phasenvariations-Serologie' },
+          { disease: 'Infektiöse Endokarditis (Staph/Strep)', distinguishing: 'Rascher Verlauf, positive Blutkulturen innerhalb 24-48 Stunden' }
+        ],
+        therapy: {
+          empirical: {
+            outpatient: [
+              { drug: 'Doxycyclin + Rifampicin (Standard-Systemtherapie)', dose: 'Doxycyclin 100 mg p.o. 2x/T + Rifampicin 600-900 mg p.o. 1x/T', duration: 'MINDESTENS 6 WOCHEN!', note: 'STANDARD ERSTE-WAHL ORALE KOMBINATION! Monotherapie ist wegen hoher Rezidivrate KONTRAINDIZIERT!' }
+            ],
+            inpatient: [
+              { drug: 'Doxycyclin p.o. + Streptomycin i.m. / Gentamicin i.v.', dose: 'Doxycyclin 100 mg p.o. 2x/T x 6 Wochen + Gentamicin 5 mg/kg i.v. 1x/T in den ersten 2 Wochen (oder Streptomycin 1 g i.m. x 14 Tage)', duration: 'Doxy 6 Wochen + Aminoglykosid 2 Wochen', note: 'ALTERNATIVE MIT NIEDRIGERER REZIDIVRATE! Bevorzugt bei Spondylodiscitis.' }
+            ],
+            icu: [
+              { drug: 'Ceftriaxon i.v. + Doxycyclin p.o. + Rifampicin p.o.', dose: 'Ceftriaxon 2 g i.v. 2x/T + Doxy 100 mg p.o. 2x/T + Rifampicin 900 mg p.o. 1x/T', duration: 'MINDESTENS 3-6 MONATE!', note: 'OBLIGATES DREIFACHREGIMEN bei Neurobrucellose und Brucellen-Endokarditis! Chirurgischer Klappenersatz bei Endokarditis empfohlen.' }
+            ]
+          },
+          targeted: 'Unkompliziert: Doxycyclin (100 mg p.o. 2x/T 6 Wochen) + Rifampicin (600-900 mg p.o. 1x/T 6 Wochen) ODER Doxycyclin (6 Wochen) + Gentamicin (2 Wochen). Spondylodiscitis: Doxycyclin + Rifampicin + Gentamicin für 8-12 Wochen. Neurobrucellose / Endokarditis: Ceftriaxon + Doxycyclin + Rifampicin für 3-6 Monate.',
+          supportive: [
+            'Rumpforthese bei Spondylodiscitis zur Vermeidung spinaler Instabilität.',
+            'Frühzeitige herzchirurgische Konsultation zum Klappenersatz bei Endokarditis.',
+            'Analgesie (NSAR), Bettruhe.'
+          ],
+          prevention: [
+            'Pasteurisierung oder Abkochen von Milch und Milchprodukten.',
+            'Vermeidung von Rohmilchkäse (Ziegen-/Schafskäse).',
+            'Tragen von Schutzhandschuhen und Brille bei geburtshilflichen/tierärztlichen Eingriffen.',
+            'Vieh-Impfung und Bestandskontrollen.'
+          ]
+        },
+        guidelines: {
+          diagnosis: [
+            'Undulierendes Fieber + Rückenschmerzen + Rohmilchkäse-Exposition = Brucellose!',
+            'Blutkulturen wachsen langsam (mindestens 21-28 Tage bebrüten).',
+            'Monotherapie ist wegen hohem Rezidivrisiko STRENG KONTRAINDIZIERT.'
+          ],
+          treatment_indications: [
+            'Alle Brucellose-Fälle erfordern eine kombinierte Antibiotikatherapie für mindestens 6 Wochen.'
+          ],
+          first_line: [
+            'Standard: Doxycyclin p.o. + Rifampicin p.o. für 6 Wochen (oder Doxycyclin 6 Wochen + Gentamicin 2 Wochen).',
+            'Neurobrucellose / Endokarditis: Ceftriaxon i.v. + Doxycyclin p.o. + Rifampicin p.o. für 3-6 Monate.'
+          ]
+        },
+        prognosis: {
+          mortality: '<1-2% (hauptsächlich durch akute Endokarditis); Rezidivrate <5% bei korrekter Kombinationstherapie, >30% bei Monotherapie',
+          prognostic_scores: ['Keine'],
+          factors: 'Adhärenz bei der 6-wöchigen Kombinationstherapie, frühzeitige Klappenoperation bei Endokarditis'
+        }
+      }
+    ]
+  }
 });
 
 (function ensureZoonoticDeDiseaseGalleries() {
-  const category = window.diseases.zoonotic;
+  const category = (window as any).diseases ? (window as any).diseases.zoonotic : null;
   if (!category || !Array.isArray(category.diseases)) return;
 
-  function createInlineGalleryImage(diseaseName, categoryName) {
+  function createInlineGalleryImage(diseaseName: string, categoryName: string) {
     const safeDiseaseName = String(diseaseName || 'Krankheit');
-    const safeCategoryName = String(categoryName || 'Zoonotisch');
+    const safeCategoryName = String(categoryName || 'Zoonosen');
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
       <defs>
         <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
@@ -758,9 +1168,9 @@ Object.assign(window.diseases, {
       <circle cx="180" cy="520" r="180" fill="#22c55e" opacity="0.12"/>
       <text x="80" y="150" font-size="62" font-family="Arial, sans-serif" font-weight="700" fill="#14532d">${safeDiseaseName}</text>
       <text x="80" y="230" font-size="36" font-family="Arial, sans-serif" fill="#166534">Kategorie: ${safeCategoryName}</text>
-      <text x="80" y="340" font-size="30" font-family="Arial, sans-serif" fill="#052e16">Zoonotische Infektion - didaktische Illustration</text>
+      <text x="80" y="340" font-size="30" font-family="Arial, sans-serif" fill="#052e16">Zoonotische Infektion - Didaktische Illustration</text>
       <rect x="80" y="390" width="1040" height="8" fill="#16a34a" opacity="0.45"/>
-      <text x="80" y="470" font-size="28" font-family="Arial, sans-serif" fill="#14532d">Infectologia</text>
+      <text x="80" y="470" font-size="28" font-family="Arial, sans-serif" fill="#14532d">Infektiologie</text>
     </svg>`;
 
     return {
@@ -770,7 +1180,7 @@ Object.assign(window.diseases, {
     };
   }
 
-  category.diseases.forEach((disease) => {
+  category.diseases.forEach((disease: any) => {
     if (!disease || (Array.isArray(disease.gallery) && disease.gallery.length > 0)) return;
     disease.gallery = [createInlineGalleryImage(disease.name, category.name)];
   });

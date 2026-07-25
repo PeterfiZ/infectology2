@@ -5,10 +5,10 @@ export const boneJointEn: Category = {
   icon: '🦴',
   color: '#57534e',
   didactics: {
-    overview: 'Bone and Joint Infections encompass deep organ/space osteomyelitis, septic arthritis, spondylodiscitis, and prosthetic joint infections (PJI). Management requires prompt diagnostic workup (blood cultures, synovial fluid arthrocentesis, image-guided biopsy, and MRI), surgical source control (joint drainage, sequestrectomy, hardware management), and targeted antimicrobial therapy.',
-    primary: 'Acute Osteomyelitis: Typically hematogenous in children and contiguous (diabetic foot, open fracture) in adults. S. aureus (MSSA/MRSA) is the primary pathogen. Gold standard diagnosis is Bone Biopsy for culture and histology prior to antibiotics (unless septic). OVIVA trial principles demonstrate that early transition to highly bioavailable oral antibiotics (after 7–10 days IV) is non-inferior to 6 weeks IV therapy.',
-    secondary: 'Septic Arthritis: Medical and orthopaedic emergency. Requires emergency arthrocentesis before antibiotics (Synovial WBC >50,000/µL, >90% PMNs). Treatment demands immediate joint decompression/drainage (repeated needle aspiration, arthroscopy, or open lavage) and 3–4 weeks targeted antibiotics.',
-    biliary: 'Infective Spondylodiscitis: Vertebral osteomyelitis and discitis. Cardinal symptom is localized deep back pain (>90%), but fever is present in only ~50%. Contrast MRI of the spine is the gold standard imaging. Total duration of antimicrobial therapy is 6 weeks. Emergency surgery is indicated for progressive neurological deficits, spinal instability, or epidural abscess.',
+    overview: 'Bone and joint infections encompass deep organ/space osteomyelitis, septic arthritis, spondylodiscitis, and prosthetic joint infections (PJI). Management requires prompt diagnostic workup (blood cultures, synovial fluid arthrocentesis, image-guided biopsy, and MRI), surgical source control (joint drainage, sequestrectomy, implant management), and targeted antimicrobial therapy.',
+    primary: 'Acute osteomyelitis: Typically hematogenous in children and contiguous (diabetic foot, open fracture) in adults. S. aureus (MSSA/MRSA) is the primary pathogen. Gold standard diagnosis is bone biopsy for culture and histology prior to antibiotics (unless septic). According to OVIVA trial principles, early transition to highly bioavailable oral antibiotics (after 7–10 days IV) is non-inferior to 6 weeks IV therapy.',
+    secondary: 'Septic arthritis: Medical and orthopedic emergency. Requires emergency arthrocentesis before antibiotics (Synovial WBC >50,000/µL, >90% PMNs). Treatment demands immediate joint decompression/drainage (repeated needle aspiration, arthroscopy, or open lavage) and 3–4 weeks of targeted antibiotics.',
+    biliary: 'Infective spondylodiscitis: Vertebral osteomyelitis and discitis. Cardinal symptom is localized deep back pain (>90%), but fever is present in only ~50%. Contrast-enhanced MRI of the spine is the gold standard imaging. Total duration of antimicrobial therapy is 6 weeks. Emergency surgery is indicated for progressive neurological deficits, spinal instability, or epidural abscess.',
     diagnostics: [
       '1) Diagnostic Arthrocentesis (Joint Aspiration): Mandatory for suspected Septic Arthritis BEFORE antibiotics (Synovial WBC >50,000/µL, >90% PMNs).',
       '2) Bone Biopsy & Culture: Gold standard for Osteomyelitis diagnosis (CT-guided or intraoperative biopsy) prior to antibiotics.',
@@ -17,11 +17,11 @@ export const boneJointEn: Category = {
       '5) Sepsis Markers: ESR and CRP for baseline severity and treatment response monitoring.'
     ],
     red_flags: [
-      'Acute monarthritis with inability to move joint actively or passively (Septic Arthritis emergency)',
+      'Acute monoarthritis with inability to move joint actively or passively (Septic Arthritis emergency)',
       'Progressive neurological deficits (motor paresis, sensory level, sphincter dysfunction) in suspected Spondylodiscitis (Epidural Abscess)',
       'Spinal percussion tenderness with unremitting night back pain',
       'Positive Probe-to-Bone (PTB) test with exposed bone in foot ulcer',
-      'SIRS criteria / Septic Shock in joint/bone infection'
+      'SIRS criteria / Septic Shock in joint or bone infection'
     ],
     special_populations: 'Diabetic Patients: High risk for contiguous osteomyelitis in foot ulcers; perform PTB test and MRI. IV Drug Users: Increased incidence of CA-MRSA, Septic Arthritis (sternoclavicular/sacroiliac joints), and Spondylodiscitis. Elderly: Atypical presentation without fever; higher mortality in septic arthritis.',
     teaching_tip: 'In Septic Arthritis, Joint Drainage is an emergency! In Osteomyelitis and Spondylodiscitis, early oral antibiotic switch after 7–10 days IV induction (OVIVA trial) is non-inferior to 6 weeks IV therapy.'
@@ -37,10 +37,10 @@ export const boneJointEn: Category = {
       ]
     }
   ],
-diseases: [
+  diseases: [
     {
       id: 'osteomyelitis',
-      name: 'Osteomyelitis (Acute and Chronic Osteomyelitis)',
+      name: 'Osteomyelitis (Acute and Chronic Bone Marrow Infection)',
       pathogen: {
         type: 'Bacteria',
         name: '<i>Staphylococcus aureus</i> (most common: 50-70%, including MRSA), <i>Staphylococcus epidermidis</i> (CoNS - post-implant/post-surgery), <i>Streptococcus</i> spp., <i>Pseudomonas aeruginosa</i> (IV drug users, puncture wounds), <i>Enterobacterales</i> (<i>E. coli</i>, <i>Klebsiella</i> - diabetic foot), <i>Salmonella</i> spp. (sickle cell anemia), <i>Mycobacterium tuberculosis</i>',
@@ -63,7 +63,7 @@ diseases: [
       pathomechanism: {
         steps: [
           'Invasion: Via hematogenous spread (in the well-vascularized metaphysis of children or vertebrae of adults), surrounding soft tissue infection/diabetic ulcer (per continuitatem), or direct inoculation (trauma/surgery).',
-          'Inflammation and Ischaemia: Bacterial proliferation causes intramedullary edema and elevated bone marrow pressure. Microvascular occlusion leads to bone necrosis and dead bone islands (sequester).',
+          'Inflammation and Ischemia: Bacterial proliferation causes intramedullary edema and elevated bone marrow pressure. Microvascular occlusion leads to bone necrosis and dead bone islands (sequester).',
           'Reactive Bone Formation & Sinus Tract: New bone (involucrum) forms under the periosteum, surrounding the sequester. Purulent sinus tracts may break through the skin.',
           'Biofilm Formation: Staphylococci adhere to the bone matrix and metal implants using MSCRAMM proteins, forming a protective extracellular matrix (biofilm) that shields them from neutrophils and antibiotics.'
         ],
@@ -183,7 +183,7 @@ diseases: [
     },
     {
       id: 'septic_arthritis',
-      name: 'Septic Arthritis (Acute Purulent Arthritis)',
+      name: 'Septic Arthritis (Acute Purulent Joint Infection)',
       pathogen: {
         type: 'Bacteria',
         name: '<i>Staphylococcus aureus</i> (>50%, including MRSA), <i>Streptococcus</i> spp. (Groups A, B, C, G, <i>S. pneumoniae</i>), <i>Neisseria gonorrhoeae</i> (young, sexually active adults), Gram-negative enteric bacteria (<i>E. coli</i>, <i>Pseudomonas aeruginosa</i> - elderly, IVDU, immunosuppression), <i>Kingella kingae</i> (young children <4 years)',
@@ -208,7 +208,7 @@ diseases: [
         steps: [
           'Invasion: Bacteria enter the synovial membrane (which lacks a basement membrane) via the bloodstream, or enter the joint space via direct inoculation or contiguous infection.',
           'Inflammatory Cascade: Proliferating bacteria trigger intense neutrophil granulocyte invasion, resulting in a dense, purulent joint effusion.',
-          'Irreversibe Cartilage Damage: Proteolytic enzymes, lysosomal enzymes, and inflammatory cytokines (TNF-a, IL-1) released from PMN granulocytes destroy chondrocytes and degrade the proteoglycan/collagen matrix within 24-48 hours!',
+          'Irreversible Cartilage Damage: Proteolytic enzymes, lysosomal enzymes, and inflammatory cytokines (TNF-a, IL-1) released from PMN granulocytes destroy chondrocytes and degrade the proteoglycan/collagen matrix within 24-48 hours!',
           'Pressure Ischemia: Elevated intra-articular pressure reduces synovial blood circulation, leading to bone and cartilage necrosis, followed by ankylosis.'
         ],
         virulence_factors: ['Adhesins (collagen-binding protein)', 'Proteases and hyaluronidase', 'Staphylococcal exotoxins', 'Chondrocyte apoptosis-inducing factors']
@@ -453,17 +453,17 @@ diseases: [
       name: 'Prosthetic Joint Infection (PJI / Periprosthetic Joint Infection)',
       pathogen: {
         type: 'Bacteria',
-        name: '<i>Staphylococcus epidermidis</i> and other CoNS (30-40%), <i>Staphylococcus aureus</i> (20-30%, including MRSA), <i>Cutibacterium acnes</i> (mainly shoulder prosthesis), <i>Streptococcus</i> spp., <i>Enterococcus</i> spp., <i>Enterobacterales</i> (<i>E. coli</i>, <i>Klebsiella</i>), <i>Pseudomonas aeruginosa</i>, Polymicrobial (10-15%)',
+        name: '<i>Staphylococcus epidermidis</i> and other CoNS (30-40%), <i>Staphylococcus aureus</i> (20-30%, including MRSA), <i>Cutibacterium acnes</i> (mainly in shoulder prostheses), <i>Streptococcus</i> spp., <i>Enterococcus</i> spp., <i>Enterobacterales</i> (<i>E. coli</i>, <i>Klebsiella</i>), <i>Pseudomonas aeruginosa</i>, Polymicrobial (10-15%)',
         gram: 'Mixed (predominantly Gram-positive CoNS and Staph)',
         shape: 'coccus/bacillus'
       },
       epidemiology: {
-        incidence: 'Occurs in 1-2% of knee and hip replacements. One of the most serious complications of orthopedic surgery!',
+        incidence: 'Occurs in 1-2% of knee and hip replacements. One of the most severe complications of orthopedic surgery!',
         risk_groups: [
           'Previous joint surgery or history of PJI',
           'Diabetes mellitus and obesity (BMI > 35)',
           'Rheumatoid arthritis and steroid/biologic therapy',
-          'Surgical wound healing disorder, hematoma, prolonged wound drainage (>72 hours)',
+          'Surgical wound healing impairment, hematoma, prolonged wound leakage (>72 hours)',
           'Smoking'
         ],
         seasonality: 'None',
@@ -484,12 +484,12 @@ diseases: [
         symptoms: [
           {
             name: 'Early PJI (<4 weeks post-surgery)',
-            description: 'Acute joint pain, erythema, swelling, warmth, wound dehiscence, persistent purulent wound drainage, fever.',
+            description: 'Acute joint pain, erythema, swelling, warmth, wound dehiscence, persistent purulent wound leakage, fever.',
             severity: 'severe'
           },
           {
             name: 'Late Chronic PJI (>3-4 weeks/months post-surgery)',
-            description: 'Dull joint pain present both on weight-bearing and at rest, early loosening of the prosthesis, functional decline, fever is usually absent.',
+            description: 'Dull joint pain present both on weight-bearing and at rest, early loosening of the prosthesis, functional decline; fever is usually absent.',
             severity: 'moderate'
           },
           {
@@ -500,79 +500,220 @@ diseases: [
         ],
         physical_exam: [
           'Erythema, swelling, increased warmth around the surgical scar',
-          'Pain on both active and passive joint movement',
-          'Presence of a sinus tract or fistula communicating with the joint (in chronic cases)',
-          'Prosthesis instability on manual examination (in advanced cases of loosening)'
+          'Wound leakage or an open, draining sinus tract',
+          'Restriction of joint range of motion, pain on weight-bearing',
+          'Prosthesis instability, signs of loosening'
         ],
         complications: [
-          'Chronic osteolysis and extensive bone destruction',
-          'Chronic pain and permanent functional disability',
-          'Systemic sepsis',
-          'Need for multi-stage revision surgery or amputation'
+          'Prosthesis loosening and severe bone loss (osteolysis)',
+          'Multiple revision surgeries, limb shortening',
+          'Girdlestone condition (resection arthroplasty of the hip)',
+          'Need for amputation'
         ]
       },
       diagnostics: {
         laboratory: [
-          { test: 'CRP and ESR', finding: 'Elevated (CRP usually > 10 mg/L, ESR > 30 mm/h)', interpretation: 'Sensitive screening tests, though non-specific in the early postoperative period' },
-          { test: 'Joint aspiration (Arthrocentesis)', finding: 'Synovial WBC > 3,000 /µL (chronic) or > 10,000 /µL (early), >65% PMN', interpretation: 'GOLD STANDARD diagnostic test!' },
-          { test: 'Blood cultures (2 pairs)', finding: 'Positive in acute hematogenous or systemic symptoms', interpretation: 'Mandatory in febrile patients' }
+          { test: 'CRP and ESR', finding: 'CRP > 10 mg/L (chronic), > 100 mg/L (acute); ESR > 30 mm/h', interpretation: 'Basic screening test. If both are negative, PJI is unlikely.' },
+          { test: 'Synovial fluid aspiration (Arthrocentesis)', finding: 'Acute PJI: WBC > 10,000 /µL (>90% PMN); Chronic PJI: WBC > 2,000-3,000 /µL (>70% PMN)', interpretation: 'Key diagnostic test according to EBJIS 2021 definition!' },
+          { test: 'Alpha-defensin / Leukocyte esterase strip test', finding: 'Positive', interpretation: 'Synovial biomarkers with high specificity' }
         ],
         imaging: [
-          { modality: 'X-ray', finding: 'Periprosthetic radiolucency (>2mm), bone resorption, periosteal reaction', significance: 'Baseline test, detects loosening or advanced destruction' },
-          { modality: 'Bone scan (Three-phase / Leukocyte scan)', finding: 'Increased uptake around the prosthesis', significance: 'Helpful when infection is suspected but X-ray is inconclusive' },
-          { modality: 'FDG-PET/CT or MRI (with metal artifact reduction)', finding: 'Periprosthetic inflammation', significance: 'High sensitivity in complex cases' }
+          { modality: 'X-ray', finding: 'Periprosthetic osteolysis, radiolucent line (>2 mm), early loosening, periosteal reaction', significance: 'Baseline imaging to detect loosening' },
+          { modality: 'Ultrasound', finding: 'Joint effusion, subperiosteal abscess', significance: 'To guide arthrocentesis' },
+          { modality: 'Leukocyte scintigraphy / FDG-PET/CT', finding: 'Increased uptake at implant-bone interface', significance: 'In doubtful chronic cases' }
         ],
         microbiology: [
-          { test: 'Periprosthetic tissue / fluid cultures (at least 3-5 intraoperative samples)', finding: 'Identification of pathogen + antibiogram', significance: 'Definitive diagnosis. Extended culture (up to 14 days) for slow-growing bacteria like C. acnes.' },
-          { test: 'Sonication of removed implant', finding: 'Dislodges biofilm bacteria into fluid for culture', significance: 'Significantly increases sensitivity of pathogen detection' }
+          { test: 'Surgical tissue samples (Periprosthetic tissue)', finding: 'Pathogen identification', significance: 'At least 3-5 SEPARATE samples must be taken with a separate scalpel for microbiology!' },
+          { test: 'SONICATION of removed prosthesis', finding: 'Culture of bacteria dislodged from biofilm (>50 CFU/ml)', significance: 'Outstanding microbiological sensitivity!' },
+          { test: 'Histopathology (Krenn synovial classification)', finding: '>5 neutrophil granulocytes / HPF (high-power field)', significance: 'Immediate intraoperative frozen section diagnosis' }
         ]
       },
       differential: [
-        { disease: 'Aseptic prosthesis loosening', distinguishing: 'Normal CRP/ESR, synovial WBC is low, cultures are negative' },
-        { disease: 'Metallosis / Wear debris reaction', distinguishing: 'Grayish synovial fluid, metal wear particles present, cultures negative' },
-        { disease: 'Complex regional pain syndrome (CRPS)', distinguishing: 'Neuropathic pain features, normal inflammatory markers, no joint effusion' }
+        { disease: 'Aseptic prosthesis loosening', distinguishing: 'CRP/ESR are normal, synovial WBC < 1,500/µL, culture and histology are negative' },
+        { disease: 'Arthrofibrosis', distinguishing: 'Joint stiffness without infectious signs and without elevated inflammatory markers' },
+        { disease: 'Crystal arthropathy with prosthesis', distinguishing: 'Polarized light microscopy shows crystals' }
       ],
       therapy: {
         empirical: {
           outpatient: [
-            { drug: 'No empiric antibiotics before diagnostic aspiration!', dose: '-', duration: '-', note: 'Must obtain synovial fluid samples first to avoid false-negative cultures.' }
+            { drug: 'No outpatient therapy', dose: '-', duration: '-', note: 'Evaluation in an orthopedic / infectious disease center required!' }
           ],
           inpatient: [
-            { drug: 'Vancomycin + Cefepime', dose: 'Vancomycin 15-20mg/kg IV + Cefepime 2g IV q8h', duration: 'Until culture results', note: 'Broad coverage for MRSA and Gram-negatives' }
+            { drug: 'Vancomycin', dose: '15-20 mg/kg IV q8-12h', duration: 'After surgical sampling', note: 'MRSA and CoNS coverage' },
+            { drug: '+ Cefepime / Meropenem', dose: '2g IV q8h / 1g IV q8h', duration: '', note: 'Against Gram-negative rods' }
           ],
           icu: [
-            { drug: 'Vancomycin + Meropenem', dose: 'Vancomycin 15-20mg/kg IV + Meropenem 1g IV q8h', duration: '', note: 'Severe sepsis or shock' }
+            { drug: 'Vancomycin + Meropenem', dose: 'IV', duration: '', note: 'In case of septic shock' }
           ]
         },
-        targeted: 'Based on intraoperative multi-sample cultures and sensitivities. For Staphylococci with retained implant (DAIR): Rifampicin combination is mandatory (e.g., Rifampicin + Ciprofloxacin or Levofloxacin / IV beta-lactam or Vancomycin).',
+        targeted: 'Based on culture! For Staphylococcal PJI, administration of biofilm-active RIFAMPICIN (2x300-450 mg PO) in oral combination (e.g., with fluoroquinolone, cotrimoxazole, or clindamycin) after surgical debridement is MANDATORY! Treatment duration: 12 weeks (hip and knee).',
         supportive: [
-          'Surgical management strategy depends on symptom duration: 1. DAIR (Debridement, Antibiotics, and Implant Retention) for early infections (<3-4 weeks) or acute hematogenous; 2. One-stage or Two-stage exchange arthroplasty for chronic infections; 3. Resection arthroplasty or amputation in unfit patients.',
-          'Prolonged targeted antibiotic therapy (6-12 weeks).'
+          'SURGICAL STRATEGIES (EBJIS 2021 consensus):',
+          '1. DAIR (Debridement, Antibiotics, and Implant Retention): Only for EARLY (<3-4 weeks) or ACUTE HEMATOGENOUS infection with a stable prosthesis! Exchange of mobile parts (liner/insert) is mandatory!',
+          '2. One-stage revision: In case of known, susceptible pathogen and good soft tissue conditions, prosthesis exchange in a single surgery with antibiotic-loaded cement.',
+          '3. Two-stage revision: GOLD STANDARD for chronic, difficult-to-treat/resistant pathogens. 1st surgery: Prosthesis removal + antibiotic cement spacer; 6 weeks targeted antibiotics; 2nd surgery: Reimplantation of new prosthesis.',
+          '4. Suppressive antibiotic therapy: Lifelong oral antibiotics in inoperable patients.'
         ],
         prevention: [
-          'Perioperative antibiotic prophylaxis (single dose of cefazolin 30-60 min before incision)',
-          'Strict operating room ventilation and laminar flow',
-          'Optimization of patient risk factors (glycemic control, weight loss, smoking cessation)'
+          'Preoperative MRSA/MSSA nasal screening and decolonization (Mupirocin)',
+          'Timely perioperative antibiotic prophylaxis (Cefazolin / Vancomycin)',
+          'Strict operating room hygiene with laminar airflow'
         ]
       },
       guidelines: {
         diagnosis: [
-          'EBJIS (European Bone and Joint Infection Society) criteria: Based on clinical signs, serum inflammatory markers, synovial fluid analysis, imaging, and microbiology.',
-          'At least 3-5 intraoperative tissue samples for culture are required.'
+          'EBJIS 2021 Consensus Definition:',
+          'Confirmed PJI: Presence of a sinus tract, OR purulent synovial fluid, OR identical pathogen cultured from ≥2 separate surgical samples/sonication, OR histology >5 PMN/HPF.',
+          'Joint aspiration before surgery is mandatory (WBC, cell diff, culture).'
         ],
         treatment_indications: [
-          'Confirmed PJI requires surgical intervention (DAIR or exchange arthroplasty) combined with prolonged targeted antimicrobial therapy.'
+          'All PJI requires coordinated surgical (DAIR, one- or two-stage exchange) and biofilm-active targeted antibiotic therapy.'
         ],
         first_line: [
-          'DAIR with component retention and rifampicin-based combination therapy for acute infections.',
-          'Two-stage exchange arthroplasty (removal of old prosthesis, placement of antibiotic spacer, later reimplantation) remains the gold standard for chronic PJI.'
+          'For Staphylococcal PJI, rifampicin-based combination therapy is mandatory!',
+          'Total antibiotic duration: 12 weeks.'
         ]
       },
       prognosis: {
-        mortality: 'Low, but treatment failure and recurrence rates can be 10-30%',
-        prognostic_scores: ['Host grade (McPherson classification)'],
-        factors: 'Duration of infection, causative pathogen (MRSA, Pseudomonas worse than MSSA), integrity of surrounding soft tissues, patient comorbidities'
+        mortality: '1-3% within 1 year, but up to 10-15% in elderly patients',
+        prognostic_scores: ['EBJIS / MSIS PJI criteria'],
+        factors: 'Use of biofilm-active therapy (Rifampicin), selection of appropriate surgical strategy, pathogen resistance'
+      }
+    },
+    {
+      id: 'septic_bursitis',
+      name: 'Septic Bursitis (Infectious Bursitis)',
+      pathogen: {
+        type: 'Bacteria',
+        name: '<i>Staphylococcus aureus</i> (>80%, including MRSA), <i>Streptococcus pyogenes</i> (GAS) and other <i>Streptococcus</i> spp., Coagulase-negative Staphylococci',
+        gram: 'Gram-positive',
+        shape: 'coccus'
+      },
+      epidemiology: {
+        incidence: 'Common condition in inpatient and outpatient orthopedics/infectious disease.',
+        risk_groups: [
+          'Physical workers (kneeling/leaning work: plumbers, tilers)',
+          'Athletes (abrasions, contact sports)',
+          'Diabetes mellitus',
+          'Gout / Rheumatoid arthritis',
+          'Alcoholism / Chronic kidney disease',
+          'Immunosuppressed patients'
+        ],
+        seasonality: 'None',
+        transmission: 'Direct inoculation via microtrauma, skin abrasion, puncture wound, or per continuitatem spread from overlying cellulitis'
+      },
+      pathomechanism: {
+        steps: [
+          'Localization: Superficial bursae (most commonly olecranon bursa at the elbow ~50%, and prepatellar bursa at the knee ~45%) are exposed to microtrauma and friction.',
+          'Invasion: Staphylococci enter the closed bursa space through skin microflora or abrasions.',
+          'Exudation & Pus Accumulation: The synovium-like lining of the bursa reacts with intense inflammation, accumulating purulent exudate in the bursa sac.',
+          'Soft Tissue Spread: Untreated, the bursa may rupture, causing extensive cellulitis, soft tissue abscesses, or rarely osteomyelitis/septic arthritis.'
+        ],
+        virulence_factors: ['Coagulase', 'Alpha-toxin', 'PVL toxin', 'Adhesins']
+      },
+      clinical: {
+        incubation: '1-5 days (after microtrauma)',
+        onset: 'Acute',
+        symptoms: [
+          {
+            name: 'Fluctuant Bursa Swelling',
+            description: 'Pronounced, circumscribed, fluctuant, red, warm, and painful swelling over the elbow (olecranon) or kneecap (prepatellar).',
+            severity: 'severe'
+          },
+          {
+            name: 'Joint Range of Motion PRESERVED!',
+            description: 'PASSIVE RANGE OF MOTION of the adjacent joint is PRESERVED AND PAINLESS (skin may feel tight during flexion), which is the FUNDAMENTAL difference from septic arthritis!',
+            severity: 'moderate'
+          },
+          {
+            name: 'Fever and Cellulitis',
+            description: 'Fever is present in ~40-50% of cases. The skin over the bursa is frequently cellulitic, warm, and hyperemic.',
+            severity: 'moderate'
+          }
+        ],
+        physical_exam: [
+          'Circumscribed, warm, red, tender fluctuant mass over the bursa',
+          'Skin lesion, abrasion, or crust at the apex of the bursa',
+          'PASSIVE MOVEMENT OF THE JOINT IS NOT PAINFUL (unlike in septic arthritis!)',
+          'Regional lymphangitis and lymphadenopathy'
+        ],
+        complications: [
+          'Spontaneous bursa rupture and chronically draining sinus tract',
+          'Extensive soft tissue phlegmon / cellulitis',
+          'Superficial bone erosion / osteomyelitis (olecranon / patellar tip)',
+          'Recurrent septic bursitis'
+        ]
+      },
+      diagnostics: {
+        laboratory: [
+          { test: 'Bursa aspiration and fluid analysis', finding: 'Purulent/cloudy; WBC > 20,000-50,000 /µL (>80% PMN); Gram stain 60-70% positive', interpretation: 'EMERGENCY DIAGNOSTIC AND THERAPEUTIC PROCEDURE!' },
+          { test: 'Polarized light microscopy', finding: 'Presence/absence of crystals', interpretation: 'To rule out/confirm gouty bursitis' },
+          { test: 'CBC, CRP', finding: 'Leukocytosis, elevated CRP', interpretation: 'To assess systemic inflammatory response' }
+        ],
+        imaging: [
+          { modality: 'Ultrasound', finding: 'Fluid-filled, thick-walled bursa, hyperechoic content, overlying soft tissue hyperechogenicity', significance: 'Essential imaging to guide bursa aspiration and rule out deep joint involvement!' },
+          { modality: 'X-ray', finding: 'Soft tissue swelling; calcification from prior bursitis; absence of bone erosion', significance: 'To rule out olecranon/patellar fracture or osteomyelitis' }
+        ],
+        microbiology: [
+          { test: 'Bursa aspirate culture (aerobic + anaerobic)', finding: 'S. aureus or Streptococcus identification', significance: 'Basis for targeted antibiotic therapy' }
+        ]
+      },
+      differential: [
+        { disease: 'Aseptic / Traumatic bursitis', distinguishing: 'No fever, minimal erythema/warmth, aspirate is straw-colored/hemorrhagic, WBC < 2,000/µL, Gram stain and culture negative' },
+        { disease: 'Gouty bursitis (Gout)', distinguishing: 'Marked inflammation may be present, but MSU crystals are visible in aspirate' },
+        { disease: 'Septic arthritis', distinguishing: 'In septic arthritis, PASSIVE movement of the joint is impossible due to excruciating pain, whereas in bursitis, passive joint motion is preserved!' }
+      ],
+      therapy: {
+        empirical: {
+          outpatient: [
+            { drug: 'Cephalexin', dose: '500 mg - 1g PO q6h', duration: '7-14 days', note: 'Mild, systemically well cases after bursa aspiration' },
+            { drug: 'or Amoxicillin/Clavulanate', dose: '875/125 mg PO q12h', duration: '7-14 days', note: 'Broader spectrum' },
+            { drug: 'or Clindamycin', dose: '300-450 mg PO q8h', duration: '7-14 days', note: 'Penicillin allergy or suspected MRSA' }
+          ],
+          inpatient: [
+            { drug: 'Cefazolin', dose: '1-2g IV q8h', duration: '7-14 days', note: 'Systemic symptoms or spreading cellulitis' },
+            { drug: 'or Vancomycin', dose: '15-20 mg/kg IV q8-12h', duration: '7-14 days', note: 'Severe cases or MRSA risk' }
+          ],
+          icu: [
+            { drug: 'Vancomycin + Piperacillin/Tazobactam', dose: 'IV', duration: '', note: 'Septic shock or complicated phlegmon' }
+          ]
+        },
+        targeted: 'Based on culture! MSSA: Cephalexin PO / Cefazolin IV / Flucloxacillin; MRSA: Trimethoprim/Sulfamethoxazole PO / Doxycycline PO / Vancomycin IV; GAS: Penicillin V / Amoxicillin.',
+        supportive: [
+          'BURSA ASPIRATION AND DRAINAGE: Needle aspiration (may repeat daily until fluid reaccumulation resolves)',
+          'Bursectomy (surgical removal of bursa): Indicated for refractory, persistent infection, abscess formation, or failure of oral/IV antibiotic therapy!',
+          'Limb elevation and rest'
+        ],
+        prevention: [
+          'Use of elbow and knee pads during physical labor and sports',
+          'Immediate disinfection of superficial skin injuries and abrasions'
+        ]
+      },
+      guidelines: {
+        diagnosis: [
+          'Bursa aspiration is mandatory to distinguish infectious from aseptic/gouty etiology!',
+          'Key clinical sign: PASSIVE joint motion is preserved (distinguishes from septic arthritis).'
+        ],
+        treatment_indications: [
+          'All septic bursitis requires percutaneous bursa aspiration and systemic (oral or IV) antistaphylococcal antibiotics.'
+        ],
+        first_line: [
+          'Mild cases: Bursa aspiration + oral Cephalexin / Amoxicillin-clavulanate / Clindamycin for 7-14 days.',
+          'Severe / febrile cases: IV Cefazolin or Vancomycin. Surgical bursectomy upon treatment failure.'
+        ]
+      },
+      prognosis: {
+        mortality: 'Excellent (<1%), but recovery time can be prolonged',
+        prognostic_scores: ['None specific'],
+        factors: 'Adequate bursa drainage, early antibiotic initiation, comorbidities (diabetes)'
       }
     }
   ]
 };
+
+if (typeof window !== 'undefined') {
+  if (!(window as any).diseases) {
+    (window as any).diseases = {};
+  }
+  (window as any).diseases.bone_joint = boneJointEn;
+}

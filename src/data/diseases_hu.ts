@@ -1,4 +1,4 @@
-import './init_hu';
+import { diseasesHu } from './init_hu';
 
 import './CNS_hu';
 import './skin_soft_tissue_hu';
@@ -14,6 +14,5 @@ import './zoonozis_hu';
 import './scores_hu';
 import './infection_control_hu';
 
-import { DiseaseDatabase } from '../types';
+export { diseasesHu };
 
-export const diseasesHu: DiseaseDatabase = (window as any).diseases;
