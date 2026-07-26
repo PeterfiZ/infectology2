@@ -1,12 +1,11 @@
-// Auto-generated updated Thorax_en.ts
 Object.assign(window.diseases, {
   "bacterial_respiratory": {
     "name": "Bacterial Respiratory Infections",
-    "icon": (window.diseaseMetadata?.bacterial_respiratory?.icon || '🫁'),
-    "color": (window.diseaseMetadata?.bacterial_respiratory?.color || '#06b6d4'),
+    "icon": window.diseaseMetadata.bacterial_respiratory.icon,
+    "color": window.diseaseMetadata.bacterial_respiratory.color,
     "tables": [
       {
-        "title": "Differential Diagnosis: Typical vs. Atypical Pneumonia",
+        "title": "Differential Diagnosis of Typical vs. Atypical Pneumonia",
         "headers": [
           "Feature",
           "Typical Pneumonia",
@@ -16,30 +15,30 @@ Object.assign(window.diseases, {
           [
             "Onset",
             "Sudden, dramatic (chills)",
-            "Slow, insidious (prodrome)"
+            "Slow, gradual (prodrome)"
           ],
           [
             "Fever",
             "High (>39°C)",
-            "Mildes or mäßiges Fever"
+            "Low-grade or moderate fever"
           ],
           [
-            "Chest Pain",
+            "Chest pain",
             "Pleuritic, sharp (common)",
-            "Retrosternal, burning (rarer)"
+            "Retrosternal, burning (less common)"
           ],
           [
             "Cough",
             "Productive",
-            "Dry, non-productive, distressing"
+            "Dry, non-productive, hacking"
           ],
           [
             "Sputum",
             "Purulent, rust-colored",
-            "Scanty, mucoid or absent"
+            "Scant, mucoid or absent"
           ],
           [
-            "Pleural Effusion",
+            "Pleural effusion",
             "Common (parapneumonic)",
             "Rare"
           ],
@@ -49,12 +48,12 @@ Object.assign(window.diseases, {
             "Interstitial, ground-glass, diffuse, patchy"
           ],
           [
-            "Extrapulmonary Symptoms",
-            "Rare (except septic dissemination)",
+            "Extrapulmonary symptoms",
+            "Rare (except septic spread)",
             "Common (headache, myalgia, ear/throat, GI, rash)"
           ],
           [
-            "Lab (Leukocytes)",
+            "Lab (WBC)",
             "Leukocytosis, left shift",
             "Normal or mild leukocytosis"
           ],
@@ -64,12 +63,12 @@ Object.assign(window.diseases, {
             "Moderately elevated (PCT <0.25)"
           ],
           [
-            "Lab (Liver Enzymes)",
-            "Mostly normal",
+            "Lab (Liver enzymes)",
+            "Usually normal",
             "Often elevated (AST, ALT)"
           ],
           [
-            "Pathogen",
+            "Pathogens",
             "<i>S. pneumoniae, H. influenzae, M. catarrhalis, S. aureus, Klebsiella</i>",
             "<i>Mycoplasma, Chlamydia, Legionella, Coxiella</i>, Viruses"
           ]
@@ -84,156 +83,156 @@ Object.assign(window.diseases, {
           "type": "Bacterium",
           "name": "<i>Streptococcus pneumoniae</i>",
           "gram": "Gram-positive",
-          "shape": "Diplococci"
+          "shape": "diplococcus"
         },
         "epidemiology": {
-          "incidence": "Most common pathogen of community-acquired pneumonia (CAP) (30-40%)",
+          "incidence": "Most common cause of community-acquired pneumonia (CAP) (30-40%)",
           "risk_groups": [
-            "Persons over 65 years",
-            "Patients with chronic diseases (COPD, Herzinsuffizienz, Diabetes)",
-            "Immungeschwächte",
-            "Splenectomized patients",
-            "Alcoholics",
+            "Elderly (>65 years)",
+            "Patients with chronic diseases (COPD, heart failure, diabetes)",
+            "Immunocompromised",
+            "Asplenic patients",
+            "Patients with alcohol use disorder",
             "Smokers"
           ],
-          "seasonality": "Winter-spring peak, often influenza superinfection",
+          "seasonality": "Winter-spring peak, often as influenza superinfection",
           "transmission": "Droplet infection, endogenous activation"
         },
         "pathomechanism": {
           "steps": [
-            "Die Infektion beginnt in der Regel with der Mikroaspiration von Bakterien, die die oberen Atemwege besiedeln. Die Virulenzfaktoren des Pathogens (z.B. Kapsel) helfen, die Abwehrmechanismen des Wirts (z.B. Phagozytose) zu umgehen.",
-            "Die Bakterien vermehren sich in den Alveolen and lösen eine heftige Entzündungsreaktion aus. Freigesetzte Toxine (z.B. Pneumolysin) schädigen die Epithelzellen.",
-            "Entzündungszellen (Neutrophile), rote Blutkörperchen and Fibrin füllen die Alveolen, was zur Konsolidierung des Lungengewebes führt. Dieser Prozess ist for das charakteristische Bild der Lobärpneumonie verantwortlich."
+            "The infection usually begins with microaspiration of bacteria colonizing the upper airways. The pathogen's virulence factors (e.g., capsule) help evade host defense mechanisms (e.g., phagocytosis).",
+            "The bacteria multiply in the alveoli, triggering a vigorous inflammatory response. Released toxins (e.g., pneumolysin) damage epithelial cells.",
+            "Inflammatory cells (neutrophils), red blood cells, and fibrin fill the alveoli, leading to the consolidation of lung tissue. This process is responsible for the characteristic picture of lobar pneumonia."
           ],
           "virulence_factors": [
-            "Kapselpolysaccharid (93 Serotypen)",
+            "Capsular polysaccharide (93 serotypes)",
             "Pneumolysin",
             "Autolysin (LytA)",
             "Neuraminidase",
-            "IgA1-Protease"
+            "IgA1 protease"
           ]
         },
         "clinical": {
           "incubation": "1-3 days",
-          "onset": "Sudden with dramatischem Onset",
+          "onset": "Sudden, dramatic onset",
           "symptoms": [
             {
-              "name": "Suddener Onset",
-              "description": "Gekennzeichnet durch hohes Fever, Schüttelfrost and allgemeines Krankheitsgefühl.",
+              "name": "Sudden Onset",
+              "description": "Characterized by high fever, chills, and malaise.",
               "severity": "severe"
             },
             {
-              "name": "Respiratorische Symptoms",
-              "description": "Anfänglich trockener Cough, der später produktiv wird and typischerweise with rostbraunem Sputum einhergeht. Pleuritische, stechende Chest Pain and Atemnot sind häufig.",
+              "name": "Respiratory Symptoms",
+              "description": "Initially a dry cough, which later becomes productive, classically with rust-colored sputum. Pleuritic, sharp chest pain and shortness of breath are common.",
               "severity": "moderate"
             },
             {
-              "name": "Atypische Präsentation",
-              "description": "Bei älteren Menschen kann Fever fehlen; eine Bewusstseinsstörung kann das führende Symptom sein.",
+              "name": "Atypical Presentation",
+              "description": "In the elderly, fever may be absent, and altered mental status can be the leading symptom.",
               "severity": "severe"
             }
           ],
           "physical_exam": [
-            "Tachypnoe, Tachykardie",
-            "Dämpfung in / with Perkussion über dem betroffenen Lappen",
-            "Bronchialatmen, Rasselgeräusche (Crepitatio)",
-            "Erhöhte Bronchophonie and Stimmfremitus",
-            "Zyanose in schweren Fällen"
+            "Tachypnea, tachycardia",
+            "Dullness to percussion over the affected lobe",
+            "Bronchial breath sounds, crepitation",
+            "Increased bronchophony and tactile fremitus",
+            "Cyanosis in severe cases"
           ],
           "complications": [
-            "Empyem",
-            "Lungenabszess",
+            "Empyema",
+            "Lung abscess",
             "Meningitis",
-            "Sepsis/septischer Schock",
+            "Sepsis/septic shock",
             "ARDS",
-            "Perikarditis"
+            "Pericarditis"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Blutbild",
-              "finding": "Leukozytose (15-30 G/L), Linksverschiebung",
-              "interpretation": "Typisch for bakterielle Infektion"
+              "test": "CBC",
+              "finding": "Leukocytosis (15-30 G/L), left shift",
+              "interpretation": "Typical for bacterial infection"
             },
             {
               "test": "CRP",
-              "finding": "Deutlich erhöht (>100 mg/L)",
-              "interpretation": "Marker for aktive Entzündung"
+              "finding": "Significantly elevated (>100 mg/L)",
+              "interpretation": "Marker of active inflammation"
             },
             {
               "test": "PCT",
               "finding": ">0.5 ng/mL",
-              "interpretation": "Verdacht auf bakterielle Sepsis"
+              "interpretation": "Suspicion of bacterial sepsis"
             },
             {
-              "test": "Arterielle BGA",
-              "finding": "Hypoxämie, evtl. Hypokapnie",
-              "interpretation": "Respiratorische Insuffizienz"
+              "test": "Arterial blood gas",
+              "finding": "Hypoxemia, possibly hypocapnia",
+              "interpretation": "Respiratory failure"
             },
             {
-              "test": "Blutkultur",
-              "finding": "In 20-30% positiv",
-              "interpretation": "Pathogenidentifikation"
+              "test": "Blood culture",
+              "finding": "Positive in 20-30%",
+              "interpretation": "Pathogen identification"
             }
           ],
           "imaging": [
             {
-              "modality": "Thorax-Röntgen (PA+seitlich)",
+              "modality": "Chest X-ray (PA+lateral)",
               "finding": "Lobar/segmental consolidation, air bronchogram",
-              "significance": "Typisches Erscheinungsbild"
+              "significance": "Typical appearance"
             },
             {
-              "modality": "Thorax-CT",
-              "finding": "Detaillierte Parenchymbeurteilung",
-              "significance": "Ausschluss von Komplikationen"
+              "modality": "Chest CT",
+              "finding": "Detailed parenchyma evaluation",
+              "significance": "Exclusion of complications"
             }
           ],
           "microbiology": [
             {
-              "test": "Sputum Gram-Färbung",
-              "finding": "Gram+ lanzettförmige Diplococci, >25 Neutrophile/Gesichtsfeld",
-              "significance": "Schnelle Orientierung"
+              "test": "Sputum Gram stain",
+              "finding": "Gram+ lancet-shaped diplococci, >25 neutrophils/field",
+              "significance": "Quick orientation"
             },
             {
-              "test": "Sputumkultur",
-              "finding": "S. pneumoniae Isolierung",
-              "significance": "Antibiotika-Empfindlichkeit"
+              "test": "Sputum culture",
+              "finding": "S. pneumoniae isolation",
+              "significance": "Antibiotic susceptibility"
             },
             {
-              "test": "Urin-Antigentest",
-              "finding": "Pneumokokken-Polysaccharid-Nachweis",
-              "significance": "Schnell, spezifisch (>90%)"
+              "test": "Urine antigen test",
+              "finding": "Pneumococcal polysaccharide detection",
+              "significance": "Fast, specific (>90%)"
             },
             {
               "test": "PCR",
-              "finding": "lytA-Gen-Nachweis",
-              "significance": "Empfindlichste Methode"
+              "finding": "lytA gene detection",
+              "significance": "Most sensitive method"
             }
           ]
         },
         "calculators": [
           {
-            "name": "CURB-65 Score - Pneumonie-Severeegrad",
+            "name": "CURB-65 Score - Pneumonia Severity",
             "items": [
               {
-                "label": "Verwirrtheit (Confusion)",
+                "label": "Confusion",
                 "points": 1
               },
               {
-                "label": "Harnstoff > 7 mmol/l",
+                "label": "Urea > 7 mmol/L",
                 "points": 1
               },
               {
-                "label": "Atemfrequenz ≥ 30/min",
+                "label": "Respiratory rate ≥ 30/min",
                 "points": 1
               },
               {
-                "label": "Blutdruck (Syst < 90 or Diast ≤ 60 mmHg)",
+                "label": "Blood pressure (SBP < 90 or DBP ≤ 60 mmHg)",
                 "points": 1
               },
               {
-                "label": "Alter ≥ 65 Jahre",
+                "label": "Age ≥ 65 years",
                 "points": 1
               }
             ],
@@ -241,133 +240,133 @@ Object.assign(window.diseases, {
               {
                 "min": 0,
                 "max": 1,
-                "text": "Niedriges Risiko (Mortalität <3%). Ambulante Treatment erwägen."
+                "text": "Low risk (mortality <3%). Consider home treatment."
               },
               {
                 "min": 2,
                 "max": 2,
-                "text": "Mittleres Risiko (Mortalität 9%). Krankenhausaufnahme empfohlen."
+                "text": "Moderate risk (mortality 9%). Hospital admission recommended."
               },
               {
                 "min": 3,
                 "max": 5,
-                "text": "Hohes Risiko (Mortalität 15-40%). Dringende Krankenhaus-/Intensivbehandlung."
+                "text": "High risk (mortality 15-40%). Urgent hospital/ICU admission."
               }
             ]
           }
         ],
         "differential": [
           {
-            "disease": "Legionellen-Pneumonie",
-            "distinguishing": "Hyponatriämie, GI-Symptoms, atypisches Röntgenbild"
+            "disease": "Legionella pneumonia",
+            "distinguishing": "Hyponatremia, GI symptoms, atypical X-ray"
           },
           {
-            "disease": "Klebsiella-Pneumonie",
-            "distinguishing": "Alcoholics, dunkler pflaumenmusartiger Sputum, Oberlappen"
+            "disease": "Klebsiella pneumonia",
+            "distinguishing": "Alcoholics, currant jelly sputum, upper lobe"
           },
           {
-            "disease": "Mykoplasmen-Pneumonie",
-            "distinguishing": "Junge Patients, schleichender Onset, atypische Symptoms"
+            "disease": "Mycoplasma pneumonia",
+            "distinguishing": "Young people, slow onset, atypical symptoms"
           },
           {
-            "disease": "Lungenembolie",
-            "distinguishing": "Risikofaktoren, D-Dimer, CT-Pulmonalisangiographie"
+            "disease": "Pulmonary embolism",
+            "distinguishing": "Risk factors, D-dimer, CTPA"
           },
           {
-            "disease": "Herzinsuffizienz",
-            "distinguishing": "Kardiale Anamnese, BNP, beidseitiges Infiltrat"
+            "disease": "Heart failure",
+            "distinguishing": "Cardiac history, BNP, bilateral infiltrates"
           }
         ],
         "therapy": {
           "guidelines": [
             "NICE NG138 (Pneumonia in adults) 2024/2025",
             "ATS/IDSA 2019 CAP Guidelines",
-            "ERS Guidelines"
+            "Hungarian Society of Infectology"
           ],
           "empirical": {
             "cap_outpatient": {
-              "title": "CAP - Outpatient Management (Mild - CURB-65 0-1)",
+              "title": "CAP - Outpatient (Mild - CURB-65 0-1)",
               "drugs": [
                 {
                   "drug": "Amoxicillin",
-                  "dose": "3x500mg-1g p.o.",
+                  "dose": "3x500mg-1g PO",
                   "duration": "5 days",
-                  "note": "First-line choice (NICE). 5-Tage-Therapie i.d.R. ausreichend."
+                  "note": "First choice (NICE). 5-day course is usually sufficient."
                 },
                 {
-                  "drug": "Doxycyclin",
-                  "dose": "200mg initial, dann 1x100mg p.o.",
+                  "drug": "Doxycycline",
+                  "dose": "200mg stat, then 1x100mg PO",
                   "duration": "5 days",
-                  "note": "In penicillin allergy."
+                  "note": "For penicillin allergy."
                 },
                 {
                   "drug": "Clarithromycin",
-                  "dose": "2x500mg p.o.",
+                  "dose": "2x500mg PO",
                   "duration": "5 days",
                   "note": "Alternative."
                 }
               ]
             },
             "cap_inpatient": {
-              "title": "CAP - Inpatient Ward (Moderate - CURB-65 2)",
+              "title": "CAP - Inpatient (Moderate - CURB-65 2)",
               "drugs": [
                 {
                   "drug": "Amoxicillin + Clarithromycin",
-                  "dose": "3x500mg-1g p.o./i.v. + 2x500mg p.o./i.v.",
+                  "dose": "3x500mg-1g PO/IV + 2x500mg PO/IV",
                   "duration": "5 days",
-                  "note": "Atypische Abdeckung erforderlich (NICE)."
+                  "note": "Atypical coverage may be needed. (NICE)"
                 },
                 {
-                  "drug": "Doxycyclin",
-                  "dose": "200mg initial, dann 1x100mg p.o.",
+                  "drug": "Doxycycline",
+                  "dose": "200mg stat, then 1x100mg PO",
                   "duration": "5 days",
-                  "note": "Monotherapie in / with Penicillinallergie."
+                  "note": "Monotherapy for penicillin allergy."
                 },
                 {
                   "drug": "Levofloxacin",
-                  "dose": "1x500mg p.o./i.v.",
+                  "dose": "1x500mg PO/IV",
                   "duration": "5 days",
-                  "note": "Respiratorisches Fluorchinolon."
+                  "note": "Alternative (NICE: respiratory fluoroquinolone)."
                 }
               ]
             },
             "cap_icu": {
-              "title": "CAP - Severe / ICU (CURB-65 3-5)",
+              "title": "CAP - Severe (CURB-65 3-5) / ICU",
               "drugs": [
                 {
-                  "drug": "Co-Amoxiclav + Clarithromycin",
-                  "dose": "1.2g i.v. q8h + 500mg i.v. q12h",
+                  "drug": "Co-amoxiclav + Clarithromycin",
+                  "dose": "1.2g IV q8h + 500mg IV q12h",
                   "duration": "7-10 days",
-                  "note": "NICE Empfehlung in / with schwerer CAP."
+                  "note": "NICE recommendation for severe CAP."
                 },
                 {
-                  "drug": "Ceftriaxon + Clarithromycin",
-                  "dose": "1x2g i.v. + 2x500mg i.v.",
+                  "drug": "Ceftriaxone + Clarithromycin",
+                  "dose": "1x2g IV + 2x500mg IV",
                   "duration": "7-10 days",
-                  "note": "Commone Alternativee."
+                  "note": "Common alternative (not NICE first-line, but widespread)."
                 },
                 {
                   "drug": "Levofloxacin",
-                  "dose": "1x500mg i.v.",
+                  "dose": "1x500mg IV",
                   "duration": "7-10 days",
-                  "note": "Bei Beta-Laktam-Allergie."
+                  "note": "For beta-lactam allergy."
                 }
               ]
             },
             "hap_early": {
-              "title": "HAP - Non-severe / Early onset",
+              "title": "HAP - Not severe / Early",
               "drugs": [
                 {
-                  "drug": "Co-Amoxiclav",
-                  "dose": "625mg p.o. three times daily or 1.2g i.v. three times daily",
+                  "drug": "Co-amoxiclav",
+                  "dose": "625mg PO TID or 1.2g IV TID",
                   "duration": "5 days",
-                  "note": "Drug of choice (NICE NG191)."
+                  "note": "First choice (NICE NG191)."
                 },
                 {
-                  "drug": "Doxycyclin",
-                  "dose": "100mg p.o.",
+                  "drug": "Doxycycline",
+                  "dose": "100mg PO",
                   "duration": "5 days",
-                  "note": "Alternativee."
+                  "note": "Alternative."
                 }
               ]
             },
@@ -375,22 +374,22 @@ Object.assign(window.diseases, {
               "title": "HAP - Severe / VAP / High risk",
               "drugs": [
                 {
-                  "drug": "Antipseudomonas Beta-Laktam",
-                  "dose": "z.B. Piperacillin/Tazobactam, Cefepim, Meropenem",
+                  "drug": "Antipseudomonal beta-lactam",
+                  "dose": "e.g., Piperacillin/tazobactam, Cefepime, Meropenem",
                   "duration": "7 days",
-                  "note": "Komponente 1 (Gram-negativee Abdeckung)."
+                  "note": "1st component (Gram-negative coverage)."
                 },
                 {
-                  "drug": "+ Antipseudomonas Fluorchinolon or Aminoglykosid",
-                  "dose": "z.B. Ciprofloxacin, Amikacin",
+                  "drug": "+ Antipseudomonal fluoroquinolone or aminoglycoside",
+                  "dose": "e.g., Ciprofloxacin, Amikacin",
                   "duration": "7 days",
-                  "note": "Komponente 2 (Dual Gram-negativee Abdeckung)."
+                  "note": "2nd component (double G- coverage if needed)."
                 },
                 {
-                  "drug": "+ MRSA-Abdeckung",
+                  "drug": "+ MRSA coverage",
                   "dose": "Vancomycin or Linezolid",
                   "duration": "7 days",
-                  "note": "Komponente 3 (bei MRSA-Risiko >10-20%)."
+                  "note": "3rd component (if MRSA risk >10-20%)."
                 }
               ]
             },
@@ -398,46 +397,46 @@ Object.assign(window.diseases, {
               "title": "VAP - Stenotrophomonas maltophilia (Targeted)",
               "drugs": [
                 {
-                  "drug": "Trimethoprim/Sulfamethoxazol (TMP-SMX)",
-                  "dose": "15-20 mg/kg/Tag (TMP) i.v. in 3-4 Einzeldosen",
+                  "drug": "Trimethoprim/Sulfamethoxazole (TMP-SMX)",
+                  "dose": "15-20 mg/kg/day (TMP) IV in 3-4 div. doses",
                   "duration": "14 days",
-                  "note": "1. Wahl. Hohe Dosis erforderlich!"
+                  "note": "First choice. High dose required!"
                 },
                 {
                   "drug": "Levofloxacin",
-                  "dose": "750 mg i.v. once daily",
+                  "dose": "750 mg IV daily",
                   "duration": "14 days",
-                  "note": "Alternativee."
+                  "note": "Alternative."
                 },
                 {
                   "drug": "Cefiderocol",
-                  "dose": "2g i.v. q8h",
+                  "dose": "2g IV q8h",
                   "duration": "14 days",
-                  "note": "Reserveantibiotikum."
+                  "note": "Reserve antibiotic."
                 }
               ]
             }
           },
-          "targeted": "Penicillinsensibel: Penicillin G 4x4 Mio. IE i.v.; Resistent: Ceftriaxon or Vancomycin",
+          "targeted": "Penicillin-sensitive: Penicillin G 4x4 million IU IV; Resistant: Ceftriaxone or Vancomycin",
           "supportive": [
-            "O2-Therapie (SpO2 >92%)",
-            "Flüssigkeitssubstitution",
-            "Feversenkung",
-            "Thoraxdrainage in / with Empyem"
+            "O2 therapy (SpO2 >92%)",
+            "Fluid resuscitation",
+            "Antipyretics",
+            "Chest drain for empyema"
           ],
           "prevention": [
-            "PPSV23 (23-valenter Polysaccharid-Impfstoff)",
-            "PCV13/15/20 (Konjugatimpfstoff)",
-            "Influenza-Impfung"
+            "PPSV23 (23-valent polysaccharide)",
+            "PCV13/15/20 (conjugate)",
+            "Influenza vaccine"
           ]
         },
         "prognosis": {
-          "mortality": "CAP: 5-15%, Intensivstation: 20-50%",
+          "mortality": "CAP: 5-15%, ICU: 20-50%",
           "prognostic_scores": [
             "CURB-65",
-            "PSI/PORT Score"
+            "PSI/PORT score"
           ],
-          "factors": "Alter, Komorbiditäten, Bakteriämie, multilobärer Befall"
+          "factors": "Age, comorbidity, bacteremia, multilobar involvement"
         },
         "references": [
           {
@@ -452,13 +451,13 @@ Object.assign(window.diseases, {
         "gallery": [
           {
             "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Lobar_pneumonia.jpg",
-            "caption": "Konsolidierung des rechten Unterlappens im Thorax-Röntgen.",
-            "type": "Röntgen"
+            "caption": "Right lower lobe consolidation on chest X-ray.",
+            "type": "X-ray"
           },
           {
             "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Streptococcus_pneumoniae.jpg",
-            "caption": "Gram-positivee, lanzettförmige Diplococci im Sputumpräparat.",
-            "type": "Mikroskopie"
+            "caption": "Gram-positive, lancet-shaped diplococci in sputum smear.",
+            "type": "Microscopy"
           }
         ]
       },
@@ -467,463 +466,589 @@ Object.assign(window.diseases, {
         "name": "Mediastinitis",
         "pathogen": {
           "type": "Bacterium",
-          "name": "Polymikrobiell, häufig <i>Staphylococcus aureus</i>, Streptokokken, Gram-negativee Rods, Anaerobier",
-          "gram": "Gemischt",
-          "shape": "Variabel"
+          "name": "Polymicrobial, often <i>Staphylococcus aureus</i>, streptococci, gram-negative organisms, anaerobes",
+          "gram": "Mixed",
+          "shape": "Variable"
         },
         "epidemiology": {
-          "incidence": "Rare, aber lebensbedrohliche Komplikation",
+          "incidence": "Rare but severe complication",
           "risk_groups": [
-            "Postoperative Patients",
-            "Nach endoskopischen Eingriffen",
-            "Oropharyngeale Infektionen",
+            "Postoperative patients",
+            "After endoscopic procedures",
+            "Oropharyngeal infections",
             "Trauma",
-            "Odontogene Infektionen",
-            "Immunsuppression"
+            "Odontogenic infections",
+            "Immunosuppression"
           ],
           "seasonality": "None",
-          "transmission": "Fortleitung aus benachbartem Gewebe, chirurgische or endoskopische Intervention"
+          "transmission": "Not directly contagious; spreads from adjacent tissues, surgery, or endoscopy"
         },
         "pathomechanism": {
           "steps": [
-            "Das Mediastinum kann von benachbarten Geweben aus infiziert werden (z.B. Rachen, Speiseröhre, Zahn, Thoraxwand), after Endoskopie, Operation or Trauma.",
-            "Die bakterielle Ausbreitung führt zu eitriger Entzündung, Gewebsnekrose and Abszessbildung im Mediastinum.",
-            "Der Prozess führt zu Phlegmone, Zellnekrose and systemischer Entzündungsreaktion, die zu schwerer Sepsis, Schock and Multiorganversagen führen kann."
+            "The mediastinum can become infected from adjacent tissues (e.g., throat, esophagus, tooth, chest wall), after endoscopy, surgery, or trauma.",
+            "Bacterial spread causes inflammation, tissue necrosis, and abscess formation in the mediastinum.",
+            "The process can lead to plastic inflammation, cell death, and a systemic inflammatory response that results in sepsis, shock, and multi-organ failure."
           ],
           "virulence_factors": [
             "Biofilm",
-            "Toxine",
-            "Polymikrobielle Gemeinschaft",
-            "Gewebsnekrose"
+            "Toxins",
+            "Polymicrobial community",
+            "Tissue necrosis"
           ]
         },
         "clinical": {
-          "incubation": "Variabel, häufig wenige days bis weeks",
-          "onset": "Akut or subakut",
+          "incubation": "Variable, often several days to weeks",
+          "onset": "Acute or subacute",
           "symptoms": [
             {
-              "name": "Chest Pain",
-              "description": "Leitsymptom, häufig stark, retrosternal/retrocardial, teilweise with Schluckbeschwerden",
+              "name": "Chest pain",
+              "description": "Main symptom, often severe and intense, sometimes with dysphagia",
               "severity": "severe"
             },
             {
-              "name": "Fever and B-Symptomatik",
-              "description": "Entzündlicher Zustand, Tachykardie and Fever charakteristisch",
+              "name": "Fever and malaise",
+              "description": "Inflammatory condition with tachycardia and fever",
               "severity": "severe"
             },
             {
-              "name": "Schluckbeschwerden / Heiserkeit",
-              "description": "Mediastinale Entzündung or Abszess kann Ösophagus and Larynxbereich betreffen",
+              "name": "Dysphagia / hoarseness",
+              "description": "If the esophagus, larynx, or surrounding mediastinal space is involved",
               "severity": "moderate"
             }
           ],
           "physical_exam": [
-            "Fever, Tachykardie, Leukozytose",
-            "Zervikale or supratrachiale Schwellung",
-            "Chest Pain, Schluckbeschwerden",
-            "Hypotonie and Sepsiszeichen im schweren Verlauf"
+            "Fever, tachycardia, leukocytosis",
+            "Neck or supraclavicular swelling",
+            "Chest pain, dysphagia",
+            "In severe cases hypotension and sepsis signs"
           ],
           "complications": [
-            "Septischer Schock",
-            "Mediastinalabszess",
-            "Ösophagusperforation",
-            "Aorten- or Großgefäßerosion",
-            "Pleuraempyem",
-            "Tod"
+            "Septic shock",
+            "Mediastinal abscess",
+            "Esophageal perforation",
+            "Aortic or major vessel involvement",
+            "Pulmonary or pleural complications",
+            "Death"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Blutbild, CRP, PCT",
-              "finding": "Entzündung, häufig hohes PCT",
-              "interpretation": "Severee Entzündung/Infektion"
+              "test": "CBC, CRP, PCT",
+              "finding": "Inflammation, often high PCT",
+              "interpretation": "Severe inflammation/infection"
             },
             {
-              "test": "Blutkultur",
-              "finding": "Kann positiv sein",
-              "interpretation": "Verdacht auf Sepsis or hämatogene Streuung"
+              "test": "Blood culture",
+              "finding": "May be positive",
+              "interpretation": "Sepsis or hematogenous spread suspected"
             }
           ],
           "imaging": [
             {
-              "modality": "CT Thorax/Hals",
-              "finding": "Mediastinale Gewebeschwellung, Abszess, Gas, Flüssigkeit",
-              "significance": "Wichtigste Bildgebung"
+              "modality": "CT chest/neck",
+              "finding": "Mediastinal soft-tissue swelling, abscess, gas, fluid",
+              "significance": "Most important imaging"
             },
             {
-              "modality": "Thorax-Röntgen",
-              "finding": "Mediastinale Aufweitung, evtl. Pleural Effusion",
-              "significance": "Erster Schritt, aber weniger spezifisch"
+              "modality": "Chest X-ray",
+              "finding": "Mediastinal widening, sometimes pleural effusion",
+              "significance": "First step, but less specific"
             }
           ],
           "microbiology": [
             {
-              "test": "Chirurgische/Bronchoskopische Probenahme",
-              "finding": "Kultur and PCR",
-              "significance": "Targetede Therapie and Resistenz"
+              "test": "Surgical/bronchoscopic samples",
+              "finding": "Culture and PCR",
+              "significance": "Targeted therapy and resistance"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Pneumonie",
-            "distinguishing": "Lungenparenchymbefall, weniger mediastinal"
+            "disease": "Pneumonia",
+            "distinguishing": "Pulmonary parenchymal focus, less mediastinal"
           },
           {
-            "disease": "Aortendissection / Mediastinalblutung",
-            "distinguishing": "Bildgebend abgrenzbar"
+            "disease": "Aortic dissection / mediastinal bleeding",
+            "distinguishing": "Distinguishable with appropriate imaging"
           },
           {
-            "disease": "Pleuritis / Empyem",
-            "distinguishing": "Pleuraler Befall, keine primäre Mediastinitis"
+            "disease": "Pleuritis / empyema",
+            "distinguishing": "Pleural and fluid focus, not primary mediastinal infection"
           }
         ],
         "therapy": {
           "empirical": {
             "inpatient": [
               {
-                "drug": "Piperacillin/Tazobactam",
-                "dose": "4.5g i.v. three times daily",
-                "duration": "Stationär/i.v.",
-                "note": "Breites Spektrum, häufige 1. Wahl"
+                "drug": "Piperacillin/tazobactam",
+                "dose": "4.5g IV q8h",
+                "duration": "Hospital/IV",
+                "note": "Broad spectrum, often first choice"
               },
               {
                 "drug": "+ Vancomycin",
-                "dose": "15-20 mg/kg i.v. twice daily",
+                "dose": "15-20 mg/kg IV q12h",
                 "duration": "",
-                "note": "MRSA-Abdeckung"
+                "note": "MRSA coverage"
               },
               {
-                "drug": "+ Clindamycin or Metronidazol",
-                "dose": "600mg i.v. three times daily",
+                "drug": "+ Clindamycin or Metronidazole",
+                "dose": "600mg IV q8h",
                 "duration": "",
-                "note": "Anaerobe Abdeckung"
+                "note": "Anaerobic coverage"
               }
             ],
             "icu": [
               {
                 "drug": "Meropenem",
-                "dose": "1g i.v. three times daily",
+                "dose": "1g IV q8h",
                 "duration": "",
-                "note": "Severeer, kritischer Zustand"
+                "note": "Severe, critical condition"
               },
               {
                 "drug": "+ Vancomycin",
-                "dose": "15-20 mg/kg i.v. twice daily",
+                "dose": "15-20 mg/kg IV q12h",
                 "duration": "",
-                "note": "MRSA/G+ Abdeckung"
+                "note": "MRSA/G+ coverage"
               }
             ]
           },
-          "targeted": "Anpassung after Kultur and Empfindlichkeit; Quellensanierung and chirurgische Drainage entscheidend.",
+          "targeted": "Adjusted based on culture and susceptibility; source control and surgical drainage are decisive.",
           "supportive": [
-            "Dringendes chirurgisches Konsil",
-            "i.v. Flüssigkeitssubstitution",
-            "Vasopressoren in / with schwerer Sepsis",
-            "Ernährung",
-            "Atemwegsunterstützung"
+            "Urgent surgical consultation",
+            "IV fluids",
+            "Vasopressors in severe sepsis",
+            "Nutrition",
+            "Respiratory support"
           ],
           "prevention": [
-            "Antibiotikaprophylaxe vor Eingriffen",
-            "Aseptische Mütungstechnik",
-            "Treatment von Zahn- and Pharynxinfektionen"
+            "Antibiotic prophylaxis before procedures",
+            "Hygienic surgical technique",
+            "Treatment of dental and throat infections"
+          ]
+        },
+        "guidelines": {
+          "diagnosis": [
+            "CT chest/neck is the key examination; clinical suspicion and imaging together determine the diagnosis."
+          ],
+          "treatment_indications": [
+            "Any suspected mediastinitis requires urgent hospital care; surgical debridement/drainage is often necessary."
+          ],
+          "first_line": [
+            "Broad-spectrum IV antibiotics plus surgical source control."
           ]
         },
         "prognosis": {
-          "mortality": "10-40% je after Ursache and Treatmentsbeginn",
+          "mortality": "High, especially if diagnosed late or associated with sepsis",
           "prognostic_scores": [
-            "SOFA Score"
+            "No single score"
           ],
-          "factors": "Verzögerte Intervention, Ösophagusperforation, Alter"
-        },
-        "references": [
-          {
-            "text": "EACTS Guidelines on the management of mediastinitis",
-            "url": "https://www.eacts.org"
-          }
-        ],
-        "gallery": [
-          {
-            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/CT_scan_showing_mediastinitis.jpg",
-            "caption": "Thorax-CT with Mediastinalverbreiterung and Abszessbildung.",
-            "type": "CT Bildgebung"
-          }
-        ]
+          "factors": "Late diagnosis, immunosuppression, severity of the underlying disease, vascular involvement"
+        }
       },
       {
         "id": "tuberculosis",
-        "name": "Tuberculosis",
+        "name": "Pulmonary Tuberculosis",
         "pathogen": {
-          "type": "Bacterium",
-          "name": "<i>Mycobacterium tuberculosis</i> Complex",
-          "gram": "Säurefest",
-          "shape": "Rods"
+          "type": "Mycobacterium",
+          "name": "<i>Mycobacterium tuberculosis</i>",
+          "gram": "Acid-fast (Ziehl-Neelsen+)",
+          "shape": "rod"
         },
         "epidemiology": {
-          "incidence": "Weltweit ca. 10.6 Mio. Diseaseen/Jahr, führende infektionsbedingte Todesursache",
+          "incidence": "~10 million new cases/year worldwide, ~500 cases/year in Hungary",
           "risk_groups": [
-            "HIV-Infizierte",
-            "Immunsupprimierte",
-            "Migranten aus Hochendemiegebieten",
-            "Obdachlose",
-            "Diabetiker"
+            "People living with HIV (20-30x risk)",
+            "Patients with diabetes",
+            "Immunocompromised",
+            "Socially disadvantaged",
+            "Healthcare workers",
+            "Immigrants from endemic areas"
           ],
-          "seasonality": "None",
-          "transmission": "Tröpfcheninfektion (aerogen)"
+          "seasonality": "No seasonality",
+          "transmission": "Droplet infection (< 5 μm aerosol), 8+ hours exposure in a closed space"
         },
         "pathomechanism": {
           "steps": [
-            "Inhalation von Mycobacterium tuberculosis Aerosolen in die Alveolen.",
-            "Phagozytose durch Alveolarmakrophagen. Hemmung der Phagolysosomenfusion, Bildung des Ghon-Primärkomplexes.",
-            "T-Zell-Aktivierung, Granulombildung with verkäsender Nekrose. Latenz or Progression zu aktiver Tuberkulose."
+            "Infection occurs by inhaling aerosol droplets containing the pathogen. The bacteria are phagocytosed by alveolar macrophages but survive and multiply within them.",
+            "A primary lesion (Ghon focus) develops at the site of infection, and the bacteria spread to regional lymph nodes, forming the primary complex.",
+            "The cellular immune response (T-cells) is activated, leading to granuloma formation. These granulomas encapsulate the bacteria, establishing a latent infection (LTBI) in 90% of cases.",
+            "In case of immunosuppression, the bacteria can reactivate. The center of the granuloma undergoes caseous necrosis, which can liquefy and form a cavity, leading to an open, infectious form of the disease."
           ],
           "virulence_factors": [
-            "Mycolsäuren",
-            "Cord-Faktor",
-            "ESX-1 Sekretionssystem"
+            "Cord factor (trehalose dimycolate)",
+            "Mycolic acid (cell wall)",
+            "Lipoarabinomannan",
+            "ESAT-6 and CFP-10 secreted antigens"
           ]
         },
         "clinical": {
-          "incubation": "Monate bis Jahrzehnte (Latenz); primär 2-12 weeks",
-          "onset": "Schleichend",
+          "incubation": "Primary: 2-12 weeks; Reactivation: years-decades",
+          "onset": "Slow, insidious",
           "symptoms": [
             {
-              "name": "B-Symptomatik",
-              "description": "Nachtschweiß, Gewichtsverlust, leichtes Fever, Fatigue.",
+              "name": "Respiratory Symptoms",
+              "description": "Chronic cough lasting more than 3 weeks, which may initially be dry and later become productive. Bloody sputum (hemoptysis) may appear later.",
+              "severity": "severe"
+            },
+            {
+              "name": "Constitutional (B) Symptoms",
+              "description": "Insidious onset with prolonged symptoms: low-grade fever (especially in the afternoon), profuse night sweats, and significant unintentional weight loss.",
               "severity": "moderate"
             },
             {
-              "name": "Respiratorische Symptoms",
-              "description": "Chronischer Cough (>2-3 weeks), Bluthusten (Hämoptoe), Chest Pain.",
-              "severity": "severe"
+              "name": "Other",
+              "description": "Fatigue, loss of appetite, chest pain.",
+              "severity": "mild"
             }
           ],
           "physical_exam": [
-            "Kachexie, Rasselgeräusche über den Lungenoberlappen, Dämpfung in / with Erguss"
+            "Cachexia",
+            "Crepitation/bronchial breathing over upper lobes",
+            "Decreased breath sounds over a cavity",
+            "Pleural friction rub",
+            "Lymphadenopathy (miliary/extrapulmonary)"
           ],
           "complications": [
-            "Miliartuberkulose",
-            "Tbc-Meningitis",
-            "Kavernenblutung",
-            "Lungenfibrose"
+            "Miliary TB",
+            "TB meningitis",
+            "Pleuritis",
+            "Pericarditis",
+            "Spontaneous pneumothorax",
+            "Hemoptysis",
+            "Amyloidosis"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Ziehl-Neelsen / Auramin-Färbung",
-              "finding": "Säurefeste Rods im Sputum",
-              "interpretation": "Schnellnachweis"
+              "test": "CBC",
+              "finding": "Normocytic anemia, lymphopenia",
+              "interpretation": "Signs of chronic disease"
             },
             {
-              "test": "GeneXpert MTB/RIF PCR",
-              "finding": "MTB-DNA + Rifampicin-Resistenz",
-              "interpretation": "WHO-Goldstandard Schnelltest"
+              "test": "CRP/ESR",
+              "finding": "Moderately elevated",
+              "interpretation": "Non-specific"
             },
             {
-              "test": "Kultur (MGIT / Löwenstein-Jensen)",
-              "finding": "Wachstum von M. tuberculosis",
-              "interpretation": "Phänotypisches Antibiogramm"
+              "test": "Liver/kidney function",
+              "finding": "Baseline before treatment",
+              "interpretation": "Monitoring for drug toxicity"
             },
             {
-              "test": "IGRA (QuantiFERON)",
-              "finding": "Interferon-Gamma-Freisetzung positiv",
-              "interpretation": "Nachweis der Tbc-Infektion"
+              "test": "HIV serology",
+              "finding": "Mandatory",
+              "interpretation": "Exclusion of coinfection"
             }
           ],
           "imaging": [
             {
-              "modality": "Thorax-Röntgen",
-              "finding": "Oberlappeninfiltrat, Kaverne, Vernarbung",
-              "significance": "Screening"
+              "modality": "Chest X-ray",
+              "finding": "Upper lobe infiltrate, cavity, fibrotic scarring, calcification",
+              "significance": "Screening and follow-up"
             },
             {
-              "modality": "Thorax-CT",
-              "finding": "Tree-in-bud-Muster, Kavernen",
-              "significance": "Empfindlicher"
+              "modality": "Chest CT",
+              "finding": "Tree-in-bud sign, cavities, miliary pattern",
+              "significance": "More sensitive, extrapulmonary"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Sputum Ziehl-Neelsen stain",
+              "finding": "Acid-fast bacilli (AFB)",
+              "significance": "Fast, but only positive >10^4/mL"
+            },
+            {
+              "test": "Sputum/BAL culture",
+              "finding": "Löwenstein-Jensen/MGIT",
+              "significance": "Gold standard, 2-8 weeks"
+            },
+            {
+              "test": "GeneXpert MTB/RIF",
+              "finding": "MTB DNA + rifampicin resistance",
+              "significance": "Fast (<2 hours), sensitive"
+            },
+            {
+              "test": "Tuberculin skin test (Mantoux)",
+              "finding": ">10mm induration",
+              "significance": "Exposure, not active disease"
+            },
+            {
+              "test": "IGRA (QuantiFERON/T-SPOT)",
+              "finding": "IFN-γ production to ESAT-6/CFP-10",
+              "significance": "Not affected by BCG"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Bronchialkarzinom",
-            "distinguishing": "Histologie"
+            "disease": "Lung carcinoma",
+            "distinguishing": "Smoking, X-ray/CT, bronchoscopy, biopsy"
           },
           {
-            "disease": "Sarkoidose",
-            "distinguishing": "Nicht-verkäsende Granulome, IGRA negativ"
+            "disease": "Non-tuberculous mycobacteriosis (NTM)",
+            "distinguishing": "Bronchiectasis, culture, MAC most common"
+          },
+          {
+            "disease": "Sarcoidosis",
+            "distinguishing": "Bilateral hilar lymphadenopathy, biopsy (non-caseating)"
+          },
+          {
+            "disease": "Fungal pneumonia",
+            "distinguishing": "Immunosuppression, culture/antigen"
+          },
+          {
+            "disease": "Actinomycosis",
+            "distinguishing": "Sulfur granules, chest wall penetration"
           }
         ],
         "therapy": {
-          "guidelines": [
-            "WHO Consolidated Guidelines on Tuberculosis 2024",
-            "CDC / ATS / IDSA TB Guidelines"
-          ],
           "empirical": {
-            "title": "Standard 4-fach Therapie (Sensible Tbc)",
-            "drugs": [
+            "outpatient": [
               {
-                "drug": "Isoniazid (H) + Pyridoxin (B6)",
-                "dose": "5 mg/kg p.o. once daily + B6 25-50mg/Tag",
-                "duration": "2 months Initial + 4 months Kontinuation",
-                "note": "Pyridoxin zur Neuropathie-Prophylaxe."
+                "drug": "Isoniazid (INH)",
+                "dose": "5 mg/kg (max 300mg) PO",
+                "duration": "6 months",
+                "note": "Hepatotoxicity, peripheral neuropathy (B6!)"
               },
               {
-                "drug": "Rifampicin (R)",
-                "dose": "10 mg/kg p.o. once daily",
-                "duration": "2 months + 4 months",
-                "note": "Rot-orange Verfärbung von Körperflüssigkeiten."
+                "drug": "Rifampicin (RIF)",
+                "dose": "10 mg/kg (max 600mg) PO",
+                "duration": "6 months",
+                "note": "Drug interactions (CYP450)"
               },
               {
-                "drug": "Pyrazinamid (Z)",
-                "dose": "20-30 mg/kg p.o. once daily",
-                "duration": "2 months Initialphase",
-                "note": "Hepatotoxisch."
+                "drug": "Pyrazinamide (PZA)",
+                "dose": "25 mg/kg PO",
+                "duration": "2 months",
+                "note": "Hyperuricemia, hepatotoxicity"
               },
               {
-                "drug": "Ethambutol (E)",
-                "dose": "15-20 mg/kg p.o. once daily",
-                "duration": "2 months Initialphase",
-                "note": "Optikusneuritis-Risiko."
+                "drug": "Ethambutol (EMB)",
+                "dose": "15 mg/kg PO",
+                "duration": "2 months",
+                "note": "Optic neuritis"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Same + isolation",
+                "dose": "Airborne isolation",
+                "duration": "2 weeks or 3 negative sputa",
+                "note": "Negative pressure room"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "IV formulations",
+                "dose": "If PO not tolerated",
+                "duration": "Individual",
+                "note": "MDR-TB: individualized"
               }
             ]
           },
-          "targeted": "2 months 2HRZE, gefolgt von 4 monthsn 2HR (Gesamtdauer 6 months). In MDR-TB BPaLM-Schema (Bedaquilin + Pretomanid + Linezolid + Moxifloxacin) for 6 months (WHO 2024)!",
+          "targeted": "MDR-TB: Bedaquiline, Linezolid, Fluoroquinolones, Aminoglycosides - expert center",
           "supportive": [
-            "Isolierung (Unterdruckzimmer)",
-            "Beobachtete Einnahme (DOTS)",
-            "Leberwertkontrollen"
+            "Vitamin B6 (neuropathy prevention)",
+            "Nutrition",
+            "Contact tracing"
           ],
           "prevention": [
-            "Kontaktpersonen-Nachverfolgung",
-            "Treatment der latenten TB (LTBI) with 3HP or 4R"
+            "BCG vaccine (newborns)",
+            "LTBI treatment (INH 9 mo or RIF 4 mo)",
+            "Contact screening"
           ]
         },
         "prognosis": {
-          "mortality": "Heilungsrate >95% in / with Adhärenz",
+          "mortality": "Treated: <5%; Untreated: 50%; MDR/XDR: 30-50%",
           "prognostic_scores": [
-            "WHO TB Outcomes"
+            "No standard scores"
           ],
-          "factors": "Resistenzen, HIV-Koinfektion"
+          "factors": "HIV status, MDR, adherence, late diagnosis"
         },
         "references": [
           {
-            "text": "WHO Consolidated Guidelines on Tuberculosis 2024",
-            "url": "https://www.who.int/teams/global-tuberculosis-programme"
+            "text": "WHO Global Tuberculosis Report 2023",
+            "url": "https://www.who.int/teams/global-tuberculosis-programme/tb-reports/global-tuberculosis-report-2023"
+          },
+          {
+            "text": "CDC Tuberculosis (TB) Guidelines",
+            "url": "https://www.cdc.gov/tb/topic/treatment/index.htm"
           }
         ],
-        "gallery": []
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tuberculosis-x-ray-1.jpg",
+            "caption": "Right upper lobe cavity in post-primary tuberculosis.",
+            "type": "X-ray"
+          },
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tuberculosis-x-ray-1.jpg",
+            "caption": "Chest CT with \"tree-in-bud\" pattern, indicating active endobronchial spread.",
+            "type": "CT"
+          }
+        ]
       },
       {
         "id": "legionella",
-        "name": "Legionellosis (Legionnaires' Disease)",
+        "name": "Legionella Pneumonia (Legionnaires' Disease)",
         "pathogen": {
           "type": "Bacterium",
           "name": "<i>Legionella pneumophila</i>",
-          "gram": "Gram-negative",
-          "shape": "Rods"
+          "gram": "Gram-negative (stains poorly)",
+          "shape": "rod, intracellular"
         },
         "epidemiology": {
-          "incidence": "2-10% aller hospitalisierten CAP-Fälle",
+          "incidence": "2-9% of CAP, up to 30% of nosocomial pneumonia",
           "risk_groups": [
-            "Personen >50 J.",
+            "Elderly (>50 years)",
             "Smokers",
-            "Chronische Herzkranke/Lungenkranke",
-            "Reisende"
+            "COPD patients",
+            "Immunocompromised",
+            "Chronic kidney disease",
+            "Diabetes"
           ],
-          "seasonality": "Sommer-Herbst",
-          "transmission": "Aerosolinhalation aus Wassersystemen (Duschen, Kühltürme). None Mensch-zu-Mensch-Übertragung!"
+          "seasonality": "Summer-autumn (air conditioning)",
+          "transmission": "Inhalation (aerosol from contaminated water: cooling towers, showers, hot tubs). NOT transmitted person-to-person!"
         },
         "pathomechanism": {
           "steps": [
-            "Inhalation von Legionellen-Aerosolen.",
-            "Phagozytose durch Alveolarmakrophagen, intrazelluläre Vermehrung im Phagolysosom.",
-            "Nekrotisierende Lobärpneumonie with Zytokinfreisetzung."
+            "Infection occurs by inhaling aerosols (e.g., from showers, cooling towers, air conditioners) containing the bacteria.",
+            "Once in the lungs, Legionella enters alveolar macrophages, where a special secretion system (Dot/Icm) prevents the fusion of phagosomes and lysosomes.",
+            "The bacteria replicate within a protected vacuole inside the macrophage, then lyse the cell to infect new ones.",
+            "This process triggers a severe, necrotizing pneumonia and a strong inflammatory response."
           ],
           "virulence_factors": [
-            "Dot/Icm Typ-IV Sekretionssystem",
-            "Mip-Protein"
+            "Dot/Icm secretion system",
+            "Mip (macrophage infectivity potentiator)",
+            "Flagellum",
+            "Over 300 effector proteins"
           ]
         },
         "clinical": {
-          "incubation": "2-10 days (Legionärskrankheit); 24-48h (Pontiac-Fever)",
-          "onset": "Akut, rasch progredient",
+          "incubation": "2-10 days (average 5-6 days)",
+          "onset": "Prodrome for 1-2 days, then rapid progression",
           "symptoms": [
             {
-              "name": "Hohes Fever & Schüttelfrost",
-              "description": "Gefolgt von unproduktivem or eitrigem Cough.",
+              "name": "Atypical Pneumonia",
+              "description": "High fever, chills, and an initially dry, non-productive cough.",
               "severity": "severe"
             },
             {
-              "name": "Gastrointestinale Symptoms",
-              "description": "Wässrige Diarrhö (30-50%), Bauchschmerzen.",
+              "name": "Extrapulmonary Symptoms",
+              "description": "Multisystem involvement is characteristic: gastrointestinal (diarrhea, nausea) and neurological (headache, confusion, delirium).",
               "severity": "moderate"
             },
             {
-              "name": "ZNS-Symptoms",
-              "description": "Kopfschmerzen, Verwirrtheit, Delir.",
-              "severity": "severe"
+              "name": "Characteristic Signs",
+              "description": "Relative bradycardia (low pulse rate despite high fever) and hyponatremia in lab tests are common.",
+              "severity": "moderate"
             }
           ],
           "physical_exam": [
-            "Hohes Fever, relative Bradykardie (Faget-Zeichen), Rasselgeräusche, Verwirrtheit"
+            "High fever with relative bradycardia (Faget's sign)",
+            "Signs of consolidation on auscultation",
+            "Mild hepatomegaly",
+            "Cerebellar signs possible"
           ],
           "complications": [
-            "ARDS",
-            "Akutes Nierenversagen",
-            "Rhabdomyolyse",
-            "Septischer Schock"
+            "Respiratory failure/ARDS",
+            "Acute kidney injury",
+            "Rhabdomyolysis",
+            "Sepsis",
+            "Endocarditis",
+            "Encephalopathy"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Serum-Natrium",
-              "finding": "Hyponatriämie (<130 mmol/L)",
-              "interpretation": "Sehr charakteristisch!"
+              "test": "CBC",
+              "finding": "Leukocytosis (left shift)",
+              "interpretation": "Non-specific"
             },
             {
-              "test": "Urin-Antigentest",
-              "finding": "L. pneumophila Serogruppe 1 Antigen positiv",
-              "interpretation": "Schnell, spezifisch (>95%)"
+              "test": "Sodium",
+              "finding": "Hyponatremia (<130 mmol/L)",
+              "interpretation": "SIADH - characteristic!"
             },
             {
-              "test": "PCR (Sputum)",
-              "finding": "Legionella-DNA positiv",
-              "interpretation": "Höchste Sensitivität"
+              "test": "Liver enzymes",
+              "finding": "Elevated AST, ALT, LDH",
+              "interpretation": "Common association"
+            },
+            {
+              "test": "CK",
+              "finding": "Elevated",
+              "interpretation": "Myositis/rhabdomyolysis"
+            },
+            {
+              "test": "CRP/PCT",
+              "finding": "Significantly elevated",
+              "interpretation": "Severe bacterial infection"
             }
           ],
           "imaging": [
             {
-              "modality": "Thorax-Röntgen",
-              "finding": "Rasche Infiltratprogression, oft einseitig",
-              "significance": "Schlechter als Klinik"
+              "modality": "Chest X-ray",
+              "finding": "Rapidly progressing infiltrate, often unilateral, lobar",
+              "significance": "Worse than clinical picture"
+            },
+            {
+              "modality": "Chest CT",
+              "finding": "Ground-glass and consolidation, pleural effusion",
+              "significance": "More sensitive"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Urine Legionella antigen",
+              "finding": "L. pneumophila serogroup 1 (70%)",
+              "significance": "Fast (<15 min), specific >95%"
+            },
+            {
+              "test": "Culture (BCYE agar)",
+              "finding": "Legionella isolation",
+              "significance": "Gold standard, 3-5 days"
+            },
+            {
+              "test": "PCR",
+              "finding": "Legionella DNA",
+              "significance": "Fast, detects all serotypes"
+            },
+            {
+              "test": "Serology",
+              "finding": "4x titer rise",
+              "significance": "Retrospective diagnosis"
             }
           ]
         },
         "calculators": [
           {
-            "name": "CURB-65 Score - Pneumonie-Severeegrad",
+            "name": "CURB-65 Score - Pneumonia Severity",
             "items": [
               {
-                "label": "Verwirrtheit (Confusion)",
+                "label": "Confusion",
                 "points": 1
               },
               {
-                "label": "Harnstoff > 7 mmol/l",
+                "label": "Urea > 7 mmol/L",
                 "points": 1
               },
               {
-                "label": "Atemfrequenz ≥ 30/min",
+                "label": "Respiratory rate ≥ 30/min",
                 "points": 1
               },
               {
-                "label": "Blutdruck (Syst < 90 or Diast ≤ 60 mmHg)",
+                "label": "Blood pressure (SBP < 90 or DBP ≤ 60 mmHg)",
                 "points": 1
               },
               {
-                "label": "Alter ≥ 65 Jahre",
+                "label": "Age ≥ 65 years",
                 "points": 1
               }
             ],
@@ -931,68 +1056,115 @@ Object.assign(window.diseases, {
               {
                 "min": 0,
                 "max": 1,
-                "text": "Niedriges Risiko (<3% Mortalität)."
+                "text": "Low risk (mortality <3%). Consider home treatment."
               },
               {
                 "min": 2,
                 "max": 2,
-                "text": "Mittleres Risiko (9% Mortalität)."
+                "text": "Moderate risk (mortality 9%). Hospital admission recommended."
               },
               {
                 "min": 3,
                 "max": 5,
-                "text": "Hohes Risiko (15-40% Mortalität)."
+                "text": "High risk (mortality 15-40%). Urgent hospital/ICU admission."
               }
             ]
           }
         ],
         "differential": [
           {
-            "disease": "Pneumokokken-Pneumonie",
-            "distinguishing": "None Diarrhö/Verwirrtheit, Urin-Antigen"
+            "disease": "Pneumococcal pneumonia",
+            "distinguishing": "Productive cough, no GI/neuro symptoms, normal Na"
+          },
+          {
+            "disease": "Mycoplasma pneumonia",
+            "distinguishing": "Younger patients, slower progression, cold agglutinins"
+          },
+          {
+            "disease": "Q fever",
+            "distinguishing": "Animal exposure, hepatitis dominates"
+          },
+          {
+            "disease": "Psittacosis",
+            "distinguishing": "Bird contact, hepatosplenomegaly"
+          },
+          {
+            "disease": "Influenza pneumonia",
+            "distinguishing": "Seasonality, rapid test, epidemiology"
           }
         ],
         "therapy": {
           "empirical": {
-            "title": "Targetede Antibiose in / with Legionellose",
-            "drugs": [
+            "outpatient": [
+              {
+                "drug": "Azithromycin",
+                "dose": "1x500mg PO",
+                "duration": "5-7 days",
+                "note": "First choice"
+              },
               {
                 "drug": "Levofloxacin",
-                "dose": "500-750 mg p.o./i.v. once daily",
-                "duration": "7-14 days",
-                "note": "1. Wahl! Schnelle Bakterizidie."
+                "dose": "1x750mg PO",
+                "duration": "7-10 days",
+                "note": "Alternative"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Levofloxacin",
+                "dose": "1x750mg IV",
+                "duration": "10-14 days",
+                "note": "Better penetration"
               },
               {
                 "drug": "Azithromycin",
-                "dose": "500 mg p.o./i.v. once daily",
-                "duration": "5-10 days",
-                "note": "Sehr gut wirksame Alternativee."
+                "dose": "1x500mg IV",
+                "duration": "10-14 days",
+                "note": "Alternative"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Levofloxacin + Azithromycin",
+                "dose": "In combination",
+                "duration": "14-21 days",
+                "note": "In severe cases"
+              },
+              {
+                "drug": "Rifampicin may be added",
+                "dose": "2x300mg IV/PO",
+                "duration": "",
+                "note": "In immunosuppressed patients"
               }
             ]
           },
-          "targeted": "Levofloxacin or Azithromycin. Beta-Laktame sind unwirksam!",
+          "targeted": "Fluoroquinolones or macrolides (beta-lactams are ineffective!)",
           "supportive": [
-            "O2-Gabe",
-            "Ausgleich der Hyponatriämie"
+            "Fluid resuscitation",
+            "Electrolyte correction",
+            "Ventilation for ARDS"
           ],
           "prevention": [
-            "Thermische Desinfektion von Wassersystemen (>60°C)"
+            "Water system maintenance (>60°C)",
+            "Disinfection of cooling towers",
+            "Nosocomial surveillance"
           ]
         },
         "prognosis": {
-          "mortality": "5-10% unter Therapie; bis 30% in / with Immunsuppression",
+          "mortality": "Overall 10-15%, immunocompromised 40%",
           "prognostic_scores": [
-            "CURB-65"
+            "CURB-65",
+            "PSI"
           ],
-          "factors": "Therapieverzögerung, Alter"
+          "factors": "Delayed diagnosis, inappropriate antibiotics, immunosuppression"
         },
-        "references": [
+        "gallery": [
           {
-            "text": "ESCMID Statement on Legionella Pneumonia",
-            "url": "https://www.escmid.org"
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Legionella_pneumophila_01.jpg",
+            "caption": "Electron micrograph of Legionella pneumophila.",
+            "type": "Microscopy"
           }
-        ],
-        "gallery": []
+        ]
       },
       {
         "id": "mycoplasma",
@@ -1000,334 +1172,527 @@ Object.assign(window.diseases, {
         "pathogen": {
           "type": "Bacterium",
           "name": "<i>Mycoplasma pneumoniae</i>",
-          "gram": "None Gram-Färbung",
-          "shape": "Pleomorph"
+          "gram": "No cell wall",
+          "shape": "pleomorphic"
         },
         "epidemiology": {
-          "incidence": "10-20% der CAP-Fälle",
+          "incidence": "15-20% of CAP, 50% in epidemics",
           "risk_groups": [
-            "Schulkinder, Jugendliche, junge Erwachsene (5-20 J.)"
+            "School-age children",
+            "Young adults",
+            "Closed communities (dorms, barracks)"
           ],
-          "seasonality": "Spätsommer/Herbst",
-          "transmission": "Tröpfcheninfektion"
+          "seasonality": "Autumn-winter, but occurs year-round",
+          "transmission": "Droplet infection (close contact)"
         },
         "pathomechanism": {
           "steps": [
-            "Anheftung an das CILIEN-Epithel über P1-Adhäsin.",
-            "CARDS-Toxin Produktion, ciliostatischer Schaden.",
-            "Kälteagglutinin-Bildung (IgM against I-Antigen), hämolytische Anämie, Erythema multiforme / MIRM."
+            "The pathogen adheres tightly to the cilia of respiratory epithelial cells using its P1 adhesin.",
+            "Hydrogen peroxide and the CARDS toxin produced by the bacterium damage the cilia (ciliostasis), leading to impaired mucociliary clearance.",
+            "The inflammatory response and cellular damage cause the prolonged cough and pneumonia."
           ],
           "virulence_factors": [
-            "P1-Adhäsin",
-            "CARDS-Toxin"
+            "P1 adhesin",
+            "CARDS toxin",
+            "Hydrogen peroxide"
           ]
         },
         "clinical": {
-          "incubation": "1-3 weeks",
-          "onset": "Schleichend",
+          "incubation": "2-3 weeks",
+          "onset": "Slow, gradual",
           "symptoms": [
             {
-              "name": "Quälender Reizhusten",
-              "description": "Trocken, anfallsartig, wochenlang.",
+              "name": "Atypical Pneumonia",
+              "description": "Gradual onset with low-grade fever, headache, and malaise. The leading symptom is a dry, hacking, paroxysmal cough that lasts for weeks.",
               "severity": "moderate"
             },
             {
-              "name": "Kopfschmerzen & Prodrom",
-              "description": "Pharyngitis, Myringitis bullosa, Otitis.",
-              "severity": "moderate"
+              "name": "\"Walking Pneumonia\"",
+              "description": "Physical findings (sparse auscultation) are often much milder than the extensive inflammation seen on the chest X-ray.",
+              "severity": "mild"
             },
             {
-              "name": "Extrapulmonale Manifestationen",
-              "description": "Erythema multiforme, MIRM, Raynaud-Syndrom, Kälteagglutinin-Hämolyse.",
-              "severity": "severe"
+              "name": "Extrapulmonary Symptoms",
+              "description": "Rashes (e.g., erythema multiforme), hemolytic anemia (cold agglutinin disease), or neurological complications can occur.",
+              "severity": "moderate"
             }
           ],
           "physical_exam": [
-            "Diskreter Auskultationsbefund (\"Walking pneumonia\"), Trommelfellbläschen"
+            "Often sparse auscultation findings",
+            "Possible rales, wheezing",
+            "Bullous myringitis (eardrum blisters - rare but specific)",
+            "Cervical lymphadenopathy"
           ],
           "complications": [
-            "Erythema multiforme / Stevens-Johnson-Syndrom",
-            "Hämolytische Anämie",
-            "Neuropathien"
+            "Stevens-Johnson syndrome",
+            "Hemolytic anemia (cold agglutinin)",
+            "Encephalitis",
+            "Myocarditis"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "PCR (Abstrich/Sputum)",
-              "finding": "M. pneumoniae DNA positiv",
-              "interpretation": "Methode der Wahl"
+              "test": "CBC",
+              "finding": "Normal WBC, possibly mild leukocytosis",
+              "interpretation": "Non-specific"
             },
             {
-              "test": "Kälteagglutinine",
-              "finding": "IgM positiv (Titer ≥1:64)",
-              "interpretation": "In ~50% der Fälle"
+              "test": "CRP",
+              "finding": "Moderately elevated",
+              "interpretation": "Atypical feature"
+            },
+            {
+              "test": "Cold agglutinin",
+              "finding": "Positive (50%)",
+              "interpretation": "Non-specific, but characteristic"
             }
           ],
           "imaging": [
             {
-              "modality": "Thorax-Röntgen",
-              "finding": "Interstitielle Zeichnungsvermehrung, fleckiges Infiltrat",
-              "significance": "Schlechter als Klinik"
+              "modality": "Chest X-ray",
+              "finding": "Interstitial pattern, patchy infiltrates",
+              "significance": "Worse than clinical picture (\"Walking pneumonia\")"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "PCR",
+              "finding": "DNA detection (throat/sputum)",
+              "significance": "Gold standard, fast"
+            },
+            {
+              "test": "Serology (IgM/IgG)",
+              "finding": "Titer rise",
+              "significance": "Retrospective, often negative in acute phase"
             }
           ]
         },
         "differential": [
           {
             "disease": "Chlamydia pneumoniae",
-            "distinguishing": "PCR-Differenzierung"
+            "distinguishing": "Clinically difficult to distinguish, PCR"
+          },
+          {
+            "disease": "Viral pneumonia",
+            "distinguishing": "Epidemiology, PCR"
+          },
+          {
+            "disease": "Legionella",
+            "distinguishing": "More severe, older patients, hyponatremia"
           }
         ],
         "therapy": {
           "empirical": {
-            "title": "Therapie der Mykoplasmen-Pneumonie",
-            "drugs": [
+            "outpatient": [
               {
                 "drug": "Azithromycin",
-                "dose": "500mg day 1, dann 250mg day 2-5 p.o.",
+                "dose": "500mg D1, then 250mg D2-5",
                 "duration": "5 days",
-                "note": "1. Wahl in / with Kindern and Erwachsenen."
+                "note": "First choice"
               },
               {
-                "drug": "Doxycyclin",
-                "dose": "100mg twice daily p.o.",
+                "drug": "Doxycycline",
+                "dose": "2x100mg",
                 "duration": "7-10 days",
-                "note": "Alternativee in / with Erwachsenen."
+                "note": "Alternative (>8 years)"
+              },
+              {
+                "drug": "Clarithromycin",
+                "dose": "2x500mg",
+                "duration": "7 days",
+                "note": "Alternative"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Levofloxacin",
+                "dose": "1x500-750mg IV/PO",
+                "duration": "10-14 days",
+                "note": "In severe cases"
+              },
+              {
+                "drug": "Moxifloxacin",
+                "dose": "1x400mg IV/PO",
+                "duration": "10-14 days",
+                "note": "Alternative"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Macrolide + Beta-lactam",
+                "dose": "Combination",
+                "duration": "",
+                "note": "To cover mixed infection"
               }
             ]
           },
-          "targeted": "Makrolide, Doxycyclin or Fluorchinolone. Beta-Laktame sind wirkungslos!",
+          "targeted": "Macrolides (resistance increasing!), Tetracyclines, Fluoroquinolones",
           "supportive": [
-            "Symptomatische Coughdämpfung"
+            "Cough suppressants",
+            "Antipyretics"
           ],
           "prevention": [
-            "Hygienemaßnahmen"
+            "Droplet precautions",
+            "No vaccine"
           ]
         },
         "prognosis": {
-          "mortality": "<1%",
-          "prognostic_scores": [],
-          "factors": "Makrolidresistenz, ZNS-Komplikationen"
+          "mortality": "Very low, usually self-limiting",
+          "prognostic_scores": [
+            "PSI (rarely needed)"
+          ],
+          "factors": "Extrapulmonary complications"
         },
-        "references": [
+        "gallery": [
           {
-            "text": "ERS Guidelines for CAP Management",
-            "url": "https://www.ersnet.org"
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mycoplasma_pneumoniae.webp",
+            "caption": "Radiologic image associated with Mycoplasma pneumoniae infection.",
+            "type": "X-ray"
           }
-        ],
-        "gallery": []
+        ]
       },
       {
         "id": "chlamydia_pneumoniae",
-        "name": "Chlamydia pneumoniae Infection",
+        "name": "Chlamydia pneumoniae",
         "pathogen": {
           "type": "Bacterium",
           "name": "<i>Chlamydia pneumoniae</i>",
-          "gram": "Gram-negative",
-          "shape": "Kugelförmig"
+          "gram": "Gram-negative (intracellular)",
+          "shape": "coccoid"
         },
         "epidemiology": {
-          "incidence": "5-10% der CAP-Fälle",
+          "incidence": "5-10% of CAP",
           "risk_groups": [
-            "Schulkinder, ältere Heimbewohner"
+            "Elderly",
+            "Patients with chronic diseases",
+            "Closed communities"
           ],
-          "seasonality": "Ganzjährig",
-          "transmission": "Tröpfcheninfektion"
+          "seasonality": "Year-round",
+          "transmission": "Droplet infection"
         },
         "pathomechanism": {
           "steps": [
-            "Intrazellulärer Entwicklungszyklus in Atemwegsepithelzellen."
+            "Infection begins with the inhalation of infectious elementary bodies (EBs). Inside the cell, EBs transform into reticulate bodies (RBs), the replicating form.",
+            "After replication, RBs convert back to EBs, the cell lyses, and the new elementary bodies infect more cells.",
+            "This cycle leads to damage of the respiratory epithelium and inflammation."
           ],
           "virulence_factors": [
-            "Intrazelluläres Überleben"
+            "Intracellular survival",
+            "Endotoxin-like substances"
           ]
         },
         "clinical": {
           "incubation": "3-4 weeks",
-          "onset": "Biphasisch",
+          "onset": "Gradual",
           "symptoms": [
             {
-              "name": "Pharyngitis & Bronchitis",
-              "description": "Erst Pharyngitis/Heiserkeit, dann weeks später Bronchitis/Pneumonie.",
+              "name": "Biphasic Course",
+              "description": "Often occurs in two phases: initially pharyngitis and laryngitis (hoarseness is characteristic), followed 1-3 weeks later by the development of atypical pneumonia.",
+              "severity": "moderate"
+            },
+            {
+              "name": "Prolonged Cough",
+              "description": "The most characteristic feature of the pneumonia is a dry, irritative cough that persists for weeks to months.",
               "severity": "moderate"
             }
           ],
           "physical_exam": [
-            "Pharyngitis, Heiserkeit, Rasselgeräusche"
+            "Pharyngitis",
+            "Rales",
+            "Signs of sinusitis"
           ],
           "complications": [
-            "Asthma-Exazerbation"
+            "Reactive arthritis",
+            "Myocarditis",
+            "Atherosclerosis (association)"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "PCR",
-              "finding": "DNA positiv",
-              "interpretation": "Drug of choice"
+              "test": "CBC",
+              "finding": "Normal",
+              "interpretation": "Non-specific"
             }
           ],
           "imaging": [
             {
-              "modality": "Thorax-Röntgen",
-              "finding": "Kleine Infiltrate",
-              "significance": "Unspezifisch"
+              "modality": "Chest X-ray",
+              "finding": "Small infiltrates",
+              "significance": "Non-specific"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "PCR",
+              "finding": "DNA detection",
+              "significance": "Most sensitive"
+            },
+            {
+              "test": "Serology",
+              "finding": "MIF (microimmunofluorescence)",
+              "significance": "Gold standard serology"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Mykoplasmen-Pneumonie",
+            "disease": "Mycoplasma",
+            "distinguishing": "Practically identical clinical picture"
+          },
+          {
+            "disease": "Viruses",
             "distinguishing": "PCR"
           }
         ],
         "therapy": {
           "empirical": {
-            "title": "Therapie der C. pneumoniae Infektion",
-            "drugs": [
+            "outpatient": [
               {
-                "drug": "Doxycyclin",
-                "dose": "100mg twice daily p.o.",
+                "drug": "Doxycycline",
+                "dose": "2x100mg",
                 "duration": "10-14 days",
-                "note": "1. Wahl."
+                "note": "First choice"
               },
               {
                 "drug": "Azithromycin",
-                "dose": "500mg day 1, 250mg day 2-5",
+                "dose": "500mg D1, 250mg D2-5",
                 "duration": "5 days",
-                "note": "Alternativee."
+                "note": "Alternative"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Levofloxacin",
+                "dose": "1x750mg",
+                "duration": "10-14 days",
+                "note": "In more severe cases"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Levofloxacin",
+                "dose": "IV",
+                "duration": "14 days",
+                "note": ""
               }
             ]
           },
-          "targeted": "Doxycyclin or Makrolide.",
+          "targeted": "Tetracyclines, Macrolides, Quinolones",
           "supportive": [
-            "Symptomatische Therapie"
+            "Symptomatic treatment"
           ],
           "prevention": [
-            "Hygienemaßnahmen"
+            "No vaccine"
           ]
         },
         "prognosis": {
-          "mortality": "<1%",
-          "prognostic_scores": [],
-          "factors": "Alter"
+          "mortality": "Low",
+          "prognostic_scores": [
+            "PSI"
+          ],
+          "factors": "Old age, comorbidity"
         },
-        "gallery": []
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chlamydophila_psittaci_FA_stain.jpg",
+            "caption": "Fluorescent stain of Chlamydophila/Chlamydia psittaci.",
+            "type": "Microscopy"
+          }
+        ]
       },
       {
         "id": "psittacosis",
-        "name": "Psittacosis (Ornithosis)",
+        "name": "Ornithosis (Psittacosis)",
         "pathogen": {
           "type": "Bacterium",
           "name": "<i>Chlamydia psittaci</i>",
-          "gram": "Gram-negative",
-          "shape": "Kugelförmig"
+          "gram": "Intracellular",
+          "shape": "coccoid"
         },
         "epidemiology": {
-          "incidence": "Rare Zoonose",
+          "incidence": "Rare, occupational disease",
           "risk_groups": [
-            "Vogelhalter, Geflügelzüchter, Tierärzte"
+            "Bird owners (parrots, pigeons)",
+            "Veterinarians",
+            "Poultry workers"
           ],
-          "seasonality": "Ganzjährig",
-          "transmission": "Inhalation von getrocknetem Vogelkot/-staub"
+          "seasonality": "None",
+          "transmission": "Inhalation of dust from bird droppings"
         },
         "pathomechanism": {
           "steps": [
-            "Inhalation, intrazelluläre Vermehrung in Makrophagen, hämatogene Aussaat, interstitielle Pneumonie."
+            "Infection occurs by inhaling dust contaminated with the dried droppings of birds (especially parrots, pigeons).",
+            "The pathogen spreads from the lungs to the reticuloendothelial system (liver, spleen), where it multiplies.",
+            "During a secondary viremia, the bacteria return to the lungs, causing an atypical, interstitial pneumonia."
           ],
           "virulence_factors": [
-            "LPS, intrazelluläre Replikation"
+            "Intracellular survival"
           ]
         },
         "clinical": {
-          "incubation": "1-2 weeks",
+          "incubation": "5-14 days",
           "onset": "Sudden",
           "symptoms": [
             {
-              "name": "Sehr starke Kopfschmerzen",
-              "description": "Mit hohem Fever, Schüttelfrost and trockenem Cough.",
+              "name": "Typhoid-like Symptoms",
+              "description": "Sudden onset of high fever, chills, and a severe, debilitating headache.",
               "severity": "severe"
+            },
+            {
+              "name": "Respiratory Symptoms",
+              "description": "A dry, non-productive cough. Physical findings are often sparse compared to the chest X-ray.",
+              "severity": "moderate"
+            },
+            {
+              "name": "Systemic Signs",
+              "description": "Hepatosplenomegaly and relative bradycardia (Faget's sign) are common.",
+              "severity": "moderate"
             }
           ],
           "physical_exam": [
-            "Relative Bradykardie, Splenomegalie, Horder-Flecken"
+            "Relative bradycardia (Faget's sign)",
+            "Splenomegaly (10-70%)",
+            "Horder spots (pink rash - rare)",
+            "Sparse lung findings"
           ],
           "complications": [
-            "Endokarditis, Hepatitis"
+            "Endocarditis",
+            "Hepatitis",
+            "Neurological symptoms",
+            "ARDS"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Serologie / PCR",
-              "finding": "Titeranstieg / DNA positiv",
-              "interpretation": "Diagnosesicherung"
+              "test": "CBC",
+              "finding": "Normal or leukopenia",
+              "interpretation": "Non-bacterial character"
+            },
+            {
+              "test": "Liver enzymes",
+              "finding": "Elevated",
+              "interpretation": "Common"
             }
           ],
           "imaging": [
             {
-              "modality": "Thorax-Röntgen",
-              "finding": "Atypische fächerförmige Infiltrate",
-              "significance": "Typisch"
+              "modality": "Chest X-ray",
+              "finding": "Atypical pneumonia, fan-shaped hilar infiltrate",
+              "significance": "Characteristic"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Serology",
+              "finding": "MIF, complement fixation",
+              "significance": "4x titer rise"
+            },
+            {
+              "test": "PCR",
+              "finding": "Respiratory sample",
+              "significance": "Specific"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Q-Fever",
-            "distinguishing": "Viehkontakt vs. Vogelkontakt"
+            "disease": "Q fever",
+            "distinguishing": "Similar, but no bird contact"
+          },
+          {
+            "disease": "Legionella",
+            "distinguishing": "Water exposure"
+          },
+          {
+            "disease": "Typhoid fever",
+            "distinguishing": "Travel, rash"
           }
         ],
         "therapy": {
           "empirical": {
-            "title": "Therapie der Ornithose",
-            "drugs": [
+            "outpatient": [
               {
-                "drug": "Doxycyclin",
-                "dose": "100mg twice daily p.o.",
-                "duration": "10-14 days",
-                "note": "First-line choice!"
+                "drug": "Doxycycline",
+                "dose": "2x100mg",
+                "duration": "14-21 days",
+                "note": "First choice"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Doxycycline",
+                "dose": "2x100mg IV",
+                "duration": "14-21 days",
+                "note": "In severe cases"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Doxycycline",
+                "dose": "IV",
+                "duration": "",
+                "note": ""
               }
             ]
           },
-          "targeted": "Doxycyclin 100mg twice daily for 10-14 days.",
+          "targeted": "Tetracyclines (Doxycycline), Macrolides (less effective)",
           "supportive": [
-            "Symptomatische Maßnahmen"
+            "Antipyretics"
           ],
           "prevention": [
-            "Quarantäne for Importvögel"
+            "Quarantine of birds",
+            "Protective equipment",
+            "Wet cleaning"
           ]
         },
         "prognosis": {
-          "mortality": "<1% unter Doxycyclin",
-          "prognostic_scores": [],
-          "factors": "Therapiebeginn"
+          "mortality": "Treated <1%, untreated 10-20%",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Late diagnosis"
         },
-        "gallery": []
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chlamydophila_psittaci_FA_stain.jpg",
+            "caption": "Microscopic image of C. psittaci in psittacosis.",
+            "type": "Microscopy"
+          }
+        ]
       },
       {
         "id": "q_fever_resp",
-        "name": "Q Fever (Respiratory)",
+        "name": "Q Fever",
         "pathogen": {
           "type": "Bacterium",
           "name": "<i>Coxiella burnetii</i>",
-          "gram": "Gram-negative",
-          "shape": "Coccobacillus"
+          "gram": "Gram-negative (intracellular)",
+          "shape": "coccobacillus"
         },
         "epidemiology": {
-          "incidence": "Weltweite Zoonose",
+          "incidence": "Zoonosis, occupational disease",
           "risk_groups": [
-            "Landwirte, Tierärzte, Schlachthofarbeiter, Herzklappenpatienten"
+            "Livestock farmers",
+            "Slaughterhouse workers",
+            "Veterinarians"
           ],
-          "seasonality": "Frühjahr/Sommer",
-          "transmission": "Inhalation von Geburtsmaterial-Staub/Aerosolen von Schafen, Ziegen, Rindern"
+          "seasonality": "Spring (birthing season)",
+          "transmission": "Aerosol (placenta, amniotic fluid, milk, feces dust)"
         },
         "pathomechanism": {
           "steps": [
-            "Inhalation sporenaehnlicher Formen, Replikation im Phagolysosom, Granulombildung."
+            "Infection occurs by inhaling highly infectious aerosols from animal birth products (placenta, amniotic fluid).",
+            "The pathogen enters alveolar macrophages, where it not only survives but also replicates within acidic phagosomes.",
+            "It spreads via the bloodstream to the liver and bone marrow.",
+            "The body attempts to contain the infection by forming characteristic \"doughnut-shaped\" granulomas.",
+            "The disease can be acute or chronic (mainly manifesting as endocarditis)."
           ],
           "virulence_factors": [
-            "Phase-I-LPS"
+            "Spore-like form (resistant)",
+            "LPS phase variation"
           ]
         },
         "clinical": {
@@ -1335,778 +1700,1129 @@ Object.assign(window.diseases, {
           "onset": "Sudden",
           "symptoms": [
             {
-              "name": "Retroorbitale Kopfschmerzen",
-              "description": "Extrem stark, with hohem Fever, Myalgien and Pneumonie/Hepatitis.",
-              "severity": "severe"
+              "name": "Acute Q Fever",
+              "description": "Presents with a sudden onset of high fever, severe retro-orbital headache, and flu-like symptoms. Atypical pneumonia (mild cough) and granulomatous hepatitis (elevated liver enzymes) are common.",
+              "severity": "moderate"
             },
             {
-              "name": "Chronisches Q-Fever",
-              "description": "Kultur-negative Endokarditis in / with Klappenpatienten.",
+              "name": "Chronic Q Fever",
+              "description": "Develops months to years later, mainly in patients with pre-existing heart valve defects or immunosuppression. The most common manifestation is culture-negative endocarditis.",
               "severity": "severe"
             }
           ],
           "physical_exam": [
-            "Relative Bradykardie, Hepatomegalie"
+            "Hepatomegaly",
+            "Splenomegaly",
+            "Relative bradycardia"
           ],
           "complications": [
-            "Chronische Q-Endokarditis, Q-Fever-Erschöpfungssyndrom"
+            "Chronic Q fever (Endocarditis)",
+            "Osteomyelitis",
+            "Chronic hepatitis"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Serologie (IFA)",
-              "finding": "Phase-II-IgM/IgG hoch (Akut); Phase-I-IgG ≥1:800 (Chronisch)",
-              "interpretation": "Goldstandard"
+              "test": "Liver enzymes",
+              "finding": "Elevated",
+              "interpretation": "Hepatitis"
             },
             {
-              "test": "PCR",
-              "finding": "DNA positiv",
-              "interpretation": "Frühphase"
+              "test": "Thrombocytopenia",
+              "finding": "Mild",
+              "interpretation": "Common"
             }
           ],
           "imaging": [
             {
-              "modality": "Thorax-Röntgen",
-              "finding": "Runde Infiltrate",
-              "significance": "Pneumonie"
+              "modality": "Chest X-ray",
+              "finding": "Round opacities, multiple",
+              "significance": "Pneumonia"
+            },
+            {
+              "modality": "Echo",
+              "finding": "Vegetation",
+              "significance": "Endocarditis (chronic)"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Serology (IF)",
+              "finding": "Phase II (acute), Phase I (chronic)",
+              "significance": "Diagnostic"
+            },
+            {
+              "test": "PCR",
+              "finding": "From blood",
+              "significance": "In early phase"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Legionellose",
-            "distinguishing": "Serologie / Urin-Antigen"
+            "disease": "Brucellosis",
+            "distinguishing": "Undulant fever, dairy products"
+          },
+          {
+            "disease": "Influenza",
+            "distinguishing": "Seasonality, respiratory symptoms dominate"
+          },
+          {
+            "disease": "Viral hepatitis",
+            "distinguishing": "Serology"
           }
         ],
         "therapy": {
           "empirical": {
-            "title": "Therapie des Q-Fevers",
-            "drugs": [
+            "outpatient": [
               {
-                "drug": "Doxycyclin (Akut)",
-                "dose": "100mg twice daily p.o.",
+                "drug": "Doxycycline",
+                "dose": "2x100mg",
                 "duration": "14 days",
-                "note": "1. Wahl!"
-              },
+                "note": "Acute Q fever"
+              }
+            ],
+            "inpatient": [
               {
-                "drug": "Doxycyclin + Hydroxychloroquin (Chronische Endokarditis)",
-                "dose": "100mg twice daily + 200mg three times daily",
-                "duration": "≥18-24 months",
-                "note": "Hydroxychloroquin alkalisiert das Phagolysosom."
+                "drug": "Doxycycline",
+                "dose": "2x100mg",
+                "duration": "14 days",
+                "note": ""
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Doxycycline + Hydroxychloroquine",
+                "dose": "Long-term",
+                "duration": "18-24 months",
+                "note": "Chronic Q fever (endocarditis)"
               }
             ]
           },
-          "targeted": "Akut: Doxycyclin 14 days. Chronisch: Doxycyclin + Hydroxychloroquin ≥18-24 months.",
+          "targeted": "Doxycycline",
           "supportive": [
-            "Symptomatische Therapie"
+            "Antipyretics"
           ],
           "prevention": [
-            "Milchpasteurisierung, Impfung in Endemiegebieten"
+            "Protective equipment during birthing",
+            "Pasteurization of milk",
+            "Vaccine (Australia)"
           ]
         },
         "prognosis": {
-          "mortality": "Akut <1%; Chronische Endokarditis 5-15%",
-          "prognostic_scores": [],
-          "factors": "Herzklappenfehler"
+          "mortality": "Acute <2%, Chronic (endocarditis) high if untreated",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Valve defect, immunosuppression"
         },
-        "gallery": []
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Coxiella_burnetii%2C_the_bacteria_that_causes_Q_Fever.jpg",
+            "caption": "Coxiella burnetii, the causative agent of Q fever.",
+            "type": "Microscopy"
+          }
+        ]
       }
     ]
   },
   "cardiovascular": {
     "name": "Cardiovascular Infections",
-    "icon": (window.diseaseMetadata?.cardiovascular?.icon || '🫀'),
-    "color": (window.diseaseMetadata?.cardiovascular?.color || '#b91c1c'),
+    "icon": window.diseaseMetadata.cardiovascular.icon,
+    "color": window.diseaseMetadata.cardiovascular.color,
     "diseases": [
       {
         "id": "endocarditis",
         "name": "Infective Endocarditis",
         "pathogen": {
           "type": "Bacterium",
-          "name": "<i>Staphylococcus aureus</i> (30-40%), Viridans-Streptokokken, Enterokokken, CoNS, HACEK-Gruppe",
-          "gram": "Überwiegend Gram-positive",
-          "shape": "Kokken"
+          "name": "<i>Staphylococcus aureus, Viridans group streptococci</i>",
+          "gram": "Gram-positive",
+          "shape": "coccus"
         },
         "epidemiology": {
-          "incidence": "3-10 Fälle / 100.000 Einwohner/Jahr",
+          "incidence": "3-10/100,000 per year",
           "risk_groups": [
-            "Träger von Klappenersatz / TAVI",
-            "Z.n. früherer Endokarditis",
-            "Angeborene Herzfehler",
-            "i.v.-Drogenkonsumenten",
-            "Hämodialysepatienten"
+            "Valvular defects",
+            "Prosthetic valves",
+            "People who inject drugs (PWID)",
+            "Congenital heart disease",
+            "Previous endocarditis"
           ],
           "seasonality": "None",
-          "transmission": "Bakteriämie after zahnärztlichen, chirurgischen or endovaskulären Eingriffen / Hautverletzungen"
+          "transmission": "Bacteremia (dental procedure, skin infection, catheter)"
         },
         "pathomechanism": {
           "steps": [
-            "Endothelschaden der Herzklappe, Bildung einer nicht-bakteriellen thrombotischen Endokarditis (NBTE).",
-            "Transiente Bakteriämie führt zur Pathogenanheftung (Fibronektin-bindende Proteine) and Kolonisierung.",
-            "Bakterienvermehrung, Fibrin- and Thrombozytenablagerung bilden infizierte VEGETATIONEN. Klappendestruktion, Abszessbildung and embolische Streuung (Gehirn, Milz, Niere, Haut)."
+            "The process begins with injury to the heart valve endothelium, to which a sterile thrombus (nonbacterial thrombotic endocarditis, NBTE) adheres.",
+            "During a transient bacteremia (e.g., dental procedure), circulating pathogens adhere to this damaged surface.",
+            "The bacteria multiply, form a biofilm, and create a vegetation composed of bacteria, fibrin, and platelets.",
+            "This vegetation damages the valve (causing insufficiency), and fragments can break off, causing septic emboli to various parts of the body (e.g., brain, spleen)."
           ],
           "virulence_factors": [
-            "Biofilmbildung",
-            "Fibronektin-bindendes Protein A (FnBPA)",
-            "Clumping-Faktor",
-            "Enterokokken-Ebp-Pili"
+            "Adhesins (MSCRAMM)",
+            "Biofilm formation",
+            "Toxins"
           ]
         },
         "clinical": {
-          "incubation": "Tage bis weeks (S. aureus akut; Strep/Enterokokken subakut)",
-          "onset": "Akut fulminant or subakut schleichend",
+          "incubation": "Days (acute) or weeks (subacute)",
+          "onset": "Variable",
           "symptoms": [
             {
-              "name": "Fever & Neues Herzgeräusch",
-              "description": "Gekennzeichnet durch unklares Fever, Schüttelfrost and ein neu aufgetretenes Regurgitationsgeräusch (Klappeninsuffizienz).",
-              "severity": "severe"
-            },
-            {
-              "name": "Embolische Phänomene",
-              "description": "Schlaganfall, miliare Milz-/Niereninfarkte, Janeway-Läsionen (schmerzlose erythematöse Flecken an Handflächen/Fußsohlen).",
-              "severity": "severe"
-            },
-            {
-              "name": "Immunologische Phänomene",
-              "description": "Osler-Knötchen (schmerzhafte Knötchen an Finger-/Zehenkuppen), Roth-Spots (Netzhautblutungen with hellem Zentrum), Glomerulonephritis.",
+              "name": "General Symptoms",
+              "description": "The most common are fever, chills, night sweats, and weight loss. The presentation is often that of a fever of unknown origin (FUO).",
               "severity": "moderate"
+            },
+            {
+              "name": "Cardiac Symptoms",
+              "description": "Appearance of a new or changed heart murmur, or symptoms of heart failure (shortness of breath, edema) due to valve damage.",
+              "severity": "severe"
+            },
+            {
+              "name": "Embolic Phenomena",
+              "description": "Fragments breaking off from the vegetation can cause septic emboli: stroke, splenic or renal infarction, skin manifestations (Janeway lesions, splinter hemorrhages).",
+              "severity": "severe"
             }
           ],
           "physical_exam": [
-            "Neues or sich veränderndes Herzgeräusch",
-            "Janeway-Läsionen, Osler-Knötchen, Splitterblutungen unter den Nägeln",
-            "Splenomegalie, Petechien der Konjunktiven",
-            "Neurologische Ausfälle in / with septischer Embolie"
+            "Fever",
+            "New heart murmur (especially regurgitant)",
+            "Signs of heart failure (S3, congestion)",
+            "Splenomegaly (15-30%)",
+            "Peripheral signs (Splinter, Osler, Janeway, Roth - rare)"
           ],
           "complications": [
-            "Akute Herzinsuffizienz (Klappenperforation/Abriss)",
-            "Perivalvulärer Abszess / Pseudoaneurysma",
-            "Septische Embolien (Schlaganfall, Milz-/Niereninfarkt)",
-            "AV-Blockierungen (bei Aortenringabszess)",
-            "Septischer Schock"
+            "Heart failure (valve insufficiency)",
+            "Septic embolism (brain, spleen, kidney)",
+            "Abscess (ring)",
+            "Glomerulonephritis"
           ]
         },
         "diagnostics": {
           "criteria": [
             {
-              "name": "Modifizierte Duke-Kriterien / ESC 2023 Duke-ISCVID Kriterien",
+              "name": "Major criteria (ESC 2023)",
               "items": [
-                "Diagnose Definitiv: 2 Hauptkriterien OR 1 Haupt- + 3 Nebenkriterien OR 5 Nebenkriterien",
-                "Hauptkriterium 1 (Mikrobiologie): Typische Pathogen in min. 2 separaten Blutkulturen (S. aureus, Viridans-Strep, S. gallolyticus, Enterokokken, HACEK) or Coxiella burnetii Phase-I-IgG >1:800",
-                "Hauptkriterium 2 (Bildgebung): TTE/TEE positiv for Vegetation, Abszess, Pseudoaneurysma, Klappenperforation OR 18F-FDG PET/CT / Kardio-CT positiv for paravalvuläre Läsionen",
-                "Nebenkriterien: Prädisposition (Herzklappe, i.v.-Drogen), Fever ≥38°C, vaskuläre Phänomene (Embolien, Janeway), immunologische Phänomene (Osler, Roth, RF), mikrobiologischer Hinweis"
+                "Positive blood culture (typical pathogen: S. aureus, Enterococcus, Viridans strep, S. gallolyticus, HACEK) from 2 separate samples",
+                "Positive imaging (Echo/CT/PET-CT): Vegetation, abscess, pseudoaneurysma, fistula, perforation, new dehiscence",
+                "Paravalvular lesion on CT",
+                "Abnormal activity around prosthetic valve (PET/CT or SPECT/CT)",
+                "Positive Coxiella burnetii serology (Phase I IgG titer >1:800)"
+              ]
+            },
+            {
+              "name": "Minor criteria",
+              "items": [
+                "Predisposition (heart defect, prosthetic valve, previous IE)",
+                "Fever >38°C",
+                "Vascular phenomena (embolism, septic infarct, mycotic aneurysm, Janeway, imaging-confirmed lesions)",
+                "Immunological phenomena (Osler's nodes, Roth spots, RF+, Glomerulonephritis)",
+                "Microbiological evidence (positive culture not meeting major criteria)"
+              ]
+            },
+            {
+              "name": "Diagnosis (Definite)",
+              "items": [
+                "2 Major",
+                "1 Major + 3 Minor",
+                "5 Minor"
               ]
             }
           ],
           "laboratory": [
             {
-              "test": "Blutkulturen (HK)",
-              "finding": "Mindestens 3 HK-Sets im Abstand von 30 Min. VOR Antibiose!",
-              "interpretation": "Essenziell for gezielte Therapie"
+              "test": "Blood culture",
+              "finding": "Positive (continuous bacteremia)",
+              "interpretation": "DUKE major criterion (3 sets!)"
             },
             {
-              "test": "Entzündungsparameter (CRP, BSG, Leukozyten)",
-              "finding": "Massiv erhöht, CRP-Verlaufskontrolle",
-              "interpretation": "Aktivitätsbeurteilung"
+              "test": "CBC",
+              "finding": "Anemia, leukocytosis",
+              "interpretation": "Chronic inflammation"
             },
             {
-              "test": "Serologie / PCR (bei kultur-negativer IE)",
-              "finding": "Coxiella burnetii, Bartonella spp., Tropheryma whipplei",
-              "interpretation": "Spezialdiagnostik"
+              "test": "CRP/ESR",
+              "finding": "Elevated",
+              "interpretation": "Inflammation"
             }
           ],
           "imaging": [
             {
-              "modality": "Transösophageale Echokardiographie (TEE)",
-              "finding": "Vegetation, Abszess, Klappenperforation, Dehiszenz einer Prothese",
-              "significance": "Goldstandard (Sensitivität >90-95%)"
+              "modality": "Echocardiography (TTE/TEE)",
+              "finding": "Vegetation, abscess, dehiscence",
+              "significance": "Primary imaging"
             },
             {
-              "modality": "18F-FDG PET/CT or SPECT/CT",
-              "finding": "Hypermetabole paravalvuläre Herde in / with Klappenprothesen",
-              "significance": "ESC 2023 Hauptkriterium in / with Prothesenendokarditis!"
+              "modality": "Cardiac CT / PET-CT",
+              "finding": "Paravalvular spread, embolism",
+              "significance": "Adjunctive (ESC 2023)"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Blood culture",
+              "finding": "Pathogen identification",
+              "significance": "Basis of therapy"
             },
             {
-              "modality": "Kopf-/Abdomen-MRT",
-              "finding": "Stumme septische Embolien (Gehirn, Milz, Niere)",
-              "significance": "Staging and Embolierisiko"
+              "test": "Serology",
+              "finding": "Coxiella, Bartonella",
+              "significance": "If blood culture is negative"
             }
           ]
         },
-        "differential": [
-          {
-            "disease": "Nicht-bakterielle thrombotische Endokarditis (NBTE / Marantisch)",
-            "distinguishing": "Marantius in / with Tumorpatienten, sterile Blutkulturen, kein Fever"
-          },
-          {
-            "disease": "Libman-Sacks-Endokarditis",
-            "distinguishing": "Bei Systemischem Lupus Erythematodes (SLE), Antiphospholipid-Syndrom"
-          },
-          {
-            "disease": "Atriales Myxom",
-            "distinguishing": "Histologie / Echokardiographie (gestielter Myxomtumor im Vorhof)"
-          }
-        ],
         "therapy": {
           "guidelines": [
-            "ESC 2023 Guidelines for the management of endocarditis (Eur Heart J 2023)"
+            "ESC 2023 Guidelines for the management of endocarditis"
           ],
           "empirical": {
-            "title": "Empirice Antibiose in / with akuter Infektiöser Endokarditis (ESC 2023)",
-            "drugs": [
-              {
-                "drug": "Native Klappe: Ampicillin + Oxacillin/Flucloxacillin + Ceftriaxon",
-                "dose": "Ampicillin 12g/Tag i.v. in 4-6 Dosen + Flucloxacillin 12g/Tag i.v. in 4-6 Dosen + Ceftriaxon 2g i.v. once daily",
-                "duration": "4-6 weeks",
-                "note": "Deckt S. aureus, Streptokokken and Enterokokken ab."
-              },
-              {
-                "drug": "Klappenprothese (<1 Jahr postop): Vancomycin + Gentamicin + Rifampicin",
-                "dose": "Vancomycin 30-60 mg/kg/Tag i.v. + Gentamicin 3 mg/kg/Tag i.v. + Rifampicin 900mg/Tag p.o. in 3 Dosen",
-                "duration": "Mindestens 6 weeks",
-                "note": "Rifampicin greift Fremdkörper-Biofilm an!"
-              }
-            ]
+            "native_community": {
+              "title": "Empiric: Native valve or Late prosthetic valve (>12 mo)",
+              "drugs": [
+                {
+                  "drug": "Ampicillin + (Flu)cloxacillin + Gentamicin",
+                  "dose": "12g + 12g + 3mg/kg IV",
+                  "duration": "4-6 weeks",
+                  "note": "IB recommendation. Gentamicin only for the first few days/until pathogen is known."
+                },
+                {
+                  "drug": "Vancomycin + Gentamicin",
+                  "dose": "30-60mg/kg + 3mg/kg IV",
+                  "duration": "4-6 weeks",
+                  "note": "IB recommendation. For penicillin allergy."
+                },
+                {
+                  "drug": "Daptomycin + Gentamicin",
+                  "dose": "10mg/kg + 3mg/kg IV",
+                  "duration": "4-6 weeks",
+                  "note": "IB recommendation. Alternative."
+                }
+              ]
+            },
+            "prosthetic_early": {
+              "title": "Empiric: Early prosthetic valve (<12 mo) or Nosocomial",
+              "drugs": [
+                {
+                  "drug": "Vancomycin + Gentamicin + Rifampicin",
+                  "dose": "30-60mg/kg + 3mg/kg + 900-1200mg IV/PO",
+                  "duration": "6 weeks",
+                  "note": "IB recommendation. Rifampicin only after bacteremia has cleared (to prevent resistance)."
+                }
+              ]
+            },
+            "targeted_staph": {
+              "title": "Targeted: Staphylococcus spp.",
+              "drugs": [
+                {
+                  "drug": "MSSA: (Flu)cloxacillin",
+                  "dose": "12g/day IV",
+                  "duration": "4-6 weeks",
+                  "note": "IB recommendation. Penicillin allergy (non-anaphylactic): Cefazolin 6g/day (IB)."
+                },
+                {
+                  "drug": "MRSA: Vancomycin",
+                  "dose": "30-60mg/kg/day IV",
+                  "duration": "4-6 weeks",
+                  "note": "IB recommendation. Alternative: Daptomycin 10mg/kg (IB)."
+                },
+                {
+                  "drug": "Prosthetic valve (PVE): + Rifampicin + Gentamicin",
+                  "dose": "Adjunct",
+                  "duration": "Rif: 6 weeks, Gent: 2 weeks",
+                  "note": "IB recommendation. Rifampicin 900-1200mg, Gentamicin 3mg/kg."
+                }
+              ]
+            },
+            "targeted_strep": {
+              "title": "Targeted: Streptococcus spp. (Oral/Bowel)",
+              "drugs": [
+                {
+                  "drug": "Penicillin G or Amoxicillin or Ceftriaxone",
+                  "dose": "Standard high dose",
+                  "duration": "4 weeks",
+                  "note": "IB recommendation. Penicillin-sensitive strains."
+                },
+                {
+                  "drug": "Combination with Gentamicin",
+                  "dose": "Beta-lactam + 3mg/kg Gentamicin",
+                  "duration": "2 weeks",
+                  "note": "IB recommendation. Can shorten course only for native valve, uncomplicated cases."
+                },
+                {
+                  "drug": "Penicillin allergy: Vancomycin",
+                  "dose": "30mg/kg/day IV",
+                  "duration": "4 weeks",
+                  "note": "IB recommendation."
+                }
+              ]
+            },
+            "targeted_entero": {
+              "title": "Targeted: Enterococcus spp.",
+              "drugs": [
+                {
+                  "drug": "Amoxicillin + Ceftriaxone",
+                  "dose": "200mg/kg + 4g/day IV",
+                  "duration": "6 weeks",
+                  "note": "IB recommendation. Preferred for E. faecalis (less nephrotoxicity than with gentamicin)."
+                },
+                {
+                  "drug": "Ampicillin + Gentamicin",
+                  "dose": "12g + 3mg/kg IV",
+                  "duration": "4-6 weeks",
+                  "note": "IB recommendation. Traditional therapy."
+                },
+                {
+                  "drug": "Vancomycin + Gentamicin",
+                  "dose": "30mg/kg + 3mg/kg IV",
+                  "duration": "6 weeks",
+                  "note": "IB recommendation. For beta-lactam resistance/allergy."
+                }
+              ]
+            },
+            "culture_neg": {
+              "title": "Culture-negative IE",
+              "drugs": [
+                {
+                  "drug": "Coxiella burnetii",
+                  "dose": "Doxycycline + Hydroxychloroquine",
+                  "duration": ">18 months",
+                  "note": "IB recommendation. Q fever endocarditis."
+                },
+                {
+                  "drug": "Bartonella spp.",
+                  "dose": "Doxycycline + Gentamicin (2 weeks)",
+                  "duration": "6 weeks",
+                  "note": "IB recommendation."
+                },
+                {
+                  "drug": "Brucella spp.",
+                  "dose": "Doxycycline + Streptomycin + Rifampicin",
+                  "duration": "3-6 months",
+                  "note": "IB recommendation."
+                }
+              ]
+            }
           },
-          "targeted": "Streptokokken (Penicillin G 4-6 weeks or Ceftriaxon + Gentamicin 2 weeks); MSSA (Flucloxacillin 4-6 weeks); MRSA (Vancomycin or Daptomycin 10mg/kg/Tag); Enterococcus faecalis (Ampicillin 12g/Tag + Ceftriaxon 4g/Tag for 6 weeks).",
+          "targeted": "See detailed protocols above. In stable patients (left-sided IE), oral switch is possible after 10-14 days of IV therapy (POET trial, IB recommendation) if TEE has excluded abscess and patient is cooperative.",
           "supportive": [
-            "Dringendes herzchirurgisches Konsil (Indikationen: Refraktäre Herzinsuffizienz, unkontrollierte Infektion/Abszess, Embolieprävention in / with Vegetation >10mm)"
+            "Heart failure management (IB)",
+            "Embolism prophylaxis (anticoagulation may be contraindicated due to bleeding risk!)",
+            "Source control (full body CT/PET-CT)"
           ],
           "prevention": [
-            "Endokarditisprophylaxe with Amoxicillin 2g p.o. 30-60 Min. vor zahnärztlichen Eingriffen NUR in / with HÖCHSTRISIKOPATIENTEN (Klappenersatz, Z.n. IE, angeborene Herzfehler with Shunt)!"
+            "Antibiotic prophylaxis (Amoxicillin 2g or Clindamycin 600mg) ONLY in high-risk patients (prosthetic valve, previous IE, cyanotic congenital vitium) before dental procedures (IIa)",
+            "Oral hygiene (IB)"
           ]
         },
         "prognosis": {
-          "mortality": "15-20% In-Hospital Mortalität; 30% 1-Jahres-Mortalität",
+          "mortality": "In-hospital: 15-20%, 1-year: 30-40%",
           "prognostic_scores": [
-            "ESC Endocarditis Risk Score"
+            "None specific"
           ],
-          "factors": "S. aureus Pathogen, Herzinsuffizienz, Paravalvulärabszess, hohes Alter"
+          "factors": "S. aureus, heart failure, old age, prosthetic valve"
         },
-        "references": [
+        "gallery": [
           {
-            "text": "ESC 2023 Guidelines for the management of endocarditis",
-            "url": "https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Endocarditis-Guidelines"
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Endocarditis_ultrasound.JPG",
+            "caption": "Echocardiographic image of endocarditis vegetation.",
+            "type": "Echocardiography"
           }
-        ],
-        "gallery": []
+        ]
       },
       {
         "id": "cied",
-        "name": "CIED Infection",
+        "name": "CIED infection (pacemaker/ICD/CRT)",
         "pathogen": {
           "type": "Bacterium",
-          "name": "<i>Staphylococcus epidermidis</i> / CoNS (50-70%), <i>Staphylococcus aureus</i> (25%), Cutibacterium acnes, Gram-negativee Rods",
+          "name": "<i>Staphylococcus aureus, coagulase-negative staphylococci (e.g. S. epidermidis), Cutibacterium acnes</i>",
           "gram": "Gram-positive",
-          "shape": "Kokken"
+          "shape": "coccus/rod"
         },
         "epidemiology": {
-          "incidence": "1-2% aller CIED-Implantationen",
+          "incidence": "~1-10/1000 implantations/year (institution-dependent)",
           "risk_groups": [
-            "Aggregatwechsel / Revisionen",
-            "CRT / ICD Mehrkammersysteme",
-            "Diabetes, Niereninsuffizienz, Antikoagulation (Taschenhämatom)"
+            "Implanted pacemaker/ICD/CRT",
+            "Previous infection",
+            "Diabetes",
+            "Immunosuppression",
+            "Skin infection, catheter",
+            "Poor tissue reaction in the pocket"
           ],
           "seasonality": "None",
-          "transmission": "Perioperative Inokulation or hämatogene Besiedlung"
+          "transmission": "Hematogenous/contiguous spread, contamination at implantation or later"
         },
         "pathomechanism": {
           "steps": [
-            "Bakterielle Besiedlung der Schrittmachertasche or der Sondenoberfläche.",
-            "Ausgeprägte Biofilmbildung auf den Kunststoff-/Metallsonden.",
-            "Ausbreitung entlang der Sonden in die V. cava superior, das rechte Atrium/Ventrikel and die Trikuspidalklappe (Sondenendokarditis)."
+            "A biofilm forms on the lead structures and the subcutaneous pocket surface.",
+            "The bacteria can invade the surrounding tissue and trigger an inflammatory reaction around the leads.",
+            "The infection can spread from the pocket to the leads, adjacent tissue, and occasionally to endocarditis.",
+            "Because of the biofilm, pathogens become resistant to bactericidal agents and surgical cleaning."
           ],
           "virulence_factors": [
-            "Biofilm-Synthese (PIA)",
-            "Fremdkörper-Adhäsine"
+            "Biofilm formation",
+            "Adhesion proteins",
+            "Toxins, superantigens"
           ]
         },
         "clinical": {
-          "incubation": "Tascheninfektion wochen- bis monatelang; Sondenendokarditis variabel",
-          "onset": "Lokale Taschenentzündung bis zur septischen Sondenendokarditis",
+          "incubation": "Days to weeks",
+          "onset": "Acute or subacute",
           "symptoms": [
             {
-              "name": "Tascheninfektion",
-              "description": "Rötung, Schwellung, Erwärmung, Fluktuation or Perforation/Erosion der Schrittmachertasche.",
+              "name": "Pocket infection",
+              "description": "Erythema, swelling, pain, or drainage in the pacemaker/ICD pocket.",
               "severity": "moderate"
             },
             {
-              "name": "Systemische Sondenendokarditis",
-              "description": "Unklares Fever, Schüttelfrost, pulmonale septische Embolien (Cough, Pleuraschmerz).",
+              "name": "Systemic symptoms",
+              "description": "Fever, chills, fatigue, weight loss, or septic status.",
+              "severity": "severe"
+            },
+            {
+              "name": "Lead/endocardial symptoms",
+              "description": "Infection involving the leads is often associated with lead failure, a new murmur, or migration of the leads.",
               "severity": "severe"
             }
           ],
           "physical_exam": [
-            "Rötung/Erosion über dem Aggregat, Eiteraustritt, Trikuspidalinsuffizienz-Geräusch"
+            "Pocket erythema, swelling, purulence",
+            "Fever",
+            "Septic status",
+            "New heart murmur or hemodynamic instability"
           ],
           "complications": [
-            "Trikuspidalklappen-Endokarditis",
-            "Septische Lungenembolien",
-            "Vena-cava-superior-Thrombose",
+            "Septic emboli",
+            "Endocarditis",
+            "Poor healing, lead dysfunction",
             "Sepsis"
           ]
         },
         "diagnostics": {
-          "laboratory": [
+          "criteria": [
             {
-              "test": "Blutkulturen",
-              "finding": "Mindestens 2-3 HK-Sets vor Antibiose",
-              "interpretation": "Essenziell in / with Sondeninfektion"
+              "name": "Clinical suspicion",
+              "items": [
+                "Pocket infection, lead or generator infection",
+                "Fever, positive culture",
+                "Elevated CRP/ESR",
+                "Septic status"
+              ]
             },
             {
-              "test": "Taschen-Abstrich / Gewebekultur",
-              "finding": "S. epidermidis / S. aureus",
-              "interpretation": "Pathogenbestimmung"
+              "name": "Laboratory",
+              "items": [
+                "Blood cultures (at least 2 sets)",
+                "CRP/ESR",
+                "CBC"
+              ]
+            },
+            {
+              "name": "Imaging",
+              "items": [
+                "Pocket ultrasound/CT/MRI",
+                "TTE/TEE if endocarditis is suspected",
+                "PET/CT if the spread is unclear"
+              ]
+            }
+          ],
+          "laboratory": [
+            {
+              "test": "Blood culture",
+              "finding": "Positive",
+              "interpretation": "Identification of the pathogen is essential"
+            },
+            {
+              "test": "CRP/ESR",
+              "finding": "Elevated",
+              "interpretation": "Inflammation/infection"
+            },
+            {
+              "test": "CBC",
+              "finding": "Leukocytosis",
+              "interpretation": "Septic pattern"
             }
           ],
           "imaging": [
             {
-              "modality": "TEE (Transösophageale Echokardiographie)",
-              "finding": "Sondenvegetationen, Trikuspidalklappenbefall",
-              "significance": "Goldstandard"
+              "modality": "Pocket ultrasound / CT",
+              "finding": "Abscess, fluid, tissue inflammation",
+              "significance": "Confirm local infection"
             },
             {
-              "modality": "18F-FDG PET/CT or SPECT/CT",
-              "finding": "Fokale FDG-Anreicherung im Bereich der Tasche or des Sondenverlaufs",
-              "significance": "EHRA 2024 / ESC 2023 Empfehlung!"
+              "modality": "TTE/TEE",
+              "finding": "Vegetation, lead attachment, abscess",
+              "significance": "Assess endocardial spread"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Aspiration / culture of removed device",
+              "finding": "Pathogen isolated",
+              "significance": "Basis for therapy and reimplantation"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Aseptisches Taschenhämatom",
-            "distinguishing": "PET-CT negativ, sterile Punktion"
+            "disease": "Skin infection / postoperative inflammation",
+            "distinguishing": "No purulence, no pathogen, quicker healing"
+          },
+          {
+            "disease": "Endocarditis",
+            "distinguishing": "Cardiac symptoms/vegetation, positive echocardiography"
           }
         ],
         "therapy": {
           "guidelines": [
-            "EHRA 2024 International Consensus Document on CIED Infection",
-            "ESC 2023 Endocarditis guidelines"
+            "EHRA 2024 CIED infection guidelines",
+            "ESC 2023 infective endocarditis guideline"
           ],
           "empirical": {
-            "title": "Empirice Antibiose & Sondenextraktion in / with CIED-Infektion",
+            "title": "Empiric therapy",
             "drugs": [
               {
-                "drug": "Vancomycin + Cefepim or Piperacillin/Tazobactam",
-                "dose": "Vancomycin 15-20 mg/kg i.v. twice daily + Cefepim 2g i.v. twice daily",
-                "duration": "Bis zur Extraktion",
-                "note": "Breitspektrum for Staphylokokken and Gram-negativee."
+                "drug": "Vancomycin + Gentamicin + Rifampicin",
+                "dose": "30-60mg/kg + 3mg/kg + 900-1200mg IV/PO",
+                "duration": "Induction treatment; definitive therapy after culture",
+                "note": "If device infection is suspected, a combination is required because of the biofilm."
               }
             ]
           },
-          "targeted": "VOLLSTÄNDIGE ENTFERNUNG / EXTRAKTION DES GESAMTEN CIED-SYSTEMS (Aggregat + ALLE Sonden) IST OBLIGATORISCH (EHRA/ESC Klasse I)! Konservative Antibiose alleine versagt in >80-90%. Antibiose after Extraktion: 2 weeks in / with unkomplizierter Tascheninfektion; 4-6 weeks in / with Sondenendokarditis/Bakteriämie.",
+          "targeted": "Depending on the pathogen, therapy can be directed against staphylococci, Gram-negatives, or Cutibacterium. Complete device removal and pocket reconstruction are often necessary.",
           "supportive": [
-            "Transvenöse Lasersondenextraktion im spezialisierten Zentrum",
-            "Interimspacing falls Schrittmacherabhängigkeit besteht"
+            "Management of septic status",
+            "Planning lead removal/reimplantation",
+            "Antibiotic prophylaxis before procedures if necessary"
           ],
           "prevention": [
-            "Perioperative Cefazolin-Prophylaxe",
-            "Taschenhämatome vermeiden"
+            "Oral hygiene, treatment of skin infections",
+            "Asepsis during implantation procedures",
+            "Correction of risk factors"
           ]
         },
         "prognosis": {
-          "mortality": "5-15% in / with Sondenendokarditis",
-          "prognostic_scores": [],
-          "factors": "S. aureus Bakteriämie, unvollständige Sondenextraktion"
+          "mortality": "Higher in severe cases, especially with sepsis/endocarditis",
+          "prognostic_scores": [
+            "None specific"
+          ],
+          "factors": "S. aureus, late infection, diabetes, immunosuppression, lead failure"
         },
-        "references": [
+        "gallery": [
           {
-            "text": "EHRA 2024 International Consensus Document on CIED Infection",
-            "url": "https://www.escardio.org/Sub-specialties/EHRA"
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pacemaker_implantation.jpg",
+            "caption": "Pacemaker implantation and leads.",
+            "type": "Imaging"
           }
-        ],
-        "gallery": []
+        ]
       },
       {
         "id": "myocarditis",
         "name": "Myocarditis",
         "pathogen": {
-          "type": "Virus / Bacterium / Immunologisch",
-          "name": "Enteroviren (Coxsackie B), Parvovirus B19, HHV-6, SARS-CoV-2, Influenza, Borrelia burgdorferi, Riesenzell-Myokarditis, Immune-Checkpoint-Inhibitoren",
-          "gram": "Variabel",
-          "shape": "Variabel"
+          "type": "Virus",
+          "name": "<i>Coxsackie B, Adenovirus, Parvovirus B19</i>",
+          "gram": "RNA/DNA viruses",
+          "shape": "variable"
         },
         "epidemiology": {
-          "incidence": "10-22 pro 100.000 Personen/Jahr",
+          "incidence": "Hard to estimate (many mild cases), 10-20% of sudden cardiac death in young people",
           "risk_groups": [
-            "Junge Erwachsene (20-40 J.), männliches Geschlecht",
-            "Sportler in / with körperlicher Belastung während Infekt",
-            "Patients unter Immuntherapie"
+            "Young adults",
+            "Men",
+            "Immunocompromised"
           ],
-          "seasonality": "Herbst-Winter-Gipfel (viral)",
-          "transmission": "Natur der Grunderkrankung / virale Atemwegs- or Magen-Darm-Infektion"
+          "seasonality": "Virus-dependent (e.g., enterovirus summer-autumn)",
+          "transmission": "Fecal-oral, droplet (pathogen-dependent)"
         },
         "pathomechanism": {
           "steps": [
-            "Virale Invasion der Myozyten via Rezeptoren (CAR - Coxsackie-Adenovirus-Rezeptor).",
-            "Direkte Zytolyse and virale Replikation im Herzmuskel.",
-            "Immunvermittelte Gewebezerstörung durch CD8+ T-Zellen and Autoantikörper. Progression zu kardialem Remodeling and Dilatativer Kardiomyopathie (DCM)."
+            "The infection begins with a viral infection, during which the virus can directly damage heart muscle cells.",
+            "The later, more severe phase of the disease is caused by the body's excessive immune response. T-cells and autoantibodies attack the heart muscle cells (molecular mimicry), resulting in extensive inflammation, necrosis, and myocardial dysfunction.",
+            "During healing, scarring (fibrosis) can develop, leading to dilated cardiomyopathy (DCM) and chronic heart failure."
           ],
           "virulence_factors": [
-            "CAR-Rezeptorbindung",
-            "Zytotoxische Zytokine"
+            "Protease 2A (dystrophin cleavage)",
+            "Receptor binding (CAR)"
           ]
         },
         "clinical": {
-          "incubation": "1-3 weeks after viralem Infekt",
-          "onset": "Akut (Herzinfarkt-ähnlich) bis fulminant",
+          "incubation": "1-2 weeks after viral infection",
+          "onset": "Variable (from asymptomatic to fulminant)",
           "symptoms": [
             {
-              "name": "Chest Pain",
-              "description": "Oft infarktähnlich or pleuritisch/perikarditisch.",
+              "name": "Viral Prodrome",
+              "description": "Cardiac symptoms are often preceded by a febrile, respiratory, or gastrointestinal infection a few days earlier.",
+              "severity": "mild"
+            },
+            {
+              "name": "Heart Failure Symptoms",
+              "description": "Fatigue, shortness of breath on exertion, then at rest, and edema.",
               "severity": "severe"
             },
             {
-              "name": "Herzinsuffizienz-Symptoms",
-              "description": "Belastungsdyspnoe, Orthopnoe, peripheren Ödeme, Fatigue.",
-              "severity": "severe"
-            },
-            {
-              "name": "Herzrhythmusstörungen",
-              "description": "Palpitationen, Synkopen, plötzlicher Herztod.",
-              "severity": "severe"
+              "name": "Chest Pain and Arrhythmia",
+              "description": "Atypical, sharp chest pain (myopericarditis) and palpitations (due to arrhythmias) are common.",
+              "severity": "moderate"
             }
           ],
           "physical_exam": [
-            "Tachykardie, dritter Herzton (Galopprhythmus), Lungenrasseln, peripherer Ödeme"
+            "Tachycardia (disproportionate to fever)",
+            "Signs of heart failure (S3, distended neck veins, edema)",
+            "Pericardial friction rub (in myopericarditis)",
+            "Arrhythmia (extrasystoles)"
           ],
           "complications": [
-            "Fulminante Kardiogener Schock",
-            "Severee ventrikuläre Arrhythmien (VT/VF)",
-            "Dilatative Kardiomyopathie (DCM)",
-            "Suddener Herztod"
+            "Dilated cardiomyopathy (DCM)",
+            "Heart failure",
+            "Fatal arrhythmias",
+            "Sudden cardiac death"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Kardiales Troponin I/T & CK-MB",
-              "finding": "Ausgeprägt erhöht (Myozytennekrose)",
-              "interpretation": "Marker for Herzmuskelschaden"
+              "test": "Troponin (hs-cTn)",
+              "finding": "Elevated",
+              "interpretation": "Myocardial necrosis (high sensitivity)"
             },
             {
-              "test": "NT-proBNP / BNP",
-              "finding": "Stark erhöht",
-              "interpretation": "Ausmaß der ventrikulären Wandspannung"
+              "test": "NT-proBNP",
+              "finding": "Elevated",
+              "interpretation": "Heart failure / prognostic marker"
             },
             {
-              "test": "Borrelien-Serologie / Viruses-PCR",
-              "finding": "Borrelia-IgM/IgG or Virusnachweis",
-              "interpretation": "Ätiologiesuche"
+              "test": "CRP/ESR",
+              "finding": "Elevated",
+              "interpretation": "Inflammation"
             }
           ],
           "imaging": [
             {
-              "modality": "Kardio-MRT (CMR)",
-              "finding": "Lake-Louise-Kriterien positiv (T2-Ödem + T1 Late Gadolinium Enhancement in epicardialen/mesokardialen Abschnitten)",
-              "significance": "Goldstandard der nicht-invasiven Diagnostics!"
+              "modality": "ECG",
+              "finding": "ST-T changes, AV block, QRS widening",
+              "significance": "Prognostic value"
             },
             {
-              "modality": "Echokardiographie",
-              "finding": "Regionale or globale Wandbewegungsstörungen, LVEF-Reduktion, Perikarderguss",
-              "significance": "Erstevaluation"
+              "modality": "Echocardiography",
+              "finding": "Global/regional wall motion abnormalities, decreased EF, pericardial effusion",
+              "significance": "Basic examination"
+            },
+            {
+              "modality": "Cardiac MRI (CMR)",
+              "finding": "Lake Louise criteria (T1/T2 signals, LGE)",
+              "significance": "Gold standard non-invasive diagnosis (ESC 2023)"
             }
           ],
           "microbiology": [
             {
-              "test": "Endomyokardbiopsie (EMB)",
-              "finding": "Histologie (Dallas-Kriterien), Immunhistochemie, Virus-PCR",
-              "significance": "Goldstandard in / with fulminantem Verlauf / Riesenzellmyokarditis!"
+              "test": "Endomyocardial biopsy (EMB)",
+              "finding": "Inflammation + Virus PCR",
+              "significance": "Gold standard. Indicated in: fulminant course, non-responsive HF, specific suspicion (giant cell) (ESC 2023)"
+            },
+            {
+              "test": "Virus serology",
+              "finding": "Not routinely recommended",
+              "significance": "Low diagnostic value (except hepatitis, HIV, Borrelia)"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Akutes Koronarsyndrom (ACS / Herzinfarkt)",
-            "distinguishing": "Unauffällige Koronarangiographie (KHK Ausschluss)"
+            "disease": "Acute coronary syndrome (ACS)",
+            "distinguishing": "Coronary angiography negative, young patient"
           },
           {
-            "disease": "Takotsubo-Kardiomyopathie",
-            "distinguishing": "Apikales Ballooning im Echo, Stress-Trigger"
+            "disease": "Pericarditis",
+            "distinguishing": "Troponin less elevated, no wall motion abnormalities"
+          },
+          {
+            "disease": "Anxiety/panic",
+            "distinguishing": "ECG/Troponin negative"
           }
         ],
         "therapy": {
-          "guidelines": [
-            "2023 ESC Guidelines for the management of cardiomyopathies",
-            "ESC Working Group Consensus Statement"
-          ],
           "empirical": {
-            "title": "Unterstützende & Symptomatische Therapie der Myokarditis",
-            "drugs": [
+            "outpatient": [
               {
-                "drug": "ACE-Hemmer / ARNI + Beta-Blocker + MRA",
-                "dose": "z.B. Ramipril / Sacubitril-Valsartan + Bisoprolol + Spironolacton",
-                "duration": "Mindestens 6 months",
-                "note": "Standard-Herzinsuffizienztherapie in / with LVEF-Reduktion."
+                "drug": "Physical rest",
+                "dose": "No sports",
+                "duration": "3-6 months",
+                "note": "Crucial! (ESC 2023)"
+              },
+              {
+                "drug": "NSAID (e.g., Ibuprofen)",
+                "dose": "Symptomatic",
+                "duration": "Short term",
+                "note": "Only for chest pain if EF is preserved!"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Heart failure therapy (GDMT)",
+                "dose": "ACEi/ARB/ARNI + BB + MRA + SGLT2i",
+                "duration": "Chronic",
+                "note": "If LVEF is reduced (ESC 2023)"
+              },
+              {
+                "drug": "Antiarrhythmic drugs",
+                "dose": "Amiodarone",
+                "duration": "",
+                "note": "In case of severe arrhythmia"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Mechanical circulatory support (MCS)",
+                "dose": "VA-ECMO, Impella",
+                "duration": "",
+                "note": "In fulminant myocarditis / cardiogenic shock"
+              },
+              {
+                "drug": "High-dose steroids",
+                "dose": "Methylprednisolone",
+                "duration": "",
+                "note": "Only in proven autoimmune/giant cell forms (virus negative!)"
               }
             ]
           },
-          "targeted": "STRICT SPORTS RESTRICTION FOR 3-6 MONTHS (ESC Klasse I)! Immunsuppression (Hochdosis-Steroide + Azathioprin/Ciclosporin) NUR in / with nachgewiesener Riesenzellmyokarditis, eosinophiler or autoimmuner Myokarditis. In Lyme disease: Ceftriaxon 2g i.v. once daily for 14-21 days. In cardiogenic shock: VAD / ECMO (Life-Support).",
+          "targeted": "Immunosuppression (Prednisolone + Azathioprine) ONLY in biopsy-proven virus-negative (PCR-) lymphocytic, giant cell, or sarcoidosis-related myocarditis (ESC 2023). Contraindicated in active viral infection!",
           "supportive": [
-            "Körperliche Schonung",
-            "Antiarrhythmika",
-            "Kardiogene Schock-Therapie"
+            "Strict physical rest (3-6 months) until inflammation resolves",
+            "Heart failure management",
+            "ICD implantation (if inflammation has resolved and EF remains low)"
           ],
           "prevention": [
-            "No Sport während fieberhafter Infekte!",
-            "Grippe- and COVID-Impfung"
+            "Vaccinations (Influenza, COVID, Measles)",
+            "Hygiene"
           ]
         },
         "prognosis": {
-          "mortality": "50% Spontanheilung; 10-20% Progression zu DCM; Riesenzellmyokarditis >80% Mortalität without Immunsuppression",
-          "prognostic_scores": [],
-          "factors": "LVEF <35%, ventrikuläre Tachykardien, Riesenzellhistologie"
+          "mortality": "Variable: often spontaneous recovery, high in fulminant cases. 50% progress to DCM.",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Initial EF, QRS width, troponin level"
         },
-        "references": [
+        "gallery": [
           {
-            "text": "2023 ESC Guidelines for the management of cardiomyopathies",
-            "url": "https://www.escardio.org"
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Histopathology_of_myocarditis_with_myocyte_necrosis.jpg",
+            "caption": "Histopathology of myocarditis with myocyte necrosis.",
+            "type": "Histology"
           }
-        ],
-        "gallery": []
+        ]
       },
       {
         "id": "pericarditis",
         "name": "Acute Pericarditis",
         "pathogen": {
-          "type": "Virus / Idiopathisch / Bacterium",
-          "name": "Enteroviren (Coxsackie), Echoviren, Adenoviren, EBV, CMV, SARS-CoV-2, Idiopathisch (>80-90%), Mycobacterium tuberculosis, S. aureus, Autoimmun",
-          "gram": "Variabel",
-          "shape": "Variabel"
+          "type": "Virus/Idiopathic",
+          "name": "<i>Coxsackie, Echovirus, Adenovirus, CMV, EBV</i>",
+          "gram": "Variable",
+          "shape": "-"
         },
         "epidemiology": {
-          "incidence": "28 Fälle / 100.000 Personen/Jahr",
+          "incidence": "Common (0.1% of hospitalized)",
           "risk_groups": [
-            "Junge Männer (20-50 J.)",
-            "Post-Myokardinfarkt (Dressler-Syndrom)",
-            "Autoimmunpatienten (SLE, RA)",
-            "Urämiepatienten"
+            "Men (20-50 years)",
+            "Post-cardiotomy patients",
+            "Autoimmune patients"
           ],
-          "seasonality": "Ganzjährig",
-          "transmission": "Virale Atemwegs- or GI-Infektion"
+          "seasonality": "Virus-dependent",
+          "transmission": "Droplet (viral)"
         },
         "pathomechanism": {
           "steps": [
-            "Entzündung des viszeralen and parietalen Perikardblattes.",
-            "Fibrinöse Exsudation (\"Brot-und-Butter-Perikarditis\") and Flüssigkeitsansammlung im Perikardraum.",
-            "Entzündungsreiz verursacht scharfe pleuritische Chest Pain and Perikardreiben."
+            "Inflammation of the pericardial layers, most commonly as a result of a viral infection.",
+            "Due to inflammation, fibrin is deposited between the layers, causing the characteristic friction rub (dry pericarditis).",
+            "Fluid can also accumulate (pericardial effusion), which, if it accumulates rapidly or in large amounts, can compress the heart and cause cardiac tamponade."
           ],
           "virulence_factors": [
-            "Zytokinausschüttung",
-            "Fibrinablagerung"
+            "-"
           ]
         },
         "clinical": {
-          "incubation": "1-2 weeks after viralem Prodrom",
-          "onset": "Akut",
+          "incubation": "Variable",
+          "onset": "Sudden",
           "symptoms": [
             {
-              "name": "Scharfer retrosternaler Brustschmerz",
-              "description": "Charakteristisch: Verstärkung im Liegen and in / with Inspiration; Linderung beim Nach-Vorne-Beugen!",
+              "name": "Characteristic Chest Pain",
+              "description": "Sharp, stabbing chest pain that worsens with inspiration and lying down, and improves when leaning forward.",
               "severity": "severe"
             },
             {
-              "name": "Perikardreiben",
-              "description": "Lederknirschen-ähnliches Geräusch in / with der Auskultation.",
-              "severity": "moderate"
+              "name": "Other Symptoms",
+              "description": "Often accompanied by low-grade fever, malaise, and shortness of breath.",
+              "severity": "mild"
             }
           ],
           "physical_exam": [
-            "Perikardreiben (Pathognomonisch!), Pulsus paradoxus in / with Tamponade, Tachykardie"
+            "Pericardial friction rub (systolic and diastolic components)",
+            "Muffled heart sounds (effusion)",
+            "Beck's triad (in tamponade): hypotension, muffled heart sounds, distended neck veins"
           ],
           "complications": [
-            "Herzbeuteltamponade (Notfall!)",
-            "Rezidivierende Perikarditis (15-30%)",
-            "Konstruktive Perikarditis (\"Panzerherz\")"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [
-            {
-              "test": "CRP / BSG",
-              "finding": "Stark erhöht",
-              "interpretation": "Entzündungsaktivität"
-            },
-            {
-              "test": "Troponin",
-              "finding": "Mild erhöht in 30% (Myoperikarditis)",
-              "interpretation": "Beteiligung des Herzmuskels"
-            }
-          ],
-          "imaging": [
-            {
-              "modality": "EKG",
-              "finding": "ST-Strecken-Hebungen konkavbögig aus dem absteigenden T-Schenkel in fast allen Ableitungen (I, II, aVF, V2-V6) + PR-Depression (aVR with ST-Senkung and PR-Hebung)",
-              "significance": "Klassisches EKG-Muster!"
-            },
-            {
-              "modality": "Echokardiographie",
-              "finding": "Perikarderguss, Beurteilung von Tamponadezeichen (RV-Kollaps in der Diastole)",
-              "significance": "Essentiell"
-            }
-          ]
-        },
-        "differential": [
-          {
-            "disease": "Akuter Myokardinfarkt (AMI)",
-            "distinguishing": "EKG: Konvexe ST-Hebungen spiegelbildlich, Troponin massiv erhöht"
-          },
-          {
-            "disease": "Lungenembolie / Aortendissection",
-            "distinguishing": "CT-Pulmonalisangiographie / CTA"
-          }
-        ],
-        "therapy": {
-          "guidelines": [
-            "ESC Guidelines for the diagnosis and management of pericardial diseases"
-          ],
-          "empirical": {
-            "title": "Erstlinien-Therapie der Akuten Perikarditis (ESC)",
-            "drugs": [
-              {
-                "drug": "Ibuprofen OR Aspirin + COLCHICIN",
-                "dose": "Ibuprofen 600-800mg q8h p.o. OR Aspirin 750-1000mg q8h p.o. PLUS Colchicin 0.5mg 1-twice daily",
-                "duration": "NSAID 1-2 weeks (ausschleichen); Colchicin 3 MONATE!",
-                "note": "Colchicin HALBIERT die Rezidivrate (ESC Klasse I)!"
-              }
-            ]
-          },
-          "targeted": "Zweitlinientherapie: Niedrigdosierte Glukokortikoide (Prednison 0.2-0.5 mg/kg/Tag) NUR in / with Unverträglichkeit/Versagen von NSAID+Colchicin or autoimmuner Genese (Steroide ERHÖHEN das Rezidivrisiko!). Perikardpunktion in / with Tamponade or Verdacht auf eitrige/neoplastische Perikarditis.",
-          "supportive": [
-            "Körperliche Schonung bis zur CRP-Normalisierung"
-          ],
-          "prevention": [
-            "3-monatige Colchicin-Einnahme verhindert Rezidive!"
-          ]
-        },
-        "prognosis": {
-          "mortality": "<1% in / with unkomplizierter Perikarditis; 15-30% Rezidivrisiko without Colchicin",
-          "prognostic_scores": [],
-          "factors": "Fever >38°C, großer Erguss, Herzbeuteltamponade, Mangel an Colchicin"
-        },
-        "references": [
-          {
-            "text": "ESC Guidelines for the diagnosis and management of pericardial diseases",
-            "url": "https://www.escardio.org"
-          }
-        ],
-        "gallery": []
-      },
-      {
-        "id": "vascular_graft_infection",
-        "name": "Vascular Graft Infection",
-        "pathogen": {
-          "type": "Bacterium",
-          "name": "<i>Staphylococcus aureus</i>, Koagulase-negative Staphylokokken (CoNS), <i>Pseudomonas aeruginosa</i>, Enterobacteriaceae, Cutibacterium, Candida",
-          "gram": "Gram-positive and Gram-negative",
-          "shape": "Variabel"
-        },
-        "epidemiology": {
-          "incidence": "1-6% in / with offenen aortalen/peripheren Bypass-Operationen, 0.5-1.5% in / with endovaskulären Stentgrafts (EVAR / TEVAR)",
-          "risk_groups": [
-            "Patients after offenen aortalen or peripheren Gefäßrekonstruktionen",
-            "EVAR / TEVAR Stentgraft-Träger",
-            "Inguinale Wundkomplikationen (Leistenzugang)",
-            "Diabetes mellitus, Adipositas, Re-Operationen"
-          ],
-          "seasonality": "None",
-          "transmission": "Perioperative Inokulation (intraoperative Kontamination), Ausbreitung aus Leistenwundinfektion or hämatogene Besiedlung"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Inokulation & Biofilm: Bakterien lagern sich an die synthetische Prothese (PTFE, Dacron) an and bilden einen dichten Biofilm.",
-            "Perigraft-Entzündung & Abszess: Ausbildung von periprothetischem Exsudat, Abszessen, Gaseinschlüssen and fehlender Gewebeintegration (Non-incorporation).",
-            "Anastomoseninsuffizienz & Pseudoaneurysma: Zerstörung der Nahtreihe and nativen Gefäßwand, was zu Pseudoaneurysmen or aorto-enterischen / aorto-bronchialen Fisteln führt.",
-            "Septische Embolisation: Verschleppung infizierter Thromben aus dem Prothesenlumen after peripher."
-          ],
-          "virulence_factors": [
-            "Dacron/PTFE-Adhäsine",
-            "Biofilmbildung",
-            "Bakterielle Proteasen"
-          ]
-        },
-        "clinical": {
-          "incubation": "Früh (<2 months postop - S. aureus, Gram-negativee) or Spät (>2 months postop - S. epidermidis, Cutibacterium)",
-          "onset": "Schleichendes Fever bis zur akuten massiven lebensbedrohlichen Blutung",
-          "symptoms": [
-            {
-              "name": "Lokale Wundsymptome",
-              "description": "Nicht heilende Wunde in der Leiste, Sinustrakt, eitrige Sekretion, pulsierende Schwellung (Pseudoaneurysma).",
-              "severity": "moderate"
-            },
-            {
-              "name": "Systemische Infektzeichen",
-              "description": "Fever unklarer Genese (FUO), Schüttelfrost, Gewichtsverlust, Sepsis, CRP-Erhöhung.",
-              "severity": "severe"
-            },
-            {
-              "name": "Lebensbedrohliche Blutung / Fistel",
-              "description": "Aorto-enterische Fistel: Dramatisches Warnzeichen ist eine kleine, spontan sistierende Magen-Darm-Blutung (\"Herald Bleeding\"), der eine massive Hämatemesis/Meläna folgt!",
-              "severity": "severe"
-            }
-          ],
-          "physical_exam": [
-            "Leistenwundinfektion, Fistel, Erythem über dem Prothesenverlauf, pulsierende Raumforderung, Blue-Toe-Syndrom (septische Embolien)"
-          ],
-          "complications": [
-            "Massive katastrophale Blutung (Aorto-enterische Fistel-Ruptur)",
-            "Septischer Schock",
-            "Prothesenthrombose and akute Ischämie",
-            "Gliedmaßenamputation"
+            "Pericardial tamponade",
+            "Constrictive pericarditis",
+            "Recurrent pericarditis (15-30%)"
           ]
         },
         "diagnostics": {
           "criteria": [
             {
-              "name": "MAGIC (Management of Aortic Graft Infection Collaboration) Kriterien",
+              "name": "Diagnosis (2 out of 4)",
               "items": [
-                "Definitive VGI: Haupt-Chirurgisches/Histologisches/Mikrobiologisches Kriterium OR 1 Haupt-Bildgebungskriterium + 1 Nebenkriterium",
-                "Haupt-Bildgebungskriterium: Periprothetisches Gas >7 days postop, periprothetischer Abszess im CT, aorto-enterische Fistel, fokal intensive FDG-Aufnahme im 18F-FDG PET/CT",
-                "Nebenkriterien: Fever, CRP-Erhöhung, Sinustrakt, periprothetische Gewebeverdickung"
+                "Chest pain (typical)",
+                "Pericardial friction rub",
+                "ECG changes (ST elevation, PR depression)",
+                "Pericardial effusion (Echo)"
               ]
             }
           ],
           "laboratory": [
             {
-              "test": "Blutkulturen (HK)",
-              "finding": "Mindestens 2-3 HK-Sets vor Antibiose",
-              "interpretation": "Pathogennachweis"
+              "test": "CRP/ESR",
+              "finding": "Elevated",
+              "interpretation": "Inflammation activity (also for follow-up!)"
             },
             {
-              "test": "CRP / PCT / BSG",
-              "finding": "Stark erhöht",
-              "interpretation": "Verlaufskontrolle"
+              "test": "Troponin",
+              "finding": "Normal or slightly elevated",
+              "interpretation": "Exclusion of myocarditis (if high: myopericarditis)"
+            },
+            {
+              "test": "CBC",
+              "finding": "Leukocytosis",
+              "interpretation": "Inflammation"
             }
           ],
           "imaging": [
             {
-              "modality": "CT-Angiographie (CTA)",
-              "finding": "Periprothetische Gasblasen (>7-14 days postop), Flüssigkeitskollektion/Abszess, Pseudoaneurysma, Kontinuitätsunterbrechung der Darmwand",
-              "significance": "ESC / ESVS Klasse I: Erstlinien-Bildgebung!"
+              "modality": "ECG",
+              "finding": "Diffuse concave ST elevation, PR depression (elevation in aVR)",
+              "significance": "Diagnostic"
             },
             {
-              "modality": "18F-FDG PET/CT",
-              "finding": "Intensive, fokale or diffuse patologische FDG-Aufnahme entlang der Gefäßprothese (\"Sandwich-Zeichen\")",
-              "significance": "ESC / ESVS Klasse I GOLDSTANDARD: Höchste Sensitivität and Spezifität!"
+              "modality": "Echocardiography",
+              "finding": "Pericardial effusion",
+              "significance": "Exclusion of tamponade, diagnosis"
+            },
+            {
+              "modality": "Chest X-ray",
+              "finding": "Normal or \"water bottle heart\" (large effusion)",
+              "significance": "Exclusion of other causes"
             }
           ],
           "microbiology": [
             {
-              "test": "Sonifikation der entfernten Prothese",
-              "finding": "Pathogen- and Resistenzbestimmung",
-              "significance": "Erhöht die Ausbeute in / with Biofilmkeimen"
+              "test": "Virus serology",
+              "finding": "Not routine",
+              "significance": "Only in special cases"
+            },
+            {
+              "test": "Pericardiocentesis",
+              "finding": "Culture/PCR",
+              "significance": "Only in tamponade or suspicion of purulent/neoplastic cause"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Aseptisches Serom / Flüssigkeit",
-            "distinguishing": "PET-CT negativ, Punktion steril"
+            "disease": "Acute myocarditis",
+            "distinguishing": "Troponin elevation dominates, wall motion abnormalities"
           },
           {
-            "disease": "Postimplantationssyndrom (nach EVAR)",
-            "distinguishing": "Fever and Leukozytose direkt after EVAR without Infektion, spontan regressiv in 3-5 daysn"
+            "disease": "STEMI",
+            "distinguishing": "Convex ST elevation, reciprocal depression, regional"
+          },
+          {
+            "disease": "Pulmonary embolism",
+            "distinguishing": "Dyspnea dominates, D-dimer, CT"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "outpatient": [
+              {
+                "drug": "Aspirin",
+                "dose": "750-1000mg every 8 hours",
+                "duration": "1-2 weeks, then taper",
+                "note": "First choice (ESC 2015)"
+              },
+              {
+                "drug": "Ibuprofen",
+                "dose": "600mg every 8 hours",
+                "duration": "1-2 weeks, then taper",
+                "note": "Alternative"
+              },
+              {
+                "drug": "+ Colchicine",
+                "dose": "0.5mg once daily (<70kg) or twice (>70kg)",
+                "duration": "3 months",
+                "note": "For prevention of recurrence (ESC 2015)!"
+              },
+              {
+                "drug": "PPI",
+                "dose": "Standard",
+                "duration": "With NSAID",
+                "note": "Gastric protection"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "None",
+                "dose": "-",
+                "duration": "-",
+                "note": "Only for high-risk cases (fever >38, subacute, large effusion, tamponade, anticoagulated patient)"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Pericardiocentesis",
+                "dose": "Drainage",
+                "duration": "",
+                "note": "Life-saving in tamponade"
+              }
+            ]
+          },
+          "targeted": "Steroids (Prednisolone 0.2-0.5 mg/kg) ONLY if NSAID/Colchicine are contraindicated, unsuccessful, or for specific indications (autoimmune).",
+          "supportive": [
+            "Physical rest (no sports) until CRP normalizes (min. 3 months for athletes)"
+          ],
+          "prevention": [
+            "Colchicine for the first episode"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Low, life-threatening in tamponade",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Recurrence is common, constrictive pericarditis is rare (<1% in idiopathic)"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Acute_Pericarditis_ECG.jpg",
+            "caption": "Typical ECG pattern in acute pericarditis.",
+            "type": "ECG"
+          }
+        ]
+      },
+      {
+        "id": "vascular_graft_infection",
+        "name": "Vascular Graft Infection (VGI / EVGI)",
+        "pathogen": {
+          "type": "Bacterium",
+          "name": "<i>Staphylococcus aureus</i>, Coagulase-negative Staphylococci (CoNS), <i>Pseudomonas aeruginosa</i>, Enterobacteriaceae, Cutibacterium, Candida",
+          "gram": "Gram-positive and Gram-negative",
+          "shape": "Variable"
+        },
+        "epidemiology": {
+          "incidence": "1-6% in open aortic/peripheral bypass surgeries, 0.5-1.5% in endovascular stent grafts (EVAR / TEVAR)",
+          "risk_groups": [
+            "Patients after open aortic or peripheral vascular reconstructions",
+            "EVAR / TEVAR stent graft carriers",
+            "Inguinal wound complications (groin access)",
+            "Diabetes mellitus, obesity, re-operations"
+          ],
+          "seasonality": "None",
+          "transmission": "Perioperative inoculation (intraoperative contamination), spread from groin wound infection, or hematogenous seeding"
+        },
+        "pathomechanism": {
+          "steps": [
+            "Inoculation & Biofilm: Bacteria attach to the synthetic prosthesis (PTFE, Dacron) and form a dense biofilm.",
+            "Perigraft Inflammation & Abscess: Formation of periprosthetic exudate, abscesses, gas entrapment, and lack of tissue incorporation (non-incorporation).",
+            "Anastomotic Insufficiency & Pseudoaneurysm: Destruction of suture line and native vessel wall leading to pseudoaneurysms or aorto-enteric / aorto-bronchial fistulas.",
+            "Septic Embolization: Dislodgement of infected thrombi from the graft lumen to the periphery."
+          ],
+          "virulence_factors": [
+            "Dacron/PTFE adhesins",
+            "Biofilm formation",
+            "Bacterial proteases"
+          ]
+        },
+        "clinical": {
+          "incubation": "Early (<2 months postop - S. aureus, Gram-negatives) or Late (>2 months postop - S. epidermidis, Cutibacterium)",
+          "onset": "Insidious fever to acute massive life-threatening hemorrhage",
+          "symptoms": [
+            {
+              "name": "Local Wound Symptoms",
+              "description": "Non-healing wound in the groin, sinus tract, purulent discharge, pulsatile mass (pseudoaneurysm).",
+              "severity": "moderate"
+            },
+            {
+              "name": "Systemic Infection Signs",
+              "description": "Fever of unknown origin (FUO), chills, weight loss, sepsis, elevated CRP.",
+              "severity": "severe"
+            },
+            {
+              "name": "Life-Threatening Bleeding / Fistula",
+              "description": "Aorto-enteric fistula: A dramatic warning sign is a small, spontaneously self-limiting gastrointestinal bleed (\"herald bleeding\"), followed by massive hematemesis/melena!",
+              "severity": "severe"
+            }
+          ],
+          "physical_exam": [
+            "Groin wound infection, sinus tract, erythema over graft course, pulsatile mass, blue toe syndrome (septic emboli)"
+          ],
+          "complications": [
+            "Massive catastrophic hemorrhage (aorto-enteric fistula rupture)",
+            "Septic shock",
+            "Prosthetic graft thrombosis and acute ischemia",
+            "Limb amputation"
+          ]
+        },
+        "diagnostics": {
+          "criteria": [
+            {
+              "name": "MAGIC (Management of Aortic Graft Infection Collaboration) Criteria",
+              "items": [
+                "Definitive VGI: Major Surgical/Histological/Microbiological criterion OR 1 Major Imaging criterion + 1 Minor criterion",
+                "Major Imaging Criteria: Periprosthetic gas >7 days postop, periprosthetic abscess on CT, aorto-enteric fistula, focal intense FDG uptake on 18F-FDG PET/CT",
+                "Minor Criteria: Fever, elevated CRP, sinus tract, periprosthetic soft tissue thickening"
+              ]
+            }
+          ],
+          "laboratory": [
+            {
+              "test": "Blood cultures (BC)",
+              "finding": "At least 2-3 blood culture sets before antibiotics",
+              "interpretation": "Pathogen identification"
+            },
+            {
+              "test": "CRP / PCT / ESR",
+              "finding": "Markedly elevated",
+              "interpretation": "Disease monitoring"
+            }
+          ],
+          "imaging": [
+            {
+              "modality": "CT Angiography (CTA)",
+              "finding": "Periprosthetic gas bubbles (>7-14 days postop), fluid collection/abscess, pseudoaneurysm, loss of bowel wall continuity",
+              "significance": "ESC / ESVS Class I: First-line imaging!"
+            },
+            {
+              "modality": "18F-FDG PET/CT",
+              "finding": "Intense focal or diffuse pathological FDG uptake along the vascular graft (\"sandwich sign\")",
+              "significance": "ESC / ESVS Class I GOLD STANDARD: Highest sensitivity and specificity!"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Sonication of explanted graft",
+              "finding": "Pathogen and resistance identification",
+              "significance": "Increases yield for biofilm organisms"
+            }
+          ]
+        },
+        "differential": [
+          {
+            "disease": "Aseptic Seroma / Fluid Collection",
+            "distinguishing": "PET-CT negative, sterile fluid aspiration"
+          },
+          {
+            "disease": "Post-Implantation Syndrome (after EVAR)",
+            "distinguishing": "Fever and leukocytosis directly after EVAR without infection, spontaneously resolves in 3-5 days"
           }
         ],
         "therapy": {
@@ -2115,1250 +2831,1474 @@ Object.assign(window.diseases, {
             "ESC 2023 Endocarditis guidelines"
           ],
           "empirical": {
-            "title": "Empirice Antibiose in / with Gefäßprotheseninfektion",
+            "title": "Empiric Antibiotic Therapy in Vascular Graft Infection",
             "drugs": [
               {
-                "drug": "Vancomycin + Piperacillin/Tazobactam OR Cefepim / Meropenem",
-                "dose": "Vancomycin 30-60 mg/kg/Tag i.v. + Pip-Tazo 4x4.5g/Tag i.v.",
-                "duration": "Bis zur chirurgischen Sanierung",
-                "note": "Breitspektrum-Abdeckung for MRSA, Pseudomonas and Anaerobier."
+                "drug": "Vancomycin + Piperacillin/Tazobactam OR Cefepime / Meropenem",
+                "dose": "Vancomycin 30-60 mg/kg/day IV + Pip-Tazo 4x4.5g/day IV",
+                "duration": "Until surgical intervention",
+                "note": "Broad-spectrum coverage for MRSA, Pseudomonas, and anaerobes."
               }
             ]
           },
-          "targeted": "Kombinierte Chirurgische AND Antimikrobielle Therapie (ESVS Klasse I): Vollständige Entfernung der infizierten Prothese, radikales Debridement and RevasSystematisierung with autologer Vein (V. saphena magna), Homograft or Rifampicin/Silber-beschichteter Prothese! After prosthesis removal 6-12 weeks gezielte i.v./p.o. Antibiose; wenn Prothese nicht entfernbar ist, LEBENSLANGE suppresive Antibiose erforderlich.",
+          "targeted": "Combined Surgical AND Antimicrobial Therapy (ESVS Class I): Complete removal of the infected graft, radical debridement, and revascularization with autologous vein (great saphenous vein), homograft, or rifampicin/silver-coated graft! After graft removal, 6-12 weeks of targeted IV/oral antibiotics; if graft removal is not feasible, LIFELONG suppressive antibiotic therapy is required.",
           "supportive": [
-            "Notfallmäßige gefäßchirurgische Konsultation in / with Verdacht auf aorto-enterische Fistel (Herald Bleeding!)",
-            "Unterstützendes Wundmanagement (NPWT)"
+            "Emergency vascular surgery consultation on suspicion of aorto-enteric fistula (herald bleeding!)",
+            "Supportive wound management (NPWT)"
           ],
           "prevention": [
-            "Strenge chirurgische Asepsis",
-            "Perioperative Antibiotikaprophylaxe (Cefazolin 2g i.v.)"
+            "Strict surgical asepsis during vascular reconstructions",
+            "Perioperative antibiotic prophylaxis (Cefazolin 2g IV) for all vascular surgeries"
           ]
         },
         "prognosis": {
-          "mortality": "Aortale Protheseninfektion 25-50% Mortalität; Aorto-enterische Fistel unbehandelt 100%! Amputationsrisiko 10-25%.",
+          "mortality": "Aortic graft infection mortality is 25-50%; untreated aorto-enteric fistula mortality is 100%! Risk of limb amputation is 10-25%.",
           "prognostic_scores": [
             "MAGIC Prognosis Score"
           ],
-          "factors": "Aortale Lokalisation, Notfall-OP, P. aeruginosa / S. aureus Pathogen"
+          "factors": "Aortic location, emergency surgery, P. aeruginosa / S. aureus pathogen, aorto-enteric fistula"
         },
         "references": [
           {
-            "text": "ESVS 2020 Clinical Practice Guidelines on Vascular Graft Infections",
+            "text": "Editor's Choice - European Society for Vascular Surgery (ESVS) 2020 Clinical Practice Guidelines on the Management of Vascular Graft and Endovascular Prosthetic Infections. Eur J Vasc Endovasc Surg. 2020;59(3):339-399.",
             "url": "https://www.ejves.com"
+          },
+          {
+            "text": "Management of Aortic Graft Infection Collaboration (MAGIC) criteria. J Vasc Surg. 2016;64(1):247-254.",
+            "url": "https://www.jvascsurg.org"
           }
         ],
-        "gallery": []
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/CT_scan_of_aortic_graft_infection.jpg",
+            "caption": "CT image of aortic graft infection showing perigraft gas bubbles and fluid collection.",
+            "type": "CT Imaging"
+          }
+        ]
       }
     ]
   },
   "upper_respiratory": {
-    "name": "Upper Respiratory Tract Infections",
-    "icon": (window.diseaseMetadata?.upper_respiratory?.icon || '🗣️'),
-    "color": (window.diseaseMetadata?.upper_respiratory?.color || '#14b8a6'),
+    "name": "Upper Respiratory Infections",
+    "icon": window.diseaseMetadata.upper_respiratory.icon,
+    "color": window.diseaseMetadata.upper_respiratory.color,
     "diseases": [
       {
         "id": "upper_respiratory_infections",
-        "name": "Upper Respiratory Tract Infection (Common Cold)",
+        "name": "Upper Respiratory Infections (Common Cold)",
         "pathogen": {
           "type": "Virus",
-          "name": "Rhinoviren (>50%), Coronaviren, Adenoviren, RSV, Parainfluenzaviren",
-          "gram": "None",
-          "shape": "Kapsid"
+          "name": "<i>Rhinovirus</i> (most common), <i>Coronavirus, Adenovirus, Influenza</i>",
+          "gram": "RNA viruses",
+          "shape": "variable"
         },
         "epidemiology": {
-          "incidence": "Most common menschliche Infektion (Erwachsene 2-4x/Jahr, Kinder 6-8x/Jahr)",
+          "incidence": "Most common infection, adults 2-3x/year, children 6-8x/year",
           "risk_groups": [
-            "Kleinkinder in Kitas",
-            "Stress, Schlafmangel"
+            "Children",
+            "Elderly",
+            "Immunocompromised"
           ],
-          "seasonality": "Herbst-Winter-Gipfel",
-          "transmission": "Tröpfchen- and Kontaktinfektion"
+          "seasonality": "Year-round, peak in autumn-winter",
+          "transmission": "Droplet, contact, fomites"
         },
         "pathomechanism": {
           "steps": [
-            "Invasion des Nasen-Rachen-Epithels, Entzündungsmediator-Freisetzung (Histamin, Bradykinin), Schleimhautödem and Hypersekretion."
+            "Viruses enter through the mucous membranes of the upper respiratory tract, where they replicate in epithelial cells.",
+            "The infection triggers local inflammation, edema, and increased mucus production.",
+            "This causes the characteristic symptoms: rhinorrhea, nasal congestion, and sore throat."
           ],
           "virulence_factors": [
-            "Rezeptorbindung (ICAM-1 in / with Rhinoviren)"
+            "Receptor binding (ICAM-1 for rhinovirus)",
+            "Immunomodulation"
           ]
         },
         "clinical": {
           "incubation": "1-3 days",
-          "onset": "Mild",
+          "onset": "Sudden",
           "symptoms": [
             {
-              "name": "Nasal- and Halssymptome",
-              "description": "Rhinitis (Schnupfen), Niesen, Halsschmerzen, mäßiges Fever, Cough.",
+              "name": "Typical Symptoms",
+              "description": "Typically presents with rhinorrhea, nasal congestion, sneezing, sore throat, and a dry cough. Fever is usually mild or absent. Symptoms generally resolve on their own within 7-10 days.",
               "severity": "mild"
             }
           ],
           "physical_exam": [
-            "Gerötete Nasenschleimhaut, seröse/eitrige Rhinorrhö, Pharynxrötung"
+            "Nasal mucosa hyperemia, edema",
+            "Mild pharyngeal redness",
+            "Cervical lymphadenopathy",
+            "Normal lung auscultation"
           ],
           "complications": [
-            "Bakterielle Superinfektion (Sinusitis, Otitis media, Bronchitis)"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [],
-          "imaging": []
-        },
-        "differential": [
-          {
-            "disease": "Allergische Rhinitis",
-            "distinguishing": "Juckreiz, Eosinophilie, kein Fever"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Symptomatische Therapie der Erkältung",
-            "drugs": [
-              {
-                "drug": "Analgetika / Antipyretika (Ibuprofen / Paracetamol)",
-                "dose": "Ibuprofen 400mg three times daily or Paracetamol 500-1000mg 3-4x/Tag p.o.",
-                "duration": "3-5 days",
-                "note": "Zur Schmerz- and Feversenkung."
-              },
-              {
-                "drug": "Abschwellende Nasentropfen (Xylometazolin)",
-                "dose": "1-2 Tropfen/Sprühestöße pro Nasenloch max three times daily",
-                "duration": "Maximal 5-7 days!",
-                "note": "Gefahr der Rhinitis medicamentosa in / with Langzeitanwendung."
-              }
-            ]
-          },
-          "targeted": "Rein symptomatisch! None Antibiotika in / with unkomplizierter Erkältung!",
-          "supportive": [
-            "Ausreichend Flüssigkeit",
-            "Nasenspülung with Kochsalzlösung"
-          ],
-          "prevention": [
-            "Händewaschen, Händehygiene"
-          ]
-        },
-        "prognosis": {
-          "mortality": "0%",
-          "prognostic_scores": [],
-          "factors": "None"
-        },
-        "gallery": []
-      },
-      {
-        "id": "laryngitis",
-        "name": "Croup (Laryngotracheobronchitis)",
-        "pathogen": {
-          "type": "Virus",
-          "name": "Parainfluenzaviren (Typ 1-3), RSV, Adenoviren, Influenzaviren",
-          "gram": "None",
-          "shape": "Variabel"
-        },
-        "epidemiology": {
-          "incidence": "Common in / with Säuglingen and Kleinkindern (6 months bis 3 Jahre)",
-          "risk_groups": [
-            "Kleinkinder (Anatomisch enge subglottische Region)"
-          ],
-          "seasonality": "Herbst-Winter",
-          "transmission": "Tröpfcheninfektion"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Virale Infektion des Kehlkopf- and Trachealepithels.",
-            "Subglottisches Schleimhautödem verengt die Atemwege (Hagen-Poiseuille-Gesetz: Radius-Halbierung erhöht Strömungswiderstand um das 16-fache!).",
-            "Inspiratorischer Stridor and bellender Cough."
-          ],
-          "virulence_factors": [
-            "Neuraminidase, Hämagglutinin"
-          ]
-        },
-        "clinical": {
-          "incubation": "2-5 days",
-          "onset": "Sudden, klassischerweise nachts aus dem Schlaf heraus",
-          "symptoms": [
-            {
-              "name": "Bellender Cough & Heiserkeit",
-              "description": "Charakteristischer bellernder \"Hundehusten\" and Heiserkeit.",
-              "severity": "moderate"
-            },
-            {
-              "name": "Inspiratorischer Stridor",
-              "description": "Pfeifendes Atemgeräusch in / with der Einatmung, juguläre/interkostale Einziehungen.",
-              "severity": "severe"
-            }
-          ],
-          "physical_exam": [
-            "Inspiratorischer Stridor, Heiserkeit, Einziehungen, Tachypnoe"
-          ],
-          "complications": [
-            "Akute Atemwegsverlegung / Respiratorische Insuffizienz"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [],
-          "imaging": [
-            {
-              "modality": "Hals-Röntgen (AP)",
-              "finding": "Kirchturm-Zeichen (Steeple Sign - subglottische Verengung)",
-              "significance": "Rare erforderlich"
-            }
-          ]
-        },
-        "calculators": [
-          {
-            "name": "Westley Croup Score - Pseudokrupp Severeegrad",
-            "items": [
-              {
-                "label": "Inspiratorischer Stridor (Noner=0, With agitation=1, At rest=2)",
-                "points": 2
-              },
-              {
-                "label": "Einziehungen (None=0, Mild=1, Mäßig=2, Severe=3)",
-                "points": 3
-              },
-              {
-                "label": "Atemgeräusch (Normal=0, Vermindert=1, Stark vermindert=2)",
-                "points": 2
-              },
-              {
-                "label": "Zyanose (None=0, With agitation=4, At rest=5)",
-                "points": 5
-              },
-              {
-                "label": "Bewusstsein (Normal=0, Desorientiert=5)",
-                "points": 5
-              }
-            ],
-            "interpretation": [
-              {
-                "min": 0,
-                "max": 2,
-                "text": "Milder Pseudokrupp (≤2): Ambulante Einzeldosis Dexamethason p.o."
-              },
-              {
-                "min": 3,
-                "max": 5,
-                "text": "Mittelschwerer Pseudokrupp (3-5): Dexamethason + Überwachung."
-              },
-              {
-                "min": 6,
-                "max": 11,
-                "text": "Severeer Pseudokrupp (6-11): Dexamethason + Inhalatives Adrenalin + Stationäre Aufnahme."
-              },
-              {
-                "min": 12,
-                "max": 17,
-                "text": "Drohendes Atemversagen (≥12): Intensivstation, Intubationsbereitschaft!"
-              }
-            ]
-          }
-        ],
-        "differential": [
-          {
-            "disease": "Epiglottitis",
-            "distinguishing": "Hohes Fever, Speichelfluss (Drooling), Sitzen in \"Tripod-Haltung\", kein bellender Cough!"
-          },
-          {
-            "disease": "Fremdkörperaspiration",
-            "distinguishing": "Suddener Onset beim Spielen, kein Infekt"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Stufentherapie des Pseudokrupp",
-            "drugs": [
-              {
-                "drug": "Dexamethason p.o. / i.m. / i.v.",
-                "dose": "0.6 mg/kg Einzeldosis (max 16mg)",
-                "duration": "Einmalig",
-                "note": "Essenziell in / with JEDEM Severeegrad (Westley Score)!"
-              },
-              {
-                "drug": "Inhalatives Adrenalin (L-Epinephrin)",
-                "dose": "2-5 ml Adrenalin (1:1000) über Vernebler",
-                "duration": "Bei Stridor in Ruhe",
-                "note": "Schnelle Abschwellung durch alpha-sympathomimetische Vasokonstriktion."
-              }
-            ]
-          },
-          "targeted": "Glukokortikoide + inhalatives Adrenalin in / with schwerem Stridor. None Antibiotika!",
-          "supportive": [
-            "Kühle feuchte Luft, Beruhigung des Kindes, Sauerstoffgabe"
-          ],
-          "prevention": [
-            "Rauchfreie Umgebung"
-          ]
-        },
-        "prognosis": {
-          "mortality": "<0.1% in / with rechtzeitiger Dexamethasongabe",
-          "prognostic_scores": [
-            "Westley Croup Score"
-          ],
-          "factors": "Westley Score ≥6"
-        },
-        "gallery": []
-      },
-      {
-        "id": "epiglottitis",
-        "name": "Acute Epiglottitis",
-        "pathogen": {
-          "type": "Bacterium",
-          "name": "<i>Haemophilus influenzae</i> Typ b (Hib - durch Impfung stark rückläufig), <i>Streptococcus pneumoniae</i>, <i>S. pyogenes</i>, <i>S. aureus</i>",
-          "gram": "Gram-negative / Gram-positive",
-          "shape": "Variabel"
-        },
-        "epidemiology": {
-          "incidence": "Rare seit Einführung der Hib-Impfung",
-          "risk_groups": [
-            "Ungeimpfte Kinder",
-            "Erwachsene with Diabetes / Immunsuppression"
-          ],
-          "seasonality": "Ganzjährig",
-          "transmission": "Tröpfcheninfektion"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Bakterielle Infektion des Kehldeckels (Epiglottis) and der supraglottischen Strukturen.",
-            "Massives entzündliches Ödem der Epiglottis.",
-            "Rasche, lebensbedrohliche Verlegung der oberen Atemwege."
-          ],
-          "virulence_factors": [
-            "Hib Kapselpolysaccharid (PRP)"
-          ]
-        },
-        "clinical": {
-          "incubation": "1-3 days",
-          "onset": "Dramatisch, fulminant",
-          "symptoms": [
-            {
-              "name": "Die 3 \"Ds\"",
-              "description": "Dysphagie (Schluckstörung), Drooling (Speichelfluss), Distress (Atemnot).",
-              "severity": "severe"
-            },
-            {
-              "name": "Kopforwärtsneigung (Tripod-Haltung)",
-              "description": "Kind sitzt aufgerichtet, neigt den Kopf after vorne, um den Kehlkopf offen zu halten.",
-              "severity": "severe"
-            },
-            {
-              "name": "Kloßige Sprache",
-              "description": "Gedämpfte \"Kloß-im-Mund\"-Sprache (Hot potato voice), KEIN bellender Cough!",
-              "severity": "severe"
-            }
-          ],
-          "physical_exam": [
-            "ABSOLUTES MANIPULATIONSVERBOT IM MUND/RACHEN (Gefahr des fatalen Laryngospasmus!)",
-            "Sitzende Haltung, Speichelfluss, Stridor"
-          ],
-          "complications": [
-            "Akuter Erstickungstod / Atemstillstand",
-            "Sepsis",
-            "Abszessbildung"
+            "Sinusitis",
+            "Otitis media",
+            "Bronchitis",
+            "Pneumonia (rare)"
           ]
         },
         "diagnostics": {
           "laboratory": [
             {
-              "test": "Blutkulturen",
-              "finding": "In 70% positiv for Hib",
-              "interpretation": "Only AFTER securing the airway!"
+              "test": "Not needed",
+              "finding": "-",
+              "interpretation": "Clinical diagnosis"
             }
           ],
           "imaging": [
             {
-              "modality": "Hals-Röntgen seitlich",
-              "finding": "Daumenzeichen (Thumbprint Sign - geschwollene Epiglottis)",
-              "significance": "Nur in / with stabiler Situation"
-            }
-          ]
-        },
-        "differential": [
-          {
-            "disease": "Pseudokrupp",
-            "distinguishing": "Bellender Cough, kein Speichelfluss, liegt flach"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Notfallbehandlung der Epiglottitis",
-            "drugs": [
-              {
-                "drug": "Ceftriaxon i.v.",
-                "dose": "2g i.v. once daily (Kinder: 50-100 mg/kg/Tag)",
-                "duration": "7-10 days",
-                "note": "1. Wahl after Atemwegssicherung!"
-              },
-              {
-                "drug": "+ Vancomycin or Ampicillin/Sulbactam",
-                "dose": "15-20 mg/kg i.v. q12h",
-                "duration": "7-10 days",
-                "note": "Zusätzliche Staphylokokken-Abdeckung."
-              }
-            ]
-          },
-          "targeted": "PRIMÄRES ZIEL: SOFORTIGE ATEMWEGSSICHERUNG (Orotracheale Intubation im Operationssaal / HNO-Notfall)! Erst danach Antibiose with Ceftriaxon i.v.",
-          "supportive": [
-            "Notfall-Koniotomie/Tracheotomie Bereitstellung"
-          ],
-          "prevention": [
-            "Hib-Schutzimpfung im Säuglingsalter (Obligatorisch!)"
-          ]
-        },
-        "prognosis": {
-          "mortality": "<1% in / with rechtzeitiger Intubation; bis 10-20% in / with verzögerter Diagnose",
-          "prognostic_scores": [],
-          "factors": "Atemwegsverlegung vor Intubation"
-        },
-        "gallery": []
-      },
-      {
-        "id": "rsv_infection",
-        "name": "RSV Infection",
-        "pathogen": {
-          "type": "Virus",
-          "name": "Respiratorisches Synzytial-Virus (RSV - Pneumoviridae)",
-          "gram": "None",
-          "shape": "Behülltes Einzelstrang-RNA-Virus"
-        },
-        "epidemiology": {
-          "incidence": "Most common Ursache for Bronchiolitis and Pneumonie in / with Säuglingen <1 Jahr",
-          "risk_groups": [
-            "Frühgeborene",
-            "Säuglinge <6 months",
-            "Kinder with angeborenen Herzfehlern / BPD",
-            "Ältere Erwachsene (>65 J.)"
-          ],
-          "seasonality": "Winter-Frühjahr (November bis April)",
-          "transmission": "Tröpfchen- and Schmierinfektion (Hohe Kontagiosität!)"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Infektion des Epithels der kleinen Atemwege (Bronchiolen) via F-Protein (Fusionsprotein).",
-            "Bildung von Zellsynzytien, Nekrose der Epithelzellen and massive Schleimproduktion.",
-            "Verlegung der Bronchiolen, Air-Trapping (Überblähung) and Atelektasenbildung."
-          ],
-          "virulence_factors": [
-            "F-Protein (Fusion)",
-            "G-Protein (Attachment)"
-          ]
-        },
-        "clinical": {
-          "incubation": "2-8 days",
-          "onset": "Symptomprogression über 3-5 days",
-          "symptoms": [
-            {
-              "name": "Säuglings-Bronchiolitis",
-              "description": "Gekennzeichnet durch Tachypnoe, giemendes/brummendes Atemgeräusch (Wheezing), interkostale Einziehungen, Nasenflügeln and Trinkschwäche.",
-              "severity": "severe"
-            },
-            {
-              "name": "Apnoen in / with Neugeborenen",
-              "description": "Atemstillstände besonders in / with sehr jungen Säuglingen (<2 months).",
-              "severity": "severe"
-            },
-            {
-              "name": "Erwachsenen-Pneumonie",
-              "description": "Severeer Bronchitis- / Pneumonieverlauf in / with Älteren.",
-              "severity": "moderate"
-            }
-          ],
-          "physical_exam": [
-            "Tachypnoe, Giemen, Feuchte Rasselgeräusche, Einziehungen, Zyanose"
-          ],
-          "complications": [
-            "Respiratorische Insuffizienz",
-            "Bakterielle Superinfektion",
-            "Post-Bronchiolitis-Asthma"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [
-            {
-              "test": "RSV-Schnelltest / RT-PCR (Nasopharynx-Abstrich)",
-              "finding": "RSV-RNA or Antigen positiv",
-              "interpretation": "Diagnosesicherung"
-            }
-          ],
-          "imaging": [
-            {
-              "modality": "Thorax-Röntgen",
-              "finding": "Überblähung, Atelektasen",
-              "significance": "Bronchiolitis"
-            }
-          ]
-        },
-        "differential": [
-          {
-            "disease": "Rhinovirus- / Metapneumovirus-Bronchiolitis",
-            "distinguishing": "PCR-Panel"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Prophylaxe & Unterstützende Therapie der RSV-Infektion (2024/2025)",
-            "drugs": [
-              {
-                "drug": "NIRSEVIMAB (Beyfortus) - Monoklonaler Antikörper",
-                "dose": "Einzeldosis 50mg (<5kg) or 100mg (≥5kg) i.m.",
-                "duration": "Einmalig vor/in der RSV-Saison",
-                "note": "RECOMMENDED FOR ALL NEWBORNS/INFANTS in der 1. RSV-Saison (STIKO/CDC)!"
-              },
-              {
-                "drug": "PALIVIZUMAB (Synagis)",
-                "dose": "15 mg/kg i.m. monatlich während der Saison",
-                "note": "Alternativee for Hochrisiko-Frühgeborene."
-              },
-              {
-                "drug": "RSV-Impfstoffe (AREXVY / ABRYSVO)",
-                "dose": "Einzeldosis i.m.",
-                "duration": "Einmalig",
-                "note": "Arexvy/Abrysvo for Erwachsene ≥60 J.; Abrysvo for Schwangere (32-36. SSW) zum mütterlichen Nestschutz!"
-              }
-            ]
-          },
-          "targeted": "Symptomatische Therapie ist der Eckpfeiler: Absaugen der Nase, Sauerstoffgabe (SpO2 >90-92%), High-Flow-Nasenkanüle (HFNC), adäquate Flüssigkeitszufuhr. Bronchodilatatoren and Steroide werden routinemäßig NICHT empfohlen!",
-          "supportive": [
-            "Sauerstofftherapie, HFNC",
-            "Enterale/Parenterale Flüssigkeit"
-          ],
-          "prevention": [
-            "Nirsevimab-Immunisierung for alle Säuglinge",
-            "RSV-Impfung for Schwangere & Ältere"
-          ],
-          "guidelines": [
-            "AAP / ECDC / WHO RSV Prophylaxis Guidelines 2024/2025"
-          ]
-        },
-        "prognosis": {
-          "mortality": "<0.5% in / with gesunden Säuglingen; bis 3-5% in / with Herzfehler/Frühgeborenen",
-          "prognostic_scores": [],
-          "factors": "Frühgeburtlichkeit, Alter <2 months"
-        },
-        "gallery": []
-      },
-      {
-        "id": "influenza",
-        "name": "Influenza (Seasonal Flu)",
-        "pathogen": {
-          "type": "Virus",
-          "name": "Influenzavirus A (H1N1, H3N2), Influenzavirus B (Orthomyxoviridae)",
-          "gram": "None",
-          "shape": "Segmentiertes Einzelstrang-RNA-Virus"
-        },
-        "epidemiology": {
-          "incidence": "Jährliche Winterepidemien (5-15% der Bevölkerung betroffen)",
-          "risk_groups": [
-            "Schwangere",
-            "Personen >60 J.",
-            "Chronisch Kranke (COPD, Herz-, Nierenkranke)",
-            "Krankenhauspersonal"
-          ],
-          "seasonality": "Wintermonat (Dezember bis März)",
-          "transmission": "Tröpfcheninfektion and Aerosole"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Bindung des Hämagglutinins (HA) an Sialsäure-Rezeptoren des Tracheobronchialepithels.",
-            "Zelllyse, Freisetzung neuer Virionen durch Neuraminidase (NA).",
-            "Ausgeprägte Zytokinausschüttung (Zytokinsturm) verursacht typisches hohes Fever and Myalgien."
-          ],
-          "virulence_factors": [
-            "Antigendrift (Punktmutationen - saisonal)",
-            "Antigenshift (Reassortment - Pandemien)",
-            "Neuraminidase",
-            "Hämagglutinin"
-          ]
-        },
-        "clinical": {
-          "incubation": "1-4 days",
-          "onset": "Sudden, schlagartig innerhalb von hours",
-          "symptoms": [
-            {
-              "name": "Schlagartiger Onset with hohem Fever",
-              "description": "Hohes Fever (≥39-40°C), Schüttelfrost, starke Myalgien (Muskelschmerzen) and Arthralgien.",
-              "severity": "severe"
-            },
-            {
-              "name": "Trachealer Cough & Kopfschmerzen",
-              "description": "Trockener, schmerzhafter Cough, retrosternales Brennen, extreme Fatigue.",
-              "severity": "moderate"
-            }
-          ],
-          "physical_exam": [
-            "Hohes Fever, Pharynxrötung, trockenes Rasselgeräusch, schwere Abgeschlagenheit"
-          ],
-          "complications": [
-            "Bakterielle Superinfektionspneumonie (S. aureus, S. pneumoniae)",
-            "Primaere Influenza-Pneumonie",
-            "Myokarditis",
-            "Enzephalopathie"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [
-            {
-              "test": "RT-PCR (Nasopharyngealabstrich)",
-              "finding": "Influenza A/B RNA positiv",
-              "interpretation": "Goldstandard"
-            },
-            {
-              "test": "Antigen-Schnelltest",
-              "finding": "Influenza A/B Antigen positiv",
-              "interpretation": "Schnell, aber geringere Sensitivität"
-            }
-          ],
-          "imaging": [
-            {
-              "modality": "Thorax-Röntgen",
-              "finding": "Normal or interstitielles Muster",
-              "significance": "Ausschluss einer Superinfektion"
-            }
-          ]
-        },
-        "differential": [
-          {
-            "disease": "COVID-19 / RSV",
-            "distinguishing": "RT-PCR Multiplex-Panel"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Antivirale Therapie der Influenza (Start innerhalb von 48h!)",
-            "drugs": [
-              {
-                "drug": "OSELTAMIVIR (Tamiflu)",
-                "dose": "75mg twice daily p.o. for 5 days",
-                "duration": "5 days",
-                "note": "Neuraminidase-Hemmer. Indiziert in / with Risikopatienten / Severeeverlauf."
-              },
-              {
-                "drug": "BALOXAVIR MARBOXIL (Xofluza)",
-                "dose": "Einzeldosis 40mg (40-80kg) or 80mg (≥80kg) p.o.",
-                "duration": "Einmalig",
-                "note": "Capped-Endonuklease-Hemmer. Einmalige Einnahme!"
-              }
-            ]
-          },
-          "targeted": "Antivirale Therapie (Oseltamivir / Baloxavir) gestartet innerhalb von 48h verkürzt die Krankheitsdauer and senkt Komplikationen!",
-          "supportive": [
-            "Bettruhe, Feversenkung (Paracetamol/Ibuprofen)",
-            "Flüssigkeitssubstitution"
-          ],
-          "prevention": [
-            "Jährliche Quadrivalente Influenza-Schutzimpfung (Tot- or Lebendimpfstoff)"
-          ],
-          "guidelines": [
-            "CDC / WHO Influenza Treatment Guidelines 2024/2025"
-          ]
-        },
-        "prognosis": {
-          "mortality": "<0.1% gesamt; bis 1-3% in / with Risikogruppen / bakterieller Superinfektion",
-          "prognostic_scores": [],
-          "factors": "Alter, Komorbiditäten"
-        },
-        "gallery": []
-      },
-      {
-        "id": "covid19",
-        "name": "COVID-19",
-        "pathogen": {
-          "type": "Virus",
-          "name": "SARS-CoV-2 (Coronaviridae)",
-          "gram": "None",
-          "shape": "Behülltes Einzelstrang-RNA-Virus"
-        },
-        "epidemiology": {
-          "incidence": "Pandemisch, mittlerweile endemische Wellen",
-          "risk_groups": [
-            "Ältere Menschen (>65 J.)",
-            "Ungeimpfte",
-            "Adipöse, Diabetiker, Immunsupprimierte"
-          ],
-          "seasonality": "Ganzjährig with Herbst-Winter-Gipfeln",
-          "transmission": "Aerosole and Tröpfchen"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Spike-Protein-Bindung an ACE2-Rezeptoren der Alveolarzellen Typ II and Endothelzellen.",
-            "Endothelitis, Mikrovaskuläre Thrombosen and Hyperkoagulabilität.",
-            "Hyperinflammation (Zytokinsturm), ARDS and Multiorganbefall."
-          ],
-          "virulence_factors": [
-            "Spike-Protein (RBD-Domäne)",
-            "Mpro / 3CLpro Protease"
-          ]
-        },
-        "clinical": {
-          "incubation": "2-5 days (Omikron-Varianten)",
-          "onset": "Variabel",
-          "symptoms": [
-            {
-              "name": "Respiratorische & Systemische Symptoms",
-              "description": "Fever, Cough, Halsschmerzen, Fatigue, Anosmie/Ageusie (Geruchs-/Geschmacksverlust).",
-              "severity": "moderate"
-            },
-            {
-              "name": "Stille Hypoxie (Silent Hypoxia)",
-              "description": "Gefährliche Abnahme der SpO2 without subjektive Atemnot!",
-              "severity": "severe"
-            },
-            {
-              "name": "Long-COVID / Post-COVID-Syndrom",
-              "description": "Persistierende Fatigue, Belastungsintoleranz (ME/CFS), \"Brain Fog\" >12 weeks.",
-              "severity": "moderate"
-            }
-          ],
-          "physical_exam": [
-            "Hypoxämie, Lungenrasseln, Tachypnoe"
-          ],
-          "complications": [
-            "ARDS",
-            "Thromboembolien (Lungenarterienembolie, Schlaganfall)",
-            "Zytokinsturm",
-            "Long COVID"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [
-            {
-              "test": "RT-PCR / Antigen-Schnelltest",
-              "finding": "SARS-CoV-2 RNA / Antigen positiv",
-              "interpretation": "Diagnosesicherung"
-            },
-            {
-              "test": "D-Dimer, CRP, Ferritin, IL-6",
-              "finding": "Erhöht in / with schwerem Verlauf",
-              "interpretation": "Hyperinflammation / Thromboserisiko"
-            }
-          ],
-          "imaging": [
-            {
-              "modality": "Thorax-CT",
-              "finding": "Beidseitige Milchglastrübungen (Ground-glass), Crazy Paving, Konsolidierungen",
-              "significance": "Charakteristisch"
-            }
-          ]
-        },
-        "differential": [
-          {
-            "disease": "Influenza / RSV",
-            "distinguishing": "PCR Multiplex"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Empirice Therapie von COVID-19 (Leitlinien 2024/2025)",
-            "drugs": [
-              {
-                "drug": "NIRMATRELVIR / RITONAVIR (Paxlovid)",
-                "dose": "300mg/100mg twice daily p.o. for 5 days",
-                "duration": "5 days",
-                "note": "Für Hochrisikopatienten in den ersten 5 daysn p.o.!"
-              },
-              {
-                "drug": "REMDESIVIR",
-                "dose": "200mg day 1, dann 100mg day 2-3 i.v.",
-                "duration": "3 days",
-                "note": "Frühtherapie i.v. in / with Risikopatienten."
-              },
-              {
-                "drug": "DEXAMETHASON",
-                "dose": "6mg once daily p.o./i.v.",
-                "duration": "10 days",
-                "note": "ONLY IN PATIENTS REQUIRING OXYGEN!"
-              },
-              {
-                "drug": "TOCILIZUMAB / BARICITINIB",
-                "dose": "Tocilizumab 8mg/kg i.v. einmalig",
-                "note": "Bei rascher Progression / Zytokinsturm."
-              }
-            ]
-          },
-          "targeted": "Frühtherapie with Paxlovid or Remdesivir in / with Risikopatienten. Dexamethason + Antikoagulation (LMWH) in / with Sauerstoffpflichtigkeit.",
-          "supportive": [
-            "Bauchlagerung (Prone positioning)",
-            "Sauerstoffgabe / HFNC / Beatmung"
-          ],
-          "prevention": [
-            "Angepasste mRNA-Impfungen (saisonal for Risikogruppen)"
-          ],
-          "guidelines": [
-            "WHO / NIH / IDSA COVID-19 Treatment Guidelines 2024/2025"
-          ]
-        },
-        "prognosis": {
-          "mortality": "<0.1% ambulant; 5-15% in / with hospitalisierter Hypoxie",
-          "prognostic_scores": [],
-          "factors": "Alter, Immunsuppression, Ungeimpft"
-        },
-        "gallery": []
-      },
-      {
-        "id": "tonsillitis",
-        "name": "Acute Streptococcal Tonsillitis",
-        "pathogen": {
-          "type": "Bacterium / Virus",
-          "name": "Streptococcus pyogenes (GABHS / Gruppe A Streptokokken - 15-30% in / with Kindern, 10% Erwachsene); Viruses: Adenoviren, EBV, Enteroviren (~70%)",
-          "gram": "Gram-positive (GAS)",
-          "shape": "Streptokokken"
-        },
-        "epidemiology": {
-          "incidence": "Sehr häufig in / with Kindern (5-15 Jahre)",
-          "risk_groups": [
-            "Schulkinder"
-          ],
-          "seasonality": "Winter-Frühjahr",
-          "transmission": "Tröpfchen- and Kontaktinfektion"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Invasion der Gaumenmandeln (Tonsillae palatinae) durch Bakterien or Viruses.",
-            "Eitrige Exsudation in den Tonsillenkrypten (Stippchen / Beläge).",
-            "Toxinvermittelte Gewebeentzündung (Streptolysin O/S, Erythrogene Toxine in / with Scharlach)."
-          ],
-          "virulence_factors": [
-            "M-Protein (Inhibition der Phagozytose)",
-            "Streptolysin O/S",
-            "Pyrogene Exotoxine (SPE)"
-          ]
-        },
-        "clinical": {
-          "incubation": "1-4 days",
-          "onset": "Akut",
-          "symptoms": [
-            {
-              "name": "Starke Halsschmerzen & Schluckschmerz",
-              "description": "Odynophagie, bis in die Ohren ausstrahlend, hohes Fever.",
-              "severity": "severe"
-            },
-            {
-              "name": "No Cough",
-              "description": "Fehlen von Cough ist ein Hauptkriterium for Bakterielle Tonsillitis (Centor Score)!",
-              "severity": "moderate"
-            }
-          ],
-          "physical_exam": [
-            "Geschwollene, hyperämische Tonsillen with eitrigen Stippchen/Belägen, schmerzhafte anterior-zervikale Lymphknoten, Scharlach-Exanthem"
-          ],
-          "complications": [
-            "Peritonsillarabszess (Trismus, gaumensegelabweichung)",
-            "Rheumatische Fever (ARF)",
-            "Poststreptokokken-Glomerulonephritis (PSGN)",
-            "Lemierre-Syndrom"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [
-            {
-              "test": "GAS-Schnelltest (RADT)",
-              "finding": "Gruppe-A-Streptokokken Antigen positiv",
-              "interpretation": "Hohe Spezifität (>95%)"
-            },
-            {
-              "test": "Rachenabstrich-Kultur",
-              "finding": "Wachstum von S. pyogenes",
-              "interpretation": "Goldstandard"
-            }
-          ],
-          "imaging": []
-        },
-        "calculators": [
-          {
-            "name": "McIsaac / Modifizierter Centor Score - GAS Pharyngitis Wahrscheinlichkeit",
-            "items": [
-              {
-                "label": "Alter (3-14 J. = +1, 15-44 J. = 0, ≥45 J. = -1)",
-                "points": 1
-              },
-              {
-                "label": "Fever > 38°C",
-                "points": 1
-              },
-              {
-                "label": "Fehlen von Cough",
-                "points": 1
-              },
-              {
-                "label": "Schmerzhafte zervikale Lymphknoten",
-                "points": 1
-              },
-              {
-                "label": "Tonsillenschwellung or -exsudat",
-                "points": 1
-              }
-            ],
-            "interpretation": [
-              {
-                "min": 0,
-                "max": 1,
-                "text": "Geringes Risiko (<10%): None Antibiose, keine Testung."
-              },
-              {
-                "min": 2,
-                "max": 3,
-                "text": "Mittleres Risiko (15-30%): GAS-Schnelltest/Kultur, Antibiose nur in / with Positivität."
-              },
-              {
-                "min": 4,
-                "max": 5,
-                "text": "Hohes Risiko (50-60%): Empirice Antibiose or Schnelltest + Antibiose."
-              }
-            ]
-          }
-        ],
-        "differential": [
-          {
-            "disease": "Infektiöse Mononukleose (EBV / Pfeiffersches Drüsenfieber)",
-            "distinguishing": "Ganzkörper-Lymphknotenschwellung, Splenomegalie, Exanthem after Amoxicillin!"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Kausale Antibiose in / with GAS-Tonsillitis",
-            "drugs": [
-              {
-                "drug": "PENICILLIN V (Phenoxymethylpenicillin)",
-                "dose": "1 Mio. IE three times daily p.o. (Kinder: 50.000 IE/kg/Tag)",
-                "duration": "10 VOLLE TAGE",
-                "note": "1. WAHL! 10-Tage-Einnahme ist OBLIGATORISCH zur ARF-Prophylaxe!"
-              },
-              {
-                "drug": "AMOXICILLIN",
-                "dose": "500mg twice daily p.o.",
-                "duration": "10 days",
-                "note": "Alternativee 1. Wahl."
-              },
-              {
-                "drug": "Cefadroxil / Cefuroxim",
-                "dose": "500mg twice daily p.o.",
-                "duration": "10 days",
-                "note": "In penicillin allergy (nicht-anaphylaktisch)."
-              },
-              {
-                "drug": "Azithromycin / Clarithromycin",
-                "dose": "500mg day 1, dann 250mg day 2-5",
-                "duration": "5 days",
-                "note": "Bei schwerer Penicillinallergie."
-              }
-            ]
-          },
-          "targeted": "Penicillin V or Amoxicillin for 10 volle days zur Verhinderung des Akuten Rheumatischen Fevers!",
-          "supportive": [
-            "Analgetika (Ibuprofen / Paracetamol)",
-            "Lokale Halstabletten"
-          ],
-          "prevention": [
-            "Händehygiene"
-          ]
-        },
-        "prognosis": {
-          "mortality": "0%",
-          "prognostic_scores": [
-            "McIsaac / Centor Score"
-          ],
-          "factors": "Adhärenz bezüglich 10-Tage-Therapie"
-        },
-        "gallery": []
-      },
-      {
-        "id": "sinusitis",
-        "name": "Acute Rhinosinusitis",
-        "pathogen": {
-          "type": "Virus / Bacterium",
-          "name": "Virale ARS (>90-98%): Rhinoviren, Influenzaviren; Bakterielle ABRS (2-10%): <i>Streptococcus pneumoniae</i>, <i>Haemophilus influenzae</i>, <i>Moraxella catarrhalis</i>",
-          "gram": "Variabel",
-          "shape": "Variabel"
-        },
-        "epidemiology": {
-          "incidence": "Sehr häufig (Erwachsene 1-2 Episoden/Jahr)",
-          "risk_groups": [
-            "Allergiker",
-            "Anatomische Varianten (Septumdeviation)",
-            "Schwimmbäder"
-          ],
-          "seasonality": "Herbst-Winter",
-          "transmission": "Tröpfcheninfektion"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Schleimhautschwellung verlegt die Sinusostien (Ostium-Verlegung).",
-            "Sekretstau and Hypoxie in den Paranasalräumen, Störung der mukoziliären Klärung.",
-            "Bakterielle Besiedlung des gestauten Sekrets (ABRS)."
-          ],
-          "virulence_factors": [
-            "Pneumokokken-Kapsel",
-            "BETA-Laktamase-Produktion (M. catarrhalis >90%, H. influenzae ~30%)"
-          ]
-        },
-        "clinical": {
-          "incubation": "Gefolgt auf Erkältungsinfekt",
-          "onset": "Akut",
-          "symptoms": [
-            {
-              "name": "Gesichtsschmerz & Druckgefühl",
-              "description": "Verstärkung beim Bücken after vorne! Stirn-, Oberkiefer- or retroorbitaler Schmerz.",
-              "severity": "moderate"
-            },
-            {
-              "name": "Eitrige Rhinorrhö & Nasenatmungsbehinderung",
-              "description": "Eitriges Nasensekret, Hyposmie/Anosmie.",
-              "severity": "moderate"
-            },
-            {
-              "name": "Bakterielle ABRS Zeichen",
-              "description": "Zwei-Phasen-Verlauf (\"Double Sickening\" - Besserung gefolgt von Verschlechterung), anhaltende Symptoms >10 days, hohes Fever (>39°C).",
-              "severity": "severe"
-            }
-          ],
-          "physical_exam": [
-            "Druckschmerz über den Austrittspunkten der Nn. trigemini (N. infraorbitalis/supraorbitalis), eitriges Sekret im mittleren Nasengang"
-          ],
-          "complications": [
-            "Orbitalphlegmone / Abszess (Notfall!)",
-            "Epiduralabszess / Hirnabszess",
-            "Sinus-cavernosus-Thrombose",
-            "Pott's Puffy Tumor"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [],
-          "imaging": [
-            {
-              "modality": "CT Nasennebenhöhlen (DVT / CT)",
-              "finding": "Verschattung, Spiegelbildung, Schleimhautverdickung",
-              "significance": "NUR in / with Komplikationen or Therapieversagen!"
-            }
-          ]
-        },
-        "differential": [
-          {
-            "disease": "Dentaler Infekt (Oberkieferzahn)",
-            "distinguishing": "Zahnärztliches Konsil"
-          }
-        ],
-        "therapy": {
-          "empirical": {
-            "title": "Therapie der Akuten Rhinosinusitis (EPOS 2020)",
-            "drugs": [
-              {
-                "drug": "Topische Nasensteroide (Mometason / Fluticason)",
-                "dose": "2 Sprühstöße pro Nasenloch twice daily",
-                "duration": "14-21 days",
-                "note": "1ST CHOICE IN VIRAL & BACTERIAL RHINOSINUSITIS!"
-              },
-              {
-                "drug": "AMOXICILLIN or CO-AMOXICLAV (bei ABRS)",
-                "dose": "Amoxicillin 3x500mg-1g p.o. OR Co-Amoxiclav 2x875/125mg p.o.",
-                "duration": "5-7 days",
-                "note": "Indiziert NUR in / with ABRS (Kriterien erfüllt)!"
-              },
-              {
-                "drug": "Doxycyclin / Levofloxacin",
-                "dose": "Doxycyclin 100mg twice daily p.o.",
-                "duration": "5-7 days",
-                "note": "In penicillin allergy."
-              }
-            ]
-          },
-          "targeted": "Virale ARS: Nasale Steroide + Salzwasserspülung + Abschwellende Nasentropfen (max 5 days). ABRS: Amoxicillin or Co-Amoxiclav 5-7 days.",
-          "supportive": [
-            "Nasenspülung with Isotoner Kochsalzlösung",
-            "Analgetika"
-          ],
-          "prevention": [
-            "Treatment allergischer Rhinitis"
-          ],
-          "guidelines": [
-            "EPOS 2020 (European Position Paper on Rhinosinusitis)"
-          ]
-        },
-        "prognosis": {
-          "mortality": "<0.01%",
-          "prognostic_scores": [],
-          "factors": "Komplikationen"
-        },
-        "gallery": []
-      },
-      {
-        "id": "otitis_media",
-        "name": "Acute Otitis Media",
-        "pathogen": {
-          "type": "Bacterium / Virus",
-          "name": "<i>Streptococcus pneumoniae</i>, Non-typeable <i>Haemophilus influenzae</i> (NTHi), <i>Moraxella catarrhalis</i>, Respiratorische Viruses",
-          "gram": "Gram-positive / Gram-negative",
-          "shape": "Variabel"
-        },
-        "epidemiology": {
-          "incidence": "Sehr häufig in / with Säuglingen and Kleinkindern (6-24 months)",
-          "risk_groups": [
-            "Säuglinge <2 Jahre",
-            "Kita-Kinder",
-            "Passivrauch-Exposition",
-            "Schnullergebrauch"
-          ],
-          "seasonality": "Winter-Frühjahr",
-          "transmission": "Auszugehen von viraler Rhinitis via Eustachi-Röhre (Tuba auditiva)"
-        },
-        "pathomechanism": {
-          "steps": [
-            "Virale Atemwegsinfektion führt zur Dysfunktion der Tuba auditiva (Eustachi-Röhre).",
-            "Unterdruck im Mittelohr, Einwanderung von Bakterien aus dem Nasen-Rachen-Raum.",
-            "Eitrige Exsudation in der Paukenhöhle, Vorwölbung (Bulging) and Ischämie des Trommelfells.",
-            "Unbehandelter Druckanstieg führt zur spontanen Trommelfellperforation and Otorrhö."
-          ],
-          "virulence_factors": [
-            "Pneumokokken-Kapsel",
-            "NTHi Biofilmbildung",
-            "BETA-Laktamase-Produktion"
-          ]
-        },
-        "clinical": {
-          "incubation": "2-7 days after Erkältungsepidode",
-          "onset": "Sudden, häufig nachts with stechenden Ohrenschmerzen",
-          "symptoms": [
-            {
-              "name": "Klassische Kindheitssymptome",
-              "description": "Suddene, stechende, hefstige Ohrenschmerzen (Otalgie), hohes Fever (≥38.5-39°C), Schallleitungsschwerhörigkeit.",
-              "severity": "severe"
-            },
-            {
-              "name": "Säuglings-Unspezifische Symptoms",
-              "description": "Untröstliches Weinen, Unruhe, Nachtschreck, Greifen ans kranke Ohr (Ohrzwicken), Trinkverweigerung, Erbrechen.",
-              "severity": "moderate"
-            },
-            {
-              "name": "Otorrhö (Ohrfluss)",
-              "description": "Nach spontaner Trommelfellperforation tritt eitriger Ohrfluss aus, begleitet von schlagartiger Linderung der Schmerzen!",
-              "severity": "moderate"
-            }
-          ],
-          "physical_exam": [
-            "Otoskopie / Pneumatische Otoskopie (Goldstandard):",
-            "  * Vorgewölbtes (bulging), rötlich/gelbliches, undurchsichtiges Trommelfell",
-            "  * Starke Einschränkung or Aufhebung der Trommelfellbeweglichkeit",
-            "  * Verstreichen der Lichtreflexes and der Hammergriff-Kontur",
-            "Tragusdruckschmerz",
-            "Rötung, Schwellung or Abstehen der Ohrmuschel über dem Mastoid weist auf eine MASTOIDITIS hin!"
-          ],
-          "complications": [
-            "Akute Mastoiditis (Einschmelzung des Warzenfortsatzes - NOTFALL!)",
-            "Fazialisparese",
-            "Labyrinthitis & Sensorineuraler Hörverlust",
-            "Intrakranielle Komplikationen (Epiduralabszess, Meningitis, Sinusthrombose)"
-          ]
-        },
-        "diagnostics": {
-          "laboratory": [
-            {
-              "test": "Blutbild & CRP",
-              "finding": "Leukozytose and CRP-Erhöhung (>40-80 mg/L) in / with schwerer AOM",
-              "interpretation": "Bakterieller Nachweis"
-            }
-          ],
-          "imaging": [
-            {
-              "modality": "Otoskopie / Otomikroskopie",
-              "finding": "Vorgewölbtes, hyperämisches Trommelfell with verminderter Beweglichkeit",
-              "significance": "Essentieller Goldstandard"
-            },
-            {
-              "modality": "Felsenbein / Temporalkochen CT",
-              "finding": "Verschattung der Mastoidzellen and knöcherne Destruktion",
-              "significance": "NUR in / with Verdacht auf Mastoiditis!"
+              "test": "Not needed",
+              "finding": "-",
+              "interpretation": "Clinical diagnosis"
             }
           ],
           "microbiology": [
             {
-              "test": "Ohrsekret-Kultur (nach Perforation / Parazentese)",
-              "finding": "Pathogen and Antibiogramm",
-              "significance": "Bei Targeteder Therapie / Rezidiv"
+              "test": "Virus PCR",
+              "finding": "Etiology",
+              "significance": "If needed (e.g., epidemic)"
             }
           ]
         },
         "differential": [
           {
-            "disease": "Otitis media serosa (OME / Paukenerguss)",
-            "distinguishing": "KEINE akute Entzündung, kein Fever, keine Schmerzen! Bläschen/Flüssigkeitsspiegel hinter intaktem Trommelfell."
+            "disease": "Allergic rhinitis",
+            "distinguishing": "Pruritus, seasonality, eosinophilia"
           },
           {
-            "disease": "Otitis externa acuta (Gehörgangsentzündung)",
-            "distinguishing": "Extremer Tragus-Druckschmerz and Ohrmuschel-Zugschmerz; Gehörgang geschwollen."
+            "disease": "Bacterial sinusitis",
+            "distinguishing": "Persistent symptoms, fever, pain"
+          },
+          {
+            "disease": "Influenza",
+            "distinguishing": "High fever, myalgia, prostration"
           }
         ],
         "therapy": {
           "empirical": {
             "outpatient": [
               {
-                "drug": "SYSTEMISCHE SCHMERZTHERAPIE (Ibuprofen / Paracetamol)",
-                "dose": "Ibuprofen 10 mg/kg alle 6h OR Paracetamol 15 mg/kg alle 6h p.o./p.r.",
-                "duration": "3-5 days",
-                "note": "1. AND WICHTIGSTER SCHRITT DER AOM-THERAPIE! Sofortiger Start!"
-              },
-              {
-                "drug": "\"WATCHFUL WAITING\" (Abwartende Haltung - AAP / ECDC)",
-                "dose": "Konsequente Schmerztherapie + Kontrolluntersuchung after 48-72h",
-                "duration": "48 hours",
-                "note": "Anwendbar in / with Kinder ≥2 J. with milden einseitigen Symptomsn without Otorrhö!"
-              },
-              {
-                "drug": "AMOXICILLIN (Hochdosiert p.o.)",
-                "dose": "80-90 mg/kg/Tag p.o. in 2-3 Dosen (Erwachsene: 3x1000mg p.o.)",
-                "duration": "10 days (<2 J.) / 5-7 days (≥2 J.)",
-                "note": "1. WAHL ANTIBIOTIKUM! Sofort indiziert bei: Säuglingen <6 Mon., beidseitiger AOM <2 J., hohem Fever (≥39°C) or Otorrhö!"
-              },
-              {
-                "drug": "Amoxicillin / Clavulansäure (Hochdosiert)",
-                "dose": "90 mg/kg/Tag Amoxicillin-Anteil p.o.",
+                "drug": "Supportive",
+                "dose": "-",
                 "duration": "7-10 days",
-                "note": "Indiziert in / with Amoxicillin-Gabe in den letzten 30 daysn, purulenter Konjunktivitis or Amoxicillin-Versagen after 48h."
+                "note": "Rest, fluids, symptomatic treatment"
               },
               {
-                "drug": "Cefuroxim axetil / Azithromycin",
-                "dose": "Cefuroxim 30 mg/kg/Tag p.o.; Azithromycin 10 mg/kg day 1, dann 5 mg/kg",
-                "duration": "5-10 days",
-                "note": "In penicillin allergy."
+                "drug": "Decongestant",
+                "dose": "Oxymetazoline nasal",
+                "duration": "3-5 days",
+                "note": "Not for longer!"
+              },
+              {
+                "drug": "Antihistamine",
+                "dose": "Loratadine",
+                "duration": "",
+                "note": "If allergy is suspected"
               }
             ],
             "inpatient": [
               {
-                "drug": "Ceftriaxon i.v. / i.m.",
-                "dose": "50 mg/kg i.v./i.m. once daily",
-                "duration": "1-3 days",
-                "note": "Bei erbrechenden Kindern or Therapieversagen."
+                "drug": "Not needed",
+                "dose": "-",
+                "duration": "-",
+                "note": "Rare"
               }
             ],
             "icu": [
               {
-                "drug": "Parazentese (Trommelfellschnitt) + Mastoidektomie",
+                "drug": "Not needed",
                 "dose": "-",
                 "duration": "-",
-                "note": "Bei Mastoiditis or unerträglichen Schmerzen HNO-Myringotomie & Paukenröhrchen (Grommet)."
+                "note": "Rare"
               }
             ]
           },
-          "targeted": "Targetede Antibiose after Ohrsekretkultur. Hochdosiertes Amoxicillin ist Erstlinie.",
+          "targeted": "No specific antiviral",
           "supportive": [
-            "Orale Schmerztherapie (NSAID/Paracetamol)! Ohrfeuchte Tropfen in / with intaktem Trommelfell NICHT wirksam, in / with Perforation KONTRAINDIZIERT!",
-            "Abschwellende Nasentropfen"
+            "Rest",
+            "Fluid intake",
+            "Antipyretics"
           ],
           "prevention": [
-            "1. IMPFUNGEN:",
-            "- PNEUMOKOKKEN-KONJUGATIMPFSTOFFE (PCV13, PCV15, PCV20): Seit Einführung sind invasive AOM-Episoden um >60-80% gesunken!",
-            "- HAEMOPHILUS INFLUENZAE B (Hib) Impfung.",
-            "- JÄHRLICHE INFLUENZA-IMPFUNG: Senkt pos-influenzale AOM um 30-50%.",
-            "2. RISIKOREDUKTION: Stillen bis zum 6. month, Vermeidung von Passivrauch."
-          ],
-          "guidelines": [
-            "AAP / NICE NG91 Otitis Media Guidelines"
+            "Hand hygiene",
+            "Mask wearing during epidemics"
           ]
         },
         "prognosis": {
-          "mortality": "Unkompliziert 0%; in / with Mastoiditis / intrakraniellen Komplikationen 1-3%",
+          "mortality": "Very low",
           "prognostic_scores": [
-            "AOM Severity Score"
+            "None"
           ],
-          "factors": "Alter <6 months, PCV-Impfstatus, adäquate Dosis Amoxicillin"
+          "factors": "Immune status"
         },
-        "gallery": []
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Human_rhinovirus_14.jpg",
+            "caption": "Human rhinovirus on electron microscopy.",
+            "type": "Virology"
+          }
+        ]
+      },
+      {
+        "id": "laryngitis",
+        "name": "Laryngitis",
+        "pathogen": {
+          "type": "Virus/bacteria",
+          "name": "<i>Rhinovirus, Parainfluenza, Adenovirus</i>; in bacterial cases <i>Streptococcus pyogenes, Streptococcus pneumoniae, Haemophilus influenzae</i>",
+          "gram": "Virus/bacteria",
+          "shape": "variable"
+        },
+        "epidemiology": {
+          "incidence": "Common, especially in cold seasons",
+          "risk_groups": [
+            "Children",
+            "Singers",
+            "Smokers",
+            "Immunocompromised"
+          ],
+          "seasonality": "Autumn-winter",
+          "transmission": "Droplet, contact"
+        },
+        "pathomechanism": {
+          "steps": [
+            "Viruses or bacteria trigger inflammation of the laryngeal mucosa.",
+            "The inflammation causes edema, which leads to voice changes.",
+            "In severe cases, edema of the subglottic region can cause airway narrowing and stridor."
+          ],
+          "virulence_factors": [
+            "Local inflammation",
+            "Mucosal barrier injury",
+            "Toxins in bacterial cases"
+          ]
+        },
+        "clinical": {
+          "incubation": "1-3 days",
+          "onset": "Gradual",
+          "symptoms": [
+            {
+              "name": "Voice disturbance",
+              "description": "Hoarseness, altered voice, or complete loss of voice.",
+              "severity": "moderate"
+            },
+            {
+              "name": "Throat and cough symptoms",
+              "description": "Sore throat, dry cough, and upper airway symptoms.",
+              "severity": "moderate"
+            },
+            {
+              "name": "Airway symptoms",
+              "description": "In severe cases, stridor and dyspnea.",
+              "severity": "severe"
+            }
+          ],
+          "physical_exam": [
+            "Hoarseness",
+            "Hyperemia of the laryngeal mucosa",
+            "Stridor in severe disease",
+            "Fever may be present"
+          ],
+          "complications": [
+            "Chronic laryngitis",
+            "Airway narrowing",
+            "Secondary bacterial infection"
+          ]
+        },
+        "diagnostics": {
+          "laboratory": [
+            {
+              "test": "Throat culture",
+              "finding": "If bacteria are present",
+              "interpretation": "For bacterial etiology"
+            }
+          ],
+          "imaging": [
+            {
+              "modality": "Not needed",
+              "finding": "-",
+              "interpretation": "Clinical diagnosis"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "PCR / culture",
+              "finding": "Etiology",
+              "significance": "If therapy adjustment is needed"
+            }
+          ]
+        },
+        "differential": [
+          {
+            "disease": "Epiglottitis",
+            "distinguishing": "Acute respiratory distress, significant swallowing difficulty"
+          },
+          {
+            "disease": "Airway allergy",
+            "distinguishing": "Pruritus, urticaria, allergic history"
+          },
+          {
+            "disease": "Vocal overuse",
+            "distinguishing": "No infection, normal temperature"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "outpatient": [
+              {
+                "drug": "Supportive treatment",
+                "dose": "-",
+                "duration": "3-7 days",
+                "note": "Rest, voice rest, humidified air"
+              },
+              {
+                "drug": "Antibiotic",
+                "dose": "Amoxicillin/clavulanate",
+                "duration": "5-7 days",
+                "note": "If bacterial infection is suspected"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "IV antibiotic",
+                "dose": "Ampicillin/sulbactam or ceftriaxone",
+                "duration": "3-5 days",
+                "note": "Severe disease or airway symptoms"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Airway protection",
+                "dose": "-",
+                "duration": "-",
+                "note": "If stridor/obstruction is present"
+              }
+            ]
+          },
+          "targeted": "Targeted antibiotic therapy based on culture if bacterial",
+          "supportive": [
+            "Rest",
+            "Voice rest",
+            "Fluid intake",
+            "Oxygen if needed"
+          ],
+          "prevention": [
+            "Hand hygiene",
+            "Smoking cessation",
+            "Treatment of infections"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Very low",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Age, smoking, recurrent infections"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Larynx.jpg",
+            "caption": "Inflammation of the laryngeal mucosa.",
+            "type": "Anatomy"
+          }
+        ]
+      },
+      {
+        "id": "epiglottitis",
+        "name": "Epiglottitis",
+        "pathogen": {
+          "type": "Bacterium",
+          "name": "<i>Haemophilus influenzae</i> type b (most common), <i>Streptococcus pyogenes, Streptococcus pneumoniae</i>",
+          "gram": "Gram-negative/positive",
+          "shape": "rod/coccus"
+        },
+        "epidemiology": {
+          "incidence": "Rare but life-threatening",
+          "risk_groups": [
+            "Children",
+            "Unvaccinated",
+            "Immunocompromised"
+          ],
+          "seasonality": "Year-round",
+          "transmission": "Droplet infection"
+        },
+        "pathomechanism": {
+          "steps": [
+            "The pathogen infects the pharyngeal mucosa and rapidly causes severe inflammation of the epiglottis.",
+            "The edema can lead to rapid closure of the upper airway.",
+            "The patient requires urgent care because of dyspnea, stridor, and swallowing difficulty."
+          ],
+          "virulence_factors": [
+            "Capsule",
+            "Adhesins",
+            "Toxins"
+          ]
+        },
+        "clinical": {
+          "incubation": "Several hours to 1 day",
+          "onset": "Sudden",
+          "symptoms": [
+            {
+              "name": "Acute respiratory distress",
+              "description": "Sudden shortness of breath, stridor, dysphagia, and drooling.",
+              "severity": "severe"
+            },
+            {
+              "name": "Fever and constitutional symptoms",
+              "description": "Fever, chills, and general malaise.",
+              "severity": "severe"
+            }
+          ],
+          "physical_exam": [
+            "Tripod position",
+            "Stridor",
+            "Dysphagia",
+            "Tachypnea"
+          ],
+          "complications": [
+            "Airway obstruction",
+            "Sepsis",
+            "Respiratory failure"
+          ]
+        },
+        "diagnostics": {
+          "laboratory": [
+            {
+              "test": "Blood culture",
+              "finding": "May be positive",
+              "interpretation": "Severe bacterial infection"
+            }
+          ],
+          "imaging": [
+            {
+              "modality": "Laryngoscopy / lateral neck X-ray",
+              "finding": "Swelling of the epiglottis",
+              "significance": "Diagnosis"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Throat / blood culture",
+              "finding": "Pathogen",
+              "significance": "Guide therapy"
+            }
+          ]
+        },
+        "differential": [
+          {
+            "disease": "Laryngitis",
+            "distinguishing": "Less severe, no significant airway narrowing"
+          },
+          {
+            "disease": "Peritonsillar abscess",
+            "distinguishing": "Painful throat, displaced uvula, pharyngeal ulcer"
+          },
+          {
+            "disease": "Anaphylaxis",
+            "distinguishing": "Urticaria, angioedema, bronchial obstruction"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "inpatient": [
+              {
+                "drug": "Third-generation cephalosporin + vancomycin",
+                "dose": "IV",
+                "duration": "7-10 days",
+                "note": "Emergency hospital treatment"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Airway protection",
+                "dose": "-",
+                "duration": "-",
+                "note": "In severe obstruction"
+              }
+            ]
+          },
+          "targeted": "Targeted antibiotic therapy based on culture",
+          "supportive": [
+            "Urgent airway management",
+            "IV antibiotics",
+            "Oxygen"
+          ],
+          "prevention": [
+            "Hib vaccination",
+            "Hand hygiene"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Low with appropriate treatment",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Delayed treatment, childhood, immunodeficiency"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Epiglottis.jpg",
+            "caption": "Acute inflammation of the epiglottis.",
+            "type": "Anatomy"
+          }
+        ]
+      },
+      {
+        "id": "rsv_infection",
+        "name": "RSV Infection (Respiratory Syncytial Virus)",
+        "pathogen": {
+          "type": "Virus",
+          "name": "<i>Human Respiratory Syncytial Virus</i> (HRSV)",
+          "gram": "RNA virus, Pneumoviridae",
+          "shape": "helical"
+        },
+        "epidemiology": {
+          "incidence": "All children infected by age 2, adults reinfection",
+          "risk_groups": [
+            "Infants (<6 months)",
+            "Elderly (>65)",
+            "Patients with chronic lung disease",
+            "Immunocompromised"
+          ],
+          "seasonality": "Winter-spring",
+          "transmission": "Droplet, contact (very contagious!)"
+        },
+        "pathomechanism": {
+          "steps": [
+            "The virus infects respiratory epithelial cells and, using its fusion (F) protein, causes the cells to merge, forming so-called syncytia.",
+            "This process leads to epithelial cell destruction, ciliary damage, and increased mucus production.",
+            "In infants, the small airways (bronchioles) become narrowed due to mucus and edema, creating the characteristic picture of bronchiolitis (wheezing, shortness of breath)."
+          ],
+          "virulence_factors": [
+            "Fusion protein (F)",
+            "G glycoprotein (adherence)"
+          ]
+        },
+        "clinical": {
+          "incubation": "4-6 days",
+          "onset": "Gradual",
+          "symptoms": [
+            {
+              "name": "Initial Symptoms",
+              "description": "Begins with mild, upper respiratory symptoms (rhinorrhea, low-grade fever).",
+              "severity": "mild"
+            },
+            {
+              "name": "Bronchiolitis (Infants)",
+              "description": "The most severe form in infants. Characterized by shortness of breath, wheezing, tachypnea, and intercostal retractions. In severe cases, apnea and respiratory failure can occur.",
+              "severity": "severe"
+            }
+          ],
+          "physical_exam": [
+            "Tachypnea, retractions",
+            "Wheezing, crepitation",
+            "Apnea in infants",
+            "Hypoxia"
+          ],
+          "complications": [
+            "Bronchiolitis obliterans",
+            "Pneumonia",
+            "Apnea",
+            "Death (rare in infants, but possible)"
+          ]
+        },
+        "diagnostics": {
+          "laboratory": [
+            {
+              "test": "CBC",
+              "finding": "Normal or mild leukocytosis",
+              "interpretation": "Non-specific"
+            }
+          ],
+          "imaging": [
+            {
+              "modality": "Chest X-ray",
+              "finding": "Hyperinflation, atelectasis",
+              "significance": "Bronchiolitis"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Nasopharyngeal aspirate PCR",
+              "finding": "RSV RNA",
+              "significance": "Gold standard"
+            },
+            {
+              "test": "Immunofluorescence",
+              "finding": "Antigen detection",
+              "significance": "Fast"
+            }
+          ]
+        },
+        "differential": [
+          {
+            "disease": "Bronchiolitis other causes",
+            "distinguishing": "Virus PCR"
+          },
+          {
+            "disease": "Asthma",
+            "distinguishing": "History, atopy"
+          },
+          {
+            "disease": "Pertussis",
+            "distinguishing": "Whoop, lymphocytosis"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "outpatient": [
+              {
+                "drug": "Supportive",
+                "dose": "-",
+                "duration": "-",
+                "note": "Oxygen, hydration"
+              },
+              {
+                "drug": "Bronchodilator",
+                "dose": "Salbutamol",
+                "duration": "",
+                "note": "If wheezing"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Ribavirin",
+                "dose": "Aerosol",
+                "duration": "3-5 days",
+                "note": "In severe cases, immunocompromised"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Ventilation",
+                "dose": "NIV or intubation",
+                "duration": "",
+                "note": "In case of apnea"
+              }
+            ]
+          },
+          "targeted": "Palivizumab prophylaxis for high-risk infants",
+          "supportive": [
+            "Oxygen",
+            "Hydration",
+            "Physiotherapy"
+          ],
+          "prevention": [
+            "Hand hygiene",
+            "Isolation",
+            "Passive immunization: Nirsevimab, Clesrovimab (long-acting), Palivizumab",
+            "Vaccination: Elderly (>60 years) and pregnant women (maternal)"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Low, but higher risk in infants",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Age, comorbidity"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Respiratory_syncytial_virus_01.jpg",
+            "caption": "Respiratory syncytial virus (RSV) micrograph.",
+            "type": "Virology"
+          }
+        ]
+      },
+      {
+        "id": "influenza",
+        "name": "Influenza",
+        "pathogen": {
+          "type": "Virus",
+          "name": "<i>Influenza A/B/C virus</i>",
+          "gram": "RNA virus, Orthomyxoviridae",
+          "shape": "helical"
+        },
+        "epidemiology": {
+          "incidence": "Seasonal epidemic: 5-20% of population/year, pandemics: up to 50%",
+          "risk_groups": [
+            "Elderly (>65)",
+            "Children (<5)",
+            "Pregnant women",
+            "Patients with chronic diseases",
+            "Healthcare workers",
+            "Immunocompromised"
+          ],
+          "seasonality": "November-March (northern hemisphere)",
+          "transmission": "Droplet, contact (1-2 meters), fomites"
+        },
+        "pathomechanism": {
+          "steps": [
+            "The virus uses its hemagglutinin (HA) to bind to respiratory epithelial cells and enter them.",
+            "It replicates within the cell and then uses neuraminidase (NA) to be released and infect new cells.",
+            "The viral infection leads to the destruction of respiratory epithelial cells and damage to the cilia, impairing airway clearance.",
+            "The body's strong immune response (cytokine storm) causes systemic symptoms like fever and muscle pain."
+          ],
+          "virulence_factors": [
+            "Hemagglutinin (H1-18)",
+            "Neuraminidase (N1-11)",
+            "NS1 protein (IFN antagonist)",
+            "PB1-F2 (pro-apoptotic)"
+          ]
+        },
+        "clinical": {
+          "incubation": "1-4 days (average 2 days)",
+          "onset": "Sudden",
+          "symptoms": [
+            {
+              "name": "Sudden Onset",
+              "description": "Begins with a high fever (>38°C), chills, severe headache, and muscle pain (myalgia).",
+              "severity": "severe"
+            },
+            {
+              "name": "Respiratory Symptoms",
+              "description": "A dry, hacking cough and sore throat are characteristic.",
+              "severity": "moderate"
+            },
+            {
+              "name": "Constitutional Symptoms",
+              "description": "Marked weakness, malaise (prostration), and loss of appetite.",
+              "severity": "moderate"
+            }
+          ],
+          "physical_exam": [
+            "Febrile, ill-appearing",
+            "Conjunctivitis",
+            "Pharyngeal hyperemia",
+            "Clear lung auscultation (uncomplicated)",
+            "Tachycardia"
+          ],
+          "complications": [
+            "Primary influenza pneumonia",
+            "Secondary bacterial pneumonia",
+            "Myocarditis",
+            "Encephalitis",
+            "Reye's syndrome (aspirin!)",
+            "Myositis"
+          ]
+        },
+        "diagnostics": {
+          "laboratory": [
+            {
+              "test": "CBC",
+              "finding": "Leukopenia or normal, lymphopenia",
+              "interpretation": "Typical for viral infection"
+            },
+            {
+              "test": "CRP",
+              "finding": "Moderately elevated",
+              "interpretation": "Lower than in bacterial"
+            },
+            {
+              "test": "PCT",
+              "finding": "Normal (<0.25)",
+              "interpretation": "Exclusion of bacterial superinfection"
+            }
+          ],
+          "imaging": [
+            {
+              "modality": "Chest X-ray",
+              "finding": "Normal or interstitial pattern",
+              "significance": "Exclusion of pneumonia"
+            },
+            {
+              "modality": "CT",
+              "finding": "Ground-glass opacities",
+              "significance": "Viral pneumonia"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "Rapid antigen test (RAT)",
+              "finding": "Influenza A/B",
+              "significance": "Fast (15 min), low sensitivity (50-70%)"
+            },
+            {
+              "test": "RT-PCR",
+              "finding": "Viral RNA detection",
+              "significance": "Gold standard, subtyping"
+            },
+            {
+              "test": "Virus culture",
+              "finding": "Isolation",
+              "significance": "Epidemiological/surveillance"
+            }
+          ]
+        },
+        "differential": [
+          {
+            "disease": "COVID-19",
+            "distinguishing": "Loss of smell/taste, PCR"
+          },
+          {
+            "disease": "RSV infection",
+            "distinguishing": "Children, elderly, bronchiolitis"
+          },
+          {
+            "disease": "Adenovirus infection",
+            "distinguishing": "Conjunctivitis, pharyngitis, longer febrile period"
+          },
+          {
+            "disease": "Bacterial pneumonia",
+            "distinguishing": "Productive sputum, localized findings, high PCT"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "outpatient": [
+              {
+                "drug": "Oseltamivir",
+                "dose": "2x75mg PO",
+                "duration": "5 days",
+                "note": "Within 48 hours of symptom onset!"
+              },
+              {
+                "drug": "Baloxavir",
+                "dose": "1x40-80mg PO",
+                "duration": "Single dose",
+                "note": ">80kg: 80mg"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Oseltamivir",
+                "dose": "2x75mg PO/NG",
+                "duration": "5-10 days",
+                "note": "Longer in severe cases"
+              },
+              {
+                "drug": "Peramivir",
+                "dose": "1x600mg IV",
+                "duration": "Single or repeated",
+                "note": "If PO not tolerated"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Oseltamivir",
+                "dose": "2x150mg PO/NG",
+                "duration": "10 days",
+                "note": "Higher dose may be considered"
+              },
+              {
+                "drug": "+ Empiric AB",
+                "dose": "CAP coverage",
+                "duration": "",
+                "note": "Bacterial superinfection"
+              }
+            ]
+          },
+          "targeted": "Neuraminidase inhibitors (oseltamivir, zanamivir, peramivir) or cap-dependent endonuclease inhibitor (baloxavir)",
+          "supportive": [
+            "Antipyretics (paracetamol!)",
+            "Fluid resuscitation",
+            "Oxygen",
+            "Ventilation for ARDS"
+          ],
+          "prevention": [
+            "Annual influenza vaccine",
+            "Hand hygiene",
+            "Patient isolation",
+            "Chemoprophylaxis (oseltamivir 1x75mg)"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Overall 0.1%, >65 years 1-2%, pandemic strain higher",
+          "prognostic_scores": [
+            "None specific"
+          ],
+          "factors": "Age, comorbidity, virus subtype, vaccination status"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Influenza_A_virus_particle.jpg",
+            "caption": "Influenza A virus particle (electron microscopy).",
+            "type": "Microscopy"
+          }
+        ]
+      },
+      {
+        "id": "covid19",
+        "name": "COVID-19",
+        "pathogen": {
+          "type": "Virus",
+          "name": "<i>SARS-CoV-2</i>",
+          "gram": "RNA virus, Coronaviridae",
+          "shape": "spherical, with spike proteins"
+        },
+        "epidemiology": {
+          "incidence": "Pandemic from 2020, becoming endemic",
+          "risk_groups": [
+            "Elderly (>65)",
+            "Patients with obesity (BMI>30)",
+            "Diabetes",
+            "Cardiovascular disease",
+            "Immunocompromised",
+            "Chronic lung disease"
+          ],
+          "seasonality": "Winter peak, but year-round",
+          "transmission": "Respiratory (aerosol + droplet), contact, fecal-oral rare"
+        },
+        "pathomechanism": {
+          "steps": [
+            "The virus uses its Spike (S) protein to bind to the ACE2 receptor on the surface of cells, which is found in many organs (lungs, heart, vessels, gut).",
+            "After entry, the virus replicates within the cell (viral phase).",
+            "In severe cases, an excessive immune response, the so-called cytokine storm, can develop in the second week of the disease.",
+            "This hyperinflammation leads to systemic endothelial damage, microthrombosis, and, in the lungs, acute respiratory distress syndrome (ARDS), which is the basis of the severe course."
+          ],
+          "virulence_factors": [
+            "Spike protein",
+            "NSP1 (host shutdown)",
+            "ORF8 (immunomodulation)",
+            "Nucleocapsid"
+          ]
+        },
+        "clinical": {
+          "incubation": "2-14 days (median 5 days, Omicron 3 days)",
+          "onset": "Variable",
+          "symptoms": [
+            {
+              "name": "Common Symptoms",
+              "description": "Fever, dry cough, fatigue, and muscle pain (myalgia).",
+              "severity": "moderate"
+            },
+            {
+              "name": "Characteristic Symptoms",
+              "description": "Loss of smell and taste (anosmia, dysgeusia) can be an early, specific sign.",
+              "severity": "mild"
+            },
+            {
+              "name": "Severe Symptoms",
+              "description": "Shortness of breath (dyspnea), chest pain, and hypoxemia (low blood oxygen), which can lead to ARDS.",
+              "severity": "severe"
+            }
+          ],
+          "physical_exam": [
+            "Fever, tachypnea",
+            "Decreased SpO2 (silent hypoxia!)",
+            "Bilateral crepitation",
+            "Tachycardia",
+            "No specific physical sign"
+          ],
+          "complications": [
+            "ARDS",
+            "Pulmonary embolism",
+            "Myocarditis",
+            "Acute kidney injury",
+            "Stroke",
+            "MIS-C (children)",
+            "Long COVID"
+          ]
+        },
+        "diagnostics": {
+          "laboratory": [
+            {
+              "test": "CBC",
+              "finding": "Lymphopenia, normal/decreased platelets",
+              "interpretation": "Marker of severity"
+            },
+            {
+              "test": "D-dimer",
+              "finding": "Elevated",
+              "interpretation": "Thrombotic risk, poor prognosis"
+            },
+            {
+              "test": "Ferritin",
+              "finding": "Elevated",
+              "interpretation": "Marker of cytokine storm"
+            },
+            {
+              "test": "CRP/IL-6",
+              "finding": "Elevated",
+              "interpretation": "Degree of inflammation"
+            },
+            {
+              "test": "LDH, troponin",
+              "finding": "Elevated in severe cases",
+              "interpretation": "Tissue damage"
+            }
+          ],
+          "imaging": [
+            {
+              "modality": "Chest X-ray",
+              "finding": "Bilateral peripheral infiltrates",
+              "significance": "Less sensitive"
+            },
+            {
+              "modality": "Chest CT",
+              "finding": "Ground-glass opacities, crazy paving, consolidation",
+              "significance": "Characteristic pattern"
+            }
+          ],
+          "microbiology": [
+            {
+              "test": "RT-PCR (nasopharynx/oropharynx)",
+              "finding": "SARS-CoV-2 RNA",
+              "significance": "Gold standard, Ct value"
+            },
+            {
+              "test": "Rapid antigen test",
+              "finding": "Nucleocapsid protein",
+              "significance": "Fast, indicates infectiousness"
+            },
+            {
+              "test": "Serology",
+              "finding": "Anti-S, Anti-N IgG/IgM",
+              "significance": "Past infection, vaccine efficacy"
+            }
+          ]
+        },
+        "differential": [
+          {
+            "disease": "Influenza",
+            "distinguishing": "Faster course, myalgia dominates, PCR"
+          },
+          {
+            "disease": "Bacterial pneumonia",
+            "distinguishing": "High PCT, lobar infiltrate"
+          },
+          {
+            "disease": "Heart failure",
+            "distinguishing": "Cardiac history, BNP, bilateral"
+          },
+          {
+            "disease": "Pulmonary embolism",
+            "distinguishing": "D-dimer, CTPA"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "outpatient": [
+              {
+                "drug": "Paxlovid (nirmatrelvir/ritonavir)",
+                "dose": "2x300/100mg PO",
+                "duration": "5 days",
+                "note": "Early, high-risk, interactions!"
+              },
+              {
+                "drug": "Molnupiravir",
+                "dose": "2x800mg PO",
+                "duration": "5 days",
+                "note": "Alternative if Paxlovid is contraindicated"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Remdesivir",
+                "dose": "200mg IV D1, then 100mg/day",
+                "duration": "5 days (max 10)",
+                "note": "If O2 is needed"
+              },
+              {
+                "drug": "Dexamethasone",
+                "dose": "6mg/day IV/PO",
+                "duration": "10 days",
+                "note": "Only with O2 need/ventilation!"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Dexamethasone",
+                "dose": "6-20mg/day",
+                "duration": "10 days",
+                "note": "Cytokine storm"
+              },
+              {
+                "drug": "Tocilizumab",
+                "dose": "8mg/kg IV single dose",
+                "duration": "",
+                "note": "IL-6 inhibitor, rapidly deteriorating"
+              },
+              {
+                "drug": "LMWH",
+                "dose": "Therapeutic dose",
+                "duration": "",
+                "note": "Thromboprophylaxis/therapy"
+              }
+            ]
+          },
+          "targeted": "Antiviral (Paxlovid, Remdesivir) early; Immunomodulatory (steroid, tocilizumab) in hypoxic phase",
+          "supportive": [
+            "Oxygen (prone positioning!)",
+            "HFNC/NIV",
+            "Invasive ventilation",
+            "ECMO"
+          ],
+          "prevention": [
+            "mRNA vaccines (Pfizer, Moderna)",
+            "Hand hygiene",
+            "Mask wearing",
+            "Isolation"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Omicron <1%, previously 2-5%, ICU 20-40%",
+          "prognostic_scores": [
+            "4C Mortality Score",
+            "NEWS2"
+          ],
+          "factors": "Age, comorbidity, lymphopenia, D-dimer, ferritin, vaccination status"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/SARS-CoV-2_without_background.png",
+            "caption": "SARS-CoV-2 virus model.",
+            "type": "Virology"
+          }
+        ]
+      },
+      {
+        "id": "tonsillitis",
+        "name": "Tonsillitis",
+        "pathogen": {
+          "type": "Bacterium",
+          "name": "<i>Streptococcus pyogenes</i> (GAS, most common)",
+          "gram": "Gram-positive",
+          "shape": "chain"
+        },
+        "epidemiology": {
+          "incidence": "Common in childhood, 5-15 years",
+          "risk_groups": [
+            "Children",
+            "Young adults"
+          ],
+          "seasonality": "Winter-spring",
+          "transmission": "Droplet, contact"
+        },
+        "pathomechanism": {
+          "steps": [
+            "Bacteria colonize the pharyngeal mucosa, triggering a strong local inflammatory response.",
+            "This causes swelling and redness of the tonsils and the formation of purulent exudate (follicles).",
+            "Bacterial toxins (e.g., streptolysin) are responsible for systemic symptoms like fever, and erythrogenic toxin for the rash in scarlet fever."
+          ],
+          "virulence_factors": [
+            "M protein",
+            "Streptolysins",
+            "Hyaluronidase"
+          ]
+        },
+        "clinical": {
+          "incubation": "2-5 days",
+          "onset": "Sudden",
+          "symptoms": [
+            {
+              "name": "Local Symptoms",
+              "description": "Sudden onset of severe sore throat and difficulty swallowing. The tonsils are swollen, red, and often covered with a white, purulent exudate (follicles).",
+              "severity": "severe"
+            },
+            {
+              "name": "Systemic Symptoms",
+              "description": "Accompanied by high fever, chills, headache, and painful swelling of the cervical lymph nodes.",
+              "severity": "moderate"
+            }
+          ],
+          "physical_exam": [
+            "Tonsillar hyperemia, swelling",
+            "Exudate",
+            "Cervical lymphadenitis",
+            "Scarlet fever symptoms (rare)"
+          ],
+          "complications": [
+            "Peritonsillar abscess",
+            "Rheumatic fever",
+            "Glomerulonephritis",
+            "Lemierre's syndrome"
+          ]
+        },
+        "diagnostics": {
+          "microbiology": [
+            {
+              "test": "Strep test",
+              "finding": "Positive",
+              "interpretation": "Rapid diagnosis"
+            },
+            {
+              "test": "Throat swab culture",
+              "finding": "GAS",
+              "significance": "Confirmation"
+            }
+          ]
+        },
+        "calculators": [
+          {
+            "name": "Centor Score (McIsaac) - Strep A Probability",
+            "items": [
+              {
+                "label": "Fever > 38°C",
+                "points": 1
+              },
+              {
+                "label": "Absence of cough",
+                "points": 1
+              },
+              {
+                "label": "Tender anterior cervical adenopathy",
+                "points": 1
+              },
+              {
+                "label": "Tonsillar swelling or exudate",
+                "points": 1
+              },
+              {
+                "label": "Age 3-14 years",
+                "points": 1
+              },
+              {
+                "label": "Age ≥ 45 years",
+                "points": -1
+              }
+            ],
+            "interpretation": [
+              {
+                "min": -1,
+                "max": 1,
+                "text": "Low risk (<10%). No antibiotic needed."
+              },
+              {
+                "min": 2,
+                "max": 3,
+                "text": "Intermediate risk (15-30%). Culture or rapid test recommended."
+              },
+              {
+                "min": 4,
+                "max": 5,
+                "text": "High risk (>50%). Empiric antibiotics or testing."
+              }
+            ]
+          }
+        ],
+        "differential": [
+          {
+            "disease": "Viral pharyngitis",
+            "distinguishing": "Mild symptoms, no exudate"
+          },
+          {
+            "disease": "Mononucleosis",
+            "distinguishing": "Lymphocytosis, hepatosplenomegaly"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "outpatient": [
+              {
+                "drug": "Penicillin V",
+                "dose": "4x500mg PO",
+                "duration": "10 days",
+                "note": "First choice"
+              },
+              {
+                "drug": "Amoxicillin",
+                "dose": "3x500mg PO",
+                "duration": "10 days",
+                "note": "Alternative"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "Penicillin G",
+                "dose": "4x4 million IU IV",
+                "duration": "7-10 days",
+                "note": "In severe cases"
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Surgical drainage",
+                "dose": "For abscess",
+                "duration": "",
+                "note": ""
+              }
+            ]
+          },
+          "targeted": "Penicillin",
+          "supportive": [
+            "Analgesics",
+            "Fluids"
+          ],
+          "prevention": [
+            "Hygiene"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Low",
+          "prognostic_scores": [
+            "Centor Score (McIsaac)"
+          ],
+          "factors": "Late treatment"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tonsillitis.jpg",
+            "caption": "Clinical image of exudative tonsillitis.",
+            "type": "Clinical photo"
+          }
+        ]
+      },
+      {
+        "id": "sinusitis",
+        "name": "Sinusitis",
+        "pathogen": {
+          "type": "Virus/Bacterium",
+          "name": "Viruses (first 7-10 days), then <i>Streptococcus pneumoniae, Haemophilus influenzae</i>",
+          "gram": "Mixed",
+          "shape": "variable"
+        },
+        "epidemiology": {
+          "incidence": "Common, adults 1-2x/year",
+          "risk_groups": [
+            "Patients with allergies",
+            "Smokers",
+            "Immunocompromised"
+          ],
+          "seasonality": "Winter",
+          "transmission": "Endogenous, complication of upper respiratory infection"
+        },
+        "pathomechanism": {
+          "steps": [
+            "Following a viral upper respiratory infection (common cold), the nasal and sinus mucosa become swollen.",
+            "The edema blocks the sinus ostia (openings), leading to mucus retention.",
+            "The stagnant mucus provides an ideal breeding ground for bacterial superinfection, resulting in purulent inflammation."
+          ],
+          "virulence_factors": [
+            "Biofilm formation"
+          ]
+        },
+        "clinical": {
+          "incubation": "After upper respiratory infection",
+          "onset": "Gradual",
+          "symptoms": [
+            {
+              "name": "Characteristic Symptoms",
+              "description": "Facial pain or pressure that worsens when bending forward. It is accompanied by nasal congestion, purulent nasal discharge, and often a headache.",
+              "severity": "moderate"
+            },
+            {
+              "name": "Signs of Bacterial Superinfection",
+              "description": "Symptoms lasting more than 10 days, worsening symptoms (\"double sickening\"), or high fever (>38°C) and unilateral facial pain suggest a bacterial origin.",
+              "severity": "moderate"
+            }
+          ],
+          "physical_exam": [
+            "Facial tenderness",
+            "Mucopurulent nasal discharge",
+            "Postnasal drip"
+          ],
+          "complications": [
+            "Orbital cellulitis",
+            "Meningitis",
+            "Osteomyelitis"
+          ]
+        },
+        "diagnostics": {
+          "imaging": [
+            {
+              "modality": "Sinus CT",
+              "finding": "Fluid level, mucosal thickening",
+              "significance": "If needed"
+            }
+          ]
+        },
+        "differential": [
+          {
+            "disease": "Migraine",
+            "distinguishing": "Unilateral headache, aura"
+          },
+          {
+            "disease": "Dental pain",
+            "distinguishing": "Dental examination"
+          }
+        ],
+        "therapy": {
+          "empirical": {
+            "outpatient": [
+              {
+                "drug": "Amoxicillin/Clavulanate",
+                "dose": "2x875/125mg PO",
+                "duration": "7-10 days",
+                "note": "If bacterial is suspected"
+              },
+              {
+                "drug": "Decongestant",
+                "dose": "Pseudoephedrine",
+                "duration": "3-5 days",
+                "note": "Symptomatic"
+              }
+            ],
+            "inpatient": [
+              {
+                "drug": "IV antibiotics",
+                "dose": "If complicated",
+                "duration": "",
+                "note": ""
+              }
+            ],
+            "icu": [
+              {
+                "drug": "Surgical drainage",
+                "dose": "If abscess",
+                "duration": "",
+                "note": ""
+              }
+            ]
+          },
+          "targeted": "Antibiotics if bacterial",
+          "supportive": [
+            "Decongestants",
+            "Steam inhalation"
+          ],
+          "prevention": [
+            "Allergy treatment"
+          ]
+        },
+        "prognosis": {
+          "mortality": "Low",
+          "prognostic_scores": [
+            "None"
+          ],
+          "factors": "Immune status"
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Sinusitis_01.jpg",
+            "caption": "Imaging example of sinusitis.",
+            "type": "Imaging"
+          }
+        ]
+      },
+      {
+        "id": "otitis_media",
+        "name": "Otitis Media",
+        "pathogen": {
+          "type": "Bacterium",
+          "name": "<i>Streptococcus pneumoniae, Haemophilus influenzae, Moraxella catarrhalis</i>",
+          "gram": "Mixed",
+          "shape": "coccus/bacillus"
+        },
+        "epidemiology": {
+          "incidence": "Common in childhood, 80% experience by age 3",
+          "risk_groups": [
+            "Infants",
+            "Children",
+            "Exposure to passive smoking"
+          ],
+          "seasonality": "Winter",
+          "transmission": "Complication of upper respiratory infection"
+        },
+        "pathomechanism": {
+          "steps": [
+            "Eustachian tube obstruction (adenoid hyperplasia, rhinitis)",
+            "Bacterial ascent",
+            "Purulent inflammation in the middle ear",
+            "Possible eardrum perforation"
+          ],
+          "virulence_factors": [
+            "Biofilm formation"
+          ]
+        },
+        "gallery": [
+          {
+            "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Blausen_0871_TympanicMembrane_2.png",
+            "caption": "Typical tympanic membrane changes in otitis media.",
+            "type": "Otoscopy"
+          }
+        ]
       }
     ]
   }

@@ -1,8 +1,8 @@
 Object.assign(window.diseases, {
   cns_infections: {
     name: 'Központi idegrendszeri fertőzések',
-    icon: (window.diseaseMetadata?.['cns_infections']?.['icon'] || '🩺'),
-    color: (window.diseaseMetadata?.['cns_infections']?.['color'] || '#065f46'),
+    icon: window.diseaseMetadata.cns_infections.icon,
+    color: window.diseaseMetadata.cns_infections.color,
     diseases: [
       {
         id: 'csf_differential',

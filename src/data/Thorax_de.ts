@@ -2,8 +2,8 @@
 Object.assign(window.diseases, {
   "bacterial_respiratory": {
     "name": "Bakterielle Atemwegsinfektionen",
-    "icon": (window.diseaseMetadata?.bacterial_respiratory?.icon || '🫁'),
-    "color": (window.diseaseMetadata?.bacterial_respiratory?.color || '#06b6d4'),
+    "icon": window.diseaseMetadata.bacterial_respiratory.icon,
+    "color": window.diseaseMetadata.bacterial_respiratory.color,
     "tables": [
       {
         "title": "Differentialdiagnose: Typische vs. Atypische Pneumonie",
@@ -1416,8 +1416,8 @@ Object.assign(window.diseases, {
   },
   "cardiovascular": {
     "name": "Kardiovaskuläre Infektionen",
-    "icon": (window.diseaseMetadata?.cardiovascular?.icon || '🫀'),
-    "color": (window.diseaseMetadata?.cardiovascular?.color || '#b91c1c'),
+    "icon": window.diseaseMetadata.cardiovascular.icon,
+    "color": window.diseaseMetadata.cardiovascular.color,
     "diseases": [
       {
         "id": "endocarditis",
@@ -1868,7 +1868,7 @@ Object.assign(window.diseases, {
       },
       {
         "id": "pericarditis",
-        "name": "Akute Perikarditis (Szívburokgyulladás)",
+        "name": "Akute Perikarditis (Herzbeutelentzündung)",
         "pathogen": {
           "type": "Virus / Idiopathisch / Bakterium",
           "name": "Enteroviren (Coxsackie), Echoviren, Adenoviren, EBV, CMV, SARS-CoV-2, Idiopathisch (>80-90%), Mycobacterium tuberculosis, S. aureus, Autoimmun",
@@ -2154,8 +2154,8 @@ Object.assign(window.diseases, {
   },
   "upper_respiratory": {
     "name": "Infektionen der oberen Atemwege",
-    "icon": (window.diseaseMetadata?.upper_respiratory?.icon || '🗣️'),
-    "color": (window.diseaseMetadata?.upper_respiratory?.color || '#14b8a6'),
+    "icon": window.diseaseMetadata.upper_respiratory.icon,
+    "color": window.diseaseMetadata.upper_respiratory.color,
     "diseases": [
       {
         "id": "upper_respiratory_infections",
@@ -2634,7 +2634,7 @@ Object.assign(window.diseases, {
       },
       {
         "id": "influenza",
-        "name": "Influenza (Szezonale und Pandemische)",
+        "name": "Influenza (Saisonale und pandemische Influenza)",
         "pathogen": {
           "type": "Virus",
           "name": "Influenzavirus A (H1N1, H3N2), Influenzavirus B (Orthomyxoviridae)",

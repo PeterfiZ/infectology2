@@ -1,8 +1,8 @@
 Object.assign(window.diseases, {
   sepsis_systemic: {
     name: 'Szepszis és szisztémás fertőzések',
-    icon: (window.diseaseMetadata?.['sepsis_systemic']?.['icon'] || '🩺'),
-    color: (window.diseaseMetadata?.['sepsis_systemic']?.['color'] || '#065f46'),
+    icon: window.diseaseMetadata.sepsis_systemic.icon,
+    color: window.diseaseMetadata.sepsis_systemic.color,
     diseases: [
       {
         id: "sepsis",

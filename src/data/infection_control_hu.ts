@@ -1,8 +1,8 @@
 Object.assign(window.diseases, {
   infection_control: {
     name: 'Infekciókontroll',
-    icon: (window.diseaseMetadata?.['infection_control']?.['icon'] || '🩺'),
-    color: (window.diseaseMetadata?.['infection_control']?.['color'] || '#065f46'),
+    icon: window.diseaseMetadata.infection_control.icon,
+    color: window.diseaseMetadata.infection_control.color,
     diseases: [
       {
         id: 'ic_basics',

@@ -87,21 +87,16 @@ const printTranslations = {
 export default function App() {
   // Lang State
   const [lang, setLang] = useState<'hu' | 'en' | 'de'>(() => {
-    try {
-      const saved = localStorage.getItem('infecto_lang');
-      return (saved === 'hu' || saved === 'en' || saved === 'de') ? saved : 'hu';
-    } catch {
-      return 'hu';
-    }
+    const saved = localStorage.getItem('infecto_lang');
+    return (saved === 'hu' || saved === 'en' || saved === 'de') ? saved : 'hu';
   });
 
   // DB State (derived)
-  const currentDb = diseasesByLang[lang] || diseasesByLang['hu'] || {};
+  const currentDb = diseasesByLang[lang];
 
   // UI States
   const [activeCategoryKey, setActiveCategoryKey] = useState<string>(() => {
-    const defaultDb = diseasesByLang['hu'] || {};
-    return Object.keys(defaultDb)[0] || 'gastrointestinal';
+    return Object.keys(diseasesByLang['hu'])[0]; // Default to first category
   });
   const [activeDiseaseId, setActiveDiseaseId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -112,12 +107,8 @@ export default function App() {
 
   // Notes State
   const [notes, setNotes] = useState<{ [diseaseId: string]: string }>(() => {
-    try {
-      const saved = localStorage.getItem('infecto_notes');
-      return saved ? JSON.parse(saved) : {};
-    } catch {
-      return {};
-    }
+    const saved = localStorage.getItem('infecto_notes');
+    return saved ? JSON.parse(saved) : {};
   });
   const [currentNote, setCurrentNote] = useState('');
   const [isNotesOpen, setIsNotesOpen] = useState(false);
@@ -161,12 +152,8 @@ export default function App() {
 
   // Font Size Regulation
   const [fontSizeScale, setFontSizeScale] = useState<number>(() => {
-    try {
-      const saved = localStorage.getItem('infecto_font_size');
-      return saved ? parseFloat(saved) : 1.0;
-    } catch {
-      return 1.0;
-    }
+    const saved = localStorage.getItem('infecto_font_size');
+    return saved ? parseFloat(saved) : 1.0;
   });
 
   // File import ref
@@ -176,37 +163,25 @@ export default function App() {
   const [aiInput, setAiInput] = useState('');
   const [isAiLoading, setIsAiLoading] = useState(false);
   const [customApiKey, setCustomApiKey] = useState<string>(() => {
-    try {
-      return localStorage.getItem('infecto_custom_api_key') || '';
-    } catch {
-      return '';
-    }
+    return localStorage.getItem('infecto_custom_api_key') || '';
   });
   const [isApiKeySettingsOpen, setIsApiKeySettingsOpen] = useState(false);
   const [showApiKey, setShowApiKey] = useState(false);
 
   const [pageViews, setPageViews] = useState<number>(() => {
-    try {
-      const saved = localStorage.getItem('infecto_page_views');
-      if (saved) {
-        const val = parseInt(saved, 10);
-        return isNaN(val) ? 1420 : val;
-      }
-      const seed = Math.floor(Math.random() * 300) + 1200;
-      localStorage.setItem('infecto_page_views', seed.toString());
-      return seed;
-    } catch {
-      return 1420;
+    const saved = localStorage.getItem('infecto_page_views');
+    if (saved) {
+      const val = parseInt(saved, 10);
+      return isNaN(val) ? 1420 : val;
     }
+    const seed = Math.floor(Math.random() * 300) + 1200;
+    localStorage.setItem('infecto_page_views', seed.toString());
+    return seed;
   });
 
   const [aiMessages, setAiMessages] = useState<{ id: string; role: 'user' | 'assistant'; text: string }[]>(() => {
-    try {
-      const saved = localStorage.getItem('infecto_ai_messages');
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
+    const saved = localStorage.getItem('infecto_ai_messages');
+    return saved ? JSON.parse(saved) : [];
   });
 
   // Save AI messages and custom API key to localStorage
@@ -1114,7 +1089,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
   // Switch category
   const handleCategorySelect = (key: string) => {
     setActiveCategoryKey(key);
-    const category = diseasesByLang[lang]?.[key] || currentDb[key];
+    const category = diseasesByLang[lang][key];
     if (category?.tables && category.tables.length > 0) {
       setActiveDiseaseId('category_tables');
     } else {
@@ -1123,7 +1098,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
     setActiveDetailTab('info');
   };
 
-  const disease = currentDb[activeCategoryKey]?.diseases?.find(d => d.id === activeDiseaseId);
+  const disease = currentDb[activeCategoryKey]?.diseases.find(d => d.id === activeDiseaseId);
 
   if (isPrinting) {
     return (
@@ -1154,7 +1129,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
           {/* Case 1: printOption === 'current' */}
           {printOption === 'current' && (() => {
             if (activeDiseaseId && activeDiseaseId !== 'category_tables') {
-              const dis = currentDb[activeCategoryKey]?.diseases?.find(d => d.id === activeDiseaseId);
+              const dis = currentDb[activeCategoryKey]?.diseases.find(d => d.id === activeDiseaseId);
               if (!dis) return null;
               return (
                 <div className="p-8 bg-white border border-slate-200 rounded-2xl shadow-sm space-y-8">
@@ -1220,7 +1195,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                           </tr>
                         </thead>
                         <tbody>
-                          {(t.rows || []).map((row, rIdx) => (
+                          {t.rows.map((row, rIdx) => (
                             <tr key={rIdx} className="odd:bg-slate-50/10">
                               {row.map((cell, cIdx) => (
                                 <td key={cIdx} className="p-2 border border-natural-border text-slate-800 leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: cell }} />
@@ -1270,7 +1245,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                         </tr>
                       </thead>
                       <tbody>
-                        {(t.rows || []).map((row, rIdx) => (
+                        {t.rows.map((row, rIdx) => (
                           <tr key={rIdx} className="odd:bg-slate-50/10">
                             {row.map((cell, cIdx) => (
                               <td key={cIdx} className="p-2 border border-natural-border text-slate-800 leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: cell }} />
@@ -1332,7 +1307,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                       <div key={key} className="flex justify-between items-baseline text-sm">
                         <span className="font-serif font-bold text-emerald-950">{idx + 1}. {cat.name}</span>
                         <span className="flex-1 border-b border-dashed border-natural-border mx-4"></span>
-                        <span className="font-mono text-xs text-natural-muted">{cat.diseases?.length || 0} {lang === 'hu' ? 'betegség' : lang === 'de' ? 'Erkrankungen' : 'diseases'}</span>
+                        <span className="font-mono text-xs text-natural-muted">{cat.diseases.length} {lang === 'hu' ? 'betegség' : lang === 'de' ? 'Erkrankungen' : 'diseases'}</span>
                       </div>
                     ))}
                 </div>
@@ -1387,7 +1362,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                             </tr>
                           </thead>
                           <tbody>
-                            {(t.rows || []).map((row, rIdx) => (
+                            {t.rows.map((row, rIdx) => (
                               <tr key={rIdx} className="odd:bg-slate-50/10">
                                 {row.map((cell, cIdx) => (
                                   <td key={cIdx} className="p-2 border border-natural-border text-slate-800 leading-relaxed font-sans" dangerouslySetInnerHTML={{ __html: cell }} />
@@ -1400,7 +1375,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                     ))}
 
                     {/* Category Diseases */}
-                    {cat.diseases && cat.diseases.map((dis) => (
+                    {cat.diseases.map((dis) => (
                       <div key={dis.id} className="p-8 space-y-8 print-page-break">
                         {/* Academic Header for print */}
                         <div className="border-b-2 border-emerald-900 pb-4 flex justify-between items-end">
@@ -1742,6 +1717,8 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                       <span className="text-xs font-semibold truncate">
                         {activeCategoryKey === 'bacterial_respiratory'
                           ? (lang === 'hu' ? 'Típusos vs. Atípusos Pneumonia' : lang === 'de' ? 'Typische vs. Atypische Pneumonie' : 'Typical vs. Atypical Pneumonia')
+                          : activeCategoryKey === 'childhood'
+                          ? (lang === 'hu' ? 'Kiütéses gyermekkori fertőzések' : lang === 'de' ? 'Exanthematöse Kinderkrankheiten' : 'Exanthematous Infections Table')
                           : (lang === 'hu' ? 'Összehasonlító táblázat' : lang === 'de' ? 'Vergleichstabelle' : 'Comparison Table')}
                       </span>
                       <span className="text-[9px] text-natural-muted font-mono uppercase tracking-wider">
@@ -1824,7 +1801,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                   if (activeDiseaseId === 'category_tables') {
                     return renderCategoryTablesContent();
                   }
-                  const disease = currentDb[activeCategoryKey]?.diseases?.find(d => d.id === activeDiseaseId);
+                  const disease = currentDb[activeCategoryKey]?.diseases.find(d => d.id === activeDiseaseId);
                   if (!disease) return null;
 
                   return (
@@ -3417,7 +3394,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                             onClick={() => {
                               // Find disease in DB
                               const catKey = Object.keys(currentDb).find(k => 
-                                currentDb[k]?.diseases?.some(d => d.id === selectedMediaItem.diseaseId)
+                                currentDb[k]?.diseases.some(d => d.id === selectedMediaItem.diseaseId)
                               );
                               if (catKey) {
                                 setActiveCategoryKey(catKey);
@@ -4165,10 +4142,10 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
         {/* Tables */}
         {category.tables.map((t, tIdx) => {
           // Filter rows based on search
-          const filteredRows = (t.rows || []).filter(row => {
+          const filteredRows = t.rows.filter(row => {
             if (!tableSearchQuery) return true;
             const q = tableSearchQuery.toLowerCase();
-            return (row || []).some(cell => String(cell || '').toLowerCase().includes(q));
+            return row.some(cell => cell.toLowerCase().includes(q));
           });
 
           return (
@@ -4245,7 +4222,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
             </tr>
           </thead>
           <tbody>
-            {(t.rows || []).map((row, rIdx) => (
+            {t.rows.map((row, rIdx) => (
               <tr key={rIdx} className="hover:bg-[#FAF9F3] transition-colors">
                 {row.map((cell, cIdx) => (
                   <td key={cIdx} className="p-3.5 border border-natural-border/50 text-natural-text text-sm leading-relaxed font-normal">
@@ -4293,7 +4270,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                         </tr>
                       </thead>
                       <tbody>
-                        {(table.rows || []).map((row, rIdx) => (
+                        {table.rows.map((row, rIdx) => (
                           <tr key={rIdx} className="hover:bg-[#FAF9F3] transition-colors odd:bg-slate-50/10 print:bg-transparent">
                             {row.map((cell, cIdx) => (
                               <td 
@@ -4341,7 +4318,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                         <th 
                           key={i} 
                           className="p-2.5 font-bold text-slate-700 font-sans uppercase tracking-wider border-r border-natural-border/30 whitespace-nowrap print:p-1.5"
-                          style={{ borderBottom: `2px solid ${category?.color || '#06b6d4'}` }}
+                          style={{ borderBottom: `2px solid ${category.color || '#06b6d4'}` }}
                         >
                           {h}
                         </th>
@@ -4349,7 +4326,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 4.0.0)`;
                     </tr>
                   </thead>
                   <tbody>
-                    {(table.rows || []).map((row, rIdx) => (
+                    {table.rows.map((row, rIdx) => (
                       <tr key={rIdx} className="hover:bg-[#FAF9F3] transition-colors odd:bg-slate-50/10 print:bg-transparent">
                         {row.map((cell, cIdx) => (
                           <td 

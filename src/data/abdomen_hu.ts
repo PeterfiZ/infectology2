@@ -13,8 +13,8 @@ const window: any = {
 window._abdomen_hu = window._abdomen_hu || {
   gastrointestinal: {
     name: 'Gastrointestinális fertőzések',
-    icon: (window.diseaseMetadata?.['gastrointestinal']?.['icon'] || '🩺'),
-    color: (window.diseaseMetadata?.['gastrointestinal']?.['color'] || '#065f46'),
+    icon: window.diseaseMetadata.gastrointestinal.icon,
+    color: window.diseaseMetadata.gastrointestinal.color,
     tables: [
       {
         title: 'Gastrointestinális fertőzések differenciáldiagnosztikája',
@@ -1105,8 +1105,8 @@ window._abdomen_hu = window._abdomen_hu || {
   },
   viral_hepatitis: {
     name: 'Vírusos hepatitisek',
-    icon: (window.diseaseMetadata?.['viral_hepatitis']?.['icon'] || '🩺'),
-    color: (window.diseaseMetadata?.['viral_hepatitis']?.['color'] || '#065f46'),
+    icon: window.diseaseMetadata.viral_hepatitis.icon,
+    color: window.diseaseMetadata.viral_hepatitis.color,
     tables: [
       {
         title: 'Vírushepatitisek differenciáldiagnosztikája',
@@ -1872,8 +1872,8 @@ window._abdomen_hu = window._abdomen_hu || {
   },
   urinary_tract: {
     name: 'Húgyúti fertőzések',
-    icon: (window.diseaseMetadata?.['urinary_tract']?.['icon'] || '🩺'),
-    color: (window.diseaseMetadata?.['urinary_tract']?.['color'] || '#065f46'),
+    icon: window.diseaseMetadata.urinary_tract.icon,
+    color: window.diseaseMetadata.urinary_tract.color,
     diseases: [
       {
         id: 'cystitis',
