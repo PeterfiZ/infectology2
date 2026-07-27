@@ -1837,291 +1837,266 @@ Object.assign(window.diseases, {
         "name": "Infective Endocarditis",
         "pathogen": {
           "type": "Bacterium",
-          "name": "<i>Staphylococcus aureus, Viridans group streptococci</i>",
-          "gram": "Gram-positive",
-          "shape": "coccus"
+          "name": "<i>Staphylococcus aureus, Viridans group streptococci, Enterococcus faecalis, Streptococcus gallolyticus, Coagulase-negative staphylococci (S. epidermidis), HACEK group, Coxiella burnetii</i>",
+          "gram": "Gram-positive / Gram-negative / Intracellular",
+          "shape": "coccus / bacillus"
         },
         "epidemiology": {
-          "incidence": "3-10/100,000 per year",
+          "incidence": "3–10 per 100,000 person-years (increasing age and prosthetic valve usage)",
           "risk_groups": [
-            "Valvular defects",
-            "Prosthetic valves",
+            "Prosthetic heart valves (PVE) and TAVI",
+            "Cardiac implantable electronic devices (CIED)",
+            "Previous episode of infective endocarditis",
+            "Congenital heart disease (repaired with prosthetic material or unrepaired cyanotic)",
             "People who inject drugs (PWID)",
-            "Congenital heart disease",
-            "Previous endocarditis"
+            "Hemodialysis and chronic indwelling central venous catheter patients"
           ],
           "seasonality": "None",
-          "transmission": "Bacteremia (dental procedure, skin infection, catheter)"
+          "transmission": "Bacteremia from mucosal disruption (dental, GI, GU procedures), skin/soft tissue infection, or vascular catheters"
         },
         "pathomechanism": {
           "steps": [
-            "The process begins with injury to the heart valve endothelium, to which a sterile thrombus (nonbacterial thrombotic endocarditis, NBTE) adheres.",
-            "During a transient bacteremia (e.g., dental procedure), circulating pathogens adhere to this damaged surface.",
-            "The bacteria multiply, form a biofilm, and create a vegetation composed of bacteria, fibrin, and platelets.",
-            "This vegetation damages the valve (causing insufficiency), and fragments can break off, causing septic emboli to various parts of the body (e.g., brain, spleen)."
+            "Endothelial Injury & NBTE: Mechanical or jet-stream injury damages heart valve endothelium, triggering local fibrin and platelet deposition to form sterile Non-Bacterial Thrombotic Endocarditis (NBTE).",
+            "Bacterial Adherence & Biofilm: Transient bacteremia allows circulating pathogens with surface adhesins (MSCRAMMs) to colonize NBTE, forming dense biofilms and protective extracellular matrix.",
+            "Vegetation Development & Local Tissue Destruction: Proliferating microcolonies promote ongoing fibrin-platelet clotting, forming expanding vegetations that erode valvular cusps, chordae tendineae, and paravalvular structures (causing leaflet perforation, regurgitation, ring abscess, pseudoaneurysm, or intracardiac fistula).",
+            "Systemic Septic Embolization: Friable vegetation fragments embolize into circulation, causing ischemic/septic stroke, mycotic aneurysms, splenic/renal infarctions, or septic pulmonary emboli (right-sided IE)."
           ],
           "virulence_factors": [
-            "Adhesins (MSCRAMM)",
-            "Biofilm formation",
-            "Toxins"
+            "MSCRAMM adhesins (ClfA, FnBPA) for fibronectin/collagen binding",
+            "Extracellular biofilm matrix production (PGA/PNAG)",
+            "Exotoxins, hemolysins, and coagulase (S. aureus)"
           ]
         },
         "clinical": {
-          "incubation": "Days (acute) or weeks (subacute)",
-          "onset": "Variable",
+          "incubation": "Days (acute S. aureus) to weeks/months (subacute Viridans strep / Enterococcus)",
+          "onset": "Acute or Subacute",
           "symptoms": [
             {
-              "name": "General Symptoms",
-              "description": "The most common are fever, chills, night sweats, and weight loss. The presentation is often that of a fever of unknown origin (FUO).",
+              "name": "Constitutional Symptoms",
+              "description": "Fever (present in >90%), chills, night sweats, fatigue, anorexia, weight loss, and arthralgias/myalgias (often presenting as fever of unknown origin [FUO]).",
               "severity": "moderate"
             },
             {
-              "name": "Cardiac Symptoms",
-              "description": "Appearance of a new or changed heart murmur, or symptoms of heart failure (shortness of breath, edema) due to valve damage.",
+              "name": "Cardiac Failure & Regurgitant Murmurs",
+              "description": "New onset or worsening regurgitant cardiac murmur (aortic or mitral regurgitation) and symptoms of acute heart failure (shortness of breath, orthopnea, pulmonary edema) secondary to valvular destruction.",
               "severity": "severe"
             },
             {
-              "name": "Embolic Phenomena",
-              "description": "Fragments breaking off from the vegetation can cause septic emboli: stroke, splenic or renal infarction, skin manifestations (Janeway lesions, splinter hemorrhages).",
+              "name": "Embolic & Vascular Phenomena",
+              "description": "Acute focal neurological deficits (ischemic/hemorrhagic stroke from septic cerebral emboli), flank pain (splenic/renal infarction), Osler nodes (tender subcutaneous nodules on digit pads), Janeway lesions (painless erythematous macules on palms/soles), and splinter hemorrhages under nails.",
               "severity": "severe"
             }
           ],
           "physical_exam": [
-            "Fever",
-            "New heart murmur (especially regurgitant)",
-            "Signs of heart failure (S3, congestion)",
-            "Splenomegaly (15-30%)",
-            "Peripheral signs (Splinter, Osler, Janeway, Roth - rare)"
+            "Fever (>38.0°C)",
+            "New or changing regurgitant heart murmur (aortic/mitral insufficiency)",
+            "Signs of heart failure (S3 gallop, bilateral pulmonary crackles, elevated JVP)",
+            "Splenomegaly (in subacute cases, 15-30%)",
+            "Peripheral vascular signs: Janeway lesions (painless palmar/plantar macules), splinter hemorrhages, conjunctival petechiae",
+            "Immunological signs: Osler nodes (painful finger/toe pads), Roth spots (retinal hemorrhages with pale centers)"
           ],
           "complications": [
-            "Heart failure (valve insufficiency)",
-            "Septic embolism (brain, spleen, kidney)",
-            "Abscess (ring)",
-            "Glomerulonephritis"
+            "Acute heart failure & cardiogenic shock (severe valve acute insufficiency)",
+            "Paravalvular extension: ring abscess, pseudoaneurysm, intracardiac fistula, AV block (conduction bundle erosion)",
+            "Systemic septic embolization (stroke, mycotic cerebral aneurysm, splenic/renal infarct)",
+            "Sepsis and septic shock",
+            "Glomerulonephritis (immune complex deposition) & acute kidney injury"
           ]
         },
         "diagnostics": {
           "criteria": [
             {
-              "name": "Major criteria (ESC 2023)",
+              "name": "Major Criteria (ESC 2023)",
               "items": [
-                "Positive blood culture (typical pathogen: S. aureus, Enterococcus, Viridans strep, S. gallolyticus, HACEK) from 2 separate samples",
-                "Positive imaging (Echo/CT/PET-CT): Vegetation, abscess, pseudoaneurysma, fistula, perforation, new dehiscence",
-                "Paravalvular lesion on CT",
-                "Abnormal activity around prosthetic valve (PET/CT or SPECT/CT)",
-                "Positive Coxiella burnetii serology (Phase I IgG titer >1:800)"
+                "Blood Cultures Positive: Typical microorganisms consistent with IE (S. aureus, Viridans strep, S. gallolyticus, HACEK, E. faecalis without primary focus) from ≥2 separate blood culture sets; OR persistent bacteremia with any pathogen; OR single positive blood culture/PCR for Coxiella burnetii, or Phase I IgG antibody titer >1:800",
+                "Positive Imaging: 1) Echocardiography (TTE/TEE) showing vegetation, abscess, pseudoaneurysm, intracardiac fistula, valvular perforation/aneurysm, or new prosthetic valve dehiscence; 2) Cardiac CT showing paravalvular lesions, pseudoaneurysms, or structural details; 3) 18F-FDG PET/CT or WBC SPECT/CT showing abnormal focal activity at prosthetic valve implantation site (>3 months post-op) or cardiac device"
               ]
             },
             {
-              "name": "Minor criteria",
+              "name": "Minor Criteria (ESC 2023)",
               "items": [
-                "Predisposition (heart defect, prosthetic valve, previous IE)",
-                "Fever >38°C",
-                "Vascular phenomena (embolism, septic infarct, mycotic aneurysm, Janeway, imaging-confirmed lesions)",
-                "Immunological phenomena (Osler's nodes, Roth spots, RF+, Glomerulonephritis)",
-                "Microbiological evidence (positive culture not meeting major criteria)"
+                "Predisposition: Predisposing heart condition (prosthetic valve, prior IE, CHD) or PWID",
+                "Fever: Temperature >38.0°C",
+                "Vascular Phenomena: Major arterial emboli, septic pulmonary infarcts, mycotic aneurysm, intracranial hemorrhage, Janeway lesions, or imaging-proven emboli/vascular lesions",
+                "Immunological Phenomena: Glomerulonephritis, Osler nodes, Roth spots, or positive Rheumatoid Factor",
+                "Microbiological Evidence: Positive blood culture not meeting major criterion or serological evidence of active infection with compatible organism"
               ]
             },
             {
-              "name": "Diagnosis (Definite)",
+              "name": "ESC Diagnostic Categories",
               "items": [
-                "2 Major",
-                "1 Major + 3 Minor",
-                "5 Minor"
+                "Definite IE: 2 Major criteria; OR 1 Major + 3 Minor criteria; OR 5 Minor criteria",
+                "Possible IE: 1 Major + 1 Minor criterion; OR 3 Minor criteria"
               ]
             }
           ],
           "laboratory": [
             {
-              "test": "Blood culture",
-              "finding": "Positive (continuous bacteremia)",
-              "interpretation": "DUKE major criterion (3 sets!)"
+              "test": "Blood cultures (3 sets before antibiotics)",
+              "finding": "Continuous bacteremia with typical pathogen",
+              "interpretation": "Essential major diagnostic criterion. Obtain 3 sets at 30-min intervals prior to antimicrobial initiation."
             },
             {
-              "test": "CBC",
-              "finding": "Anemia, leukocytosis",
-              "interpretation": "Chronic inflammation"
+              "test": "Inflammatory markers (CRP, ESR, Leukocytes)",
+              "finding": "Markedly elevated CRP and ESR, leukocytosis",
+              "interpretation": "Monitors disease activity and therapeutic response."
             },
             {
-              "test": "CRP/ESR",
-              "finding": "Elevated",
-              "interpretation": "Inflammation"
+              "test": "Serology & PCR (Culture-negative IE)",
+              "finding": "Coxiella burnetii (IgG >1:800), Bartonella spp. serology/PCR, Tropheryma whipplei PCR",
+              "interpretation": "Crucial when initial blood cultures remain sterile (5-10% of cases)."
             }
           ],
           "imaging": [
             {
-              "modality": "Echocardiography (TTE/TEE)",
-              "finding": "Vegetation, abscess, dehiscence",
-              "significance": "Primary imaging"
+              "modality": "Transthoracic (TTE) & Transesophageal (TEE) Echocardiography",
+              "finding": "Vegetation, leaflet perforation, paravalvular abscess, new prosthetic dehiscence",
+              "significance": "First-line imaging (TTE in all patients, TEE mandatory in prosthetic valves, CIED, or negative TTE with high suspicion)."
             },
             {
-              "modality": "Cardiac CT / PET-CT",
-              "finding": "Paravalvular spread, embolism",
-              "significance": "Adjunctive (ESC 2023)"
+              "modality": "Cardiac CT & Whole-body CT",
+              "finding": "Paravalvular abscess/pseudoaneurysm, coronary involvement, peripheral septic emboli (spleen, kidney, brain)",
+              "significance": "Class I in ESC 2023 for anatomical evaluation and peripheral embolic screening."
+            },
+            {
+              "modality": "18F-FDG PET/CT or WBC SPECT/CT",
+              "finding": "Focal paravalvular metabolic uptake around prosthetic valves or device leads",
+              "significance": "Class I for prosthetic valve endocarditis (>3 months post-implant) and suspected CIED infection."
             }
           ],
           "microbiology": [
             {
               "test": "Blood culture",
-              "finding": "Pathogen identification",
-              "significance": "Basis of therapy"
+              "finding": "Pathogen identification and susceptibility testing",
+              "significance": "Cornerstone of targeted antimicrobial therapy."
             },
             {
-              "test": "Serology",
-              "finding": "Coxiella, Bartonella",
-              "significance": "If blood culture is negative"
+              "test": "Serology & Valvular Tissue PCR",
+              "finding": "Coxiella, Bartonella, Tropheryma whipplei, fungal PCR",
+              "significance": "Essential for culture-negative IE."
             }
           ]
         },
         "therapy": {
           "guidelines": [
-            "ESC 2023 Guidelines for the management of endocarditis"
+            "2023 ESC Guidelines for the management of endocarditis (Multidisciplinary Endocarditis Team - Class I, Level B)"
           ],
           "empirical": {
             "native_community": {
-              "title": "Empiric: Native valve or Late prosthetic valve (>12 mo)",
+              "title": "Empiric: Native Valve or Late Prosthetic Valve (>12 months)",
               "drugs": [
                 {
                   "drug": "Ampicillin + (Flu)cloxacillin + Gentamicin",
-                  "dose": "12g + 12g + 3mg/kg IV",
-                  "duration": "4-6 weeks",
-                  "note": "IB recommendation. Gentamicin only for the first few days/until pathogen is known."
+                  "dose": "Ampicillin 12g/day IV (4-6 doses) + (Flu)cloxacillin 12g/day IV (4-6 doses) + Gentamicin 3mg/kg/day IV",
+                  "duration": "4-6 weeks (Gentamicin only for first 3-5 days)",
+                  "note": "Class I recommendation (ESC 2023). Covers Staphylococci, Streptococci, and Enterococci."
                 },
                 {
-                  "drug": "Vancomycin + Gentamicin",
-                  "dose": "30-60mg/kg + 3mg/kg IV",
-                  "duration": "4-6 weeks",
-                  "note": "IB recommendation. For penicillin allergy."
-                },
-                {
-                  "drug": "Daptomycin + Gentamicin",
-                  "dose": "10mg/kg + 3mg/kg IV",
-                  "duration": "4-6 weeks",
-                  "note": "IB recommendation. Alternative."
+                  "drug": "Vancomycin + Gentamicin (Penicillin Allergy)",
+                  "dose": "Vancomycin 30-60mg/kg/day IV (trough 15-20 mcg/mL) + Gentamicin 3mg/kg/day IV",
+                  "duration": "4-6 weeks (Gentamicin max 3-5 days)",
+                  "note": "Class I recommendation for severe beta-lactam hypersensitivity."
                 }
               ]
             },
             "prosthetic_early": {
-              "title": "Empiric: Early prosthetic valve (<12 mo) or Nosocomial",
+              "title": "Empiric: Early Prosthetic Valve (<12 months) or Nosocomial",
               "drugs": [
                 {
                   "drug": "Vancomycin + Gentamicin + Rifampicin",
-                  "dose": "30-60mg/kg + 3mg/kg + 900-1200mg IV/PO",
-                  "duration": "6 weeks",
-                  "note": "IB recommendation. Rifampicin only after bacteremia has cleared (to prevent resistance)."
+                  "dose": "Vancomycin 30-60mg/kg/day IV + Gentamicin 3mg/kg/day IV + Rifampicin 900-1200mg/day IV/PO (2-3 divided doses)",
+                  "duration": "6 weeks (Rifampicin for 6 weeks, Gentamicin for 2 weeks)",
+                  "note": "Class I recommendation. Delay Rifampicin by 3-5 days until bacteremia clears to prevent rapid resistance."
                 }
               ]
             },
             "targeted_staph": {
-              "title": "Targeted: Staphylococcus spp.",
+              "title": "Targeted: Staphylococcus spp. (MSSA / MRSA)",
               "drugs": [
                 {
-                  "drug": "MSSA: (Flu)cloxacillin",
-                  "dose": "12g/day IV",
+                  "drug": "MSSA Native Valve: (Flu)cloxacillin or Cefazolin",
+                  "dose": "(Flu)cloxacillin 12g/day IV OR Cefazolin 6g/day IV (3 divided doses)",
                   "duration": "4-6 weeks",
-                  "note": "IB recommendation. Penicillin allergy (non-anaphylactic): Cefazolin 6g/day (IB)."
+                  "note": "Class I recommendation. Cefazolin preferred for non-anaphylactic penicillin allergy."
                 },
                 {
-                  "drug": "MRSA: Vancomycin",
-                  "dose": "30-60mg/kg/day IV",
+                  "drug": "MRSA Native Valve: Vancomycin or Daptomycin",
+                  "dose": "Vancomycin 30-60mg/kg/day IV OR Daptomycin 10-12mg/kg/day IV",
                   "duration": "4-6 weeks",
-                  "note": "IB recommendation. Alternative: Daptomycin 10mg/kg (IB)."
+                  "note": "Class I recommendation."
                 },
                 {
-                  "drug": "Prosthetic valve (PVE): + Rifampicin + Gentamicin",
-                  "dose": "Adjunct",
-                  "duration": "Rif: 6 weeks, Gent: 2 weeks",
-                  "note": "IB recommendation. Rifampicin 900-1200mg, Gentamicin 3mg/kg."
+                  "drug": "Prosthetic Valve Staphylococcal IE: Triple Therapy",
+                  "dose": "(Flu)cloxacillin or Vancomycin + Rifampicin 900-1200mg/day + Gentamicin 3mg/kg/day",
+                  "duration": "Beta-lactam/Vanco 6 weeks, Rifampicin 6 weeks, Gentamicin 2 weeks",
+                  "note": "Class I recommendation. Biofilm eradication."
                 }
               ]
             },
             "targeted_strep": {
-              "title": "Targeted: Streptococcus spp. (Oral/Bowel)",
+              "title": "Targeted: Streptococcus spp. (Oral / Bowel)",
               "drugs": [
                 {
                   "drug": "Penicillin G or Amoxicillin or Ceftriaxone",
-                  "dose": "Standard high dose",
-                  "duration": "4 weeks",
-                  "note": "IB recommendation. Penicillin-sensitive strains."
-                },
-                {
-                  "drug": "Combination with Gentamicin",
-                  "dose": "Beta-lactam + 3mg/kg Gentamicin",
-                  "duration": "2 weeks",
-                  "note": "IB recommendation. Can shorten course only for native valve, uncomplicated cases."
-                },
-                {
-                  "drug": "Penicillin allergy: Vancomycin",
-                  "dose": "30mg/kg/day IV",
-                  "duration": "4 weeks",
-                  "note": "IB recommendation."
+                  "dose": "Penicillin G 12-24 million IU/day IV OR Amoxicillin 100-200mg/kg/day IV OR Ceftriaxone 2g/day IV",
+                  "duration": "4 weeks (native valve) or 6 weeks (prosthetic valve)",
+                  "note": "Class I recommendation. Short 2-week regimen possible with Gentamicin in uncomplicated native valve IE."
                 }
               ]
             },
             "targeted_entero": {
-              "title": "Targeted: Enterococcus spp.",
+              "title": "Targeted: Enterococcus faecalis",
               "drugs": [
                 {
-                  "drug": "Amoxicillin + Ceftriaxone",
-                  "dose": "200mg/kg + 4g/day IV",
-                  "duration": "6 weeks",
-                  "note": "IB recommendation. Preferred for E. faecalis (less nephrotoxicity than with gentamicin)."
+                  "drug": "Amoxicillin + Ceftriaxone (Preferred Dual Beta-Lactam)",
+                  "dose": "Amoxicillin 200mg/kg/day IV + Ceftriaxone 4g/day IV (2 divided doses)",
+                  "duration": "6 weeks (4 weeks if native valve & symptoms <3 months)",
+                  "note": "Class I recommendation. High synergistic efficacy without nephrotoxicity."
                 },
                 {
                   "drug": "Ampicillin + Gentamicin",
-                  "dose": "12g + 3mg/kg IV",
-                  "duration": "4-6 weeks",
-                  "note": "IB recommendation. Traditional therapy."
-                },
-                {
-                  "drug": "Vancomycin + Gentamicin",
-                  "dose": "30mg/kg + 3mg/kg IV",
-                  "duration": "6 weeks",
-                  "note": "IB recommendation. For beta-lactam resistance/allergy."
+                  "dose": "Ampicillin 12g/day IV + Gentamicin 3mg/kg/day IV",
+                  "duration": "6 weeks (Gentamicin 2-6 weeks depending on renal function)",
+                  "note": "Class I recommendation (alternative)."
                 }
               ]
             },
             "culture_neg": {
-              "title": "Culture-negative IE",
+              "title": "Culture-Negative & Special Pathogens",
               "drugs": [
                 {
-                  "drug": "Coxiella burnetii",
-                  "dose": "Doxycycline + Hydroxychloroquine",
-                  "duration": ">18 months",
-                  "note": "IB recommendation. Q fever endocarditis."
+                  "drug": "Coxiella burnetii (Q Fever)",
+                  "dose": "Doxycycline 200mg/day PO + Hydroxychloroquine 600mg/day PO",
+                  "duration": "18-24 months",
+                  "note": "Class I recommendation."
                 },
                 {
                   "drug": "Bartonella spp.",
-                  "dose": "Doxycycline + Gentamicin (2 weeks)",
+                  "dose": "Doxycycline 200mg/day PO (6 weeks) + Gentamicin 3mg/kg/day IV (2 weeks)",
                   "duration": "6 weeks",
-                  "note": "IB recommendation."
-                },
-                {
-                  "drug": "Brucella spp.",
-                  "dose": "Doxycycline + Streptomycin + Rifampicin",
-                  "duration": "3-6 months",
-                  "note": "IB recommendation."
+                  "note": "Class I recommendation."
                 }
               ]
             }
           },
-          "targeted": "See detailed protocols above. In stable patients (left-sided IE), oral switch is possible after 10-14 days of IV therapy (POET trial, IB recommendation) if TEE has excluded abscess and patient is cooperative.",
+          "targeted": "In stable patients with left-sided IE after at least 10 days of IV therapy, switching to oral antibiotic therapy (OAT) is recommended (ESC 2023 based on the POET trial) provided TEE rules out abscess or uncorrected surgical complications, and patient compliance/absorption is verified.",
           "supportive": [
-            "Heart failure management (IB)",
-            "Embolism prophylaxis (anticoagulation may be contraindicated due to bleeding risk!)",
-            "Source control (full body CT/PET-CT)"
+            "Immediate management by a multidisciplinary Endocarditis Team (Cardiologist, Infectious Disease, Cardiac Surgeon, Microbiologist)",
+            "Surgical indications (ESC 2023): Emergency (<24h) or Urgent (<7 days) surgery for: 1) Heart failure / cardiogenic shock from severe acute regurgitation; 2) Uncontrolled infection (abscess, pseudoaneurysm, persistent bacteremia >7 days, fungal/multiresistant organism); 3) High embolic risk (persistent vegetation >10mm after embolic event, or isolated >15mm vegetation)",
+            "Strict colonoscopy screening in all patients with Streptococcus gallolyticus or Enterococcus faecalis IE to detect occult gastrointestinal neoplasia"
           ],
           "prevention": [
-            "Antibiotic prophylaxis (Amoxicillin 2g or Clindamycin 600mg) ONLY in high-risk patients (prosthetic valve, previous IE, cyanotic congenital vitium) before dental procedures (IIa)",
-            "Oral hygiene (IB)"
+            "Targeted Antibiotic Prophylaxis: Recommended ONLY in highest-risk patients (prosthetic valves including TAVI, prior IE, unrepaired cyanotic CHD, repaired CHD with prosthetic material) undergoing high-risk dental procedures (Amoxicillin 2g PO 30-60 min before procedure, or Clindamycin 600mg PO / Cefazolin 2g IV if penicillin allergic) - Class IIa recommendation",
+            "Strict oral and cutaneous hygiene measures in all high-risk cardiac patients (Class I recommendation)"
           ]
         },
         "prognosis": {
-          "mortality": "In-hospital: 15-20%, 1-year: 30-40%",
+          "mortality": "In-hospital mortality: 15–20%; 1-year mortality: 30–40%",
           "prognostic_scores": [
-            "None specific"
+            "PALM score (PVE, Age, LVEF, Microorganism)",
+            "EuroSCORE II (for surgical risk)"
           ],
-          "factors": "S. aureus, heart failure, old age, prosthetic valve"
+          "factors": "Staphylococcus aureus infection, heart failure / cardiogenic shock, paravalvular abscess, prosthetic valve endocarditis, delayed surgical intervention"
         },
         "gallery": [
           {
@@ -2319,191 +2294,214 @@ Object.assign(window.diseases, {
       },
       {
         "id": "myocarditis",
-        "name": "Myocarditis",
+        "name": "Acute Myocarditis",
         "pathogen": {
-          "type": "Virus",
-          "name": "<i>Coxsackie B, Adenovirus, Parvovirus B19</i>",
-          "gram": "RNA/DNA viruses",
+          "type": "Virus / Autoimmune / Toxic",
+          "name": "<i>Parvovirus B19, HHV-6, Coxsackievirus B, Enteroviruses, Adenovirus, SARS-CoV-2, EBV, CMV, Influenza, Borrelia burgdorferi</i>",
+          "gram": "RNA/DNA viruses, Spirochetes, Immune checkpoint inhibitors (ICI)",
           "shape": "variable"
         },
         "epidemiology": {
-          "incidence": "Hard to estimate (many mild cases), 10-20% of sudden cardiac death in young people",
+          "incidence": "10–22 per 100,000 person-years; accounts for 10–20% of sudden cardiac deaths in young adults (<35 years)",
           "risk_groups": [
-            "Young adults",
-            "Men",
-            "Immunocompromised"
+            "Young adults (18-40 years)",
+            "Male predominance (2:1 ratio)",
+            "Athletes / individuals engaging in strenuous physical exertion during viral prodrome",
+            "Patients receiving Immune Checkpoint Inhibitor (ICI) cancer therapy"
           ],
-          "seasonality": "Virus-dependent (e.g., enterovirus summer-autumn)",
-          "transmission": "Fecal-oral, droplet (pathogen-dependent)"
+          "seasonality": "Viral-dependent (Enterovirus in summer/autumn, Influenza in winter)",
+          "transmission": "Respiratory droplets, fecal-oral, vector-borne (Borrelia), or non-infectious autoimmune/drug-induced"
         },
         "pathomechanism": {
           "steps": [
-            "The infection begins with a viral infection, during which the virus can directly damage heart muscle cells.",
-            "The later, more severe phase of the disease is caused by the body's excessive immune response. T-cells and autoantibodies attack the heart muscle cells (molecular mimicry), resulting in extensive inflammation, necrosis, and myocardial dysfunction.",
-            "During healing, scarring (fibrosis) can develop, leading to dilated cardiomyopathy (DCM) and chronic heart failure."
+            "Phase 1 - Acute Viral Entry & Myocyte Injury (Days 1–7): Pathogens enter cardiomyocytes and endothelial cells via specific receptors (e.g. CAR, integrins), causing direct viral replication, cellular lysis, and activation of innate immunity.",
+            "Phase 2 - Autoimmune Response & Molecular Mimicry (Weeks 1–4): Viral antigens expose cryptic cardiac proteins (e.g., cardiac myosin). Autoreactive T-lymphocytes and autoantibodies attack healthy cardiomyocytes, producing diffuse interstitial inflammation, cellular necrosis, and microvascular ischemia.",
+            "Phase 3 - Remodeling & Fibrosis (Months): Inflammation resolves or persists chronically. Excessive extracellular matrix deposition leads to myocardial scarring, ventricular enlargement, wall thinning, and progression to Dilated Cardiomyopathy (DCM) in 10-30% of cases."
           ],
           "virulence_factors": [
-            "Protease 2A (dystrophin cleavage)",
-            "Receptor binding (CAR)"
+            "Viral Protease 2A (cleaves dystrophin, undermining myocyte membrane stability)",
+            "Coxsackievirus and Adenovirus Receptor (CAR) binding"
           ]
         },
         "clinical": {
-          "incubation": "1-2 weeks after viral infection",
-          "onset": "Variable (from asymptomatic to fulminant)",
+          "incubation": "1–3 weeks following a viral prodromal illness",
+          "onset": "Variable (from asymptomatic / mild to fulminant cardiogenic shock)",
           "symptoms": [
             {
               "name": "Viral Prodrome",
-              "description": "Cardiac symptoms are often preceded by a febrile, respiratory, or gastrointestinal infection a few days earlier.",
+              "description": "Fever, upper respiratory tract symptoms, myalgias, fatigue, or gastrointestinal infection (diarrhea) occurring 1-3 weeks prior to cardiac presentation.",
               "severity": "mild"
             },
             {
-              "name": "Heart Failure Symptoms",
-              "description": "Fatigue, shortness of breath on exertion, then at rest, and edema.",
+              "name": "Acute Chest Pain (Infarction-like / Pleuritic)",
+              "description": "Acute precordial chest pain that may mimic acute coronary syndrome (ACS) or present with pleuritic features indicative of myopericarditis.",
               "severity": "severe"
             },
             {
-              "name": "Chest Pain and Arrhythmia",
-              "description": "Atypical, sharp chest pain (myopericarditis) and palpitations (due to arrhythmias) are common.",
-              "severity": "moderate"
+              "name": "Heart Failure & Dyspnea",
+              "description": "Rapidly progressive exertional dyspnea, orthopnea, fatigue, peripheral edema, or acute pulmonary edema due to left ventricular systolic dysfunction.",
+              "severity": "severe"
+            },
+            {
+              "name": "Arrhythmias & Palpitations",
+              "description": "Palpitations, presyncope, syncope, or sudden cardiac arrest caused by ventricular tachycardia (VT/VF) or high-grade AV blocks.",
+              "severity": "severe"
             }
           ],
           "physical_exam": [
-            "Tachycardia (disproportionate to fever)",
-            "Signs of heart failure (S3, distended neck veins, edema)",
-            "Pericardial friction rub (in myopericarditis)",
-            "Arrhythmia (extrasystoles)"
+            "Tachycardia disproportionate to body temperature",
+            "S3 gallop rhythm and soft S1",
+            "Signs of overt heart failure: elevated JVP, bilateral basilar lung crackles, peripheral edema",
+            "Pericardial friction rub (if concurrent pericarditis / myopericarditis is present)",
+            "Hemodynamic instability, hypotension, cool extremities, oliguria (fulminant myocarditis)"
           ],
           "complications": [
-            "Dilated cardiomyopathy (DCM)",
-            "Heart failure",
-            "Fatal arrhythmias",
-            "Sudden cardiac death"
+            "Dilated Cardiomyopathy (DCM) and chronic heart failure (10–30%)",
+            "Fulminant myocarditis & refractory cardiogenic shock",
+            "Lethal ventricular arrhythmias (VT/VF) and complete heart block",
+            "Intracardiac thrombus formation and systemic thromboembolism",
+            "Sudden cardiac death (SCD)"
           ]
         },
         "diagnostics": {
+          "criteria": [
+            {
+              "name": "Clinical Presentation Patterns (ESC Guidelines)",
+              "items": [
+                "Acute chest pain pattern (pseudoinfarction): Chest pain + ECG changes + elevated troponin + normal coronary angiogram",
+                "New-onset heart failure pattern: Dyspnea, fatigue, impaired LVEF, dilated LV",
+                "Arrhythmic pattern: Palpitations, syncope, sustained VT, or AV block",
+                "Fulminant cardiogenic shock pattern: Rapid hemodynamic collapse requiring inotropic/MCS support"
+              ]
+            }
+          ],
           "laboratory": [
             {
-              "test": "Troponin (hs-cTn)",
-              "finding": "Elevated",
-              "interpretation": "Myocardial necrosis (high sensitivity)"
+              "test": "High-sensitivity Cardiac Troponin (hs-cTnI / hs-cTnT)",
+              "finding": "Elevated (often markedly elevated in acute phase)",
+              "interpretation": "High sensitivity marker for cardiomyocyte injury and necrosis."
             },
             {
-              "test": "NT-proBNP",
+              "test": "NT-proBNP / BNP",
               "finding": "Elevated",
-              "interpretation": "Heart failure / prognostic marker"
+              "interpretation": "Reflects ventricular wall stress and heart failure severity; strong prognostic marker."
             },
             {
-              "test": "CRP/ESR",
-              "finding": "Elevated",
-              "interpretation": "Inflammation"
+              "test": "Inflammatory markers (CRP, ESR, Leukocytes)",
+              "finding": "Elevated CRP and ESR",
+              "interpretation": "Confirms systemic inflammatory activity."
             }
           ],
           "imaging": [
             {
-              "modality": "ECG",
-              "finding": "ST-T changes, AV block, QRS widening",
-              "significance": "Prognostic value"
+              "modality": "Cardiac Magnetic Resonance (CMR - Gold Standard Non-invasive Imaging)",
+              "finding": "Updated Lake Louise Criteria: 1) T2-weighted marker (myocardial edema on T2 mapping or T2WI); AND 2) T1-weighted marker (myocardial injury on Late Gadolinium Enhancement [LGE] with midwall/subepicardial non-ischemic distribution, or elevated native T1 / ECV)",
+              "significance": "Class I recommendation (ESC 2023) for non-invasive confirmation, risk stratification, and tissue characterization."
             },
             {
               "modality": "Echocardiography",
-              "finding": "Global/regional wall motion abnormalities, decreased EF, pericardial effusion",
-              "significance": "Basic examination"
+              "finding": "Global or regional wall motion abnormalities, reduced LVEF, increased wall thickness (edema), pericardial effusion",
+              "significance": "Mandatory initial imaging to evaluate LV function, rule out valvular/mechanical causes, and track recovery."
             },
             {
-              "modality": "Cardiac MRI (CMR)",
-              "finding": "Lake Louise criteria (T1/T2 signals, LGE)",
-              "significance": "Gold standard non-invasive diagnosis (ESC 2023)"
+              "modality": "Coronary Angiography (Invasive or CT)",
+              "finding": "Normal / non-obstructive coronary arteries",
+              "significance": "Essential to rule out Acute Coronary Syndrome (ACS) in patients presenting with chest pain and elevated troponin."
             }
           ],
           "microbiology": [
             {
-              "test": "Endomyocardial biopsy (EMB)",
-              "finding": "Inflammation + Virus PCR",
-              "significance": "Gold standard. Indicated in: fulminant course, non-responsive HF, specific suspicion (giant cell) (ESC 2023)"
+              "test": "Endomyocardial Biopsy (EMB - Gold Standard Definitive Diagnosis)",
+              "finding": "Inflammatory infiltrate (Dallas criteria >14 leukocytes/mm²) + Viral genome PCR on myocardial tissue",
+              "significance": "Indicated strictly in fulminant presentation, unexplained acute HF with hemodynamic instability, high-grade AV block, sustained VT, or suspicion of giant cell / eosinophilic / sarcoid myocarditis (ESC Guidelines)."
             },
             {
-              "test": "Virus serology",
+              "test": "Viral Serology",
               "finding": "Not routinely recommended",
-              "significance": "Low diagnostic value (except hepatitis, HIV, Borrelia)"
+              "significance": "Low diagnostic value due to high background seroprevalence (except HIV, Hepatitis C, Borrelia burgdorferi)."
             }
           ]
         },
         "differential": [
           {
-            "disease": "Acute coronary syndrome (ACS)",
-            "distinguishing": "Coronary angiography negative, young patient"
+            "disease": "Acute Coronary Syndrome (ACS / STEMI / NSTEMI)",
+            "distinguishing": "Coronary angiography demonstrates clear coronary occlusion; CMR shows ischemic subendocardial/transmural LGE rather than subepicardial LGE."
           },
           {
-            "disease": "Pericarditis",
-            "distinguishing": "Troponin less elevated, no wall motion abnormalities"
+            "disease": "Acute Pericarditis",
+            "distinguishing": "Troponin is normal or only minimally elevated, no wall motion abnormalities on echocardiography, no myocardial edema/LGE on CMR."
           },
           {
-            "disease": "Anxiety/panic",
-            "distinguishing": "ECG/Troponin negative"
+            "disease": "Stress Cardiomyopathy (Takotsubo)",
+            "distinguishing": "Apical or midventricular ballooning pattern, precipitated by severe emotional/physical stress, rapid EF recovery, distinct CMR appearance."
           }
         ],
         "therapy": {
+          "guidelines": [
+            "ESC Guidelines for the management of acute heart failure and myocarditis"
+          ],
           "empirical": {
             "outpatient": [
               {
-                "drug": "Physical rest",
-                "dose": "No sports",
-                "duration": "3-6 months",
-                "note": "Crucial! (ESC 2023)"
+                "drug": "Physical Activity Restriction",
+                "dose": "Abstinence from competitive and strenuous sports",
+                "duration": "3 to 6 months",
+                "note": "Class I recommendation (ESC 2023). Crucial to prevent lethal ventricular arrhythmias during acute healing."
               },
               {
-                "drug": "NSAID (e.g., Ibuprofen)",
-                "dose": "Symptomatic",
+                "drug": "NSAIDs / Analgesics",
+                "dose": "Low-dose symptomatic pain relief",
                 "duration": "Short term",
-                "note": "Only for chest pain if EF is preserved!"
+                "note": "Use with caution; avoid high-dose NSAIDs if LVEF is reduced (may worsen HF and mortality)."
               }
             ],
             "inpatient": [
               {
-                "drug": "Heart failure therapy (GDMT)",
-                "dose": "ACEi/ARB/ARNI + BB + MRA + SGLT2i",
-                "duration": "Chronic",
-                "note": "If LVEF is reduced (ESC 2023)"
+                "drug": "Guideline-Directed Medical Therapy (GDMT) for Heart Failure",
+                "dose": "ACEi/ARB/ARNI (Sacubitril/Valsartan) + Beta-blocker (Bisoprolol/Metoprolol succinate) + MRA (Spironolactone/Eplerenone) + SGLT2i (Dapagliflozin/Empagliflozin)",
+                "duration": "At least 6 months to long-term",
+                "note": "Class I recommendation for LVEF <50% or HF symptoms."
               },
               {
-                "drug": "Antiarrhythmic drugs",
-                "dose": "Amiodarone",
-                "duration": "",
-                "note": "In case of severe arrhythmia"
+                "drug": "Antiarrhythmic Therapy",
+                "dose": "Amiodarone (for sustained VT/VF)",
+                "duration": "As needed",
+                "note": "Class I. Temporary pacing for high-grade AV block. Avoid digoxin in acute stage due to increased toxicity."
               }
             ],
             "icu": [
               {
-                "drug": "Mechanical circulatory support (MCS)",
-                "dose": "VA-ECMO, Impella",
-                "duration": "",
-                "note": "In fulminant myocarditis / cardiogenic shock"
+                "drug": "Mechanical Circulatory Support (MCS)",
+                "dose": "VA-ECMO, Impella, or Left Ventricular Assist Device (LVAD)",
+                "duration": "Bridge to recovery or bridge to transplant",
+                "note": "Class I recommendation in fulminant myocarditis with cardiogenic shock."
               },
               {
-                "drug": "High-dose steroids",
-                "dose": "Methylprednisolone",
-                "duration": "",
-                "note": "Only in proven autoimmune/giant cell forms (virus negative!)"
+                "drug": "High-Dose Corticosteroids (Immune Checkpoint Inhibitor Myocarditis)",
+                "dose": "Methylprednisolone 1000mg/day IV pulse for 3 days, followed by oral taper",
+                "duration": "Several weeks",
+                "note": "Emergency therapy for ICI-induced myocarditis."
               }
             ]
           },
-          "targeted": "Immunosuppression (Prednisolone + Azathioprine) ONLY in biopsy-proven virus-negative (PCR-) lymphocytic, giant cell, or sarcoidosis-related myocarditis (ESC 2023). Contraindicated in active viral infection!",
+          "targeted": "Immunosuppressive Therapy (Prednisolone + Azathioprine / Cyclosporine) is recommended strictly in biopsy-proven VIRUS-NEGATIVE (PCR-negative) autoimmune myocarditis, Giant Cell Myocarditis (GCM - emergency!), Eosinophilic myocarditis, or Cardiac Sarcoidosis. Immunosuppression is CONTRAINDICATED in active viral replication (PCR positive)!",
           "supportive": [
-            "Strict physical rest (3-6 months) until inflammation resolves",
-            "Heart failure management",
-            "ICD implantation (if inflammation has resolved and EF remains low)"
+            "Strict physical rest (3–6 months) until clinical recovery, normal LVEF, normal troponin, and clearance of edema on CMR",
+            "Heart failure GDMT continuation for at least 6 months after EF recovery",
+            "Delay ICD implantation for at least 3–6 months, as inflammatory arrhythmias frequently resolve after acute phase"
           ],
           "prevention": [
-            "Vaccinations (Influenza, COVID, Measles)",
-            "Hygiene"
+            "Influenza, COVID-19, and Measles vaccinations",
+            "Avoidance of heavy physical exertion during acute febrile viral infections"
           ]
         },
         "prognosis": {
-          "mortality": "Variable: often spontaneous recovery, high in fulminant cases. 50% progress to DCM.",
+          "mortality": "Variable: ~50% recover spontaneously within weeks; 10-20% progress to chronic DCM; high acute mortality in fulminant/giant-cell forms if unsupported.",
           "prognostic_scores": [
-            "None"
+            "Lake Louise Criteria CMR extent",
+            "LGE presence and extent on follow-up CMR"
           ],
-          "factors": "Initial EF, QRS width, troponin level"
+          "factors": "Baseline LVEF <30%, presence of LGE on CMR, sustained VT or bundle branch block, Giant Cell or Eosinophilic histology, viral persistence on EMB"
         },
         "gallery": [
           {
@@ -2517,189 +2515,197 @@ Object.assign(window.diseases, {
         "id": "pericarditis",
         "name": "Acute Pericarditis",
         "pathogen": {
-          "type": "Virus/Idiopathic",
-          "name": "<i>Coxsackie, Echovirus, Adenovirus, CMV, EBV</i>",
+          "type": "Virus / Idiopathic / Autoimmune / Bacterial",
+          "name": "<i>Coxsackievirus B, Echovirus, Adenovirus, Parvovirus B19, EBV, CMV, Influenza, SARS-CoV-2, Mycobacterium tuberculosis, Staphylococcus aureus</i>",
           "gram": "Variable",
           "shape": "-"
         },
         "epidemiology": {
-          "incidence": "Common (0.1% of hospitalized)",
+          "incidence": "Responsible for 0.1-0.2% of emergency department presentations for chest pain",
           "risk_groups": [
-            "Men (20-50 years)",
-            "Post-cardiotomy patients",
-            "Autoimmune patients"
+            "Men aged 20–50 years",
+            "Post-cardiotomy / post-myocardial infarction patients (Dressler syndrome)",
+            "Autoimmune disease patients (SLE, Rheumatoid Arthritis)",
+            "Uremic / End-Stage Renal Disease patients"
           ],
-          "seasonality": "Virus-dependent",
-          "transmission": "Droplet (viral)"
+          "seasonality": "Viral epidemics (spring/autumn)",
+          "transmission": "Respiratory droplets (viral) or non-infectious autoimmune/uremic/neoplastic causes"
         },
         "pathomechanism": {
           "steps": [
-            "Inflammation of the pericardial layers, most commonly as a result of a viral infection.",
-            "Due to inflammation, fibrin is deposited between the layers, causing the characteristic friction rub (dry pericarditis).",
-            "Fluid can also accumulate (pericardial effusion), which, if it accumulates rapidly or in large amounts, can compress the heart and cause cardiac tamponade."
+            "Pericardial Layer Inflammation: Infectious agents or immune complexes cause acute inflammation of the visceral and parietal pericardium.",
+            "Fibrinous Exudation & Friction Rub: Inflammatory exudation deposits fibrin onto pericardial surfaces ('bread and butter' pericarditis), generating friction between layers during cardiac movement.",
+            "Effusion & Intrapericardial Pressure Rise: Serosanguinous or purulent fluid accumulates in the pericardial cavity. Rapid or massive fluid buildup increases intrapericardial pressure, impeding diastolic ventricular filling and reducing cardiac output (Cardiac Tamponade).",
+            "Chronic Remodeling: In recurrent or purulent cases, chronic inflammation can cause pericardial thickening, fibrosis, and calcification, leading to Constrictive Pericarditis."
           ],
           "virulence_factors": [
             "-"
           ]
         },
         "clinical": {
-          "incubation": "Variable",
+          "incubation": "Variable (often 1–2 weeks following viral infection)",
           "onset": "Sudden",
           "symptoms": [
             {
-              "name": "Characteristic Chest Pain",
-              "description": "Sharp, stabbing chest pain that worsens with inspiration and lying down, and improves when leaning forward.",
+              "name": "Classic Pericarditic Chest Pain",
+              "description": "Sharp, retrosternal or precordial chest pain radiating to the trapezial ridge (phrenic nerve involvement). Pleuritic (worsened by deep inspiration and coughing) and posture-dependent (worsened by lying flat, relieved by sitting up and leaning forward).",
               "severity": "severe"
             },
             {
-              "name": "Other Symptoms",
-              "description": "Often accompanied by low-grade fever, malaise, and shortness of breath.",
-              "severity": "mild"
+              "name": "Systemic Symptoms & Dyspnea",
+              "description": "Low-grade fever, malaise, myalgias, and dyspnea (shallow breathing to minimize pleuritic pain, or due to pericardial effusion).",
+              "severity": "moderate"
             }
           ],
           "physical_exam": [
-            "Pericardial friction rub (systolic and diastolic components)",
-            "Muffled heart sounds (effusion)",
-            "Beck's triad (in tamponade): hypotension, muffled heart sounds, distended neck veins"
+            "Pericardial friction rub: pathognomonic superficial, high-pitched, scratchy sound heard best at left lower sternal border with patient leaning forward in expiration (triphasic, biphasic, or monophasic)",
+            "Muffled or distant heart sounds (in medium to large pericardial effusion)",
+            "Beck's Triad (in Cardiac Tamponade): Hypotension, distant/muffled heart sounds, distended neck veins (JVD)",
+            "Pulsus paradoxus (drop in systolic BP >10 mmHg during inspiration in tamponade)"
           ],
           "complications": [
-            "Pericardial tamponade",
-            "Constrictive pericarditis",
-            "Recurrent pericarditis (15-30%)"
+            "Cardiac Tamponade (life-threatening emergency requiring pericardiocentesis)",
+            "Recurrent Pericarditis (occurs in 15–30% of patients without colchicine)",
+            "Myopericarditis (concurrent myocardial inflammation with elevated troponin)",
+            "Constrictive Pericarditis (<1% in idiopathic, up to 20-30% in purulent/tuberculous pericarditis)"
           ]
         },
         "diagnostics": {
           "criteria": [
             {
-              "name": "Diagnosis (2 out of 4)",
+              "name": "Diagnostic Criteria (ESC Guidelines - 2 of 4 required)",
               "items": [
-                "Chest pain (typical)",
+                "Pericarditic chest pain (sharp, pleuritic, improved leaning forward)",
                 "Pericardial friction rub",
-                "ECG changes (ST elevation, PR depression)",
-                "Pericardial effusion (Echo)"
+                "New widespread ST-segment elevation (concave upward) and/or PR segment depression on ECG",
+                "New or worsening pericardial effusion on Echocardiography / CT / MRI"
+              ]
+            },
+            {
+              "name": "High-Risk Criteria for Hospitalization (ESC Guidelines)",
+              "items": [
+                "Major risk factors: High fever (>38°C), subacute onset, large pericardial effusion (>20mm), cardiac tamponade, failure to respond to NSAIDs within 1 week",
+                "Minor risk factors: Myopericarditis, immunosuppression, trauma, oral anticoagulant therapy"
               ]
             }
           ],
           "laboratory": [
             {
-              "test": "CRP/ESR",
-              "finding": "Elevated",
-              "interpretation": "Inflammation activity (also for follow-up!)"
+              "test": "C-Reactive Protein (CRP) / ESR",
+              "finding": "Markedly elevated CRP",
+              "interpretation": "Essential baseline and serial marker; treatment duration should be guided by CRP normalization!"
             },
             {
-              "test": "Troponin",
-              "finding": "Normal or slightly elevated",
-              "interpretation": "Exclusion of myocarditis (if high: myopericarditis)"
+              "test": "High-sensitivity Troponin (hs-cTnI / hs-cTnT)",
+              "finding": "Normal or mildly elevated (if elevated = myopericarditis)",
+              "interpretation": "Excludes significant myocardial involvement."
             },
             {
-              "test": "CBC",
-              "finding": "Leukocytosis",
-              "interpretation": "Inflammation"
+              "test": "Complete Blood Count (CBC) & Blood Cultures",
+              "finding": "Leukocytosis; cultures negative in viral/idiopathic",
+              "interpretation": "Assesses infectious etiology."
             }
           ],
           "imaging": [
             {
-              "modality": "ECG",
-              "finding": "Diffuse concave ST elevation, PR depression (elevation in aVR)",
-              "significance": "Diagnostic"
+              "modality": "ECG (12-lead)",
+              "finding": "Stage 1: Widespread concave ST elevations + PR depressions (PR elevation in aVR); Stage 2: Normalization; Stage 3: Diffuse T-wave inversions; Stage 4: Normalization",
+              "significance": "Diagnostic in ~80% of acute cases."
             },
             {
               "modality": "Echocardiography",
-              "finding": "Pericardial effusion",
-              "significance": "Exclusion of tamponade, diagnosis"
+              "finding": "Pericardial effusion, signs of hemodynamic compromise (RV diastolic collapse, IVC plethora)",
+              "significance": "Mandatory first-line imaging in all suspected cases."
             },
             {
-              "modality": "Chest X-ray",
-              "finding": "Normal or \"water bottle heart\" (large effusion)",
-              "significance": "Exclusion of other causes"
+              "modality": "Cardiac CT / CMR",
+              "finding": "Pericardial thickening, pericardial hyperenhancement / edema on late gadolinium enhancement",
+              "significance": "Confirms inflammation and evaluates for constrictive pericarditis or myopericarditis."
             }
           ],
           "microbiology": [
             {
-              "test": "Virus serology",
-              "finding": "Not routine",
-              "significance": "Only in special cases"
-            },
-            {
-              "test": "Pericardiocentesis",
-              "finding": "Culture/PCR",
-              "significance": "Only in tamponade or suspicion of purulent/neoplastic cause"
+              "test": "Pericardial Fluid Analysis & Biopsy",
+              "finding": "Exudate, PCR for viruses/TB, Gram stain/culture, cytology",
+              "significance": "Indicated ONLY in cardiac tamponade, purulent suspicion, or suspected neoplastic disease."
             }
           ]
         },
         "differential": [
           {
-            "disease": "Acute myocarditis",
-            "distinguishing": "Troponin elevation dominates, wall motion abnormalities"
+            "disease": "Acute Myocardial Infarction (STEMI)",
+            "distinguishing": "Convex-upward regional ST elevation with reciprocal ST depressions; persistent localized Q-waves; ischemic chest pain not improved by leaning forward."
           },
           {
-            "disease": "STEMI",
-            "distinguishing": "Convex ST elevation, reciprocal depression, regional"
+            "disease": "Acute Myocarditis",
+            "distinguishing": "Dominant troponin elevation, wall motion abnormalities on echocardiography, myocardial edema/LGE on CMR."
           },
           {
-            "disease": "Pulmonary embolism",
-            "distinguishing": "Dyspnea dominates, D-dimer, CT"
+            "disease": "Pulmonary Embolism",
+            "distinguishing": "Dyspnea dominates over pain, S1Q3T3 pattern or sinus tachycardia, elevated D-dimer, CTA confirms pulmonary artery occlusion."
+          },
+          {
+            "disease": "Aortic Dissection",
+            "distinguishing": "Sudden tearing chest/back pain, pulse deficit, asymmetric blood pressure, widened mediastinum on CT."
           }
         ],
         "therapy": {
+          "guidelines": [
+            "ESC Guidelines for the diagnosis and management of pericardial diseases"
+          ],
           "empirical": {
             "outpatient": [
               {
-                "drug": "Aspirin",
-                "dose": "750-1000mg every 8 hours",
-                "duration": "1-2 weeks, then taper",
-                "note": "First choice (ESC 2015)"
+                "drug": "Aspirin or Ibuprofen (First-Line NSAID)",
+                "dose": "Aspirin 750–1000mg PO every 8 hours OR Ibuprofen 600mg PO every 8 hours",
+                "duration": "1–2 weeks, then taper every 1–2 weeks after CRP normalizes",
+                "note": "Class I recommendation. Tapering prevents early relapse."
               },
               {
-                "drug": "Ibuprofen",
-                "dose": "600mg every 8 hours",
-                "duration": "1-2 weeks, then taper",
-                "note": "Alternative"
-              },
-              {
-                "drug": "+ Colchicine",
-                "dose": "0.5mg once daily (<70kg) or twice (>70kg)",
+                "drug": "+ Colchicine (Essential Adjunct)",
+                "dose": "0.5mg once daily (<70 kg) OR 0.5mg twice daily (≥70 kg)",
                 "duration": "3 months",
-                "note": "For prevention of recurrence (ESC 2015)!"
+                "note": "Class I recommendation (ESC). Halves recurrence rate! No loading dose required."
               },
               {
-                "drug": "PPI",
-                "dose": "Standard",
-                "duration": "With NSAID",
-                "note": "Gastric protection"
+                "drug": "Proton Pump Inhibitor (PPI)",
+                "dose": "Omeprazole 20mg PO once daily",
+                "duration": "Duration of NSAID therapy",
+                "note": "Mandatory gastroprotection."
               }
             ],
             "inpatient": [
               {
-                "drug": "None",
-                "dose": "-",
-                "duration": "-",
-                "note": "Only for high-risk cases (fever >38, subacute, large effusion, tamponade, anticoagulated patient)"
+                "drug": "Inpatient Admission Criteria",
+                "dose": "Hospitalization for high-risk features",
+                "duration": "Until risk resolves",
+                "note": "Indicated if fever >38°C, subacute onset, large effusion, tamponade, NSAID failure, or anticoagulation."
               }
             ],
             "icu": [
               {
-                "drug": "Pericardiocentesis",
-                "dose": "Drainage",
-                "duration": "",
-                "note": "Life-saving in tamponade"
+                "drug": "Emergency Pericardiocentesis",
+                "dose": "Echo-guided or fluoroscopic needle drainage",
+                "duration": "Immediate",
+                "note": "Life-saving procedure for cardiac tamponade."
               }
             ]
           },
-          "targeted": "Steroids (Prednisolone 0.2-0.5 mg/kg) ONLY if NSAID/Colchicine are contraindicated, unsuccessful, or for specific indications (autoimmune).",
+          "targeted": "Second-line / Corticosteroid Therapy: Low-dose Prednisolone (0.2–0.5 mg/kg/day) is recommended ONLY when NSAIDs/Colchicine are contraindicated, failed, or for specific indications (autoimmune disease, pregnancy). Taper extremely slowly! Avoid high-dose steroids as they significantly increase recurrence rates. Interleukin-1 receptor antagonists (Anakinra or Rilonacept) are recommended for corticosteroid-dependent or colchicine-resistant recurrent pericarditis.",
           "supportive": [
-            "Physical rest (no sports) until CRP normalizes (min. 3 months for athletes)"
+            "Strict physical activity restriction (no competitive sports or strenuous exercise) until symptom resolution and normalization of CRP (at least 3 months for competitive athletes) - Class I recommendation",
+            "Avoid routine anticoagulation in acute pericarditis due to risk of converting effusion into hemopericardium and tamponade"
           ],
           "prevention": [
-            "Colchicine for the first episode"
+            "Colchicine administration for 3 months during the first episode reduces recurrence rate from ~30% to <10%"
           ]
         },
         "prognosis": {
-          "mortality": "Low, life-threatening in tamponade",
+          "mortality": "Low (<1% in idiopathic/viral); high in purulent, neoplastic, or untreated tamponade cases.",
           "prognostic_scores": [
-            "None"
+            "ESC High-Risk Mortality Predictors"
           ],
-          "factors": "Recurrence is common, constrictive pericarditis is rare (<1% in idiopathic)"
+          "factors": "Elevated CRP persistence, lack of colchicine usage, steroid usage in first episode, tuberculous or purulent etiology"
         },
         "gallery": [
           {
