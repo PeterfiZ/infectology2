@@ -710,10 +710,3 @@ export const boneJointHu: Category = {
     }
   ]
 };
-
-if (typeof window !== 'undefined') {
-  if (!(window as any).diseases) {
-    (window as any).diseases = {};
-  }
-  (window as any).diseases.bone_joint = boneJointHu;
-}
