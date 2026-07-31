@@ -8,17 +8,17 @@ Object.assign(window.diseases, {
         id: 'csf_differential',
         name: 'Differential Diagnosis of CSF Findings',
         table: {
-          headers: ['Parameter', 'Bacterial', 'Viral', 'Normal'],
+          headers: ['Parameter', 'Bacterial', 'Viral', 'Tuberculous (TB)', 'Fungal', 'Normal'],
           rows: [
-            ['Opening Pressure', 'Elevated (>20 cmH2O)', 'Normal or slightly elevated', '6-20 cmH2O'],
-            ['Appearance', 'Cloudy, purulent', 'Clear ("water-clear")', 'Clear, colorless'],
-            ['Cell Count (WBC/µL)', '>1000 (often 100-10000)', '10-500 (rarely >1000)', '0-5'],
-            ['Dominant Cell', 'Neutrophils (>80%)', 'Lymphocytes (PMN may be early!)', 'Lymphocytes/Monocytes'],
-            ['Protein (g/L)', 'Elevated (>1 g/L)', 'Normal or slightly elevated (<1 g/L)', '0.15-0.45 g/L'],
-            ['Glucose (mmol/L)', 'Decreased (<2.2 mmol/L)', 'Normal (>2.5 mmol/L)', '2.5-4.4 mmol/L'],
-            ['CSF/Blood Glucose Ratio', '< 0.4', '> 0.6', '≥ 0.6'],
-            ['Lactate', 'Elevated (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', '< 2.5 mmol/L'],
-            ['Microbiology', 'Gram stain (+ 60-90%), Culture (+)', 'PCR (+), Gram/Culture negative', 'Negative']
+            ['Opening Pressure', 'Elevated (>20 cmH2O)', 'Normal or slightly elevated', 'Elevated (18-30 cmH2O)', 'Often extremely high (>25-30 cmH2O)', '6-20 cmH2O'],
+            ['Appearance', 'Cloudy, purulent', 'Clear ("water-clear")', 'Opalescent or xanthochromic, classic "cobweb clot" / fibrin pellicle on standing', 'Clear or slightly opalescent', 'Clear, colorless'],
+            ['Cell Count (WBC/µL)', '>1000 (often 100-10000)', '10-500 (rarely >1000)', '100-500 (rarely >1000)', '20-500 (can be <20 in immunosuppression/AIDS)', '0-5'],
+            ['Dominant Cell', 'Neutrophils (>80%)', 'Lymphocytes (PMN may be early!)', 'Lymphocytes (early PMN predominance possible)', 'Lymphocytes', 'Lymphocytes/Monocytes'],
+            ['Protein (g/L)', 'Elevated (>1 g/L)', 'Normal or slightly elevated (<1 g/L)', 'Markedly elevated (1-5 g/L, >10 g/L if spinal block)', 'Elevated (0.5-2.0 g/L)', '0.15-0.45 g/L'],
+            ['Glucose (mmol/L)', 'Decreased (<2.2 mmol/L)', 'Normal (>2.5 mmol/L)', 'Markedly decreased (<2.2 mmol/L)', 'Decreased or normal (<2.2 mmol/L)', '2.5-4.4 mmol/L'],
+            ['CSF/Blood Glucose Ratio', '< 0.4', '> 0.6', '< 0.3 - 0.4 (often <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
+            ['Lactate', 'Elevated (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', 'Elevated (>3.5 mmol/L)', 'Elevated or normal (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
+            ['Microbiology', 'Gram stain (+ 60-90%), Culture (+)', 'PCR (+), Gram/Culture negative', 'AFB stain (+ <20%), MTB PCR / GeneXpert (+), Culture (+, weeks), elevated ADA (>9-10 U/L)', 'Cryptococcal antigen (CrAg +), India ink (+), Fungal culture (+), PCR (+)', 'Negative']
           ]
         }
       },

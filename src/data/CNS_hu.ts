@@ -8,17 +8,17 @@ Object.assign(window.diseases, {
         id: 'csf_differential',
         name: 'Liquor leletek differenciáldiagnosztikája',
         table: {
-          headers: ['Paraméter', 'Bakteriális', 'Vírusos', 'Normál'],
+          headers: ['Paraméter', 'Bakteriális', 'Vírusos', 'Tuberkulotikus (TBC)', 'Gombás', 'Normál'],
           rows: [
-            ['Nyitási nyomás', 'Emelkedett (>20 vízcm)', 'Normál vagy enyhén emelkedett', '6-20 vízcm'],
-            ['Megjelenés', 'Zavaros, gennyes', 'Tiszta ("víztiszta")', 'Tiszta, színtelen'],
-            ['Sejtszám (fvs/µL)', '>1000 (gyakran 100-10000)', '10-500 (ritkán >1000)', '0-5'],
-            ['Domináns sejt', 'Neutrophil granulocyta (>80%)', 'Lymphocyta (korai fázisban PMN lehet!)', 'Lymphocyta/Monocyta'],
-            ['Fehérje (g/L)', 'Emelkedett (>1 g/L)', 'Normál vagy enyhén emelkedett (<1 g/L)', '0.15-0.45 g/L'],
-            ['Glükóz (mmol/L)', 'Csökkent (<2.2 mmol/L)', 'Normál (>2.5 mmol/L)', '2.5-4.4 mmol/L'],
-            ['Liquor/Vér glükóz arány', '< 0.4', '> 0.6', '≥ 0.6'],
-            ['Laktát', 'Emelkedett (>3.5 mmol/L)', 'Normál (<3.5 mmol/L)', '< 2.5 mmol/L'],
-            ['Mikrobiológia', 'Gram-festés (+ 60-90%), Tenyésztés (+)', 'PCR (+), Gram/Tenyésztés negatív', 'Negatív']
+            ['Nyitási nyomás', 'Emelkedett (>20 vízcm)', 'Normál vagy enyhén emelkedett', 'Emelkedett (18-30 vízcm)', 'Gyakran extrém magas (>25-30 vízcm)', '6-20 vízcm'],
+            ['Megjelenés', 'Zavaros, gennyes', 'Tiszta ("víztiszta")', 'Opálos vagy xantokróm, álláskor pókháló-szerű hártya (alvadék) képződhet', 'Tiszta vagy enyhén opálos', 'Tiszta, színtelen'],
+            ['Sejtszám (fvs/µL)', '>1000 (gyakran 100-10000)', '10-500 (ritkán >1000)', '100-500 (ritkán >1000)', '20-500 (immunszuppresszióban lehet <20 is)', '0-5'],
+            ['Domináns sejt', 'Neutrophil granulocyta (>80%)', 'Lymphocyta (korai fázisban PMN lehet!)', 'Lymphocyta (korai szakaszban PMN dominancia előfordulhat)', 'Lymphocyta', 'Lymphocyta/Monocyta'],
+            ['Fehérje (g/L)', 'Emelkedett (>1 g/L)', 'Normál vagy enyhén emelkedett (<1 g/L)', 'Kifejezetten emelkedett (1-5 g/L, spinális blokk esetén >10 g/L is)', 'Emelkedett (0.5-2.0 g/L)', '0.15-0.45 g/L'],
+            ['Glükóz (mmol/L)', 'Csökkent (<2.2 mmol/L)', 'Normál (>2.5 mmol/L)', 'Kifejezetten csökkent (<2.2 mmol/L)', 'Csökkent vagy normál (<2.2 mmol/L)', '2.5-4.4 mmol/L'],
+            ['Liquor/Vér glükóz arány', '< 0.4', '> 0.6', '< 0.3 - 0.4 (gyakran <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
+            ['Laktát', 'Emelkedett (>3.5 mmol/L)', 'Normál (<3.5 mmol/L)', 'Emelkedett (>3.5 mmol/L)', 'Emelkedett vagy normál (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
+            ['Mikrobiológia', 'Gram-festés (+ 60-90%), Tenyésztés (+)', 'PCR (+), Gram/Tenyésztés negatív', 'Ziehl-Neelsen (+ <20%), MTB PCR / GeneXpert (+), Tenyésztés (hetek), ADA emelkedett (>9-10 U/L)', 'Cryptococcus antigén (CrAg +), Tus-festés (India ink +), Tenyésztés (+), gomba PCR (+)', 'Negatív']
           ]
         }
       },
@@ -274,7 +274,7 @@ Object.assign(window.diseases, {
         },
         therapy: {
           empirical: { inpatient: [{ drug: 'Ceftriaxon', dose: '2g IV 12 óránként', duration: '7 nap', note: 'NICE NG240 ajánlás' }] },
-          targeted: 'Ceftriaxon 7 napig. Kontaktoknak profilaxis: Ciprofloxacin (egyszeri 500mg PO) vagy Rifampicin (2x60 mg 2 napig).',
+          targeted: 'Ceftriaxon 7 napig. Kontaktoknak profilaxis: Ciprofloxacin (egyszeri 500mg PO) vagy Rifampicin (2x600 mg 2 napig).',
           supportive: ['folyadékpótlás, fájdalomcsillapítás, lázcsillapítás'],
           prevention: ['Vakcináció (MenACWY, MenB)']
         },

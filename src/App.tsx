@@ -676,7 +676,8 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
   const t = {
     hu: {
       title: 'Infektológia Tankönyv',
-      subtitle: 'Pécsi Tudományegyetem / Dr. Péterfi Zoltán',
+      subtitle: 'Dr. Péterfi Zoltán,
+      affilation: 'Pécsi Tudományegyetem',
       search: 'Keresés betegségek, kórokozók vagy tünetek között...',
       categories: 'Kategóriák',
       disease_count: 'betegség',
@@ -805,7 +806,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
     },
     en: {
       title: 'Infectious Diseases',
-      subtitle: 'University of Pécs / Dr. Zoltán Péterfi',
+      subtitle: 'Dr. Zoltán Péterfi / University of Pécs',
       search: 'Search by disease, pathogen or symptoms...',
       categories: 'Categories',
       disease_count: 'diseases',
@@ -934,7 +935,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
     },
     de: {
       title: 'Lehrbuch der Infektiologie',
-      subtitle: 'Universität Pécs / Dr. Zoltán Péterfi',
+      subtitle: 'Dr. Zoltán Péterfi / Universität Pécs',
       search: 'Suche nach Krankheiten, Erregern oder Symptomen...',
       categories: 'Kategorien',
       disease_count: 'Krankheiten',
@@ -1456,7 +1457,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
                   {lang === 'hu' ? 'Infektológia Tankönyv' : lang === 'de' ? 'Infektiologie Lehrbuch' : 'Infectious Diseases Textbook'}
                 </h1>
                 <p className="font-sans text-[10px] tracking-wider uppercase opacity-80 leading-tight mt-0.5 select-none">
-                  {lang === 'hu' ? 'Pécsi Tudományegyetem / Dr. Péterfi Zoltán' : lang === 'de' ? 'Universität Pécs / Dr. Zoltán Péterfi' : 'University of Pécs / Dr. Zoltán Péterfi'}
+                  {lang === 'hu' ? 'Dr. Péterfi Zoltán / Pécsi Tudományegyetem' : lang === 'de' ? 'Dr. Zoltán Péterfi / Universität Pécs' : 'Dr. Zoltán Péterfi / University of Pécs'}
                 </p>
               </div>
             </div>

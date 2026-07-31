@@ -8,17 +8,17 @@ Object.assign(window.diseases, {
         id: 'csf_differential',
         name: 'Differentialdiagnose der Liquorbefunde',
         table: {
-          headers: ['Parameter', 'Bakteriell', 'Viral', 'Normal'],
+          headers: ['Parameter', 'Bakteriell', 'Viral', 'Tuberkulös (TBC)', 'Pilzbedingt (Mykotisch)', 'Normal'],
           rows: [
-            ['Eröffnungsdruck', 'Erhöht (>20 cmH2O)', 'Normal oder leicht erhöht', '6-20 cmH2O'],
-            ['Aussehen', 'Trüb, eitrig', 'Klar ("wasserhell")', 'Klar, farblos'],
-            ['Zellzahl (Leukozyten/µL)', '>1000 (oft 100-10000)', '10-500 (selten >1000)', '0-5'],
-            ['Dominante Zelle', 'Neutrophile Granulozyten (>80%)', 'Lymphozyten (in der Frühphase PMN möglich!)', 'Lymphozyten/Monozyten'],
-            ['Protein (g/L)', 'Erhöht (>1 g/L)', 'Normal oder leicht erhöht (<1 g/L)', '0.15-0.45 g/L'],
-            ['Glukose (mmol/L)', 'Erniedrigt (<2.2 mmol/L)', 'Normal (>2.5 mmol/L)', '2.5-4.4 mmol/L'],
-            ['Liquor/Serum-Glukose-Quotient', '< 0.4', '> 0.6', '≥ 0.6'],
-            ['Laktat', 'Erhöht (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', '< 2.5 mmol/L'],
-            ['Mikrobiologie', 'Gram-Färbung (+ 60-90%), Kultur (+)', 'PCR (+), Gram/Kultur negativ', 'Negativ']
+            ['Eröffnungsdruck', 'Erhöht (>20 cmH2O)', 'Normal oder leicht erhöht', 'Erhöht (18-30 cmH2O)', 'Oft extrem hoch (>25-30 cmH2O)', '6-20 cmH2O'],
+            ['Aussehen', 'Trüb, eitrig', 'Klar ("wasserhell")', 'Opaleszent oder xanthochrom, klassisches "Spinnennetz-Gerinnsel" (Fibrinnetz) bei Stehenlassen', 'Klar oder leicht opaleszent', 'Klar, farblos'],
+            ['Zellzahl (Leukozyten/µL)', '>1000 (oft 100-10000)', '10-500 (selten >1000)', '100-500 (selten >1000)', '20-500 (bei Immunsuppression/AIDS auch <20)', '0-5'],
+            ['Dominante Zelle', 'Neutrophile Granulozyten (>80%)', 'Lymphozyten (in der Frühphase PMN möglich!)', 'Lymphozyten (frühe PMN-Dominanz möglich)', 'Lymphozyten', 'Lymphozyten/Monozyten'],
+            ['Protein (g/L)', 'Erhöht (>1 g/L)', 'Normal oder leicht erhöht (<1 g/L)', 'Ausgeprägt erhöht (1-5 g/L, bei spinalem Block >10 g/L)', 'Erhöht (0.5-2.0 g/L)', '0.15-0.45 g/L'],
+            ['Glukose (mmol/L)', 'Erniedrigt (<2.2 mmol/L)', 'Normal (>2.5 mmol/L)', 'Ausgeprägt erniedrigt (<2.2 mmol/L)', 'Erniedrigt oder normal (<2.2 mmol/L)', '2.5-4.4 mmol/L'],
+            ['Liquor/Serum-Glukose-Quotient', '< 0.4', '> 0.6', '< 0.3 - 0.4 (oft <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
+            ['Laktat', 'Erhöht (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', 'Erhöht (>3.5 mmol/L)', 'Erhöht oder normal (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
+            ['Mikrobiologie', 'Gram-Färbung (+ 60-90%), Kultur (+)', 'PCR (+), Gram/Kultur negativ', 'Ziehl-Neelsen-Färbung (+ <20%), MTB-PCR / GeneXpert (+), Kultur (+, Wochen), erhöhtes ADA (>9-10 U/L)', 'Kryptokokken-Antigen (CrAg +), Tuschepräparat (+), Pilzkultur (+), PCR (+)', 'Negativ']
           ]
         }
       },

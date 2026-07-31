@@ -138,6 +138,8 @@ export interface Disease {
   prognosis?: Prognosis;
   references?: string[];
   gallery?: GalleryItem[];
+  language?: string;
+  group?: string;
 }
 
 export interface Category {
