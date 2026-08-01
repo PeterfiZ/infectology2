@@ -3,11 +3,122 @@ Object.assign(window.diseases, {
     name: 'Központi idegrendszeri fertőzések',
     icon: window.diseaseMetadata.cns_infections.icon,
     color: window.diseaseMetadata.cns_infections.color,
+    tables: [
+      {
+        title: 'Liquor leletek differenciáldiagnosztikája',
+        headers: ['Paraméter', 'Bakteriális', 'Vírusos', 'Tuberkulotikus (TBC)', 'Gombás', 'Normál'],
+        rows: [
+          ['Nyitási nyomás', 'Emelkedett (>20 vízcm)', 'Normál vagy enyhén emelkedett', 'Emelkedett (18-30 vízcm)', 'Gyakran extrém magas (>25-30 vízcm)', '6-20 vízcm'],
+          ['Megjelenés', 'Zavaros, gennyes', 'Tiszta ("víztiszta")', 'Opálos vagy xantokróm, álláskor pókháló-szerű hártya (alvadék) képződhet', 'Tiszta vagy enyhén opálos', 'Tiszta, színtelen'],
+          ['Sejtszám (fvs/µL)', '>1000 (gyakran 100-10000)', '10-500 (ritkán >1000)', '100-500 (ritkán >1000)', '20-500 (immunszuppresszióban lehet <20 is)', '0-5'],
+          ['Domináns sejt', 'Neutrophil granulocyta (>80%)', 'Lymphocyta (korai fázisban PMN lehet!)', 'Lymphocyta (korai szakaszban PMN dominancia előfordulhat)', 'Lymphocyta', 'Lymphocyta/Monocyta'],
+          ['Fehérje (g/L)', 'Emelkedett (>1 g/L)', 'Normál vagy enyhén emelkedett (<1 g/L)', 'Kifejezetten emelkedett (1-5 g/L, spinális blokk esetén >10 g/L is)', 'Emelkedett (0.5-2.0 g/L)', '0.15-0.45 g/L'],
+          ['Glükóz (mmol/L)', 'Csökkent (<2.2 mmol/L)', 'Normál (>2.5 mmol/L)', 'Kifejezetten csökkent (<2.2 mmol/L)', 'Csökkent vagy normál (<2.2 mmol/L)', '2.5-4.4 mmol/L'],
+          ['Liquor/Vér glükóz arány', '< 0.4', '> 0.6', '< 0.3 - 0.4 (gyakran <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
+          ['Laktát', 'Emelkedett (>3.5 mmol/L)', 'Normál (<3.5 mmol/L)', 'Emelkedett (>3.5 mmol/L)', 'Emelkedett vagy normál (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
+          ['Mikrobiológia', 'Gram-festés (+ 60-90%), Tenyésztés (+)', 'PCR (+), Gram/Tenyésztés negatív', 'Ziehl-Neelsen (+ <20%), MTB PCR / GeneXpert (+), Tenyésztés (hetek), ADA emelkedett (>9-10 U/L)', 'Cryptococcus antigén (CrAg +), Tus-festés (India ink +), Tenyésztés (+), gomba PCR (+)', 'Negatív']
+        ]
+      },
+      {
+        title: 'A központi idegrendszeri fertőzések mikrobiológiai gyorstesztjeinek összehasonlítása (Gram, Latex, BioFire)',
+        headers: [
+          'Kórokozó (Mikroba)',
+          'Gram-festés (Mikroszkópia)',
+          'Latex agglutináció (Antigén)',
+          'BioFire / Multiplex PCR (ME Panel)',
+          'Gyorstesztek előnyei',
+          'Gyorstesztek hátrányai / Korlátai'
+        ],
+        rows: [
+          [
+            '<b>Streptococcus pneumoniae</b><br><span class="text-xs text-natural-muted">Pneumococcus</span>',
+            '<b>Gram-pozitív lándzsahegy alakú diplococcusok</b><br>Szenzitivitás: 70–90% (előzetes AB nélkül)',
+            '<b>Pneumococcus tokantigén (+)</b><br>Jó specificitás, közepes szenzitivitás (70–80%), liquorban és vizeletben is pozitív lehet',
+            '<b>S. pneumoniae DNS (+)</b><br>Kiemelkedő szenzitivitás (>95%) és specificitás (>98%), kb. 1 órán belül',
+            '<b>Azonnali célzott terápia indítható</b>: előzetes (12–24h) antibiotikum adása után is pozitív marad a PCR és gyakran az antigén is; Dexamethason + Vancomycin/Ceftriaxon döntés megerősítése',
+            '<b>Nem ad antibiogramot / MIC értéket</b>: Penicillin/Cephalosporin rezisztenciát (MIC) nem mutatja; tenyésztés kötelező; Gram-festés AB után gyorsan negatívvé válik'
+          ],
+          [
+            '<b>Neisseria meningitidis</b><br><span class="text-xs text-natural-muted">Meningococcus</span>',
+            '<b>Gram-negatív kávébab alakú diplococcusok</b><br>Gyakran intracellulárisan a granulocytákban (szenzitivitás: 60–75%)',
+            '<b>Meningococcus A, B, C, Y, W135 tokantigén (+)</b><br>Gyors orientáció, de B szerocsoportnál alacsonyabb lehet az érzékenység',
+            '<b>N. meningitidis DNS (+)</b><br>Magas szenzitivitás (>90–95%); szepszisben vérből is PCR-ezhető',
+            '<b>Életmentő gyorsaság</b>: kemoprofilaxis (Rifampicin/Ciprofloxacin) azonnali elrendelhetősége a kontaktoknak; járványügyi intézkedések azonnali indítása',
+            '<b>Szerocsoportot (B vs C vs Y) a standard ME panel nem mindig differenciálja</b>; alacsony csíraszámnál Gram-festés álnegatív lehet; tenyésztés kötelező'
+          ],
+          [
+            '<b>Haemophilus influenzae b</b><br><span class="text-xs text-natural-muted">Hib</span>',
+            '<b>Gram-negatív pleomorph kis pálcák / coccobacillusok</b><br>Szenzitivitás: 50–70% (könnyen elnézhető, háttérbe olvadó)',
+            '<b>Hib PRP tokantigén (+)</b><br>Gyors és specifikus a b-szerotípusra',
+            '<b>H. influenzae DNS (+)</b><br>Magas szenzitivitás (>90%), nem-b törzseket is kimutatja',
+            '<b>Gyors elkülönítés</b> oltatlan gyermekekben vagy immunszupprimált / splenectomizált betegekben; célzott terápia megalapozása',
+            '<b>Gram-festésnél gyakori a téves azonosítás</b> (acelluláris törmeléknek nézhetik); nem-b szerotípusok esetén a latex agglutináció negatív'
+          ],
+          [
+            '<b>Listeria monocytogenes</b><br><span class="text-xs text-natural-muted">Listeria</span>',
+            '<b>Gram-pozitív kis pálcák</b><br>Alacsony szenzitivitás (30–50%), intracellulárisan vagy diplobacillus formában, könnyen kontaminációnak / diphtheroidnak nézhető',
+            '<b>Nincs megbízható rutin CSF latex teszt</b><br>Standard gyorsteszt panel nem tartalmazza',
+            '<b>L. monocytogenes DNS (+)</b><br>Kritikus jelentőségű a Gram-festés alacsony érzékenysége miatt (>90% szenzitivitás)',
+            '<b>Azonnali Ampicillin / Meropenem indikáció</b>: életmentő időnyereség, mivel a cephalosporinok (Ceftriaxon/Cefotaxim) hatástalanok Listeriára! (50 év felett, immunszuppresszióban)',
+            '<b>Gram-festés rendkívül megbízhatatlan</b>: alacsony liquor baktériumszám miatt gyakran álnegatív; latex teszt hiánya miatt a PCR az egyetlen megbízható gyorsteszt'
+          ],
+          [
+            '<b>Streptococcus agalactiae</b><br><span class="text-xs text-natural-muted">GBS (B-csop. Strep.)</span>',
+            '<b>Gram-pozitív coccusok láncokban vagy párokban</b><br>Szenzitivitás: 60–80% újszülöttkori meningitisben',
+            '<b>GBS csoportspecifikus B-antigén (+)</b><br>Újszülött liquorban és vizeletben is alkalmazható, jó specificitás',
+            '<b>S. agalactiae DNS (+)</b><br>Kiemelkedő szenzitivitás (>95%) és specificitás',
+            '<b>Újszülöttkori szepszis/meningitis azonnali igazolása</b>; Ampicillin + Gentamicin empirikus terápia célzott megerősítése',
+            '<b>Felnőttekben ritkább</b>; Gram-festésnél a páros forma utánozhatja a pneumococcust; tenyésztés elengedhetetlen az antibiotikum-érzékenységhez'
+          ],
+          [
+            '<b>Escherichia coli K1</b><br><span class="text-xs text-natural-muted">Gram-negatív pálcák</span>',
+            '<b>Gram-negatív pálcák</b><br>Szenzitivitás: 60–80% újszülöttkori vagy posztoperatív/neurosebészeti meningitisben',
+            '<b>E. coli K1 tokantigén (+)</b><br>Újszülött latex panel része (K1-nem-szerotípusokra negatív)',
+            '<b>E. coli K1 DNS (+)</b><br>A BioFire ME panel specifikusan a K1 törzseket mutatja ki',
+            '<b>Gram-negatív bacilláris meningitis azonnali differenciálása</b>; megfelelő vér-agy gátat penetráló antibiotikum (Meropenem / Ceftriaxon / Aminoglikozid) kiválasztása',
+            '<b>A BioFire ME panel KIZÁRÓLAG az E. coli K1 törzseket mutatja ki!</b> Nosokomiális, neurosebészeti Gram-negatív pálcák (Klebsiella, Pseudomonas, Acinetobacter) NEM szerepelnek a ME panelben (álnegatív PCR rizikó!)'
+          ],
+          [
+            '<b>Cryptococcus neoformans / gattii</b><br><span class="text-xs text-natural-muted">Sarjadzó gomba</span>',
+            '<b>Tus-festés (India ink) (+)</b>: tokos sarjadzó gombasejtek<br>Szenzitivitás: 50–70% (AIDS-ben magasabb, >80%); Gram-festéssel gyengén festődik',
+            '<b>Cryptococcus antigén (CrAg) latex / LFA (+)</b><br>GOLD STANDARD gyorsteszt! Szenzitivitás és specificitás >98% (liquorban és szérumban is!)',
+            '<b>C. neoformans / gattii DNS (+)</b><br>Kiváló szenzitivitás (>95%), de a CrAg LFA gyorsteszt egyenértékűen gyors és olcsóbb',
+            '<b>A CrAg gyorsteszt percek alatt, 100%-közeli pontossággal diagnosztizál</b>; Liposzomális Amphotericin B + Flucytosin azonnali indítása; terápia monitorozása titerrel',
+            '<b>Extrém magas CrAg titer esetén prozóna-jelenség</b> (álnegatív latex agglutináció hígítás nélkül!); Tus-festés gyakorlott szemet igényel (leukocyta artefaktumok)'
+          ],
+          [
+            '<b>Herpes Simplex (HSV-1, HSV-2) / VZV</b><br><span class="text-xs text-natural-muted">Neurotróp herpesvírusok</span>',
+            '<b>Negatív</b><br>Fénymikroszkóppal vírus nem látható; a liquorban limfocitás pleocytosis és/vagy vörösvértestek láthatók',
+            '<b>Nincs</b><br>Latex agglutináció vírusokra nem alkalmazható',
+            '<b>HSV-1, HSV-2 vagy VZV DNS (+)</b><br>A diagnózis GOLD STANDARD-ja (szenzitivitás >95%, specificitás >98%)',
+            '<b>Azonnali Acyclovir terápia indítása vagy megerősítése</b>; HSV-1 encefalitisz irreverzibilis frontotemporális nekrózisának megelőzése; HSV-2 meningitis gyors differenciálása',
+            '<b>A tünetek kezdetétől számított első 24–72 órában a HSV PCR ritkán (<5%) álnegatív lehet!</b> Erős klinikai gyanú esetén az Acyclovirt tilos leállítani, 48–72 óra múlva ismételt LP + PCR kötelező!'
+          ],
+          [
+            '<b>Enterovírus / Parechovírus</b><br><span class="text-xs text-natural-muted">RNS vírusok (Picornaviridae)</span>',
+            '<b>Negatív</b><br>Korai fázisban (első 24–48 óra) a liquorban átmeneti PMN dominancia utánozhatja a bakteriális meningitist!',
+            '<b>Nincs</b><br>Latex agglutináció nem elérhető',
+            '<b>Enterovirus / Parechovirus RNS (+)</b><br>RT-PCR, kiemelkedő szenzitivitás (>95%) és specificitás',
+            '<b>A leggyakoribb aszeptikus meningitis azonnali azonosítása</b>; felesleges antibiotikum-, Acyclovir- és kórházi kezelés leállíthatósága (antibiotic stewardship); megnyugtató prognózis',
+            '<b>Specifikus antivirális terápia nem áll rendelkezésre</b> (szupportív kezelés); nagyon ritka enterovírus szubtípusoknál alacsonyabb lehet a PCR érzékenysége'
+          ],
+          [
+            '<b>Mycobacterium tuberculosis</b><br><span class="text-xs text-natural-muted">TBC meningitis</span>',
+            '<b>Ziehl-Neelsen festés: saválló pálcák (+)</b><br>Rendkívül alacsony szenzitivitás (<20%), Gram-festéssel negatív',
+            '<b>Nincs rutin CSF latex teszt</b><br>Antigén agglutináció nem alkalmazható',
+            '<b>A standard BioFire ME panel NEM tartalmazza!</b><br>Külön <b>GeneXpert MTB/RIF Ultra (PCR)</b> szükséges liquorban (szenzitivitás: 70–80%)',
+            '<b>A GeneXpert Ultra órákon belül igazolja a TBC-t és a Rifampicin rezisztenciát</b>; megelőzi a halálos késlekedést (a tenyésztés 4–8 hét lenne!); RIPE + Dexamethason terápia indítása',
+            '<b>A BioFire ME panel álnegatív biztonságérzetet adhat TBC-ben!</b> (Mivel nincs a panelen); negatív GeneXpert sem zárja ki a TBC meningitist (nagy volumenű, 5–10 ml liquor centripetálása kell); ADA emelkedés (>9–10 U/L) is vizsgálandó'
+          ]
+        ]
+      }
+    ],
     diseases: [
       {
         id: 'csf_differential',
         name: 'Liquor leletek differenciáldiagnosztikája',
         table: {
+          title: 'Liquor leletek differenciáldiagnosztikája',
           headers: ['Paraméter', 'Bakteriális', 'Vírusos', 'Tuberkulotikus (TBC)', 'Gombás', 'Normál'],
           rows: [
             ['Nyitási nyomás', 'Emelkedett (>20 vízcm)', 'Normál vagy enyhén emelkedett', 'Emelkedett (18-30 vízcm)', 'Gyakran extrém magas (>25-30 vízcm)', '6-20 vízcm'],
@@ -19,6 +130,103 @@ Object.assign(window.diseases, {
             ['Liquor/Vér glükóz arány', '< 0.4', '> 0.6', '< 0.3 - 0.4 (gyakran <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
             ['Laktát', 'Emelkedett (>3.5 mmol/L)', 'Normál (<3.5 mmol/L)', 'Emelkedett (>3.5 mmol/L)', 'Emelkedett vagy normál (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
             ['Mikrobiológia', 'Gram-festés (+ 60-90%), Tenyésztés (+)', 'PCR (+), Gram/Tenyésztés negatív', 'Ziehl-Neelsen (+ <20%), MTB PCR / GeneXpert (+), Tenyésztés (hetek), ADA emelkedett (>9-10 U/L)', 'Cryptococcus antigén (CrAg +), Tus-festés (India ink +), Tenyésztés (+), gomba PCR (+)', 'Negatív']
+          ]
+        }
+      },
+      {
+        id: 'cns_rapid_diagnostics',
+        name: 'Mikrobiológiai gyorstesztek differenciáldiagnosztikája (Gram, Latex, BioFire)',
+        table: {
+          title: 'A központi idegrendszeri fertőzések mikrobiológiai gyorstesztjeinek összehasonlítása',
+          headers: [
+            'Kórokozó (Mikroba)',
+            'Gram-festés (Mikroszkópia)',
+            'Latex agglutináció (Antigén)',
+            'BioFire / Multiplex PCR (ME Panel)',
+            'Gyorstesztek előnyei',
+            'Gyorstesztek hátrányai / Korlátai'
+          ],
+          rows: [
+            [
+              '<b>Streptococcus pneumoniae</b><br><span class="text-xs text-natural-muted">Pneumococcus</span>',
+              '<b>Gram-pozitív lándzsahegy alakú diplococcusok</b><br>Szenzitivitás: 70–90% (előzetes AB nélkül)',
+              '<b>Pneumococcus tokantigén (+)</b><br>Jó specificitás, közepes szenzitivitás (70–80%), liquorban és vizeletben is pozitív lehet',
+              '<b>S. pneumoniae DNS (+)</b><br>Kiemelkedő szenzitivitás (>95%) és specificitás (>98%), kb. 1 órán belül',
+              '<b>Azonnali célzott terápia indítható</b>: előzetes (12–24h) antibiotikum adása után is pozitív marad a PCR és gyakran az antigén is; Dexamethason + Vancomycin/Ceftriaxon döntés megerősítése',
+              '<b>Nem ad antibiogramot / MIC értéket</b>: Penicillin/Cephalosporin rezisztenciát (MIC) nem mutatja; tenyésztés kötelező; Gram-festés AB után gyorsan negatívvé válik'
+            ],
+            [
+              '<b>Neisseria meningitidis</b><br><span class="text-xs text-natural-muted">Meningococcus</span>',
+              '<b>Gram-negatív kávébab alakú diplococcusok</b><br>Gyakran intracellulárisan a granulocytákban (szenzitivitás: 60–75%)',
+              '<b>Meningococcus A, B, C, Y, W135 tokantigén (+)</b><br>Gyors orientáció, de B szerocsoportnál alacsonyabb lehet az érzékenység',
+              '<b>N. meningitidis DNS (+)</b><br>Magas szenzitivitás (>90–95%); szepszisben vérből is PCR-ezhető',
+              '<b>Életmentő gyorsaság</b>: kemoprofilaxis (Rifampicin/Ciprofloxacin) azonnali elrendelhetősége a kontaktoknak; járványügyi intézkedések azonnali indítása',
+              '<b>Szerocsoportot (B vs C vs Y) a standard ME panel nem mindig differenciálja</b>; alacsony csíraszámnál Gram-festés álnegatív lehet; tenyésztés kötelező'
+            ],
+            [
+              '<b>Haemophilus influenzae b</b><br><span class="text-xs text-natural-muted">Hib</span>',
+              '<b>Gram-negatív pleomorph kis pálcák / coccobacillusok</b><br>Szenzitivitás: 50–70% (könnyen elnézhető, háttérbe olvadó)',
+              '<b>Hib PRP tokantigén (+)</b><br>Gyors és specifikus a b-szerotípusra',
+              '<b>H. influenzae DNS (+)</b><br>Magas szenzitivitás (>90%), nem-b törzseket is kimutatja',
+              '<b>Gyors elkülönítés</b> oltatlan gyermekekben vagy immunszupprimált / splenectomizált betegekben; célzott terápia megalapozása',
+              '<b>Gram-festésnél gyakori a téves azonosítás</b> (acelluláris törmeléknek nézhetik); nem-b szerotípusok esetén a latex agglutináció negatív'
+            ],
+            [
+              '<b>Listeria monocytogenes</b><br><span class="text-xs text-natural-muted">Listeria</span>',
+              '<b>Gram-pozitív kis pálcák</b><br>Alacsony szenzitivitás (30–50%), intracellulárisan vagy diplobacillus formában, könnyen kontaminációnak / diphtheroidnak nézhető',
+              '<b>Nincs megbízható rutin CSF latex teszt</b><br>Standard gyorsteszt panel nem tartalmazza',
+              '<b>L. monocytogenes DNS (+)</b><br>Kritikus jelentőségű a Gram-festés alacsony érzékenysége miatt (>90% szenzitivitás)',
+              '<b>Azonnali Ampicillin / Meropenem indikáció</b>: életmentő időnyereség, mivel a cephalosporinok (Ceftriaxon/Cefotaxim) hatástalanok Listeriára! (50 év felett, immunszuppresszióban)',
+              '<b>Gram-festés rendkívül megbízhatatlan</b>: alacsony liquor baktériumszám miatt gyakran álnegatív; latex teszt hiánya miatt a PCR az egyetlen megbízható gyorsteszt'
+            ],
+            [
+              '<b>Streptococcus agalactiae</b><br><span class="text-xs text-natural-muted">GBS (B-csop. Strep.)</span>',
+              '<b>Gram-pozitív coccusok láncokban vagy párokban</b><br>Szenzitivitás: 60–80% újszülöttkori meningitisben',
+              '<b>GBS csoportspecifikus B-antigén (+)</b><br>Újszülött liquorban és vizeletben is alkalmazható, jó specificitás',
+              '<b>S. agalactiae DNS (+)</b><br>Kiemelkedő szenzitivitás (>95%) és specificitás',
+              '<b>Újszülöttkori szepszis/meningitis azonnali igazolása</b>; Ampicillin + Gentamicin empirikus terápia célzott megerősítése',
+              '<b>Felnőttekben ritkább</b>; Gram-festésnél a páros forma utánozhatja a pneumococcust; tenyésztés elengedhetetlen az antibiotikum-érzékenységhez'
+            ],
+            [
+              '<b>Escherichia coli K1</b><br><span class="text-xs text-natural-muted">Gram-negatív pálcák</span>',
+              '<b>Gram-negatív pálcák</b><br>Szenzitivitás: 60–80% újszülöttkori vagy posztoperatív/neurosebészeti meningitisben',
+              '<b>E. coli K1 tokantigén (+)</b><br>Újszülött latex panel része (K1-nem-szerotípusokra negatív)',
+              '<b>E. coli K1 DNS (+)</b><br>A BioFire ME panel specifikusan a K1 törzseket mutatja ki',
+              '<b>Gram-negatív bacilláris meningitis azonnali differenciálása</b>; megfelelő vér-agy gátat penetráló antibiotikum (Meropenem / Ceftriaxon / Aminoglikozid) kiválasztása',
+              '<b>A BioFire ME panel KIZÁRÓLAG az E. coli K1 törzseket mutatja ki!</b> Nosokomiális, neurosebészeti Gram-negatív pálcák (Klebsiella, Pseudomonas, Acinetobacter) NEM szerepelnek a ME panelben (álnegatív PCR rizikó!)'
+            ],
+            [
+              '<b>Cryptococcus neoformans / gattii</b><br><span class="text-xs text-natural-muted">Sarjadzó gomba</span>',
+              '<b>Tus-festés (India ink) (+)</b>: tokos sarjadzó gombasejtek<br>Szenzitivitás: 50–70% (AIDS-ben magasabb, >80%); Gram-festéssel gyengén festődik',
+              '<b>Cryptococcus antigén (CrAg) latex / LFA (+)</b><br>GOLD STANDARD gyorsteszt! Szenzitivitás és specificitás >98% (liquorban és szérumban is!)',
+              '<b>C. neoformans / gattii DNS (+)</b><br>Kiváló szenzitivitás (>95%), de a CrAg LFA gyorsteszt egyenértékűen gyors és olcsóbb',
+              '<b>A CrAg gyorsteszt percek alatt, 100%-közeli pontossággal diagnosztizál</b>; Liposzomális Amphotericin B + Flucytosin azonnali indítása; terápia monitorozása titerrel',
+              '<b>Extrém magas CrAg titer esetén prozóna-jelenség</b> (álnegatív latex agglutináció hígítás nélkül!); Tus-festés gyakorlott szemet igényel (leukocyta artefaktumok)'
+            ],
+            [
+              '<b>Herpes Simplex (HSV-1, HSV-2) / VZV</b><br><span class="text-xs text-natural-muted">Neurotróp herpesvírusok</span>',
+              '<b>Negatív</b><br>Fénymikroszkóppal vírus nem látható; a liquorban limfocitás pleocytosis és/vagy vörösvértestek láthatók',
+              '<b>Nincs</b><br>Latex agglutináció vírusokra nem alkalmazható',
+              '<b>HSV-1, HSV-2 vagy VZV DNS (+)</b><br>A diagnózis GOLD STANDARD-ja (szenzitivitás >95%, specificitás >98%)',
+              '<b>Azonnali Acyclovir terápia indítása vagy megerősítése</b>; HSV-1 encefalitisz irreverzibilis frontotemporális nekrózisának megelőzése; HSV-2 meningitis gyors differenciálása',
+              '<b>A tünetek kezdetétől számított első 24–72 órában a HSV PCR ritkán (<5%) álnegatív lehet!</b> Erős klinikai gyanú esetén az Acyclovirt tilos leállítani, 48–72 óra múlva ismételt LP + PCR kötelező!'
+            ],
+            [
+              '<b>Enterovírus / Parechovírus</b><br><span class="text-xs text-natural-muted">RNS vírusok (Picornaviridae)</span>',
+              '<b>Negatív</b><br>Korai fázisban (első 24–48 óra) a liquorban átmeneti PMN dominancia utánozhatja a bakteriális meningitist!',
+              '<b>Nincs</b><br>Latex agglutináció nem elérhető',
+              '<b>Enterovirus / Parechovirus RNS (+)</b><br>RT-PCR, kiemelkedő szenzitivitás (>95%) és specificitás',
+              '<b>A leggyakoribb aszeptikus meningitis azonnali azonosítása</b>; felesleges antibiotikum-, Acyclovir- és kórházi kezelés leállíthatósága (antibiotic stewardship); megnyugtató prognózis',
+              '<b>Specifikus antivirális terápia nem áll rendelkezésre</b> (szupportív kezelés); nagyon ritka enterovírus szubtípusoknál alacsonyabb lehet a PCR érzékenysége'
+            ],
+            [
+              '<b>Mycobacterium tuberculosis</b><br><span class="text-xs text-natural-muted">TBC meningitis</span>',
+              '<b>Ziehl-Neelsen festés: saválló pálcák (+)</b><br>Rendkívül alacsony szenzitivitás (<20%), Gram-festéssel negatív',
+              '<b>Nincs rutin CSF latex teszt</b><br>Antigén agglutináció nem alkalmazható',
+              '<b>A standard BioFire ME panel NEM tartalmazza!</b><br>Külön <b>GeneXpert MTB/RIF Ultra (PCR)</b> szükséges liquorban (szenzitivitás: 70–80%)',
+              '<b>A GeneXpert Ultra órákon belül igazolja a TBC-t és a Rifampicin rezisztenciát</b>; megelőzi a halálos késlekedést (a tenyésztés 4–8 hét lenne!); RIPE + Dexamethason terápia indítása',
+              '<b>A BioFire ME panel álnegatív biztonságérzetet adhat TBC-ben!</b> (Mivel nincs a panelen); negatív GeneXpert sem zárja ki a TBC meningitist (nagy volumenű, 5–10 ml liquor centripetálása kell); ADA emelkedés (>9–10 U/L) is vizsgálandó'
+            ]
           ]
         }
       },

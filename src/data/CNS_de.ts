@@ -3,11 +3,122 @@ Object.assign(window.diseases, {
     name: 'Infektionen des Zentralnervensystems',
     icon: '🧠',
     color: '#0891b2',
+    tables: [
+      {
+        title: 'Differentialdiagnose der Liquorbefunde',
+        headers: ['Parameter', 'Bakteriell', 'Viral', 'Tuberkulös (TBC)', 'Pilzbedingt (Mykotisch)', 'Normal'],
+        rows: [
+          ['Eröffnungsdruck', 'Erhöht (>20 cmH2O)', 'Normal oder leicht erhöht', 'Erhöht (18-30 cmH2O)', 'Oft extrem hoch (>25-30 cmH2O)', '6-20 cmH2O'],
+          ['Aussehen', 'Trüb, eitrig', 'Klar ("wasserhell")', 'Opaleszent oder xanthochrom, klassisches "Spinnennetz-Gerinnsel" (Fibrinnetz) bei Stehenlassen', 'Klar oder leicht opaleszent', 'Klar, farblos'],
+          ['Zellzahl (Leukozyten/µL)', '>1000 (oft 100-10000)', '10-500 (selten >1000)', '100-500 (selten >1000)', '20-500 (bei Immunsuppression/AIDS auch <20)', '0-5'],
+          ['Dominante Zelle', 'Neutrophile Granulozyten (>80%)', 'Lymphozyten (in der Frühphase PMN möglich!)', 'Lymphozyten (frühe PMN-Dominanz möglich)', 'Lymphozyten', 'Lymphozyten/Monozyten'],
+          ['Protein (g/L)', 'Erhöht (>1 g/L)', 'Normal oder leicht erhöht (<1 g/L)', 'Ausgeprägt erhöht (1-5 g/L, bei spinalem Block >10 g/L)', 'Erhöht (0.5-2.0 g/L)', '0.15-0.45 g/L'],
+          ['Glukose (mmol/L)', 'Erniedrigt (<2.2 mmol/L)', 'Normal (>2.5 mmol/L)', 'Ausgeprägt erniedrigt (<2.2 mmol/L)', 'Erniedrigt oder normal (<2.2 mmol/L)', '2.5-4.4 mmol/L'],
+          ['Liquor/Serum-Glukose-Quotient', '< 0.4', '> 0.6', '< 0.3 - 0.4 (oft <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
+          ['Laktat', 'Erhöht (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', 'Erhöht (>3.5 mmol/L)', 'Erhöht oder normal (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
+          ['Mikrobiologie', 'Gram-Färbung (+ 60-90%), Kultur (+)', 'PCR (+), Gram/Kultur negativ', 'Ziehl-Neelsen-Färbung (+ <20%), MTB-PCR / GeneXpert (+), Kultur (+, Wochen), erhöhtes ADA (>9-10 U/L)', 'Kryptokokken-Antigen (CrAg +), Tuschepräparat (+), Pilzkultur (+), PCR (+)', 'Negativ']
+        ]
+      },
+      {
+        title: 'Vergleich der mikrobiologischen Schnelldiagnostik bei ZNS-Infektionen (Gram, Latex, BioFire)',
+        headers: [
+          'Erreger (Mikrobe)',
+          'Gram-Färbung (Mikroskopie)',
+          'Latex-Agglutination (Antigen)',
+          'BioFire / Multiplex-PCR (ME-Panel)',
+          'Vorteile der Schnelldiagnostik',
+          'Nachteile / Einschränkungen'
+        ],
+        rows: [
+          [
+            '<b>Streptococcus pneumoniae</b><br><span class="text-xs text-natural-muted">Pneumokokken</span>',
+            '<b>Grampositive lanzettförmige Diplokokken</b><br>Sensitivität: 70–90 % (ohne vorherige Antibiose)',
+            '<b>Pneumokokken-Kapselantigen (+)</b><br>Gute Spezifität, moderate Sensitivität (70–80 %), auch im Liquor und Urin nachweisbar',
+            '<b>S. pneumoniae-DNS (+)</b><br>Hohe Sensitivität (>95 %) und Spezifität (>98 %), Ergebnis in ca. 1 Stunde',
+            '<b>Sofortige gezielte Therapie</b>: bleibt auch nach 12–24h vorangegangener Antibiotikagabe häufig positiv (PCR/Antigen); Bestätigung der Indikation für Dexamethason + Vancomycin/Ceftriaxon',
+            '<b>Kein Antibiogramm / keine MIK-Werte</b>: zeigt keine Penicillin-/Cephalosporin-Resistenz (MIK); Kultur ist zwingend erforderlich; Gram-Färbung wird nach Antibiose rasch negativ'
+          ],
+          [
+            '<b>Neisseria meningitidis</b><br><span class="text-xs text-natural-muted">Meningokokken</span>',
+            '<b>Gramnegative kaffeebohnenförmige Diplokokken</b><br>Oft intrazellulär in Granulozyten (Sensitivität: 60–75 %)',
+            '<b>Meningokokken-Kapselantigen A, B, C, Y, W135 (+)</b><br>Schnelle Orientierung, bei Serogruppe B jedoch teils geringere Sensitivität',
+            '<b>N. meningitidis-DNS (+)</b><br>Hohe Sensitivität (>90–95 %); bei Sepsis/Purpura fulminans auch aus Blut möglich',
+            '<b>Lebensrettende Schnelligkeit</b>: ermöglicht sofortige Chemoprophylaxe (Rifampicin/Ciprofloxacin) für enge Kontaktpersonen und epidemiologische Maßnahmen',
+            '<b>Serogruppen (B vs. C vs. Y) werden im Standard-ME-Panel nicht immer differenziert</b>; bei geringer Keimzahl kann die Gram-Färbung falsch-negativ sein; Kultur zwingend notwendig'
+          ],
+          [
+            '<b>Haemophilus influenzae b</b><br><span class="text-xs text-natural-muted">Hib</span>',
+            '<b>Gramnegative pleomorphe kleine Stäbchen / Kokkobazillen</b><br>Sensitivität: 50–70 % (leicht zu übersehen, verschmelzen mit dem Hintergrund)',
+            '<b>Hib-PRP-Kapselantigen (+)</b><br>Schnell und spezifisch für Serotyp b',
+            '<b>H. influenzae-DNS (+)</b><br>Hohe Sensitivität (>90 %), erfasst auch Nicht-b-Serotypen',
+            '<b>Schnelle Identifizierung</b> bei ungeimpften Kindern oder immunsupprimierten / splenektomierten Patienten; Grundlage für eine gezielte Therapie',
+            '<b>In der Gram-Färbung häufig fehlinterpretiert</b> (kann wie azellulärer Debris aussehen); Latex-Agglutination ist bei Nicht-b-Serotypen negativ'
+          ],
+          [
+            '<b>Listeria monocytogenes</b><br><span class="text-xs text-natural-muted">Listerien</span>',
+            '<b>Grampositive kleine Stäbchen</b><br>Geringe Sensitivität (30–50 %), intrazellulär oder als Diplobazillen, leicht mit Kontamination / Diphtheroiden zu verwechseln',
+            '<b>Kein zuverlässiger Routine-Latextest für CSF</b><br>Im Standard-Schnelltest-Panel nicht enthalten',
+            '<b>L. monocytogenes-DNS (+)</b><br>Kritisch aufgrund der geringen Sensitivität der Gram-Färbung (>90 % PCR-Sensitivität)',
+            '<b>Sofortige Indikation für Ampicillin / Meropenem</b>: lebensrettender Zeitgewinn, da Cephalosporine (Ceftriaxon/Cefotaxim) gegen Listerien wirkungslos sind! (>50 Jahre, Immunsuppression)',
+            '<b>Gram-Färbung extrem unzuverlässig</b>: wegen niedriger Keimzahl im Liquor häufig falsch-negativ; mangels Latextest ist die PCR die einzige zuverlässige Schnelldiagnostik'
+          ],
+          [
+            '<b>Streptococcus agalactiae</b><br><span class="text-xs text-natural-muted">GBS (Gruppe-B-Streptokokken)</span>',
+            '<b>Grampositive Kokken in Ketten oder Paaren</b><br>Sensitivität: 60–80 % bei Neugeborenenmeningitis',
+            '<b>GBS-gruppenspezifisches B-Antigen (+)</b><br>Bei Neugeborenen in Liquor und Urin anwendbar, gute Spezifität',
+            '<b>S. agalactiae-DNS (+)</b><br>Hervorragende Sensitivität (>95 %) und Spezifität',
+            '<b>Sofortiger Nachweis bei Neugeborenen-Sepsis/-Meningitis</b>; gezielte Bestätigung der kalkulierten Ampicillin + Gentamicin Therapie',
+            '<b>Bei Erwachsenen seltener</b>; paarweise Kokken in der Gram-Färbung können Pneumokokken imitieren; Kultur für Antibiogramm unerlässlich'
+          ],
+          [
+            '<b>Escherichia coli K1</b><br><span class="text-xs text-natural-muted">Gramnegative Stäbchen</span>',
+            '<b>Gramnegative Stäbchen</b><br>Sensitivität: 60–80 % bei Neugeborenen- oder postoperativer/neurochirurgischer Meningitis',
+            '<b>E. coli-K1-Kapselantigen (+)</b><br>Teil der Neugeborenen-Latexpanels (negativ für Nicht-K1-Serotypen)',
+            '<b>E. coli-K1-DNS (+)</b><br>Das BioFire-ME-Panel erfasst spezifisch K1-Stämme',
+            '<b>Sofortige Differenzierung einer gramnegativen Stäbchenmeningitis</b>; Auswahl von gut liquorgängigen Antibiotika (Meropenem / Ceftriaxon / Aminoglykoside)',
+            '<b>Das BioFire-ME-Panel erfasst AUSSCHLIESSLICH E. coli K1-Stämme!</b> Nosokomiale/neurochirurgische gramnegative Stäbchen (Klebsiella, Pseudomonas, Acinetobacter) sind NICHT im ME-Panel enthalten (Risiko falsch-negativer PCR!)'
+          ],
+          [
+            '<b>Cryptococcus neoformans / gattii</b><br><span class="text-xs text-natural-muted">Sprosspilz (bekapselt)</span>',
+            '<b>Tuschepräparat (India ink) (+)</b>: bekapselte Sprosspilzzellen<br>Sensitivität: 50–70 % (bei AIDS höher, >80 %); in Gram-Färbung nur schwach anfärbbar',
+            '<b>Kryptokokken-Antigen (CrAg) Latex / LFA (+)</b><br>GOLDSTANDARD der Schnelldiagnostik! Sensitivität und Spezifität >98 % (in Liquor und Serum!)',
+            '<b>C. neoformans / gattii-DNS (+)</b><br>Exzellente Sensitivität (>95 %), der CrAg-LFA-Schnelltest ist jedoch ebenso schnell und kostengünstiger',
+            '<b>Der CrAg-Schnelltest diagnostiziert in Minuten mit nahezu 100 % Präzision</b>; sofortige Therapie mit liposomalem Amphotericin B + Flucytocin; Therapiemonitoring über Titer möglich',
+            '<b>Prozonenphänomen bei extrem hohen CrAg-Titern</b> (kann unverdünnt falsch-negativ sein); Tuschepräparat erfordert Erfahrung (Verwechslung mit Leukozyten-Artefakten)'
+          ],
+          [
+            '<b>Herpes Simplex (HSV-1, HSV-2) / VZV</b><br><span class="text-xs text-natural-muted">Neurotrope Herpesviren</span>',
+            '<b>Negativ</b><br>Viren sind lichtmikroskopisch nicht sichtbar; im Liquor zeigt sich eine lymphozytäre Pleozytose und/oder Erythrozyten',
+            '<b>Keine</b><br>Latex-Agglutination für Viren nicht anwendbar',
+            '<b>HSV-1-, HSV-2- oder VZV-DNS (+)</b><br>GOLDSTANDARD der Diagnostik (Sensitivität >95 %, Spezifität >98 %)',
+            '<b>Sofortiger Beginn oder Bestätigung einer Aciclovir-Therapie</b>; verhindert irreversible frontotemporale Nekrosen bei HSV-1-Enzephalitis; schnelle Differenzierung einer HSV-2-Meningitis',
+            '<b>In den ersten 24–72 Stunden nach Symptombeginn kann die HSV-PCR selten (<5 %) falsch-negativ sein!</b> Bei dringendem klinischem Verdacht Aciclovir nicht absetzen, LP + PCR nach 48–72h zwingend wiederholen!'
+          ],
+          [
+            '<b>Enterovirus / Parechovirus</b><br><span class="text-xs text-natural-muted">RNA-Viren (Picornaviridae)</span>',
+            '<b>Negativ</b><br>In der Frühphase (erste 24–48h) im Liquor vorübergehende PMN-Dominanz möglich, was eine bakterielle Meningitis imitieren kann!',
+            '<b>Keine</b><br>Latex-Agglutination nicht verfügbar',
+            '<b>Enterovirus- / Parechovirus-RNS (+)</b><br>RT-PCR, hervorragende Sensitivität (>95 %) und Spezifität',
+            '<b>Sofortige Identifizierung der häufigsten aseptischen Meningitis</b>; Absetzen unnötiger Antibiotika, von Aciclovir und Entlassung aus dem Krankenhaus (Antibiotic Stewardship); beruhigende Prognose',
+            '<b>Keine spezifische antivirale Therapie verfügbar</b> (nur supportive Behandlung); bei sehr seltenen Enterovirus-Subtypen kann die PCR-Sensitivität geringer sein'
+          ],
+          [
+            '<b>Mycobacterium tuberculosis</b><br><span class="text-xs text-natural-muted">TBC-Meningitis</span>',
+            '<b>Ziehl-Neelsen-Färbung: säurefeste Stäbchen (+)</b><br>Extrem niedrige Sensitivität (<20 %), in der Gram-Färbung negativ',
+            '<b>Kein Routine-Latextest für CSF</b><br>Antigen-Agglutination nicht anwendbar',
+            '<b>Im Standard-BioFire-ME-Panel NICHT enthalten!</b><br>Separate <b>GeneXpert MTB/RIF Ultra (PCR)</b> aus dem Liquor erforderlich (Sensitivität: 70–80 %)',
+            '<b>GeneXpert Ultra bestätigt TBC und Rifampicin-Resistenz innerhalb von Stunden</b>; verhindert tödliche Behandlungsverzögerungen (Kultur dauert 4–8 Wochen!); sofortiger Beginn von RIPE + Dexamethason',
+            '<b>Das BioFire-ME-Panel kann bei TBC eine trügerische Sicherheit geben!</b> (da nicht im Panel); auch ein negativer GeneXpert schließt eine TBC-Meningitis nicht aus (großes Liquorvolumen von 5–10 ml und Zentrifugation erforderlich); ADA-Erhöhung (>9–10 U/L) prüfen'
+          ]
+        ]
+      }
+    ],
     diseases: [
       {
         id: 'csf_differential',
         name: 'Differentialdiagnose der Liquorbefunde',
         table: {
+          title: 'Differentialdiagnose der Liquorbefunde',
           headers: ['Parameter', 'Bakteriell', 'Viral', 'Tuberkulös (TBC)', 'Pilzbedingt (Mykotisch)', 'Normal'],
           rows: [
             ['Eröffnungsdruck', 'Erhöht (>20 cmH2O)', 'Normal oder leicht erhöht', 'Erhöht (18-30 cmH2O)', 'Oft extrem hoch (>25-30 cmH2O)', '6-20 cmH2O'],
@@ -19,6 +130,103 @@ Object.assign(window.diseases, {
             ['Liquor/Serum-Glukose-Quotient', '< 0.4', '> 0.6', '< 0.3 - 0.4 (oft <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
             ['Laktat', 'Erhöht (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', 'Erhöht (>3.5 mmol/L)', 'Erhöht oder normal (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
             ['Mikrobiologie', 'Gram-Färbung (+ 60-90%), Kultur (+)', 'PCR (+), Gram/Kultur negativ', 'Ziehl-Neelsen-Färbung (+ <20%), MTB-PCR / GeneXpert (+), Kultur (+, Wochen), erhöhtes ADA (>9-10 U/L)', 'Kryptokokken-Antigen (CrAg +), Tuschepräparat (+), Pilzkultur (+), PCR (+)', 'Negativ']
+          ]
+        }
+      },
+      {
+        id: 'cns_rapid_diagnostics',
+        name: 'Mikrobiologische Schnelldiagnostik (Gram, Latex, BioFire)',
+        table: {
+          title: 'Vergleich der mikrobiologischen Schnelldiagnostik bei ZNS-Infektionen',
+          headers: [
+            'Erreger (Mikrobe)',
+            'Gram-Färbung (Mikroskopie)',
+            'Latex-Agglutination (Antigen)',
+            'BioFire / Multiplex-PCR (ME-Panel)',
+            'Vorteile der Schnelldiagnostik',
+            'Nachteile / Einschränkungen'
+          ],
+          rows: [
+            [
+              '<b>Streptococcus pneumoniae</b><br><span class="text-xs text-natural-muted">Pneumokokken</span>',
+              '<b>Grampositive lanzettförmige Diplokokken</b><br>Sensitivität: 70–90 % (ohne vorherige Antibiose)',
+              '<b>Pneumokokken-Kapselantigen (+)</b><br>Gute Spezifität, moderate Sensitivität (70–80 %), auch im Liquor und Urin nachweisbar',
+              '<b>S. pneumoniae-DNS (+)</b><br>Hohe Sensitivität (>95 %) und Spezifität (>98 %), Ergebnis in ca. 1 Stunde',
+              '<b>Sofortige gezielte Therapie</b>: bleibt auch nach 12–24h vorangegangener Antibiotikagabe häufig positiv (PCR/Antigen); Bestätigung der Indikation für Dexamethason + Vancomycin/Ceftriaxon',
+              '<b>Kein Antibiogramm / keine MIK-Werte</b>: zeigt keine Penicillin-/Cephalosporin-Resistenz (MIK); Kultur ist zwingend erforderlich; Gram-Färbung wird nach Antibiose rasch negativ'
+            ],
+            [
+              '<b>Neisseria meningitidis</b><br><span class="text-xs text-natural-muted">Meningokokken</span>',
+              '<b>Gramnegative kaffeebohnenförmige Diplokokken</b><br>Oft intrazellulär in Granulozyten (Sensitivität: 60–75 %)',
+              '<b>Meningokokken-Kapselantigen A, B, C, Y, W135 (+)</b><br>Schnelle Orientierung, bei Serogruppe B jedoch teils geringere Sensitivität',
+              '<b>N. meningitidis-DNS (+)</b><br>Hohe Sensitivität (>90–95 %); bei Sepsis/Purpura fulminans auch aus Blut möglich',
+              '<b>Lebensrettende Schnelligkeit</b>: ermöglicht sofortige Chemoprophylaxe (Rifampicin/Ciprofloxacin) für enge Kontaktpersonen und epidemiologische Maßnahmen',
+              '<b>Serogruppen (B vs. C vs. Y) werden im Standard-ME-Panel nicht immer differenziert</b>; bei geringer Keimzahl kann die Gram-Färbung falsch-negativ sein; Kultur zwingend notwendig'
+            ],
+            [
+              '<b>Haemophilus influenzae b</b><br><span class="text-xs text-natural-muted">Hib</span>',
+              '<b>Gramnegative pleomorphe kleine Stäbchen / Kokkobazillen</b><br>Sensitivität: 50–70 % (leicht zu übersehen, verschmelzen mit dem Hintergrund)',
+              '<b>Hib-PRP-Kapselantigen (+)</b><br>Schnell und spezifisch für Serotyp b',
+              '<b>H. influenzae-DNS (+)</b><br>Hohe Sensitivität (>90 %), erfasst auch Nicht-b-Serotypen',
+              '<b>Schnelle Identifizierung</b> bei ungeimpften Kindern oder immunsupprimierten / splenektomierten Patienten; Grundlage für eine gezielte Therapie',
+              '<b>In der Gram-Färbung häufig fehlinterpretiert</b> (kann wie azellulärer Debris aussehen); Latex-Agglutination ist bei Nicht-b-Serotypen negativ'
+            ],
+            [
+              '<b>Listeria monocytogenes</b><br><span class="text-xs text-natural-muted">Listerien</span>',
+              '<b>Grampositive kleine Stäbchen</b><br>Geringe Sensitivität (30–50 %), intrazellulär oder als Diplobazillen, leicht mit Kontamination / Diphtheroiden zu verwechseln',
+              '<b>Kein zuverlässiger Routine-Latextest für CSF</b><br>Im Standard-Schnelltest-Panel nicht enthalten',
+              '<b>L. monocytogenes-DNS (+)</b><br>Kritisch aufgrund der geringen Sensitivität der Gram-Färbung (>90 % PCR-Sensitivität)',
+              '<b>Sofortige Indikation für Ampicillin / Meropenem</b>: lebensrettender Zeitgewinn, da Cephalosporine (Ceftriaxon/Cefotaxim) gegen Listerien wirkungslos sind! (>50 Jahre, Immunsuppression)',
+              '<b>Gram-Färbung extrem unzuverlässig</b>: wegen niedriger Keimzahl im Liquor häufig falsch-negativ; mangels Latextest ist die PCR die einzige zuverlässige Schnelldiagnostik'
+            ],
+            [
+              '<b>Streptococcus agalactiae</b><br><span class="text-xs text-natural-muted">GBS (Gruppe-B-Streptokokken)</span>',
+              '<b>Grampositive Kokken in Ketten oder Paaren</b><br>Sensitivität: 60–80 % bei Neugeborenenmeningitis',
+              '<b>GBS-gruppenspezifisches B-Antigen (+)</b><br>Bei Neugeborenen in Liquor und Urin anwendbar, gute Spezifität',
+              '<b>S. agalactiae-DNS (+)</b><br>Hervorragende Sensitivität (>95 %) und Spezifität',
+              '<b>Sofortiger Nachweis bei Neugeborenen-Sepsis/-Meningitis</b>; gezielte Bestätigung der kalkulierten Ampicillin + Gentamicin Therapie',
+              '<b>Bei Erwachsenen seltener</b>; paarweise Kokken in der Gram-Färbung können Pneumokokken imitieren; Kultur für Antibiogramm unerlässlich'
+            ],
+            [
+              '<b>Escherichia coli K1</b><br><span class="text-xs text-natural-muted">Gramnegative Stäbchen</span>',
+              '<b>Gramnegative Stäbchen</b><br>Sensitivität: 60–80 % bei Neugeborenen- oder postoperativer/neurochirurgischer Meningitis',
+              '<b>E. coli-K1-Kapselantigen (+)</b><br>Teil der Neugeborenen-Latexpanels (negativ für Nicht-K1-Serotypen)',
+              '<b>E. coli-K1-DNS (+)</b><br>Das BioFire-ME-Panel erfasst spezifisch K1-Stämme',
+              '<b>Sofortige Differenzierung einer gramnegativen Stäbchenmeningitis</b>; Auswahl von gut liquorgängigen Antibiotika (Meropenem / Ceftriaxon / Aminoglykoside)',
+              '<b>Das BioFire-ME-Panel erfasst AUSSCHLIESSLICH E. coli K1-Stämme!</b> Nosokomiale/neurochirurgische gramnegative Stäbchen (Klebsiella, Pseudomonas, Acinetobacter) sind NICHT im ME-Panel enthalten (Risiko falsch-negativer PCR!)'
+            ],
+            [
+              '<b>Cryptococcus neoformans / gattii</b><br><span class="text-xs text-natural-muted">Sprosspilz (bekapselt)</span>',
+              '<b>Tuschepräparat (India ink) (+)</b>: bekapselte Sprosspilzzellen<br>Sensitivität: 50–70 % (bei AIDS höher, >80 %); in Gram-Färbung nur schwach anfärbbar',
+              '<b>Kryptokokken-Antigen (CrAg) Latex / LFA (+)</b><br>GOLDSTANDARD der Schnelldiagnostik! Sensitivität und Spezifität >98 % (in Liquor und Serum!)',
+              '<b>C. neoformans / gattii-DNS (+)</b><br>Exzellente Sensitivität (>95 %), der CrAg-LFA-Schnelltest ist jedoch ebenso schnell und kostengünstiger',
+              '<b>Der CrAg-Schnelltest diagnostiziert in Minuten mit nahezu 100 % Präzision</b>; sofortige Therapie mit liposomalem Amphotericin B + Flucytocin; Therapiemonitoring über Titer möglich',
+              '<b>Prozonenphänomen bei extrem hohen CrAg-Titern</b> (kann unverdünnt falsch-negativ sein); Tuschepräparat erfordert Erfahrung (Verwechslung mit Leukozyten-Artefakten)'
+            ],
+            [
+              '<b>Herpes Simplex (HSV-1, HSV-2) / VZV</b><br><span class="text-xs text-natural-muted">Neurotrope Herpesviren</span>',
+              '<b>Negativ</b><br>Viren sind lichtmikroskopisch nicht sichtbar; im Liquor zeigt sich eine lymphozytäre Pleozytose und/oder Erythrozyten',
+              '<b>Keine</b><br>Latex-Agglutination für Viren nicht anwendbar',
+              '<b>HSV-1-, HSV-2- oder VZV-DNS (+)</b><br>GOLDSTANDARD der Diagnostik (Sensitivität >95 %, Spezifität >98 %)',
+              '<b>Sofortiger Beginn oder Bestätigung einer Aciclovir-Therapie</b>; verhindert irreversible frontotemporale Nekrosen bei HSV-1-Enzephalitis; schnelle Differenzierung einer HSV-2-Meningitis',
+              '<b>In den ersten 24–72 Stunden nach Symptombeginn kann die HSV-PCR selten (<5 %) falsch-negativ sein!</b> Bei dringendem klinischem Verdacht Aciclovir nicht absetzen, LP + PCR nach 48–72h zwingend wiederholen!'
+            ],
+            [
+              '<b>Enterovirus / Parechovirus</b><br><span class="text-xs text-natural-muted">RNA-Viren (Picornaviridae)</span>',
+              '<b>Negativ</b><br>In der Frühphase (erste 24–48h) im Liquor vorübergehende PMN-Dominanz möglich, was eine bakterielle Meningitis imitieren kann!',
+              '<b>Keine</b><br>Latex-Agglutination nicht verfügbar',
+              '<b>Enterovirus- / Parechovirus-RNS (+)</b><br>RT-PCR, hervorragende Sensitivität (>95 %) und Spezifität',
+              '<b>Sofortige Identifizierung der häufigsten aseptischen Meningitis</b>; Absetzen unnötiger Antibiotika, von Aciclovir und Entlassung aus dem Krankenhaus (Antibiotic Stewardship); beruhigende Prognose',
+              '<b>Keine spezifische antivirale Therapie verfügbar</b> (nur supportive Behandlung); bei sehr seltenen Enterovirus-Subtypen kann die PCR-Sensitivität geringer sein'
+            ],
+            [
+              '<b>Mycobacterium tuberculosis</b><br><span class="text-xs text-natural-muted">TBC-Meningitis</span>',
+              '<b>Ziehl-Neelsen-Färbung: säurefeste Stäbchen (+)</b><br>Extrem niedrige Sensitivität (<20 %), in der Gram-Färbung negativ',
+              '<b>Kein Routine-Latextest für CSF</b><br>Antigen-Agglutination nicht anwendbar',
+              '<b>Im Standard-BioFire-ME-Panel NICHT enthalten!</b><br>Separate <b>GeneXpert MTB/RIF Ultra (PCR)</b> aus dem Liquor erforderlich (Sensitivität: 70–80 %)',
+              '<b>GeneXpert Ultra bestätigt TBC und Rifampicin-Resistenz innerhalb von Stunden</b>; verhindert tödliche Behandlungsverzögerungen (Kultur dauert 4–8 Wochen!); sofortiger Beginn von RIPE + Dexamethason',
+              '<b>Das BioFire-ME-Panel kann bei TBC eine trügerische Sicherheit geben!</b> (da nicht im Panel); auch ein negativer GeneXpert schließt eine TBC-Meningitis nicht aus (großes Liquorvolumen von 5–10 ml und Zentrifugation erforderlich); ADA-Erhöhung (>9–10 U/L) prüfen'
+            ]
           ]
         }
       },

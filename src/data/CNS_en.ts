@@ -3,11 +3,122 @@ Object.assign(window.diseases, {
     name: 'Central Nervous System Infections',
     icon: '🧠',
     color: '#0891b2',
+    tables: [
+      {
+        title: 'Differential Diagnosis of CSF Findings',
+        headers: ['Parameter', 'Bacterial', 'Viral', 'Tuberculous (TB)', 'Fungal', 'Normal'],
+        rows: [
+          ['Opening Pressure', 'Elevated (>20 cmH2O)', 'Normal or slightly elevated', 'Elevated (18-30 cmH2O)', 'Often extremely high (>25-30 cmH2O)', '6-20 cmH2O'],
+          ['Appearance', 'Cloudy, purulent', 'Clear ("water-clear")', 'Opalescent or xanthochromic, classic "cobweb clot" / fibrin pellicle on standing', 'Clear or slightly opalescent', 'Clear, colorless'],
+          ['Cell Count (WBC/µL)', '>1000 (often 100-10000)', '10-500 (rarely >1000)', '100-500 (rarely >1000)', '20-500 (can be <20 in immunosuppression/AIDS)', '0-5'],
+          ['Dominant Cell', 'Neutrophils (>80%)', 'Lymphocytes (PMN may be early!)', 'Lymphocytes (early PMN predominance possible)', 'Lymphocytes', 'Lymphocytes/Monocytes'],
+          ['Protein (g/L)', 'Elevated (>1 g/L)', 'Normal or slightly elevated (<1 g/L)', 'Markedly elevated (1-5 g/L, >10 g/L if spinal block)', 'Elevated (0.5-2.0 g/L)', '0.15-0.45 g/L'],
+          ['Glucose (mmol/L)', 'Decreased (<2.2 mmol/L)', 'Normal (>2.5 mmol/L)', 'Markedly decreased (<2.2 mmol/L)', 'Decreased or normal (<2.2 mmol/L)', '2.5-4.4 mmol/L'],
+          ['CSF/Blood Glucose Ratio', '< 0.4', '> 0.6', '< 0.3 - 0.4 (often <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
+          ['Lactate', 'Elevated (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', 'Elevated (>3.5 mmol/L)', 'Elevated or normal (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
+          ['Microbiology', 'Gram stain (+ 60-90%), Culture (+)', 'PCR (+), Gram/Culture negative', 'AFB stain (+ <20%), MTB PCR / GeneXpert (+), Culture (+, weeks), elevated ADA (>9-10 U/L)', 'Cryptococcal antigen (CrAg +), India ink (+), Fungal culture (+), PCR (+)', 'Negative']
+        ]
+      },
+      {
+        title: 'Comparison of Rapid Microbiological Diagnostics in CNS Infections (Gram, Latex, BioFire)',
+        headers: [
+          'Pathogen (Microbe)',
+          'Gram Stain (Microscopy)',
+          'Latex Agglutination (Antigen)',
+          'BioFire / Multiplex PCR (ME Panel)',
+          'Advantages of Rapid Testing',
+          'Disadvantages / Limitations'
+        ],
+        rows: [
+          [
+            '<b>Streptococcus pneumoniae</b><br><span class="text-xs text-natural-muted">Pneumococcus</span>',
+            '<b>Gram-positive lancet-shaped diplococci</b><br>Sensitivity: 70–90% (prior to antibiotics)',
+            '<b>Pneumococcal capsular antigen (+)</b><br>Good specificity, moderate sensitivity (70–80%), detectable in CSF and urine',
+            '<b>S. pneumoniae DNA (+)</b><br>High sensitivity (>95%) and specificity (>98%), results in <1 hour',
+            '<b>Immediate targeted therapy</b>: remains PCR-positive even after 12–24h of prior antibiotic therapy; confirms Dexamethasone + Vancomycin/Ceftriaxone decision',
+            '<b>No antibiogram / MIC data</b>: does not show Penicillin/Cephalosporin resistance (MIC); culture is mandatory; Gram stain turns negative rapidly after antibiotics'
+          ],
+          [
+            '<b>Neisseria meningitidis</b><br><span class="text-xs text-natural-muted">Meningococcus</span>',
+            '<b>Gram-negative coffee-bean shaped diplococci</b><br>Often intracellular in neutrophils (sensitivity: 60–75%)',
+            '<b>Meningococcal A, B, C, Y, W135 capsular antigen (+)</b><br>Rapid orientation, but sensitivity can be lower for serogroup B',
+            '<b>N. meningitidis DNA (+)</b><br>High sensitivity (>90–95%); blood PCR also possible in sepsis/purpura fulminans',
+            '<b>Life-saving rapidity</b>: allows immediate chemoprophylaxis (Rifampin/Ciprofloxacin) for close contacts and outbreak control measures',
+            '<b>Serogroup (B vs C vs Y) not always differentiated by standard ME panel</b>; low bacterial load can cause false-negative Gram stain; culture is required'
+          ],
+          [
+            '<b>Haemophilus influenzae b</b><br><span class="text-xs text-natural-muted">Hib</span>',
+            '<b>Gram-negative pleomorphic small rods / coccobacilli</b><br>Sensitivity: 50–70% (easily overlooked, blends with background)',
+            '<b>Hib PRP capsular antigen (+)</b><br>Rapid and specific for type b',
+            '<b>H. influenzae DNA (+)</b><br>High sensitivity (>90%), detects non-b serotypes as well',
+            '<b>Rapid identification</b> in unvaccinated children or immunocompromised/splenectomized patients; guides targeted therapy',
+            '<b>Gram stain frequently misidentified</b> (can resemble acellular debris); latex agglutination is negative for non-b serotypes'
+          ],
+          [
+            '<b>Listeria monocytogenes</b><br><span class="text-xs text-natural-muted">Listeria</span>',
+            '<b>Gram-positive small rods</b><br>Low sensitivity (30–50%), intracellular or diplobacillus form, easily misread as contamination/diphtheroids',
+            '<b>No reliable routine CSF latex test</b><br>Not included in standard rapid antigen panels',
+            '<b>L. monocytogenes DNA (+)</b><br>Critical due to low Gram stain sensitivity (>90% PCR sensitivity)',
+            '<b>Immediate Ampicillin / Meropenem indication</b>: life-saving time gain since cephalosporins (Ceftriaxone/Cefotaxime) are ineffective against Listeria! (age >50, immunocompromised)',
+            '<b>Gram stain is highly unreliable</b>: low bacterial load in CSF often leads to false-negatives; without latex antigen test, PCR is the only reliable rapid assay'
+          ],
+          [
+            '<b>Streptococcus agalactiae</b><br><span class="text-xs text-natural-muted">GBS (Group B Strep)</span>',
+            '<b>Gram-positive cocci in chains or pairs</b><br>Sensitivity: 60–80% in neonatal meningitis',
+            '<b>GBS group-specific B antigen (+)</b><br>Applicable in neonatal CSF and urine, good specificity',
+            '<b>S. agalactiae DNA (+)</b><br>High sensitivity (>95%) and specificity',
+            '<b>Immediate confirmation of neonatal sepsis/meningitis</b>; validates empiric Ampicillin + Gentamicin therapy',
+            '<b>Less common in adults</b>; paired cocci on Gram stain can mimic pneumococcus; culture required for antibiotic susceptibility'
+          ],
+          [
+            '<b>Escherichia coli K1</b><br><span class="text-xs text-natural-muted">Gram-negative bacilli</span>',
+            '<b>Gram-negative rods</b><br>Sensitivity: 60–80% in neonatal or post-neurosurgical meningitis',
+            '<b>E. coli K1 capsular antigen (+)</b><br>Part of neonatal latex panels (negative for non-K1 serotypes)',
+            '<b>E. coli K1 DNA (+)</b><br>BioFire ME panel specifically targets K1 strains',
+            '<b>Immediate differentiation of Gram-negative bacillary meningitis</b>; guides selection of CNS-penetrating antibiotics (Meropenem / Ceftriaxone / Aminoglycosides)',
+            '<b>BioFire ME panel ONLY detects E. coli K1 strains!</b> Nosocomial/neurosurgical Gram-negative rods (Klebsiella, Pseudomonas, Acinetobacter) are NOT on the ME panel (risk of false-negative PCR!)'
+          ],
+          [
+            '<b>Cryptococcus neoformans / gattii</b><br><span class="text-xs text-natural-muted">Encapsulated yeast</span>',
+            '<b>India ink stain (+)</b>: encapsulated budding yeast cells<br>Sensitivity: 50–70% (higher in AIDS, >80%); Gram stain stains poorly',
+            '<b>Cryptococcal antigen (CrAg) latex / LFA (+)</b><br>GOLD STANDARD rapid test! Sensitivity and specificity >98% (CSF and serum)',
+            '<b>C. neoformans / gattii DNA (+)</b><br>Excellent sensitivity (>95%), but CrAg LFA is equally fast and more cost-effective',
+            '<b>CrAg LFA diagnoses in minutes with near-100% accuracy</b>; enables immediate Liposomal Amphotericin B + Flucytosine therapy; allows titer monitoring',
+            '<b>Prozone phenomenon in extremely high CrAg titers</b> (can cause false-negative without dilution); India ink requires experienced observer (leukocyte artifacts)'
+          ],
+          [
+            '<b>Herpes Simplex (HSV-1, HSV-2) / VZV</b><br><span class="text-xs text-natural-muted">Neurotropic herpesviruses</span>',
+            '<b>Negative</b><br>Viruses are not visible by light microscopy; CSF shows lymphocytic pleocytosis and/or RBCs',
+            '<b>None</b><br>Latex agglutination is not applicable for viral pathogens',
+            '<b>HSV-1, HSV-2 or VZV DNA (+)</b><br>GOLD STANDARD diagnostic assay (sensitivity >95%, specificity >98%)',
+            '<b>Immediate initiation or confirmation of Acyclovir therapy</b>; prevents irreversible frontotemporal necrosis in HSV-1 encephalitis; rapid differentiation of HSV-2 meningitis',
+            '<b>HSV PCR can rarely (<5%) be false-negative in the first 24–72 hours of symptom onset!</b> Never discontinue Acyclovir if clinical suspicion is high; repeat lumbar puncture + PCR in 48–72h is mandatory!'
+          ],
+          [
+            '<b>Enterovirus / Parechovirus</b><br><span class="text-xs text-natural-muted">RNA viruses (Picornaviridae)</span>',
+            '<b>Negative</b><br>Early phase (first 24–48h) can show transient neutrophil predominance in CSF mimicking bacterial meningitis!',
+            '<b>None</b><br>Latex agglutination not available',
+            '<b>Enterovirus / Parechovirus RNA (+)</b><br>RT-PCR, outstanding sensitivity (>95%) and specificity',
+            '<b>Rapid identification of the most common aseptic meningitis</b>; allows discontinuation of unnecessary antibiotics, Acyclovir, and hospital stay (antibiotic stewardship); reassuring prognosis',
+            '<b>No specific antiviral therapy available</b> (supportive care only); PCR sensitivity can be lower for rare enterovirus subtypes'
+          ],
+          [
+            '<b>Mycobacterium tuberculosis</b><br><span class="text-xs text-natural-muted">TB meningitis</span>',
+            '<b>Ziehl-Neelsen stain: acid-fast bacilli (+)</b><br>Extremely low sensitivity (<20%), Gram stain is negative',
+            '<b>No routine CSF latex test</b><br>Antigen agglutination not applicable',
+            '<b>NOT included in standard BioFire ME panel!</b><br>Requires separate <b>GeneXpert MTB/RIF Ultra (PCR)</b> on CSF (sensitivity: 70–80%)',
+            '<b>GeneXpert Ultra confirms TB and Rifampin resistance in hours</b>; prevents fatal treatment delay (culture takes 4–8 weeks); enables immediate RIPE + Dexamethasone therapy',
+            '<b>BioFire ME panel can give false sense of security in TB!</b> (not on panel); negative GeneXpert does not rule out TB meningitis (large volume 5–10 mL CSF centrifuge required); check CSF ADA (>9–10 U/L)'
+          ]
+        ]
+      }
+    ],
     diseases: [
       {
         id: 'csf_differential',
         name: 'Differential Diagnosis of CSF Findings',
         table: {
+          title: 'Differential Diagnosis of CSF Findings',
           headers: ['Parameter', 'Bacterial', 'Viral', 'Tuberculous (TB)', 'Fungal', 'Normal'],
           rows: [
             ['Opening Pressure', 'Elevated (>20 cmH2O)', 'Normal or slightly elevated', 'Elevated (18-30 cmH2O)', 'Often extremely high (>25-30 cmH2O)', '6-20 cmH2O'],
@@ -19,6 +130,103 @@ Object.assign(window.diseases, {
             ['CSF/Blood Glucose Ratio', '< 0.4', '> 0.6', '< 0.3 - 0.4 (often <0.3)', '< 0.4 - 0.5', '≥ 0.6'],
             ['Lactate', 'Elevated (>3.5 mmol/L)', 'Normal (<3.5 mmol/L)', 'Elevated (>3.5 mmol/L)', 'Elevated or normal (2.5-3.5 mmol/L)', '< 2.5 mmol/L'],
             ['Microbiology', 'Gram stain (+ 60-90%), Culture (+)', 'PCR (+), Gram/Culture negative', 'AFB stain (+ <20%), MTB PCR / GeneXpert (+), Culture (+, weeks), elevated ADA (>9-10 U/L)', 'Cryptococcal antigen (CrAg +), India ink (+), Fungal culture (+), PCR (+)', 'Negative']
+          ]
+        }
+      },
+      {
+        id: 'cns_rapid_diagnostics',
+        name: 'Rapid Microbiological Diagnostics (Gram, Latex, BioFire)',
+        table: {
+          title: 'Comparison of Rapid Microbiological Diagnostics in CNS Infections',
+          headers: [
+            'Pathogen (Microbe)',
+            'Gram Stain (Microscopy)',
+            'Latex Agglutination (Antigen)',
+            'BioFire / Multiplex PCR (ME Panel)',
+            'Advantages of Rapid Testing',
+            'Disadvantages / Limitations'
+          ],
+          rows: [
+            [
+              '<b>Streptococcus pneumoniae</b><br><span class="text-xs text-natural-muted">Pneumococcus</span>',
+              '<b>Gram-positive lancet-shaped diplococci</b><br>Sensitivity: 70–90% (prior to antibiotics)',
+              '<b>Pneumococcal capsular antigen (+)</b><br>Good specificity, moderate sensitivity (70–80%), detectable in CSF and urine',
+              '<b>S. pneumoniae DNA (+)</b><br>High sensitivity (>95%) and specificity (>98%), results in <1 hour',
+              '<b>Immediate targeted therapy</b>: remains PCR-positive even after 12–24h of prior antibiotic therapy; confirms Dexamethasone + Vancomycin/Ceftriaxone decision',
+              '<b>No antibiogram / MIC data</b>: does not show Penicillin/Cephalosporin resistance (MIC); culture is mandatory; Gram stain turns negative rapidly after antibiotics'
+            ],
+            [
+              '<b>Neisseria meningitidis</b><br><span class="text-xs text-natural-muted">Meningococcus</span>',
+              '<b>Gram-negative coffee-bean shaped diplococci</b><br>Often intracellular in neutrophils (sensitivity: 60–75%)',
+              '<b>Meningococcal A, B, C, Y, W135 capsular antigen (+)</b><br>Rapid orientation, but sensitivity can be lower for serogroup B',
+              '<b>N. meningitidis DNA (+)</b><br>High sensitivity (>90–95%); blood PCR also possible in sepsis/purpura fulminans',
+              '<b>Life-saving rapidity</b>: allows immediate chemoprophylaxis (Rifampin/Ciprofloxacin) for close contacts and outbreak control measures',
+              '<b>Serogroup (B vs C vs Y) not always differentiated by standard ME panel</b>; low bacterial load can cause false-negative Gram stain; culture is required'
+            ],
+            [
+              '<b>Haemophilus influenzae b</b><br><span class="text-xs text-natural-muted">Hib</span>',
+              '<b>Gram-negative pleomorphic small rods / coccobacilli</b><br>Sensitivity: 50–70% (easily overlooked, blends with background)',
+              '<b>Hib PRP capsular antigen (+)</b><br>Rapid and specific for type b',
+              '<b>H. influenzae DNA (+)</b><br>High sensitivity (>90%), detects non-b serotypes as well',
+              '<b>Rapid identification</b> in unvaccinated children or immunocompromised/splenectomized patients; guides targeted therapy',
+              '<b>Gram stain frequently misidentified</b> (can resemble acellular debris); latex agglutination is negative for non-b serotypes'
+            ],
+            [
+              '<b>Listeria monocytogenes</b><br><span class="text-xs text-natural-muted">Listeria</span>',
+              '<b>Gram-positive small rods</b><br>Low sensitivity (30–50%), intracellular or diplobacillus form, easily misread as contamination/diphtheroids',
+              '<b>No reliable routine CSF latex test</b><br>Not included in standard rapid antigen panels',
+              '<b>L. monocytogenes DNA (+)</b><br>Critical due to low Gram stain sensitivity (>90% PCR sensitivity)',
+              '<b>Immediate Ampicillin / Meropenem indication</b>: life-saving time gain since cephalosporins (Ceftriaxone/Cefotaxime) are ineffective against Listeria! (age >50, immunocompromised)',
+              '<b>Gram stain is highly unreliable</b>: low bacterial load in CSF often leads to false-negatives; without latex antigen test, PCR is the only reliable rapid assay'
+            ],
+            [
+              '<b>Streptococcus agalactiae</b><br><span class="text-xs text-natural-muted">GBS (Group B Strep)</span>',
+              '<b>Gram-positive cocci in chains or pairs</b><br>Sensitivity: 60–80% in neonatal meningitis',
+              '<b>GBS group-specific B antigen (+)</b><br>Applicable in neonatal CSF and urine, good specificity',
+              '<b>S. agalactiae DNA (+)</b><br>High sensitivity (>95%) and specificity',
+              '<b>Immediate confirmation of neonatal sepsis/meningitis</b>; validates empiric Ampicillin + Gentamicin therapy',
+              '<b>Less common in adults</b>; paired cocci on Gram stain can mimic pneumococcus; culture required for antibiotic susceptibility'
+            ],
+            [
+              '<b>Escherichia coli K1</b><br><span class="text-xs text-natural-muted">Gram-negative bacilli</span>',
+              '<b>Gram-negative rods</b><br>Sensitivity: 60–80% in neonatal or post-neurosurgical meningitis',
+              '<b>E. coli K1 capsular antigen (+)</b><br>Part of neonatal latex panels (negative for non-K1 serotypes)',
+              '<b>E. coli K1 DNA (+)</b><br>BioFire ME panel specifically targets K1 strains',
+              '<b>Immediate differentiation of Gram-negative bacillary meningitis</b>; guides selection of CNS-penetrating antibiotics (Meropenem / Ceftriaxone / Aminoglycosides)',
+              '<b>BioFire ME panel ONLY detects E. coli K1 strains!</b> Nosocomial/neurosurgical Gram-negative rods (Klebsiella, Pseudomonas, Acinetobacter) are NOT on the ME panel (risk of false-negative PCR!)'
+            ],
+            [
+              '<b>Cryptococcus neoformans / gattii</b><br><span class="text-xs text-natural-muted">Encapsulated yeast</span>',
+              '<b>India ink stain (+)</b>: encapsulated budding yeast cells<br>Sensitivity: 50–70% (higher in AIDS, >80%); Gram stain stains poorly',
+              '<b>Cryptococcal antigen (CrAg) latex / LFA (+)</b><br>GOLD STANDARD rapid test! Sensitivity and specificity >98% (CSF and serum)',
+              '<b>C. neoformans / gattii DNA (+)</b><br>Excellent sensitivity (>95%), but CrAg LFA is equally fast and more cost-effective',
+              '<b>CrAg LFA diagnoses in minutes with near-100% accuracy</b>; enables immediate Liposomal Amphotericin B + Flucytosine therapy; allows titer monitoring',
+              '<b>Prozone phenomenon in extremely high CrAg titers</b> (can cause false-negative without dilution); India ink requires experienced observer (leukocyte artifacts)'
+            ],
+            [
+              '<b>Herpes Simplex (HSV-1, HSV-2) / VZV</b><br><span class="text-xs text-natural-muted">Neurotropic herpesviruses</span>',
+              '<b>Negative</b><br>Viruses are not visible by light microscopy; CSF shows lymphocytic pleocytosis and/or RBCs',
+              '<b>None</b><br>Latex agglutination is not applicable for viral pathogens',
+              '<b>HSV-1, HSV-2 or VZV DNA (+)</b><br>GOLD STANDARD diagnostic assay (sensitivity >95%, specificity >98%)',
+              '<b>Immediate initiation or confirmation of Acyclovir therapy</b>; prevents irreversible frontotemporal necrosis in HSV-1 encephalitis; rapid differentiation of HSV-2 meningitis',
+              '<b>HSV PCR can rarely (<5%) be false-negative in the first 24–72 hours of symptom onset!</b> Never discontinue Acyclovir if clinical suspicion is high; repeat lumbar puncture + PCR in 48–72h is mandatory!'
+            ],
+            [
+              '<b>Enterovirus / Parechovirus</b><br><span class="text-xs text-natural-muted">RNA viruses (Picornaviridae)</span>',
+              '<b>Negative</b><br>Early phase (first 24–48h) can show transient neutrophil predominance in CSF mimicking bacterial meningitis!',
+              '<b>None</b><br>Latex agglutination not available',
+              '<b>Enterovirus / Parechovirus RNA (+)</b><br>RT-PCR, outstanding sensitivity (>95%) and specificity',
+              '<b>Rapid identification of the most common aseptic meningitis</b>; allows discontinuation of unnecessary antibiotics, Acyclovir, and hospital stay (antibiotic stewardship); reassuring prognosis',
+              '<b>No specific antiviral therapy available</b> (supportive care only); PCR sensitivity can be lower for rare enterovirus subtypes'
+            ],
+            [
+              '<b>Mycobacterium tuberculosis</b><br><span class="text-xs text-natural-muted">TB meningitis</span>',
+              '<b>Ziehl-Neelsen stain: acid-fast bacilli (+)</b><br>Extremely low sensitivity (<20%), Gram stain is negative',
+              '<b>No routine CSF latex test</b><br>Antigen agglutination not applicable',
+              '<b>NOT included in standard BioFire ME panel!</b><br>Requires separate <b>GeneXpert MTB/RIF Ultra (PCR)</b> on CSF (sensitivity: 70–80%)',
+              '<b>GeneXpert Ultra confirms TB and Rifampin resistance in hours</b>; prevents fatal treatment delay (culture takes 4–8 weeks); enables immediate RIPE + Dexamethasone therapy',
+              '<b>BioFire ME panel can give false sense of security in TB!</b> (not on panel); negative GeneXpert does not rule out TB meningitis (large volume 5–10 mL CSF centrifuge required); check CSF ADA (>9–10 U/L)'
+            ]
           ]
         }
       },

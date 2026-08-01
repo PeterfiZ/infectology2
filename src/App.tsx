@@ -4225,9 +4225,11 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
             {t.rows.map((row, rIdx) => (
               <tr key={rIdx} className="hover:bg-[#FAF9F3] transition-colors">
                 {row.map((cell, cIdx) => (
-                  <td key={cIdx} className="p-3.5 border border-natural-border/50 text-natural-text text-sm leading-relaxed font-normal">
-                    {cell}
-                  </td>
+                  <td
+                    key={cIdx}
+                    className="p-3.5 border border-natural-border/50 text-natural-text text-sm leading-relaxed font-normal"
+                    dangerouslySetInnerHTML={{ __html: cell }}
+                  />
                 ))}
               </tr>
             ))}
