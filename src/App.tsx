@@ -676,8 +676,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
   const t = {
     hu: {
       title: 'Infektológia Tankönyv',
-      subtitle: 'Dr. Péterfi Zoltán,
-      affilation: 'Pécsi Tudományegyetem',
+      subtitle: 'Dr. Péterfi Zoltán / Pécsi Tudományegyetem',
       search: 'Keresés betegségek, kórokozók vagy tünetek között...',
       categories: 'Kategóriák',
       disease_count: 'betegség',
