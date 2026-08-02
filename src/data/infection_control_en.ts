@@ -362,6 +362,71 @@ Object.assign(window.diseases, {
           ]
         },
         prognosis: { mortality: 'Indirectly: strict sterile technique and instrument sterility reduce postoperative infection risk to near zero', prognostic_scores: [], factors: 'Protocol adherence, equipment validation, continuous quality control' }
+      },
+      {
+        id: 'antibiotic_stewardship',
+        name: 'Antibiotic Stewardship (Prudent Use of Antibiotics)',
+        pathogen: { type: 'System-wide Program', name: 'Antibiotic Resistance Control', gram: '-', shape: '-' },
+        epidemiology: {
+          incidence: 'Unnecessary or inappropriate antibiotic prescriptions in inpatient settings can reach 30-50%',
+          risk_groups: ['All hospitalized patients', 'Particularly ICU patients and those with pneumonia', 'Patients with suspected sepsis', 'Patients infected with multidrug-resistant organisms (MDROs)'],
+          seasonality: 'Critically important year-round',
+          transmission: 'Via selective pressure (overuse of antibiotics selects for and disseminates resistant strains in the healthcare environment)'
+        },
+        pathomechanism: {
+          steps: [
+            'Excessive Selective Pressure: Broad-spectrum or unnecessarily prolonged antibiotics destroy the normal protective bacterial flora.',
+            'Proliferation of Resistant Clones: In the absence of normal flora, resistant strains (e.g., MRSA, CRE, C. difficile) colonize the patient.',
+            'Horizontal Gene Transfer: Transfer of resistance-harboring plasmids to other bacterial species (e.g., via conjugation).',
+            'Clinical Therapy Failure: Development of severe, hard-to-treat infections and systemic complications due to a lack of effective antibiotics.'
+          ],
+          virulence_factors: ['Tolerance to selective pressure', 'Beta-lactamase and carbapenemase production', 'Efflux pump activation', 'Target site mutations']
+        },
+        clinical: {
+          incubation: '-',
+          onset: '-',
+          symptoms: [
+            { name: 'Principles of Empirical Therapy (The 5 \'D\'s of Stewardship)', description: 'The pillars of appropriate antibiotic choice: 1. Diagnosis (verifying actual bacterial infection), 2. Drug (selecting the correct drug), 3. Dose (optimizing dosing, adjusted for renal function), 4. Duration (necessary but shortest possible duration), 5. De-escalation (switching to a narrower-spectrum drug within 48-72 hours).', severity: 'severe' },
+            { name: 'Antibiotic Therapy Review (AB Time-out)', description: 'Mandatory clinical and laboratory review of all initiated empirical antibiotic treatments at 48-72 hours, with first culture results in hand, to consider de-escalation or discontinuation.', severity: 'moderate' },
+            { name: 'Surgical Prophylaxis Guidelines', description: 'The first dose must be administered 30-60 minutes before skin incision (e.g., Cefazolin). Prophylaxis must be stopped within 24 hours after surgery (optimally immediately at the end of surgery); prolonged dosing only increases resistance without clinical benefit.', severity: 'moderate' },
+            { name: 'Restricted (Reserve) Antibiotics', description: 'Highly valuable "last-line" agents (e.g., Linezolid, Colistin, Tigecycline, Ceftazidime-avibactam, Meropenem), whose prescription is strictly subject to prior approval or consult by an infectious disease specialist.', severity: 'severe' }
+          ],
+          physical_exam: [
+            'Monitor temperature charts and clinical improvement to rationalize antibiotic therapy',
+            'Monitor signs of drug side effects and toxicity (e.g., renal function and hearing for aminoglycosides)',
+            'Assess for diarrhea and abdominal distension (suspecting Clostridioides difficile infection after excessive antibiotic use)'
+          ],
+          complications: ['Selection and spread of multidrug-resistant organisms (MDROs)', 'Clostridioides difficile-associated diarrhea (CDAD)', 'Drug toxicity and allergic reactions', 'Treatment failure and increased mortality']
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Procalcitonin (PCT) Monitoring', finding: 'Decrease in PCT levels (<0.25 µg/L or >80% reduction from peak)', interpretation: 'Safe indicator for early discontinuation of antibiotic therapy (especially in pneumonia and sepsis)' },
+            { test: 'Therapeutic Drug Monitoring (TDM)', finding: 'Measurement of aminoglycoside and vancomycin serum levels (trough and peak levels)', interpretation: 'Avoids toxicity and ensures optimal bactericidal efficacy' }
+          ],
+          microbiology: [
+            { test: 'Urgent Blood Culture', finding: 'Pathogen identification and susceptibility testing (antibiogram)', significance: 'The foundation for crucial de-escalation and targeted therapy' },
+            { test: 'Rapid Molecular Tests (PCR)', finding: 'Gene detection directly from positive blood culture bottles (e.g., MRSA vs MSSA, carbapenemases)', significance: 'Shortens the time to targeted therapy by 24-48 hours' }
+          ]
+        },
+        therapy: {
+          empirical: {
+            inpatient: [
+              { drug: 'Application of Local Guidelines', dose: 'Department-specific', duration: '48-72 hours', note: 'Start empirical treatment according to local resistance statistics (local antibiogram)' },
+              { drug: 'Obtaining Cultures', dose: 'Prior to antibiotics', duration: 'Immediately', note: 'Drawing blood cultures and other relevant samples is essential before initiating therapy!' }
+            ]
+          },
+          targeted: 'Upon receiving culture results, empirical therapy must be immediately de-escalated (narrowed) to the narrowest-spectrum, effective agent.',
+          supportive: [
+            'Pre-defining antibiotic-free intervals and therapy stop dates',
+            'Intravenous to oral therapy switch (IV-to-PO switch) upon clinical stability'
+          ],
+          prevention: [
+            'Mandatory infectious disease consult for complex or therapy-resistant infections',
+            'Regular monitoring of antibiotic consumption using DDD (Defined Daily Dose) metrics',
+            'Strict limitation of surgical prophylaxis duration'
+          ]
+        },
+        prognosis: { mortality: 'Implementation of stewardship programs reduces mortality due to MDROs and C. difficile by up to 20-30%', prognostic_scores: ['Therapeutic Intensity Score', 'Resistance Rates'], factors: 'Ward-level antibiotic discipline, availability of infectious disease support, and speed of microbiological diagnostics' }
       }
     ]
   }

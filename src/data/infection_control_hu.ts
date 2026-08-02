@@ -362,6 +362,71 @@ Object.assign(window.diseases, {
           ]
         },
         prognosis: { mortality: 'Közvetve: a steril műtéti technika és a műszerek sterilitása a postoperatív szepszis kockázatát elhanyagolhatóra csökkenti', prognostic_scores: [], factors: 'Protokollok betartása, berendezések állapota, folyamatos minőségellenőrzés' }
+      },
+      {
+        id: 'antibiotic_stewardship',
+        name: 'Antibiotikum Stewardship (Megfontolt antibiotikum-alkalmazás)',
+        pathogen: { type: 'Rendszerszintű program', name: 'Antibiotikum-rezisztencia kontroll', gram: '-', shape: '-' },
+        epidemiology: {
+          incidence: 'Az indokolatlanul vagy helytelenül felírt antibiotikumok aránya a fekvőbeteg-ellátásban elérheti a 30-50%-ot',
+          risk_groups: ['Minden fekvőbeteg', 'Különösen az intenzív osztályos és tüdőgyulladásos betegek', 'Szepszis gyanús betegek', 'Multirezisztens (MDRO) kórokozókkal fertőzöttek'],
+          seasonality: 'Egész évben kritikus jelentőségű',
+          transmission: 'Szelekciós nyomás útján (a túlzott AB-használat kiszelektálja és elterjeszti a rezisztens törzseket a kórházi környezetben)'
+        },
+        pathomechanism: {
+          steps: [
+            'Túlzott szelekciós nyomás: A széles spektrumú vagy szükségtelenül hosszan alkalmazott antibiotikumok elpusztítják a normál védő baktériumflórát.',
+            'Rezisztens klónok elszaporodása: A normál flóra hiányában a rezisztens törzsek (pl. MRSA, CRE, C. difficile) kolonizálják a beteget.',
+            'Rezisztenciagének horizontális transzferje: A rezisztenciát hordozó plazmidok átadása más baktériumfajoknak (pl. konjugáció útján).',
+            'Klinikai terápia kudarca: Súlyos, nehezen kezelhető infekciók és szisztémás szövődmények kialakulása a hatékony antibiotikumok hiánya miatt.'
+          ],
+          virulence_factors: ['Szelekciós nyomás tolerálása', 'Béta-laktamáz és karbapenemáz termelés', 'Eflux pumpák aktivációja', 'Célmolekula mutációk']
+        },
+        clinical: {
+          incubation: '-',
+          onset: '-',
+          symptoms: [
+            { name: 'Az empirikus terápia elvei (The 5 \'D\'s of Stewardship)', description: 'A helyes AB-választás pillérei: 1. Diagnosis (valódi bakteriális infekció igazolása), 2. Drug (megfelelő gyógyszer kiválasztása), 3. Dose (optimális adagolás, vesefunkcióhoz igazítva), 4. Duration (szükséges, de legrövidebb időtartam), 5. De-escalation (célzott, szűkebb spektrumra váltás 48-72 órán belül).', severity: 'severe' },
+            { name: 'Az antibiotikum-kezelés felülvizsgálata (AB Time-out)', description: 'Minden megkezdett empirikus antibiotikum-kezelés kötelező klinikai és laboratóriumi felülvizsgálata a 48-72. órában, az első tenyésztési eredmények birtokában, a de-eszkaláció vagy a leállítás mérlegelésére.', severity: 'moderate' },
+            { name: 'Sebészi profilaxis irányelvei', description: 'Az első dózist a bőrincízió előtt 30-60 perccel kell beadni (pl. Cefazolin). A profilaxist a műtét után 24 órán belül (optimálisan azonnal a műtét végén) le kell állítani, a hosszas adagolás csak a rezisztenciát növeli tünetmentes előny nélkül.', severity: 'moderate' },
+            { name: 'Korlátozott felírási körű (Reserve) szerek', description: 'Különösen értékes, "utolsó védvonalbeli" szerek (pl. Linezolid, Colistin, Tigecycline, Ceftazidim-avibactam, Meropenem), amelyek felírása szigorúan szakorvosi (infektológusi) engedélyhez vagy jóváhagyáshoz kötött.', severity: 'severe' }
+          ],
+          physical_exam: [
+            'Lázmenet és klinikai javulás követése az AB terápia racionalizálásához',
+            'Gyógyszer-mellékhatások és toxicitás jeleinek monitorozása (pl. aminoglycosidok esetén vesefunkció és hallás)',
+            'Hasmenés és hasi feszülés vizsgálata (Clostridioides difficile fertőzés gyanúja túlzott AB-használat után)'
+          ],
+          complications: ['Multirezisztens törzsek (MDRO) szelekciója és elterjedése', 'Clostridioides difficile asszociált colitis (CDAD)', 'Gyógyszer-toxicitás és allergiás reakciók', 'Kezelési kudarc és megemelkedett mortalitás']
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Prokalcitonin (PCT) követés', finding: 'A PCT szint csökkenése (<0.25 µg/L vagy >80%-os csökkenés a csúcsértékhez képest)', interpretation: 'Biztonságos indikáció az antibiotikum-kezelés mielőbbi leállítására (különösen tüdőgyulladás és szepszis esetén)' },
+            { test: 'Gyógyszerszint-monitorozás (TDM)', finding: 'Aminoglycosidok és Vancomycin szérumszintjének mérése (völgy- és csúcsértékek)', interpretation: 'A toxicitás elkerülése és az optimális baktericid hatás biztosítása' }
+          ],
+          microbiology: [
+            { test: 'Sürgős hemokultúra (Blood Culture)', finding: 'Kórokozó azonosítása és érzékenységi vizsgálata (antibiogram)', significance: 'A kulcsfontosságú de-eszkaláció és célzott terápia megkezdésének alapja' },
+            { test: 'Gyors molekuláris tesztek (PCR)', finding: 'Gének kimutatása közvetlenül a pozitív hemokultúrából (pl. MRSA vs MSSA, carbapenemázok)', significance: 'Akár 24-48 órával lerövidíti a célzott terápiára való átállás idejét' }
+          ]
+        },
+        therapy: {
+          empirical: {
+            inpatient: [
+              { drug: 'Lokális irányelvek alkalmazása', dose: 'Osztályspecifikus', duration: '48-72 óra', note: 'Empirikus kezelés megkezdése a helyi rezisztencia-statisztikáknak (helyi antibiogram) megfelelően' },
+              { drug: 'Tenyésztések levétele', dose: 'Még az AB előtt', duration: 'Azonnal', note: 'A hemokultúrák és egyéb releváns minták levétele elengedhetetlen a kezelés megkezdése előtt!' }
+            ]
+          },
+          targeted: 'A tenyésztési eredmény megérkezésekor az empirikus kezelést azonnal de-eszkalálni (szűkíteni) kell a legszűkebb spektrumú, hatékony szerre.',
+          supportive: [
+            'Antibiotikum-mentes időszakok és terápiás stop-dátumok előrehaladott meghatározása',
+            'Intravénásról per os (szájon át történő) terápiára váltás (IV-to-PO switch) klinikai stabilitás esetén'
+          ],
+          prevention: [
+            'Infektológiai konzílium kötelező igénybevétele bonyolult vagy terápiarezisztens fertőzéseknél',
+            'Az antibiotikum-felhasználás rendszeres monitorozása DDD (Defined Daily Dose) mutatókkal',
+            'A sebészi profilaxis időtartamának szigorú korlátozása'
+          ]
+        },
+        prognosis: { mortality: 'A stewardship programok bevezetése akár 20-30%-kal csökkenti az MDRO-k és a C. difficile miatti mortalitást', prognostic_scores: ['Therapeutic Intensity Score', 'Rezisztencia arányok'], factors: 'Az osztályos AB-fegyelem, az infektológusi támogatás elérhetősége és a mikrobiológiai diagnosztika gyorsasága' }
       }
     ]
   }

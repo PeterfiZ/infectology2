@@ -362,6 +362,71 @@ Object.assign(window.diseases, {
           ]
         },
         prognosis: { mortality: 'Indirekt: Eine lückenlos sterile OP-Technik und Aufbereitung senkt das Risiko postoperativer Infektionen auf ein Minimum', prognostic_scores: [], factors: 'Standardtreue, Gerätevalidierung, kontinuierliche Qualitätssicherung' }
+      },
+      {
+        id: 'antibiotic_stewardship',
+        name: 'Antibiotic Stewardship (Rationaler Einsatz von Antibiotika)',
+        pathogen: { type: 'Systemweites Programm', name: 'Antibiotika-Resistenzkontrolle', gram: '-', shape: '-' },
+        epidemiology: {
+          incidence: 'Der Anteil unnötiger oder ungeeigneter Antibiotikaverschreibungen im stationären Bereich kann 30-50% erreichen',
+          risk_groups: ['Alle stationären Patienten', 'Insbesondere Intensivpatienten und Patienten mit Pneumonie', 'Patienten mit Sepsisverdacht', 'Patienten, die mit multiresistenten Erregern (MDRO) infiziert sind'],
+          seasonality: 'Ganzjährig von kritischer Bedeutung',
+          transmission: 'Über Selektionsdruck (übermäßiger Antibiotikaeinsatz selektiert resistente Stämme und verbreitet sie in der Krankenhausumgebung)'
+        },
+        pathomechanism: {
+          steps: [
+            'Übermäßiger Selektionsdruck: Breitband- oder unnötig verlängerte Antibiotikatherapien zerstören die schützende normale Bakterienflora.',
+            'Vermehrung resistenter Klone: Ohne normale Flora besiedeln resistente Stämme (z. B. MRSA, CRE, C. difficile) den Patienten.',
+            'Horizontaler Gentransfer: Übertragung von Resistenzplasmiden auf andere Bakterienspezies (z. B. durch Konjugation).',
+            'Klinisches Therapieversagen: Entstehung schwerer, schwer behandelbarer Infektionen und systemischer Komplikationen aufgrund des Mangels an wirksamen Antibiotika.'
+          ],
+          virulence_factors: ['Toleranz gegenüber Selektionsdruck', 'Beta-Laktamase- und Carbapenemase-Produktion', 'Aktivierung von Effluxpumpen', 'Mutationen der Zielstrukturen']
+        },
+        clinical: {
+          incubation: '-',
+          onset: '-',
+          symptoms: [
+            { name: 'Prinzipien der empirischen Therapie (Die 5 \'D\'s des Stewardship)', description: 'Die Säulen der angemessenen Antibiotikaauswahl: 1. Diagnosis (Nachweis einer echten bakteriellen Infektion), 2. Drug (Auswahl des richtigen Wirkstoffs), 3. Dose (optimale Dosierung, angepasst an die Nierenfunktion), 4. Duration (notwendige, aber kürzestmögliche Dauer), 5. De-escalation (Wechsel zu einem schmaleren Spektrum innerhalb von 48-72 Stunden).', severity: 'severe' },
+            { name: 'Überprüfung der Antibiotikatherapie (AB-Timeout)', description: 'Verpflichtende klinische und laborchemische Überprüfung aller eingeleiteten empirischen Antibiotikatherapien nach 48-72 Stunden, unter Berücksichtigung der ersten Kulturergebnisse, um eine Deeskalation oder das Absetzen zu prüfen.', severity: 'moderate' },
+            { name: 'Richtlinien für die chirurgische Prophylaxe', description: 'Die erste Dosis muss 30-60 Minuten vor der Hautinzision verabreicht werden (z. B. Cefazolin). Die Prophylaxe muss innerhalb von 24 Stunden nach der Operation beendet werden (optimal direkt am Operationsende); eine verlängerte Gabe erhöht nur Resistenzen ohne klinischen Nutzen.', severity: 'moderate' },
+            { name: 'Eingeschränkte Reserve-Antibiotika', description: 'Besonders wertvolle "Last-Line"-Substanzen (z. B. Linezolid, Colistin, Tigecyclin, Ceftazidim-Avibactam, Meropenem), deren Verschreibung streng an eine vorherige Genehmigung oder Konsultation durch einen Infektiologen gebunden ist.', severity: 'severe' }
+          ],
+          physical_exam: [
+            'Fieberkurven und klinische Besserung verfolgen, um die Antibiotikatherapie zu rationalisieren',
+            'Überwachung von Nebenwirkungen und Toxizitätszeichen (z. B. Nierenfunktion und Gehör bei Aminoglykosiden)',
+            'Untersuchung auf Diarrhö und abdominelle Distension (Verdacht auf Clostridioides-difficile-Infektion nach übermäßigem Antibiotikaeinsatz)'
+          ],
+          complications: ['Selektion und Ausbreitung multiresistenter Erreger (MDRO)', 'Clostridioides-difficile-assoziierte Kolitis (CDAD)', 'Arzneimitteltoxizität und allergische Reaktionen', 'Therapieversagen und erhöhte Mortalität']
+        },
+        diagnostics: {
+          laboratory: [
+            { test: 'Procalcitonin (PCT) Verlauf', finding: 'Abfall der PCT-Spiegel (<0,25 µg/L oder >80% Reduktion vom Spitzenwert)', interpretation: 'Sicherer Indikator für das frühzeitige Absetzen der Antibiotikatherapie (insb. bei Pneumonie und Sepsis)' },
+            { test: 'Therapeutisches Drug Monitoring (TDM)', finding: 'Messung der Serumspiegel von Aminoglykosiden und Vancomycin (Tal- und Spitzenwerte)', interpretation: 'Vermeidet Toxizität und stellt die optimale bakterizide Wirksamkeit sicher' }
+          ],
+          microbiology: [
+            { test: 'Dringende Blutkultur', finding: 'Erregeridentifizierung und Resistenzprüfung (Antibiogramm)', significance: 'Die Grundlage für die entscheidende Deeskalation und gezielte Therapie' },
+            { test: 'Molekulare Schnelltests (PCR)', finding: 'Direkter Nachweis von Resistenzgenen aus positiven Blutkulturflaschen (z. B. MRSA vs. MSSA, Carbapenemasen)', significance: 'Verkürzt die Zeit bis zur gezielten Therapie um 24-48 Stunden' }
+          ]
+        },
+        therapy: {
+          empirical: {
+            inpatient: [
+              { drug: 'Anwendung lokaler Richtlinien', dose: 'Stationsspezifisch', duration: '48-72 Stunden', note: 'Beginn der empirischen Therapie gemäß der lokalen Resistenzstatistik (lokales Antibiogramm)' },
+              { drug: 'Gewinnung von Kulturen', dose: 'Vor Antibiotikagabe', duration: 'Sofort', note: 'Die Abnahme von Blutkulturen und anderen relevanten Proben vor Therapiebeginn ist zwingend erforderlich!' }
+            ]
+          },
+          targeted: 'Nach Erhalt der Kulturergebnisse muss die empirische Therapie unverzüglich auf die schmalste wirksame Substanz deeskaliert (eingeschränkt) werden.',
+          supportive: [
+            'Vorausbestimmung von antibiotikafreien Intervallen und Therapieenddaten',
+            'Wechsel von intravenöser auf orale Therapie (IV-to-PO-Switch) bei klinischer Stabilität'
+          ],
+          prevention: [
+            'Verpflichtendes infektiologisches Konsil bei komplexen oder therapieresistenten Infektionen',
+            'Regelmäßige Überwachung des Antibiotikaverbrauchs mittels DDD (Defined Daily Dose) Kennzahlen',
+            'Strikte Begrenzung der Dauer der chirurgischen Prophylaxe'
+          ]
+        },
+        prognosis: { mortality: 'Die Einführung von Stewardship-Programmen senkt die Mortalität durch MDROs und C. difficile um bis zu 20-30%', prognostic_scores: ['Therapeutic Intensity Score', 'Resistenzraten'], factors: 'Disziplin auf Stationsebene, Verfügbarkeit infektiologischer Beratung und Schnelligkeit der mikrobiologischen Diagnostik' }
       }
     ]
   }
