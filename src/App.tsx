@@ -1288,7 +1288,8 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
                 </div>
 
                 <div className="space-y-2 text-xs font-mono text-emerald-900/80">
-                  <div>{lang === 'hu' ? 'Szerző:' : lang === 'de' ? 'Autor:' : 'Author:'} Dr. Péterfi Zoltán</div>
+                  <div>{lang === 'hu' ? 'Szerző:' : lang === 'de' ? 'Autor:' : 'Author:'} {lang === 'hu' ? 'Dr. Péterfi Zoltán' : 'Dr. Zoltán Péterfi'}</div>
+                  <div>{lang === 'hu' ? 'Intézmény:' : lang === 'de' ? 'Institution:' : 'Institution:'} {lang === 'hu' ? 'Pécsi Tudományegyetem' : lang === 'de' ? 'Universität Pécs' : 'University of Pécs'}</div>
                   <div>{lang === 'hu' ? 'Generálta:' : lang === 'de' ? 'Erstellt von:' : 'Generated for:'} peterfi.zoltan@gmail.com</div>
                   <div>{lang === 'hu' ? 'Dátum:' : lang === 'de' ? 'Datum:' : 'Date:'} {new Date().toLocaleDateString(lang === 'hu' ? 'hu-HU' : lang === 'de' ? 'de-DE' : 'en-US')}</div>
                   <div className="text-[10px] mt-2 opacity-60">Rendszer verzió: v5.0.0</div>
@@ -1455,9 +1456,14 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
                 <h1 className="font-serif text-lg md:text-xl font-bold leading-tight select-none">
                   {lang === 'hu' ? 'Infektológia Tankönyv' : lang === 'de' ? 'Infektiologie Lehrbuch' : 'Infectious Diseases Textbook'}
                 </h1>
-                <p className="font-sans text-[10px] tracking-wider uppercase opacity-80 leading-tight mt-0.5 select-none">
-                  {lang === 'hu' ? 'Dr. Péterfi Zoltán / Pécsi Tudományegyetem' : lang === 'de' ? 'Dr. Zoltán Péterfi / Universität Pécs' : 'Dr. Zoltán Péterfi / University of Pécs'}
-                </p>
+                <div className="font-sans text-[10px] tracking-wider uppercase opacity-85 leading-tight mt-1 select-none space-y-0.5">
+                  <div className="font-semibold">
+                    {lang === 'hu' ? 'Dr. Péterfi Zoltán' : 'Dr. Zoltán Péterfi'}
+                  </div>
+                  <div className="opacity-75 text-[9px] tracking-normal">
+                    {lang === 'hu' ? 'Pécsi Tudományegyetem' : lang === 'de' ? 'Universität Pécs' : 'University of Pécs'}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
