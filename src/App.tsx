@@ -3964,15 +3964,122 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
     return (
       <div className="space-y-6 animate-fade-in-up">
         {/* Overview */}
-        <div className="bg-white p-5 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-          <h3 className="text-lg font-serif font-bold text-natural-dark mb-3 flex items-center gap-2">
-            <span className="text-emerald-600">📖</span>
-            {currentTranslations.didactics}
-          </h3>
-          <p className="text-natural-text leading-relaxed text-sm font-normal">
-            {Array.isArray(d.overview) ? d.overview.join(' ') : d.overview}
-          </p>
-        </div>
+        {d.overview && (
+          <div className="bg-white p-5 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+            <h3 className="text-lg font-serif font-bold text-natural-dark mb-3 flex items-center gap-2">
+              <span className="text-emerald-600">📖</span>
+              {currentTranslations.didactics}
+            </h3>
+            <div className="text-natural-text leading-relaxed text-sm font-normal space-y-2">
+              {Array.isArray(d.overview) ? (
+                d.overview.map((p, idx) => <p key={idx} dangerouslySetInnerHTML={{ __html: p }} />)
+              ) : (
+                <p dangerouslySetInnerHTML={{ __html: d.overview }} />
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Modular Logical Didactic Sections */}
+        {d.sections && d.sections.length > 0 && (
+          <div className="space-y-4">
+            {d.sections.map((section, sIdx) => (
+              <div key={sIdx} className="bg-white p-5 rounded-xl border border-natural-border/70 shadow-sm hover:shadow-md transition-shadow">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2 border-b border-natural-border/40">
+                  <h4 className="font-serif font-bold text-base text-natural-dark flex items-center gap-2">
+                    {section.icon && <span>{section.icon}</span>}
+                    <span>{section.title}</span>
+                  </h4>
+                  {section.badge && (
+                    <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-natural-surface border border-natural-border text-natural-primary">
+                      {section.badge}
+                    </span>
+                  )}
+                </div>
+
+                {section.content && (
+                  <div className="text-natural-text text-sm leading-relaxed space-y-2 mb-3 font-normal">
+                    {Array.isArray(section.content) ? (
+                      section.content.map((p, pIdx) => (
+                        <p key={pIdx} dangerouslySetInnerHTML={{ __html: p }} />
+                      ))
+                    ) : (
+                      <p dangerouslySetInnerHTML={{ __html: section.content }} />
+                    )}
+                  </div>
+                )}
+
+                {section.items && section.items.length > 0 && (
+                  <div className="space-y-2.5 mt-3">
+                    {section.items.map((item, iIdx) => {
+                      if (typeof item === 'string') {
+                        return (
+                          <div key={iIdx} className="flex items-start gap-2.5 text-sm text-natural-text">
+                            <span className="text-natural-accent font-bold mt-0.5 select-none">•</span>
+                            <span className="leading-relaxed" dangerouslySetInnerHTML={{ __html: item }} />
+                          </div>
+                        );
+                      }
+                      return (
+                        <div
+                          key={iIdx}
+                          className={`p-3 rounded-lg border text-sm transition-colors ${
+                            item.highlight
+                              ? 'bg-amber-50/60 border-amber-200/80 text-amber-950'
+                              : 'bg-natural-surface/40 border-natural-border/50 text-natural-text'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between gap-2 mb-1">
+                            {item.label && (
+                              <span className="font-bold font-sans text-natural-dark text-xs uppercase tracking-wide">
+                                {item.label}
+                              </span>
+                            )}
+                            {item.badge && (
+                              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white border border-natural-border/70 text-natural-muted font-medium">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+                          <p className="leading-relaxed font-normal" dangerouslySetInnerHTML={{ __html: item.text }} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {section.table && (
+                  <div className="mt-4 overflow-x-auto rounded-lg border border-natural-border">
+                    <table className="w-full text-left border-collapse text-xs">
+                      <thead>
+                        <tr className="bg-natural-surface border-b border-natural-border">
+                          {section.table.headers.map((h, hIdx) => (
+                            <th key={hIdx} className="p-2.5 font-bold text-natural-dark border-r border-natural-border last:border-r-0">
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {section.table.rows.map((row, rIdx) => (
+                          <tr key={rIdx} className="hover:bg-natural-surface/30 border-b border-natural-border/50 last:border-b-0">
+                            {row.map((cell, cIdx) => (
+                              <td
+                                key={cIdx}
+                                className="p-2.5 text-natural-text border-r border-natural-border/50 last:border-r-0"
+                                dangerouslySetInnerHTML={{ __html: cell }}
+                              />
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Lower / Upper split */}
         {(d.lower || d.upper) && (
@@ -4015,7 +4122,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
                   {d.diagnostics.map((i, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <span className="text-natural-primary font-bold">•</span>
-                      <span>{i}</span>
+                      <span dangerouslySetInnerHTML={{ __html: i }} />
                     </li>
                   ))}
                 </ul>
@@ -4025,13 +4132,13 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
               <div className="bg-white p-5 rounded-xl border border-natural-border/60 shadow-sm hover:shadow-md transition-shadow">
                 <h4 className="font-serif font-bold text-base text-natural-dark mb-3 flex items-center gap-2">
                   <span className="text-[#A85A42]">⚠️</span>
-                  {lang === 'hu' ? 'Vörös Zászlók' : lang === 'de' ? 'Rote Flaggen' : 'Red Flags'}
+                  {lang === 'hu' ? 'Vörös Zászlók / Kritikus szempontok' : lang === 'de' ? 'Rote Flaggen / Kritische Punkte' : 'Red Flags / Critical Alerts'}
                 </h4>
                 <ul className="space-y-2 text-natural-text text-sm font-normal">
                   {d.red_flags.map((i, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <span className="text-natural-accent font-bold">•</span>
-                      <span>{i}</span>
+                      <span dangerouslySetInnerHTML={{ __html: i }} />
                     </li>
                   ))}
                 </ul>
@@ -4047,9 +4154,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
               <span>👥</span>
               {currentTranslations.risk_groups}
             </h4>
-            <p className="text-natural-text text-sm leading-relaxed font-normal">
-              {d.special_populations}
-            </p>
+            <p className="text-natural-text text-sm leading-relaxed font-normal" dangerouslySetInnerHTML={{ __html: d.special_populations }} />
           </div>
         )}
 
@@ -4060,9 +4165,13 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
               <span>💡</span>
               {currentTranslations.didactics_tip}
             </h4>
-            <p className="text-natural-text text-sm leading-relaxed font-normal">
-              {Array.isArray(d.teaching_tip) ? d.teaching_tip.join(' ') : d.teaching_tip}
-            </p>
+            <div className="text-natural-text text-sm leading-relaxed font-normal">
+              {Array.isArray(d.teaching_tip) ? (
+                d.teaching_tip.map((t, idx) => <p key={idx} dangerouslySetInnerHTML={{ __html: t }} />)
+              ) : (
+                <p dangerouslySetInnerHTML={{ __html: d.teaching_tip }} />
+              )}
+            </div>
           </div>
         )}
       </div>

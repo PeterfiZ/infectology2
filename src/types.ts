@@ -91,6 +91,22 @@ export interface GalleryItem {
   type?: string;
 }
 
+export interface DidacticSectionItem {
+  label?: string;
+  text: string;
+  badge?: string;
+  highlight?: boolean;
+}
+
+export interface DidacticSection {
+  title: string;
+  icon?: string;
+  badge?: string;
+  content?: string | string[];
+  items?: (string | DidacticSectionItem)[];
+  table?: DiseaseTable;
+}
+
 export interface Didactics {
   overview: string | string[];
   lower?: string | string[];
@@ -102,6 +118,7 @@ export interface Didactics {
   red_flags?: string[];
   special_populations?: string;
   teaching_tip?: string | string[];
+  sections?: DidacticSection[];
 }
 
 export interface DiseaseTable {

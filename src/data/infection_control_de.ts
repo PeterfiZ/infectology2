@@ -6,429 +6,682 @@ Object.assign(window.diseases, {
     diseases: [
       {
         id: 'ic_basics',
-        name: 'Grundlagen der Infektionskontrolle und Vorsichtsmaßnahmen',
-        pathogen: { type: 'Syndrom', name: 'Nosokomiale und multiresistente Erreger (MDRO)', gram: 'Variabel', shape: '-' },
-        epidemiology: {
-          incidence: 'Etwa 5-10% aller hospitalisierten Patienten erwerben eine nosokomiale Infektion (HAI)',
-          risk_groups: ['Intensivpatienten (ITS)', 'Patienten mit invasiven Medizinprodukten', 'Ältere und immungeschwächte Patienten'],
-          seasonality: 'Ganzjähriges Vorkommen',
-          transmission: 'Kontakt (direkt/indirekt), Tröpfchen, aerogen (Aerosol), Blut und Körperflüssigkeiten'
-        },
-        pathomechanism: {
-          steps: [
-            'Quelle: Infizierter Patient, kolonisierter Träger oder kontaminierte Oberflächen/Medizinprodukte.',
-            'Übertragung: Weitergabe des Erregers von der Quelle auf einen empfänglichen Wirt (meist über die Hände des Personals).',
-            'Eintrittspforte: Zugangsweg in den Wirt (z. B. Operationswunden, Gefäßkatheter, Harnwegskatheter, Beatmungsschläuche).',
-            'Kolonisierung oder Infektion: Anheftung und Vermehrung des Erregers, gefolgt von Gewebeinvasion und systemischen Symptomen.'
+        name: 'Grundlagen der Infektionskontrolle und Infektionskette',
+        didactics: {
+          overview: 'Das primäre Ziel der Krankenhaushygiene und Infektionsprävention ist die Verhinderung nosokomialer Infektionen (HAI) und der Übertragung multiresistenter Erreger (MRE / MDRO) durch die systematische Unterbrechung der Infektionskette (Infektionsquelle, Austrittspforte, Übertragungsweg, Eintrittspforte und empfänglicher Wirt).',
+          sections: [
+            {
+              title: 'Glieder der Infektionskette und Interventionspunkte',
+              icon: '🔗',
+              badge: 'Krankenhausepidemiologie',
+              content: 'Die wirksame Infektionsprävention basiert auf der gezielten und kontinuierlichen Blockade der schwächsten Glieder in der Übertragungskette:',
+              items: [
+                {
+                  label: '1. Infektionsquelle (Erregerreservoir)',
+                  text: 'Infizierte oder asymptomatisch kolonisierte Patienten, Erregerbesiedlung des medizinischen Personals sowie kontaminierte unbelebte Patientenumgebung (Bettgitter, Medizinprodukte, Wasserentnahmestellen).'
+                },
+                {
+                  label: '2. Austrittspforte (Portal of Exit)',
+                  text: 'Respiratorische Sekrete (Husten, Niesen), Stuhl, Urin, Wundexsudat, Blut und andere Körperflüssigkeiten.'
+                },
+                {
+                  label: '3. Übertragungsweg (Mode of Transmission)',
+                  text: 'Am häufigsten die Hände des Personals (Kontaktübertragung), Tröpfchenübertragung (Nahbereich <2 m), aerogene Tröpfchenkerne (Aerosole) oder kontaminierte Instrumente.'
+                },
+                {
+                  label: '4. Eintrittspforte (Portal of Entry)',
+                  text: 'Unterbrochene Haut- und Schleimhautbarriere, Operationswunden und invasive Zugänge (Zentralvenenkatheter, periphere Venenverweilkanülen, Blasenkatheter, Beatmungstubus).'
+                },
+                {
+                  label: '5. Empfänglicher Wirt (Susceptible Host)',
+                  text: 'Immunsupprimierte, geriatrische, polytraumatisierte, mangelernährte Patienten sowie Personen mit schweren Vorerkrankungen (Diabetes, Niereninsuffizienz) oder intensivmedizinischem Behandlungsbedarf.'
+                }
+              ]
+            },
+            {
+              title: 'Die 4 häufigsten nosokomialen Infektionen (Device-Bundles)',
+              icon: '🏥',
+              badge: 'Präventionsbündel',
+              content: 'Mehr als 80% aller Krankenhausinfektionen entfallen auf vier interventions- und katheterassoziierte Krankheitsbilder:',
+              items: [
+                {
+                  label: 'CLABSI (Katheterassoziierte Sepsis)',
+                  text: 'Präventionsbündel: Strikt aseptisches Insertionsbündel (Subclavia-Präferenz, Ganzkörper-Sterilabdeckung, 2% Chlorhexidin in 70% Alkohol Hautdesinfektion, tägliche Indikationsprüfung und frühzeitige Entfernung).'
+                },
+                {
+                  label: 'CAUTI (Katheterassoziierte Harnwegsinfektion)',
+                  text: 'Präventionsbündel: Geschlossenes Drainagesystem, Urinbeutel stets unter Blasenniveau und ohne Bodenkontakt halten, tägliche Notwendigkeitsprüfung des Verweilkatheters.'
+                },
+                {
+                  label: 'VAP (Beatmungsassoziierte Pneumonie)',
+                  text: 'Präventionsbündel: Oberkörperhochlagerung um 30–45°, subglottische Sekretabsaugung, tägliche Sedierungspause / Spontanatmungsversuche, orale Antiseptik mit Chlorhexidin.'
+                },
+                {
+                  label: 'SSI (Postoperative Wundinfektion)',
+                  text: 'Präventionsbündel: Perioperative Antibiotikaprophylaxe 30–60 min vor Hautschnitt, Haarentfernung ausschließlich mit elektrischem Clipper (Nassrasur kontraindiziert!), intraoperative Normothermie und Blutzuckerkontrolle.'
+                }
+              ]
+            }
           ],
-          virulence_factors: ['Biofilmbildung auf Kathetern', 'Multiresistenz (z. B. MRSA, VRE, ESBL, CRE)', 'Toxinbildung']
-        },
-        clinical: {
-          incubation: 'Variabel (Stunden bis Monate)',
-          onset: 'Schleichend oder akut',
-          symptoms: [
-            { name: 'Standardhygiene (Basishygiene)', description: 'Gilt für alle Patienten in allen Pflegebereichen: Händehygiene, persönliche Schutzausrüstung (PSA - Handschuhe, Schutzkittel, Maske, Schutzbrille bei Bedarf), sichere Injektionen, Desinfektion von Oberflächen, Abfallentsorgung und Hustenetikette.', severity: 'mild' },
-            { name: 'Kontaktisolierung', description: 'Bei Erregern, die durch direkten oder indirekten Kontakt übertragen werden (z. B. MRSA, Clostridioides difficile, Norovirus). Anforderungen: Einzelzimmer oder Kohortenisolierung, eigenes Pflegegeschirr, Kittel und Handschuhe beim Betreten des Zimmers.', severity: 'moderate' },
-            { name: 'Tröpfchenisolierung', description: 'Bei Erregern, die durch grobe Tröpfchen (>5 µm) übertragen werden (z. B. Influenza, Neisseria meningitidis). Anforderungen: chirurgische Maske im Umkreis von 1-2 Metern um den Patienten, Patient trägt bei Transport eine Maske.', severity: 'moderate' },
-            { name: 'Aerogene Isolierung (Aerosol)', description: 'Bei Erregern, die über feine Tröpfchenkerne (≤5 µm) über weite Strecken infektiös bleiben (z. B. Tuberkulose, Masern, Varizellen). Anforderungen: Unterdruckzimmer (AIIR), FFP2/FFP3-Atemschutzmaske beim Betreten verpflichtend.', severity: 'severe' }
+          diagnostics: [
+            'Regelmäßige aktive Surveillance und Punktprävalenzerhebungen (Benchmarking der Infektionsraten)',
+            'Automatisiertes Labor-Meldewesen bei Nachweis neuer MRE-Isolate (MRSA, VRE, MRGN, C. difficile)',
+            'Mikrobiologische Umgebungsuntersuchungen bei Ausbruchsgeschehen (Outbreak Investigation)'
           ],
-          physical_exam: [
-            'Anzeichen von katheterassoziierten Infektionen (z. B. Rötung, Eiterfluss an der Eintrittsstelle des ZVK)',
-            'Fieber, Hypotonie, Tachykardie (Verdacht auf Sepsis)',
-            'Wundinfektion (Rötung, Fluktuation, Überwärmung, Schmerz)',
-            'Druckschmerz im Bereich des Blasenkatheters'
+          red_flags: [
+            'Unkritische, routinemäßige Weiterführung invasiver Katheter (Katheter sind die primäre Eintrittspforte für nosokomiale Sepsen)',
+            'Bruch der Asepsis bei Anlage oder Verbandwechsel',
+            'Fehlende Surveillance-Daten und mangelndes Hygiene-Feedback auf Station'
           ],
-          complications: ['Sepsis und septischer Schock', 'Geräteassoziierte systemische Infektionen (z. B. Katheter-Sepsis)', 'Verlängerte Krankenhausverweildauer', 'Erhöhte Mortalität und Behandlungskosten']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Klinisches Screening', finding: 'Nachweis von MDRO-Besiedlung mittels Nasen-, Rachen- oder Perianalabstrichen', interpretation: 'Identifiziert symptomlose Träger zur rechtzeitigen Isolierung' },
-            { test: 'Labor und Entzündungsmarker', finding: 'Leukozytose, Erhöhung von CRP und Procalcitonin (PCT)', interpretation: 'Unterscheidet aktive Infektion von bloßer Kolonisation' }
-          ],
-          microbiology: [
-            { test: 'Kultur & Resistenzprüfung', finding: 'Erregerisolierung und Erstellung eines Antibiogramms', significance: 'Grundlage für gezielte Antibiotikatherapie und krankenhaushygienisches Tracking' },
-            { test: 'PCR (Molekulare Tests)', finding: 'Schneller Nachweis von Resistenzgenen (z. B. mecA, vanA, blaKPC)', significance: 'Ermöglicht Isolierungsentscheidung innerhalb weniger Stunden' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            inpatient: [
-              { drug: 'Isolierung & Kohortierung', dose: 'Sofort', duration: 'Bis zum Nachweis der Erregerfreiheit', note: 'Einzelzimmer oder Zusammenlegung von Patienten mit demselben Erreger' },
-              { drug: 'Barrierepflege (PSA)', dose: 'Beim Betreten', duration: 'Immer', note: 'Korrektes An- und Ablegen der PSA in der richtigen Reihenfolge' }
-            ]
-          },
-          targeted: 'Immer die schmalstmögliche Antibiotikatherapie basierend auf dem Antibiogramm wählen, um Selektionsdruck zu minimieren.',
-          supportive: [
-            'Flächendesinfektion mit viruziden und sporiziden Mitteln',
-            'Verwendung von Einweg- oder patientenbezogenen Medizinprodukten',
-            'Zuweisung von festem Kohortenpflegepersonal bei Ausbrüchen'
-          ],
-          prevention: [
-            'Antibiotic Stewardship (zielgerichteter Einsatz von Antibiotika zur Reduzierung von Resistenzen)',
-            'Tägliche Überprüfung invasiver Zugänge (frühestmögliche Entfernung nicht zwingend nötiger Katheter)',
-            'Regelmäßige Schulungen und Hygiene-Audits'
-          ]
-        },
-        prognosis: { mortality: 'Variabel; z. B. bei CRE-Sepsis kann die Mortalität >40% betragen', prognostic_scores: ['APACHE II', 'SOFA'], factors: 'Resistenzmuster des Erregers, Alter und Begleiterkrankungen des Patienten' }
+          teaching_tip: 'Die wirksamste Einzelmaßnahme gegen Fremdkörperinfektionen ist die tägliche Indikationsprüfung: Sobald ein Katheter klinisch nicht mehr zwingend erforderlich ist, muss er sofort entfernt werden!'
+        }
       },
       {
         id: 'hand_hygiene',
         name: 'Händehygiene (Händedesinfektion und Händewaschen)',
-        pathogen: { type: 'Übertragungsvektor', name: 'Hände des medizinischen Personals (transiente Flora)', gram: '-', shape: '-' },
-        epidemiology: {
-          incidence: 'Die Händehygiene-Compliance liegt weltweit ohne aktive Audits oft unter 50%',
-          risk_groups: ['Alle stationären und ambulanten Patienten, insbesondere Intensiv- und immungeschwächte Patienten'],
-          seasonality: 'Ganzjährig von kritischer Bedeutung',
-          transmission: 'Direkter Kontakt (Erreger werden über die Hände des Personals von Patient zu Patient oder von der Umgebung auf den Patienten übertragen)'
-        },
-        pathomechanism: {
-          steps: [
-            'Besiedlung mit transienter Flora: Hände des Personals nehmen bei Kontakt mit Patienten oder Flächen transiente Keime auf.',
-            'Überleben der Erreger: Transiente Erreger können ohne Händehygiene stundenlang auf der Haut überleben.',
-            'Übertragung auf den Patienten: Bei nachfolgenden Kontakten gelangen die Keime an Eintrittspforten (z. B. Wunden, Katheter).',
-            'Residente Flora: Die residente Hautflora (z. B. S. epidermidis) lebt in tieferen Schichten und verursacht selten HAI, außer bei invasiven Eingriffen ohne Antisepsis.'
+        didactics: {
+          overview: 'Die Händehygiene ist die unbestritten wichtigste, effektivste und kostengünstigste Maßnahme zur Verhütung nosokomialer Infektionen (HAI) und zur Unterbrechung von MRE-Übertragungsketten. Eine hohe Compliance senkt die Rate nosokomialer Infektionen um 30–50%.',
+          sections: [
+            {
+              title: 'Indikationen: Die 5 Momente der Händehygiene (WHO)',
+              icon: '🖐️',
+              badge: 'Internationaler Goldstandard',
+              content: 'Die Händedesinfektion muss an klar definierten Schnittstellen des Behandlungsablaufs durchgeführt werden:',
+              items: [
+                {
+                  label: '1. VOR Patientenkontakt',
+                  text: 'Schützt den Patienten vor Kolonisation mit Erregern, die sich auf den Händen des Personals befinden (z. B. vor Händedruck, Pulsmessung, Umlagerung).'
+                },
+                {
+                  label: '2. VOR aseptischen Tätigkeiten',
+                  text: 'Schützt den Patienten vor dem Eintrag von Krankheitserregern in sterile Körperbereiche (z. B. vor Injektion, Verbandwechsel, Katheterisierung, Augentropfengabe).'
+                },
+                {
+                  label: '3. NACH Kontakt mit potenziell infektiösen Materialien',
+                  text: 'Schützt das Personal und die Umgebung vor Erregerverbreitung (z. B. nach Blutabnahme, Entleeren von Urinbeuteln, Absaugen, sofort nach dem Ausziehen von Handschuhen).'
+                },
+                {
+                  label: '4. NACH Patientenkontakt',
+                  text: 'Schützt das Personal und nachfolgende Patienten vor Kolonisation mit der Patientenflora (z. B. beim Verlassen des Patientenbettes nach Untersuchung).'
+                },
+                {
+                  label: '5. NACH Kontakt mit der direkten Patientenumgebung',
+                  text: 'Schützt die Umgebung auch dann, wenn der Patient nicht direkt berührt wurde (z. B. nach Berühren von Bettgittern, Infusomaten, Nachttischen).'
+                }
+              ]
+            },
+            {
+              title: 'Methodik: Alkoholische Händedesinfektion vs. Händewaschen',
+              icon: '🧴',
+              badge: 'Klinischer Entscheidungsbaum',
+              content: 'Die Wahl des Händehygieneverfahrens richtet sich nach Verschmutzungsgrad und Erregereigenschaften:',
+              items: [
+                {
+                  label: 'Alkoholische Händedesinfektion (Hand Rub) — GOLDSTANDARD',
+                  text: 'Anwendung: Bei allen routinemäßigen Pflegetätigkeiten, wenn die Hände NICHT sichtbar verschmutzt sind. Wirkungsweise: Rasche bakterizide, viruzide und fungizide Wirkung durch Proteindenaturierung. Einwirkzeit: Mindestens 20–30 Sekunden (3–5 ml Händedesinfektionsmittel, Hände während der gesamten Zeit feucht halten). Vorteile: Deutlich wirksamer und schneller als Waschen, direkt am Point of Care verfügbar, rückfettende Substanzen schonen die Hautbarriere.'
+                },
+                {
+                  label: 'Händewaschen mit Wasser und Seife — VERPFLICHTENDE INDIKATIONEN',
+                  text: 'Anwendung: 1) Bei sichtbarer Verschmutzung mit Blut, Exkreten oder Körperflüssigkeiten; 2) Nach Kontakt mit sporenbildenden Erregern (Clostridioides difficile, Bacillus anthracis); 3) Bei Ausbrüchen unbehüllter Viren (Norovirus, Rotavirus); 4) Nach dem Toilettengang. Dauer: 40–60 Sekunden mit fließendem Wasser und Waschlotion, gründliches Trocknen mit Einmal-Papiertüchern, Schließen der Armatur mit dem Papiertuch.'
+                }
+              ]
+            },
+            {
+              title: 'Die 6-Schritte-Technik nach EN 1500',
+              icon: '🔄',
+              badge: 'Standardisierte Reibetechnik',
+              content: 'Um Benetzungslücken zu vermeiden, muss das Desinfektionsmittel systematisch auf allen Hautarealen verrieben werden:',
+              items: [
+                '1. Handfläche auf Handfläche reiben.',
+                '2. Rechte Handfläche über linkem Handrücken mit verschränkten Fingern und umgekehrt.',
+                '3. Handfläche auf Handfläche mit verschränkten Fingern für die Fingerzwischenräume.',
+                '4. Außenseite der Finger auf die gegenüberliegende Handfläche mit verschränkten Fingern.',
+                '5. Kreisförmiges Reiben des Daumens in der geschlossenen Handfläche (beidseits).',
+                '6. Kreisförmiges Reiben der Fingerkuppen und Nägel in der Handfläche (beidseits).'
+              ]
+            },
+            {
+              title: 'Chirurgische Händedesinfektion',
+              icon: '🧤',
+              badge: 'OP-Asepsis',
+              content: 'Verpflichtend vor allen operativen und invasiven Eingriffen im Operationssaal zur Beseitigung der transienten und Reduktion der residenten Hautflora:',
+              items: [
+                'Initialphase: Zu Dienstbeginn Hände und Unterarme mit Flüssigseife waschen, Fingernägel unter fließendem Wasser mit Nagelreiniger säubern (Bürsten wegen Mikroläsionen obsolet!).',
+                'Desinfektionsphase: Alkoholisches Händedesinfektionsmittel auf Hände und Unterarme auftragen (Einwirkzeit 1,5–3 Minuten), Haut kontinuierlich feucht halten.',
+                'Das Anlegen von sterilem OP-Kittel und Handschuhen darf erst nach vollständiger Abtrocknung erfolgen.'
+              ]
+            },
+            {
+              title: 'Rahmenbedingungen: „Bare Below the Elbows“',
+              icon: '👔',
+              badge: 'Dienstkleidungsvorschriften',
+              items: [
+                'Absolutes Verbot von Ringen (auch Eheringe!), Armbanduhren und Armbändern bei der Patientenversorgung.',
+                'Verbot von künstlichen Fingernägeln, Gelnägeln und Nagellack (signifikante Erregerreservoire für gramnegative Stäbchen und Pilze).',
+                'Fingernägel müssen kurz geschnitten (<0,5 cm) und gepflegt gehalten werden.',
+                'Kurzärmelige Arbeitskleidung im Patientenkontakt zur uneingeschränkten Unterarmdesinfektion.'
+              ]
+            },
+            {
+              title: 'Qualitätssicherung und Compliance-Monitoring',
+              icon: '📊',
+              badge: 'Audit & Feedback',
+              items: [
+                'Direkte Beobachtung (Direct Observation): Erfassung der Händedesinfektions-Compliance durch geschulte Auditoren nach WHO-Kriterien.',
+                'Verbrauchsmessung: Kontinuierliche Erfassung des Desinfektionsmittelverbrauchs in Millilitern pro Patiententag (HAND-KISS).',
+                'Fluoreszenz-Tests unter UV-Licht: Schulungsmaßnahme zur sofortigen Visualisierung von Benetzungslücken.'
+              ]
+            }
           ],
-          virulence_factors: ['Relative Alkoholresistenz (z. B. C. difficile-Sporen, unbehüllte Viren)', 'Hauttrockenheit/Läsionen (begünstigen Keimbesiedlung)']
-        },
-        clinical: {
-          incubation: '-',
-          onset: '-',
-          symptoms: [
-            { name: 'Die 5 Momente der Händedesinfektion', description: '1. VOR Patientenkontakt, 2. VOR aseptischen Tätigkeiten, 3. NACH Kontakt mit potenziell infektiösem Material, 4. NACH Patientenkontakt, 5. NACH Kontakt mit Oberflächen in unmittelbarer Patientenumgebung.', severity: 'severe' },
-            { name: 'Händedesinfektion (Hand Rub)', description: 'Der GOLDSTANDARD der Händehygiene. Schneller, wirksamer gegen Bakterien und hautschonender. Dauer: 20-30 Sekunden. Nicht anwenden bei sichtbarer Verschmutzung oder sporenbildenden Erregern!', severity: 'mild' },
-            { name: 'Händewaschen (Hand Wash)', description: 'Verpflichtend bei sichtbarer Verschmutzung (Blut, Sekrete) sowie nach Pflege von Patienten mit sporenbildenden Erregern (z. B. C. difficile) oder unbehüllten Viren (z. B. Noroviren), da Alkohol Sporen nicht abtötet (mechanische Entfernung nötig). Dauer: 40-60 Sekunden.', severity: 'moderate' },
-            { name: 'Die 6 Schritte der Händedesinfektion', description: 'Sicherstellen, dass alle Bereiche benetzt werden: 1. Handfläche auf Handfläche, 2. Rechte Handfläche über linkem Handrücken und umgekehrt, 3. Handfläche auf Handfläche mit verschränkten Fingern, 4. Außenseite der Finger auf gegenüberliegende Handfläche mit verschränkten Fingern, 5. Kreisen des Daumens in der geschlossenen Handfläche, 6. Kreisen der Fingerkuppen in der Handfläche.', severity: 'moderate' }
+          diagnostics: [
+            'Mikrobiologische Abklatschkulturen (Fingerspitzen-Agar) bei epidemiologischen Ausbruchsanalysen',
+            'Regelmäßige UV-Fluoreszenz-Audits zur Schulung und Überprüfung der korrekten Einreibetechnik',
+            'Hautzustands-Screening zur Früherkennung von berufsbedingten Kontaktekzemen'
           ],
-          physical_exam: [
-            'Überprüfung der Hautintegrität (Hautrisse, Dermatitis erhöhen das Kolonisationsrisiko)',
-            'Nagelstatus (künstliche Fingernägel, Gelnägel und Schmuck an Händen/Unterarmen sind strengstens untersagt, da sie Keimreservoirs bilden und die Desinfektion behindern)'
+          red_flags: [
+            'Handschuhe ersetzen KEINE Händedesinfektion! Vor dem Anziehen und unmittelbar nach dem Ausziehen ist eine Händedesinfektion zwingend erforderlich.',
+            'Bei Clostridioides difficile tötet Alkohol die bakteriellen Sporen NICHT ab — mechanisches Händewaschen mit Wasser und Seife ist zwingend vorgeschrieben!',
+            'Handschuhe niemals auf feuchte Hände anziehen (führt zu Hautmazeration und schweren Ekzemen).',
+            'Schmuck an Händen und Handgelenken erhöht die bakterielle Besiedlungsdichte um ein Vielfaches.'
           ],
-          complications: ['Kreuzinfektionen und nosokomiale Ausbrüche im Krankenhaus', 'Berufsdermatitis bei Pflegekräften durch mangelnde Hautpflege oder unvollständiges Abtrocknen']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Hände-Abklatschpräparat', finding: 'Wachstum von Erregern auf Nährböden nach Fingeraufdruck', interpretation: 'Überprüft die Effektivität und Technik der Händedesinfektion' },
-            { test: 'Fluoreszenz-Test (UV-Audit)', finding: 'Nicht benetzte Stellen erscheinen im UV-Licht als dunkle Flecken', interpretation: 'Sofortiges visuelles Feedback über Benetzungsdefizite' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            outpatient: [
-              { drug: 'Händedesinfektionsmittel (alkoholisch)', dose: '3-5 ml', duration: '20-30 Sek. einreiben', note: 'Hände müssen während der gesamten Einreibezone feucht bleiben' },
-              { drug: 'Hygienisches Händewaschen', dose: 'Wasser + Seife', duration: '40-60 Sek. waschen', note: 'Gründlich mit Einmal-Papiertuch trocknen, Wasserhahn mit dem Tuch schließen' }
-            ]
-          },
-          targeted: 'Vor aseptischen chirurgischen Eingriffen ist eine chirurgische Händedesinfektion erforderlich (Einreiben mit Alkohol für 1,5 - 3 Minuten unter Einschluss der Unterarme).',
-          supportive: [
-            'Regelmäßige Anwendung rückfettender Handcremes zur Erhaltung der Hautbarriere',
-            'Platzierung von Händedesinfektionsmittelspendern direkt am Point of Care (Patientenbett)'
-          ],
-          prevention: [
-            'Aktion Saubere Hände Richtlinien (schmucklos an Händen und Unterarmen)',
-            'Regelmäßige Audits durch direkte Beobachtung (WHO-Beobachtungsbögen)',
-            'Gut sichtbare Plakate zur Händehygiene'
-          ]
-        },
-        prognosis: { mortality: 'Indirekt: Eine hohe Händehygiene-Compliance senkt die nosokomiale Mortalität um bis zu 50%', prognostic_scores: [], factors: 'Compliance des Personals, Verfügbarkeit von Hygieneartikeln' }
+          teaching_tip: '„Saubere Hände retten Leben”: Die am häufigsten vergessenen Areale bei der Händedesinfektion sind Daumen, Fingerkuppen und Fingerzwischenräume. Achten Sie stets auf die vollständige Einwirk- und Trocknungszeit!'
+        }
       },
       {
         id: 'isolation_measures',
-        name: 'Isolierung (Typen, Methoden und Bedeutung)',
-        pathogen: { type: 'Präventives Verfahren', name: 'Unterbrechung von Übertragungswegen', gram: '-', shape: '-' },
-        epidemiology: {
-          incidence: 'Isolierungsmaßnahmen können die Übertragungsrate von MDROs im Krankenhaus um über 60-70% senken',
-          risk_groups: ['Mit MDROs infizierte oder kolonisierte Patienten', 'Patienten mit respiratorischen oder enteralen Infektionen', 'Schwer neutropenische/immungeschwächte Patienten (Schutzisolierung)'],
-          seasonality: 'Ganzjährig von höchster Priorität',
-          transmission: 'Kontakt (direkt/indirekt), Tröpfchen und aerogene (Aerosol) Übertragungswege'
-        },
-        pathomechanism: {
-          steps: [
-            'Quellenisolierung (Quellenkontrolle): Physische Trennung des infektiösen Patienten von anderen Patienten.',
-            'Barrierepflege: Verwendung persönlicher Schutzausrüstung (PSA wie Handschuhe, Schutzkittel, Masken) und physischer Barrieren, um das Entweichen von Erregern zu verhindern.',
-            'Unterdruck (aerogene Isolierung): Verhindert das Entweichen von Luft aus dem Patientenzimmer auf den Flur (Abluft wird über HEPA-Filter gereinigt).',
-            'Überdruck (Schutz-/Umkehrisolierung): Verhindert das Eindringen von keimbelasteter Krankenhausluft (z. B. Pilzsporen) in das Zimmer eines hochgradig immungeschwächten Patienten.'
+        name: 'Isolierungsmaßnahmen (Typen, Richtlinien und Aufhebung)',
+        didactics: {
+          overview: 'Isolierungsmaßnahmen dienen der räumlichen und verfahrenstechnischen Abgrenzung von Infektionsquellen, um Übertragungswege zu unterbrechen und andere Patienten, das Klinikpersonal sowie Besucher vor nosokomialen Erregern zu schützen.',
+          sections: [
+            {
+              title: '1. Basishygiene (Standard Precautions)',
+              icon: '🛡️',
+              badge: 'Standard für jeden Patienten',
+              content: 'Muss bei jedem Patienten in allen Versorgungsbereichen unabhängig vom Infektionsstatus angewendet werden:',
+              items: [
+                'Konsequente Händehygiene nach den 5 Momenten der WHO.',
+                'Situationsgerechte persönliche Schutzausrüstung (PSA: Handschuhe, Schutzkittel, Mund-Nasen-Schutz, Schutzbrille) bei Risiko von Körperflüssigkeitskontakt.',
+                'Sicherer Umgang mit spitzen/scharfen Instrumenten (kein Recapping, sofortige Entsorgung in stichfeste Kanülenabwurfboxen).',
+                'Regelmäßige Wischdesinfektion patientennaher Kontaktflächen.',
+                'Sachgerechte Aufbereitung von Wäsche, Abfallentsorgung und Einhaltung der Hustenetikette.'
+              ]
+            },
+            {
+              title: '2. Kontaktisolierung (Contact Precautions)',
+              icon: '🤝',
+              badge: 'Direkte und indirekte Kontaktübertragung',
+              content: 'Indikationen: Multiresistente Erreger (MRSA, VRE, 3MRGN / 4MRGN, Carbapenemase-Bildner), Clostridioides difficile, Norovirus, Rotavirus, Krätze (Scabies) und stark sezernierende Wunden.',
+              items: [
+                {
+                  label: 'Unterbringung',
+                  text: 'Einzelzimmer (mit eigener Nasszelle) oder Kohortenisolierung von Patienten mit identischem Erreger und Resistenzprofil.'
+                },
+                {
+                  label: 'Persönliche Schutzausrüstung (PSA)',
+                  text: 'Unsteriler Schutzkittel und Einmalhandschuhe müssen vor Betreten des Zimmers für jede pflegerische oder diagnostische Tätigkeit angelegt werden.'
+                },
+                {
+                  label: 'Patientenbezogene Medizinprodukte',
+                  text: 'Eigene Geräte (Stethoskop, Blutdruckmanschette, Thermometer), die bis zur Schlussdesinfektion im Zimmer verbleiben.'
+                },
+                {
+                  label: 'Patiententransport',
+                  text: 'Nur bei zwingender medizinischer Indikation mit frischer Wäsche, verbundenen Wunden und Information der Zieleinheit.'
+                }
+              ]
+            },
+            {
+              title: '3. Tröpfchenisolierung (Droplet Precautions)',
+              icon: '🗣️',
+              badge: 'Große Tröpfchen (>5 µm)',
+              content: 'Indikationen: Influenza, SARS-CoV-2 (Basisversorgung), Neisseria meningitidis (invasive Meningokokken-Erkrankung), Bordetella pertussis, Mycoplasma pneumoniae, Mumps, Röteln, Parvovirus B19.',
+              items: [
+                {
+                  label: 'Unterbringung',
+                  text: 'Einzelzimmer oder räumlicher Bettenabstand von mindestens 1,5–2 Metern bei Kohortierung.'
+                },
+                {
+                  label: 'PSA-Anforderungen',
+                  text: 'Medizinischer Mund-Nasen-Schutz (chirurgische Maske) bei Annäherung an den Patienten unter 2 Meter (Schutzbrille/Visier bei hustenden Patienten).'
+                },
+                {
+                  label: 'Patiententransport',
+                  text: 'Patient muss bei Verlassen des Zimmers durchgehend einen medizinischen Mund-Nasen-Schutz tragen.'
+                }
+              ]
+            },
+            {
+              title: '4. Aerogene Isolierung (Airborne Precautions)',
+              icon: '💨',
+              badge: 'Feine Tröpfchenkerne (≤5 µm / Aerosole)',
+              content: 'Indikationen: Offene pulmonale Tuberkulose (M. tuberculosis), Masern (Morbilli), Varizellen (Windpocken und disseminierter Herpes zoster) sowie bei aerosolgenerierenden Prozeduren (AGPs: Intubation, Bronchoskopie, Absaugen).',
+              items: [
+                {
+                  label: 'Unterbringung',
+                  text: 'Unterdruck-Isolierzimmer (AIIR) mit Schleuse, mindestens 6–12-fachem Luftwechsel pro Stunde und HEPA-Filtration. Die Zimmertür muss durchgehend GESCHLOSSEN bleiben.'
+                },
+                {
+                  label: 'PSA-Anforderungen',
+                  text: 'Partikelfiltrierende Halbmaske (FFP2 oder FFP3) vor Betreten des Zimmers in der Schleuse anlegen, Dichtsitzprüfung (Fit-Check) durchführen.'
+                },
+                {
+                  label: 'Zutrittsbeschränkung',
+                  text: 'Nicht-immunes Personal darf Zimmer von Patienten mit Masern oder Windpocken nicht betreten.'
+                }
+              ]
+            },
+            {
+              title: '5. Protektive / Umkehr-Isolierung',
+              icon: '🧬',
+              badge: 'Schutz hochgradig immunsupprimierter Patienten',
+              content: 'Indikationen: Schwere Neutropenie (Absolute Neutrophilenzahl ANC < 500/µL), allogene Stammzelltransplantation, schwere großflächige Verbrennungen.',
+              items: [
+                'Überdruck-Isolierzimmer mit HEPA-gefilterter Zuluft zur Verhinderung des Eindringens von Umweltpilzsporen (Aspergillus) und Bakterien.',
+                'Strikter Verbot von Topfpflanzen, Schnittblumen, rohem Obst/Gemüse und Rohmilchkäse im Zimmer.',
+                'Strenge Besuchereinschränkung, Tragen von Mund-Nasen-Schutz und Schutzkittel beim Betreten.'
+              ]
+            },
+            {
+              title: 'Kriterien für die Aufhebung der Isolierung (De-Isolierung)',
+              icon: '🔓',
+              badge: 'Entisolierungs-Protokoll',
+              items: [
+                {
+                  label: 'MRSA-Aufhebung',
+                  text: 'Mindestens 3 negative Kontrollabstriche (Nase, Rachen, Wunden) an 3 aufeinanderfolgenden Tagen, frühestens 48–72 Stunden nach Abschluss der Dekolonisation.'
+                },
+                {
+                  label: 'VRE und 4MRGN-Aufhebung',
+                  text: 'In der Regel 3 negative Rektalabstriche im Abstand von mindestens 1 Woche ohne antibiotische Therapie; nach Hausrichtlinien oft Weiterführung der Kontaktisolierung bis zur Entlassung.'
+                },
+                {
+                  label: 'Clostridioides difficile-Aufhebung',
+                  text: 'Frühestens 48 Stunden nach vollständigem Sistieren des Durchfalls (geformter Stuhl). Ein Kontroll-Toxinnachweis ist zur Aufhebung NICHT indiziert!'
+                },
+                {
+                  label: 'Tuberkulose-Aufhebung',
+                  text: 'Nach mindestens 2-wöchiger wirksamer 4er-Kombinationstherapie + klinischer Besserung + 3 mikroskopisch säurefest-negativen Sputumproben.'
+                }
+              ]
+            }
           ],
-          virulence_factors: ['Aerosolbildung und Luftüberleben (z. B. M. tuberculosis)', 'Umweltresistenz (z. B. VRE- und C. difficile-Sporen, die tagelang auf Oberflächen überleben)']
-        },
-        clinical: {
-          incubation: '-',
-          onset: '-',
-          symptoms: [
-            { name: 'Kontaktisolierung', description: 'Bedeutung: Verhindert die direkte/indirekte Kontaktübertragung (MRSA, VRE, CRE, C. difficile). Methode: Einzelzimmer oder Kohortenisolierung. Kittel und Handschuhe beim Betreten verpflichtend. Patientengebundenes Pflegegeschirr (z. B. Stethoskop, Fieberthermometer).', severity: 'moderate' },
-            { name: 'Tröpfchenisolierung', description: 'Bedeutung: Bei Erregern, die durch grobe Atemtröpfchen (>5 µm) übertragen werden (Influenza, Meningokokken, Keuchhusten). Methode: Einzelzimmer oder >1,5-2m Bettabstand. Chirurgische Maske im Umkreis von 2 Metern verpflichtend.', severity: 'moderate' },
-            { name: 'Aerogene Isolierung (Aerosol)', description: 'Bedeutung: Bei über feine Tröpfchenkerne (≤5 µm) übertragbaren Erregern (Tuberkulose, Masern, Varizellen). Methode: Unterdruckzimmer (6-12 Luftwechsel/Stunde), FFP2/FFP3-Maske beim Betreten zwingend vorgeschrieben.', severity: 'severe' },
-            { name: 'Schutzisolierung (Umkehrisolierung)', description: 'Bedeutung: Schutz schwer immungeschwächter Patienten (z. B. nach allogener Knochenmarktransplantation) vor Erregern der Umgebung. Methode: Überdruckzimmer mit HEPA-Filtration, sterile Kost, Besuchsverbot, streng aseptische Pflege.', severity: 'severe' }
+          diagnostics: [
+            'Mikrobiologische Kontrollabstriche zur Dokumentation der Erregerfreiheit vor Entisolierung',
+            'Tägliche Überprüfung der Druckdifferenzanzeige bei Unterdruckzimmern (AIIR)',
+            'Kontinuierliche Audits zur Einhaltung der PSA-Anlege- und Ablegereihenfolge'
           ],
-          physical_exam: [
-            'Gut sichtbare Isolierungshinweise (Piktogramme) an der Zimmertür anbringen',
-            'Vollständigen Vorrat an PSA in der Schleuse oder im Isolierwagen überprüfen',
-            'Psychologischen Zustand des Patienten aufgrund der Isolation überwachen (Gefahr von Depression, Einsamkeit)'
+          red_flags: [
+            'Offene Zimmertür bei aerogener Isolierung (führt zum sofortigen Zusammenbruch des Unterdruckgradienten).',
+            'Tragen kontaminierter PSA auf Stationsfluren (schwere Hygienesicherheitsverletzung).',
+            'Falsche Reihenfolge beim Ablegen der PSA: Handschuhe und Kittelaußenseite sind massiv kontaminiert — nach dem Ablegen SOFORT Händedesinfektion vor Berühren des Gesichts/der Maske durchführen!'
           ],
-          complications: ['Isolationsstress und verringerte direkte Pflegezeit (Risiko für unerwünschte Ereignisse kann steigen)', 'Gefahr von Kreuzinfektionen mit anderen Stämmen bei fehlerhafter Kohortierung']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Klinischer Nachweis der Erregerfreiheit (Clearance)', finding: 'Mehrfach negative mikrobiologische Abstriche (in der Regel 2-3 aufeinanderfolgende negative Proben im Abstand von 24 Stunden)', interpretation: 'Zwingende Voraussetzung zur Aufhebung der Isolierung' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            inpatient: [
-              { drug: 'Quellenkontrolle und räumliche Trennung', dose: 'Sofort', duration: 'Bis zur bestätigten Clearance', note: 'Türen geschlossen halten, Patient verlässt das Zimmer nur für unaufschiebbare Diagnostik (mit Maske)' },
-              { drug: 'Schulung des PSA-Protokolls', dose: 'Für alle Eintretenden', duration: 'Fortlaufend', note: 'Händedesinfektion VOR dem Anlegen und NACH dem Ablegen der Schutzkleidung verpflichtend!' }
-            ]
-          },
-          supportive: [
-            'Strenge Schlussdesinfektion des Zimmers nach Entlassung des Patienten (mit sporiziden/viruziden Mitteln)',
-            'Eigenes Reinigungsequipment und fest zugeteiltes Personal für Isolierzimmer'
-          ],
-          prevention: [
-            'Regelmäßige Audits und Rückmeldungen zur Einhaltung der Isolierungsmaßnahmen an das Personal',
-            'Personalkohortierung (Pflegekräfte für isolierte Patienten sollten keine hochgradig gefährdeten, sterilen Patienten betreuen)'
-          ]
-        },
-        prognosis: { mortality: 'Rettet indirekt Leben durch Unterbrechung von Infektionsketten; verhindert folgenschwere MDRO-Ausbrüche', prognostic_scores: [], factors: 'Disziplin des Personals, bauliche Infrastruktur' }
+          teaching_tip: 'PSA-Reihenfolge: Anlegen = Kittel ➔ Maske ➔ Schutzbrille ➔ Handschuhe. Ablegen = Handschuhe ➔ Schutzbrille ➔ Kittel ➔ HÄNDEDESINFEKTION ➔ Maske (in Schleuse) ➔ HÄNDEDESINFEKTION!'
+        }
       },
       {
         id: 'mdro_screening',
-        name: 'Screening-Untersuchungen (Muster, wann, woher?)',
-        pathogen: { type: 'Diagnostisches Protokoll', name: 'Aktives Surveillance-Screening auf multiresistente Erreger (MDRO)', gram: '-', shape: '-' },
-        epidemiology: {
-          incidence: 'Die Nachweisrate von MDRO-Trägern in Risikogruppen kann bei aktiver Suche 15-25% erreichen',
-          risk_groups: ['Patienten mit bekannter MDRO-Anamnese', 'Patienten bei Aufnahme auf die Intensivstation (ITS)', 'Patienten, die aus anderen Krankenhäusern oder dem Ausland verlegt werden', 'Dialysepatienten, Bewohner von Pflegeheimen'],
-          seasonality: 'Ganzjährig verpflichtend in Hochrisikobereichen',
-          transmission: 'Asymptomatische Träger kontaminieren unbemerkt ihre Umgebung und Mitpatienten'
-        },
-        pathomechanism: {
-          steps: [
-            'Asymptomatische Kolonisation: Die Erreger (MRSA, VRE, CPE) besiedeln Haut oder Schleimhäute (Nasenvorhof, Darmtrakt), ohne eine Entzündungsreaktion hervorzurufen.',
-            'Umgebungskontamination: Durch Hautschuppen, Sekrete und Stuhl des Trägers wird die Patientenumgebung (Bettgitter, Nachtisch) stark kontaminiert.',
-            'Übertragung per Hand: Das Personal überträgt die Keime über die Hände auf andere Patienten.',
-            'Selektionsdruck: Unter Antibiotikatherapie stirbt die schützende Normalflora ab, der resistente Keim vermehrt sich und führt zur aktiven Infektion.'
+        name: 'Screening-Untersuchungen (Aktive Surveillance)',
+        didactics: {
+          overview: 'Das aktive mikrobiologische Screening (Surveillance) dient der frühzeitigen Identifikation asymptomatischer Träger multiresistenter Erreger (MRE / MDRO) bei Aufnahme oder im Verlauf, um sofortige Isolierungsmaßnahmen einzuleiten und unbemerkte Übertragungsketten im Krankenhaus zu unterbrechen.',
+          sections: [
+            {
+              title: 'Screening-Indikationen und Risikogruppen',
+              icon: '🎯',
+              badge: 'Wer muss gescreent werden?',
+              content: 'Das Aufnahmescreening ist für folgende Hochrisikopatienten verpflichtend (KRINKO-Empfehlungen):',
+              items: [
+                'Bekannte MRE-Besiedlung oder -Infektion in der Anamnese.',
+                'Verlegung aus anderen Krankenhäusern, Intensivstationen oder Kliniken im Ausland.',
+                'Alle Neuaufnahmen auf Intensiv- und Überwachungsstationen (ITS / IMC).',
+                'Patienten mit chronischer Hämodialyse oder aus stationären Pflegeeinrichtungen.',
+                'Vor großen elektiven Operationen (Gelenkendoprothetik, Herzchirurgie, Neurochirurgie - MRSA-Screening).',
+                'Patienten mit chronischen Wunden, Dekubitalulzera, Ulzera cruris oder großflächigen Verbrennungen.'
+              ]
+            },
+            {
+              title: 'Abstrichlokalisationen nach Erregern',
+              icon: '🧪',
+              badge: 'Wo und wie abstreichen?',
+              content: 'Die Lokalisation richtet sich nach dem typischen Kolonisationshabitat des jeweiligen Erregers:',
+              items: [
+                {
+                  label: 'MRSA (Methicillin-resistenter S. aureus)',
+                  text: 'Abstrichorte: Beide vorderen Nasenlöcher (Nares anteriores – Tupfer unter rotierendem Druck über die Schleimhaut führen), Rachenabstrich, Leiste/Perineum sowie alle offenen Wunden, Drainagenaustritte und Kathetereintrittsstellen.'
+                },
+                {
+                  label: 'VRE (Vancomycin-resistente Enterokokken)',
+                  text: 'Abstrichort: Rektalabstrich (Tupfer muss sichtbar mit Stuhl benetzt sein, 1–2 cm tief über den Sphinkter einführen) oder Nativstuhlprobe.'
+                },
+                {
+                  label: 'ESBL-Bildner / MRGN (3MRGN / 4MRGN Enterobacterales)',
+                  text: 'Abstrichorte: Rektalabstrich oder Nativstuhl; im Ausbruchsfall zusätzlich Rachenabstrich, Urin (bei Dauerkatheter) und Wundabstriche.'
+                },
+                {
+                  label: 'Multiresistente Pseudomonas (MRPA) und Acinetobacter (MRAB)',
+                  text: 'Abstrichorte: Rachenabstrich, Perineum, Trachealsekret / Bronchialabsaugung bei beatmeten Patienten sowie offene Wunden.'
+                }
+              ]
+            },
+            {
+              title: 'Diagnostische Methoden und Befundlaufzeiten',
+              icon: '⏱️',
+              badge: 'Labormodalitäten',
+              items: [
+                {
+                  label: 'Selektiv- / Chromogene Kulturmedien',
+                  text: 'Dauer: 18–48 Stunden. Kostengünstig, charakteristische Farbkolonien für resistente Isolate (z. B. chromID MRSA, chromID VRE, chromID CARBA), ermöglicht vollständiges phänotypisches Antibiogramm.'
+                },
+                {
+                  label: 'Molekularbiologische Schnelltests (PCR / NAAT)',
+                  text: 'Dauer: 1–2 Stunden. Direkter Nachweis von Resistenzgenen (mecA/mecC bei MRSA; vanA/vanB bei VRE; blaKPC, blaNDM, blaOXA-48, blaVIM bei Carbapenemasen). Unverzichtbar vor Notfall-OPs und zur sofortigen Ausbruchseindämmung.'
+                }
+              ]
+            },
+            {
+              title: 'Präemptive Isolierung und Logistik',
+              icon: '🚦',
+              badge: 'Ablaufkette',
+              content: 'Bei Aufnahme von Hochrisikopatienten muss ZEITGLEICH mit der Abnahme der Screeningabstriche eine präemptive Kontaktisolierung eingeleitet werden. Die Isolierung darf erst nach Erhalt eines negativen Screeningbefundes aufgehoben werden!',
+              items: [
+                'Sofortiger Transport der Abstriche ins Labor in geeignetem Transportmedium.',
+                'Elektronische Kennzeichnung im Krankenhausinformationssystem (KIS) mit automatischem Alarm bei Wiederaufnahme bekannter MRE-Träger.',
+                'Etablierte Labor-Sofortmeldekette an das klinische Hygieneteam bei Nachweis hochrelevanter Resistenzen.'
+              ]
+            }
           ],
-          virulence_factors: ['Hervorragende Kolonisationsfähigkeit', 'Horizontaler Gentransfer von Resistenzgenen (z. B. über Plasmide)']
-        },
-        clinical: {
-          incubation: '-',
-          onset: '-',
-          symptoms: [
-            { name: 'MRSA-Screening', description: 'Wann: Bei Aufnahme bei Risiko, oder wöchentlich auf ITS. Woher: Beidseitiger Nasenvorhof (Nares-Abstrich - am wichtigsten!), Rachenabstrich, Leiste/Perineum sowie chronische Wunden, Drainagen oder Katheter-Eintrittsstellen.', severity: 'moderate' },
-            { name: 'VRE (Vancomycin-resistente Enterokokken) Screening', description: 'Wann: Bei Aufnahme und wöchentlich auf ITS. Woher: Stuhlprobe oder Rektalabstricht (der Tupfer muss sichtlich mit Stuhl benetzt sein).', severity: 'moderate' },
-            { name: 'ESBL und CRE/CPE (Carbapenem-resistente Enterobacterales) Screening', description: 'Wann: Auf Risikostationen oder bei Ausbruchsgeschehen. Woher: Rektalabstrich oder Stuhlprobe. Entscheidend für schnelle Isolierungsentscheidungen.', severity: 'severe' },
-            { name: 'Multiresistente Pseudomonas (MRPA) und Acinetobacter (MRAB) Screening', description: 'Wann: Auf ITS oder bei Kontaktuntersuchungen. Woher: Rachenabstrich, Perinealabstrich, bei beatmeten Patienten Tracheal-/Bronchialsekret.', severity: 'moderate' }
+          diagnostics: [
+            'Aufnahmescreening (Admission Screening) bei Risikopatienten innerhalb der ersten 24 Stunden',
+            'Wöchentliches Surveillance-Screening auf Intensivstationen zur Erfassung nosokomialer Transmissionen',
+            'Umgebungs- und Kontaktuntersuchungen bei Nachweis eines unerwarteten MRE-Indexfalls'
           ],
-          physical_exam: [
-            'Sorgfältige Inspektion von Hautläsionen, chronischen Ulzera, Dekubiti und Operationswunden (bei Risiko immer Screening-Abstriche entnehmen)',
-            'Kontrolle der Eintrittsstellen invasiver Zugänge (ZVK, Kanülen, Blasenkatheter)'
+          red_flags: [
+            'Abnahme von Screeningabstrichen UNTER laufender lokaler Antiseptik oder systemischer Antibiotikatherapie (führt zu falsch-negativen Ergebnissen).',
+            'Einsenden von unbefleckten Rektaltupfern ohne Stuhlkontakt (nicht verwertbare Probe).',
+            'Unterlassen der präemptiven Isolierung bis zum Eintreffen der Kulturbefunde (führt zu tagelanger unbemerkter Erregerverbreitung auf Station).'
           ],
-          complications: ['Unerkannte MDRO-Träger führen zu nosokomialen Ausbrüchen', 'Übergang von symptomloser Besiedlung in invasive Infektion (endogene Infektion)']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Chromogene Selektivnährböden', finding: 'Wachstum charakteristisch gefärbter Kolonien innerhalb von 18-24 Stunden', interpretation: 'Schnelle und kostengünstige Screeningmethode für MRSA, VRE und ESBL' },
-            { test: 'Molekulares PCR-Screening', finding: 'Direkter Nachweis von Resistenzgenen (z. B. mecA, vanA/vanB, blaOXA-48, blaKPC, blaNDM) aus Abstrichen', interpretation: 'Liefert Ergebnisse in 1-2 Stunden, ermöglicht sofortige präemptive Isolierung bei Aufnahme' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            outpatient: [
-              { drug: 'Präemptive Isolierung', dose: 'Bis zum Vorliegen des Screening-Ergebnisses', duration: '1-2 Tage', note: 'Bei Risikoverlegungen sofortige Isolierung bei Aufnahme bis zum Ausschluss eines MDRO' }
-            ]
-          },
-          targeted: 'Ein positives Screening zieht eine Isolierung nach sich. Bei MRSA ist eine Dekolonisierung zu prüfen.',
-          supportive: [
-            'Sofortige elektronische oder telefonische Meldung positiver Befunde an das Hygieneteam (Schnellwarnung)',
-            'Eindeutige Kennzeichnung des MDRO-Status in der Patientenkurve und am Bett'
-          ],
-          prevention: [
-            'Strikte Händedesinfektionsdisziplin (ein Screening ist ohne nachfolgende Händehygiene wirkungslos)',
-            'Regelmäßige Hygieneaudits auf den Stationen'
-          ]
-        },
-        prognosis: { mortality: 'Senkt indirekt die nosokomiale Mortalität durch rechtzeitige Isolierung und Infektionsvermeidung', prognostic_scores: [], factors: 'Screening-Compliance, Labor-Durchlaufzeit (TAT)' }
+          teaching_tip: 'Screening ist eine Handlungsanweisung: Ein negativer Befund gibt wertvolle Isolierzimmer frei, ein positiver Befund aktiviert sofortige Kontaktisolierung und bei MRSA die gezielte Dekolonisation!'
+        }
       },
       {
         id: 'decolonization_protocols',
-        name: 'Dekolonisierung (Wann, womit und wie?)',
-        pathogen: { type: 'Präventive Behandlung', name: 'Sanierung von Haut und Schleimhäuten (vor allem bei MRSA)', gram: '-', shape: '-' },
-        epidemiology: {
-          incidence: 'Eine erfolgreiche MRSA-Sanierung senkt das Risiko postoperativer Wundinfektionen um bis to 50-60%',
-          risk_groups: ['Nachgewiesene MRSA-Träger vor großen elektiven Eingriffen (z. B. Herzchirurgie, Gelenkendoprothetik)', 'ITS-Patienten (gezielte oder universelle Dekolonisierung)'],
-          seasonality: 'Ganzjährig nach klinischen Standards angewandt',
-          transmission: 'Der körpereigene (endogene) MRSA-Besatz des Patienten ist die Hauptquelle für Wundinfektionen und Katheter-Sepsis'
-        },
-        pathomechanism: {
-          steps: [
-            'Trägernachweis: Ein positives Screening aus Nase oder Haut bestätigt die MRSA-Kolonisierung.',
-            'Lokale antiseptische Behandlung: Anwendung gezielter Antiseptika an den besiedelten Stellen (Nase, Haut, Mundraum).',
-            'Keimzahlreduktion: Die Wirkstoffe zerstören transiente und oberflächliche residente Keime.',
-            'Klimatische Umgebungssanierung: Täglicher Wechsel von Bettwäsche und Kleidung während der Sanierung verhindert Re-Kolonisierung.'
+        name: 'Dekolonisierungsprotokolle (Indikationen, Schemata und Durchführung)',
+        didactics: {
+          overview: 'Die Dekolonisation bezeichnet die zeitweilige oder dauerhafte Eradikation von Krankheitserregern (vor allem Methicillin-resistenter Staphylococcus aureus – MRSA) von Haut und Schleimhäuten mittels lokaler Antiseptika und Antibiotika, um endogene systemische Infektionen und postoperative Wundinfektionen zu verhindern.',
+          sections: [
+            {
+              title: 'Indikationen und Anwendungsbereich',
+              icon: '🎯',
+              badge: 'Evidenzbasierte Kriterien',
+              content: 'Die Dekolonisation ist an strenge klinische Kriterien gebunden:',
+              items: [
+                'Nachgewiesene MRSA-Besiedlung vor großen elektiven Operationen (Herzchirurgie, Gelenkersatz, Gefäßprothesen, Neurochirurgie).',
+                'Gezielte oder universelle Dekolonisation auf Intensivstationen zur Reduktion von beatmungsassoziierten Pneumonien (VAP) und Katheter-Sepsen.',
+                'Rezidivierende Staphylokokken-Haut- und Weichteilinfektionen (Furunkulose, Abszesse) beim Patienten oder engen Haushaltskontaktpersonen.',
+                'WICHTIGER GRUNDSATZ: Ein evidenzbasiertes, wirksames Dekolonisationsregime existiert derzeit NUR für MRSA! Bei VRE, ESBL und Carbapenem-resistenten gramnegativen Stäbchen (3MRGN/4MRGN) ist eine routinemäßige Dekolonisation mangels Wirksamkeit und wegen rapider Resistenzentwicklung NICHT empfohlen!'
+              ]
+            },
+            {
+              title: 'Das standardisierte 5-Tage-MRSA-Dekolonisationsschema',
+              icon: '📋',
+              badge: 'Schritt-für-Schritt-Protokoll',
+              content: 'Beinhaltet die simultane lokale Behandlung aller primären anatomischen Reservoire über 5 aufeinanderfolgende Tage:',
+              items: [
+                {
+                  label: '1. Nasale Eradikation (Nasensalbe)',
+                  text: 'Präparat: 2% Mupirocin-Nasensalbe (oder Octenidin-basiertes Nasengel). Anwendung: 2–3-mal täglich eine streichholzkopfgroße Menge mit Wattestäbchen in beide Nasenvorhöfe einbringen, anschließend Nasenflügel 1 Minute lang zusammendrücken und massieren.'
+                },
+                {
+                  label: '2. Ganzkörper-Waschung (Hautantiseptik)',
+                  text: 'Präparat: 4% Chlorhexidinglukonat (CHG) Waschlotion oder Octenidin-haltige Waschemulsion. Anwendung: Einmal täglich vollständige Ganzkörperwaschung / Dusche. Die Waschlotion vor dem Abspülen 1–2 Minuten einwirken lassen (besondere Beachtung von Achseln, Leisten und Perineum). Haare am Tag 1 und Tag 5 mitwaschen.'
+                },
+                {
+                  label: '3. Mundhöhlen-Antiseptik',
+                  text: 'Präparat: 0,12%–0,2% Chlorhexidin- oder Octenidin-Mundspüllösung. Anwendung: Zweimal täglich 1 Minute lang gründlich spülen und gurgeln (bei beatmeten Patienten Zähne und Schleimhäute mit getränkten Tupfern reinigen).'
+                }
+              ]
+            },
+            {
+              title: 'Begleitende Hygiene- und Umgebungsmaßnahmen',
+              icon: '🛏️',
+              badge: 'Re-Kolonisationsprophylaxe',
+              items: [
+                'Täglicher Wechsel von Bettwäsche, Nachtkleidung und Handtüchern direkt nach der Ganzkörperwaschung.',
+                'Desinfektion persönlicher Gebrauchsgegenstände (Brille, Mobiltelefon, Kämme, Zahnprothesen) während der Behandlungsphase.',
+                'Hautpflege: Pflegende Hautlotionen erst frühestens 2 Stunden nach der CHG-Waschung auftragen, da kosmetische Inhaltsstoffe (anionische Tenside) die antimikrobielle Depotwirkung von Chlorhexidin inaktivieren können.'
+              ]
+            },
+            {
+              title: 'Erfolgskontrolle (Post-Dekolonisations-Screening)',
+              icon: '🔍',
+              badge: 'Eradikationsnachweis',
+              content: 'Der Sanierungserfolg muss mikrobiologisch verifiziert werden:',
+              items: [
+                'Zeitpunkt: Frühestens 48–72 Stunden (optimal 5–7 Tage) nach Abschluss der letzten Dosis, um falsch-negative Befunde durch antiseptische Residuums-Effekte auszuschließen.',
+                'Abstriche: Beide Nasenlöcher, Rachen und frühere Wundareale an 3 aufeinanderfolgenden Tagen.',
+                'Ergebnis: Bei 3 negativen Abstrichsets gilt die Dekolonisation als erfolgreich und die Isolierung kann beendet werden.'
+              ]
+            }
           ],
-          virulence_factors: ['Mupirocin-Resistenz (insb. bei unkontrollierter Langzeitanwendung)', 'Chlorhexidin-Toleranz (Vorhandensein von qacA/B-Genen)']
-        },
-        clinical: {
-          incubation: '-',
-          onset: '-',
-          symptoms: [
-            { name: 'Nasale Sanierung', description: 'Womit: 2% Mupirocin-Nasensalbe (oder Oktenidin-Nasengel). Wie: Eine erbsengroße Menge Salbe mit Wattestäbchen in beide Nasenlöcher einbringen, dann Nasenflügel zusammendrücken und massieren. Wann: 3-mal täglich über 5 aufeinanderfolgende Tage.', severity: 'mild' },
-            { name: 'Hautsanierung (Ganzkörperwaschung)', description: 'Womit: 2% oder 4% Chlorhexidinglukonat (CHG) flüssige antiseptische Seife (oder Oktenidin-/Polihexanid-Präparate). Wie: Tägliche Ganzkörperdusche (inkl. Haarwäsche an Tag 1 und 5). Antiseptikum 1-2 Minuten einwirken lassen vor dem Abspülen. Fokus auf Achseln, Leisten, Genitalbereich.', severity: 'moderate' },
-            { name: 'Orale Sanierung', description: 'Womit: 0,12% - 0,2% Chlorhexidin-Mundspüllösung. Wie: Zweimal täglich 1 Minute lang mit 15 ml spülen und gurgeln. Wann: Bei starkem Rachenbefall oder beatmeten ITS-Patienten (VAP-Prophylaxe).', severity: 'mild' },
-            { name: 'Körpersanierung begleitende Maßnahmen', description: 'Wie: Täglicher Wechsel von Handtüchern, Unterwäsche und Bettwäsche während der 5 Sanierungstage. Desinfektion persönlicher Gegenstände (Kamm, Brille, Handy).', severity: 'mild' }
+          diagnostics: [
+            'Präoperatives MRSA-Screening 2–4 Wochen vor elektiver Operation zur rechtzeitigen Durchführung der Dekolonisation',
+            'Kontrollabstriche 48–72 Stunden nach Behandlungsende zur Dokumentation der Clearance',
+            'Mupirocin-Resistenztestung (MHK-Bestimmung) bei Therapieversagen nach wiederholter Sanierung'
           ],
-          physical_exam: [
-            'Hautzustand kontrollieren: Intakte Haut ist Voraussetzung für CHG-Waschung (bei schwerem Ekzem, Psoriasis oder großen Wunden wegen Irritationsgefahr aussetzen/anpassen)',
-            'Einhaltung der Sanierungsschritte und die korrekte Durchführung durch das Pflegepersonal überwachen'
+          red_flags: [
+            'Mupirocin-Nasensalbe darf NICHT länger als 5–7 Tage oder prophylaktisch als Dauertherapie angewendet werden (schnelle Selektion hochgradiger Mupirocin-Resistenz!).',
+            'Auf stark exkoriierter, verbrannter oder ekzematischer Haut kann 4% CHG schwere Hautreizungen verursachen — in diesem Fall auf Octenidin ausweichen.',
+            'Weglassen der Mundhöhlen- oder Nasenbehandlung führt durch persistierende Reservoire zum raschen Rezidiv.'
           ],
-          complications: ['Kontaktdermatitis oder trockene Haut durch antiseptische Seifen', 'Selektion von Mupirocin-Resistenzen (daher strikte Begrenzung auf 5-7 Tage Sanierungsdauer)']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Sanierungskontrolle (Kontroll-Abstriche)', finding: 'Negative Nasen- und Hautabstriche frühestens 48-72 Stunden nach Beendigung der Sanierung', interpretation: 'Zu früh entnommene Abstriche können durch antiseptische Rückstände falsch-negativ ausfallen' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            inpatient: [
-              { drug: 'Mupirocin 2% Nasensalbe', dose: '3x täglich in beide Nasenlöcher', duration: '5 Tage', note: 'Mit Wattestäbchen einbringen, Nasenflügel massieren' },
-              { drug: 'Chlorhexidin 4% Waschlösung', dose: 'Tägliche Ganzkörperwaschung', duration: '5 Tage', note: 'Haarwäsche an Tag 1 und Tag 5 zwingend durchführen' }
-            ]
-          },
-          targeted: 'WICHTIG: Derzeit existiert ein klar definiertes und klinisch etabliertes Dekolonisierungsprotokoll ausschließlich für MRSA. Für VRE (Vancomycin-resistente Enterokokken) sowie Gram-negative MDROs (multiresistente Erreger wie ESBL, CRE, Pseudomonas, Acinetobacter) gibt es keine nachgewiesene, routinemäßig empfohlene Dekolonisierungsstrategie!',
-          supportive: [
-            'Hautpflegelotionen frühestens 2 Stunden nach CHG-Waschung auftragen (um den anhaltenden CHG-Schutzeffekt nicht zu beeinträchtigen)',
-            'Einweg-Waschlappen zur Körperwaschung verwenden'
-          ],
-          prevention: [
-            'Strenges Verbot unkontrollierter, prophylaktischer oder verlängerter Mupirocin-Anwendung',
-            'In Erwägung ziehen einer universellen Dekolonisierung (tägliche CHG-Waschung aller Patienten) auf Intensivstationen mit hohem MDRO-Druck'
-          ]
-        },
-        prognosis: { mortality: 'Erfolgreiche Sanierung senkt das Risiko schwerer bakterieller Sepsis und assoziierter Mortalität drastisch', prognostic_scores: [], factors: 'Compliance, Mupirocin-Empfindlichkeit, Hautintegrität' }
+          teaching_tip: 'Die präoperative MRSA-Dekolonisation halbiert die Rate postoperativer Wundinfektionen bei elektiven Gelenkersatz- und Herzoperationen, wenn sie konsequent in den Tagen vor dem Eingriff abgeschlossen wird!'
+        }
       },
       {
         id: 'sterilization_disinfection',
         name: 'Sterilisation und Desinfektion',
-        pathogen: { type: 'Hygienemaßnahme', name: 'Aufbereitung von Medizinprodukten und Flächendesinfektion', gram: '-', shape: '-' },
-        epidemiology: {
-          incidence: 'Ungenügend aufbereitete Medizinprodukte (z. B. Endoskope) können schwerwiegende oder tödliche nosokomiale Ausbrüche verursachen',
-          risk_groups: ['Patienten, die sich invasiven Eingriffen unterziehen', 'Operative Patienten', 'Patienten, bei denen eine Endoskopie durchgeführt wird'],
-          seasonality: 'Ganzjährig von kritischer Relevanz',
-          transmission: 'Indirekter Kontakt über kontaminierte Instrumente, Geräte oder patientennahe Oberflächen'
-        },
-        pathomechanism: {
-          steps: [
-            'Kontamination: Medizinprodukte werden bei der Anwendung mit Blut, Sekreten und Erregern verunreinigt.',
-            'Biofilmbildung: Ohne sofortige Reinigung bilden Mikroorganismen schützende Biofilme, die Desinfektionsmittel blockieren.',
-            'Reinigung und Desinfektion: Erster und wichtigster Schritt der Aufbereitung. Physische Entfernung von Verschmutzungen und Biofilmen.',
-            'Schlussdesinfektion oder Sterilisation: Je nach Risikobewertung des Instruments Keimzahlreduktion (Desinfektion) oder Abtötung aller lebensfähigen Keime einschließlich Bakteriensporen (Sterilisation).'
+        didactics: {
+          overview: 'Die sachgerechte Aufbereitung von Medizinprodukten und die Desinfektion von Oberflächen sind Grundpfeiler der Patientensicherheit. Desinfektion bezeichnet die Reduktion pathogener Keime auf ein unschädliches Maß (nicht sporizid), während Sterilisation die vollständige Abtötung aller vermehrungsfähigen Mikroorganismen einschließlich bakterieller Sporen garantiert.',
+          sections: [
+            {
+              title: 'Die Spaulding-Klassifikation von Medizinprodukten',
+              icon: '⚖️',
+              badge: 'Risikobewertungssystem',
+              content: 'Earle H. Spaulding unterteilte Medizinprodukte nach der Invasivität und dem Infektionsrisiko in drei Risikogruppen:',
+              items: [
+                {
+                  label: '1. Kritische Medizinprodukte ➔ STERILISATION VERPFLICHTEND',
+                  text: 'Alle Instrumente, die sterile Gewebe, Körperhöhlen oder das Gefäßsystem durchdringen (z. B. chirurgisches OP-Besteck, Implantate, Arthroskope, Laparoskope, Biopsiezangen, Gefäßkatheter). Anforderung: Absolute Sterilität (Sterility Assurance Level SAL 10⁻⁶).'
+                },
+                {
+                  label: '2. Semikritische Medizinprodukte ➔ HIGH-LEVEL-DESINFEKTION (HLD) ODER STERILISATION',
+                  text: 'Produkte, die mit intakter Schleimhaut oder nicht-intakter Haut in Kontakt kommen, ohne sterile Räume zu penetrieren (z. B. flexible Endoskope, Laryngoskopspatel, Beatmungsschläuche, TEE-Sonden). Anforderung: High-Level-Desinfektion mit Abtötung von vegetativen Bakterien, Mykobakterien, Pilzen und Viren.'
+                },
+                {
+                  label: '3. Unkritische Medizinprodukte ➔ NIEDRIGE / MITTLERE DESINFEKTION',
+                  text: 'Produkte und Flächen, die ausschließlich mit intakter Haut in Berührung kommen (z. B. Stethoskope, Blutdruckmanschetten, Bettgitter, Nachttische, Infusomaten). Anforderung: Reinigung und Flächendesinfektion.'
+                }
+              ]
+            },
+            {
+              title: 'Sterilisationsverfahren und Parameter',
+              icon: '🌡️',
+              badge: 'Physikalische & chemische Prozesse',
+              items: [
+                {
+                  label: 'Dampfsterilisation im Autoklaven (Gespannter gesättigter Dampf) — GOLDSTANDARD',
+                  text: 'Zuverlässigstes, schnellstes und wirtschaftlichstes Verfahren für thermostabile Güter. Standardprogramme: 121 °C (15–20 min bei 1,1 bar Überdruck) oder 134 °C (3,5–5 min bei 2,1 bar Überdruck). Prionenprogramm (Verdacht auf Creutzfeldt-Jakob): 134 °C für mindestens 18 Minuten.'
+                },
+                {
+                  label: 'Heißluftsterilisation (Trockene Hitze)',
+                  text: 'Ausschließlich für wasserfreie, hitzestabile Glas- und Metallgüter. Parameter: 160 °C (120 min), 170 °C (60 min) oder 180 °C (30 min).'
+                },
+                {
+                  label: 'Niedertemperatur-H₂O₂-Gasplasma-Sterilisation (Sterrad)',
+                  text: 'Für thermolabile und feuchtigkeitsempfindliche Instrumente (Optiken, Kameras, mikroelektronische Sonden). Parameter: 45–55 °C, 45–75 min Zyklus. Vorteile: Schnell, ungiftig (zerfällt in Wasser und Sauerstoff), Instrumente sofort einsatzbereit.'
+                },
+                {
+                  label: 'Ethylenoxid-Gassterilisation (EtO)',
+                  text: 'Exzellente Tiefenpenetration bei komplexen Kunststoffen und engen Lumen bei niedriger Temperatur (37–55 °C). Nachteile: Hochgiftiges, krebserregendes Gas mit langen Auslüftungszeiten (12–24 Stunden).'
+                }
+              ]
+            },
+            {
+              title: 'Chemische Desinfektionsmittel und Wirkspektrum',
+              icon: '🧪',
+              badge: 'Wirkstoffauswahl',
+              items: [
+                {
+                  label: 'Alkohole (70% Ethanol, Isopropanol)',
+                  text: 'Mittleres Desinfektionsniveau. Rasch bakterizid, tuberkulozid, fungizid und begrenzt viruzid (behüllte Viren). Unwirksam gegen bakterielle Sporen und unbehüllte Viren. Einsatz: Haut- und Händedesinfektion, kleine Oberflächen, Stethoskope.'
+                },
+                {
+                  label: 'Chlorabspalter (Natriumhypochlorit / Bleiche)',
+                  text: 'Hohes Desinfektionsniveau / sporizid. Breites Wirkungsspektrum gegen C. difficile-Sporen und alle Viren. Zwingend vorgeschrieben bei Norovirus- und C. difficile-Ausbrüchen. Korrosiv gegenüber Metallen.'
+                },
+                {
+                  label: 'Quartäre Ammoniumverbindungen (QAV / QUATs)',
+                  text: 'Niedriges Desinfektionsniveau mit guter Reinigungswirkung. Nicht korrosiv, geruchsarm. Nicht tuberkulozid und nicht sporizid. Einsatz: Böden, Wände, unkritisches Mobiliar.'
+                },
+                {
+                  label: 'Peressigsäure, Glutaraldehyd, Ortho-Phthalaldehyd (OPA)',
+                  text: 'High-Level-Desinfektionsmittel in Reinigungs- und Desinfektionsgeräten für Endoskope (RDG-E) unter strenger Prozessvalidierung.'
+                }
+              ]
+            },
+            {
+              title: 'Qualitätssicherung und Prozessvalidierung',
+              icon: '📋',
+              badge: 'AEMP-Qualitätsmanagement',
+              items: [
+                {
+                  label: 'Bowie-Dick-Test',
+                  text: 'Täglicher Pfllichttest vor dem ersten Autoklavenzyklus zur Überprüfung der vollständigen Entlüftung (Vakuumtest) und Dampfpenetration.'
+                },
+                {
+                  label: 'Chemische Indikatoren (Klasse 1–6)',
+                  text: 'Farbumschlagstreifen außen auf der Sterilgutverpackung und innen im Paket zur Bestätigung der erreichten Prozessparameter (Temperatur, Dampf, Zeit).'
+                },
+                {
+                  label: 'Bioindikatoren (Sporenprüfkörper)',
+                  text: 'Goldstandard-Prüfung mit thermoresistenten Sporen: Geobacillus stearothermophilus (Dampf/Plasma) oder Bacillus atrophaeus (Heißluft/EtO) in regelmäßigen Intervallen und bei jeder Implantatcharge.'
+                }
+              ]
+            }
           ],
-          virulence_factors: ['Extreme Widerstandsfähigkeit von Bakteriensporen (z. B. C. difficile, B. anthracis)', 'Wachsartige Mykobakterien-Zellwand (benötigt High-Level-Desinfektion)', 'Extreme Resistenz von Prionen (erfordert spezielle Autoklavierparameter, z. B. 134 °C für 18 Minuten)']
-        },
-        clinical: {
-          incubation: '-',
-          onset: '-',
-          symptoms: [
-            { name: 'Klassifizierung von Medizinprodukten nach Spaulding', description: 'Bestimmt die Aufbereitungsstufe: 1. Kritische Medizinprodukte (durchdringen Haut/Schleimhaut, kommen mit Blut in Kontakt - z. B. chirurgisches Besteck, Implantate) -> STERILISATION zwingend. 2. Semikritische Medizinprodukte (kommen mit Schleimhaut/kranker Haut in Berührung - z. B. Endoskope, Beatmungsschläuche) -> HIGH-LEVEL-DESINFEKTION (HLD) zwingend. 3. Unkritische Medizinprodukte (kommen nur mit intakter Haut in Berührung - z. B. Stethoskope, Blutdruckmanschetten) -> DESINFEKTION ausreichend.', severity: 'severe' },
-            { name: 'Thermische Sterilisationsverfahren', description: '1. Autoklav (Feuchte Hitze / Dampfsterilisation): Goldstandard für hitzeresistente Güter. Parameter: 121 °C (15-20 Min, 1 bar Überdruck) oder 134 °C (3-5 Min, 2 bar Überdruck). 2. Heißluftsterilisator (Trockene Hitze): Nur für Glas/Metall. Parameter: 160 °C (120 Min) oder 180 °C (30 Min).', severity: 'mild' },
-            { name: 'Niedertemperatur-Sterilisation (chemisch)', description: 'Für thermolabile (z. B. Kunststoff-, Optik-) Instrumente: 1. Ethylenoxid (EO) Gassterilisation: Sehr materialschonend, aber Gas ist toxisch, krebserregend und explosiv; lange Ausgasezeiten (12-24 h) nötig. 2. Wasserstoffperoxid-Plasma (H2O2-Plasma): Schnell (45-60 Min), ungiftig, umweltschonend, aber teuer und lumenbegrenzt.', severity: 'moderate' },
-            { name: 'Chemische Desinfektionsmittel für Oberflächen', description: '1. Alkohole (Ethanol, Isopropanol): Schnell wirksam, mittlere Desinfektionsstufe. Nicht sporenwirksam! 2. Chlorverbindungen (Natriumhypochlorit): Breit wirksam, günstig, sporizid. Verpflichtend bei C. difficile Ausbrüchen! Korrosiv. 3. Quartäre Ammoniumverbindungen (QAV): Niedrige Desinfektionsstufe, gute Reinigungseigenschaften, materialschonend. 4. Glutaraldehyd / Peressigsäure: Für High-Level-Desinfektion und chemische Sterilisation (z. B. in Endoskop-Waschmaschinen).', severity: 'moderate' }
+          diagnostics: [
+            'Täglicher Bowie-Dick-Test zur Validierung der Dampfdurchdringung des Autoklaven',
+            'Regelmäßige Bioindikator-Sporentests zur Funktionsprüfung der Sterilisatoren',
+            'Adenosintriphosphat (ATP) Biolumineszenz-Wischtests zur objektiven Qualitätskontrolle der Flächenreinigung'
           ],
-          physical_exam: [
-            'Verpackung der Sterilgüter vor Gebrauch auf Unversehrtheit, Trockenheit und Verfallsdatum prüfen',
-            'Umschlag des chemischen Indikatorstreifens auf der Sterilgutverpackung zwingend kontrollieren (beweist Sterilmittelexposition)'
+          red_flags: [
+            '„Was nicht sauber ist, kann nicht steril werden!” — Ungenügende manuelle oder maschinelle Vorreinigung hinterlässt Biofilme und Eiweißreste, die Mikroorganismen vor Sterilisationsmitteln abschirmen.',
+            'Feuchte Verpackungen (Wet Packs) nach dem Autoklavieren müssen als unsteril verworfen werden (Gefahr der Keimrückwanderung durch Kapillareffekte).',
+            'Verwendung beschädigter, gerissener oder verfallener Sterilverpackungen ist strikt untersagt.'
           ],
-          complications: ['Wundinfektion durch postoperative Keimübertragung infolge beschädigter oder feuchter Sterilgutverpackungen', 'Gewebereizungen oder Verätzungen beim Patienten durch unzureichende Ausgasung nach EO-Gassterilisation']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Bioindikator-Test (Sporentest)', finding: 'Prüfung der Überlebensfähigkeit von Geobacillus stearothermophilus oder Bacillus atrophaeus Sporen nach Bebrütung', interpretation: 'Biologischer Goldstandard zur Wirksamkeitsprüfung von Sterilisatoren (regelmäßig vorgeschrieben)' },
-            { test: 'Bowie-Dick-Test', finding: 'Gleichmäßiger Farbumschlag des Testbogens in der Autoklavenkammer', interpretation: 'Prüft die Luftentfernung und Dampfdurchdringung (täglich vor der ersten Sterilisationscharge)' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            inpatient: [
-              { drug: 'Sofortige Vorreinigung nach Gebrauch', dose: 'Mechanische + enzymatische Reinigung', duration: 'Sofort nach Benutzung', note: 'Verhindert das Antrocknen organischer Rückstände und die Entstehung von Biofilmen' },
-              { drug: 'Geschlossener Transport', dose: 'Strikte Trennung von Sterilgut und Schmutzgut', duration: 'Während des Transports', note: 'Trennung von reinen und unreinen Transportwegen im Haus' }
-            ]
-          },
-          supportive: [
-            'Lückenlose Dokumentation und Chargenrückverfolgbarkeit aller Aufbereitungsschritte (Barcodesystem)',
-            'Regelmäßige technische Validierung und Wartung der Autoklaven und RDGs (Reinigungs- und Desinfektionsgeräte)'
-          ],
-          prevention: [
-            'Zentralisierung der Instrumentenaufbereitung in der ZSVA (Zentrale Sterilgutversorgungsabteilung)',
-            'Kontinuierliche Schulung des Aufbereitungs- und Reinigungspersonals; regelmäßige Wirkstoffgehaltskontrollen (z. B. per Teststreifen)'
-          ]
-        },
-        prognosis: { mortality: 'Indirekt: Eine lückenlos sterile OP-Technik und Aufbereitung senkt das Risiko postoperativer Infektionen auf ein Minimum', prognostic_scores: [], factors: 'Standardtreue, Gerätevalidierung, kontinuierliche Qualitätssicherung' }
+          teaching_tip: 'Die unmittelbare Vorreinigung gebrauchter Instrumente direkt nach der OP ist der kritischste Schritt im gesamten Aufbereitungskreislauf, um das Antrocknen von Blut und die Ausbildung von Biofilmen in Hohlräumen zu verhindern!'
+        }
       },
       {
         id: 'antibiotic_stewardship',
         name: 'Antibiotic Stewardship (Rationaler Einsatz von Antibiotika)',
-        pathogen: { type: 'Systemweites Programm', name: 'Antibiotika-Resistenzkontrolle', gram: '-', shape: '-' },
-        epidemiology: {
-          incidence: 'Der Anteil unnötiger oder ungeeigneter Antibiotikaverschreibungen im stationären Bereich kann 30-50% erreichen',
-          risk_groups: ['Alle stationären Patienten', 'Insbesondere Intensivpatienten und Patienten mit Pneumonie', 'Patienten mit Sepsisverdacht', 'Patienten, die mit multiresistenten Erregern (MDRO) infiziert sind'],
-          seasonality: 'Ganzjährig von kritischer Bedeutung',
-          transmission: 'Über Selektionsdruck (übermäßiger Antibiotikaeinsatz selektiert resistente Stämme und verbreitet sie in der Krankenhausumgebung)'
-        },
-        pathomechanism: {
-          steps: [
-            'Übermäßiger Selektionsdruck: Breitband- oder unnötig verlängerte Antibiotikatherapien zerstören die schützende normale Bakterienflora.',
-            'Vermehrung resistenter Klone: Ohne normale Flora besiedeln resistente Stämme (z. B. MRSA, CRE, C. difficile) den Patienten.',
-            'Horizontaler Gentransfer: Übertragung von Resistenzplasmiden auf andere Bakterienspezies (z. B. durch Konjugation).',
-            'Klinisches Therapieversagen: Entstehung schwerer, schwer behandelbarer Infektionen und systemischer Komplikationen aufgrund des Mangels an wirksamen Antibiotika.'
+        didactics: {
+          overview: 'Ein Antibiotic Stewardship (ABS) Programm ist eine multidisziplinäre, institutionsweite Strategie zur Optimierung von Auswahl, Dosierung, Applikationsweg und Therapiedauer von Antibiotika. Ziel ist die Maximierung der klinischen Heilungsraten bei gleichzeitiger Minimierung von Resistenzselektion, Toxizität und Behandlungskosten.',
+          sections: [
+            {
+              title: 'Die 5 Grundpfeiler: The 5 "D"s of Stewardship',
+              icon: '🏛️',
+              badge: 'Leitprinzipien',
+              content: 'Bei jeder Antibiotikaverordnung müssen die 5 Kernfragen systematisch beantwortet werden:',
+              items: [
+                {
+                  label: '1. Diagnosis (Exakte Indikationsstellung)',
+                  text: 'Liegt tatsächlich eine behandlungsbedürftige bakterielle Infektion vor oder handelt es sich um Kolonisation, einen viralen Infekt oder eine nicht-infektiöse Entzündung (z. B. asymptomatische Bakteriurie oder virale Bronchitis nicht mit Antibiotika behandeln!).'
+                },
+                {
+                  label: '2. Drug (Gezielte Substanzwahl)',
+                  text: 'Wahl des schmalstwirksamen Antibiotikums abgestimmt auf den vermuteten/nachgewiesenen Erreger, die lokale Resistenzstatistik (Hauseigenes Antibiogramm) und die Gewebepenetration.'
+                },
+                {
+                  label: '3. Dose (PK/PD-Optimierung)',
+                  text: 'Anwendung pharmakokinetischer und pharmakodynamischer Prinzipien unter Berücksichtigung von Nieren-/Leberfunktion, Infektionsort und Körpergewicht (z. B. verlängerte Betalaktam-Infusionen zur Maximierung der %T>MHK-Zeit).'
+                },
+                {
+                  label: '4. Duration (Kürzestmögliche Behandlungsdauer)',
+                  text: 'Konsequente Umsetzung evidenzbasierter kurzer Therapiedauern („Kürzer ist genauso gut”: ambulante Pneumonie 5 Tage, HAP/VAP 7 Tage, Pyelonephritis 7 Tage, intraabdominelle Infektion nach Sanierung 4 Tage).'
+                },
+                {
+                  label: '5. De-escalation (Gezielte Therapiefokussierung)',
+                  text: 'Unverzügliche Einengung der initialen Breitbandtherapie auf ein gezieltes Schmalbandantibiotikum, sobald mikrobiologische Kulturbefunde und Antibiogramme vorliegen (nach 48–72 Stunden).'
+                }
+              ]
+            },
+            {
+              title: 'Zentrale Stewardship-Interventionen',
+              icon: '🛠️',
+              badge: 'Klinische Werkzeuge',
+              items: [
+                {
+                  label: '48–72 Stunden „Antibiotic Time-Out”',
+                  text: 'Strukturierte Reevaluation jeder empirischen Antibiotikatherapie am Tag 2–3 anhand des klinischen Verlaufs, der mikrobiologischen Befunde und der Entzündungsparameter (Beenden, Deeskalieren oder Oralisieren).'
+                },
+                {
+                  label: 'Frühzeitige Sequenztherapie (IV-to-PO Switch)',
+                  text: 'Umstellung auf enterale/orale Medikation, sobald der Patient ≥24 Stunden entfiebert ist, hämodynamisch stabil ist und eine funktionierende Magen-Darm-Resorption vorliegt (insbesondere bei hoher oraler Bioverfügbarkeit: Fluorchinolone, Cotrimoxazol, Linezolid, Metronidazol, Doxycyclin).'
+                },
+                {
+                  label: 'Strikte perioperative Prophylaxeregeln',
+                  text: 'Einmalige Gabe der Prophylaxe 30–60 Minuten vor Hautschnitt (z. B. Cefazolin). Die Prophylaxe muss nach Operationsende (spätestens nach 24 Stunden) beendet werden!'
+                }
+              ]
+            },
+            {
+              title: 'Das WHO AWaRe-Klassifikationssystem',
+              icon: '🌍',
+              badge: 'Globale Verordnungsstrategie',
+              items: [
+                {
+                  label: 'ACCESS-Gruppe (Breit verfügbar / First-Line)',
+                  text: 'Schmalbandige First-Line-Antibiotika mit günstigem Sicherheitsprofil und geringem Resistenzpotenzial für häufige Infektionen (z. B. Amoxicillin, Ampicillin, Cefazolin, Doxycyclin, Nitrofurantoin, Metronidazol).'
+                },
+                {
+                  label: 'WATCH-Gruppe (Streng überwacht / Indikationsgebunden)',
+                  text: 'Breitbandsubstanzen mit höherem Selektionsdruck für Resistenzen (z. B. Fluorchinolone, Cephalosporine der 3. Generation, Makrolide, Carbapeneme, Piperacillin-Tazobactam).'
+                },
+                {
+                  label: 'RESERVE-Gruppe (Letzte Reserve / Streng geschützt)',
+                  text: '„Ultima Ratio”-Antibiotika für lebensbedrohliche Infektionen durch multiresistente Erreger (MRE), freigabepflichtig durch Infektiologen/ABS-Experten (z. B. Ceftazidim-Avibactam, Ceftolozan-Tazobactam, Cefiderocol, Colistin, Linezolid, Meropenem-Vaborbactam).'
+                }
+              ]
+            },
+            {
+              title: 'Biomarker und Therapeutisches Drug Monitoring (TDM)',
+              icon: '📈',
+              badge: 'Präzisionsdosierung',
+              items: [
+                {
+                  label: 'Procalcitonin (PCT)-gesteuerte Algorithmen',
+                  text: 'PCT zeigt eine rasche Kinetik bei bakteriellen Infektionen. Ein Abfall auf <0,25 µg/L oder um >80% vom Spitzenwert unterstützt das sichere vorzeitige Absetzen der Antibiotikatherapie.'
+                },
+                {
+                  label: 'Therapeutisches Drug Monitoring (TDM)',
+                  text: 'Verpflichtende Serumspiegelbestimmung bei Substanzen mit geringer therapeutischer Breite (Vancomycin, Aminoglykoside: Gentamicin, Amikacin) zur Vermeidung von Nephro- und Ototoxizität und Erreichen der Zielspiegel (AUC/MHK).'
+                }
+              ]
+            }
           ],
-          virulence_factors: ['Toleranz gegenüber Selektionsdruck', 'Beta-Laktamase- und Carbapenemase-Produktion', 'Aktivierung von Effluxpumpen', 'Mutationen der Zielstrukturen']
-        },
-        clinical: {
-          incubation: '-',
-          onset: '-',
-          symptoms: [
-            { name: 'Prinzipien der empirischen Therapie (Die 5 \'D\'s des Stewardship)', description: 'Die Säulen der angemessenen Antibiotikaauswahl: 1. Diagnosis (Nachweis einer echten bakteriellen Infektion), 2. Drug (Auswahl des richtigen Wirkstoffs), 3. Dose (optimale Dosierung, angepasst an die Nierenfunktion), 4. Duration (notwendige, aber kürzestmögliche Dauer), 5. De-escalation (Wechsel zu einem schmaleren Spektrum innerhalb von 48-72 Stunden).', severity: 'severe' },
-            { name: 'Überprüfung der Antibiotikatherapie (AB-Timeout)', description: 'Verpflichtende klinische und laborchemische Überprüfung aller eingeleiteten empirischen Antibiotikatherapien nach 48-72 Stunden, unter Berücksichtigung der ersten Kulturergebnisse, um eine Deeskalation oder das Absetzen zu prüfen.', severity: 'moderate' },
-            { name: 'Richtlinien für die chirurgische Prophylaxe', description: 'Die erste Dosis muss 30-60 Minuten vor der Hautinzision verabreicht werden (z. B. Cefazolin). Die Prophylaxe muss innerhalb von 24 Stunden nach der Operation beendet werden (optimal direkt am Operationsende); eine verlängerte Gabe erhöht nur Resistenzen ohne klinischen Nutzen.', severity: 'moderate' },
-            { name: 'Eingeschränkte Reserve-Antibiotika', description: 'Besonders wertvolle "Last-Line"-Substanzen (z. B. Linezolid, Colistin, Tigecyclin, Ceftazidim-Avibactam, Meropenem), deren Verschreibung streng an eine vorherige Genehmigung oder Konsultation durch einen Infektiologen gebunden ist.', severity: 'severe' }
+          diagnostics: [
+            'Blutkulturen (mindestens 2 Paare) und gezielte Erregerdiagnostik VOR Beginn der ersten Antibiotikadosis abnehmen',
+            'Molekularbiologische PCR-Schnelltests aus positiven Blutkulturflaschen für taggleiche Deeskalation und Resistenzgennachweis',
+            'Jährliche hausinterne Erreger- und Resistenzstatistiken zur Aktualisierung der empirischen Behandlungsleitfäden'
           ],
-          physical_exam: [
-            'Fieberkurven und klinische Besserung verfolgen, um die Antibiotikatherapie zu rationalisieren',
-            'Überwachung von Nebenwirkungen und Toxizitätszeichen (z. B. Nierenfunktion und Gehör bei Aminoglykosiden)',
-            'Untersuchung auf Diarrhö und abdominelle Distension (Verdacht auf Clostridioides-difficile-Infektion nach übermäßigem Antibiotikaeinsatz)'
+          red_flags: [
+            'Antibiotische Behandlung einer asymptomatischen Bakteriurie (ASB) ist obsolet (Ausnahme: Schwangerschaft und schleimhauttraumatisierende urologische Eingriffe!).',
+            'Fortführung der perioperativen Antibiotikaprophylaxe über mehrere postoperativen Tage.',
+            'Unkritischer Einsatz von Fluorchinolonen bei leichten Infekten (Rote-Hand-Briefe wegen Sehnenrupturen, Aortenaneurysmen, QT-Verlängerung und C. difficile).',
+            'Beginn einer Breitbandtherapie ohne vorherige mikrobiologische Probengewinnung.'
           ],
-          complications: ['Selektion und Ausbreitung multiresistenter Erreger (MDRO)', 'Clostridioides-difficile-assoziierte Kolitis (CDAD)', 'Arzneimitteltoxizität und allergische Reaktionen', 'Therapieversagen und erhöhte Mortalität']
-        },
-        diagnostics: {
-          laboratory: [
-            { test: 'Procalcitonin (PCT) Verlauf', finding: 'Abfall der PCT-Spiegel (<0,25 µg/L oder >80% Reduktion vom Spitzenwert)', interpretation: 'Sicherer Indikator für das frühzeitige Absetzen der Antibiotikatherapie (insb. bei Pneumonie und Sepsis)' },
-            { test: 'Therapeutisches Drug Monitoring (TDM)', finding: 'Messung der Serumspiegel von Aminoglykosiden und Vancomycin (Tal- und Spitzenwerte)', interpretation: 'Vermeidet Toxizität und stellt die optimale bakterizide Wirksamkeit sicher' }
-          ],
-          microbiology: [
-            { test: 'Dringende Blutkultur', finding: 'Erregeridentifizierung und Resistenzprüfung (Antibiogramm)', significance: 'Die Grundlage für die entscheidende Deeskalation und gezielte Therapie' },
-            { test: 'Molekulare Schnelltests (PCR)', finding: 'Direkter Nachweis von Resistenzgenen aus positiven Blutkulturflaschen (z. B. MRSA vs. MSSA, Carbapenemasen)', significance: 'Verkürzt die Zeit bis zur gezielten Therapie um 24-48 Stunden' }
-          ]
-        },
-        therapy: {
-          empirical: {
-            inpatient: [
-              { drug: 'Anwendung lokaler Richtlinien', dose: 'Stationsspezifisch', duration: '48-72 Stunden', note: 'Beginn der empirischen Therapie gemäß der lokalen Resistenzstatistik (lokales Antibiogramm)' },
-              { drug: 'Gewinnung von Kulturen', dose: 'Vor Antibiotikagabe', duration: 'Sofort', note: 'Die Abnahme von Blutkulturen und anderen relevanten Proben vor Therapiebeginn ist zwingend erforderlich!' }
-            ]
-          },
-          targeted: 'Nach Erhalt der Kulturergebnisse muss die empirische Therapie unverzüglich auf die schmalste wirksame Substanz deeskaliert (eingeschränkt) werden.',
-          supportive: [
-            'Vorausbestimmung von antibiotikafreien Intervallen und Therapieenddaten',
-            'Wechsel von intravenöser auf orale Therapie (IV-to-PO-Switch) bei klinischer Stabilität'
-          ],
-          prevention: [
-            'Verpflichtendes infektiologisches Konsil bei komplexen oder therapieresistenten Infektionen',
-            'Regelmäßige Überwachung des Antibiotikaverbrauchs mittels DDD (Defined Daily Dose) Kennzahlen',
-            'Strikte Begrenzung der Dauer der chirurgischen Prophylaxe'
-          ]
-        },
-        prognosis: { mortality: 'Die Einführung von Stewardship-Programmen senkt die Mortalität durch MDROs und C. difficile um bis zu 20-30%', prognostic_scores: ['Therapeutic Intensity Score', 'Resistenzraten'], factors: 'Disziplin auf Stationsebene, Verfügbarkeit infektiologischer Beratung und Schnelligkeit der mikrobiologischen Diagnostik' }
+          teaching_tip: '„Erst denken, dann verordnen!”: Jede Antibiotikaverordnung muss eine dokumentierte Indikation und eine geplante Stopp-/Reevaluationszeit haben. Führen Sie am Tag 3 immer einen Antibiotic Time-Out durch!'
+        }
       }
     ]
   }
 });
-
