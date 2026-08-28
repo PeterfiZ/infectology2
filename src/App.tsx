@@ -12,7 +12,7 @@ import {
   Thermometer, ChevronRight, ChevronDown, Trash2, Share2, Languages,
   PenTool, HelpCircle, Info, ExternalLink, Download, Upload, Bookmark,
   Calculator, RefreshCw, X, Check, FileDown, Eye, EyeOff, Key, Menu, ChevronLeft, Printer, Sparkles,
-  Image, Play, Mail, MessageSquare, Copy, Table2
+  Image, Play, Mail, MessageSquare, Copy, Table2, UserCheck
 } from 'lucide-react';
 
 import { diseasesByLang } from './data/diseases';
@@ -167,6 +167,24 @@ export default function App() {
   });
   const [isApiKeySettingsOpen, setIsApiKeySettingsOpen] = useState(false);
   const [showApiKey, setShowApiKey] = useState(false);
+
+  // Reviewers Dropdown State
+  const [isReviewersOpen, setIsReviewersOpen] = useState(false);
+  const reviewersDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (reviewersDropdownRef.current && !reviewersDropdownRef.current.contains(event.target as Node)) {
+        setIsReviewersOpen(false);
+      }
+    };
+    if (isReviewersOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isReviewersOpen]);
 
   const [pageViews, setPageViews] = useState<number>(() => {
     const saved = localStorage.getItem('infecto_page_views');
@@ -1456,12 +1474,65 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.0)`;
                 <h1 className="font-serif text-lg md:text-xl font-bold leading-tight select-none">
                   {lang === 'hu' ? 'Infektológia Tankönyv' : lang === 'de' ? 'Infektiologie Lehrbuch' : 'Infectious Diseases Textbook'}
                 </h1>
-                <div className="font-sans text-[10px] tracking-wider uppercase opacity-85 leading-tight mt-1 select-none space-y-0.5">
+                <div className="font-sans text-[10px] tracking-wider uppercase opacity-85 leading-tight mt-1 select-none flex flex-wrap items-center gap-x-2 gap-y-1">
                   <div className="font-semibold">
                     {lang === 'hu' ? 'Dr. Péterfi Zoltán' : 'Dr. Zoltán Péterfi'}
                   </div>
+                  <span className="opacity-40">•</span>
                   <div className="opacity-75 text-[9px] tracking-normal">
                     {lang === 'hu' ? 'Pécsi Tudományegyetem' : lang === 'de' ? 'Universität Pécs' : 'University of Pécs'}
+                  </div>
+                  <span className="opacity-40">•</span>
+
+                  {/* Discrete Reviewers Dropdown */}
+                  <div className="relative inline-block" ref={reviewersDropdownRef}>
+                    <button
+                      onClick={() => setIsReviewersOpen(!isReviewersOpen)}
+                      className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white/15 hover:bg-white/25 border border-white/20 text-white text-[9px] font-medium tracking-normal transition-all active:scale-95 cursor-pointer shadow-xs"
+                      title={lang === 'hu' ? 'Lektorálja: Dr. Lakatos Botond; Dr. Horváth Bence' : lang === 'de' ? 'Lektorat: Dr. Lakatos Botond; Dr. Horváth Bence' : 'Reviewed by: Dr. Lakatos Botond; Dr. Horváth Bence'}
+                    >
+                      <UserCheck className="w-2.5 h-2.5 opacity-90 text-emerald-200" />
+                      <span>{lang === 'hu' ? 'Lektorálja' : lang === 'de' ? 'Lektorat' : 'Reviewed by'}</span>
+                      <ChevronDown className={`w-2.5 h-2.5 transition-transform duration-200 ${isReviewersOpen ? 'rotate-180' : ''}`} />
+                    </button>
+
+                    <AnimatePresence>
+                      {isReviewersOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 4, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 4, scale: 0.95 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute left-0 top-full mt-1.5 z-50 min-w-[250px] bg-white rounded-lg shadow-xl border border-natural-border p-3 text-natural-dark normal-case tracking-normal"
+                        >
+                          <div className="flex items-center justify-between border-b border-natural-border/60 pb-1.5 mb-2">
+                            <div className="flex items-center gap-1.5 text-xs font-bold text-emerald-950 font-serif">
+                              <UserCheck className="w-3.5 h-3.5 text-emerald-700" />
+                              <span>{lang === 'hu' ? 'Lektorálja' : lang === 'de' ? 'Lektorat' : 'Reviewed by'}</span>
+                            </div>
+                            <button
+                              onClick={() => setIsReviewersOpen(false)}
+                              className="text-natural-muted hover:text-natural-dark p-0.5 rounded cursor-pointer"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          </div>
+                          <div className="space-y-1.5 text-xs">
+                            <div className="flex items-center gap-2 p-1.5 rounded-md bg-emerald-50/70 border border-emerald-100/80">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+                              <span className="font-semibold text-emerald-950">Dr. Lakatos Botond</span>
+                            </div>
+                            <div className="flex items-center gap-2 p-1.5 rounded-md bg-emerald-50/70 border border-emerald-100/80">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0"></span>
+                              <span className="font-semibold text-emerald-950">Dr. Horváth Bence</span>
+                            </div>
+                          </div>
+                          <div className="mt-2 pt-1.5 border-t border-natural-border/40 text-[10px] text-natural-muted italic">
+                            Dr. Lakatos Botond; Dr. Horváth Bence
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               </div>
