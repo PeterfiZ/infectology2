@@ -2368,7 +2368,7 @@ window._abdomen_de = window._abdomen_de || {
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: '4-7 Tage nach Dekompression', note: 'Community-erworben, leicht/mittelschwer' },
+              { drug: 'Ceftriaxon +/- Metronidazol', dose: '1x2g IV +/- 3x500mg IV', duration: '4-7 Tage nach Dekompression', note: 'Community-erworben, leicht/mittelschwer' },
               { drug: 'Piperacillin-Tazobactam', dose: '3-4x4,5g IV', duration: '4-7 Tage nach Dekompression', note: 'Schwer / Krankenhaus-assoziiert' }
             ]
           },
@@ -2510,7 +2510,7 @@ window._abdomen_de = window._abdomen_de || {
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Bis Fieberfreiheit / Operation', note: 'Leicht/Mittelschwer' },
+              { drug: 'Ceftriaxon +/- Metronidazol', dose: '1x2g IV +/- 3x500mg IV', duration: 'Bis Fieberfreiheit / Operation', note: 'Leicht/Mittelschwer' },
               { drug: 'Piperacillin-Tazobactam', dose: '3-4x4,5g IV', duration: 'Bis Fieberfreiheit / Operation', note: 'Schwer / Nosokomial (akalkulös)' }
             ]
           },

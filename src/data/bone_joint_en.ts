@@ -24,7 +24,7 @@ export const boneJointEn: Category = {
       'SIRS criteria / Septic Shock in joint or bone infection'
     ],
     special_populations: 'Diabetic Patients: High risk for contiguous osteomyelitis in foot ulcers; perform PTB test and MRI. IV Drug Users: Increased incidence of CA-MRSA, Septic Arthritis (sternoclavicular/sacroiliac joints), and Spondylodiscitis. Elderly: Atypical presentation without fever; higher mortality in septic arthritis.',
-    teaching_tip: 'In Septic Arthritis, Joint Drainage is an emergency! In Osteomyelitis and Spondylodiscitis, early oral antibiotic switch after 7–10 days IV induction (OVIVA trial) is non-inferior to 6 weeks IV therapy.'
+    teaching_tip: 'In Septic Arthritis, Joint Drainage is an emergency! In delayed postoperative PJI (4w-1y), antibiotics alone cannot cure the infection; surgical revision with implant exchange is mandatory. In Osteomyelitis and Spondylodiscitis, early oral antibiotic switch after 7–10 days IV induction (OVIVA trial) is non-inferior to 6 weeks IV therapy.'
   },
   tables: [
     {
@@ -32,8 +32,9 @@ export const boneJointEn: Category = {
       headers: ['Disease', 'Pathogen Spectrum', 'Diagnostic Gold Standard', 'Key Guideline Criteria', 'Empiric Antimicrobial Therapy', 'Interventional / Surgical Source Control'],
       rows: [
         ['Osteomyelitis', 'Staphylococcus aureus (MSSA/MRSA), S. epidermidis, Gram-negatives', 'Bone Biopsy culture & Histology + MRI', 'IDSA / OVIVA Trial: 4-6w total therapy; Early oral switch non-inferior', 'Vancomycin 15-20mg/kg IV + Ceftriaxone 2g IV q24h (Early oral switch)', 'Surgical debridement of necrotic bone (sequestrectomy)'],
-        ['Septic Arthritis', 'Staphylococcus aureus, S. pyogenes, N. gonorrhoeae, Gram-negatives', 'Bedside Arthrocentesis (Synovial WBC >50,000/µL)', 'IDSA / BSH: Immediate emergency joint drainage + IV ABx', 'Vancomycin 15-20mg/kg IV + Ceftriaxone 2g IV q24h x 3-4 weeks', 'Emergency joint drainage (Arthroscopic washout or needle aspiration)'],
-        ['Spondylodiscitis', 'Staphylococcus aureus, E. coli, Streptococci, M. tuberculosis', 'Contrast MRI of Spine + Blood cultures / CT biopsy', 'IDSA Guidelines: 6 weeks targeted antimicrobial therapy + MRI monitoring', 'Vancomycin + Ceftriaxone 2g IV q24h (6w total; early oral switch)', 'Surgery for neurological deficit, spinal instability, or epidural abscess']
+        ['Septic Arthritis', 'Staphylococcus aureus, S. pyogenes, N. gonorrhoeae, Gram-negatives', 'Bedside Arthrocentesis (Synovial WBC >50,000/µL)', 'IDSA / BSH: Immediate emergency joint drainage + IV ABx', 'Vancomycin 15-20mg/kg IV + Ceftriaxone 2g IV q24h x 3-4 weeks (or Cefazolin 2g IV q8h + Vancomycin if S. aureus is suspected)', 'Emergency joint drainage (Arthroscopic washout or needle aspiration)'],
+        ['Spondylodiscitis', 'Staphylococcus aureus, E. coli, Streptococci, M. tuberculosis', 'Contrast MRI of Spine + Blood cultures / CT biopsy', 'IDSA Guidelines: 6 weeks targeted antimicrobial therapy + MRI monitoring', 'Vancomycin + Ceftriaxone 2g IV q24h (6w total; early oral switch)', 'Surgery for neurological deficit, spinal instability, or epidural abscess'],
+        ['Prosthetic Joint Infection (PJI)', 'CoNS (S. epidermidis), S. aureus, C. acnes, Gram-negatives', 'Arthrocentesis (WBC + alpha-defensin) + 3-5 tissue samples / sonication', 'EBJIS/ICM: Acute postop (<4w, DAIR possible); Delayed postop (4w-1y, CANNOT be saved with antibiotics, revision mandatory!); Late (>1y, hematogenous)', 'Vancomycin 15-20mg/kg IV + Cefepime / Meropenem (targeted rifampicin combination for Staph)', 'Surgical revision: DAIR (strictly early/acute hematogenous), one- or two-stage exchange (mandatory for delayed/chronic PJI)']
       ]
     }
   ],
@@ -276,6 +277,7 @@ export const boneJointEn: Category = {
             { drug: 'NO OUTPATIENT TREATMENT!', dose: '-', duration: '-', note: 'IMMEDIATE EMERGENCY HOSPITAL ADMISSION AND JOINT ASPIRATION/DRAINAGE!' }
           ],
           inpatient: [
+            { drug: 'Cefazolin + Vancomycin (if S. aureus is suspected)', dose: 'Cefazolin 2g IV q8h + Vancomycin 15-20 mg/kg IV q8-12h', duration: '2-4 weeks', note: 'If S. aureus is suspected (typical monoarthritis or Gram-positive cocci in synovial fluid): Cefazolin + Vancomycin provides rapid bactericidal action for MSSA (superior to vancomycin alone) while maintaining immediate MRSA coverage until susceptibilities return. De-escalate to single agent once sensitivities are confirmed.' },
             { drug: 'Vancomycin', dose: '15-20 mg/kg IV q8-12h', duration: '2-4 weeks', note: 'MRSA and Gram-positive coverage' },
             { drug: '+ Ceftriaxone', dose: '1-2g IV q24h', duration: '', note: 'Gram-negative and Gonococcus coverage' },
             { drug: 'or Cefepime / Pip-Tazo', dose: '2g IV q8h / 4.5g IV q6h', duration: '', note: 'In case of Pseudomonas risk (IVDU, elderly)' }
@@ -284,7 +286,7 @@ export const boneJointEn: Category = {
             { drug: 'Vancomycin + Meropenem', dose: 'Vancomycin 15-20mg/kg IV + Meropenem 1g IV q8h', duration: '', note: 'In case of septic shock or severe immunosuppression' }
           ]
         },
-        targeted: 'S. aureus (MSSA): Cefazolin 3x2g IV or Flucloxacillin 4x2g IV; MRSA: Vancomycin / Daptomycin 6-8mg/kg IV; N. gonorrhoeae: Ceftriaxone 1x1-2g IV (then PO cefixime/azithromycin); Gram-negative rods: Ceftriaxone / Cefepime / Ciprofloxacin.',
+        targeted: 'Suspected S. aureus: empiric Cefazolin 2g IV q8h + Vancomycin 15-20mg/kg IV (until sensitivities known); S. aureus (MSSA): Cefazolin 3x2g IV or Flucloxacillin 4x2g IV; MRSA: Vancomycin / Daptomycin 6-8mg/kg IV; N. gonorrhoeae: Ceftriaxone 1x1-2g IV (then PO cefixime/azithromycin); Gram-negative rods: Ceftriaxone / Cefepime / Ciprofloxacin.',
         supportive: [
           'JOINT DECOMPRESSION AND DRAINAGE (CRITICAL!): Repeated daily needle aspirations, ARTHROSCOPY and lavage, or open arthrotomy (mandatory for hip joint!)',
           'Adequate analgesia (NSAIDs, opioids)',
@@ -306,7 +308,7 @@ export const boneJointEn: Category = {
           'All septic arthritis requires IMMEDIATE joint decompression (aspiration/arthroscopy/surgery) and empiric parenteral antibiotics to prevent cartilage damage!'
         ],
         first_line: [
-          'Empiric: Vancomycin + Ceftriaxone.',
+          'Empiric: Vancomycin + Ceftriaxone (or Cefazolin + Vancomycin if S. aureus is suspected).',
           'Drainage: Arthroscopy and lavage or repeated needle aspirations.',
           'Duration: Generally 2-4 weeks. In clinically stable, asymptomatic patients with normalizing CRP, oral switch (OVIVA concept) can be applied after 1-2 weeks of IV.'
         ]
@@ -479,22 +481,27 @@ export const boneJointEn: Category = {
         virulence_factors: ['Biofilm exopolysaccharide matrix', 'MSCRAMM adhesins', 'Persister cell phenotype', 'Intracellular survival']
       },
       clinical: {
-        incubation: 'From days post-surgery (early) to years (chronic)',
-        onset: 'Acute (early / hematogenous) or indolent, chronically progressive',
+        incubation: 'From days post-surgery (early) through months (delayed postoperative) to years (late)',
+        onset: 'Acute postoperative (<4 weeks) or late hematogenous: acute onset; Delayed postoperative (4 weeks to 1 year): indolent, subtle, loosening',
         symptoms: [
           {
-            name: 'Early PJI (<4 weeks post-surgery)',
-            description: 'Acute joint pain, erythema, swelling, warmth, wound dehiscence, persistent purulent wound leakage, fever.',
+            name: '1. Acute Postoperative PJI (<4 weeks post-surgery)',
+            description: 'Severe joint pain, erythema, swelling, warmth, persistent wound drainage/dehiscence, fever. In this narrow window, biofilm is immature: DAIR (debridement and implant retention with modular component exchange) can be attempted for a stable prosthesis.',
             severity: 'severe'
           },
           {
-            name: 'Late Chronic PJI (>3-4 weeks/months post-surgery)',
-            description: 'Dull joint pain present both on weight-bearing and at rest, early loosening of the prosthesis, functional decline; fever is usually absent.',
-            severity: 'moderate'
+            name: '2. Delayed Postoperative PJI (4 weeks to 1 year post-surgery)',
+            description: 'Acquired intraoperatively from low-virulence organisms (CoNS, Cutibacterium acnes). Indolent, subtle course: dull persistent pain, early implant loosening, functional decline; fever usually absent. CRITICAL: Due to mature biofilm and loosening, delayed postoperative PJI CANNOT be saved with antibiotics alone (DAIR failure >80%)! Surgery with mandatory full implant removal/exchange (one- or two-stage revision) is strictly required!',
+            severity: 'severe'
+          },
+          {
+            name: '3. Late PJI (anytime >1 year post-surgery, predominantly hematogenous)',
+            description: 'Can occur anytime even years later from distant bacteremic seeding (skin/soft tissue, dental, GU, endocarditis) onto a previously well-functioning, pain-free prosthesis. Presents with acute onset of high fever, rigors, and new joint inflammation. If symptom duration <3 weeks and prosthesis is well-fixed, DAIR can be attempted; otherwise, prosthesis revision is required.',
+            severity: 'severe'
           },
           {
             name: 'Sinus Tract',
-            description: 'Presence of a draining sinus tract leading directly from the skin surface to the implant/joint space - pathognomonic for PJI by itself!',
+            description: 'Presence of a draining sinus tract leading directly to the implant - pathognomonic for PJI! When present, implant retention is contraindicated and full prosthesis revision is necessary.',
             severity: 'severe'
           }
         ],
@@ -548,11 +555,12 @@ export const boneJointEn: Category = {
         },
         targeted: 'Based on culture! For Staphylococcal PJI, administration of biofilm-active RIFAMPICIN (2x300-450 mg PO) in oral combination (e.g., with fluoroquinolone, cotrimoxazole, or clindamycin) after surgical debridement is MANDATORY! Treatment duration: 12 weeks (hip and knee).',
         supportive: [
-          'SURGICAL STRATEGIES (EBJIS 2021 consensus):',
-          '1. DAIR (Debridement, Antibiotics, and Implant Retention): Only for EARLY (<3-4 weeks) or ACUTE HEMATOGENOUS infection with a stable prosthesis! Exchange of mobile parts (liner/insert) is mandatory!',
-          '2. One-stage revision: In case of known, susceptible pathogen and good soft tissue conditions, prosthesis exchange in a single surgery with antibiotic-loaded cement.',
-          '3. Two-stage revision: GOLD STANDARD for chronic, difficult-to-treat/resistant pathogens. 1st surgery: Prosthesis removal + antibiotic cement spacer; 6 weeks targeted antibiotics; 2nd surgery: Reimplantation of new prosthesis.',
-          '4. Suppressive antibiotic therapy: Lifelong oral antibiotics in inoperable patients.'
+          'SURGICAL STRATEGIES & DECISION ALGORITHM (EBJIS 2021 / ICM):',
+          '1. DAIR (Debridement, Antibiotics, and Implant Retention): Strictly restricted to ACUTE EARLY (<4 weeks) or acute hematogenous cases with a stable, well-fixed prosthesis and intact soft tissues! Exchange of modular parts (liner/insert, head) is mandatory!',
+          '2. DELAYED POSTOPERATIVE PJI (4 weeks to 1 year) PRINCIPLE: CANNOT be saved with antibiotics alone (or simple DAIR)! Mature biofilm and early loosening cause DAIR failure in >80% of cases. Mandatory surgical intervention with FULL IMPLANT REMOVAL / REVISION is required!',
+          '3. One-stage revision: In cases of known, susceptible pathogen, good soft tissue envelope, and adequate bone stock - single-stage exchange using pathogen-specific antibiotic bone cement.',
+          '4. Two-stage revision: GOLD STANDARD for delayed and chronic PJI, difficult-to-treat/resistant pathogens (MRSA, Pseudomonas, Enterococci, fungi), sinus tract, or significant bone loss. Stage 1: Complete prosthesis removal + antibiotic cement spacer; 6 weeks targeted antibiotics; Stage 2: Reimplantation of new prosthesis once infection is fully eradicated.',
+          '5. Suppressive antibiotic therapy: Lifelong oral antibiotics reserved strictly as a palliative salvage option in surgically inoperable patients.'
         ],
         prevention: [
           'Preoperative MRSA/MSSA nasal screening and decolonization (Mupirocin)',

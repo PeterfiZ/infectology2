@@ -2490,7 +2490,7 @@ window._abdomen_hu = window._abdomen_hu || {
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Dekompresszió után 4-7 nap', note: 'TG18 Grade I-II közösségben szerzett' },
+              { drug: 'Ceftriaxon +/- Metronidazol', dose: '1x2g IV +/- 3x500mg IV', duration: 'Dekompresszió után 4-7 nap', note: 'TG18 Grade I-II közösségben szerzett' },
               { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Dekompresszió után 4-7 nap', note: 'TG18 Grade III súlyos / Stentelt / Nosocomialis' },
               { drug: 'Meropenem', dose: '3x1g IV', duration: 'Dekompresszió után 4-7 nap', note: 'Szeptikus shock, ESBL gyanú' }
             ]
@@ -2576,7 +2576,7 @@ window._abdomen_hu = window._abdomen_hu || {
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxon + Metronidazol', dose: '1x2g IV + 3x500mg IV', duration: 'Lázmentességig / Műtétig', note: 'TG18 Grade I-II enyhe/közepes' },
+              { drug: 'Ceftriaxon +/- Metronidazol', dose: '1x2g IV +/- 3x500mg IV', duration: 'Lázmentességig / Műtétig', note: 'TG18 Grade I-II enyhe/közepes' },
               { drug: 'Amoxicillin-Clavulansav', dose: '3x1.2g IV', duration: 'Lázmentességig / Műtétig', note: 'Alternatív első vonal' },
               { drug: 'Piperacillin-Tazobactam', dose: '3-4x4.5g IV', duration: 'Lázmentességig / Műtétig', note: 'TG18 Grade III súlyos / Acalculous / Nosocomialis' }
             ]

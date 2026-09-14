@@ -197,6 +197,21 @@ export interface ScoreCalculator {
   };
 }
 
+export interface ClinicalProtocol {
+  id: string;
+  title: string;
+  originalTitle?: string;
+  organization: string;
+  scope: 'hungarian' | 'international';
+  category: string;
+  year: string;
+  url: string;
+  pdfUrl?: string;
+  description: string;
+  keyPoints?: string[];
+  tags: string[];
+}
+
 export interface Note {
   diseaseId: string;
   content: string;

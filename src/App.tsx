@@ -18,6 +18,7 @@ import {
 import { diseasesByLang } from './data/diseases';
 import { getCalculators } from './data/calculators';
 import { mediaLibraryItems } from './data/media_library';
+import { ProtocolsModal } from './components/ProtocolsModal';
 import { Disease, Category, Note } from './types';
 import { trackPageView, trackEvent } from './utils/gtag';
 
@@ -140,6 +141,9 @@ export default function App() {
   const [activeMediaType, setActiveMediaType] = useState<string>('all');
   const [mediaSearchQuery, setMediaSearchQuery] = useState<string>('');
   const [activeProcedureStep, setActiveProcedureStep] = useState<number>(0);
+
+  // Protocols Modal State
+  const [isProtocolsModalOpen, setIsProtocolsModalOpen] = useState(false);
 
   // Feedback Modal State
   const [isFeedbackModalOpen, setIsFeedbackModalOpen] = useState(false);
@@ -707,6 +711,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
       import_notes: 'Jegyzetek importálása',
       no_results: 'Nincs találat a keresésre.',
       calculators_btn: 'Klinikai Score-ok',
+      protocols_btn: 'Protokollok',
       media_library_btn: 'Média & Képtár',
       share_btn: 'Megosztás & Offline',
       didactics: 'Didaktikai Áttekintés',
@@ -836,6 +841,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
       import_notes: 'Import Notes',
       no_results: 'No search results found.',
       calculators_btn: 'Clinical Scores',
+      protocols_btn: 'Protocols',
       media_library_btn: 'Media & Gallery',
       share_btn: 'Share & Offline',
       didactics: 'Didactic Overview',
@@ -965,6 +971,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
       import_notes: 'Notizen importieren',
       no_results: 'Keine Suchergebnisse gefunden.',
       calculators_btn: 'Klinische Scores',
+      protocols_btn: 'Protokolle',
       media_library_btn: 'Mediathek & Bilder',
       share_btn: 'Teilen & Offline',
       didactics: 'Didaktische Übersicht',
@@ -1582,6 +1589,16 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
             >
               <Calculator className="w-3.5 h-3.5 opacity-80" />
               <span>{lang === 'hu' ? 'Klinikai Score-ok' : lang === 'de' ? 'Klinische Scores' : 'Clinical Scores'}</span>
+            </button>
+
+            {/* Protocols & Guidelines Button */}
+            <button
+              onClick={() => setIsProtocolsModalOpen(true)}
+              className="px-3 py-1.5 bg-emerald-700/80 hover:bg-emerald-600 border border-emerald-500/40 text-white font-semibold text-[11px] rounded transition-all active:scale-95 cursor-pointer flex items-center gap-1.5 shadow-xs"
+              title={lang === 'hu' ? 'Magyarországi és nemzetközi szakmai irányelvek és protokollok' : lang === 'de' ? 'Offizielle ungarische und internationale Leitlinien' : 'Official Hungarian and International Clinical Guidelines'}
+            >
+              <BookOpen className="w-3.5 h-3.5 text-emerald-200" />
+              <span>{currentTranslations.protocols_btn}</span>
             </button>
 
             {/* Clinical AI Assistant Button */}
@@ -3698,6 +3715,13 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
         )}
       </AnimatePresence>
 
+      {/* Protocols & Guidelines Modal */}
+      <ProtocolsModal
+        isOpen={isProtocolsModalOpen}
+        onClose={() => setIsProtocolsModalOpen(false)}
+        lang={lang}
+      />
+
     </div>
   </>
 );
@@ -4969,6 +4993,15 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
                     <li key={idx}>{item}</li>
                   ))}
                 </ul>
+                <div className="mt-3.5 pt-2.5 border-t border-natural-border/60 flex justify-end">
+                  <button
+                    onClick={() => setIsProtocolsModalOpen(true)}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 hover:text-emerald-950 bg-emerald-50 hover:bg-emerald-100/80 px-3 py-1.5 rounded-lg border border-emerald-200/70 transition-all cursor-pointer"
+                  >
+                    <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
+                    <span>{lang === 'hu' ? 'Hivatalos magyar és nemzetközi protokollok böngészése →' : lang === 'de' ? 'Offizielle Leitlinien & Protokolle öffnen →' : 'Browse official clinical guidelines & protocols →'}</span>
+                  </button>
+                </div>
               </div>
             )}
 

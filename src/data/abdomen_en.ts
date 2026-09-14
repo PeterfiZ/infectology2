@@ -2392,7 +2392,7 @@ window._abdomen_en = window._abdomen_en || {
         therapy: {
           empirical: {
             inpatient: [
-              { drug: 'Ceftriaxone + Metronidazole', dose: '2g IV daily + 500mg IV q8h', duration: '4-7 days after obstruction resolved', note: 'Community-acquired, mild/moderate' },
+              { drug: 'Ceftriaxone +/- Metronidazole', dose: '2g IV daily +/- 500mg IV q8h', duration: '4-7 days after obstruction resolved', note: 'Community-acquired, mild/moderate' },
               { drug: 'Piperacillin-Tazobactam', dose: '4.5g IV q6h-q8h', duration: '4-7 days after obstruction resolved', note: 'Severe / Healthcare-associated' }
             ]
           },
@@ -2543,7 +2543,7 @@ window._abdomen_en = window._abdomen_en || {
               therapy: {
                 empirical: {
                   inpatient: [
-                    { drug: 'Ceftriaxone + Metronidazole', dose: '2g IV daily + 500mg IV q8h', duration: 'Until afebrile / surgery', note: 'Mild/Moderate' },
+                    { drug: 'Ceftriaxone +/- Metronidazole', dose: '2g IV daily +/- 500mg IV q8h', duration: 'Until afebrile / surgery', note: 'Mild/Moderate' },
                     { drug: 'Piperacillin-Tazobactam', dose: '4.5g IV q6h-q8h', duration: 'Until afebrile / surgery', note: 'Severe / Nosocomial (acalculous)' }
                   ]
                 },

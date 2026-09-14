@@ -24,7 +24,7 @@ export const boneJointDe: Category = {
       'SIRS-Kriterien / septischer Schock bei Knochen- oder Gelenkinfektion'
     ],
     special_populations: 'Diabetiker: Hohes Risiko für kontiguitätsbedingte Osteomyelitis bei Fußulzerationen; PTB-Test und MRT erforderlich. i.v.-Drogenkonsumenten: Erhöhte CA-MRSA-Inzidenz, Septische Arthritis (Sternoklavikular-/Sakroiliakalgelenk) und Spondylodiszitis. Senioren: Atypischer Verlauf ohne Fieber; höhere Mortalität bei septischer Arthritis.',
-    teaching_tip: 'Bei Septischer Arthritis ist die Gelenkdrainage ein Notfall! Bei Osteomyelitis und Spondylodiszitis ist eine frühe orale Umstellung nach 7–10 Tagen i.v.-Induktion (OVIVA-Studie) einer 6-wöchigen i.v.-Therapie ebenbürtig.'
+    teaching_tip: 'Bei Septischer Arthritis ist die Gelenkdrainage ein Notfall! Bei verzögerter postoperativer PJI (4 Wo. – 1 J.) kann das Implantat mit Antibiotika allein NICHT gerettet werden; ein Prothesenwechsel ist zwingend erforderlich. Bei Osteomyelitis und Spondylodiszitis ist eine frühe orale Umstellung nach 7–10 Tagen i.v.-Induktion (OVIVA-Studie) einer 6-wöchigen i.v.-Therapie ebenbürtig.'
   },
   tables: [
     {
@@ -32,8 +32,9 @@ export const boneJointDe: Category = {
       headers: ['Erkrankung', 'Erreger-Spektrum', 'Diagnostischer Goldstandard', 'Wichtigste Leitlinien-Kriterien', 'Kalkulierte antimikrobielle Therapie', 'Interventionelle / Chirurgische Quellkontrolle'],
       rows: [
         ['Osteomyelitis', 'Staphylococcus aureus (MSSA/MRSA), S. epidermidis, Gram-negative Stäbchen', 'Knochenbiopsie mit Kultur und Histologie + MRT', 'IDSA / OVIVA-Studie: 4-6 Wochen Gesamttherapie; frühe orale Umstellung ebenbürtig', 'Vancomycin 15-20mg/kg i.v. + Cefepim / Pip-Tazo (frühe orale Umstellung)', 'Chirurgisches Debridement von nekrotischem Knochen (Sequestrektomie)'],
-        ['Septische Arthritis', 'Staphylococcus aureus, S. pyogenes, N. gonorrhoeae, Gram-negative Stäbchen', 'Notfall-Arthrozentese (Gelenk-Leukozyten >50.000/µL, >90% PMN)', 'IDSA / BSH: Sofortige Notfall-Gelenkdrainage + i.v. Antibiose', 'Vancomycin 15-20mg/kg i.v. + Ceftriaxon 2g i.v. q24h, 2-4 Wochen', 'Notfall-Gelenkdrainage (Arthroskopische Spülung oder Nadelaspiration)'],
-        ['Spondylodiszitis', 'Staphylococcus aureus, E. coli, Streptokokken, M. tuberculosis', 'Kontrastmittel-MRT + Blutkulturen / CT-gestützte Biopsie', 'IDSA-Leitlinien: 6-8 Wochen gezielte Therapie + MRT-Monitoring', 'Vancomycin + Cefepime / Ceftriaxon (frühe orale Umstellung)', 'OP bei neurologischem Defizit, Instabilität oder Epiduralabszess']
+        ['Septische Arthritis', 'Staphylococcus aureus, S. pyogenes, N. gonorrhoeae, Gram-negative Stäbchen', 'Notfall-Arthrozentese (Gelenk-Leukozyten >50.000/µL, >90% PMN)', 'IDSA / BSH: Sofortige Notfall-Gelenkdrainage + i.v. Antibiose', 'Vancomycin 15-20mg/kg i.v. + Ceftriaxon 2g i.v. q24h, 2-4 Wochen (bzw. Cefazolin 3x2g i.v. + Vancomycin bei V.a. S. aureus)', 'Notfall-Gelenkdrainage (Arthroskopische Spülung oder Nadelaspiration)'],
+        ['Spondylodiszitis', 'Staphylococcus aureus, E. coli, Streptokokken, M. tuberculosis', 'Kontrastmittel-MRT + Blutkulturen / CT-gestützte Biopsie', 'IDSA-Leitlinien: 6-8 Wochen gezielte Therapie + MRT-Monitoring', 'Vancomycin + Cefepime / Ceftriaxon (frühe orale Umstellung)', 'OP bei neurologischem Defizit, Instabilität oder Epiduralabszess'],
+        ['Periprothetische Gelenkinfektion (PJI)', 'KNS (S. epidermidis), S. aureus, C. acnes, Gram-negative Stäbchen', 'Gelenkpunktion (Leukozyten + Alpha-Defensin) + 3-5 intraoperative Proben / Sonikation', 'EBJIS/ICM: Akut postoperativ (<4 Wo., DAIR möglich); Verzögert postoperativ (4 Wo.-1 J., NICHT mit Antibiotika zu retten, Prothesenwechsel obligat!); Spät (>1 J., hämatogen)', 'Vancomycin 15-20mg/kg i.v. + Cefepim / Meropenem (gezielt bei Staph Rifampicin-Kombination)', 'Chirurgische Revision: DAIR (nur akut früh/akut hämatogen), ein- oder zweizeitiger Prothesenwechsel (bei verzögerter/chronischer PJI obligat!)']
       ]
     }
   ],
@@ -276,6 +277,7 @@ export const boneJointDe: Category = {
             { drug: 'KEINE AMBULANTE BEHANDLUNG!', dose: '-', duration: '-', note: 'SOFORTIGE NOTFALL-EINWEISUNG UND GELENKASPIRATION/DRAINAGE!' }
           ],
           inpatient: [
+            { drug: 'Cefazolin + Vancomycin (bei Verdacht auf S. aureus)', dose: 'Cefazolin 3x2g i.v. + Vancomycin 15-20 mg/kg i.v. q8-12h', duration: '2-4 Wochen', note: 'Bei Verdacht auf S. aureus (typische akute eitrige Monarthritis oder Gram-positive Haufenkokken im Synoviapräparat): Kombination aus Cefazolin + Vancomycin zur simultanen optimalen bakteriziden Abdeckung von MSSA (Cefazolin überlegen) und sofortigem Schutz vor MRSA bis zum Erregernachweis. Nach Antibiogramm gezielte Monotherapie-Deeskalation.' },
             { drug: 'Vancomycin', dose: '15-20 mg/kg i.v. q8-12h', duration: '2-4 Wochen', note: 'MRSA und Gram-positive Abdeckung' },
             { drug: '+ Ceftriaxon', dose: '1-2g i.v. q24h', duration: '', note: 'Gram-negative und Gonokokken-Abdeckung' },
             { drug: 'oder Cefepim / Pip-Tazo', dose: '2g i.v. q8h / 4,5g i.v. q6h', duration: '', note: 'Bei Pseudomonas-Risiko (i.v.DU, Senioren)' }
@@ -284,7 +286,7 @@ export const boneJointDe: Category = {
             { drug: 'Vancomycin + Meropenem', dose: 'Vancomycin 15-20mg/kg i.v. + Meropenem 1g i.v. q8h', duration: '', note: 'Bei septischem Schock oder schwerer Immunsuppression' }
           ]
         },
-        targeted: 'S. aureus (MSSA): Cefazolin 3x2g i.v. oder Flucloxacillin 4x2g i.v.; MRSA: Vancomycin / Daptomycin 6-8mg/kg i.v.; N. gonorrhoeae: Ceftriaxon 1x1-2g i.v. (dann p.o. Cefixim/Azithromycin); Gram-negative Stäbchen: Ceftriaxon / Cefepim / Ciprofloxacin.',
+        targeted: 'Bei Verdacht auf S. aureus kalkuliert: Cefazolin 3x2g i.v. + Vancomycin 15-20mg/kg i.v. (bis Antibiogramm vorliegt); S. aureus (MSSA): Cefazolin 3x2g i.v. oder Flucloxacillin 4x2g i.v.; MRSA: Vancomycin / Daptomycin 6-8mg/kg i.v.; N. gonorrhoeae: Ceftriaxon 1x1-2g i.v. (dann p.o. Cefixim/Azithromycin); Gram-negative Stäbchen: Ceftriaxon / Cefepim / Ciprofloxacin.',
         supportive: [
           'GELENKDEKOMPRESSION UND DRAINAGE (KRITISCH!): Wiederholte tägliche Nadelaspirationen, ARTHROSKOPIE und Spülung oder offene Arthrotomie (obligat beim Hüftgelenk!)',
           'Adäquate Analgesie (NSAR, Opioide)',
@@ -306,7 +308,7 @@ export const boneJointDe: Category = {
           'Jede septische Arthritis erfordert UNVERZÜGLICHE Gelenkdekompression (Aspiration/Arthroskopie/OP) und kalkulierte parenterale Antibiotika zur Vermeidung von Knorpelschäden!'
         ],
         first_line: [
-          'Kalkuliert: Vancomycin + Ceftriaxon.',
+          'Kalkuliert: Vancomycin + Ceftriaxon (bzw. Cefazolin + Vancomycin bei Verdacht auf S. aureus).',
           'Drainage: Arthroskopie und Spülung oder wiederholte Nadelaspirationen.',
           'Dauer: In der Regel 2–4 Wochen. Bei klinisch stabilen, beschwerdefreien Patienten mit sich normalisierendem CRP kann nach 1–2 Wochen i.v. ein oraler Wechsel (OVIVA-Konzept) vollzogen werden.'
         ]
@@ -479,22 +481,27 @@ export const boneJointDe: Category = {
         virulence_factors: ['Biofilm-Exopolysaccharid-Matrix', 'MSCRAMM-Adhäsine', 'Persister-Cell-Phänotyp', 'Intrazelluläres Überleben']
       },
       clinical: {
-        incubation: 'Postoperative Tage (früh) bis Jahre (chronisch)',
-        onset: 'Akut (früh / hämatogen) oder indolent, chronisch progressiv',
+        incubation: 'Postoperative Tage (früh) über Monate (verzögert postoperativ) bis Jahre (spät)',
+        onset: 'Akut postoperativ (<4 Wochen) oder spät-hämatogen: akuter Beginn; Verzögert postoperativ (4 Wochen bis 1 Jahr): indolent, schleichend, Lockerung',
         symptoms: [
           {
-            name: 'Frühe PJI (<4 Wochen nach OP)',
-            description: 'Akuter Gelenkschmerz, Erythem, Schwellung, Überwärmung, Wunddehiszenz, persistierende eitrige Wundsekretion, Fieber.',
+            name: '1. Akute postoperative PJI (<4 Wochen nach OP)',
+            description: 'Starke Gelenkschmerzen, Erythem, Schwellung, Überwärmung, Wunddehiszenz, anhaltende eitrige Sekretion, Fieber. In diesem engen Zeitfenster ist der Biofilm noch unreif: DAIR (Debridement und Implantaterhalt mit Wechsel mobiler Teile) kann bei stabiler Prothese versucht werden.',
             severity: 'severe'
           },
           {
-            name: 'Späte chronische PJI (>3-4 Wochen/Monate nach OP)',
-            description: 'Dumpfer, bei Belastung und in Ruhe bestehender Gelenkschmerz, frühe Prothesenlockerung, Funktionsverlust; Fieber fehlt meist.',
-            severity: 'moderate'
+            name: '2. Verzögerte postoperative PJI (4 Wochen bis 1 Jahr nach OP)',
+            description: 'Intraoperativ durch Erreger niedriger Virulenz (KNS, Cutibacterium acnes) erworben. Indolenter, schleichender Verlauf: dumpfe Schmerzen bei Belastung/Ruhe, frühe Prothesenlockerung, Funktionsverlust; Fieber meist fehlend. WICHTIG: Aufgrund des reifen Biofilms und der Lockerung ist die verzögerte PJI MIT ANTIBIOTIKA ALLEIN NICHT ZU RETTEN (DAIR-Versagen >80%)! Ein operativer Eingriff mit obligatem vollständigen Implantatwechsel (ein- oder zweizeitig) ist zwingend erforderlich!',
+            severity: 'severe'
+          },
+          {
+            name: '3. Späte PJI (jederzeit >1 Jahr nach OP, überwiegend hämatogen)',
+            description: 'Kann jederzeit auch Jahre später durch hämatogene Streuung aus distanten Infektfokusse (Haut/Weichteile, Dental, Urogenital, Endokarditis, Bakteriämie) auf eine zuvor beschwerdefreie, gut integrierte Prothese auftreten. Akuter Beginn mit hohem Fieber, Schüttelfrost und akuter Gelenkentzündung. Bei Symptomdauer <3 Wochen und fester Verankerung kann DAIR versucht werden, andernfalls Revision.',
+            severity: 'severe'
           },
           {
             name: 'Sinus Tract (Fistel)',
-            description: 'Vorhandensein einer sekretierenden Fistel von der Hautoberfläche direkt zum Implantat/Gelenkspalt - für sich genommen PATHOGNOMONISCH für PJI!',
+            description: 'Vorhandensein einer sekretierenden Fistel von der Hautoberfläche direkt zum Implantat/Gelenkspalt - für sich genommen PATHOGNOMONISCH für PJI! Bei Fistel ist ein Implantaterhalt kontraindiziert, Prothesenwechsel erforderlich.',
             severity: 'severe'
           }
         ],
@@ -547,11 +554,12 @@ export const boneJointDe: Category = {
         },
         targeted: 'Basiert auf Kultur! Bei Staphylokokken-PJI ist die Gabe von Biofilm-aktivem RIFAMPICIN (2x300-450 mg p.o.) in oraler Kombination (z. B. mit Fluorchinolon, Cotrimoxazol oder Clindamycin) nach chirurgischem Debridement OBLIGAT! Behandlungsdauer: 12 Wochen (Hüfte und Knie).',
         supportive: [
-          'CHIRURGISCHE STRATEGIEN (EBJIS 2021 Konsensus):',
-          '1. DAIR (Debridement, Antibiotics, and Implant Retention): Nur bei FRÜHER (<3-4 Wochen) oder AKUTER HÄMATOGENER Infektion bei stabiler Prothese! Wechsel mobiler Teile (Inlay/Liner) obligat!',
-          '2. Einzeitiger Wechsel (One-stage revision): Bei bekanntem, sensiblem Erreger und guten Weichteilverhältnissen Prothesenwechsel in einer OP mit Antibiotikazement.',
-          '3. Zweizeitiger Wechsel (Two-stage revision): GOLDSTANDARD bei chronischen, schwer behandelbaren/resistenten Erregern. 1. OP: Prothesenausbau + Antibiotikazement-Spacer; 6 Wochen gezielte Antibiose; 2. OP: Einbau der neuen Prothese.',
-          '4. Suppressive Antibiotikatherapie: Bei inoperablen Patienten lebenslange orale Antibiose.'
+          'CHIRURGISCHE STRATEGIEN & ENTSCHEIDUNGSALGORITHMUS (EBJIS 2021 / ICM):',
+          '1. DAIR (Debridement, Antibiotics, and Implant Retention): Streng limitiert auf AKUTE FRÜHE (<4 Wochen) oder akute hämatogene Infektionen bei stabiler Prothese und intakten Weichteilen! Wechsel mobiler Teile (Inlay/Liner, Kopf) obligat!',
+          '2. VERZÖGERTE POSTOPERATIVE PJI (4 Wochen bis 1 Jahr) GRUNDSATZ: Durch reifen Biofilm und Lockerung MIT ANTIBIOTIKA ALLEIN NICHT ZU RETTEN (DAIR-Versagen >80%)! Ein operativer Eingriff mit VOLLSTÄNDIGEM IMPLANTATWECHSEL (ein- oder zweizeitig) ist zwingend erforderlich!',
+          '3. Einzeitiger Wechsel (One-stage revision): Bei bekanntem, sensiblem Erreger, guten Weichteilverhältnissen und stabiler Knochensubstanz - Prothesenwechsel in einer OP mit spezifischem Antibiotikazement.',
+          '4. Zweizeitiger Wechsel (Two-stage revision): GOLDSTANDARD bei verzögerter und chronischer PJI, Problemkeimen (MRSA, Pseudomonas, Enterokokken, Pilze), Fistel oder Knochenverlust. 1. OP: Vollständiger Prothesenausbau + Antibiotikazement-Spacer; 6 Wochen gezielte Antibiose; 2. OP: Einbau der neuen Prothese nach Sanierung.',
+          '5. Suppressive Antibiotikatherapie: Lebenslange orale Antibiose als rein palliative Notlösung bei chirurgisch inoperablen Patienten.'
         ],
         prevention: [
           'Präoperatives MRSA/MSSA-Nasenscreening und Dekolonisierung (Mupirocin)',

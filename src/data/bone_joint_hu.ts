@@ -7,7 +7,7 @@ export const boneJointHu: Category = {
   didactics: {
     overview: 'A csont- és ízületi fertőzések magukban foglalják a mély szervi/térbeli osteomyelitist, a septicus arthritist, a spondylodiscitist és a protézis-ízületi fertőzéseket (PJI). A kezelés gyors diagnosztikai kivizsgálást igényel (hemokultúra, synovialis folyadék arthrocentesis, képalkotással vezérelt biopszia és MRI), sebészi forrás-kontrollt (ízületi drenázs, sequestrectomia, implantátum-kezelés) és célzott antimikrobiális terápiát.',
     primary: 'Akut osteomyelitis: Gyermekeknél jellemzően haematogen, felnőtteknél contiguus (diabéteszes láb, nyílt törés) eredetű. Az S. aureus (MSSA/MRSA) a fő kórokozó. Az arany standard diagnózis a csontbiopszia tenyésztésre és szövettanra, az antibiotikum megkezdése előtt (kivéve septicus esetben). Az OVIVA vizsgálat elvei szerint a korai áttérés jól felszívódó orális antibiotikumra (7–10 napos IV kezelés után) non-inferior a 6 hetes IV terápiával szemben.',
-    secondary: 'Septicus arthritis: Belgyógyászati és ortopédiai sürgősségi állapot. Az antibiotikum megkezdése előtt sürgősségi arthrocentesis szükséges (synovialis fehérvérsejtszám >50 000/µL, >90% PMN). A kezelés azonnali ízületi dekompressziót/drenázst igényel (ismételt tűaspiráció, arthroscopia vagy nyitott lavage) és 3–4 hetes célzott antibiotikum-kezelést.',
+    secondary: 'Septicus arthritis: Belgyógyászati és ortopédiai sürgősségi állapot. Az antibiotikum megkezdése előtt sürgősségi arthrocentesis szükséges (synovialis fehérvérsejtszám >50 000/µL, >90% PMN). A kezelés azonnali ízületi dekompressziót/drenázst igényel (ismételt tűaspiráció, arthroscopia vagy nyitott lavage) és 3–4 hetes célzott antibiotikum-kezelést. Empirikus terápiában ha S. aureus gyanúja merül fel, Cefazolin + Vancomycin kombináció javasolt az MSSA és MRSA egyidejű lefedésére a mikrobiológiai eredményig.',
     biliary: 'Fertőzéses spondylodiscitis: Csigolya-osteomyelitis és discitis. A vezető tünet a lokalizált mély hátfájdalom (>90%), de láz csak az esetek kb. 50%-ában van jelen. A kontrasztanyagos gerinc-MRI az arany standard képalkotó vizsgálat. Az antimikrobiális terápia teljes időtartama 6 hét. Sürgősségi műtét indokolt progresszív neurológiai deficit, gerincinstabilitás vagy epiduralis tályog esetén.',
     diagnostics: [
       '1) Diagnosztikus arthrocentesis (ízületi punkció): Septicus arthritis gyanúja esetén kötelező az antibiotikum megkezdése ELŐTT (synovialis fehérvérsejtszám >50 000/µL, >90% PMN).',
@@ -24,7 +24,7 @@ export const boneJointHu: Category = {
       'SIRS kritériumok / septicus shock csont- vagy ízületi fertőzésben'
     ],
     special_populations: 'Diabéteszes betegek: Magas kockázat contiguus osteomyelitisre lábfekély esetén; PTB-teszt és MRI elvégzése szükséges. Intravénás droghasználók: Fokozott CA-MRSA előfordulás, septicus arthritis (sternoclavicularis/sacroiliacalis ízület) és spondylodiscitis. Idősek: Atípusos lefolyás, láz nélkül; magasabb mortalitás septicus arthritisben.',
-    teaching_tip: 'Septicus arthritisben az ízületi drenázs sürgősségi beavatkozás! Osteomyelitis és spondylodiscitis esetén a korai orális antibiotikum-váltás 7–10 napos IV indukció után (OVIVA vizsgálat) non-inferior a 6 hetes IV terápiával szemben.'
+    teaching_tip: 'Septicus arthritisben az ízületi drenázs sürgősségi beavatkozás! Késleltetett posztoperatív PJI (4 hét – 1 év) esetén az implantátum antibiotikummal önmagában NEM menthető meg, elengedhetetlen a revíziós műtét és a protézis cseréje! Osteomyelitis és spondylodiscitis esetén a korai orális antibiotikum-váltás 7–10 napos IV indukció után (OVIVA vizsgálat) non-inferior a 6 hetes IV terápiával szemben.'
   },
   tables: [
     {
@@ -32,8 +32,9 @@ export const boneJointHu: Category = {
       headers: ['Betegség', 'Kórokozó spektrum', 'Diagnosztikus arany standard', 'Fő irányelvi kritériumok', 'Empirikus antimikrobiális terápia', 'Intervenciós / sebészi forrás-kontroll'],
       rows: [
         ['Osteomyelitis', 'Staphylococcus aureus (MSSA/MRSA), S. epidermidis, Gram-negatívok', 'Csontbiopszia tenyésztéssel és szövettannal + MRI', 'IDSA / OVIVA vizsgálat: 4-6 hetes összesített terápia; korai orális váltás non-inferior', 'Vancomycin 15-20mg/kg IV + Ceftriaxon 2g IV 24 óránként (korai orális váltás)', 'Necroticus csont sebészi debridementje (sequestrectomia)'],
-        ['Septicus arthritis', 'Staphylococcus aureus, S. pyogenes, N. gonorrhoeae, Gram-negatívok', 'Ágymelletti arthrocentesis (synovialis fehérvérsejtszám >50 000/µL)', 'IDSA / BSH: Azonnali sürgősségi ízületi drenázs + IV antibiotikum', 'Vancomycin 15-20mg/kg IV + Ceftriaxon 2g IV 24 óránként, 3-4 hétig', 'Sürgősségi ízületi drenázs (arthroscopos átöblítés vagy tűaspiráció)'],
-        ['Spondylodiscitis', 'Staphylococcus aureus, E. coli, Streptococcusok, M. tuberculosis', 'Kontrasztanyagos gerinc-MRI + hemokultúra / CT-vezérelt biopszia', 'IDSA irányelvek: 6 hetes célzott antimikrobiális terápia + MRI-monitorozás', 'Vancomycin + Ceftriaxon 2g IV 24 óránként (6 hét összesen; korai orális váltás)', 'Műtét neurológiai deficit, gerincinstabilitás vagy epiduralis tályog esetén']
+        ['Septicus arthritis', 'Staphylococcus aureus, S. pyogenes, N. gonorrhoeae, Gram-negatívok', 'Ágymelletti arthrocentesis (synovialis fehérvérsejtszám >50 000/µL)', 'IDSA / BSH: Azonnali sürgősségi ízületi drenázs + IV antibiotikum', 'Vancomycin 15-20mg/kg IV + Ceftriaxon 2g IV 24 óránként (S. aureus gyanúja esetén: Cefazolin 3x2g IV + Vancomycin 15-20mg/kg IV), 3-4 hétig', 'Sürgősségi ízületi drenázs (arthroscopos átöblítés vagy tűaspiráció)'],
+        ['Spondylodiscitis', 'Staphylococcus aureus, E. coli, Streptococcusok, M. tuberculosis', 'Kontrasztanyagos gerinc-MRI + hemokultúra / CT-vezérelt biopszia', 'IDSA irányelvek: 6 hetes célzott antimikrobiális terápia + MRI-monitorozás', 'Vancomycin + Ceftriaxon 2g IV 24 óránként (6 hét összesen; korai orális váltás)', 'Műtét neurológiai deficit, gerincinstabilitás vagy epiduralis tályog esetén'],
+        ['Protézis ízületi fertőzés (PJI)', 'CoNS (S. epidermidis), S. aureus, C. acnes, Gram-negatívok', 'Arthrocentesis (leukozyta + alfa-defenzin) + 3-5 intraoperatív szövetminta / sonikáció', 'EBJIS/ICM: Akut posztop (<4 hét, DAIR még lehetséges); Késleltetett posztop (4 hét-1 év, antibiotikummal nem menthető meg, protéziscsere kötelező!); Késői (>1 év, hematogén)', 'Vancomycin 15-20mg/kg IV + Cefepime / Meropenem (célzottan Staph esetén Rifampicin-kombináció)', 'Sebészi revízió: DAIR (csak akut korai/hematogénben), egy- vagy kétfázisú protéziscsere (késleltetett és krónikus PJI-ben kötelező!)']
       ]
     }
   ],
@@ -334,7 +335,7 @@ export const boneJointHu: Category = {
         ]
     },
     therapy: {
-        "targeted": "S. aureus (MSSA): Cefazolin 3x2g IV vagy Flucloxacillin 4x2g IV; MRSA: Vancomycin (célkoncentráció követéssel) vagy Daptomycin 6-8 mg/kg IV; N. gonorrhoeae: Ceftriaxone 1-2g IV; Gram-negatív pálcák: Ceftriaxone 2g IV, Pseudomonas gyanú esetén Cefepime 3x2g IV vagy Piperacillin/Tazobactam 4x4.5g IV.",
+        "targeted": "S. aureus gyanú esetén empirikusan: Cefazolin 3x2g IV + Vancomycin 15-20 mg/kg IV (MSSA és MRSA együttes lefedésére a mikrobiológiai eredményig); Igazolt MSSA: Cefazolin 3x2g IV vagy Flucloxacillin 4x2g IV; Igazolt MRSA: Vancomycin (célkoncentráció/AUC követéssel) vagy Daptomycin 6-8 mg/kg IV; N. gonorrhoeae: Ceftriaxone 1-2g IV; Gram-negatív pálcák: Ceftriaxone 2g IV, Pseudomonas gyanú esetén Cefepime 3x2g IV vagy Piperacillin/Tazobactam 4x4.5g IV.",
         "supportive": [
             "ÍZÜLETI DECOMPRESSZIO ÉS DRENÁZS (KULCSFONTOSSÁGÚ): Sürgős arthroscopos öblítés (lavage) és debridement, vagy ismételt zárt tűaspirációk. Csípőízületi szeptikus arthritis esetén azonnali sebészi nyitott feltárás/arthroscopia szükséges!",
             "Adekvát fájdalomcsillapítás (NSAID-ok, sz.e. opioidok)",
@@ -347,6 +348,12 @@ export const boneJointHu: Category = {
         ],
         "empirical": {
             "inpatient": [
+                {
+                    "drug": "Cefazolin + Vancomycin (ha S. aureus gyanúja merül fel)",
+                    "dose": "Cefazolin 3x2g IV + Vancomycin 15-20 mg/kg IV q8-12h",
+                    "duration": "2 hét (a mikrobiológiai eredményig kombinációban, majd célzott deeszkaláció; összesen 3-4 hét)",
+                    "note": "Ha S. aureus gyanúja merül fel (típusos akut purulens monoarthritis vagy Gram-pozitív coccusok a synoviában): Cefazolin + Vancomycin kombináció indokolt az MSSA és MRSA egyidejű lefedésére (a Cefazolin kiemelkedő baktericid aktivitású MSSA ellen, míg a Vancomycin azonnali védelmet nyújt MRSA esetén a tenyésztésig). Eredmény birtokában azonnali monoterápiás deeszkaláció javasolt."
+                },
                 {
                     "drug": "Vancomycin",
                     "dose": "15-20 mg/kg IV q8-12h",
@@ -590,22 +597,27 @@ export const boneJointHu: Category = {
         ]
     },
     clinical: {
-        "incubation": "Műtét utáni napoktól (korai) évekig (krónikus)",
-        "onset": "Akut (korai / hematogén) vagy indolens, krónikusan progresszív",
+        "incubation": "Műtét utáni napoktól (korai) hónapokon át (késleltetett posztop) évekig (késői)",
+        "onset": "Akut posztop (<4 hét) vagy késői hematogén: heveny tünetek; Késleltetett posztop (4 hét - 1 év): indolens, tünetszegény, meglazulás",
         "symptoms": [
             {
-                "name": "Korai PJI (<4 hét műtét után)",
-                "description": "Akut ízületi fájdalom, erythema, duzzanat, melegség, sebszétválás, perzisztáló gennyes sebszivárgás, láz.",
+                "name": "1. Akut posztopertív PJI (<4 hét a műtét után)",
+                "description": "A beavatkozást követő 4 héten belül jelentkező akut ízületi fájdalom, erythema, duzzanat, melegség, perzisztáló gennyes sebszivárgás, sebszétválás, láz. Ebben a szűk időablakban még éretlen a biofilm, ezért stabil protézis mellett kísérelhető meg a DAIR (implantátum-megtartás betétcserével).",
                 "severity": "severe"
             },
             {
-                "name": "Késői Krónikus PJI (>3-4 hét/hónap műtét után)",
-                "description": "Tompa, terhelésre és nyugalomban is fennálló ízületi fájdalom, a protézis korai meglazulása, funkcióromlás, láz általában hiányzik.",
-                "severity": "moderate"
+                "name": "2. Késleltetett posztoperatív PJI (4 hét – 1 év műtét után)",
+                "description": "Kifejezetten alacsony virulenciájú kórokozók (CoNS, Cutibacterium acnes) által okozott, műtéti inokulációból eredő fertőzés. Tünetszegény, indolens lefolyás: tompa terhelési/nyugalmi fájdalom, korai protézismeglazulás, funkcióromlás, láz többnyire hiányzik. FONTOS: A késleltetett posztoperatív PJI érett, masszív biofilm miatt ANTIBIOTIKUMMAL ÖNMAGÁBAN NEM MENTHETŐ MEG (a DAIR kontraindikált, sikertelensége >80%)! Mindenképpen műtét és az implantátum cseréje (egy- vagy kétfázisú revízió) szükséges!",
+                "severity": "severe"
+            },
+            {
+                "name": "3. Késői PJI (bármikor >1 év után, döntően hematogén eredet)",
+                "description": "A beültetést követően bármikor, akár évekkel később is felléphet. Jellemzően távoli fertőzési gócból (bőr/lágyrész, urogenitalis, fogászati, endocarditis, bakteriaemia) hematogén úton szóródik egy korábban panaszmentes, jól működő protézisre. Hirtelen fellépő magas lázzal, hidegrázással és heveny ízületi gyulladással indul. Ha a tünetek kezdete <3 hét és a protézis stabil, DAIR még megkísérelhető, egyébként protéziscsere szükséges.",
+                "severity": "severe"
             },
             {
                 "name": "Sinus Tract (Sipoly)",
-                "description": "A bőrfelszínről közvetlenül az implantátumig/ízületi résig vezető váladékozó sipoly jelenléte - önmagában PATHOGNOMONIKUS PJI-re!",
+                "description": "A bőrfelszínről közvetlenül az implantátumig/ízületi résig vezető váladékozó sipoly jelenléte - önmagában PATHOGNOMONIKUS PJI-re! Kialakult sipoly esetén az implantátum már nem tartható meg, protéziscsere indokolt.",
                 "severity": "severe"
             }
         ],
@@ -678,11 +690,12 @@ export const boneJointHu: Category = {
     therapy: {
         "targeted": "Tenyésztés alapján! Staphylococcus PJI esetén biofilm-aktív RIFAMPICIN adása (2x300-450 mg PO) orális kombinációban (pl. fluoroquinolonnal) javasolt, de KIZÁRÓLAG a seb teljes gyógyulása (száraz seb, drain eltávolítás) után a rezisztencia megelőzésére! Kezelési időtartam: 6-12 hét.",
         "supportive": [
-            "SEBÉSZI STRATÉGIÁK (EBJIS 2021):",
-            "1. DAIR (Debridement, Antibiotics, and Implant Retention): Csak KORAI (<4 hét) vagy akut hematogén esetekben, stabil implantátum mellett! Liner/insert csere kötelező!",
-            "2. Egyfázisú csere: Ismert, érzékeny kórokozó és jó lágyrészviszonyok esetén egy műtéttel.",
-            "3. Kétfázisú csere: Gold standard krónikus, rezisztens kórokozók vagy rossz lágyrészek esetén. Spacer behelyezése, majd 6 hét után új protézis.",
-            "4. Szuppresszív terápia: Nem operálható betegeknél élethosszig tartó orális antibiotikum."
+            "SEBÉSZI STRATÉGIÁK ÉS DÖNTÉSI ALGORITMUS (EBJIS 2021 / ICM):",
+            "1. DAIR (Debridement, Antibiotics, and Implant Retention): KIZÁRÓLAG AKUT KORAI (<4 hét) vagy akut hematogén esetekben engedélyezett, ép lágyrészek és stabil implantátum mellett! Moduláris komponensek (liner/insert, fej) cseréje kötelező!",
+            "2. KÉSLELTETETT POSZTOPERATÍV PJI (4 hét – 1 év) KEZELÉSI ELVE: Antibiotikummal önmagában (vagy csupán debridementtel / DAIR-rel) NEM MENTHETŐ MEG a kialakult érett biofilm és a meglazulás miatt! Mindenképpen műtét és AZ IMPLANTÁTUM TELJES ELTÁVOLÍTÁSA / CSERÉJE szükséges!",
+            "3. Egyfázisú csere (One-stage revision): Ismert, érzékeny kórokozó, jó lágyrészviszonyok és ép csontállomány esetén az implantátum kivétele és azonnali új protézis beültetése antibiotikumos cementtel.",
+            "4. Kétfázisú csere (Two-stage revision): GOLD STANDARD késleltetett és krónikus PJI, rezisztens/nehéz kórokozók (MRSA, Pseudomonas, Enterococcus, gombák), sipoly, vagy csontvesztés esetén. 1. lépés: Teljes implantátum-eltávolítás + antibiotikumos cement spacer; 6 hét célzott antibiotikum; 2. lépés: Új protézis reimplantációja a fertőzés szanálódása után.",
+            "5. Szuppresszív terápia: Csak sebészileg inoperábilis vagy a műtétet elutasító betegeknél kényszermegoldásként élethosszig tartó orális antibiotikum."
         ],
         "prevention": [
             "Műtét előtti MRSA/MSSA orr-szűrés és dekolonizáció (Mupirocin kenőcs és klórhexidines fürdés)",
