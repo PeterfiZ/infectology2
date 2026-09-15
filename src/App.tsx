@@ -510,7 +510,7 @@ Típus / Type: ${typeLabel}
 ${feedbackMessage}
 
 ---
-Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)
+Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)
 `;
 
     // Construct the mailto link
@@ -540,7 +540,7 @@ Típus / Type: ${typeLabel}
 ${feedbackMessage}
 
 ---
-Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
+Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
   };
 
   const handleCopyFeedbackText = () => {
@@ -1317,7 +1317,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
                   <div>{lang === 'hu' ? 'Intézmény:' : lang === 'de' ? 'Institution:' : 'Institution:'} {lang === 'hu' ? 'Pécsi Tudományegyetem' : lang === 'de' ? 'Universität Pécs' : 'University of Pécs'}</div>
                   <div>{lang === 'hu' ? 'Generálta:' : lang === 'de' ? 'Erstellt von:' : 'Generated for:'} peterfi.zoltan@gmail.com</div>
                   <div>{lang === 'hu' ? 'Dátum:' : lang === 'de' ? 'Datum:' : 'Date:'} {new Date().toLocaleDateString(lang === 'hu' ? 'hu-HU' : lang === 'de' ? 'de-DE' : 'en-US')}</div>
-                  <div className="text-[10px] mt-2 opacity-60">Rendszer verzió: v5.0.1</div>
+                  <div className="text-[10px] mt-2 opacity-60">Rendszer verzió: v5.1.1</div>
                 </div>
               </div>
 
@@ -1750,7 +1750,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.0.1)`;
                 <div className="font-sans text-[11px] font-semibold text-natural-dark tracking-wide">Copyright © 2026 Dr. Péterfi Zoltán</div>
                 <div className="flex justify-between items-center text-[10px] text-natural-dark/80 mt-1.5">
                   <span className="font-medium">Rendszer verzió:</span>
-                  <span className="font-bold text-natural-dark">v5.0.1</span>
+                  <span className="font-bold text-natural-dark">v5.1.1</span>
                 </div>
                 <div className="flex justify-between items-center text-[10px] text-natural-dark/80 mt-0.5">
                   <span className="font-medium">

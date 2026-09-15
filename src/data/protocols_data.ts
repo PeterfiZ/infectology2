@@ -15,64 +15,28 @@ export const protocolCategories: ProtocolCategory[] = [
   { id: 'respiratory', name: { hu: 'Légúti fertőzések (CAP / HAP)', en: 'Respiratory (CAP / HAP)', de: 'Respiratorisch (CAP / HAP)' } },
   { id: 'bone_joint', name: { hu: 'Csont- és ízület (PJI / Osteomyelitis)', en: 'Bone & Joint (PJI / Osteomyelitis)', de: 'Knochen & Gelenk (PJI / Osteomyelitis)' } },
   { id: 'cns', name: { hu: 'Központi idegrendszer (Meningitis)', en: 'Central Nervous System', de: 'Zentralnervensystem' } },
-  { id: 'gi', name: { hu: 'Hasi & C. difficile', en: 'Abdominal & C. difficile', de: 'Abdominal & C. difficile' } },
+  { id: 'gi', name: { hu: 'Hasi & C. diff & FMT', en: 'Abdominal, CDI & FMT', de: 'Abdominal, CDI & FMT' } },
   { id: 'cardio', name: { hu: 'Endocarditis & Cardiovascularis', en: 'Infective Endocarditis', de: 'Infektiöse Endokarditis' } },
   { id: 'urinary', name: { hu: 'Húgyúti fertőzések (UTI)', en: 'Urinary Tract Infections', de: 'Harnwegsinfektionen' } },
   { id: 'ipc', name: { hu: 'Infekciókontroll & Prevenció', en: 'Infection Control & Prevention', de: 'Infektionskontrolle & Prävention' } },
   { id: 'hepatology_hiv', name: { hu: 'Hepatológia & HIV', en: 'Hepatology & HIV', de: 'Hepatologie & HIV' } },
   { id: 'sti', name: { hu: 'Nemi úton terjedő fertőzések (STI)', en: 'Sexually Transmitted Infections', de: 'Sexuell übertragbare Infektionen' } },
+  { id: 'zoonosis', name: { hu: 'Zoonózis & Lyme-kór', en: 'Zoonoses & Lyme Disease', de: 'Zoonosen & Lyme-Borreliose' } },
   { id: 'fungal', name: { hu: 'Invazív gombafertőzések', en: 'Invasive Fungal Infections', de: 'Invasive Pilzinfektionen' } }
 ];
 
 export const clinicalProtocols: ClinicalProtocol[] = [
   // ==================== MAGYARORSZÁGI SZAKMAI IRÁNYELVEK ====================
   {
-    id: 'hu-sepsis-2021',
-    title: 'Egészségügyi szakmai irányelv a felnőttkori szepszis és szeptikus sokk ellátásáról',
-    originalTitle: 'Szakmai irányelv: Felnőttkori szepszis és szeptikus sokk korai felismerése és komplex intenzív terápiája',
-    organization: 'Egészségügyi Szakmai Kollégium (Infektológia, Aneszteziológia és Intenzív Terápia Tagozat)',
-    scope: 'hungarian',
-    category: 'sepsis',
-    year: '2021 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    pdfUrl: 'https://egeszsegugyikozlony.hu/',
-    description: 'A felnőttkori szepszis és szeptikus sokk korai ágymelletti felismerése (SOFA / qSOFA score), a sürgősségi 1 órás csomag (Hour-1 bundle), vérkultúrák vétele az antibiotikum előtt, 30 ml/kg krisztalloid reszuszcitáció és korai célzott széles spektrumú IV antimikrobiális terápia.',
-    keyPoints: [
-      'Azonnali 1 órás ellátási csomag (Hour-1 bundle) szeptikus sokkban',
-      'Hemokultúrák vétele (2-3 pár) az első antibiotikum dózis beadása előtt',
-      'Korai empirikus IV baktericid antibiotikum (1 órán belül sokk esetén)',
-      'Szérum laktát mérése és ismétlése; MAP ≥ 65 Hgmm fenntartása noradrenalinnal'
-    ],
-    tags: ['szepszis', 'szeptikus sokk', 'intenzív terápia', 'hour-1 bundle', 'hemokultúra', 'noradrenalin']
-  },
-  {
-    id: 'hu-cap-2022',
-    title: 'Egészségügyi szakmai irányelv a területen szerzett pneumoniák (CAP) felnőttkori diagnosztikájáról és kezeléséről',
-    originalTitle: 'A felnőttkori közösségben szerzett pneumoniák (CAP) ellátásának szakmai irányelve',
-    organization: 'Egészségügyi Szakmai Kollégium (Tüdőgyógyászat és Infektológia Tagozat)',
-    scope: 'hungarian',
-    category: 'respiratory',
-    year: '2022 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'A felnőttkori közösségben szerzett pneumonia kivizsgálási algoritmusa, rizikóstratifikáció (CURB-65 és PSI), mikrobiológiai diagnosztika (sputum, Legionella/Pneumococcus vizelet antigén) és empirikus antibiotikum-választás ambuláns és kórházi osztályos/intenzív szinten.',
-    keyPoints: [
-      'CURB-65 rizikóstratifikáció az ambuláns vs. fekvőbeteg kezelés eldöntésére',
-      'Ambuláns terápia: Amoxicillin monoterápia vagy Doxycyclin / légúti makrolid',
-      'Kórházi osztályos: IV Amoxicillin/Klavulánsav vagy Ceftriaxon + Makrolid',
-      'Súlyos intenzíves CAP: Béta-laktám + Makrolid vagy Légúti fluorokinolon'
-    ],
-    tags: ['pneumonia', 'CAP', 'CURB-65', 'tüdőgyulladás', 'ceftriaxon', 'legionella']
-  },
-  {
-    id: 'hu-cdi-2014',
+    id: 'hu-cdi-2016',
     title: 'Clostridioides difficile fertőzések (CDI) diagnosztikája, terápiája és megelőzése (OEK módszertani levél)',
     originalTitle: 'Módszertani levél a Clostridium difficile által okozott fertőzések surveillance-áról, diagnosztikájáról, terápiájáról és megelőzéséről (OEK / Szakmai Kollégium)',
     organization: 'Országos Epidemiológiai Központ (OEK / NNGYK jogelőd) & Infektológia Tagozat',
     scope: 'hungarian',
     category: 'gi',
-    year: '2014 (Hivatalosan nem frissült 2021-ben; a hazai klinikum az ESCMID és IDSA ajánlásokat követi)',
+    year: '2016 (Hivatalosan nem frissült 2021-ben; a hazai klinikum az ESCMID és IDSA ajánlásokat követi)',
     url: 'https://www.nnk.gov.hu/',
-    pdfUrl: 'https://www.nnk.gov.hu/',
+    pdfUrl: 'https://nngyk.gov.hu/hu/modszertani-levelek/2016-modszertani-levelek.html',
     description: 'A hivatalos magyarországi módszertani levél 2014-ben jelent meg az OEK és az Infektológia Tagozat gondozásában, és 2021-ben hivatalosan nem frissült. Emiatt a hazai egyetemi klinikákon és kórházi osztályokon a terápia és diagnosztika közvetlenül a nemzetközi ESCMID (2021) és IDSA (2021) irányelveket követi (első vonalban a Fidaxomicin preferenciája a Vancomycinnel szemben, orális Metronidazol kerülése, kétlépcsős GDH + Toxin tesztelés, és a korai FMT indikációk).',
     keyPoints: [
       'Fontos megjegyzés: A hivatalos magyarországi módszertani levél 2014-es keltezésű és 2021-ben NEM frissült; a hazai szakorvosi gyakorlat az ESCMID 2021 és IDSA 2021 protokolljait tekinti érvényes arany standardnak',
@@ -84,76 +48,63 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     tags: ['clostridioides difficile', 'CDI', 'OEK', 'ESCMID', 'fidaxomicin', 'vancomycin', 'FMT', 'hasmenés', 'nem frissült 2021-ben']
   },
   {
-    id: 'hu-meningitis-2020',
-    title: 'Egészségügyi szakmai irányelv a felnőttkori heveny bakteriális meningitis kórismézéséről és kezeléséről',
-    originalTitle: 'Akut felnőttkori purulens meningitis diagnosztikus és terápiás protokollja',
-    organization: 'Egészségügyi Szakmai Kollégium (Infektológia és Neurológia Tagozat)',
+    id: 'hu-fmt-2025',
+    title: 'A hagyományos intesztinális mikrobióta-transzplantáció (FMT) kivitelezése (pl. rekurráló C. difficile fertőzésben)',
+    originalTitle: 'Egészségügyi szakmai irányelv a hagyományos intesztinális mikrobióta-transzplantáció (FMT) eljárásrendjéről és kivitelezéséről',
+    organization: 'Egészségügyi Szakmai Kollégium – Gasztroenterológia és Hepatológia + Infektológia Tagozat',
+    scope: 'hungarian',
+    category: 'gi',
+    year: 'EüK 2025/14. szám / Hivatalos',
+    url: 'https://egeszsegugyikozlony.hu/',
+    pdfUrl: 'https://kollegium.okfo.gov.hu/sites/eszk_portal/pfile/file?path=/tagozatok/27._Infektologia/dokumentumok/kulso-publikus/a-hagyomanyos-intesztinalis-mikrobiota-transzplantacios-eljaras-kivitelezeserol',
+    description: 'Hivatalos egészségügyi szakmai irányelv az intesztinális mikrobióta-transzplantáció (FMT / széklet-transzplantáció) indikációiról és kivitelezéséről (megjelent: Egészségügyi Közlöny 2025/14. szám). Részletezi az alkalmazást többszörösen rekurráló vagy refrakter Clostridioides difficile fertőzésben (CDI), a szigorú donorkiválasztási és szűrési protokollt (anamnézis, vér- és székletvizsgálatok multirezisztens kórokozókra és enterális vírusokra), a szuszpenzió elkészítését, a beadási utakat (kolonoszkópos instilláció jobb colonfélbe/cecumhoz, szondás beadás, liofilizált kapszula), az antibiotikumok előzetes leállítását és a minőségbiztosítási regisztert.',
+    keyPoints: [
+      'Kiemelt indikáció: Többszörösen rekurráló (≥2 recidíva megfelelő antibiotikum-terápia után) vagy standard kezelésre refrakter súlyos Clostridioides difficile fertőzés (CDI)',
+      'Szigorú donorkiválasztás és szűrés: Részletes anamnézis (metabolikus szindróma, IBD, malignoma, antibiotikum-használat kizárása); kötelező laboratóriumi szűrés MDRO baktériumokra (CRE, VRE, MRSA, ESBL), vírusokra és parazitára',
+      'Beadási modalitások: Kolonoszkópiás instilláció a terminalis ileumba és a jobb colonfélbe a legmagasabb tartós eradikációs aránnyal (>90%); alternatívaként retenciós beöntés, nazoduodenális szonda vagy orális savrezisztens mikrobiom-kapszula',
+      'Kezelés időzítése: A CDI-ellenes antibiotikumot (vancomycin vagy fidaxomicin) 24-48 órával az FMT beavatkozás előtt le kell állítani, hogy a donor mikrobióta megtelepedése biztosított legyen',
+      'Minőségbiztosítás és követés: Kötelező intézményi és országos regisztráció a hosszú távú hatásosság, a recidívák és az infekciókontroll biztonságosság monitorozására'
+    ],
+    tags: ['FMT', 'széklet mikrobióta transzplantáció', 'clostridioides difficile', 'CDI', 'mikrobiom', 'Egészségügyi Közlöny', 'EüK 2025/14', 'gasztroenterológia']
+  },
+  {
+    id: 'hu-biliary-2024',
+    title: 'Epeút- és epehólyag-gyulladás: diagnosztikus kritériumok és terápia',
+    originalTitle: 'Egészségügyi szakmai irányelv – Epeút- és epehólyag-gyulladás: diagnosztikus kritériumok és terápia',
+    organization: 'Egészségügyi Szakmai Kollégium – Gasztroenterológia és hepatológia Tagozat',
+    scope: 'hungarian',
+    category: 'gi',
+    year: 'Hatályos szakmai irányelv',
+    url: 'https://kollegium.okfo.gov.hu/sites/eszk_portal/pfile/file?path=/tagozatok/16._Gasztroenterologia_es_hepatologia/dokumentumok/kulso-publikus/epeut--es-epeholyag-gyulladas-diagnosztikus-kriteriumok-es-terapia',
+    pdfUrl: 'https://kollegium.okfo.gov.hu/sites/eszk_portal/pfile/file?path=/tagozatok/16._Gasztroenterologia_es_hepatologia/dokumentumok/kulso-publikus/epeut--es-epeholyag-gyulladas-diagnosztikus-kriteriumok-es-terapia',
+    description: 'Hivatalos egészségügyi szakmai irányelv a felnőttkori acut cholecystitis és acut cholangitis diagnosztikájáról, súlyossági besorolásáról és komplex terápiájáról (TG18 / Tokyo Guidelines hazai adaptáció). Részletezi a klinikai és képalkotó kritériumokat, a sürgősségi epeúti dekompresszió (ERCP / EST, PTCD) indikációit és időzítését, a korai laparoszkópos műtétet, valamint az empirikus és célzott antibiotikum-választást.',
+    keyPoints: [
+      'Diagnosztikus kritériumok és súlyosság: A TG18 kritériumok alapján Grade I (enyhe), Grade II (középsúlyos) és Grade III (szervi elégtelenséggel járó súlyos) stádiumok elkülönítése',
+      'Akut cholangitis sürgősségi ellátása: Súlyos (Grade III) vagy szeptikus állapotban azonnali/sürgős epeúti dekompresszió (ERCP/sphincterotomia vagy PTCD) kötelező forráskontrollként',
+      'Akut cholecystitis sebészi időzítése: Korai laparoszkópos cholecystectomia javasolt a tünetek kezdetét követő 72 órán (legfeljebb 7 napon) belül',
+      'Antimikrobiális terápia: Enyhe/közösségi formákban Ceftriaxon (+/- Metronidazol); súlyos, nozokomiális vagy korábban stentelt esetben Piperacillin-Tazobactam vagy Meropenem',
+      'Kezelés időtartama: Hatékony forráskontroll esetén általában 4-7 nap; szövődménymentes cholecystectomiát követően a beavatkozást követő 24 órán belül leállítható'
+    ],
+    tags: ['epeút', 'epehólyag', 'cholecystitis', 'cholangitis', 'Tokyo Guidelines', 'TG18', 'ERCP', 'ceftriaxon', 'piperacillin-tazobactam', 'gasztroenterológia']
+  },
+  {
+    id: 'hu-meningococcus-2026',
+    title: '2026 - Módszertani levél az invazív meningococcus betegségről III., átdolgozott kiadás',
+    originalTitle: 'Módszertani levél az invazív meningococcus betegségről III., átdolgozott kiadás (NNGYK 2026)',
+    organization: 'Nemzeti Népegészségügyi és Gyógyszerészeti Központ (NNGYK)',
     scope: 'hungarian',
     category: 'cns',
-    year: '2020 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'Sürgősségi liquordiagnosztika (fehérvérsejt, fehérje, glükóz/szérum glükóz hányados, Gram-festés, latex agglutináció/PCR), azonnali parenterális dexamethason (10 mg IV) az első antibiotikum dózis előtt, empirikus Ceftriaxon 2x2g IV + Ampicillin 6x2g IV (>50 év vagy immunszuppresszió esetén Listeria monocytogenes ellen).',
+    year: '2026 / Hatályos módszertani levél',
+    url: 'https://nngyk.gov.hu/hu/modszertani-levelek/2026-modszertani-level-az-invaziv-meningococcus-betegsegrol-iii-atdolgozott-kiadas.html',
+    pdfUrl: 'https://nngyk.gov.hu/hu/modszertani-levelek/2026-modszertani-level-az-invaziv-meningococcus-betegsegrol-iii-atdolgozott-kiadas.html',
+    description: 'Az NNGYK 2026-os átdolgozott módszertani levele a Neisseria meningitidis által okozott invazív megbetegedések (meningitis purulenta, meningococcemia, fulmináns szeptikus sokk / Waterhouse-Friderichsen szindróma) korai felismeréséről, sürgősségi ellátásáról, a szoros kontaktusok kemoprofilaxisáról, a járványügyi felügyeletről és a védőoltásokról (MenB és MenACWY).',
     keyPoints: [
-      'Azonnali LP elvégzése; ha koponya CT szükséges fókusz/tudatzavar miatt, előbb hemokultúra + azonnali dexamethason és antibiotikum!',
-      'Dexamethason 10 mg IV közvetlenül az első antibiotikum dózis előtt vagy azzal egy időben adva (S. pneumoniae mortalitáscsökkentés)',
-      'Empirikus terápia: Ceftriaxon 2x2g IV (+ Ampicillin 6x2g IV 50 év felett vagy immundependens betegnél)',
-      'N. meningitidis gyanú esetén azonnali cseppfertőzés izoláció és kontaktusok kemoprofilaxisa (Rifampicin vagy Ciprofloxacin)'
+      'Sürgősségi ellátás: Típusos petechiák/purpurák és meningealis tünetek esetén azonnal Ceftriaxon 2g IV/IM adandó, a lumbálpunkció a terápia indítását soha nem késleltetheti',
+      'Járványügyi intézkedések: Azonnali hatósági jelentés és szigorú cseppfertőzés elleni izoláció az adekvát antibiotikum-kezelés megkezdését követő 24 órán át',
+      'Szoros kontaktusok sürgősségi kemoprofilaxisa (24 órán belül): Felnőtteknél Rifampicin 2x600 mg PO 2 napig, vagy Ciprofloxacin 1x500 mg PO, vagy Ceftriaxon 1x250 mg IM (pl. terheseknél)',
+      'Megelőzés és védőoltások: MenB (rekombináns) és MenACWY (konjugált) vakcinák csecsemők, kisgyermekek, serdülők és magas kockázatú csoportok (pl. asplenia, komplement-hiány) számára'
     ],
-    tags: ['meningitis', 'liquor', 'ceftriaxon', 'ampicillin', 'listeria', 'dexamethason', 'agyhártyagyulladás']
-  },
-  {
-    id: 'hu-uti-2022',
-    title: 'Egészségügyi szakmai irányelv a felnőttkori szövődménymentes és szövődményes húgyúti fertőzések ellátásáról',
-    originalTitle: 'Húgyúti infekciók (cystitis, pyelonephritis, katéterhez társuló UTI) diagnosztikája és antimikrobiális terápiája',
-    organization: 'Egészségügyi Szakmai Kollégium (Urológia és Infektológia Tagozat)',
-    scope: 'hungarian',
-    category: 'urinary',
-    year: '2022 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'Szövődménymentes akut cystitisben első vonalbeli szerek (Nitrofurantoin, Fosfomycin trometamol, Pivmecillinam); fluorokinolonok (Ciprofloxacin) szigorú kerülése egyszerű cystitisben az EMA és hazai figyelmeztetések alapján; akut pyelonephritis és uroszepszis kórházi ellátása; aszimptomatikus bakteriuria (ASB) kezelésének tilalma nem terheseknél.',
-    keyPoints: [
-      'Egyszerű cystitisben Fluorokinolonok (Ciprofloxacin) adása KONTRAINDIKÁLT a mellékhatás-profil és rezisztencia miatt',
-      'Első vonal: Nitrofurantoin 2x100 mg (5 nap) vagy Fosfomycin 1x3g PO',
-      'Akut pyelonephritis: Ceftriaxon 1-2g IV vagy Ciprofloxacin (ha lokális rezisztencia <10%)',
-      'Aszimptomatikus bakteriuria (ASB) kizárólag terhességben és invazív urológiai műtét előtt kezelendő!'
-    ],
-    tags: ['UTI', 'cystitis', 'pyelonephritis', 'fosfomycin', 'nitrofurantoin', 'uroszepszis']
-  },
-  {
-    id: 'hu-bone-joint-2023',
-    title: 'Protézis-ízületi fertőzések (PJI) és felnőttkori osteomyelitis diagnosztikai és sebészi-antimikrobiális protokollja',
-    originalTitle: 'Csont- és ízületi implantátum fertőzések ellátási irányelve',
-    organization: 'Egészségügyi Szakmai Kollégium (Ortopédia és Infektológia Tagozat)',
-    scope: 'hungarian',
-    category: 'bone_joint',
-    year: '2023 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'A protézis-ízületi fertőzések időbeli felosztása: Akut korai (<4 hét, DAIR még megkísérelhető), Késleltetett posztoperatív (4 hét - 1 év, antibiotikummal NEM menthető meg, revízió és implantátumcsere kötelező!), Késői (>1 év, hematogén szórás). Szeptikus arthritisben sürgősségi ízületi drenázs és Cefazolin + Vancomycin S. aureus gyanú esetén.',
-    keyPoints: [
-      'Késleltetett posztoperatív PJI (4 hét - 1 év) ANTIBIOTIKUMMAL NEM MENTHETŐ MEG, egy- vagy kétfázisú revíziós műtét kötelező',
-      'DAIR (debridement és implantátummegtartás) kizárólag akut posztop (<4 hét) vagy akut hematogén formában kísérelhető meg',
-      'Szeptikus arthritis ortopédiai sürgősség: azonnali dekompresszió / lavage + IV antibiotikum',
-      'Staphylococcus PJI esetén biofilm-aktív Rifampicin kombináció a seb teljes gyógyulása után'
-    ],
-    tags: ['PJI', 'protézis', 'osteomyelitis', 'septicus arthritis', 'DAIR', 'biofilm', 'rifampicin']
-  },
-  {
-    id: 'hu-endocarditis-2023',
-    title: 'A felnőttkori infectiv endocarditis diagnosztikája és terápiája (ESC Hazai Adaptáció)',
-    originalTitle: 'Infectiv endocarditis irányelv: multimodális képalkotás, mikrobiológia és szívsebészeti indikációk',
-    organization: 'Egészségügyi Szakmai Kollégium (Kardiológia és Infektológia Tagozat)',
-    scope: 'hungarian',
-    category: 'cardio',
-    year: '2023 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'Módosított Duke-kritériumok, sürgősségi TTE és TEE echokardiográfia, 3 pár külön szúrásból vett hemokultúra antibiotikum előtt, szinergista baktericid IV terápia (Ampicillin, Ceftriaxon, Vancomycin, Gentamicin), szívsebészeti sürgősségi indikációk (akut szívelégtelenség, kontrollálatlan fertőzés, nagy mobilis vegetációk embolizáció megelőzésére).',
-    keyPoints: [
-      '3 független pár hemokultúra vétele 30-60 perces időközökkel a lázcsúcstól függetlenül az antibiotikum előtt',
-      'Transoesophagealis echokardiográfia (TEE) kötelező natív billentyű pozitív TTE vagy protézisbillentyű esetén',
-      'Korai sürgős műtét: refrakter tüdőödéma/sokk, periannularis tályog, vagy >10 mm vegetáció embolicust megelőzve',
-      'Staphylococcus aureus natív billentyű: Cefazolin vagy Flucloxacillin (MSSA) vs. Vancomycin/Daptomycin (MRSA)'
-    ],
-    tags: ['endocarditis', 'TEE', 'Duke-kritériumok', 'vegetáció', 'billentyű', 'ampicillin', 'gentamicin']
+    tags: ['meningococcus', 'invazív meningococcus', 'meningitis', 'NNGYK', '2026', 'rifampicin', 'ciprofloxacin', 'kemoprofilaxis', 'védőoltás', 'cns']
   },
   {
     id: 'hu-hepb-c-2022',
@@ -173,68 +124,111 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     tags: ['hepatitis C', 'hepatitis B', 'DAA', 'sofosbuvir', 'entecavir', 'tenofovir', 'cirrózis']
   },
   {
-    id: 'hu-hiv-2023',
-    title: 'Felnőttkori HIV-fertőzöttek komplex gondozása és antiretrovirális kezelése (ART)',
-    originalTitle: 'Országos HIV/AIDS Klinikai Protokoll: Test and Treat elv, PrEP, PEP és modern INSTI terápiák',
-    organization: 'DPC Szent László Kórház Nemzeti Központ & Infektológia Szakmai Kollégium',
+    id: 'hu-hiv-care-2024',
+    title: 'HIV-fertőzött felnőttek betegútja az egészségügyi rendszerben (felismerés, cART bevonás, gondozás)',
+    originalTitle: 'Egészségügyi szakmai irányelv a HIV-fertőzött felnőttek betegútjáról az egészségügyi rendszerben (felismerés, cART bevonás, gondozás)',
+    organization: 'Egészségügyi Szakmai Kollégium – Infektológia Tagozat (BM Egészségügyi Államtitkárság)',
     scope: 'hungarian',
     category: 'hepatology_hiv',
-    year: '2023 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'Azonnali kombinált antiretrovirális terápia (cART) indítása a CD4 sejtszámtól függetlenül (Test & Treat). INSTI-alapú első vonalbeli kombinációk (Bictegravir/TAF/FTC vagy Dolutegravir-bázisú rejim), expozíció előtti (PrEP) és utáni (PEP) profilaxis protokollja, U=U (Undetectable = Untransmittable) tudományos elv érvényesülése.',
+    year: '2024 / NEAK letöltés',
+    url: 'https://kollegium.okfo.gov.hu/sites/eszk_portal/pfile/file?path=/tagozatok/27._Infektologia/dokumentumok/kulso-publikus/hiv-fertozott-felnottek-betegutja-az-egeszsegugyi-rendszerben-a-korkep-felismerese-az-antiretroviralis-kezelesbe-valo-bevonasa-es-a-betegek-gondozasban-tartasa',
+    description: 'A felnőttkori HIV-fertőzöttek standardizált hazai betegútja és komplex gondozási iránya (2024): korai felismerés (indikátor-betegségek, opt-out szűrés), azonnali decortikált betegút a decentralizált regionális HIV központokba, cART azonnali indítása a CD4-számtól függetlenül (Test and Treat), U=U (Undetectable = Untransmittable) elv klinikai érvényesülése, adherencia támogatás és a pre- / post-expozíciós profilaxis (PrEP / PEP) protokolljai.',
     keyPoints: [
-      'Test and Treat stratégia: azonnali ART indítás igazolt HIV fertőzéskor a CD4 sejtszámtól függetlenül',
-      'U=U (Undetectable = Untransmittable): a szupprimált víruskópiájú beteg nem adja át a fertőzést szexuális úton',
-      'Expozíció utáni profilaxis (PEP): legkésőbb 72 órán belül (optimálisan 2-4 órán belül) indítandó 28 napig',
-      'Opportunista fertőzések (PJP, Toxoplasma, Cryptococcus) megelőzése és kezelése'
+      'Betegút-szervezés: Reaktív szűrőteszt után kötelező laboratóriumi konfirmáció és azonnali bevonás a regionális HIV-gondozó centrumokba',
+      'Test and Treat stratégia: Azonnali kombinált cART terápia indítása CD4-sejtszámtól függetlenül a diagnózis felállításakor',
+      'Első vonalbeli rejim: Korszerű, magas rezisztenciagátú INSTI-alapú hármas vagy kettős kombinációk (Bictegravir/TAF/FTC vagy Dolutegravir-bázisú terápia)',
+      'U=U elv (Undetectable = Untransmittable): Tartósan detektálhatatlan vírusszám (<50 kópia/ml) esetén a fertőzés szexuális úton nem adható át',
+      'Expozíció utáni profilaxis (PEP): Legkésőbb 72 órán (optimálisan 2-4 órán) belül indítandó 28 napig; indikáció esetén PrEP programba vonás'
     ],
-    tags: ['HIV', 'AIDS', 'ART', 'INSTI', 'dolutegravir', 'bictegravir', 'PrEP', 'PEP']
+    tags: ['HIV', 'AIDS', 'betegút', 'cART', 'INSTI', 'Test and Treat', 'U=U', 'PrEP', 'PEP', 'NEAK', '2024']
   },
   {
-    id: 'hu-sap-2021',
-    title: 'A sebészi antibiotikum profilaxis (SAP) szakmai protokollja',
-    originalTitle: 'Irányelv a műtéti fertőzések megelőzésére alkalmazott profilaktikus antibiotikum-adásról',
-    organization: 'Egészségügyi Szakmai Kollégium (Sebészet és Infektológia Tagozat)',
+    id: 'hu-lyme-2024',
+    title: 'Lyme-borreliosis diagnózisa és kezelése',
+    originalTitle: 'Egészségügyi szakmai irányelv a Lyme-borreliosis diagnózisáról és kezeléséről',
+    organization: 'Egészségügyi Szakmai Kollégium – Infektológia Tagozat',
     scope: 'hungarian',
-    category: 'ipc',
-    year: '2021 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'A műtéti sebfertőzések (SSI) megelőzésének alapelvei: az antibiotikum beadása a metszés előtt 30-60 perccel (Vancomycin esetén 60-120 perccel); Cefazolin mint leggyakoribb szer; ismétlő dózis 4 óránál hosszabb műtéteknél; szigorú tilalom a műtét végét követő 24 órán túli profilaxisra.',
+    category: 'zoonosis',
+    year: '2024 / NEAK letöltés',
+    url: 'https://kollegium.okfo.gov.hu/sites/eszk_portal/pfile/file?path=/tagozatok/27._Infektologia/dokumentumok/kulso-publikus/a-lyme-borreliosis-diagnozisa-es-kezelese',
+    description: 'A kullancsok által terjesztett Borrelia burgdorferi sensu lato fertőzés 2024-es szakmai kollégiumi irányelve. Hangsúlyozza, hogy Erythema migrans (EM) esetén a diagnózis TISZTÁN KLINIKAI – rutinszerű laboratóriumi/szerológiai vizsgálat NEM indokolt és kerülendő (álnegativitás korán). Disszeminált és késői kórképekben (neuroborreliosis, Lyme arthritis, acrodermatitis) kötelező a szigorúan kétlépcsős szerológiai algoritmus (szenzitív ELISA/CLIA szűrés + Western blot / Line blot konfirmáció). Doxycyclin, Amoxicillin vagy Ceftriaxon alkalmazása; a hónapokig tartó felesleges kombinált antibiotikum-kezelés szigorúan ellenjavallt!',
     keyPoints: [
-      'Optimális időzítés: a sebészi metszés előtt 30-60 perccel legyen beadva az intravénás antibiotikum',
-      'Elsőként választandó szer a tiszta-szennyezett és implantátumos műtétek többségében: Cefazolin 2g IV',
-      'Ismétlő dózis intraoperatívan indokolt, ha a műtét eléri az antibiotikum 2 felezési idejét (>3-4 óra Cefazolinnál)',
-      'A műtét befejezése után az antibiotikum folytatása NEM indokolt (tilos a posztoperatív "túlprofilaxis")'
+      'Erythema migrans (EM): Típusos terjedő ovális/gyűrűs bőrpír esetén a diagnózis TISZTÁN KLINIKAI – szerológiai tesztelés NEM szükséges és félrevezető',
+      'Kétlépcsős szerológia disszeminált formákban: Szenzitív ELISA/CLIA szűrés, majd kötelező Western blot (Line blot) konfirmáció (önmagában izolált IgM késői panaszoknál nem értékelhető)',
+      'Korai lokalizált fertőzés kezelése: Doxycyclin 2x100 mg PO 14 napig (gyermekeknél/terheseknél Amoxicillin 3x500-1000 mg vagy Cefuroxim-axetil 2x500 mg 14 napig)',
+      'Neuroborreliosis (Bannwarth-szindróma, facialis paresis, meningitis): Ceftriaxon 1x2g IV 14-21 napig, vagy orális Doxycyclin emelt dózisban (2x200 mg)',
+      'Post-Lyme szindróma: Hónapokig tartó perzisztáló aspecifikus panaszok esetén a hosszas antibiotikum-kúrák hatástalanok, nem javasoltak és kifejezetten veszélyesek'
     ],
-    tags: ['profilaxis', 'SAP', 'sebészet', 'cefazolin', 'SSI', 'műtéti sebfertőzés']
+    tags: ['Lyme', 'borrelia', 'erythema migrans', 'neuroborreliosis', 'doxycyclin', 'ceftriaxon', 'kullancs', 'NEAK', '2024']
   },
   {
-    id: 'hu-nngyk-mdro-2023',
-    title: 'Módszertani levél a multirezisztens kórokozók (MDRO: MRSA, VRE, ESBL, CRE) surveillance-áról és az infekciókontrollról',
-    originalTitle: 'NNGYK Szakmai Útmutató az egészségügyi ellátással összefüggő fertőzések (HAI) és multirezisztens baktériumok megelőzésére',
-    organization: 'Nemzeti Népegészségügyi és Gyógyszerészeti Központ (NNGYK)',
+    id: 'hu-vap-prevention-2019',
+    title: 'Az országos tisztifőorvos módszertani levele a gépi lélegeztetéssel összefüggő pneumónia megelőzésére 2019',
+    originalTitle: 'Az országos tisztifőorvos módszertani levele a gépi lélegeztetéssel összefüggő pneumónia megelőzésére',
+    organization: 'Nemzeti Népegészségügyi Központ (Országos Tisztifőorvos / NNGYK)',
     scope: 'hungarian',
     category: 'ipc',
-    year: '2023 / Hatályos',
-    url: 'https://www.nnk.gov.hu/',
-    description: 'A kórházi fertőzések (HAI) felügyelete, aktív mikrobiológiai szűrés rizikócsoportokban (MRSA orrkenet, CRE rektális szűrés), kontakt izoláció szabályai, kohorszálás, kézhigiénés indikátorok (WHO 5 Moment) és a környezeti felületfertőtlenítés protokolljai.',
+    year: '2019 / Hatályos',
+    url: 'https://nngyk.gov.hu/hu/modszertani-levelek/2019-modszertani-levelek.html',
+    pdfUrl: 'https://nngyk.gov.hu/hu/modszertani-levelek/2019-modszertani-levelek.html',
+    description: 'Az Országos Tisztifőorvos módszertani levele a gépi lélegeztetéssel összefüggő tüdőgyulladás (VAP) megelőzéséről (2019). Tárgyalja az intenzív osztályos VAP prevenciós ellátási csomag (bundle) szigorú elemeit: az oropharyngealis kolonizáció és mikroaspirációk kivédését, az ágyfejvég-emelést, a szubglottikus szekrétum-elszívást és a mandzsettanyomás folyamatos felügyeletét.',
+    keyPoints: [
+      'Ágyfejvég emelése: Folyamatos 30-45 fokos pozicionálás az aspiráció és a gastro-oesophagealis reflux megelőzésére',
+      'Endotrachealis tubus cuff-nyomás ellenőrzése: 20-30 vízcm közötti nyomás fenntartása a szivárgás és trachealis nyálkahártya-ischaemia megelőzésére',
+      'Szubglottikus váladékleszívás: Speciális elvezetővel rendelkező tubus alkalmazása a mandzsetta felett megrekedt szekrétum aspirálására',
+      'Szájhigiéné: Rendszeres fertőtlenítő (pl. klórhexidines) oropharyngealis toalett',
+      'Napi szedáció-megszakítás és extubációs készség vizsgálata az intubációs napok számának minimalizálására'
+    ],
+    tags: ['nozokomiális pneumonia', 'VAP', 'HAP', 'lélegeztetés', 'dekontamináció', 'infekciókontroll', 'intenzív osztály', 'NNGYK', '2019']
+  },
+  {
+    id: 'hu-invasive-nursing-ipc-2025',
+    title: 'Magas kockázatú invazív beavatkozások ápolói feladatai (véna-/hólyagkatéterezés, punkció – infekciókontroll szempontból is releváns)',
+    originalTitle: 'Egészségügyi szakmai irányelv a magas kockázatú invazív beavatkozások ápolási feladatairól és fertőzésmegelőzési előírásairól',
+    organization: 'Egészségügyi Szakmai Kollégium',
+    scope: 'hungarian',
+    category: 'ipc',
+    year: 'EüK 2025/12. szám',
+    url: 'https://neak.gov.hu/',
+    pdfUrl: 'https://www.neak.gov.hu/pfile/file?path=/letoltheto/EOSZEF_letoltheto_doku/002227-2025-magas-kockazatu-invaziv-beavatkozasok-apoloi-feladatairol&inline=true',
+    description: 'A magas fertőzési kockázatú invazív eszközös beavatkozások ápolási és infekciókontroll irányelve (megjelent: Egészségügyi Közlöny 2025/12. szám, jogkodex.hu). Részletes eljárásrend a centrális és perifériás vénabiztosítás (CLABSI prevenció), a tartós húgyhólyag-katéterezés (CAUTI prevenció), valamint a diagnosztikus és terápiás punkciók (lumbálpunkció, mellkas-, ascites-punkció) aszeptikus kivitelezésére, kötéskezelésére és a napi indikáció-felülvizsgálatra.',
+    keyPoints: [
+      'Centrális vénás katéterek (CVC/PICC) – CLABSI megelőzés: Maximális steril izolálás (sapka, maszk, steril köpeny, nagy lepedő), 2% klórhexidin + 70% alkoholos bőrfertőtlenítés teljes száradási idővel, steril semipermeabilis kötések',
+      'Hólyagkatéterezés – CAUTI megelőzés: Zárt vizeletelvezető rendszer, aszeptikus behelyezés, a vizeletgyűjtő zsák folyamatosan a hólyagszint alatt tartandó a reflux kivédésére',
+      'Diagnosztikus és terápiás punkciók (LP, pleura-, ascites punkció): Szigorú aszepszis és antiszepszis, sebészi maszk és steril védőeszközök a nozokomiális beoltások kivédésére',
+      'Infúziós szerelékek standard cseréje (krisztalloid 96 óránként, lipid/TPN 24 óránként, kötéscsere vérzés/átázás esetén azonnal)',
+      'Napi indikáció-felülvizsgálat: Az invazív eszközök szükségességének napi orvosi és ápolói auditja; a feleslegessé vált katéterek azonnali eltávolítása'
+    ],
+    tags: ['invazív beavatkozások', 'ápolás', 'katéterezés', 'CLABSI', 'CAUTI', 'punkció', 'infekciókontroll', 'EüK 2025/12', 'jogkodex.hu']
+  },
+  {
+    id: 'hu-nngyk-mdro-2016',
+    title: 'Módszertani levél a multirezisztens kórokozók által okozott fertőzések megelőzéséről 2016',
+    originalTitle: 'Módszertani levél a multirezisztens kórokozók által okozott fertőzések megelőzéséről',
+    organization: 'Nemzeti Népegészségügyi és Gyógyszerészeti Központ (Országos Tisztifőorvos / NNGYK)',
+    scope: 'hungarian',
+    category: 'ipc',
+    year: '2016 / Hatályos',
+    url: 'https://nngyk.gov.hu/hu/modszertani-levelek/2016-modszertani-levelek.html',
+    pdfUrl: 'https://nngyk.gov.hu/hu/modszertani-levelek/2016-modszertani-levelek.html',
+    description: 'Az Országos Tisztifőorvos módszertani levele a multirezisztens kórokozók (MDRO: MRSA, VRE, ESBL, CRE / CRAB / CRPA) által okozott fertőzések megelőzéséről (2016). Meghatározza a mikrobiológiai surveillance-t, az aktív szűrés szabályait (MRSA orrkenet, CRE rektális szűrés), a kontakt izolációt, a kohorszálást, a WHO 5 Moment kézhigiénés indikátorokat és a környezeti felületfertőtlenítést.',
     keyPoints: [
       'Kontakt izoláció kötelező igazolt MRSA, VRE, CRE és multirezisztens Acinetobacter/Pseudomonas hordozás esetén',
       'Kézfertőtlenítés alkoholos kézbedörzsölővel a WHO 5 Moment szerint minden betegérintkezés kulcspontjain',
       'C. difficile esetén a spórák miatt kötelező a szappanos kézmosás ÉS sporicid felületfertőtlenítés',
       'MRSA dekolonizáció elektív implantátumos műtétek előtt (Mupirocin orrkenőcs + klórhexidin)'
     ],
-    tags: ['NNGYK', 'MRSA', 'VRE', 'CRE', 'izoláció', 'infekciókontroll', 'kézhigiéné', 'multirezisztens']
+    tags: ['NNGYK', 'MRSA', 'VRE', 'CRE', 'izoláció', 'infekciókontroll', 'kézhigiéné', 'multirezisztens', '2016']
   },
   {
-    id: 'hu-vaccination-2024',
-    title: 'Országos Védőoltási Módszertani Levél (NNGYK 2024)',
+    id: 'hu-vaccination-2026',
+    title: 'Országos Védőoltási Módszertani Levél (NNGYK 2026)',
     originalTitle: 'Az NNGYK módszertani levele a védőoltásokról és a fertőző betegségek elleni specifikus profilaxisról',
     organization: 'Nemzeti Népegészségügyi és Gyógyszerészeti Központ (NNGYK)',
     scope: 'hungarian',
     category: 'ipc',
-    year: '2024 / Hatályos',
-    url: 'https://www.nnk.gov.hu/',
+    year: '2026 / Hatályos',
+    url: 'https://nngyk.gov.hu/hu/modszertani-levelek/2026-az-nngyk-modszertani-levele-a-2026-evi-vedooltasokrol.html',
     description: 'A hazai kötelező életkorhoz kötött védőoltási rend (BCG, DTPa-IPV-Hib, PCV13, MMR, Bárányhimlő, Hepatitis B, HPV), megbetegedési veszély elhárítására szolgáló oltások (Tetanus, Rabies, Hepatitis A/B, Kanyaró expozíció), és felnőttkori rizikócsoportok (Pneumococcus, Influenza, COVID-19, RSV, Herpes zoster, Kullancs-encephalitis) ajánlásai.',
     keyPoints: [
       'Életkorhoz kötött kötelező oltások 99% feletti átoltottsága biztosítja a hazai nyájimmunitást',
@@ -245,22 +239,24 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     tags: ['védőoltás', 'NNGYK', 'vakcina', 'tetanus', 'pneumococcus', 'splenectomia', 'immunizáció']
   },
   {
-    id: 'hu-sti-2022',
-    title: 'A szexuális úton terjedő fertőzések (STI / STD) diagnosztikai és kezelési protokollja',
-    originalTitle: 'Országos Bőr- és Nemikórtani Szakmai Irányelv a nemi úton terjedő fertőzésekről',
-    organization: 'Egészségügyi Szakmai Kollégium (Bőr- és Nemibetegségek Tagozat)',
+    id: 'hu-sti-2024',
+    title: 'Szexuális úton terjedő fertőzések (STI) diagnosztikája és kezelése',
+    originalTitle: 'Egészségügyi szakmai irányelv a szexuális úton terjedő fertőzések (STI) diagnosztikájáról és kezeléséről',
+    organization: 'Egészségügyi Szakmai Kollégium – Bőr- és nemibetegségek + Infektológia Tagozat, Magyar STD Társaság',
     scope: 'hungarian',
     category: 'sti',
-    year: '2022 / Hatályos',
-    url: 'https://kollegium.aeek.hu/',
-    description: 'Szifilisz stádiumfüggő diagnosztikája és kezelése (Benzathine-penicillin G intramusculáris adása), gonorrhoea modern kezelése (Ceftriaxon emelt dózisban monoterápiaként, rezisztencia-surveillance), Chlamydia trachomatis urogenitalis fertőzés (Doxycyclin 2x100 mg 7 napig mint arany standard), valamint partnerkezelési kötelezettségek.',
+    year: '2024 / stdtarsasag.hu PDF',
+    url: 'https://www.stdtarsasag.hu',
+    pdfUrl: 'https://www.stdtarsasag.hu/files/sti-szakmaiiranyelv-2024.pdf',
+    description: 'A szexuális úton terjedő fertőzések (syphilis, gonorrhoea, Chlamydia trachomatis, Mycoplasma genitalium, trichomoniasis, HSV, HPV) 2024-es hivatalos szakmai kollégiumi és Magyar STD Társasági útmutatója. Tartalmazza a legújabb molekuláris diagnosztikai eljárásokat (NAAT/PCR), a makrolid-rezisztencia miatti korszerű kezelési sémákat (gonorrhoeában emelt dózisú Ceftriaxon 1g IM monoterápia azithromycin nélkül; chlamydia esetén Doxycyclin 2x100 mg 7 napig mint arany standard), a partnerkezelési kötelezettséget és az expozíció utáni/előtti profilaxis (Doxy-PEP és PrEP) ajánlásait.',
     keyPoints: [
-      'Szifilisz korai formáiban: Benzathine penicillin G 2.4 millió NE IM egyszeri adagban az arany standard',
-      'Gonorrhoea: Ceftriaxon 1g IM egyszeri adás; az azithromycin kombináció rutinszerűen elhagyható a makrolid rezisztencia miatt',
-      'Chlamydia trachomatis: Doxycyclin 2x100 mg PO 7 napig (magasabb eradikációs ráta, mint az 1g Azithromycin)',
-      'Szexuális partnerek kötelező felkutatása, szűrése és szimultán kezelése az újrafertőződés megelőzésére'
+      'Szifilisz (Lues): Benzathine penicillin G 2.4 millió NE IM egyszeri adag korai formákban (primer, szekunder, korai latens); 3x2.4 millió NE késői latens szifiliszben',
+      'Gonorrhoea: Ceftriaxon 1g IM egyszeri adás monoterápiaként; a korábbi azithromycin kombináció rutinszerűen már nem ajánlott a kiterjedt makrolid-rezisztencia miatt',
+      'Chlamydia trachomatis: Doxycyclin 2x100 mg PO 7 napig (arany standard első vonal, magasabb mikrobiológiai gyógyulás, mint az 1g azithromycin)',
+      'Mycoplasma genitalium: Makrolid rezisztencia-vezérelt kezelés: Doxycyclin előkezelés után érzékeny törzsnél Azithromycin, rezisztens törzsnél Moxifloxacin 1x400 mg 7 napig',
+      'Partnerek kötelező szimultán szűrése és kezelése; Doxy-PEP (expozíciót követő 72 órán belüli Doxycyclin 200 mg) mérlegelése magas rizikójú populációkban'
     ],
-    tags: ['STI', 'szifilisz', 'gonorrhoea', 'chlamydia', 'penicillin', 'ceftriaxon', 'doxycyclin']
+    tags: ['STI', 'STD', 'szifilisz', 'gonorrhoea', 'chlamydia', 'mycoplasma', 'ceftriaxon', 'doxycyclin', 'stdtarsasag.hu', '2024']
   },
 
   // ==================== NEMZETKÖZI GUIDELINE-OK ====================
@@ -285,14 +281,14 @@ export const clinicalProtocols: ClinicalProtocol[] = [
   },
   {
     id: 'intl-escmid-cdi-treatment-2021',
-    title: 'ESCMID Clinical Guideline: Treatment of Clostridioides difficile Infection in Adults',
-    originalTitle: 'European Society of Clinical Microbiology and Infectious Diseases: 2021 update of the treatment guidance document for Clostridioides difficile infection in adults (Clin Microbiol Infect 2021)',
+    title: 'European Society of Clinical Microbiology and Infectious Diseases: 2021 update on the treatment guidance document for Clostridioides difficile infection in adults',
+    originalTitle: 'European Society of Clinical Microbiology and Infectious Diseases: 2021 update on the treatment guidance document for Clostridioides difficile infection in adults (Clin Microbiol Infect 2021)',
     organization: 'European Society of Clinical Microbiology and Infectious Diseases (ESCMID)',
     scope: 'international',
     category: 'gi',
     year: '2021 / Clin Microbiol Infect',
-    url: 'https://www.clinicalmicrobiologyandinfection.com/article/S1198-743X(21)00344-0/fulltext',
-    pdfUrl: 'https://www.clinicalmicrobiologyandinfection.com/action/showPdf?pii=S1198-743X%2821%2900344-0',
+    url: 'https://www.clinicalmicrobiologyandinfection.org/article/S1198-743X(21)00568-1/fulltext',
+    pdfUrl: 'https://www.clinicalmicrobiologyandinfection.org/action/showPdf?pii=S1198-743X%2821%2900568-1',
     description: 'Az ESCMID hivatalos európai kezelési guideline-ja (van Prehn J. et al., CMI 2021). A felnőttkori CDI kezelésében az első epizódban határozottan a Fidaxomicin (2x200 mg 10 napig vagy kiterjesztett-pulzáló séma) a preferált szer az orális Vancomycinnel (4x125 mg) szemben a tartós gyógyulás és az alacsonyabb recidívaarány miatt. A Metronidazol orális monoterápia már NEM ajánlott, ha Fidaxomicin vagy Vancomycin hozzáférhető. Első rekurrenciánál Fidaxomicin vagy Bezlotoxumab kiegészítés; többszöri recidívában (≥2 relapszus) FMT (székletmikrobióta-transzplantáció) adása erősen javasolt.',
     keyPoints: [
       'Első epizód (nem-súlyos és súlyos): Fidaxomicin 2x200 mg PO 10 napig (vagy kiterjesztett-pulzáló séma: 1-5. nap 2x200 mg, majd 7-25. nap minden 2. nap 1x200 mg) preferált a Vancomycinnel (4x125 mg) szemben',
@@ -331,7 +327,7 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     scope: 'international',
     category: 'gi',
     year: '2021 / Clinical Infectious Diseases',
-    url: 'https://www.idsociety.org/practice-guideline/clostridioides-difficile/',
+    url: 'https://www.idsociety.org/practice-guideline/clostridioides-difficile-2021-focused-update/',
     description: 'A 2021-es frissítésben a Fidaxomicin (2x200 mg 10 napig) határozottan megelőzte a Vancomycint mint elsőként választandó szer kezdeti és első recidív CDI-ben, szignifikánsan alacsonyabb későbbi kiújulási kockázat mellett. Szintén részletezi a Bezlotoxumab antitest és az FMT indikációit.',
     keyPoints: [
       'Fidaxomicin 2x200 mg PO 10 napig a preferált elsővonalbeli terápia a szignifikánsan alacsonyabb recidívaarány miatt',
@@ -367,7 +363,7 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     scope: 'international',
     category: 'respiratory',
     year: '2016 / Frissített irányelvek',
-    url: 'https://www.idsociety.org/practice-guideline/hospital-acquired-and-ventilator-associated-pneumonia-hapvap/',
+    url: 'https://www.idsociety.org/practice-guideline/hap_vap/',
     description: 'Kórházban szerzett (HAP) és lélegeztetőgéphez társuló (VAP) pneumonia kezelési útmutatója. Lokális osztályos antibiogram alapú empíria; kettős Gram-negatív lefedés magas mortalitású vagy rezisztencia-kockázatú betegeknél; 7 napos kezelési kurzus alkalmazása klinikai javuláskor.',
     keyPoints: [
       'Empirikus antibiotikum-választást az intézeti/intenzív osztályos mikrobiológiai antibiogram adatokra kell alapozni',
@@ -378,6 +374,26 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     tags: ['HAP', 'VAP', 'nosocomial', 'pneumonia', 'piperacillin-tazobactam', 'linezolid', 'IDSA']
   },
   {
+    id: 'intl-ers-escmid-scap-2023',
+    title: 'ERS/ESICM/ESCMID/ALAT guidelines for the management of severe community-acquired pneumonia',
+    originalTitle: 'ERS/ESICM/ESCMID/ALAT guidelines for the management of severe community-acquired pneumonia (Eur Respir J / Intensive Care Med 2023)',
+    organization: 'ERS, ESICM, ESCMID & ALAT',
+    scope: 'international',
+    category: 'respiratory',
+    year: '2023 / Intensive Care Med & Eur Respir J',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/37012484/',
+    pdfUrl: 'https://pubmed.ncbi.nlm.nih.gov/37012484/',
+    description: 'A négy nagy nemzetközi társaság (ERS, ESICM, ESCMID, ALAT) közös konszenzusos irányelve a súlyos, intenzív osztályos kezelést igénylő közösségben szerzett tüdőgyulladás (sCAP) korszerű ellátásáról. Tárgyalja az intenzív osztályos felvételi kritériumokat, a kiterjesztett mikrobiológiai diagnosztikát (alsó légúti minták, multiplex PCR panelek, vizelet antigén vizsgálatok), a korai empirikus kombinált terápiát (nem-antipseudomonas béta-laktám + makrolid vagy légúti fluorokinolon), a kortikoszteroid adását szeptikus sokkban és súlyos hipoxémiában, valamint az antivirális terápiát influenza gyanú/szezon esetén.',
+    keyPoints: [
+      'Empirikus kombinált antibiotikum: Nem-antipseudomonas béta-laktám (Ceftriaxon, Cefotaxim vagy Ampicillin/Sulbactam) + Makrolid (Azithromycin/Clarithromycin) preferált kombináció; alternatíva béta-laktám + légúti fluorokinolon',
+      'Pseudomonas és MRSA lefedés: Rutinszerűen NEM indokolt; kizárólag igazolt egyéni rizikófaktorok (korábbi izoláció/kolonizáció, strukturális tüdőbetegség, nemrégiben széles spektrumú antibiotikum) esetén alkalmazandó',
+      'Kortikoszteroid terápia: Szisztémás kortikoszteroid (pl. hydrocortison 200 mg/nap infúzióban) mérlegelendő perzisztáló vazopresszor-igényes szeptikus sokkban és refrakter súlyos hipoxémiában',
+      'Kiterjesztett mikrobiológiai mintavétel: Hemokultúrák, köpet/tracheális aspirátum és vizelet antigén (Pneumococcus, Legionella) kötelező az antibiotikum előtt; gyors molekuláris multiplex PCR vizsgálat erősen javasolt',
+      'Oseltamivir terápia: Influenza járványszezonban vagy gyanú esetén azonnali empirikus Oseltamivir (2x75 mg) indítandó a PCR eredmény megérkezéséig'
+    ],
+    tags: ['sCAP', 'severe pneumonia', 'ERS', 'ESICM', 'ESCMID', 'ALAT', 'intensive care', 'ceftriaxone', 'azithromycin', 'corticosteroid', 'macrolide']
+  },
+  {
     id: 'intl-ebjis-pji-2021',
     title: 'EBJIS / ICM Consensus on Prosthetic Joint Infection (PJI) & Diagnostic Criteria',
     originalTitle: 'The EBJIS Definition of Periprosthetic Joint Infection: A Practical Guide for Diagnosis and Surgical Treatment Strategies',
@@ -385,7 +401,7 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     scope: 'international',
     category: 'bone_joint',
     year: '2021 / Bone & Joint Journal',
-    url: 'https://ebjis.org/',
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC7954183/',
     description: 'A modern protézis-ízületi fertőzések definíciója és sebészi-antimikrobiális ellátási algoritmusa. Háromlépcsős diagnosztikai rendszer (fertőzés valószínűtlen, gyanított, igazolt); a DAIR, egyfázisú csere és kétfázisú csere szigorú indikációs kritériumai; a késleltetett posztop fertőzés implantátum-megtartási alkalmatlanságának szabálya.',
     keyPoints: [
       'Akut korai posztop (<4 hét) vagy akut hematogén: DAIR (mobilis betétek cseréjével) kísérelhető meg stabil protézisnél',
@@ -421,7 +437,7 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     scope: 'international',
     category: 'cardio',
     year: '2023 / European Heart Journal',
-    url: 'https://www.escardio.org/Guidelines/Clinical-Practice-Guidelines/Infective-Endocarditis-Guidelines',
+    url: 'https://academic.oup.com/eurheartj/article/44/39/3948/7243107?login=false',
     description: 'A 2023-as új ESC endocarditis irányelv. Tartalmazza az Endocarditis Team kötelező szerepét, az új multimodális képalkotó kritériumokat (18F-FDG PET/CT és szív CT a protézisbillentyű fertőzés korai igazolására), a POET vizsgálat alapján a korai orális antibiotikumra váltás (POET protokoll) kritériumait stabil fekvőbetegeknél, és a szívsebészeti sürgősségi indikációkat.',
     keyPoints: [
       'Endocarditis Team multidiszciplináris gondozás minden centrumban kötelező',
@@ -439,7 +455,7 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     scope: 'international',
     category: 'cns',
     year: '2016 / Clin Microbiol Infect',
-    url: 'https://www.clinicalmicrobiologyandinfection.com/article/S1198-743X(16)00020-5/fulltext',
+    url: 'https://www.clinicalmicrobiologyandinfection.org/article/S1198-743X(16)00020-3/fulltext',
     description: 'Európai szakmai útmutató az akut bakteriális agyhártyagyulladás kezeléséhez. A liquordiagnosztika időzítése (LP 1 órán belül), CT indikációk, szisztémás Dexamethason alkalmazása (különösen Pneumococcus gyanúban), empirikus ceftriaxon/cefotaxim + ampicillin idősekben, és deeszkaláció a mikrobiológiai azonosítás után.',
     keyPoints: [
       'Lumbálpunkció elvégzése haladéktalanul, kivéve ha beékelődési kockázat (fokális neurológia, kóma, papillaoedema) CT-t indokol',
@@ -450,13 +466,13 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     tags: ['meningitis', 'ESCMID', 'LP', 'lumbar puncture', 'ceftriaxon', 'dexamethason', 'pneumococcus']
   },
   {
-    id: 'intl-eau-uti-2024',
-    title: 'EAU Guidelines on Urological Infections 2024 (UTI, Pyelonephritis, Urosepsis)',
+    id: 'intl-eau-uti-2026',
+    title: 'EAU Guidelines on Urological Infections 2026 (UTI, Pyelonephritis, Urosepsis)',
     originalTitle: 'EAU Guidelines on Urological Infections: Asymptomatic Bacteriuria, Uncomplicated and Complicated UTIs, Catheter-associated UTIs and Urosepsis',
     organization: 'European Association of Urology (EAU)',
     scope: 'international',
     category: 'urinary',
-    year: '2024 / EAU Guidelines Office',
+    year: '2026 / EAU Guidelines Office',
     url: 'https://uroweb.org/guidelines/urological-infections',
     description: 'A legfrissebb európai urológiai és infektológiai konszenzus. Aszimptomatikus bakteriuria (ASB) szigorú túldiagnosztizálásának és túlkezelésének megszüntetése; elsővonalbeli nem-fluorokinolon szerek (Fosfomycin, Pivmecillinam, Nitrofurantoin); katéter-asszociált fertőzések és uroszepszis forráskontrollja (obstrukció azonnali dekompressziója DJ katéterrel vagy nephrostomiával).',
     keyPoints: [
@@ -475,7 +491,7 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     scope: 'international',
     category: 'hepatology_hiv',
     year: '2020 / Journal of Hepatology',
-    url: 'https://www.easl.eu/guidelines/',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/32956768/',
     description: 'Európai májkutatási társaság útmutatója a hepatitis C vírusfertőzés gyógyításáról. Pángenotípusos direkt ható antivirális (DAA) kombinációk (Sofosbuvir/Velpatasvir 12 hétig vagy Glecaprevir/Pibrentasvir 8 hétig) alkalmazása minden krónikus HCV betegnél genotípus-meghatározás nélkül is; egyszerűsített ellátási modell és mikromegszüntetési célok.',
     keyPoints: [
       'Minden krónikus HCV fertőzött beteg kezelendő, a fibrosis stádiumától függetlenül',
@@ -486,14 +502,14 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     tags: ['EASL', 'hepatitis C', 'HCV', 'DAA', 'sofosbuvir', 'velpatasvir', 'glecaprevir', 'pibrentasvir']
   },
   {
-    id: 'intl-easl-hbv-2017',
+    id: 'intl-easl-hbv-2025',
     title: 'EASL Clinical Practice Guidelines on the Management of Hepatitis B Virus Infection',
     originalTitle: 'EASL 2017 Clinical Practice Guidelines on the management of hepatitis B virus infection',
     organization: 'European Association for the Study of the Liver (EASL)',
     scope: 'international',
     category: 'hepatology_hiv',
-    year: '2017 / Journal of Hepatology',
-    url: 'https://www.easl.eu/guidelines/',
+    year: '2025 / Journal of Hepatology',
+    url: 'https://www.journal-of-hepatology.eu/article/S0168-8278(25)00174-6/fulltext',
     description: 'Krónikus hepatitis B kezelése magas genetikai rezisztenciagáttal rendelkező nukleotid analógokkal (Entecavir, Tenofovir disoproxil TDF, Tenofovir alafenamide TAF). Kezelési indikációk HBV-DNS, ALAT és fibrózis alapján; cirrózis esetén azonnali élethosszig tartó terápia indokolt a dekompenzáció és májrák megelőzésére.',
     keyPoints: [
       'Első vonalbeli szerek: Entecavir, TDF vagy TAF mint nagy hatékonyságú, minimális rezisztenciájú orális antivirális szerek',
@@ -504,13 +520,13 @@ export const clinicalProtocols: ClinicalProtocol[] = [
     tags: ['EASL', 'hepatitis B', 'HBV', 'entecavir', 'tenofovir', 'TAF', 'cirrhosis']
   },
   {
-    id: 'intl-eacs-hiv-2023',
-    title: 'EACS Guidelines for the Clinical Management and Treatment of HIV (Version 12.0)',
+    id: 'intl-eacs-hiv-2025',
+    title: 'EACS Guidelines for the Clinical Management and Treatment of HIV (Version 13.0)',
     originalTitle: 'European AIDS Clinical Society (EACS) Guidelines for the Clinical Management and Treatment of HIV-positive Adults in Europe',
     organization: 'European AIDS Clinical Society (EACS)',
     scope: 'international',
     category: 'hepatology_hiv',
-    year: '2023 / EACS',
+    year: '2025 / EACS',
     url: 'https://www.eacsociety.org/guidelines/eacs-guidelines/',
     description: 'A legfrissebb európai HIV irányelv. Első vonalbeli INSTI alapú hármas rejim (Bictegravir/TAF/FTC vagy Dolutegravir + 2 NRTI) és kétszeres terápia (Dolutegravir/Lamivudin) indikációi; hosszú hatású injektábilis kabotegravir + rilpivirin fenntartó opció stabil vírusmentes betegeknél; komorbiditások, kardiovaszkuláris és vese rizikó kezelése.',
     keyPoints: [
@@ -592,5 +608,25 @@ export const clinicalProtocols: ClinicalProtocol[] = [
       'A kezelési időtartamok lerövidítése: a legtöbb infekcióban 5-7 napos terápia klinikailag ugyanolyan hatásos és csökkenti a rezisztenciát'
     ],
     tags: ['ASP', 'stewardship', 'IDSA', 'SHEA', 'de-escalation', 'antibiotic resistance', 'audit']
+  },
+  {
+    id: 'intl-escmid-mdr-gnb-2022',
+    title: 'European Society of Clinical Microbiology and Infectious Diseases (ESCMID) Guidelines for the Treatment of Infections Caused by Multidrug-Resistant Gram-Negative Bacilli (endorsed by ESICM – European Society of Intensive Care Medicine)',
+    originalTitle: 'European Society of Clinical Microbiology and Infectious Diseases (ESCMID) guidelines for the treatment of infections caused by multidrug-resistant Gram-negative bacilli (endorsed by European Society of Intensive Care Medicine) (Clin Microbiol Infect 2022)',
+    organization: 'European Society of Clinical Microbiology and Infectious Diseases (ESCMID) & ESICM',
+    scope: 'international',
+    category: 'ipc',
+    year: '2022 / Clin Microbiol Infect',
+    url: 'https://www.clinicalmicrobiologyandinfection.org/article/S1198-743X(21)00679-0/fulltext',
+    pdfUrl: 'https://www.clinicalmicrobiologyandinfection.org/action/showPdf?pii=S1198-743X%2821%2900679-0',
+    description: 'Az ESCMID és az ESICM hivatalos, bizonyítékokon alapuló európai irányelve a multirezisztens Gram-negatív baktériumok (MDR-GNB) által okozott súlyos infekciók kezelésére. Részletesen tárgyalja a harmadik generációs cefalosporin-rezisztens Enterobacterales (3GCephRE / ESBL), a karbapenem-rezisztens Enterobacterales (CRE: KPC, OXA-48, metallo-béta-laktamáz / MBL), a karbapenem-rezisztens Pseudomonas aeruginosa (CRPA) és a karbapenem-rezisztens Acinetobacter baumannii (CRAB) célzott kezelését modern béta-laktám kombinációkkal (Ceftazidim-Avibactam, Ceftolozan-Tazobactam, Meropenem-Vaborbactam, Cefiderocol) és kombinált sémákkal.',
+    keyPoints: [
+      'ESBL-termelő Enterobacterales (3GCephRE): Súlyos fertőzésekben és szepszisben Karbapenem (Meropenem vagy Imipenem) az elsőként választandó szer; alsó húgyúti fertőzésben Nitrofurantoin, Pivmecillinam vagy Fosfomycin használható',
+      'KPC és OXA-48 karbapenemáz-termelő CRE: Új béta-laktám kombinációk az első vonalban: Ceftazidim-Avibactam (CZA) vagy Meropenem-Vaborbactam a régebbi, nefrotoxikus Colistin-alapú terápiák helyett!',
+      'Metallo-béta-laktamáz (MBL: NDM, VIM, IMP) termelő törzsek: Ceftazidim-Avibactam + Aztreonam (CZA + ATM) kombináció, vagy Cefiderocol monoterápia',
+      'Karbapenem-rezisztens Pseudomonas aeruginosa (CRPA): Ceftolozan-Tazobactam (C/T) vagy Ceftazidim-Avibactam a javasolt elsővonalbeli szer a polimixin/aminoglikozid kezelésekkel szemben',
+      'Karbapenem-rezisztens Acinetobacter baumannii (CRAB): Nagy dózisú Ampicillin-Sulbactam (napi 9-12g sulbactam komponens) kombinációban (pl. Polymyxin B/Colistin vagy Tigecyclin); Cefiderocol körültekintéssel, alternatívaként javasolt'
+    ],
+    tags: ['ESCMID', 'ESICM', 'MDR', 'multidrug-resistant', 'Gram-negative', 'CRE', 'ESBL', 'CRPA', 'CRAB', 'ceftazidime-avibactam', 'ceftolozane-tazobactam', 'meropenem-vaborbactam', 'cefiderocol', 'colistin']
   }
 ];

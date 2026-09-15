@@ -184,6 +184,42 @@ export const ProtocolsModal: React.FC<ProtocolsModalProps> = ({ isOpen, onClose,
                 <ArrowUpRight className="w-3 h-3 opacity-70" />
               </a>
               <a
+                href="https://www.neak.gov.hu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/90 hover:text-white transition-colors text-[11px]"
+              >
+                <span>🇭🇺 NEAK</span>
+                <ArrowUpRight className="w-3 h-3 opacity-70" />
+              </a>
+              <a
+                href="https://egeszsegugyikozlony.hu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/90 hover:text-white transition-colors text-[11px]"
+              >
+                <span>🇭🇺 Egészségügyi Közlöny</span>
+                <ArrowUpRight className="w-3 h-3 opacity-70" />
+              </a>
+              <a
+                href="https://stdtarsasag.hu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/90 hover:text-white transition-colors text-[11px]"
+              >
+                <span>🇭🇺 STD Társaság</span>
+                <ArrowUpRight className="w-3 h-3 opacity-70" />
+              </a>
+              <a
+                href="https://jogkodex.hu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/90 hover:text-white transition-colors text-[11px]"
+              >
+                <span>🇭🇺 Jogkódex</span>
+                <ArrowUpRight className="w-3 h-3 opacity-70" />
+              </a>
+              <a
                 href="https://www.nnk.gov.hu/"
                 target="_blank"
                 rel="noopener noreferrer"
