@@ -698,7 +698,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
   const t = {
     hu: {
       title: 'Infektológia Tankönyv',
-      subtitle: 'Dr. Péterfi Zoltán / Pécsi Tudományegyetem',
+      subtitle: 'Prof. Dr. Péterfi Zoltán / Pécsi Tudományegyetem',
       search: 'Keresés betegségek, kórokozók vagy tünetek között...',
       categories: 'Kategóriák',
       disease_count: 'betegség',
@@ -813,7 +813,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
       feedback_message: 'Üzenet leírása',
       feedback_send: 'Küldés',
       feedback_success: 'Sikeres elküldés!',
-      feedback_success_desc: 'Köszönjük! A levelezőprogramja megnyílt a levél elküldéséhez Dr. Péterfi Zoltán részére (peterfi.zoltan@pte.hu). Ha nem nyílt meg, kérjük, másolja ki az alábbi szöveget és küldje el manuálisan.',
+      feedback_success_desc: 'Köszönjük! A levelezőprogramja megnyílt a levél elküldéséhez Prof. Dr. Péterfi Zoltán részére (peterfi.zoltan@pte.hu). Ha nem nyílt meg, kérjük, másolja ki az alábbi szöveget és küldje el manuálisan.',
       ai_consult_btn: 'Klinikai AI Asszisztens',
       ai_consult_title: 'Klinikai AI Konzultáció és Asszisztens',
       ai_consult_subtitle: 'Kérdezzen bátran az infektológiáról, kórokozókról, diagnosztikáról és dekolonizációs protokollokról. Az API kulcs biztonságosan el van rejtve a szerveren.',
@@ -828,7 +828,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
     },
     en: {
       title: 'Infectious Diseases',
-      subtitle: 'Dr. Zoltán Péterfi / University of Pécs',
+      subtitle: 'Prof. Dr. Zoltán Péterfi / University of Pécs',
       search: 'Search by disease, pathogen or symptoms...',
       categories: 'Categories',
       disease_count: 'diseases',
@@ -958,7 +958,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
     },
     de: {
       title: 'Lehrbuch der Infektiologie',
-      subtitle: 'Dr. Zoltán Péterfi / Universität Pécs',
+      subtitle: 'Prof. Dr. Zoltán Péterfi / Universität Pécs',
       search: 'Suche nach Krankheiten, Erregern oder Symptomen...',
       categories: 'Kategorien',
       disease_count: 'Krankheiten',
@@ -1073,7 +1073,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
       feedback_message: 'Ihre Nachricht',
       feedback_send: 'Feedback senden',
       feedback_success: 'Senden vorbereitet!',
-      feedback_success_desc: 'Vielen Dank! Ihr E-Mail-Programm wurde geöffnet, um das Feedback an Dr. Zoltán Péterfi (peterfi.zoltan@pte.hu) zu senden. Falls es sich nicht geöffnet hat, kopieren Sie bitte den untenstehenden Text und senden Sie ihn manuell.',
+      feedback_success_desc: 'Vielen Dank! Ihr E-Mail-Programm wurde geöffnet, um das Feedback an Prof. Dr. Zoltán Péterfi (peterfi.zoltan@pte.hu) zu senden. Falls es sich nicht geöffnet hat, kopieren Sie bitte den untenstehenden Text und senden Sie ihn manuell.',
       ai_consult_btn: 'Klinischer KI-Assistent',
       ai_consult_title: 'Klinische KI-Konsultation & Assistent',
       ai_consult_subtitle: 'Fragen Sie nach Infektiologie, Erregern, Diagnostik und Dekolonisierungsprotokollen. Der API-Schlüssel ist serverseitig sicher verborgen.',
@@ -1313,7 +1313,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
                 </div>
 
                 <div className="space-y-2 text-xs font-mono text-emerald-900/80">
-                  <div>{lang === 'hu' ? 'Szerző:' : lang === 'de' ? 'Autor:' : 'Author:'} {lang === 'hu' ? 'Dr. Péterfi Zoltán' : 'Dr. Zoltán Péterfi'}</div>
+                  <div>{lang === 'hu' ? 'Szerző:' : lang === 'de' ? 'Autor:' : 'Author:'} {lang === 'hu' ? 'Prof. Dr. Péterfi Zoltán' : 'Prof. Dr. Zoltán Péterfi'}</div>
                   <div>{lang === 'hu' ? 'Intézmény:' : lang === 'de' ? 'Institution:' : 'Institution:'} {lang === 'hu' ? 'Pécsi Tudományegyetem' : lang === 'de' ? 'Universität Pécs' : 'University of Pécs'}</div>
                   <div>{lang === 'hu' ? 'Generálta:' : lang === 'de' ? 'Erstellt von:' : 'Generated for:'} peterfi.zoltan@gmail.com</div>
                   <div>{lang === 'hu' ? 'Dátum:' : lang === 'de' ? 'Datum:' : 'Date:'} {new Date().toLocaleDateString(lang === 'hu' ? 'hu-HU' : lang === 'de' ? 'de-DE' : 'en-US')}</div>
@@ -1483,7 +1483,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
                 </h1>
                 <div className="font-sans text-[10px] tracking-wider uppercase opacity-85 leading-tight mt-1 select-none flex flex-wrap items-center gap-x-2 gap-y-1">
                   <div className="font-semibold">
-                    {lang === 'hu' ? 'Dr. Péterfi Zoltán' : 'Dr. Zoltán Péterfi'}
+                    {lang === 'hu' ? 'Prof. Dr. Péterfi Zoltán' : 'Prof. Dr. Zoltán Péterfi'}
                   </div>
                   <span className="opacity-40">•</span>
                   <div className="opacity-75 text-[9px] tracking-normal">
@@ -1747,7 +1747,7 @@ Küldve az Infektológia Interaktív Tankönyvből (App version: 5.1.1)`;
 
               {/* Copyright & Version Info */}
               <div className="p-3 px-4 border-t border-natural-border bg-natural-surface text-[9px] text-natural-muted font-mono flex flex-col gap-0.5 shrink-0 select-none mt-auto">
-                <div className="font-sans text-[11px] font-semibold text-natural-dark tracking-wide">Copyright © 2026 Dr. Péterfi Zoltán</div>
+                <div className="font-sans text-[11px] font-semibold text-natural-dark tracking-wide">Copyright © 2026 Prof. Dr. Péterfi Zoltán</div>
                 <div className="flex justify-between items-center text-[10px] text-natural-dark/80 mt-1.5">
                   <span className="font-medium">Rendszer verzió:</span>
                   <span className="font-bold text-natural-dark">v5.1.1</span>
