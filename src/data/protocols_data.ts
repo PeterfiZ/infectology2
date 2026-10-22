@@ -261,23 +261,25 @@ export const clinicalProtocols: ClinicalProtocol[] = [
 
   // ==================== NEMZETKÖZI GUIDELINE-OK ====================
   {
-    id: 'intl-ssc-2021',
-    title: 'Surviving Sepsis Campaign (SSC 2021): International Guidelines for Management of Sepsis and Septic Shock',
-    originalTitle: 'Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock 2021',
+    id: 'intl-ssc-2026',
+    title: 'Surviving Sepsis Campaign (SSC 2026): International Guidelines for Management of Sepsis and Septic Shock',
+    originalTitle: 'Surviving Sepsis Campaign: International Guidelines for Management of Sepsis and Septic Shock (SCCM / ESICM)',
     organization: 'Society of Critical Care Medicine (SCCM) & European Society of Intensive Care Medicine (ESICM)',
     scope: 'international',
     category: 'sepsis',
-    year: '2021 / Critical Care Medicine & Intensive Care Medicine',
-    url: 'https://www.sccm.org/SurvivingSepsisCampaign/Guidelines/Adult-Patients',
-    pdfUrl: 'https://journals.lww.com/ccmjournal/fulltext/2021/11000/surviving_sepsis_campaign__international.21.aspx',
-    description: 'Globális arany standard a szepszis és szeptikus sokk intenzív ellátásában. Tartalmazza a szűrést, az azonnali vérkultúrák vételét, az 1 órán belüli széles spektrumú IV antibiotikumot szeptikus sokkban, a 30 ml/kg krisztalloid reszuszcitációt, a noradrenalint mint első választandó vazopresszort és a laktát-vezérelt keringésrendezést.',
+    year: '2026 / SCCM & ESICM',
+    url: 'https://www.sccm.org/survivingsepsiscampaign?campaignid=23850319846&adgroupid=&keyword=&device=c&gad_source=1&gad_campaignid=23845807181&gbraid=0AAAAAD73CrGW2Ru8PGzgyiHN46vuenci8&gclid=CjwKCAjwxeHWBhBPEiwAiqtQ-TJif_ZlGn_pdgiG2vRq2zp4KVuBwRAeXjIIYQuFxM6dx69Mhn9JSBoCMRoQAvD_BwE',
+    pdfUrl: 'https://www.sccm.org/survivingsepsiscampaign',
+    description: 'A Surviving Sepsis Campaign (SSC 2026) nemzetközi arany standard konszenzus-irányelve a felnőttkori szepszis és szeptikus sokk intenzív ellátásáról. Részletezi az 1 órás ellátási csomagot (Hour-1 Bundle: laktátmérés, hemokultúrák az antibiotikum előtt, azonnali széles spektrumú IV antibiotikum), a kiegyensúlyozott krisztalloid folyadékterápiát (30 ml/kg az első 3 órában, 0.9% NaCl kerülése), a dinamikus volumen-reszponzivitási paraméterek követését, a Noradrenalint mint elsőként választandó vazopresszort (MAP ≥ 65 Hgmm cél), a korai Vazopresszin add-on terápiát, a refrakter sokkban alkalmazott hidrokortizont (200 mg/nap), a restriktív transzfúziós stratégiát (Hb < 70 g/L) és a védő lélegeztetést (6 ml/kg PBW).',
     keyPoints: [
-      'Szeptikus sokk vagy magas szepszis-valószínűség esetén IV antimikrobiális terápia 1 ÓRÁN BELÜL indítandó',
-      'Kezdeti reszuszcitáció: legalább 30 ml/kg IV krisztalloid (kiegyensúlyozott sóoldat javasolt a 0.9% NaCl helyett)',
-      'Noradrenalin az elsővonalbeli vazopresszor a MAP ≥ 65 Hgmm elérésére; második vonalban Vazopresszin hozzáadása',
-      'Kortikoszteroid (IV hydrocortison 200 mg/nap) kizárólag perzisztáló, vazopresszor-refrakter sokkban javasolt'
+      'Időzítés és antibiotikum: Szeptikus sokk vagy egyértelmű szepszis esetén IV széles spektrumú antibiotikum haladéktalanul, 1 ÓRÁN BELÜL; ha a szepszis bizonytalan és nincs sokk, legfeljebb 3 órás gyors célzott kivizsgálás engedélyezett az infekció igazolására az antibiotikum indítása előtt',
+      'Mikrobiológiai mintavétel: Legalább 2 szett hemokultúra (aerob és anaerob palackok külön perifériás punkcióból) vétele kötelező az antimikrobiális kezelés megkezdése előtt, de a mintavétel nem késleltetheti a terápiát',
+      'Kezdeti folyadékpótlás: Legalább 30 ml/kg IV kiegyensúlyozott krisztalloid (Plasmalyte vagy Ringer-laktát) az első 3 órában hypotensio vagy laktát ≥ 4 mmol/L esetén; a normál sóoldat (0.9% NaCl) rutinszerű adása kerülendő; nagy volumenigény esetén 20%-os Albumin adása megfontolandó',
+      'Vazopresszor és vérnyomáscél: Noradrenalin az elsőként választandó vazopresszor (MAP ≥ 65 Hgmm); perifériás vénán keresztül is elindítható azonnal a centrális véna biztosításáig; dózisemelkedés esetén korai Vazopresszin (0.03 U/perc) hozzáadása javasolt a noradrenalin-igény mérséklésére',
+      'Sokk és perfúzió vezérlése: Szérum laktát clearance követése és kapilláris újratelődési idő (CRT) monitorozása a perifériás perfúzió helyreállítására; dinamikus paraméterek (pl. passzív lábemelés, lökettérfogat-variáció) a statikus mérésekkel szemben',
+      'Adjuváns terápia: Hidrokortizon (200 mg/nap folyamatos infúzióban vagy 4x50 mg IV) kizárólag perzisztáló vazopresszor-igényes refrakter szeptikus sokkban javasolt; restriktív transzfúzió (Hb trigger < 70 g/L), protektív ARDS lélegeztetés (6 ml/kg PBW, platónyomás < 30 vízcm)'
     ],
-    tags: ['sepsis', 'septic shock', 'surviving sepsis campaign', 'noradrenaline', 'resuscitation', 'lactate']
+    tags: ['sepsis', 'septic shock', 'surviving sepsis campaign', 'SSC 2026', 'noradrenaline', 'vasopressin', 'crystalloids', 'lactate', 'hour-1 bundle']
   },
   {
     id: 'intl-escmid-cdi-treatment-2021',

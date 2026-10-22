@@ -79,21 +79,21 @@ Object.assign(window.diseases, {
             }
         ],
         "physical_exam": [
-            "Fever (>38.3°C) or hypothermia (<36.0°C)",
+            "Fever (>38.3°C) or hypothermia (<36.0°C; carries a worse prognosis)",
             "Tachycardia (>90/min)",
             "Tachypnea (>20/min or PaCO2 <32 mmHg)",
-            "Prolonged capillary refill time (>3 seconds)",
-            "Mottled skin (mottling score)",
-            "Acute confusion, disorientation"
+            "Prolonged capillary refill time (>3 seconds) as a dynamic clinical marker of microvascular hypoperfusion",
+            "Mottled skin (mottling score over the knees reflecting loss of vasomotor tone)",
+            "Acute mental status change, disorientation (septic encephalopathy)"
         ],
         "complications": [
-            "Septic shock (persistent hypotension requiring vasopressors to maintain MAP >= 65 mmHg, and lactate > 2 mmol/L despite adequate fluid resuscitation)",
-            "ARDS (acute respiratory distress syndrome)",
-            "Acute kidney injury (AKI) requiring renal replacement therapy",
-            "DIC (disseminated intravascular coagulation)",
-            "Sepsis-induced myocardial dysfunction",
+            "Septic shock (Sepsis-3 consensus: persistent hypotension requiring vasopressors to maintain MAP >= 65 mmHg, AND serum lactate > 2.0 mmol/L / >18 mg/dL despite adequate fluid resuscitation)",
+            "ARDS (acute respiratory distress syndrome) with diffuse alveolar capillary hyperpermeability",
+            "Acute kidney injury (AKI) with oliguria and indication for renal replacement therapy (CRRT)",
+            "DIC (disseminated intravascular coagulation) with microvascular thrombosis and consumption coagulopathy",
+            "Sepsis-induced myocardial dysfunction (septic cardiomyopathy with reduced ejection fraction)",
             "Multiple organ dysfunction syndrome (MODS)",
-            "Death"
+            "Death (in-hospital mortality in septic shock reaches 35-50%)"
         ]
     },
     diagnostics: {
@@ -106,99 +106,107 @@ Object.assign(window.diseases, {
             {
                 "modality": "Abdominal ultrasound / CT",
                 "finding": "Free abdominal fluid, gallbladder distension, abscesses, inflammatory bowel wall thickening.",
-                "significance": "Identification of an intra-abdominal focus and planning of source control (e.g., drainage, surgery)."
+                "significance": "Identification of an intra-abdominal focus and planning of urgent source control (e.g., percutaneous drainage, laparotomy)."
             }
         ],
         "laboratory": [
             {
                 "test": "Serum lactate",
-                "finding": "> 2 mmol/L",
-                "interpretation": "Marker of tissue hypoperfusion and anaerobic metabolism; serial measurement is key to tracking lactate clearance."
+                "finding": "> 2.0 mmol/L (severe hypoperfusion: >= 4.0 mmol/L)",
+                "interpretation": "Hallmark of tissue hypoperfusion and anaerobic cellular metabolism; serial measurement every 2-4 hours is mandated by SSC 2026 to guide resuscitation and verify lactate clearance."
             },
             {
                 "test": "Procalcitonin (PCT) / CRP",
-                "finding": "Markedly elevated values",
-                "interpretation": "Supports suspicion of systemic bacterial infection; PCT kinetics help guide safe discontinuation of antibiotic therapy."
+                "finding": "Markedly elevated values in systemic bacterial infection",
+                "interpretation": "Supports suspicion of invasive bacterial sepsis; PCT kinetics facilitate safe antimicrobial de-escalation and shortening of treatment duration."
             },
             {
                 "test": "Complete blood count and coagulation panel",
-                "finding": "Leukocytosis (>12 G/L) or leukopenia (<4 G/L), thrombocytopenia (<100 G/L), prolonged INR/aPTT",
-                "interpretation": "Sign of systemic inflammatory response and incipient DIC or organ damage."
+                "finding": "Leukocytosis (>12 G/L) with left shift or leukopenia (<4 G/L), thrombocytopenia (<100 G/L), prolonged INR/aPTT, hypofibrinogenemia, elevated D-dimer",
+                "interpretation": "Hallmarks of systemic inflammatory response, organ damage, and sepsis-induced coagulopathy / overt DIC."
             }
         ],
         "microbiology": [
             {
-                "test": "Blood culture (at least 2 sets: from separate peripheral sites, aerobic and anaerobic bottles)",
-                "finding": "Identification of the pathogen and its resistance profile",
-                "significance": "Must be drawn immediately before starting empirical antibiotics! Helps guide later de-escalation."
+                "test": "Blood cultures (at least 2 sets: aerobic and anaerobic bottles from separate peripheral venipunctures)",
+                "finding": "Pathogen identification and quantitative antimicrobial susceptibility testing (MIC)",
+                "significance": "Must be drawn immediately prior to initiating antimicrobial therapy! However, collection must not delay antibiotic administration (>45 min delay is unacceptable)."
             },
             {
-                "test": "Focus-specific cultures (urine, sputum, CSF, wound discharge)",
-                "finding": "Bacterial or fungal growth",
-                "significance": "Basis for targeted treatment of the primary infectious focus."
+                "test": "Focus-specific cultures and rapid molecular multiplex PCR panels (urine, lower respiratory tract, CSF, wound fluids)",
+                "finding": "Detection of bacterial or fungal pathogens and resistance genes (e.g., mecA, vanA, KPC, NDM, OXA-48)",
+                "significance": "Basis for targeted source control and early targeted de-escalation."
             }
         ]
     },
     therapy: {
-        "targeted": "Empirical broad-spectrum antibiotics should be given within the first hour, followed by targeted de-escalation once microbiology results are available. Rapid identification and surgical/interventional elimination of the infectious focus (source control, e.g., abscess drainage, removal of necrotic tissue, catheter exchange) is essential, ideally within 6-12 hours of diagnosis.",
+        "targeted": "According to the Surviving Sepsis Campaign (SSC 2026) Hour-1 Bundle: In septic shock or definite sepsis, administer broad-spectrum IV antimicrobials IMMEDIATELY, WITHIN 1 HOUR. If sepsis is suspected but shock is absent and infection is unconfirmed, a rapid diagnostic workup of up to 3 hours is permitted before deciding on antimicrobials. Narrow down (de-escalate) promptly once microbiological results return. Urgent source control (drainage of abscesses, removal of infected intravascular lines, closure of hollow viscus perforations) within 6-12 hours of diagnosis is mandatory.",
         "supportive": [
-            "Monitoring dynamic fluid responsiveness (e.g., passive leg raise test, stroke volume variation) to avoid fluid overload",
-            "Protective mechanical ventilation in ARDS (low tidal volume: 6 ml/kg, adequate PEEP)",
-            "Strict glycemic control (target: 140-180 mg/dl or 7.8-10.0 mmol/l)",
-            "Early enteral nutrition",
-            "Prophylactic low molecular weight heparin (LMWH) against deep vein thrombosis",
-            "Stress ulcer prophylaxis with a proton pump inhibitor (PPI) in high-risk patients",
-            "Renal replacement therapy (CRRT) in hemodynamically unstable acute kidney injury"
+            "Monitoring dynamic parameters of fluid responsiveness (passive leg raise test - PLR, stroke volume variation - SVV, pulse pressure variation - PPV, IVC collapsibility index) to avoid fluid overload",
+            "Targeting peripheral perfusion (capillary refill time / CRT <= 3 sec) and serum lactate clearance to guide hemodynamic resuscitation",
+            "Restrictive RBC transfusion strategy: transfusion is indicated only when hemoglobin falls below 70 g/L (<7.0 g/dL), except in acute myocardial ischemia, severe uncorrectable hypoxemia, or active hemorrhage",
+            "Lung-protective mechanical ventilation in sepsis-induced ARDS (low tidal volume: 6 ml/kg predicted body weight / PBW, plateau pressure < 30 cmH2O, PEEP titration; prone positioning >= 16 hours/day in severe ARDS)",
+            "Strict glycemic control with IV insulin infusion when blood glucose exceeds 10.0 mmol/L (180 mg/dL), target range: 7.8-10.0 mmol/L (140-180 mg/dL)",
+            "Early enteral nutrition initiated within 72 hours (avoiding parenteral nutrition in the acute phase)",
+            "Venous thromboembolism (VTE) prophylaxis with LMWH (preferred over UFH; adjusted for renal clearance)",
+            "Stress ulcer prophylaxis (PPI or H2RA) reserved for mechanically ventilated or coagulopathic high-risk patients",
+            "Continuous renal replacement therapy (CRRT) in hemodynamically unstable acute kidney injury"
         ],
         "prevention": [
-            "Strict adherence to hospital infection control and hygiene protocols (hand hygiene, isolation)",
-            "Vaccination (Streptococcus pneumoniae, influenza, SARS-CoV-2, Neisseria meningitidis)",
-            "Avoiding unnecessary use of invasive devices (urinary catheters, central venous catheters) and prompt removal",
-            "Early surgical debridement of wounds"
+            "Hospital infection prevention and control bundles (hand hygiene, aseptic technique, isolation precautions)",
+            "Active immunization (Streptococcus pneumoniae, Neisseria meningitidis, Influenza, SARS-CoV-2, Haemophilus influenzae)",
+            "Minimizing invasive device days (prompt removal of urinary catheters and central venous lines when no longer essential)",
+            "Prompt surgical debridement and aseptic wound care"
         ],
         "empirical": {
             "inpatient": [
                 {
-                    "drug": "Fluid resuscitation (balanced crystalloids, e.g., Ringer's lactate)",
+                    "drug": "Fluid resuscitation (balanced crystalloids, e.g., Plasmalyte or Ringer's lactate)",
                     "dose": "30 ml/kg",
                     "duration": "Within the first 3 hours",
-                    "note": "Mandatory in cases of hypotension or lactate >= 4 mmol/L. Synthetic colloids (HES, gelatin) should be avoided due to the risk of renal failure. Albumin may be considered when large-volume crystalloid requirements are anticipated."
+                    "note": "Mandatory in septic hypotension or lactate >= 4.0 mmol/L. Routine 0.9% normal saline should be avoided due to the risk of hyperchloremic metabolic acidosis and renal vasoconstriction. In large-volume crystalloid needs, 20% human albumin is suggested. Synthetic colloids (HES, gelatins) are contraindicated."
                 },
                 {
-                    "drug": "Empirical intravenous antibiotic therapy (e.g., piperacillin/tazobactam, meropenem, ceftazidime, combined with vancomycin if MRSA is suspected)",
-                    "dose": "Maximum allowed dose (adjusted to renal function)",
-                    "duration": "Started within the first hour, generally for 7-10 days",
-                    "note": "Choice should be focus- and local resistance-specific. Targeted coverage is needed if Pseudomonas or MRSA risk is present."
+                    "drug": "Empirical intravenous bactericidal antibiotic therapy (e.g., Piperacillin/Tazobactam 4x4.5g extended infusion, Meropenem 3x1-2g, or Ceftriaxone / Cefepime; combined with Vancomycin or Linezolid if MRSA risk is present)",
+                    "dose": "Maximum allowed dose optimized by PK/PD principles (extended/continuous beta-lactam infusions)",
+                    "duration": "Started within 1 hour; total duration is typically 7-8 days or less upon clinical stability and successful source control",
+                    "note": "Tailored to focus of infection and local antibiogram. Daily reassessment and rapid de-escalation based on culture results and PCT kinetics."
                 },
                 {
                     "drug": "Norepinephrine (Noradrenaline)",
-                    "dose": "Titrated to achieve MAP >= 65 mmHg",
-                    "duration": "Continuously during the shock phase",
-                    "note": "First-line vasopressor of choice. May be started early via a peripheral line if central access is delayed."
+                    "dose": "Titrated to achieve and maintain MAP >= 65 mmHg",
+                    "duration": "Continuous IV infusion during shock",
+                    "note": "Absolute first-line vasopressor. May be initiated via a peripheral IV line immediately while central venous access is being established, minimizing time spent in tissue hypoperfusion."
                 },
                 {
                     "drug": "Vasopressin",
-                    "dose": "Fixed dose of 0.03 U/min",
-                    "duration": "As a continuous infusion",
-                    "note": "Can be added to norepinephrine to help reach the MAP target or to reduce the norepinephrine dose."
+                    "dose": "0.03 U/min fixed-dose continuous infusion",
+                    "duration": "Continuous add-on infusion",
+                    "note": "Recommended as an early second-line vasopressor when norepinephrine dose is escalating (>=0.25 mcg/kg/min) to decrease norepinephrine requirements and stabilize MAP."
+                },
+                {
+                    "drug": "Epinephrine (Adrenaline) or Dobutamine",
+                    "dose": "Epinephrine: 0.05-0.5 mcg/kg/min; Dobutamine: 2.5-20 mcg/kg/min",
+                    "duration": "During shock as clinically indicated",
+                    "note": "Epinephrine may be added as a third-line vasopressor in refractory shock. Dobutamine is indicated if myocardial dysfunction (low cardiac output) or persistent hypoperfusion is present despite adequate intravascular volume and MAP."
                 },
                 {
                     "drug": "Hydrocortisone",
-                    "dose": "200 mg/day (e.g., 4x50 mg IV or continuous infusion)",
-                    "duration": "In refractory shock",
-                    "note": "Recommended only when fluid and vasopressor therapy fail to restore hemodynamic stability."
+                    "dose": "200 mg/day (continuous IV infusion or 50 mg IV every 6 hours)",
+                    "duration": "During refractory septic shock",
+                    "note": "Indicated according to SSC 2026 only when hemodynamic stability is not achieved despite adequate fluid resuscitation and escalating vasopressor therapy."
                 }
             ],
             "outpatient": []
         }
     },
     prognosis: {
-        "mortality": "Approximately 15-25% for sepsis; in-hospital mortality can reach 40-50% once septic shock develops.",
-        "factors": "Age, pre-existing comorbidities, speed of diagnosis and therapeutic interventions (antibiotics, source control), initial lactate level and lactate clearance, number of organs affected.",
+        "mortality": "Approximately 15-25% for sepsis; in-hospital mortality reaches 35-50% in septic shock.",
+        "factors": "Age, pre-existing comorbidities, timeliness of Hour-1 bundle implementation and source control, initial lactate and lactate clearance kinetics, number of failing organs.",
         "prognostic_scores": [
-            "SOFA score (Sequential Organ Failure Assessment): an increase of >=2 points indicates acute organ dysfunction and sepsis",
-            "NEWS (National Early Warning Score) / SIRS criteria / MEWS: better sensitivity for screening than qSOFA",
-            "APACHE II score (for estimating ICU outcomes)"
+            "SOFA score (Sequential Organ Failure Assessment): acute increase of >=2 points confirms organ dysfunction and defines sepsis (Sepsis-3 consensus)",
+            "NEWS2 (National Early Warning Score 2) / MEWS / SIRS criteria: high-sensitivity bedside screening tools (SSC 2026 advises against using qSOFA as a standalone screening tool due to low sensitivity)",
+            "APACHE II / SAPS II score: for ICU risk stratification and mortality prediction"
         ]
     },
     language: "en",

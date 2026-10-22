@@ -79,21 +79,21 @@ Object.assign(window.diseases, {
             }
         ],
         "physical_exam": [
-            "Láz (>38.3 °C) vagy hypothermia (<36.0 °C)",
+            "Láz (>38.3 °C) vagy hypothermia (<36.0 °C; rosszabb prognózisú)",
             "Tachycardia (>90/perc)",
             "Tachypnoe (>20/perc vagy PaCO2 <32 Hgmm)",
-            "Megnyúlt kapilláris újratelődési idő (>3 másodperc)",
-            "Márványozott bőr (Mottling score)",
-            "Akut tudatzavar, dezorientáltság"
+            "Megnyúlt kapilláris újratelődési idő (>3 másodperc) mint a mikrocirkulációs hipoperfúzió dinamikus klinikai mutatója",
+            "Márványozott bőr (Mottling score a térdeken a vazomotor tónusvesztés következtében)",
+            "Akut tudatzavar, dezorientáltság (szeptikus encephalopathia)"
         ],
         "complications": [
-            "Szeptikus sokk (perzisztáló hypotensio vazopresszor igénnyel a MAP >= 65 Hgmm tartásához és laktát > 2 mmol/L adekvát folyadékpótlás ellenére)",
-            "ARDS (akut respirációs distressz szindróma)",
-            "Akut veseelégtelenség (AKI) vesepótló kezelés igénnyel",
-            "DIC (disszeminált intravaszkuláris koaguláció)",
-            "Sepsis-indukálta miokardiális diszfunkció",
-            "Többszervi elégtelenség (MODS)",
-            "Halál"
+            "Szeptikus sokk (Sepsis-3 konszenzus: adekvát folyadékreszuszcitáció ellenére perzisztáló hypotensio, ami vazopresszor terápiát igényel a MAP >= 65 Hgmm fenntartásához, ÉS szérum laktát > 2.0 mmol/L / >18 mg/dL)",
+            "ARDS (akut respirációs distressz szindróma) diffúz alveoláris kapilláris permeabilitás-fokozódással",
+            "Akut vesekárosodás (AKI) oliguriával és vesepótló kezelés (CRRT) indikációval",
+            "DIC (disszeminált intravaszkuláris koaguláció) microthrombosissal és vérzéses hajlammal",
+            "Sepsis-indukálta miokardiális diszfunkció (szeptikus kardiomiopátia csökkent ejekciós frakcióval)",
+            "Többszervi elégtelenség szindróma (MODS)",
+            "Halál (szeptikus sokkban a mortalitás eléri a 35-50%-ot)"
         ]
     },
     diagnostics: {
@@ -106,99 +106,107 @@ Object.assign(window.diseases, {
             {
                 "modality": "Hasi ultrahang / CT",
                 "finding": "Szabad hasi folyadék, epehólyag tágulat, tályogok, gyulladásos bélfal-megvastagodás.",
-                "significance": "Az intraabdominalis fókusz azonosítása és a forráskontroll (pl. drainálás, műtét) megtervezése."
+                "significance": "Az intraabdominalis fókusz azonosítása és a sürgősségi forráskontroll (pl. drainálás, laparotomia) megtervezése."
             }
         ],
         "laboratory": [
             {
                 "test": "Szérum laktát",
-                "finding": "> 2 mmol/L",
-                "interpretation": "Szöveti hypoperfúzió és anaerob metabolizmus jelzője; ismételt mérése a laktát-clearance követésére kulcsfontosságú."
+                "finding": "> 2.0 mmol/L (súlyos hipoperfúzió: >= 4.0 mmol/L)",
+                "interpretation": "Szöveti hypoperfúzió és anaerob sejtmetabolizmus jelzője; az SSC 2026 alapján sorozatos mérése 2-4 óránként kötelező a reszuszcitáció és laktát-clearance követésére."
             },
             {
                 "test": "Prokalcitonin (PCT) / CRP",
-                "finding": "Kifejezetten emelkedett értékek",
-                "interpretation": "Támogatja a szisztémás bakteriális fertőzés gyanúját; a PCT kinetikája segíti az antibiotikum-terápia biztonságos leállítását."
+                "finding": "Kifejezetten emelkedett értékek bakteriális infekcióban",
+                "interpretation": "Támogatja a szisztémás bakteriális szepszis felismerését; a PCT kinetikája segíti az empirikus antibiotikum-terápia biztonságos lerövidítését és korai de-eszkalációját."
             },
             {
                 "test": "Vérkép és koagulációs panel",
-                "finding": "Leukocytosis (>12G/L) vagy leukopenia (<4G/L), thrombocytopenia (<100G/L), megnyúlt INR/APTI",
-                "interpretation": "Szisztémás gyulladásos válasz és kezdődő DIC vagy szervkárosodás jele."
+                "finding": "Leukocytosis (>12G/L) balra tolt vérképpel vagy leukopenia (<4G/L), thrombocytopenia (<100G/L), megnyúlt INR/APTI, csökkent fibrinogén, emelkedett D-dimer",
+                "interpretation": "Szisztémás gyulladásos válasz, szervkárosodás és szepszis-indukálta koagulopátia / DIC jelei."
             }
         ],
         "microbiology": [
             {
-                "test": "Hemokultúra (legalább 2 szett: külön perifériás helyekről, aerob és anaerob palackok)",
-                "finding": "Kórokozó identifikáció és rezisztencia-profil meghatározása",
-                "significance": "Azonnal le kell venni az empirikus antibiotikum megkezdése előtt! Segíti a későbbi de-eszkalációt."
+                "test": "Hemokultúra (legalább 2 szett: külön perifériás punkciókból vett aerob és anaerob palackok)",
+                "finding": "Kórokozó azonosítása és kvantitatív antibiotikum-érzékenységi vizsgálata (MIC)",
+                "significance": "Azonnal le kell venni az antimikrobiális kezelés megkezdése előtt! A mintavétel azonban nem késleltetheti az antibiotikum beadását (>45 perc késedelem nem engedhető meg)."
             },
             {
-                "test": "Gócspecifikus tenyésztések (vizelet, köpet, liquor, sebváladék)",
-                "finding": "Bakteriális vagy gombás növekedés",
-                "significance": "A primer infekciós góc célzott kezelésének alapja."
+                "test": "Gócspecifikus tenyésztések és gyors molekuláris multiplex PCR panelek (vizelet, alsó légúti váladék, liquor, sebváladék)",
+                "finding": "Bakteriális vagy gombás kórokozók és rezisztenciagének (pl. mecA, vanA, KPC, NDM, OXA-48) kimutatása",
+                "significance": "A primer góc forráskontrolljának és a korai célzott de-eszkalációnak az alapja."
             }
         ]
     },
     therapy: {
-        "targeted": "Empirikus széles spektrumú antibiotikum adása az első órán belül, majd a mikrobiológiai eredmények birtokában célzott de-eszkaláció. A fertőzés fókuszának gyors azonosítása és sebészi/intervenciós eliminációja (forráskontroll, pl. tályogdrenázs, nekrotikus szövetek eltávolítása, kanülcsere) elengedhetetlen, ideálisan a diagnózistól számított 6-12 órán belül.",
+        "targeted": "A Surviving Sepsis Campaign (SSC 2026) Hour-1 Bundle alapján: Szeptikus sokk vagy egyértelmű szepszis esetén empirikus széles spektrumú IV antibiotikum HALADÉKTALANUL, 1 ÓRÁN BELÜL indítandó. Bizonytalan szepszis-gyanú esetén sokk hiányában legfeljebb 3 órás gyors célzott kivizsgálás engedélyezett az infekció igazolására. A mikrobiológiai eredmények birtokában szűkítés (de-eszkaláció). Sürgősségi forráskontroll (Source Control): a fertőzés fókuszának (tályogdrenázs, kolonizált kanül eltávolítása, perforáció zárása) azonnali sebészi/intervenciós eliminációja a diagnózistól számított 6-12 órán belül elengedhetetlen.",
         "supportive": [
-            "Dinamikus folyadék-reszponzivitás monitorozása (pl. passzív lábemelési teszt, lökettérfogat-variáció) a folyadék-túlterhelés elkerülésére",
-            "Protektív gépi lélegeztetés ARDS esetén (alacsony tidal volumen: 6 ml/kg, megfelelő PEEP)",
-            "Szigorú vércukorkontroll (cél: 140-180 mg/dl vagy 7.8-10.0 mmol/l)",
-            "Korai enterális táplálás",
-            "Profilaktikus kis molekulasúlyú heparin (LMWH) mélyvénás thrombosis ellen",
-            "Stresszfekély profilaxis protonpumpa-gátlóval (PPI) magas rizikójú betegeknél",
+            "Dinamikus volumenreszponzivitás monitorozása (passzív lábemelési teszt - PLR, lökettérfogat-variáció - SVV, pulzusnyomás-variáció - PPV, VCI echo-collapsibilitas) a folyadéktúlterhelés szigorú kivédésére",
+            "Perifériás perfúzió (kapilláris újratelődési idő / CRT <= 3 sec) és szérum laktát-clearance követése a keringésrendezés vezérlésére",
+            "Restriktív transzfúziós stratégia: vörösvértest-transzfúzió csak akkor indokolt, ha a hemoglobin koncentráció < 70 g/L (<7.0 g/dL), kivéve súlyos myocardiális ischaemia, akut vérzés vagy cyanoticus hypoxaemia esetén",
+            "Protektív gépi lélegeztetés ARDS-ben (alacsony tidal volumen: 6 ml/kg ideális testsúlyra / PBW számítva, platónyomás < 30 vízcm, PEEP titrálás; súlyos ARDS-ben prone positioning napi >= 16 órán át)",
+            "Vércukorkontroll inzulin infúzióval, ha a vércukorszint tartósan > 10.0 mmol/L (180 mg/dL), célérték: 7.8-10.0 mmol/L (140-180 mg/dL)",
+            "Korai enterális táplálás 72 órán belül (parenterális táplálás kerülése a kezdeti fázisban)",
+            "Mélyvénás thrombosis profilaxis LMWH-val (vesefunkcióhoz illesztve; preferált az UFH-val szemben)",
+            "Stresszfekély profilaxis (PPI vagy H2RA) mechanikusan lélegeztetett vagy koagulopátiás, magas rizikójú betegeknél",
             "Vesepótló kezelés (CRRT) hemodinamikailag instabil akut veseelégtelenségben"
         ],
         "prevention": [
-            "Kórházi infekciókontroll és higiénés protokollok szigorú betartása (kézhigiénia, izoláció)",
-            "Vakcináció (Streptococcus pneumoniae, Influenza, SARS-CoV-2, Neisseria meningitidis)",
-            "Invazív eszközök (húgyúti katéterek, centrális vénás katéterek) indokolatlan használatának kerülése, mielőbbi eltávolítása",
-            "Korai sebészi debridement sérüléseknél"
+            "Kórházi infekciókontroll és higiénés protokollok szigorú betartása (kézhigiéné, aszeptikus technika, izoláció)",
+            "Védőoltások (Streptococcus pneumoniae, Neisseria meningitidis, Influenza, SARS-CoV-2, Haemophilus influenzae)",
+            "Invazív eszközök (húgyúti katéterek, centrális vénás katéterek) indokolt alkalmazása, napi felülvizsgálata és mielőbbi eltávolítása",
+            "Korai sebészi debridement és aszeptikus sebkezelés"
         ],
         "empirical": {
             "inpatient": [
                 {
-                    "drug": "Folyadékpótlás (Kiegyensúlyozott krisztalloidok, pl. Ringer-laktát)",
+                    "drug": "Folyadékreszuszcitáció (Kiegyensúlyozott krisztalloidok: pl. Plasmalyte vagy Ringer-laktát)",
                     "dose": "30 ml/kg",
                     "duration": "Az első 3 órán belül",
-                    "note": "Hypotensio vagy laktát >= 4 mmol/L esetén kötelező. Kerülendők a szintetikus kolloidok (HES, zselatin) a veseelégtelenség kockázata miatt. Nagy volumenű krisztalloid igény esetén albumin adása megfontolandó."
+                    "note": "Szeptikus hypotensio vagy laktát >= 4.0 mmol/L esetén azonnal kötelező. A normál sóoldat (0.9% NaCl) rutinszerű adása kerülendő a hiperklorémiás acidózis és akut vesekárosodás veszélye miatt. Nagy volumenű krisztalloid igény esetén 20%-os Albumin adása javasolt. Szintetikus kolloidok (HES, zselatin) alkalmazása tilos."
                 },
                 {
-                    "drug": "Empirikus intravénás antibiotikum terápia (pl. Piperacillin/Tazobactam, Meropenem, Ceftazidim, szükség esetén Vancomycinnel kombinálva MRSA gyanúkor)",
-                    "dose": "Maximális megengedett dózis (vesefunkcióhoz igazítva)",
-                    "duration": "Az első órán belül megkezdve, általában 7-10 napig",
-                    "note": "Góc- és lokális rezisztencia-specifikus választás. Pseudomonas vagy MRSA rizikó esetén célzott lefedettség szükséges."
+                    "drug": "Empirikus intravénás baktericid antibiotikum (pl. Piperacillin/Tazobactam 4x4.5g elnyújtott infúzióban, Meropenem 3x1-2g, vagy Ceftriaxon / Cefepime; MRSA rizikóban Vancomycin vagy Linezolid hozzáadásával)",
+                    "dose": "Maximális megengedett dózis PK/PD optimalizálással (elnyújtott béta-laktám infúzió)",
+                    "duration": "Az első órán belül indítva; a kezelés időtartama klinikai javulás és forráskontroll esetén általában 7-8 nap vagy kevesebb",
+                    "note": "Góc- és helyi mikrobiológiai rezisztencia-profil szerinti empíria. Napi felülvizsgálat és korai de-eszkaláció a tenyésztési lelet és PCT dinamika alapján."
                 },
                 {
                     "drug": "Noradrenalin (Norepinephrine)",
-                    "dose": "Titrálandó a MAP >= 65 Hgmm eléréséhez",
-                    "duration": "Sokkfázis alatt folyamatosan",
-                    "note": "Elsőként választandó vasopresszor. Korán megkezdhető perifériás vénán keresztül is, ha a centrális hozzáférés késik."
+                    "dose": "Titrálandó a MAP >= 65 Hgmm célérték eléréséhez és fenntartásához",
+                    "duration": "A sokkfázis alatt folyamatos infúzióban",
+                    "note": "Abszolút elsőként választandó vazopresszor. Perifériás vénán keresztül is elindítható haladéktalanul a centrális vénás hozzáférés biztosításáig a perzisztáló szöveti hypoperfúzió kivédésére."
                 },
                 {
                     "drug": "Vazopresszin (Vasopressin)",
-                    "dose": "0.03 U/perc fix dózis",
-                    "duration": "Folyamatos infúzióban",
-                    "note": "Hozzáadható a Noradrenalin-hoz a MAP célérték tartásához vagy a noradrenalin dózis csökkentése érdekében."
+                    "dose": "0.03 U/perc fix dózis folyamatos infúzióban",
+                    "duration": "Folyamatosan a noradrenalin mellé titrálva",
+                    "note": "Korai második vonalbeli vazopresszorként adandó a Noradrenalin dózisának emelkedésekor (>=0.25 mcg/kg/perc) a noradrenalin-igény mérséklésére és a MAP stabilizálására."
+                },
+                {
+                    "drug": "Adrenalin (Epinephrin) vagy Dobutamin",
+                    "dose": "Adrenalin: 0.05-0.5 mcg/kg/perc; Dobutamin: 2.5-20 mcg/kg/perc",
+                    "duration": "Sokkban szükség szerint",
+                    "note": "Adrenalin adható refrakter sokkban harmadik vonalbeli szerként. Dobutamin adása indokolt miokardiális diszfunkció (alacsony perctérfogat) vagy tartós szöveti hipoperfúzió esetén, adekvát volumenpótlás és MAP mellett."
                 },
                 {
                     "drug": "Hidrokortizon (Hydrocortisone)",
-                    "dose": "200 mg/nap (pl. 4x50 mg iv. vagy folyamatos infúzió)",
-                    "duration": "Refrakter sokk esetén",
-                    "note": "Csak akkor javasolt, ha a folyadék- és vasopresszor-terápia nem állítja helyre a hemodinamikai stabilitást."
+                    "dose": "200 mg/nap (folyamatos infúzióban vagy 4x50 mg IV)",
+                    "duration": "Refrakter szeptikus sokk alatt",
+                    "note": "Kizárólag akkor javasolt az SSC 2026 szerint, ha a reszuszcitáció és a magas dózisú vazopresszor-terápia ellenére sem áll helyre a hemodinamikai stabilitás."
                 }
             ],
             "outpatient": []
         }
     },
     prognosis: {
-        "mortality": "Sepsis esetén kb. 15-25%, szeptikus sokk kialakulásakor a kórházi mortalitás elérheti a 40-50%-ot is.",
-        "factors": "Életkor, meglévő társbetegségek, a diagnózis és a terápiás beavatkozások (antibiotikum, forráskontroll) gyorsasága, a kezdeti laktátszint és laktát-clearance, szervkárosodások száma.",
+        "mortality": "Sepsis esetén kb. 15-25%, szeptikus sokk kialakulásakor a kórházi mortalitás elérheti a 35-50%-ot is.",
+        "factors": "Életkor, premissziós társbetegségek, az 1 órás ellátási csomag és forráskontroll gyorsasága, kezdeti laktát és laktát-clearance dinamikája, akut szervi elégtelenségek száma.",
         "prognostic_scores": [
-            "SOFA score (Sequential Organ Failure Assessment): >=2 pont emelkedés akut szervkárosodást és szepszist jelez",
-            "NEWS (National Early Warning Score) / SIRS kritériumok / MEWS: jobb szenzitivitású szűrésre, mint a qSOFA",
-            "APACHE II score (intenzív osztályos kimenetel becslésére)"
+            "SOFA score (Sequential Organ Failure Assessment): >=2 pont akut emelkedés szervdiszfunkciót és szepszist igazol (Sepsis-3 konszenzus)",
+            "NEWS2 (National Early Warning Score 2) / MEWS / SIRS kritériumok: magas szenzitivitású korai szűrőrendszerek (az SSC 2026 nem javasolja a qSOFA-t egyedüli szűrőtesztként annak alacsonyabb szenzitivitása miatt)",
+            "APACHE II / SAPS II score: intenzív osztályos kockázatbecslésre és mortalitás előrejelzésére"
         ]
     },
     language: "hu",

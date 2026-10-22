@@ -247,12 +247,12 @@ export const ProtocolsModal: React.FC<ProtocolsModalProps> = ({ isOpen, onClose,
                 <ArrowUpRight className="w-3 h-3 opacity-70" />
               </a>
               <a
-                href="https://www.sccm.org/SurvivingSepsisCampaign/Guidelines/Adult-Patients"
+                href="https://www.sccm.org/survivingsepsiscampaign?campaignid=23850319846&adgroupid=&keyword=&device=c&gad_source=1&gad_campaignid=23845807181&gbraid=0AAAAAD73CrGW2Ru8PGzgyiHN46vuenci8&gclid=CjwKCAjwxeHWBhBPEiwAiqtQ-TJif_ZlGn_pdgiG2vRq2zp4KVuBwRAeXjIIYQuFxM6dx69Mhn9JSBoCMRoQAvD_BwE"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 text-white/90 hover:text-white transition-colors text-[11px]"
               >
-                <span>🌐 Surviving Sepsis</span>
+                <span>🌐 Surviving Sepsis (2026)</span>
                 <ArrowUpRight className="w-3 h-3 opacity-70" />
               </a>
             </div>

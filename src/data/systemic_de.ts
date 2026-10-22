@@ -79,21 +79,21 @@ Object.assign(window.diseases, {
             }
         ],
         "physical_exam": [
-            "Fieber (>38,3 °C) oder Hypothermie (<36,0 °C)",
+            "Fieber (>38,3 °C) oder Hypothermie (<36,0 °C; geht mit schlechterer Prognose einher)",
             "Tachykardie (>90/min)",
             "Tachypnoe (>20/min oder PaCO2 <32 mmHg)",
-            "Verlängerte kapilläre Füllungszeit (>3 Sekunden)",
-            "Marmorierte Haut (Mottling-Score)",
-            "Akute Verwirrtheit, Desorientierung"
+            "Verlängerte kapilläre Füllungszeit (>3 Sekunden) als dynamischer klinischer Parameter der mikrozirkulären Hypoperfusion",
+            "Marmorierte Haut (Mottling-Score an den Knien infolge des Verlusts des Vasomotorentons)",
+            "Akute Bewusstseinsstörung, Desorientierung (septische Enzephalopathie)"
         ],
         "complications": [
-            "Septischer Schock (persistierende Hypotonie mit Vasopressorbedarf zur Aufrechterhaltung eines MAP >= 65 mmHg und Laktat > 2 mmol/L trotz adäquater Flüssigkeitssubstitution)",
-            "ARDS (akutes Atemnotsyndrom)",
-            "Akute Nierenschädigung (AKI) mit Bedarf an Nierenersatztherapie",
-            "DIC (disseminierte intravasale Gerinnung)",
-            "Sepsis-induzierte myokardiale Dysfunktion",
+            "Septischer Schock (Sepsis-3-Konsens: persistierende Hypotonie mit Vasopressorbedarf zur Aufrechterhaltung eines MAP >= 65 mmHg UND Serumlaktat > 2,0 mmol/L / >18 mg/dL trotz adäquater Volumensubstitution)",
+            "ARDS (akutes Atemnotsyndrom) mit diffuser alveolärer kapillärer Hyperpermeabilität",
+            "Akute Nierenschädigung (AKI) mit Oligurie und Indikation zur kontinuierlichen Nierenersatztherapie (CRRT)",
+            "DIC (disseminierte intravasale Gerinnung) mit Mikrothrombosierung und Verbrauchskoagulopathie",
+            "Sepsis-induzierte myokardiale Dysfunktion (septische Kardiomyopathie mit reduzierter Ejektionsfraktion)",
             "Multiorgandysfunktionssyndrom (MODS)",
-            "Tod"
+            "Tod (Krankenhausmortalität beim septischen Schock liegt bei 35-50 %)"
         ]
     },
     diagnostics: {
@@ -106,99 +106,107 @@ Object.assign(window.diseases, {
             {
                 "modality": "Abdomensonografie / CT",
                 "finding": "Freie abdominale Flüssigkeit, Gallenblasenwanddistension, Abszesse, entzündliche Darmwandverdickung.",
-                "significance": "Identifikation eines intraabdominalen Fokus und Planung der Fokussanierung (z. B. Drainage, Operation)."
+                "significance": "Identifikation eines intraabdominalen Fokus und Planung der dringlichen Fokussanierung (z. B. perkutane Drainage, Laparotomie)."
             }
         ],
         "laboratory": [
             {
                 "test": "Serumlaktat",
-                "finding": "> 2 mmol/L",
-                "interpretation": "Marker für Gewebehypoperfusion und anaeroben Stoffwechsel; wiederholte Messung ist entscheidend zur Verfolgung der Laktat-Clearance."
+                "finding": "> 2,0 mmol/L (schwere Hypoperfusion: >= 4,0 mmol/L)",
+                "interpretation": "Leitmarker für Gewebehypoperfusion und anaeroben Zellstoffwechsel; serielle Messungen alle 2-4 Stunden sind laut SSC 2026 obligat zur Steuerung der Reanimation und Verfolgung der Laktat-Clearance."
             },
             {
                 "test": "Procalcitonin (PCT) / CRP",
-                "finding": "Deutlich erhöhte Werte",
-                "interpretation": "Unterstützt den Verdacht auf eine systemische bakterielle Infektion; die PCT-Kinetik hilft, das sichere Absetzen der Antibiotikatherapie zu steuern."
+                "finding": "Deutlich erhöhte Werte bei systemischer bakterieller Infektion",
+                "interpretation": "Unterstützt die Diagnose einer invasiven bakteriellen Sepsis; die PCT-Kinetik erleichtert das sichere frühzeitige Absetzen und die Deeskalation der Antibiotikatherapie."
             },
             {
                 "test": "Blutbild und Gerinnungsstatus",
-                "finding": "Leukozytose (>12 G/L) oder Leukopenie (<4 G/L), Thrombozytopenie (<100 G/L), verlängerte INR/aPTT",
-                "interpretation": "Zeichen einer systemischen Entzündungsreaktion sowie einer beginnenden DIC oder Organschädigung."
+                "finding": "Leukozytose (>12 G/L) mit Linksverschiebung oder Leukopenie (<4 G/L), Thrombozytopenie (<100 G/L), verlängerte INR/aPTT, erniedrigtes Fibrinogen, erhöhtes D-Dimer",
+                "interpretation": "Zeichen der systemischen Entzündungsreaktion, Organschädigung und sepsis-induzierten Koagulopathie / manifesten DIC."
             }
         ],
         "microbiology": [
             {
-                "test": "Blutkultur (mindestens 2 Sets: aus getrennten peripheren Zugängen, aerobe und anaerobe Flaschen)",
-                "finding": "Identifikation des Erregers und Resistenzprofilbestimmung",
-                "significance": "Muss unmittelbar vor Beginn der empirischen Antibiotikatherapie abgenommen werden! Erleichtert die spätere Deeskalation."
+                "test": "Blutkulturen (mindestens 2 Sets: aerobe und anaerobe Flaschen aus getrennten peripheren Venenpunktionen)",
+                "finding": "Erregeridentifikation und quantitative Resistenztestung (MHK)",
+                "significance": "Müssen unmittelbar vor Beginn der antimikrobiellen Therapie abgenommen werden! Die Abnahme darf die Antibiotikagabe jedoch nicht unzulässig verzögern (>45 min Verzögerung ist inakzeptabel)."
             },
             {
-                "test": "Fokusspezifische Kulturen (Urin, Sputum, Liquor, Wundsekret)",
-                "finding": "Bakterielles oder fungales Wachstum",
-                "significance": "Grundlage für die gezielte Behandlung des primären Infektionsfokus."
+                "test": "Fokusspezifische Kulturen und molekulare Multiplex-PCR-Schnelltests (Urin, Trachealsekret/Sputum, Liquor, Wundexsudat)",
+                "finding": "Nachweis bakterieller oder mykotischer Erreger sowie von Resistenzgenen (z. B. mecA, vanA, KPC, NDM, OXA-48)",
+                "significance": "Grundlage für die gezielte Fokussanierung und frühe Deeskalation."
             }
         ]
     },
     therapy: {
-        "targeted": "Empirische Breitspektrum-Antibiotika sollten innerhalb der ersten Stunde verabreicht werden, gefolgt von einer gezielten Deeskalation, sobald mikrobiologische Ergebnisse vorliegen. Die rasche Identifikation und chirurgische/interventionelle Beseitigung des Infektionsherdes (Fokussanierung, z. B. Abszessdrainage, Entfernung von nekrotischem Gewebe, Kathederwechsel) ist unerlässlich, idealerweise innerhalb von 6-12 Stunden nach Diagnosestellung.",
+        "targeted": "Gemäß dem Surviving Sepsis Campaign (SSC 2026) Hour-1 Bundle: Bei septischem Schock oder gesicherter Sepsis Gabe von i.v. Breitspektrum-Antibiotika UNVERZÜGLICH, INNERHALB VON 1 STUNDE. Bei unklarer Sepsis ohne Schocksymptomatik ist eine rasche fokussierte Diagnostik von maximal 3 Stunden zulässig, bevor über Antibiotika entschieden wird. Rasche Deeskalation nach Vorliegen der Mikrobiologie. Dringliche Fokussanierung (Source Control: Drainage von Abszessen, Entfernung infizierter Gefäßkatheter, Verschluss von Perforationen) innerhalb von 6-12 Stunden nach Diagnosestellung ist obligatorisch.",
         "supportive": [
-            "Überwachung der dynamischen Volumenreagibilität (z. B. Passive-Leg-Raising-Test, Schlagvolumenvariation) zur Vermeidung einer Flüssigkeitsüberladung",
-            "Lungenprotektive maschinelle Beatmung bei ARDS (niedriges Tidalvolumen: 6 ml/kg, angemessener PEEP)",
-            "Strenge Blutzuckerkontrolle (Ziel: 140-180 mg/dl bzw. 7,8-10,0 mmol/l)",
-            "Frühzeitige enterale Ernährung",
-            "Prophylaktisches niedermolekulares Heparin (NMH) gegen tiefe Venenthrombose",
-            "Stressulkusprophylaxe mit einem Protonenpumpenhemmer (PPI) bei Hochrisikopatienten",
-            "Nierenersatztherapie (CRRT) bei hämodynamisch instabiler akuter Niereninsuffizienz"
+            "Überwachung dynamischer Parameter der Volumenreagibilität (Passive-Leg-Raising-Test - PLR, Schlagvolumenvariation - SVV, Pulsdruckvariation - PPV, Vena-cava-Kollapsibilitätsindex) zur strikten Vermeidung einer Hypervolämie",
+            "Steuerung der Reanimation anhand der peripheren Perfusion (kapilläre Füllungszeit / CRT <= 3 Sek.) und der Serumlaktat-Clearance",
+            "Restriktive Transfusionsstrategie: Erythrozytenkonzentrate sind erst ab einem Hämoglobinwert < 70 g/L (<7,0 g/dL) indiziert, außer bei akuter Myokardischämie, schwerer Hypoxämie oder akuter Blutung",
+            "Lungenprotektive maschinelle Beatmung bei ARDS (niedriges Tidalvolumen: 6 ml/kg ideales Körpergewicht / PBW, Plateaudruck < 30 cmH2O, PEEP-Titration; Bauchlage >= 16 Std./Tag bei schwerem ARDS)",
+            "Strenge Blutzuckereinstellung mittels Insulinperfusor bei Werten > 10,0 mmol/L (180 mg/dL), Zielbereich: 7,8-10,0 mmol/L (140-180 mg/dL)",
+            "Frühzeitige enterale Ernährung innerhalb von 72 Stunden (Verzicht auf frühe parenterale Ernährung)",
+            "Thromboseprophylaxe mit NMH (an Nierenfunktion angepasst; bevorzugt gegenüber UFH)",
+            "Stressulkusprophylaxe (PPI oder H2-Rezeptorantagonisten) bei beatmeten oder koagulopathischen Hochrisikopatienten",
+            "Kontinuierliche Nierenersatztherapie (CRRT) bei hämodynamisch instabiler akuter Nierenschädigung"
         ],
         "prevention": [
-            "Strikte Einhaltung von Krankenhausinfektionskontroll- und Hygieneprotokollen (Händehygiene, Isolation)",
-            "Impfung (Streptococcus pneumoniae, Influenza, SARS-CoV-2, Neisseria meningitidis)",
-            "Vermeidung des unnötigen Einsatzes invasiver Geräte (Harnwegskatheter, zentralvenöse Katheter) und deren frühzeitige Entfernung",
-            "Frühzeitiges chirurgisches Debridement bei Wunden"
+            "Strikte Einhaltung von Krankenhaushygiene- und Infektionspräventionsbündeln (Händehygiene, aseptische Arbeitstechnik, Isolierungsmaßnahmen)",
+            "Schutzimpfungen (Streptococcus pneumoniae, Neisseria meningitidis, Influenza, SARS-CoV-2, Haemophilus influenzae)",
+            "Minimierung der Liegedauer invasiver Katheter (Harnwegskatheter, ZVK) und tägliche Indikationsprüfung",
+            "Frühzeitiges chirurgisches Wunddebridement und aseptische Wundversorgung"
         ],
         "empirical": {
             "inpatient": [
                 {
-                    "drug": "Flüssigkeitssubstitution (ausgeglichene Kristalloide, z. B. Ringer-Laktat)",
+                    "drug": "Flüssigkeitsreanimation (ausgeglichene Kristalloide, z. B. Plasmalyte oder Ringer-Laktat)",
                     "dose": "30 ml/kg",
                     "duration": "Innerhalb der ersten 3 Stunden",
-                    "note": "Bei Hypotonie oder Laktat >= 4 mmol/L verpflichtend. Synthetische Kolloide (HES, Gelatine) sollten wegen des Risikos einer Niereninsuffizienz vermieden werden. Bei hohem Bedarf an Kristalloid-Volumen kann die Gabe von Albumin erwogen werden."
+                    "note": "Obligatorisch bei septischer Hypotonie oder Laktat >= 4,0 mmol/L. Die routinemäßige Gabe von 0,9 % NaCl sollte wegen des Risikos einer hyperchlorämischen Azidose und renalen Vasokonstriktion vermieden werden. Bei hohem Kristalloidbedarf wird 20 % Humanalbumin empfohlen. Synthetische Kolloide (HES, Gelatine) sind kontraindiziert."
                 },
                 {
-                    "drug": "Empirische intravenöse Antibiotikatherapie (z. B. Piperacillin/Tazobactam, Meropenem, Ceftazidim, bei MRSA-Verdacht in Kombination mit Vancomycin)",
-                    "dose": "Maximal zulässige Dosis (angepasst an die Nierenfunktion)",
-                    "duration": "Beginn innerhalb der ersten Stunde, in der Regel für 7-10 Tage",
-                    "note": "Die Wahl sollte fokus- und lokal resistenzspezifisch erfolgen. Bei Pseudomonas- oder MRSA-Risiko ist eine gezielte Abdeckung erforderlich."
+                    "drug": "Empirische intravenöse bakterizide Antibiotikatherapie (z. B. Piperacillin/Tazobactam 4x4,5g als verlängerte Infusion, Meropenem 3x1-2g oder Ceftriaxon / Cefepim; bei MRSA-Risiko kombiniert mit Vancomycin oder Linezolid)",
+                    "dose": "Maximal zulässige Dosis nach PK/PD-Prinzipien optimiert (verlängerte Beta-Laktam-Infusion)",
+                    "duration": "Beginn innerhalb der 1. Stunde; Gesamtdauer bei klinischer Besserung und Sanierung meist 7-8 Tage oder kürzer",
+                    "note": "Fokus- und lokal resistenzgerechte Auswahl. Tägliche Reevaluation und rasche Deeskalation anhand mikrobiologischer Befunde und PCT-Dynamik."
                 },
                 {
                     "drug": "Noradrenalin (Norepinephrin)",
-                    "dose": "Titriert bis zum Erreichen eines MAP >= 65 mmHg",
+                    "dose": "Titriert zur Erreichung und Aufrechterhaltung eines MAP >= 65 mmHg",
                     "duration": "Kontinuierlich während der Schockphase",
-                    "note": "Vasopressor erster Wahl. Kann bei Verzögerung des zentralvenösen Zugangs früh über einen peripheren Zugang begonnen werden."
+                    "note": "Absoluter Vasopressor der ersten Wahl. Kann bei Verzögerung des zentralvenösen Zugangs sofort peripher verabreicht werden, um hypoperfundierte Zeiten zu minimieren."
                 },
                 {
                     "drug": "Vasopressin",
-                    "dose": "Fixe Dosis von 0,03 E/min",
-                    "duration": "Als kontinuierliche Infusion",
-                    "note": "Kann Noradrenalin ergänzend hinzugefügt werden, um das MAP-Ziel zu erreichen oder die Noradrenalindosis zu reduzieren."
+                    "dose": "0,03 E/min fixe kontinuierliche Infusion",
+                    "duration": "Als kontinuierliches Add-on",
+                    "note": "Empfohlen als frühes Zweitlinien-Vasopressor bei ansteigender Noradrenalindosis (>=0,25 mcg/kg/min), um den Noradrenalinbedarf zu senken und den MAP zu stabilisieren."
+                },
+                {
+                    "drug": "Epinephrin (Adrenalin) oder Dobutamin",
+                    "dose": "Epinephrin: 0,05-0,5 mcg/kg/min; Dobutamin: 2,5-20 mcg/kg/min",
+                    "duration": "Im Schock nach klinischem Bedarf",
+                    "note": "Epinephrin kann als Drittlinien-Vasopressor bei refraktärem Schock ergänzt werden. Dobutamin ist indiziert bei myokardialer Dysfunktion (niedriges Herzzeitvolumen) oder anhaltender Hypoperfusion trotz adäquatem Volumen und MAP."
                 },
                 {
                     "drug": "Hydrocortison",
-                    "dose": "200 mg/Tag (z. B. 4x50 mg i.v. oder als kontinuierliche Infusion)",
-                    "duration": "Bei refraktärem Schock",
-                    "note": "Nur empfohlen, wenn Flüssigkeits- und Vasopressortherapie die hämodynamische Stabilität nicht wiederherstellen."
+                    "dose": "200 mg/Tag (kontinuierliche i.v.-Infusion oder 4x50 mg i.v.)",
+                    "duration": "Während des refraktären septischen Schocks",
+                    "note": "Laut SSC 2026 nur indiziert, wenn trotz adäquater Volumentherapie und ansteigender Vasopressordosen keine hämodynamische Stabilität erzielt wird."
                 }
             ],
             "outpatient": []
         }
     },
     prognosis: {
-        "mortality": "Bei Sepsis etwa 15-25 %; die Krankenhausmortalität kann bei Entwicklung eines septischen Schocks 40-50 % erreichen.",
-        "factors": "Alter, bestehende Komorbiditäten, Geschwindigkeit der Diagnose und therapeutischen Interventionen (Antibiotika, Fokussanierung), initialer Laktatspiegel und Laktat-Clearance, Anzahl der betroffenen Organe.",
+        "mortality": "Bei Sepsis etwa 15-25 %; die Krankenhausmortalität erreicht beim septischen Schock 35-50 %.",
+        "factors": "Alter, präexistente Komorbiditäten, Schnelligkeit des Hour-1-Bundles und der Fokussanierung, initiale Laktatwerte und Laktat-Clearance-Dynamik, Anzahl versagender Organsysteme.",
         "prognostic_scores": [
-            "SOFA-Score (Sequential Organ Failure Assessment): ein Anstieg um >=2 Punkte weist auf eine akute Organdysfunktion und Sepsis hin",
-            "NEWS (National Early Warning Score) / SIRS-Kriterien / MEWS: bessere Sensitivität zum Screening als qSOFA",
-            "APACHE-II-Score (zur Abschätzung des Intensivbehandlungsergebnisses)"
+            "SOFA-Score (Sequential Organ Failure Assessment): akuter Anstieg um >=2 Punkte bestätigt Organdysfunktion und definiert Sepsis (Sepsis-3-Konsens)",
+            "NEWS2 (National Early Warning Score 2) / MEWS / SIRS-Kriterien: hochsensible Screening-Instrumente (die SSC 2026 rät vom qSOFA als alleinigem Screening-Tool aufgrund zu geringer Sensitivität ab)",
+            "APACHE-II / SAPS-II-Score: zur intensivmedizinischen Risikostratifizierung und Mortalitätsprädiktion"
         ]
     },
     language: "de",
